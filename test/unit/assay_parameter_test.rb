@@ -137,7 +137,7 @@ def setup
     item = AssayParameter.find(:first,:conditions=>['data_type_id=?',Biorails::Type::NUMERIC])
     if item
       num = item.parse("10")
-      assert_equal num,"10 mM"
+      assert_equal "10 mM",num.to_s
     end
   end
 
@@ -145,7 +145,7 @@ def setup
     item = AssayParameter.find(:first,:conditions=>['data_type_id=?',Biorails::Type::TEXT])
     if item
       num = item.parse("10")
-      assert_equal num,"10"
+      assert_equal "10",num
     end
   end
 

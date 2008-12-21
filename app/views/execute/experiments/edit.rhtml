@@ -4,13 +4,17 @@
 
 <% content_for :center do -%>
   <%= render :partial=>'header'%>
-  <%= render :partial => 'edit' %>
+  <%if  @experiment.changeable?  %>
+    <%= render :partial => 'edit' %>
+  <%else %>
+    Not changable
+  <%end%>
 <%end%>
 
 <% content_for :right do -%>
-    <%= render :partial => 'help' %>
+  <%= render :partial => 'help' %>
 <% end %>
 
 <% content_for :footer do -%>
-   <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
+  <%= render :partial => 'shared/audit',:locals =>{ :item => @experiment} %>
 <% end %>

@@ -1,29 +1,25 @@
-<h1> Searching for [<%=@search_text%>]</h1>
-<ol style="padding: 3px 5px 10px 10px">
-  <% for hit in @hitlist%>
-      <li>
-      <strong>
-      <%= hit.class.to_s %> 
-      </strong>
-      <%= link_to_object(hit) %>
-      [ <%=number_round(100*hit.ferret_score,3)%> %  ]
-      <p>
-        <% if hit.respond_to?(:icon) %>
-        <%= image_tag(hit.icon) %>
-        <% end %>
-        <% if hit.is_a? ProjectElement %>
-        <%=link_to hit.project.name,project_url(:action=>'show',:id=> hit.project_id) %>: 
-        <%=link_to hit.path,folder_url(:action=>'show',:id=> hit.parent_id) %>  
-        </p><p>               
-        <% end %>          
-        <% if hit.respond_to?(:summary) %>
-        <%=hit.summary %>       
-        </p><p>               
-        <% end %>
-        <% if hit.respond_to?(:description) %>
-        <%=highlight(excerpt(hit.description, @search_text, radius = 400),@search_text)  %>
-        <% end %>
-      </p>
-      </li>
-  <% end %>
-</ol> 
+<%= render :partial=>'/projects/header' %>
+<div class='panel'>
+   <h2> <%=l(:Hits_For) %>:  <b><%=@search_text%></b> </h2>
+  <ol style='list-style-type: decimal; padding-left: 2.5em'>
+    <% for hit in @hitlist%>
+      <div class="tooltip">
+        <li>
+          <%= image_tag(hit.icon) %>
+          <%= link_to_object(hit) %>
+           [ <%=hit.state.name%> ] : <%=hit.path%>
+          <p>
+            <span class="tip">
+              <b><%=l(:Name)%>:</b> <%=hit.name%>
+              <br />
+              <b><%=l(:Summary)%>:</b> <%=hit.summary%>
+              <hr />
+              <%=  hit.html %>
+            </span>
+          </p>
+        </li>
+      </div>
+    <% end %>
+  </ol>
+</div>
+

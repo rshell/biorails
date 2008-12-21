@@ -294,4 +294,9 @@ class DataFormatTest < Test::Unit::TestCase
       assert data_format.errors.invalid?(attr_name.to_sym), "Should be an error message for :#{attr_name}"
     end
   end
+
+  def test_is_dictionary
+    assert_dictionary_lookup(DataFormat)
+  end
+
 end

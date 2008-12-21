@@ -1,19 +1,136 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: access_control_elements
-#
-#  id                     :integer(4)      not null, primary key
-#  access_control_list_id :integer(4)
-#  owner_id               :integer(4)
-#  owner_type             :string(255)
-#  role_id                :integer(4)
-#
+--- 
+00000000014_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "5"
+    id: "14"
+    owner_id: "3"
+    access_control_list_id: "3"
+    owner_type: User
+  attributes_cache: {}
 
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+00000000013_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "5"
+    id: "13"
+    owner_id: "3"
+    access_control_list_id: "2"
+    owner_type: User
+  attributes_cache: {}
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+00000000006_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "2"
+    id: "6"
+    owner_id: "3"
+    access_control_list_id: "3"
+    owner_type: Team
+  attributes_cache: {}
+
+00000000002_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "2"
+    id: "2"
+    owner_id: "1"
+    access_control_list_id: "1"
+    owner_type: Team
+  attributes_cache: {}
+
+00000000001_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "5"
+    id: "1"
+    owner_id: "1"
+    access_control_list_id: "1"
+    owner_type: User
+  attributes_cache: {}
+
+00000000015_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "5"
+    id: "15"
+    owner_id: "3"
+    access_control_list_id: "4"
+    owner_type: User
+  attributes_cache: {}
+
+00000000011_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "5"
+    id: "11"
+    owner_id: "2"
+    access_control_list_id: "1"
+    owner_type: User
+  attributes_cache: {}
+
+00000000010_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "2"
+    id: "10"
+    owner_id: "9"
+    access_control_list_id: "5"
+    owner_type: Team
+  attributes_cache: {}
+
+00000000003_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "5"
+    id: "3"
+    owner_id: "1"
+    access_control_list_id: "2"
+    owner_type: User
+  attributes_cache: {}
+
+00000000012_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "5"
+    id: "12"
+    owner_id: "3"
+    access_control_list_id: "1"
+    owner_type: User
+  attributes_cache: {}
+
+00000000008_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "2"
+    id: "8"
+    owner_id: "4"
+    access_control_list_id: "4"
+    owner_type: Team
+  attributes_cache: {}
+
+00000000007_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "5"
+    id: "7"
+    owner_id: "1"
+    access_control_list_id: "4"
+    owner_type: User
+  attributes_cache: {}
+
+00000000009_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "5"
+    id: "9"
+    owner_id: "1"
+    access_control_list_id: "5"
+    owner_type: User
+  attributes_cache: {}
+
+00000000005_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "5"
+    id: "5"
+    owner_id: "1"
+    access_control_list_id: "3"
+    owner_type: User
+  attributes_cache: {}
+
+00000000004_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "2"
+    id: "4"
+    owner_id: "2"
+    access_control_list_id: "2"
+    owner_type: Team
+  attributes_cache: {}
+

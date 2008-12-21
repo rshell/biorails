@@ -15,17 +15,17 @@
         </td>
         <% end %>
         <td>
-            <%= link_to l(:label_show), :action => 'show', :id => queue_item %>
+            <%= link_to l(:Show), :action => 'show', :id => queue_item %>
         </td>
         <td>
-            <%= link_to l(:label_edit), :action => 'edit', :id => queue_item %>
+            <%= link_to l(:Edit), :action => 'edit', :id => queue_item %>
         </td>
         <td>
-            <%= link_to l(:label_delete), { :action => 'destroy', :id => queue_item }, :confirm => l(:text_are_you_sure), :method => :post %>
+            <%= link_to l(:Delete), { :action => 'destroy', :id => queue_item }, :confirm => l(:text_are_you_sure), :method => :post %>
         </td>
     </tr>
     <% end %>
 </table>
 <%= will_paginate  @queue_items %>
 <br/>
-<%= link_to l(:label_new), :action => 'new' %>
+<%= link_to l(:New), :action => 'new' %>

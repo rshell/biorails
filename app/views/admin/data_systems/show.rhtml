@@ -3,7 +3,7 @@
 <% end %>
 <%= render :partial => 'admin/header' %>
 <h2 class="icon icon-data_system">
-  <%=l(:label_data_source) %>
+  <%=l(:Data_Source) %>
   [<strong><%= h @data_system.name %></strong>]
 </h2>
 <div class="panel boldnotbold">
@@ -15,25 +15,25 @@
         <thead class="tableHeader">
             <tr>
                 <th>
-                    <%=l(:label_name) %>
+                    <%=l(:Name) %>
                 </th>
                 <th>
-                    <%=l(:label_description) %>
+                    <%=l(:Description) %>
                 </th>
                 <th>
-                    <%=l(:label_concept) %>
+                    <%=l(:Concept) %>
                 </th>
                 <th>
-                    <%=l(:label_style) %>
+                    <%=l(:Style) %>
                 </th>
                 <th>
-                    <%=l(:label_content) %>
+                    <%=l(:Content) %>
                 </th>
                 <th>
-                    <%=l(:label_parameters) %>
+                    <%=l(:Parameters) %>
                 </th>
                 <th>
-                    <%=l(:label_methods) %>
+                    <%=l(:Methods) %>
                 </th>
             </tr>
         </thead>
@@ -66,7 +66,7 @@
         </tbody>
     </table><hr />
     <b class='icon icon-new'>
-      <%= link_to l(:label_new), :action => 'new' %>
+      <%= link_to l(:New), :action => 'new' %>
     </b>
   </div>
   <% content_for :footer do -%>

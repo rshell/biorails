@@ -7,10 +7,15 @@
 <%end%>
 
 <% content_for :center do %>
-<%= render :partial => 'admin/header'%>
-  <%dialog l(:label_user_new) do %>
-    <% form_for :user, :url => { :action => 'create' } do |f| -%>
-      <%= render :partial=>'form',:locals=>{:f=>f} %>
+<%= render :partial => 'header'%>
+  <%dialog l(:User_New) do %>
+    <% form_tag  :action => 'create'  do %>
+      <%= render :partial=>'form'%>
+      <br />
+      <br />
+      <%= submit_tag(l(:Create)) %>
+      <%= link_to l(:Cancel), user_url( :action => 'list') %>
+
     <% end %>
   <% end %>
 <%end%>

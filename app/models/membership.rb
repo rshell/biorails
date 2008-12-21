@@ -32,6 +32,8 @@ class Membership < ActiveRecord::Base
   validates_uniqueness_of :user_id,:scope=>'team_id'
   validates_presence_of :user
   validates_presence_of :team
+  validates_associated :user
+  validates_associated :team
   
   belongs_to :user, :class_name=>'User', :foreign_key =>'user_id'
   belongs_to :team, :class_name=>'Team', :foreign_key =>'team_id'
@@ -39,7 +41,7 @@ class Membership < ActiveRecord::Base
   after_save :sync_owners
   
  def sync_owners
-    if owner? 
+    if owner? and team and team.access_control_list
        team.access_control_list.grant(user,ProjectRole.owner) 
     end      
  end
@@ -55,6 +57,9 @@ class Membership < ActiveRecord::Base
  def owner
    self.is_owner.to_s  == self.connection.quoted_true
  end
- 
+
+ def to_s
+   user.name if user
+ end
  
 end

@@ -1,34 +1,26 @@
-<div class='panel'>
-    <h3 class='icon icon-role'><%=l(:label_user_with_roles) %></h3>
-    <table class="report" style=width:50%>
-        <thead>
-            <tr>
-                <th>
-                    <%=l(:label_user) %>
-                </th>
-                <th>
-                    <%=l(:label_created_at) %>
-                </th>
-                <th>
-                    <%=l(:label_updated_at) %>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <% for user in @role.users do %>
-            <tr class="<%= cycle('odd', 'even') %> boldnotbold">
-                <td>
-                    <b class='icon icon-show'><%= link_to user.name, user_url(:action=>'show',:id=>user.id) %>
-                    </b>
-                </td>
-                <td>
-                    <%= short_date user.created_at %>
-                </td>
-                <td>
-                    <%= short_date user.updated_at %>
-                </td>
-            </tr>
-            <% end -%>
-        </tbody>
+<div class='box'>
+  <h3 class='icon icon-role'><%=l(:User_With_Roles) %></h3>
+  <table class="report" style=width:50%>
+    <thead>
+      <tr>
+        <th> <%=l(:User) %>   </th>
+        <th><%=l(:Created) %>      </th>
+        <th> <%=l(:Updated) %>      </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for user in @role.users do %>
+          <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+            <td>
+              <b class='icon icon-show'>
+                <%= link_to user.name, user_url(:action=>'show',:id=>user.id) %>
+              </b>
+            </td>
+            <td><%= short_date user.created_at %> </td>
+            <td><%= short_date user.updated_at %> </td>
+          </tr>
+        <% end -%>
+      </tbody>
+
     </table>
-</div>
+  </div>

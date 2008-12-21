@@ -12,8 +12,8 @@
 class Execute::RequestServicesController < ApplicationController
 
   use_authorization :execution,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user
+                    :use => [:list,:show,:new,:create,:edit,:update],
+                    :build => [:destroy]
 
   before_filter :setup_request_service, :only => [ :show, :edit, :update,:destroy,:results] 
   
@@ -31,12 +31,7 @@ class Execute::RequestServicesController < ApplicationController
 # Results for a set request
 # 
   def results
-   @report = Report.internal_report("Service Request Results",QueueResult) do | report |
-      report.column('request_service_id').filter = @request_service.id.to_s
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
-   end
-   @data = @report.run(:page => params[:page])
+   @report = Biorails::ReportLibrary.request_service_results_list(@request_service)
    render :action => :report
   end
 #
@@ -68,16 +63,12 @@ class Execute::RequestServicesController < ApplicationController
     RequestService.transaction do 
       @request_service = RequestService.find(params[:id])
       @request_service.update_state(params)
-      @request_service.items.each do |item| 
-         item.update_state(params)
-         item.save
-      end   
-      @request_service.save
     end
     respond_to do | format |
       format.html { redirect_to :action => 'show', :id => @request_service }
       format.js   { render :update do | page |
         for item in @request_service.items
+          page.message_panel(:partial => 'shared/messages', :locals => { :objects => [:request_service] })
           page.replace_html item.dom_id(:updated_at), :partial => 'queue_item',:locals => { :queue_item => item } 
           page.visual_effect :highlight, item.dom_id(:updated_at),:duration => 1.5
         end
@@ -91,11 +82,10 @@ class Execute::RequestServicesController < ApplicationController
 # Update a single service queue item
 # 
   def update_item
-    logger.debug "got item status_id= #{params[:status_id]} priority_id= #{params[:priority_id]}"
+    logger.debug "got item status_id= #{params[:state_id]} priority_id= #{params[:priority_id]}"
     RequestService.transaction do 
       @queue_item = QueueItem.find(params[:id])
       @queue_item.update_state(params)
-      @queue_item.save
       @request_service = @queue_item.service
     end
     respond_to do | format |
@@ -128,12 +118,13 @@ class Execute::RequestServicesController < ApplicationController
 protected
 
   def setup_request_service
-     @request_service = RequestService.find(params[:id])
+     @request_service = RequestService.load(params[:id])
      return show_access_denied unless @request_service   
-     @project_folder =@request_service.request.folder
+     set_element @project_folder =@request_service.request.folder
      return true
-  rescue
-     return show_access_denied
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception: #{self.class}: #{ex.message}"
+    return show_access_denied
   end  
   
 end

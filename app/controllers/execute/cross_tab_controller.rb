@@ -10,8 +10,7 @@
 class Execute::CrossTabController < ApplicationController
 
   use_authorization :reports,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user
+                    :use => [:list,:show,:new,:create,:edit,:update,:destroy]
                   
   before_filter :find_cross_tab , :only => [ :show, :edit, :update, :destroy,:print,:export,:snapshot, :tree, :add, :remove,:filter]
 
@@ -81,13 +80,16 @@ def export
     @cross_tab_results = @cross_tab.results(params[:page]||1,1000)
     output = StringIO.new
     CSV::Writer.generate(output, ',') do |csv|
-      csv << ["","assay"] + @cross_tab_columns.collect{|col|col.assay.name}
-      csv << ["","process"] + @cross_tab_columns.collect{|col|col.process.name}
-      csv << ["","parameter"] + @cross_tab_columns.collect{|col|col.name}
-      csv << ["task","row"] + @cross_tab_columns.collect{|col|col.parameter.display_unit}
+      csv << [@cross_tab.name,"","","","assay"] + @cross_tab_columns.collect{|col|col.assay.name}
+      csv << [@cross_tab.id,"","","","process"] + @cross_tab_columns.collect{|col|col.process.name}
+      csv << ["","","","","parameter"] + @cross_tab_columns.collect{|col|col.name}
+      csv << ["domain","experiment","task","state","row"] + @cross_tab_columns.collect{|col|col.parameter.display_unit}
       for item in @cross_tab_results 
           row =[]
+          row << item[-3].project.name
+          row << item[-3].experiment.name
           row << item[-2]
+          row << item[-3].folder.state.name
           row << item[-1]
           for col in @cross_tab_columns
               row << "#{item[col.parameter_id]}"
@@ -142,9 +144,8 @@ def export
     @cross_tab_columns = @cross_tab.columns
     @cross_tab_results = @cross_tab.results(params[:page]||1)
     respond_to do |format|
-      format.html # edit.rhtml
+      format.html { render :action =>'edit'}
       format.xml  { render :xml => @cross_tab.to_xml }
-      format.json  { render :text => @cross_tab.to_json }
     end
   end
 
@@ -160,7 +161,7 @@ def export
     respond_to do |format|
       if @cross_tab.save
         flash[:notice] = 'CrossTab was successfully created.'
-        format.html { redirect_to cross_tab_url(:action=>:show,:id=>@cross_tab) }
+        format.html { redirect_to cross_tab_url(:action=>:edit,:id=>@cross_tab) }
         format.xml  { head :created, :location => cross_tab_url(@cross_tab) }
       else
         format.html { render :action => "new" }
@@ -207,12 +208,14 @@ def export
   def tree
     object = CrossTab.convert_node(params[:node])
     scope = CrossTab.convert_node(params[:scope])
-
+    root = CrossTab.convert_node(params[:root])
+    root = object if scope=='root'
     @items = @cross_tab.linked_items(object,scope)    
     return render( :text => @items.collect{|i|{
-                                :id=>i.dom_id,
+                                :id=>i.dom_id(root),
                                 :iconCls=>"icon-#{i.class.to_s.underscore}",
-                                :scope => params[:node],
+                                :scope => scope,
+                                :root => root,
                                 :leaf => i.is_a?(Parameter),
                                 :text=>i.path(scope)}}.to_json )
   end
@@ -228,7 +231,16 @@ def export
       logger.warn flash[:warning]="Failed to add Columns:- <ol><li>#{@cross_tab.errors.full_messages.join('</li><li>')}</li><ol>"
       find_cross_tab
     end
-    show
+    @cross_tab_columns = @cross_tab.columns
+    @cross_tab_results = @cross_tab.results(params[:page]||1)
+    respond_to do |format|
+      format.html { render :action =>'edit'}
+      format.xml  { render :xml => @cross_tab.to_xml }
+      format.js  { render :update do | page |
+          page.main_panel     :partial => 'edit'
+        end
+     }
+    end
   end
   #
   # Remove a column from the table
@@ -237,13 +249,10 @@ def export
     object = @cross_tab.columns.find(params[:column])
     object.destroy if object
     respond_to do |format|
-      format.html { redirect_to cross_tab_url(:action=>'show',:id=>@cross_tab) }
-      format.xml  { head :created, :location => cross_tab_url(:action=>'show',:id=>@cross_tab) }
-      format.js  { render :update do | page |  
-          page.actions_panel  :partial => 'actions'
-          page.help_panel     :partial => 'help'
-          page.status_panel   :partial => 'status'
-          page.main_panel     :partial => 'show'
+      format.html { redirect_to cross_tab_url(:action=>'edit',:id=>@cross_tab) }
+      format.xml  { head :created, :location => cross_tab_url(:action=>'edit',:id=>@cross_tab) }
+      format.js  { render :update do | page |
+          page.main_panel     :partial => 'edit'
         end
      }
     end
@@ -252,8 +261,13 @@ def export
 protected 
  
   def find_cross_tab
-    @cross_tab = CrossTab.find(params[:id])  
-    @project_folder = @cross_tab.project_element
+    @cross_tab = CrossTab.find(params[:id])
+    set_element @project_folder = @cross_tab.project_element
+    set_project(@cross_tab.project)
+    set_element(@cross_tab.project_element_id)
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end
   
 #
@@ -265,10 +279,14 @@ protected
     sort_col = (params[:sort] || 'id')
     sort_dir = (params[:dir] || 'ASC')
     page = ((start/size).to_i)+1   
+    set_element(Project.current.folder(CrossTab.root_folder_under))
     @cross_tabs = CrossTab.find_all_by_project_id(Project.current.id,
            :limit=> size,
            :offset=> start, 
            :order=> sort_col+' '+sort_dir)
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end
 
 end

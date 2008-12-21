@@ -14,8 +14,8 @@
 class Execute::TasksController < ApplicationController
 
   use_authorization :execution,
-    :actions => [:list,:show,:new,:create,:edit,:update,:make_flexible],
-    :rights => :current_user
+    :build => [:make_flexible],
+    :use => [:list,:show,:new,:create,:edit,:update]
 
   helper SheetHelper
 
@@ -30,13 +30,14 @@ class Execute::TasksController < ApplicationController
   # ## List tasks in the the current experiment
   # 
   def list
-    @tasks = Task.paginate :order=>'updated_at desc', :page => params[:page]
+    set_element(Project.current.folder)
+    @report = Biorails::ReportLibrary.task_list
     respond_to do | format |
       format.html { render :action => 'list' }
-      format.ext { render :action => 'list',:layout=>false }
+      format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
       format.pdf  { render_pdf :action => 'list',:layout=>false }
-      format.json { render :json => @tasks.to_json}
-      format.xml  { render :xml => @tasks.to_xml }
+      format.json { render :json => @report.data.to_json }
+      format.xml  { render :xml => @report.data.to_xml }
     end
   end
 
@@ -78,6 +79,9 @@ class Execute::TasksController < ApplicationController
   
   # ## show statics on task
   def metrics
+    @report = Biorails::ReportLibrary.task_statistics("Task Stats #{@task.name}") do | report |
+      report.column('task_id').customize(:filter => @task.id, :is_visible => true)
+    end
     respond_to do | format |
       format.html { render :action => 'metrics' }
       format.ext { render :partial => 'metrics',:layout=>false }
@@ -91,9 +95,10 @@ class Execute::TasksController < ApplicationController
   # ## Printed output for a model
   # 
   def print
+    @cache = false #(params[:refresh]!="now")
     respond_to do | format |
-      format.html { render :text => @task.to_html }
-      format.ext  { render :text => @task.to_html }
+      format.html { render :text => @task.to_html(@cache) }
+      format.ext  { render :partial => 'view' }
       format.pdf  { html_send_as_pdf(@task.name, @task.folder.html) }
       format.csv { render :json => @task.grid.to_csv}
       format.json { render :json => @task.to_json }
@@ -103,7 +108,7 @@ class Execute::TasksController < ApplicationController
 
   # ## show data entry sheet
   def sheet
-    @tab=3
+    @tab=2
     @task.populate
     respond_to do | format |
       format.html {
@@ -192,6 +197,7 @@ class Execute::TasksController < ApplicationController
   # ## Create a new task in the the current experiment
   # 
   def new
+    return show_access_denied unless current_project.changeable?
     set_experiment(params[:id])
     @task = @experiment.add_task
   end
@@ -200,13 +206,14 @@ class Execute::TasksController < ApplicationController
   # ## Post of new to task back to the database
   # 
   def create
+    return show_access_denied unless current_project.changeable?
     @task = Task.new(params[:task])
     @task.protocol = @task.process.protocol if @task.process
     @task.project = current_project
     set_experiment(@task.experiment_id)
     if @task.save
       set_project @task.project 
-      ProjectFolder.current = @task.folder
+      set_element @task.folder
       session[:task_id] = @task.id
       flash[:notice] = 'Task was successfully created.'
       redirect_to task_url(:action => 'show', :id=>@task.id,:tab=>2)
@@ -220,6 +227,8 @@ class Execute::TasksController < ApplicationController
   # This is used for validation of task and changing of schedule
   # 
   def edit
+    return show_access_denied unless @task.changeable?
+    @task.valid?
     respond_to do | format |
       format.html { render :action => 'edit' }
       format.ext { render :partial => 'edit',:layout=>false }
@@ -246,7 +255,7 @@ class Execute::TasksController < ApplicationController
   def update
     session[:data_sheet] =nil
     @task = Task.load(params[:id])
-    if @task.update_attributes(params[:task])
+    if @task.changeable? and @task.update_attributes(params[:task])
       @task.update_queued_items
       flash[:notice] = 'Task was successfully updated.'
       redirect_to :action => 'show', :id => @task
@@ -257,19 +266,29 @@ class Execute::TasksController < ApplicationController
   # ## destroy the task
   # 
   def destroy
-    session[:data_sheet] =nil
-    @experiment = @task.experiment
-    @task.destroy
+    begin
+      @experiment = @task.experiment
+
+      Task.transaction do
+        if @task.changeable? and right?(:data,:destroy)
+          @task.destroy
+        else
+          flash[:warning] ="Can not destroy #{@task.name}"
+        end
+      end
+    rescue Exception => ex
+      flash[:error] ="Destroy failed with error: #{ex.message}"
+    end
     redirect_to :controller =>'experiments',:action => 'show',:id => @experiment.id
-  end 
-  # 
+  end
+  #
   #  export Report of Elements as CVS
-  # 
+  #
   def export
     filename = "#{@task.experiment.name}-#{@task.name}.csv"
     send_data( @task.to_csv, :type => 'text/csv; charset=iso-8859-1; header=present',
-      :filename => filename)   
-  end  
+      :filename => filename)
+  end
   # ## Import form
   def import
     respond_to do | format |
@@ -278,57 +297,95 @@ class Execute::TasksController < ApplicationController
     end
   end
   # ## Import file into the task
-  # 
+  #
   # first Task   assay,experiment,task,status note   description Header label
   # [name,] Data   row    [value,]
-  # 
+  #
   def import_file
     set_experiment(params[:id])
+    return show_access_denied unless @experiment.changeable?
     file = params[:file] || params['File']
     if file.is_a? StringIO or file.is_a? File
-      Experiment.transaction do 
+      Experiment.transaction do
         #        @experiment = @task.experiment
-        @task = @experiment.import_task(file)  
+        @task = @experiment.import_task(file)
       end
-      flash[:info]= "import task #{@task.name}" 
-      redirect_to :action => 'show', :id=>@task.id,:tab=>3
-    else
-      flash[:error] ="Appears that there was to file selected. "
-      render :action => 'import'   
-    end 
+      if @task.errors.size==0
+        flash[:info]= "import task #{@task.name}"
+        return redirect_to(:action => 'show', :id=>@task.id,:tab=>3)
+      end
+    end
+    flash[:warning] ="There are some problems with import"
+    return render(:action => 'import')
+
   rescue  Exception => ex
     logger.error ex.message
-    logger.error ex.backtrace.join("\n") 
+    logger.error ex.backtrace.join("\n")
     flash[:error] = "Import Failed:" + ex.message
-    flash[:info] = " Double check file format is CSV and matches template from above, common problem is files saved from excel as xls and not cvs"
-    render :action => 'import'   
+    flash[:info] = " Double check file format is CSV and matches template from above. A common problem is that a file is saved from excel as xls rather than cvs"
+    render :action => 'import'
   end
-  # 
+  #
   # Make the task flexible to can add columns
-  # 
+  #
   def make_flexible
     @successful  = false
     begin
       @task.make_flexible
       @successful  = true
+      flash[:warning]="converted to a flexible task, can now add rows and columns on the fly"
     rescue
+      flash[:warning]="Failed to convert to a flexible task"
     end
     respond_to do | format |
-      format.html { redirect_to :action => 'show', :id=>@task.id,:tab=>3}
+      format.html { redirect_to :action => 'show', :id=>@task.id,:tab=>2}
       format.xml  { render :xml => @task.to_xml }
     end
   end
   
-  # 
+  #
   # Add a row to a context appending to the end of the block the passed previous
   # context was in
-  # 
+  #
+  def recalc
+    @successful  = false
+    begin
+      @task = Task.find(params[:id])
+      unless @task.valid?
+        flash[:warning] ="Invalid cell references have been cleared <ul><li>#{@task.errors.full_messages.join('</li><li>')}</li></ul>"
+      end
+      @task.recalculate
+      @successful  = true
+    rescue
+      logger.warn $!.to_s
+      flash[:error]= $!.to_s
+    end
+    respond_to do | format |
+      format.html { redirect_to :action => 'show', :id=>@task.id,:tab=>2 }
+      format.xml  { render :xml => @task.to_xml }
+      format.js   {
+        render :update do | page |
+          if @successful
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['task_context','task'] }
+            page.replace_html "#{@task.dom_id('entry')}",:partial => 'entry'
+          else
+            page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['task_context','task'] }
+          end
+        end
+      }
+    end
+  end
+  #
+  # Add a row to a context appending to the end of the block the passed previous
+  # context was in
+  #
   def add_row
     @successful  = false
+    n = [1,params[:count].to_i].max
     begin
       prev_context = TaskContext.find(params[:id])
       @task = prev_context.task
-      @context = prev_context.append_copy
+      1.upto(n){ @context = prev_context.append_copy }
       @successful  = true
     rescue
       logger.warn $!.to_s
@@ -337,20 +394,20 @@ class Execute::TasksController < ApplicationController
     respond_to do | format |
       format.html { redirect_to :action => 'show', :id=>@task.id,:tab=>3 }
       format.xml  { render :xml => @task.to_xml }
-      format.js   { 
+      format.js   {
         render :update do | page |
           if @successful
-            page.replace_html "#{@task.dom_id('entry')}",:partial => 'entry' 
+            page.replace_html "#{@task.dom_id('entry')}",:partial => 'entry'
           else
             page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['task_context','task'] }
           end
-        end          
+        end
       }
     end
   end
-  # 
+  #
   # List of possible column parameters to add at this point
-  # 
+  #
   def list_columns
     @task_context = TaskContext.find(params[:id])
     @value   = params[:query] || ""
@@ -361,10 +418,10 @@ class Execute::TasksController < ApplicationController
       :items =>@choices.collect{|i|{ :id=>i.id,:name=>i.name}}
     }
     render :text => @list.to_json
-  end  
-  # 
+  end
+  #
   # If the task is flexible the add a column to it
-  # 
+  #
   def add_column
     @successful  = false
     begin
@@ -374,52 +431,75 @@ class Execute::TasksController < ApplicationController
         @task_context.add_parameter(params[:name])
         @successful  = true
       else
-        flash[:error]= 'this is not a flexible process' 
-        logger.warn("not a flexible task")        
+        flash[:error]= 'this is not a flexible process'
+        logger.warn("not a flexible task")
       end
-    rescue 
+    rescue
     end
     respond_to do | format |
       format.html { redirect_to :action => 'show', :id=>@task.id,:tab=>3 }
       format.xml  { render :xml => @task.to_xml }
-      format.js   { 
+      format.js   {
         render :update do | page |
           if @successful
-            page.replace_html @task.dom_id('entry'),:partial => 'entry' 
+            page.replace_html @task.dom_id('entry'),:partial => 'entry'
           else
             page.replace_html "messages", :partial => 'shared/messages', :locals => { :objects => ['task_context','task'] }
           end
-        end        
+        end
       }
     end
   end
-  # 
+  #
   # update a cell valuei in the task
-  # 
+  #
   def cell_value
-    item = {:row=>params[:row],:column =>params[:column],:passed=>params[:value]}
+    @item = {:row=>params[:row],:column =>params[:column],:passed=>params[:value]}
     begin
       Task.transaction do
-        @context = TaskContext.find(params[:id],:include=>[:task,:values,:texts,:references])
-        item = item.merge(@context.set_value(from_dom_id(params[:field]),params[:value]))
+        TaskContext.current = @context = TaskContext.find(params[:id],:include=>[:task])
+        TaskContext.current.lock!
+        @item = @item.merge(@context.set_value(from_dom_id(params[:field]),params[:value]))
       end
     rescue Exception => ex
-      logger.warn ex.backtrace.join("\n")  
-      item[:errors] = ex.message
-    end  
-    logger.info "returned value #{item.to_json}"
-    logger.warn item[:errors] if item[:errors]
-    render :text =>  item.to_json
+      logger.warn ex.backtrace.join("\n")
+      @item[:errors] = ex.message
+    end
+    TaskContext.current =nil
+    logger.info "returned value #{@item.to_json}"
+    logger.warn @item[:errors] if @item[:errors]
+    render :text =>  @item.to_json
   end
-  
+
+
+  def select
+    element = DataElement.find( params[:id] )
+    @value   = params[:query] || ""
+    Task.transaction do
+      TaskContext.current = TaskContext.find_by_id(params[:task_context_id]) unless params[:task_context_id].blank?
+      @choices = element.like(@value) || []
+    end
+    TaskContext.current =nil
+    @choices = @choices.collect{|i|{
+        :id=>i.id,
+        :name=>i.name}}
+
+    @choices = @choices << {:id=>nil,:name =>DataElement::BLANK,:description=>"Please Select a Item"}
+    @list = {:element_id=>params[:id],
+      :matches=>@value,
+      :total=>@choices.size ,
+      :items =>@choices}
+    render :text => @list.to_json
+  end
 
   protected
   
   def setup_task
     @tab = params[:tab]||0
     @task = Task.load( params[:id] )
-    if @task 
-      @experiment =@task.experiment  
+    if @task
+      @experiment =@task.experiment
+      set_project(@task.project)
       set_element(@task.project_element_id)
     else
       return show_access_denied
@@ -432,7 +512,8 @@ class Execute::TasksController < ApplicationController
     if experiment_id
       @experiment = Experiment.load(experiment_id )
     else
-      @experiment = current_project.experiments.last    
+      @experiment = current_project.experiments.last
     end
+    set_project(@experiment.project)
   end
 end

@@ -2,16 +2,17 @@
 <div>
   <span class='menu'>
     <b class="icon icon-request">
-      <%=l(:label_request)%>
+      <%=l(:Request)%>
     </b>
   </span>
-    <%= link_to( l(:label_list),request_url(  :action => 'list')) %>
-    <% unless request.new_record? %>
-      <%= link_to( l(:label_new), request_url(  :action => 'new'))  %>
-      <%= link_to( l(:label_show),request_url(  :action => 'show',:id => request )) %>
-      <%= link_to( l(:label_results), request_url(  :action => 'results',:id => request ))  %>
-      <%= link_to( l(:label_edit), request_url(  :action => 'edit',:id => request )) %>
-      <%= link_to( l(:label_delete), request_url( :action => 'destroy',:id => request ), :confirm => l(:text_are_you_sure),:method => "post") %>
+    <%= link_to( l(:List),request_url(  :action => 'list')) %>
+    <% unless request.nil? or request.new_record? %>
+      <%= link_to( l(:New), request_url(  :action => 'new')) if current_project.changeable? %>
+      <%= link_to( l(:Show),request_url(  :action => 'show',:id => request )) %>
+      <%= link_to( l(:Results), request_url(  :action => 'results',:id => request ))  %>
+      <%= link_to( l(:Edit), request_url(  :action => 'edit',:id => request )) if request.changeable? %>
+      <%= link_to( l(:Delete), request_url( :action => 'destroy',:id => request ), 
+        :confirm => l(:text_are_you_sure),:method => "post") if request.changeable?%>
     <%end%>
 </div>
 <% end %>

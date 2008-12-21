@@ -1,0 +1,59 @@
+
+<div id='<%=report.dom_id('report')%>'>
+</div>
+
+<script type="text/javascript">
+Ext.onReady( function() {
+  var advanced_filter = new Ext.ux.grid.GridFilters({
+    filters: <%=report.ext_advanced_filters%>
+  });
+  
+  var search = new Ext.ux.grid.Search({
+				iconCls:'icon-zoom'
+                ,checkIndexes: [<%=report.ext_default_filter%>]
+				,disableIndexes: <%=report.ext_non_filterable%>
+                ,searchText:'Filter'
+				,minChars:5
+                ,position:'top'
+				,autoFocus:true
+                ,width:200
+				,menuStyle:'radio'
+			})
+  var options = {
+      renderTo: '<%=report.dom_id(:report)%>',
+      data_url: '<%=report_url(:action => 'grid',:id => report)%>',
+      base_url: '<%=report_url()%>',
+      report_id: <%=report.id%>,
+      data_record: <%=report.ext_columns_json%>,
+      data_model:  <%=report.ext_model_json%>,
+      start: <%=report.start%>,
+      limit: <%=report.limit%>,
+      plugins: [advanced_filter,search],
+      tbar: [{
+          text: '<%=l(:Print)%>',
+          iconCls: 'icon-print',
+          tooltip: 'Create a Printout style of report',
+          handler : function(item){
+             window.open('<%=report_url(:action => 'print', :id => report)%>');
+          }
+      },{
+          text: '<%=l(:Print_PDF)%>',
+          iconCls: 'icon-pdf',
+          tooltip: 'Create a Printout style of report',
+          handler : function(item){
+            window.open('<%=report_url(:action => 'print',:format=>:pdf, :id => report)%>');
+          }
+      },{
+          text:'<%=l(:Print_CSV)%>',
+          iconCls: 'icon-xls',
+          tooltip: 'Create a Printout style of report',
+          handler : function(item){
+             window.location = '<%=report_url(:action => 'export', :id => report)%>';
+          }
+      },'->']
+  };
+
+  var report= new Biorails.ReportView(options);
+});
+</script>
+

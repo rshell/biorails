@@ -1,14 +1,19 @@
 <div>
     <span class='menu'>
       <b class='icon icon-assay'>
-        <%=l(:label_assay)%>
+        <%=l(:Assay)%>
       </b>
     </span>
     <% unless @assay.nil? || @assay.new_record? %>
-      <%= link_to l(:label_overview), assay_url(:action => 'show',  :id => @assay)%>
-      <%= link_to l(:label_folder), folder_url(:action => 'show', :id => @assay.folder )%>
-      <%= link_to(  l(:label_manage_parameters),parameter_url(:action => 'list' , :id => @assay))  %>
-      <%= link_to( l(:label_manage_queues),queue_url(:action => 'list', :id => @assay )) %>
-      <%= link_to(l(:label_export),  assay_url( :action =>'export',:id => @assay))  %>
+      <%= link_to l(:Assay),       assay_url(:action => 'show', :id => @assay,:tab=>0 ) %>
+      <%= link_to l(:Folder),      folder_url(:action => 'show', :id => @assay.folder )%>
+      <%= link_to( l(:Parameters), assay_url(:action => 'show', :id => @assay,:tab=>2 )) %>
+      <%= link_to( l(:Queues),     assay_url(:action => 'show', :id => @assay,:tab=>3 )) %>
+      <%= link_to( l(:Processes),  assay_url(:action => 'show', :id => @assay,:tab=>4 )) %>
+      <%= link_to(  l(:Manage_Parameters),parameter_url(:action => 'list' , :id => @assay))  %>
+      <%= link_to( l(:Manage_Queues),queue_url(:action => 'list', :id => @assay )) %>
+      <%= link_to(l(:Export),  assay_url( :action =>'export',:id => @assay))  %>
+      <%= link_to(l(:Import),  assay_url( :action =>'list',:id => current_project,:tab=>1))  %>
+      <%= link_to(l(:Share),  assay_url( :action =>'list',:id => current_project,:tab=>2))  %>
     <%end %>
 </div>

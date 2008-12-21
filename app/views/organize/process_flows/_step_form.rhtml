@@ -1,8 +1,6 @@
-  <%=render :partial =>'shared/messages',:locals => { :objects => [:process_step]} %>
+<%=render :partial =>'shared/messages',:locals => { :objects => [:process_step]} %>
 <!--[form:assay_protocol]-->
 <%= hidden_field 'process_step', 'process_flow_id'  %>
-<%= hidden_field 'process_step', 'protocol_version_id'  %>
-
 <%= hidden_field 'process_step', 'id' %>
 
 <div class="x-form-item">
@@ -10,7 +8,15 @@
       Name
     </label>
     <div class="x-form-element">
-      <%= text_field 'process_flow', 'name' , {:class=>"text-input"} %>
+      <%= text_field 'process_step', 'name' , {:class=>"text-input"} %>
+    </div>
+</div>
+<div class="x-form-item">
+    <label class="x-form-item-label" for="process_step_name">
+      Releases
+    </label>
+    <div class="x-form-element">
+      <%= select 'process_step', 'protocol_version_id',@versions %>
     </div>
 </div>
 
@@ -19,7 +25,7 @@
       Comments
     </label>
     <div class="x-form-element" >
-       <%= text_area( 'process_step', 'description',{:rows=>3, :cols=>40}	)  %>
+       <%= text_area( 'process_step', 'description',{:rows=>2, :cols=>40}	)  %>
     </div>
 </div>
 

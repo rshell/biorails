@@ -2,7 +2,7 @@
 <%= error_messages_for :cross_tab %>
 <div class="x-form-item">
     <label for="cross_tab-name" style="width: auto;" class="x-form-item-label">
-        <%=l(:label_changed_after) %>: 
+        <%=l(:Changed_After) %>: 
     </label>
     <div class="x-form-element">
         <%= date_field :cross_tab, :date_from %>
@@ -10,29 +10,29 @@
 </div>
 <div class="x-form-item">
     <label for="cross_tab-name" style="width: auto;" class="x-form-item-label">
-        <%=l(:label_changed_before) %>:
+        <%=l(:Changed_Before) %>:
     </label>
     <div class="x-form-element">
         <%= date_field :cross_tab, :date_to %>
     </div>
 </div>
-<h3><%=l(:label_columns) %></h3>
+<h3><%=l(:Columns) %></h3>
 <table class='report'>
     <tr>
         <th>
-            <%=l(:label_name) %>
+            <%=l(:Name) %>
         </th>
         <th>
-            <%=l(:label_process) %>
+            <%=l(:Process) %>
         </th>
         <th>
-            <%=l(:label_type) %>
+            <%=l(:Type) %>
         </th>
         <th colspan=2>
-            <%=l(:label_filter) %>
+            <%=l(:Filter) %>
         </th>
         <th>
-            <%=l(:label_unit) %>
+            <%=l(:Unit) %>
         </th>
     </tr>
     <% context =nil %>
@@ -43,7 +43,7 @@
             <%=item.parameter_context.name %>
         </th>
         <th colspan=6>
-            <%=l(:label_possible_link) %><%=@cross_tab.guess_link_type(item.parameter_context) %>
+            <%=l(:Possible_link) %><%=@cross_tab.guess_link_type(item.parameter_context) %>
         </th>
     </tr>
     <% context = item.parameter_context %>
@@ -71,6 +71,6 @@
     </tr>
     <% end %>
 </table>
-<%= submit_tag l(:button_apply) %>
+<%= submit_tag l(:Apply) %>
 <% end %>
 <br/>

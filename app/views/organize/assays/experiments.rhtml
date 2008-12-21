@@ -3,8 +3,11 @@
     <%= render :partial =>'/menu/assay_menu' , :locals=>{ :assay => @assay} %>
 <% end -%>
 
+<% if @assay.runnable? %>
 <h1>
   Experiments in Assay [<strong><%=@assay.name %></strong>]
 </h1>
-
 <%= render :partial => 'experiments', :locals => { :assay => @assay } %>  
+<%else %>
+ No Protocols defined
+<% end %>

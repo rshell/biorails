@@ -1,64 +1,16 @@
 <% content_for :sidemenu do %>
-<%= render :partial => 'menu' %>
+  <%= render :partial => 'menu' %>
 <% end %>
-<%= render :partial => 'admin/header' %>
-<h2 class='icon icon-user'><%=l(:label_users) %>
-</h2>
-<div class='panel'>
-  <table class='report'>
-    <tr>
-      <th>
-        <%=l(:label_name) %>
-      </th>
-      <th>
-        <%=l(:label_full_name) %>
-      </th>
-      <th>
-        <%=l(:label_login) %>
-      </th>
-      <th>
-        <%=l(:label_style) %>
-      </th>
-      <th>
-        <%=l(:label_email) %>
-      </th>
-      <th>
-        <%=l(:label_role) %>
-      </th>
-      <th>
-        <%=l(:label_updated_at) %>
-      </th>
-    </tr>
-    <% for user in @users %>
-    <tr class="<%= cycle('odd', 'even') %>">
-      <td>
-        <%= link_to user.name, :action => 'show', :id => user.id %>
-      </td>
-      <td>
-        <%= h user.fullname %>
-      </td>
-      <td>
-        <%= h user.login %>
-      </td>
-      <td>
-        <%=h  user.style %>
-      </td>
-      <td>
-        <%= h  user.email %>
-      </td>
-      <td>
-        <%= link_to( user.role.name, :controller => 'roles', :action => 'show', :id => user.role_id) if user.role_id %>
-      </td>
-      <td>
-        <%= short_date user.updated_at %>
-      </td>
-    </tr>
-    <% end -%>
-  </table>
-  <hr />
-  <%= link_to l(:label_new), user_url( :action => 'new'), :class=>'icon icon-user-add' %>
-  <%= link_to l(:label_list_ldap), user_url( :action => 'ldap',:id=>'a'), :class=>'icon icon-list' %>
-</div>
+
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['user']} %>
+<%end%>
+
+<% content_for :center do %>
+  <%= render :partial => 'header' %>
+  <%= render :partial => 'list' %>
+<%end %>
+
 <% content_for :right do -%>
-<%= render :partial=>'help' %>
+  <%= render :partial=>'help' %>
 <%end %>

@@ -76,12 +76,18 @@ module Alces
       module ClassMethods
                    
           def use_authorization (subject , options={} )
-            
-            write_inheritable_attribute(:rights_actions,  options[:actions] || [:list,:show,:edit,:update,:new,:create,:destroy] )
-            write_inheritable_attribute(:rights_subject,  subject || '*' )
+
+            rules = {}
+            options.map do | key, value|
+              value.each{|item|rules[item.to_s]=key.to_s}
+            end
+
+            write_inheritable_attribute(:rights_rules,  rules )
+            write_inheritable_attribute(:rights_actions,  options.values.flatten )
+            write_inheritable_attribute(:rights_subject,  subject || 'default' )
 
 
-            class_inheritable_reader :rights_actions
+            class_inheritable_reader :rights_rules
             class_inheritable_reader :rights_subject
             class_inheritable_reader :rights_source     
 
@@ -96,18 +102,6 @@ module Alces
       #
       module ControllerInstanceMethods    
           ##
-          # Get the list of rights for the controller
-          # 
-          # @param action action to check in the current scope
-          # @return true/false with no rule specified the default is allowed
-          # 
-          def allow?(action) 
-            return true unless self.class.rights_actions.any?{|i| i.to_s == action.to_s}
-            return true if User.current.admin == true
-            User.current.allow?(self.class.rights_subject, action )  
-            return true
-          end   
-          ##
           # authorization 
           #
           def authorization
@@ -117,12 +111,13 @@ module Alces
                   logger.warn flash[:error]
                   return show_login                  
              end                
-             if User.current.rights?( self.class.rights_subject)
+             if User.current.right?( self.class.rights_subject,self.rights_rules[params[:action]])
                   logger.debug "#{session[:current_username]} is authorized"
                   return true
              else 
-               flash[:warning]= "No permission for [#{self.class.rights_subject}] with currently user #{current_username}  "  
-               flash[:info]= "See system administration if you really need to do this level of rights in the sytsem " 
+               flash[:info]= "No role permission for [#{self.class.rights_subject}.#{self.rights_rules[params[:action]]||'*'}] \ 
+                 with #{User.current} in #{Project.current}.  \n \
+                 You may want to contact the system administrator if you need to have this level of rights in the system "
                logger.warn flash[:warning]
              end
              return show_access_denied              
@@ -157,7 +152,7 @@ module Alces
           #  
           #   * permission?(user,subject,action)
           #   * visible?
-          #   * allows?(action)
+          #   * right?(action)
           #   * find_visible(*args)
           #    
           #
@@ -216,7 +211,7 @@ module Alces
                     return true if user.admin?
                     member = find(:first, :conditions=>['user_id = ?',user.id])
                     return false unless member
-                    return member.owner? || member.allows?(subject,action)
+                    return member.owner? || member.right?(subject,action)
                 end
                 
               end                                                                                                                 
@@ -261,7 +256,7 @@ module Alces
         #   * If current user is a member of the team owning the record
         #   * If current user was the last author of the object.
         #
-        def allows?( action ,scope ='project')
+        def right?( scope ='project', action=nil )
           return self.permission?(User.current, scope, action )
         end
     end
@@ -309,7 +304,7 @@ module Alces
         #   * If current user is a member of the team owning the record
         #   * If current user was the last author of the object.
 
-        def allows?( action ,scope ='project')
+        def right?( scope ='project', action=nil )
           return self.permission?(User.current, scope, action )
         end
 
@@ -374,14 +369,6 @@ module Alces
           return self.send(access_control_via).permission?(user,subject,action)
         end
         #
-        #  If the record published      
-        #        
-        def published?
-          return true if self.attributes[:status_id] == Alces::ScheduledItem::COMPLETED 
-          return true if self.attributes[:published] == '1'
-          return false
-        end
-        #
         # Check whether object should be visible in this context
         #   * Is published
         #   * If current user is a member of the team owning the record
@@ -399,7 +386,7 @@ module Alces
         #   * If current user is a member of the team owning the record
         #   * If current user was the last author of the object.
         #
-        def allows?( action ,scope ='project')
+        def right?( scope ='project', action=nil )
           return self.permission?(User.current, scope, action )
         end
         

@@ -517,5 +517,9 @@ class CrossTabTest < ActiveSupport::TestCase
     assert_ok join
     assert join.to_s
   end
-  
+
+  def test_is_dictionary
+    assert_dictionary_lookup(CrossTab)
+  end
+
 end

@@ -14,8 +14,11 @@ namespace :biorails do
         p user.name + " has key already"
       end
     end
-end
-  
+  end
+
+  desc 'Installation verification scripts'
+
+
   desc "Install the the needed gem (will need root rights)"
   task :gems do   
     system('gem install rails ')
@@ -36,21 +39,22 @@ end
     system('gem install ruby-net-ldap ')
     system('gem install htmldoc ')
     system('gem install mini_magick')
- #
- # Following build native libraries and can fail on some platforms
- #
-    system('gem install ferret ')
+    #
+    # Following build native libraries and can fail on some platforms
+    #
     system('gem install mongrel ')
     system('gem install mongrel_cluster ')
-    system('gem install hpricot')
     system('gem install mocha')
+    system('gem install chronic')
+    system('gem install roodi')
 
   end
   
   desc "Sync with subversion and restart server"
   task :sync => :environment do
-    system('svn update')  
-    system('svn status')  
+    system('svn info')
+    system('svn update')
+    system('svn status')
     system('svn info')  
     system('mongrel_rails cluster::restart')  
   end
@@ -61,74 +65,22 @@ end
     system('svn info')  
   end 
   
-  desc "Start Mongrel cluster"
+  desc "Start Mongrel cluster  production server"
   task :start => :environment do
+    puts "Package all css and javascript.."
+    Rake::Task['asset:packager:build_all'].invoke
     system('mongrel_rails cluster::start')  
   end
 
-  desc "Restart Mongrel cluster"
+  desc "Restart Mongrel cluster production server"
   task :restart => :environment do
+    Rake::Task['asset:packager:build_all'].invoke
     system('mongrel_rails cluster::restart')  
   end
 
-  desc "Stop Mongrel cluster"
+  desc "Stop Mongrel cluster production server"
   task :stop => :environment do
     system('mongrel_rails cluster::stop')  
   end
-  
-  desc 'Check that we can access the network'
-  task :check_network => :environment do
-   unless Signature.time_source.equal? Signature::REMOTE_TIME_SERVER
-     p 'The server cannot access the internet.  The local clock will be used.  If you want to use a remote time server, the server must have internet access'
- else
-   p 'The network is up'
-  end
-  end
-  
-  task :check_gems => :environment do
-    
-  end
-  
-  desc 'Do Basic Check that all core models exists and actually link to database tables' 
-  task :check_models => :environment do 
-    ActiveRecord::Base.establish_connection  
-    database, user, password = Biorails::Dba.retrieve_db_info
-    p ''
-    p 'Running model check'
-    p "For [#{RAILS_ENV}] database #{database} as user #{user}"
-    p "=================================================="
-    emptytables=[]
-    errors=[]
-    Biorails::ALL_MODELS.each do |model| 
-      begin
-        print "model #{model.to_s}" 
-        if model.table_exists?
-          print "\t has #{model.columns.size} columns "
-          item = model.find(:first)
-          if item.nil?
-            emptytables << model
-            print "\t is empty"
-          else
-            print "\t starts at #{item.id}"
-          end
-          print "\n"
-        else
-          errors << model
-          print '[Failed] has no database table !'
-        end
-        
-     rescue Exception => ex
-        print "[Failed] Exception on #{model}: #{ex.message}"
-        errors << "#{model} error #{ex.message}"
-      end
-    end
-    puts ''
-    unless errors.empty? 
-      puts "ERRORS encountered #{errors.join(", ")} do not have tables in the database!!"
-    else
-      puts "Models check passed OK "
-      puts "#{emptytables.join(", ") } have no data in them yet"
-    end 
-  end 
-  task :check=>[:check_gems,:check_network, :check_models]
+   
 end

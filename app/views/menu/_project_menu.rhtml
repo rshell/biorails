@@ -5,15 +5,14 @@
         <%=h  current_project.name %>
       </b>
     </span>
-    <%= link_to( l(:label_overview), project_url(:action => 'show', :id => current_project)) %>
-    <%= link_to( l(:label_update), project_url( :action => 'edit', :id => current_project)) if current_project.changable? %>
-    <%= link_to( l(:label_folders), folder_url( :action => 'show', :id => current_project.home)) %>
-    <%= link_to( l(:label_calendar), calendar_url(:action => 'show', :id => current_project.folder)) %>
-    <%= link_to( l(:label_timeline), calendar_url( :action => 'gantt', :id => current_project.folder))  %>
-    <%= link_to( l(:label_published), signature_url( :action => 'published')) %>
-    <%= link_to( l(:label_reports), report_url( :action => 'list', :current_project_id => current_project))  %>
-    <%= link_to( l(:label_crosstabs), cross_tab_url( :action => 'list', :current_project_id => current_project)) %>
-    <%= link_to( l(:label_assays) , assay_url( :action => 'list',:id=>current_project)) %>
-    <%= link_to( l(:label_experiments), experiment_url( :action => 'list',:id=>current_project))  %>
+    <%= link_to( l(:Overview), project_url(:action => 'show', :id => current_project)) %>
+    <%= link_to( l(:Update), project_url( :action => 'edit', :id => current_project)) if current_project.changeable? %>
+    <%= link_to( l(:Folders), folder_url( :action => 'show', :id => current_project.home)) %>
+    <%= link_to( l(:Calendar), calendar_url(:action => 'show', :id => current_project.folder)) %>
+    <%= link_to( l(:Published), signature_url( :action => 'published')) %>
+    <%= link_to( l(:Reports), report_url( :action => 'list', :id => current_project))  %>
+    <%= link_to( l(:Cross_Tabs), cross_tab_url( :action => 'list', :id => current_project)) %>
+    <%= link_to( l(:Assays) , assay_url( :action => 'list',:id=>current_project)) %>
+    <%= link_to( l(:Experiments), experiment_url( :action => 'list',:id=>current_project))  %>
   </div>
 <% end %>

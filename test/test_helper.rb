@@ -16,8 +16,8 @@ module Test
 
       def assert_ok(object)
          assert_not_nil object, ' Object is missing'
-         assert object.errors.empty? , " #{object.class}.#{object.id} has errors: "+object.errors.full_messages().join(',')
-         assert object.valid?,         " #{object.class}.#{object.id} not valid: "+object.errors.full_messages().join(',')
+         assert object.errors.empty? , " #{object.class}.#{object.id} has errors: "+object.errors.full_messages().join("\n")
+         assert object.valid?,         " #{object.class}.#{object.id} not valid: "+object.errors.full_messages().join("\n")
          assert !object.new_record?,   " #{object.class}:#{object} not saved"
       end
 
@@ -34,7 +34,55 @@ module Test
          assert object.errors.empty? , " #{object.class}.#{object.id} has errors: "+object.errors.full_messages().join(',')
          assert object.valid?,         " #{object.class}.#{object.id} not valid: "+object.errors.full_messages().join(',')
       end
-      
+
+      def assert_dictionary_lookup(model)
+        item = model.find(:first)
+        assert_ok item
+        assert item.respond_to?(:id), " need a id method to be a dictionary lookup"
+        assert item.respond_to?(:name), " need to implement a name method to be a dictionary lookup"
+        assert model.respond_to?(:like), " need to implement like(text,options) methods to be a dictionary lookup"
+        assert model.respond_to?(:lookup), " need to implement lookup(text) methods to be a dictionary lookup"
+        assert model.respond_to?(:reference)," need to implement reference(id) methods to be a dictionary lookup"
+        #
+        # Check name methods
+        #
+        assert item.name
+        assert_instance_of(String, item.name)
+        #
+        # Check id methods
+        #
+        assert item.id
+        #
+        # Check reference method
+        #
+        item2 = model.reference(item.id)
+        assert item2
+        assert_instance_of(model, item2)
+        assert_equal item,item2
+        #
+        # Check like methods
+        #
+        list = model.like("")
+        assert list, "like should return something"
+        assert list.is_a?(Array), "should return a Array "
+        assert list.size>0," array should contain at least 1 item for a blank string"
+
+        list = model.like(item.name)
+        assert list
+        assert list.is_a?(Array), "should return a Array not #{list.class}"
+        assert list.size>0," list should contain at least 1 item"
+        assert list.any?{|i|i==item},"orginal item should be in list"
+        #
+        # Check lookup methods
+        #
+        item2 = model.lookup("!!!!not a real name!!!!!!")
+        assert_nil item2
+
+        item2 = model.lookup(item.name)
+        assert item2.is_a?(model), "should return a #{model} "
+        assert_equal item,item2
+      end
+ 
       def destory_id_generator(clazz)
          generator = Identifier.find_by_name(clazz.to_s)
          generator.destroy
@@ -82,13 +130,7 @@ module Test
       
       #assert that the named field is empty and marked as an error
       def assert_empty_error_field(name)
-          parsed=Hpricot.parse(@response.body)
-         el= parsed/'div[@class="fieldWithErrors"]/*'
-         assert el.size > 0, parsed
-         el.each do |e|
-           assert_equal name, e.attributes['name']
-           assert_equal '', e.inner_html
-         end
+          assert @response.body.grep(name)
        rescue Exception=>ex  
          fail(ex.message)
        end
@@ -104,15 +146,20 @@ class Test::Unit::TestCase
   Biorails::Dba.import_model :user_roles
   Biorails::Dba.import_model :project_roles
   Biorails::Dba.import_model :users
-  Biorails::Dba.import_model :identifiers
   Biorails::Dba.import_model :role_permissions
+  Biorails::Dba.import_model :identifiers
+
+  Biorails::Dba.import_model :states
+  Biorails::Dba.import_model :state_flows
+  Biorails::Dba.import_model :state_changes
+
   
   Biorails::Dba.import_model :reports
   Biorails::Dba.import_model :report_columns
 
   #- Inventory
-  Biorails::Dba.import_model :compounds
-  Biorails::Dba.import_model :batches
+  Biorails::Dba.import_model :compounds # used in request tests
+#  Biorails::Dba.import_model :batches
   Biorails::Dba.import_model :lists
   Biorails::Dba.import_model :list_items
   
@@ -133,12 +180,13 @@ class Test::Unit::TestCase
   Biorails::Dba.import_model :states
   
   # - Projects
+  Biorails::Dba.import_model :access_control_lists
+  Biorails::Dba.import_model :access_control_elements
   Biorails::Dba.import_model :teams
   Biorails::Dba.import_model :memberships
 # built from teams  
-#  Biorails::Dba.import_model :access_control_lists
-#  Biorails::Dba.import_model :access_control_elements
   Biorails::Dba.import_model :projects
+  Biorails::Dba.import_model :project_elements
   Biorails::Dba.import_model :db_files
   Biorails::Dba.import_model :assets
   Biorails::Dba.import_model :contents
@@ -162,7 +210,6 @@ class Test::Unit::TestCase
   Biorails::Dba.import_model :process_steps
   Biorails::Dba.import_model :parameter_contexts
   Biorails::Dba.import_model :parameters
-    
   Biorails::Dba.import_model :analysis_methods
   Biorails::Dba.import_model :analysis_settings
 
@@ -175,6 +222,7 @@ class Test::Unit::TestCase
 
   Biorails::Dba.import_model :queue_items
   Biorails::Dba.import_model :cross_tabs
+  AccessControlList.rebuild_checksums
   ProjectElement.rebuild_sets
   TaskContext.rebuild_sets
   ParameterContext.rebuild_sets
@@ -182,6 +230,8 @@ class Test::Unit::TestCase
   else
     puts "Data Already loaded will use it!"
   end
+  User.current = User.find(2)
+  Project.current = Project.find(2)
   # 
   #
   # Transactional fixtures accelerate your tests by wrapping each test method
@@ -223,6 +273,18 @@ class TestHelper < Test::Unit::TestCase
   
   def default_test
     true
+  end
+
+  def element_to_url(rec,options={})
+    "mock"
+  end
+
+  def reference_to_url(rec,options={})
+    "mock"
+  end
+  
+  def object_to_url(rec,options={})
+    "mock"
   end
 
   def image_tag(*args)
@@ -270,7 +332,6 @@ class TestHelper < Test::Unit::TestCase
   def experiment_url(*arg)
     "mock"  
   end
-
   def process_instance_url(*arg)
     "mock"
   end
@@ -293,7 +354,7 @@ class TestHelper < Test::Unit::TestCase
   def url_for(*arg)
     "mock"  
   end
-  
+
   def protect_against_forgery?
     false
   end

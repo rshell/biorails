@@ -32,17 +32,11 @@ class DataSystem < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
    acts_as_audited :change_log
-   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-                              :description=>{:store=>:yes,:boost=>0},
-                               }, 
-                   :default_field => [:name],           
-                   :single_index => true, 
-                   :store_class_name => true 
 #
 # Generic rules for a name and description to be present
   acts_as_dictionary :name
   validates_presence_of :name
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name,:case_sensitive=>false
   validates_presence_of :description
 
 def validate 
@@ -64,7 +58,7 @@ has_many :data_elements, :conditions => "parent_id is null", :dependent => :dest
 # List of allowed adapters
 #
   def allowed_adapters
-    return ['local','sqlite','mysql','oracle']
+    return ['local','sqlite','mysql','postgresql','biorails_oracle','oracle_enhanced']
   end 
   
 #

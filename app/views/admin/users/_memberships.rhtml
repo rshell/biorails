@@ -1,0 +1,59 @@
+<h2 class="icon icon-user"><%=l(:User_Profile) %> [<%= @user.name %>]</h2>
+<div class="box">
+  <table class='report' style='width:40%'>
+    <tr>
+      <th> <%=h l(:Login) %>      </th>
+      <td> <%= h @user.login %>   </td>
+    </tr>
+    <tr>
+      <th> <%=h l(:Shortname) %>      </th>
+      <td> <%=h  @user.name %>      </td>
+    </tr>
+    <tr>
+      <th> <%=h l(:Full_Name) %>      </th>
+      <td> <%=h  @user.fullname %>      </td>
+    </tr>
+    <tr>
+      <th> <%=l(:Created) %>      </th>
+      <td> <%= short_date @user.created_at %>      </td>
+    </tr>
+    <tr>
+      <th> <%=l(:Updated) %>      </th>
+      <td> <%= short_date @user.updated_at %>      </td>
+    </tr>
+  </table>
+</div>
+
+<div class='box'>
+  <h3 class='icon icon-team'><%=l(:Team_Memberships) %></h3>
+  <table class="report">
+    <thead>
+      <tr>
+        <th> <%=l(:Team) %>      </th>
+        <th> <%=l(:Date_Created) %>        </th>
+        <th><%= l(:Date_Updated) %>        </th>
+        <th><%= l(:Actions) %>        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for member in @user.memberships do %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td> <%= link_to member.team.name, team_url(:action=>:show,:id=>member.team_id) %>  </td>
+            <td> <%= short_date member.created_at %>  </td>
+            <td> <%= short_date member.updated_at %>  </td>
+            <td> <%= link_to l(:remove), user_url(:action =>:remove,:id=>member) %>  </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+   <%form_tag user_url(:action =>:add, :id=>@user),:method=>:post do %>
+      <div class='form-element'>
+        <label for=team_id">  <%=l(:Teams)%> </label>
+        <%= select_tag(:team_id, options_from_collection_for_select(@user.other_teams, "id", "name") ) %>
+      </div>
+      <br />
+      <%= submit_tag "add" %>
+    <% end %>
+</div>
+

@@ -2,8 +2,13 @@
   <%=render :partial =>'shared/messages',:locals => { :objects => ['task' ]} %>
 <%end%>
 
-<% content_for :dialog do -%>
+<% content_for :center do -%>
+    <%= render :partial=>'header'%>
+<%if  @task.changeable?  %>
     <%= render :partial => 'edit' %>
+  <%else %>
+    Not changable
+  <%end%>
 <%end%>
 
 <% content_for :right do -%>

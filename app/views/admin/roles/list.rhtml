@@ -10,26 +10,26 @@
 <%= render :partial => 'admin/header' %>
 
 <h2 class='icon icon-role'>
-  <%=l(:label_user) %>
-  <%=l(:label_roles) %>
+  <%=l(:User) %>
+  <%=l(:Roles) %>
 </h2>
 <div class='panel'>
-  <h3 class='icon icon-user'><%=l(:label_user_roles) %>
+  <h3 class='icon icon-user'><%=l(:System_Roles) %>
   </h3>
   <div class='panel'>
     <table class='report'>
       <tr>
         <th>
-          <%=l(:label_name) %>
+          <%=l(:Name) %>
         </th>
         <th>
-          <%=l(:label_description) %>
+          <%=l(:Description) %>
         </th>
         <th>
-          <%=l(:label_created_at) %>
+          <%=l(:Created) %>
         </th>
         <th>
-          <%=l(:label_updated_at) %>
+          <%=l(:Updated) %>
         </th>
       </tr>
       <% for role in @user_roles %>
@@ -51,22 +51,22 @@
     </table>
   </div>
   <h3 class='icon icon-team'>
-    <%=l(:label_team_roles) %>
+    <%=l(:Team_Roles) %>
     </h3>
   <div class='panel'>
     <table class='report'>
       <tr>
         <th>
-          <%=l(:label_name) %>
+          <%=l(:Name) %>
         </th>
         <th>
-          <%=l(:label_description) %>
+          <%=l(:Description) %>
         </th>
         <th>
-          <%=l(:label_created_at) %>
+          <%=l(:Created) %>
         </th>
         <th>
-          <%=l(:label_updated_at) %>
+          <%=l(:Updated) %>
         </th>
       </tr>
       <% for role in @project_roles %>
@@ -88,8 +88,8 @@
     </table>
   </div>
 <hr />
-  <%= link_to l(:label_new),role_url( :action => 'new'), :class=>'icon icon-new' %>
+  <%= link_to l(:New),role_url( :action => 'new'), :class=>'icon icon-new' %>
   <%if @role && !@role.new_record?%>
-    <%= link_to l(:label_edit), role_url( :action => 'edit',:id=>@role.id), :class => 'icon icon-edit'%>
+    <%= link_to l(:Edit), role_url( :action => 'edit',:id=>@role.id), :class => 'icon icon-edit'%>
   <%end%>
 </div>

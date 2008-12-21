@@ -6,7 +6,7 @@
 <% end %>
 <% content_for :center do %>
 <%= render :partial => '/admin/header' %>
-    <h2 class='icon icon-data_system'><%=l(:label_data_sources) %>
+    <h2 class='icon icon-data_system'><%=l(:Data_Sources) %>
     </h2>
 <div class="panel boldnotbold">
     <div class='box'>
@@ -15,28 +15,28 @@
         <table class="report">
             <tr>
                 <th>
-                    <%=l(:label_data_sources) %>
+                    <%=l(:Data_Sources) %>
                 </th>
                 <th>
-                    <%=l(:label_description) %>
+                    <%=l(:Description) %>
                 </th>
                 <th>
-                    <%=l(:label_data_adaptor) %>
+                    <%=l(:Adaptor) %>
                 </th>
                 <th>
-                    <%=l(:label_username) %>
+                    <%=l(:Username) %>
                 </th>
                 <th>
-                    <%=l(:label_database) %>
+                    <%=l(:Database) %>
                 </th>
                 <th>
-                    <%=l(:label_test_object) %>
+                    <%=l(:Test_Object) %>
                 </th>
                 <th>
-                    <%=l(:label_status) %>
+                    <%=l(:Status) %>
                 </th>
                 <th>
-                    <%=l(:label_action) %>
+                    <%=l(:Action) %>
                 </th>
             </tr>
             <% for item in @data_systems %>
@@ -63,7 +63,7 @@
                     <%=(item.can_connect? ? '<span class="icon icon-database">ok</span>': '<b class="icon icon-warning">No Object </b>') %>
                 </td>
                 <td>
-                    <%= link_to l(:label_edit),data_system_url( :action => 'edit', :id => item), :class=>'icon icon-edit' %>
+                    <%= link_to l(:Edit),data_system_url( :action => 'edit', :id => item), :class=>'icon icon-edit' %>
                 </td>
             </tr>
             <% end %>
@@ -72,7 +72,7 @@
  
     <hr/>
     <b class='icon icon-new'>
-        <%= link_to l(:label_new), :action => 'new' %>
+        <%= link_to l(:New), :action => 'new' %>
     </b>
 </div>
 <%end %>

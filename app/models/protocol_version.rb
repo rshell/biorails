@@ -39,7 +39,13 @@
 class ProtocolVersion < ActiveRecord::Base
 
  validates_presence_of :protocol
+ validates_presence_of :updated_by
+ validates_presence_of :created_by
+ validates_numericality_of :version
+ validates_presence_of :expected_hours
+ validates_presence_of :protocol
  validates_presence_of :name
+
 ##
 # This record has a full audit log created for changes 
 #   

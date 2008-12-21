@@ -52,7 +52,8 @@ class ProcessInstance < ProtocolVersion
   # 
     has_many :contexts, 
              :class_name=>'ParameterContext',
-             :foreign_key=>'protocol_version_id', 
+             :foreign_key=>'protocol_version_id',
+             :order=>'parameter_contexts.left_limit, parameter_contexts.id',
              :dependent => :destroy do         
      #
      # Limit set to contexts using the the a object
@@ -75,10 +76,6 @@ class ProcessInstance < ProtocolVersion
        end  
      end  
 
-     def ordered
-       find(:all,:order_by=>:left_limit)
-     end
-     
     end
 #
 # base root for contruction of parameter tree (99% single root)
@@ -104,7 +101,8 @@ class ProcessInstance < ProtocolVersion
              :dependent => :destroy, 
              :foreign_key=>'protocol_version_id',
              :include=>[:type,:role,:assay_parameter,:data_format,:data_element], 
-             :order => :column_no do
+             :order => :column_no,
+             :dependent => :destroy do
      #
      # queue linked parameters
      #
@@ -243,13 +241,13 @@ class ProcessInstance < ProtocolVersion
   def context(name)
     case name
     when Fixnum
-      return self.contexts.detect{|item|item.id == name}   
+      return self.contexts.find(name)
     when ParameterContext
-      return self.contexts.detect{|item|item.id == name.id}   
+      return self.contexts.find(name.id)
     when TaskContext
-      return self.contexts.detect{|item|item.id == name.parameter_context_id}         
+      return self.contexts.find(name.parameter_context_id)
     else
-      return self.contexts.detect{|item|item.label == name.to_s}   
+      return self.contexts.find(:first, :conditions=>{:label=>name.to_s})
     end
  end
  #
@@ -263,7 +261,7 @@ class ProcessInstance < ProtocolVersion
  def new_context( parent  = nil, name =nil)
     parameter_context = ParameterContext.new
     parameter_context.label =  name || "context"+contexts.size.to_s
-    parameter_context.parent = parent if parent
+    parent.add_child(parameter_context) if parent
     self.contexts << parameter_context
     return parameter_context
   end   
@@ -311,20 +309,24 @@ class ProcessInstance < ProtocolVersion
      return 0
  end
 
-##
-# Default number of rows 
-#   
- def default_rows
-    n = 0
-    for root in roots
-       n += root.desendent_count
-    end
-    return n
+ #
+ # Reformat the parameter contexts
+ #
+ def reformat(options)
+   ParameterContext.transaction do
+     contexts.each do | item|
+       unless options[item.name].blank?
+          item.output_style = options[item.name]
+          item.save!
+        end
+     end
+   end
  end
- 
+
+
 
  def to_xml(options = {})
-     Alces::XmlSerializer.new(self, options.merge( {:include=> [:contexts]} )  ).to_s
+     Alces::XmlSerializer.new(self, options.merge( {:include=> [:roots]} )  ).to_s
  end
      
  ##
@@ -332,7 +334,7 @@ class ProcessInstance < ProtocolVersion
 # 
  def self.from_xml(xml,options = {} )
       my_options =options.dup
-      my_options[:include] ||= [:contexts]
+      my_options[:include] ||= [:roots]
       Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
  end  
  

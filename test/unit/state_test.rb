@@ -19,6 +19,8 @@ class StateTest < ActiveSupport::TestCase
     assert item
     assert item.name
     assert item.description
+    assert item.level_no
+    assert item.level_text
   end
 
   def test02_find_all
@@ -33,4 +35,37 @@ class StateTest < ActiveSupport::TestCase
     item3= @model.create(:name=>'process',:description=>'processing',:level=>3,:position=>3)
   end
 
+  def test004_flows
+    list = State.flows
+    assert list
+    assert list.size>0
+    assert list[0].is_a?(StateFlow)
+  end
+
+  def test005_states
+    list = State.states
+    assert list
+    assert list.size>0
+    assert list[0].is_a?(State)
+  end
+  
+  def test006_get
+    item = State.find(1)
+    element = ProjectElement.find(:first)
+    assert_equal item, State.get(1)
+    assert_equal item, State.get(item.name)
+    assert_equal item, State.get(item.id)
+    assert_equal item, State.get(item)
+    assert_equal element.state, State.get(element)
+  end
+
+  def test007_in_use
+    element = ProjectElement.find(:first)
+    assert element.state.in_use?
+  end
+
+  def test008_finished
+    state = State.find(:first,:conditions=>['level_no> ?',State::FROZEN_LEVEL])
+    assert state.finished?
+  end
 end

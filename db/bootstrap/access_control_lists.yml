@@ -1,0 +1,8 @@
+--- 
+00000000001_access_control_list: !ruby/object:AccessControlList 
+  attributes: 
+    team_id: "1"
+    id: "1"
+    content_hash: 9698a9708e25d2c02cdf9fbb64ac2803
+  attributes_cache: {}
+

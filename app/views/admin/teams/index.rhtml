@@ -1,42 +1,14 @@
 <% content_for :sidemenu do -%>
 <%= render :partial=>'actions' %>
 <% end -%>
+
 <% content_for :center do -%>
-<%= render :partial => 'admin/header' %>
-<h2 class='icon icon-team-large' style='text-indent:0.5em;'><%=l(:label_teams) %>
-</h2>
+<%= render :partial => 'header' %>
+
 <div class="panel">
-  <div class='box'>
-    <%=l(:text_team_description) %>
-  </div>
-  <table class='report'>
-    <tr>
-      <th>
-        <%=l(:label_name) %>
-      </th>
-      <th>
-        <%=l(:label_description) %>
-      </th>
-      <th>
-        <%=l(:label_member_numbers) %>
-      </th>
-    </tr>
-    <% for team in @teams %>
-    <tr class="<%= cycle('odd', 'even') %> boldnotbold">
-      <td>
-        <%=link_to team.name, team_url(:action=>'show',:id=> team.id) %>
-      </td>
-      <td>
-        <%=team.description %>
-      </td>
-      <td>
-        <%=team.memberships.size %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-  <hr/><%= link_to(l(:label_new), team_url(:action => 'new'),  :class=>'icon icon-new') %>
+	<%=render :partial =>'list'%>
 </div><% end %>
+
 <% content_for :help do -%>
 <%= render :partial=>'help' %>
 <% end %>

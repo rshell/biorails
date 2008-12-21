@@ -53,6 +53,7 @@ class Project < ActiveRecord::Base
 exists (select 1 from project_elements 
         where project_elements.reference_type='Assay' 
         and project_elements.reference_id=assay_protocols.assay_id
+        and project_elements.project_id = ?
         and and project_elements.left_limit >= ?
         and project_elements.right_limit <= ? ) 
 SQL
@@ -80,27 +81,45 @@ SQL
   # 
   cattr_accessor :current
   
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name,:scope=>:parent_id,:case_sensitive=>false
   validates_presence_of :name
+  validates_presence_of :project_type_id
+  validates_presence_of :team_id
+  validates_associated  :team
+  validates_associated  :project_type
   validates_presence_of :description
-  validates_presence_of :status_id 
+#  validates_presence_of :title
   validates_format_of :name, :with => /^[A-Z,a-z,0-9,_,\.,\-,+,\$,\&, ,:,#]*$/, 
      :message => 'name only accept a limited range of characters [A-z,0-9,_,.,$,&,+,-, ,#,@,:]'
+  before_destroy :remove_content
 
+#
+# Test if project content is used in other projects and delete if not
+#
+  def remove_content
+    multiple_project_links_count = ProjectElement.count_by_sql( <<SQL
+    select * from project_elements e
+    inner join project_contents c on (e.content_id = c.id)
+    where e.project_id !=c.project_id
+    and c.project_id = #{self.id}
+SQL
+     )
+    raise "Cant delete project as content used in other projects" if multiple_project_links_count > 0
+    Content.delete_all "project_id = #{id}"
+
+  end
+  #
+  # Add Catalog dictionary methods (lookup,like,name) based on the :name field
+  #
+  acts_as_dictionary :name
+  #
+  # acts as a tree with parent/children
+  #
   acts_as_tree
   # 
   # This record has a full audit log created for changes
   # 
   acts_as_audited :change_log
-  # 
-  # Add name and description to free text indexing systems
-  # 
-  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-    :description=>{:store=>:yes,:boost=>0},
-  }, 
-    :default_field => [:name],           
-    :single_index => true, 
-    :store_class_name => true 
   # 
   # access control managed via team
   # 
@@ -115,7 +134,7 @@ SQL
   has_many :reports, 
             :class_name=>'Report',
             :foreign_key =>'project_id',
-            :order=>'name',
+            :order=>'reports.name',
             :dependent => :destroy
   # 
   # list of all cross tabs in the project
@@ -123,7 +142,7 @@ SQL
   has_many :cross_tabs, 
             :class_name=>'CrossTab',
             :foreign_key =>'project_id',
-            :order=>'name',
+            :order=>'cross_tabs.name',
             :dependent => :destroy
   # 
   # List of all the folders in the project
@@ -131,16 +150,25 @@ SQL
   has_many :folders, 
             :class_name=>'ProjectFolder',
             :foreign_key =>'project_id',
-            :order=>'left_limit,parent_id,name',
+            :order=>'project_elements.left_limit',
             :dependent => :destroy
   # 
   # List of all the elements
   # 
-  has_many :elements, 
+  has_many :elements,
             :class_name=>'ProjectElement',
             :foreign_key =>'project_id',
-            :order=>'left_limit,parent_id,name',
+            :order=>'project_elements.left_limit',
             :dependent => :destroy
+  #
+  # List of projects settings normally accessed via ProjectSetting.name = value and
+  # controlled via config/project_settings.yml
+  #
+  has_many :settings,
+            :class_name=>'ProjectSetting',
+            :foreign_key =>'project_id',
+            :dependent => :destroy
+
   # 
   # The project is the main holder of schedules but in turn can be seen on a
   # system schedule
@@ -149,7 +177,6 @@ SQL
 
   has_many_scheduled :assays,  
                       :class_name=>'Assay',
-                      :order=>'name',
                       :foreign_key =>'project_id',
                       :dependent => :destroy
   
@@ -164,7 +191,9 @@ SQL
   # 
   # Scheduled requests
   # 
-  has_many_scheduled :requests , :class_name=>'Request', :foreign_key=> 'project_id'                                         
+  has_many_scheduled :requests , :class_name=>'Request', 
+                      :foreign_key=> 'project_id',
+                      :dependent => :destroy
   # 
   # Schedule of all the services requested from the current project (eg. stuff
   # other want me to do)
@@ -218,7 +247,11 @@ SQL
     self.started_at  ||= Time.new
     self.expected_at ||= Time.new + 6.months
   end   
-    
+
+  def validate_title
+    (self.project_type and self.project_type.study?)
+  end
+
   def home_folder
      self.project_element
   end
@@ -226,7 +259,36 @@ SQL
   # 
   def home    
     self.project_element
-  end  
+  end
+
+#
+# path to name
+#
+  def path
+     if parent == nil
+        return name
+     else
+        return parent.path+"/"+name
+     end
+  end
+
+  def to_s
+    "#{self.class}[#{path}]"
+  end
+
+  def state_flow
+    if self.project_type and self.project_type.state_flow
+      self.project_type.state_flow
+    else
+      StateFlow.default
+    end
+  end
+  #
+  # Hook for custom name generator for the record
+  #
+  def name_generator
+      Identifier.find_by_name("domain_#{self.project_type.dashboard.downcase}") if self.project_type
+  end
   # 
   # Summary description of the project
   # 
@@ -242,7 +304,8 @@ SQL
   # Get the current dashboard style to use with this project
   # 
   def partial_template(name)
-    return name 
+    return name unless self.project_type 
+    self.project_type.partial_template(name)
   end
   # 
   # Get the current dashboard style to use with this project
@@ -251,17 +314,19 @@ SQL
     return name unless self.project_type 
     self.project_type.action_template(name)
   end
+
+
   # 
   # Is there a runnable assay linked to this project
   # 
   def runnable?
-    process_instances.size>0
+    changeable? &&  process_instances.size>0
   end
   # 
   # See if there is content linked to project as a test that in use
   # 
   def in_use?
-    (self.elements.size>1 || self.assays.size>0)
+    (self.folder.all_children_count>5 || self.assays.size>0 || self.tasks.size>0)
   end
   
   def has_protocols?
@@ -271,7 +336,14 @@ SQL
   # People in the project
   # 
   def users
-    self.team.users
+    self.team.users.sort{|a,b|a.name<=>b.name}
+  end
+  #
+  # List of teams acsociated with the project
+  #
+  def teams
+    list = self.folder.access_control_list.rules.collect{|i|i.owner if i.owner_type=="Team"}
+    [team].concat(list).compact.uniq.sort{|a,b|a.name<=>b.name}
   end
   # 
   #  list of the memberships of the project
@@ -317,25 +389,18 @@ SQL
   # Default foldet to look for items like this in
   #
   def root_folder_for_class(object)
-    case object
-    when ProjectElement
-      return self.folder('shared')
-    when ActiveRecord::Base
-      if object.project_element
-         return self.folder(object.class.root_folder_under||'shared')
-      end
-    end
-    self.home.folder(object.class.to_s.underscore.pluralize)
+      return self.folder('linked')
   end
   #
   # Add a Link to a another Model
   #  * object a model instance to link to
   #  * return project element of link
   #
-  def add_link(object)
+  def add_link(object,options={})
+    return nil unless Project.current.right?(:data,:share) and Project.current.changeable?
     if (object)
       root = root_folder_for_class(object)
-      root.add_reference(object.name,object)
+      root.add_link(object,options)
     end 
   end  
   #
@@ -345,10 +410,12 @@ SQL
   #
   def linked(clazz)
     if (clazz)
-      root = root_folder_for_class(object)
-      items = root.elements.find(:all,:conditions=>['reference_type=?',clazz.to_s])
-      items.collect{|i|i.reference}
-    end 
+      root = root_folder_for_class(clazz)
+      root.linked(clazz)
+    end
+  rescue Exception => ex
+    logger.error "Linked() failed #{ex.message}"
+    []
   end 
   #
   # List of Linked Items
@@ -356,9 +423,11 @@ SQL
   #  * return boolean true == destoried
   #
   def remove_link(object)
+    return nil unless Project.current.right?(:data,:share) and Project.current.changeable?
     if (object)
       root = root_folder_for_class(object)
       item = root.find_within(:first,:conditions=>['reference_type=? and reference_id = ?',object.class.to_s,object.id])
+      item.reference=nil
       item.destroy if item
     end 
   end  
@@ -371,17 +440,7 @@ SQL
                         :order=>'updated_at desc',
                         :limit => count)
   end 
-  
-  #
-  # Get the child projects of this one'
-  #
-  def children(count = 5)
-    Project.find(:all,
-                  :conditions => ["parent_id=?",self.id],
-                  :order=>'updated_at desc',
-                  :limit=> count)
-  end
-  
+    
   def children_of_type(count = 5, style = 1)
     Project.list(:all,
                   :conditions => ["parent_id=? and project_type_id = ?",self.id, style],
@@ -443,7 +502,7 @@ SQL
   # 
   def outstanding_requested_services(n)
     RequestService.matching(self,{:limit =>n,
-        :conditions=>'request_services.status_id between 0 and 4', 
+        :conditions=>'states.level_no between 0 and 2',
         :order=>'request_services.expected_at'})
   end  
   # 
@@ -498,6 +557,13 @@ SQL
   #  list = folder.linked_references(Assay).collect{|i|i.reference_id}
   #  Assay.find(list)
   end  
+
+  def project_list
+    list =self.project_element.find_within(:all,
+                :conditions=>['type=? and reference_type=?','ProjectFolder','Project'],
+                :order=>'project_elements.left_limit')
+    [[self.path,self.id]].concat( list.collect{|i|[i.path,i.reference_id]} )
+  end
 #
 # Assays imported from other projects
 #
@@ -515,7 +581,11 @@ SQL
 # Assay not yet associated with this project
 #
   def unlinked_assays
-    Assay.list(:all) - linked_assays
+    list = Assay.list(:all) - linked_assays
+    list.collect do |i|
+      logger.info "#{i.name } [#{i.shareable?(self)}] #{i.shareable_status(self)}"
+    end
+    list.select{|i|i.shareable?(self)}.sort{|a,b|a.path<=>b.path}
   end  
   
   def usable_assays
@@ -531,7 +601,7 @@ SQL
   # owned and linked assays
   # 
   def process_instances
-    ProcessInstance.list(:all,
+    ProcessInstance.find(:all,
        :include=>[:protocol=>[:assay]],
        :conditions=>["protocol_versions.status = 'released' and #{SQL_ASSAY_EXISTS_CONDITIONS} ",
                      self.project_element.project_id,
@@ -584,5 +654,4 @@ SQL
     tasks.list(*args)
   end
 
-  
 end

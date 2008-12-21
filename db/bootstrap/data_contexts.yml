@@ -2,13 +2,13 @@
 00000000001_data_context: !ruby/object:DataContext 
   attributes: 
     name: BioRails
-    updated_at: 2008-09-12 15:07:42
+    updated_at: 2008-10-28 15:42:00 Z
     access_control_id: 
-    updated_by_user_id: "1"
+    updated_by_user_id: 1
     type: DataContext
-    lock_version: "0"
-    data_context_id: "1"
-    id: "1"
+    lock_version: 0
+    data_context_id: 1
+    id: 1
     description: |-
       <p>This is the main <strong>context </strong>or<strong> 
       conceptual name space </strong>for all key <strong>concepts </strong>
@@ -25,8 +25,8 @@
       warehousing need and local terminology. Put more simply, the scientists 
       can maintain their own (often unique) terminologies which can be mapped 
       into the corporate dictionaries.</p>
-    created_by_user_id: "1"
+    created_by_user_id: 1
     parent_id: 
-    created_at: 2008-09-09 12:06:44
+    created_at: 2008-09-09 12:06:44 Z
   attributes_cache: {}
 

@@ -214,6 +214,16 @@ class ProcessInstanceTest < Test::Unit::TestCase
   def test32_usages_count
     first = @model.find(:first)
     assert first.usage_count
-  end  
+  end
+  
+  def test33_max_columns
+    first = @model.find(:first)
+    assert first.max_columns
+  end
+
+  def test34_reformat
+    first = @model.find(:first)
+    assert first.reformat({})
+  end
 
 end

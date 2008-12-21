@@ -11,11 +11,11 @@
 <%end%>
 
 <%= render :partial => 'admin/header' %>
-<% dialog l(:label_role) do %>
+<% dialog l(:Role) do %>
 	<% form_tag :action => 'create' do %>
 	  <%= render :partial => 'new' %>
-	  <%= submit_tag l(:button_create) %>
-          <%= link_to l(:label_cancel), role_url( :action => 'list') %>
+	  <%= submit_tag l(:Create) %>
+          <%= link_to l(:Cancel), role_url( :action => 'list') %>
 	<% end %>
 <% end %>
 

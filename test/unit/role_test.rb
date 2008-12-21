@@ -56,20 +56,20 @@ class RoleTest < Test::Unit::TestCase
     role = Role.new(:name=>'test016',:description=>'test016')
     role.save
     role.rebuild
-    assert !role.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert !role.right?(VALID_SUBJECT,VALID_ACTION)
     role.grant(VALID_SUBJECT,VALID_ACTION)
-    assert role.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert role.right?(VALID_SUBJECT,VALID_ACTION)
   end 
   
-    def test017_allow?
+    def test017_right?
 
     item = Role.new(:name=>'test017',:description=>'test017')
     item.save
     item.rebuild
     assert item.save    
-    assert !item.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert !item.right?(VALID_SUBJECT,VALID_ACTION)
     assert item.grant(VALID_SUBJECT,VALID_ACTION)
-    assert item.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert item.right?(VALID_SUBJECT,VALID_ACTION)
     assert item.destroy
   end
 
@@ -77,9 +77,9 @@ class RoleTest < Test::Unit::TestCase
     role = Role.new(:name=>'test018',:description=>'test018')
     role.save
     assert role.grant(VALID_SUBJECT,VALID_ACTION)
-    assert role.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert role.right?(VALID_SUBJECT,VALID_ACTION)
     assert role.deny(VALID_SUBJECT,VALID_ACTION)
-    assert !role.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert !role.right?(VALID_SUBJECT,VALID_ACTION)
     assert !role.deny('studsgdgdsgsdies','shodgdsgdsgdw')
   end
 
@@ -93,9 +93,9 @@ class RoleTest < Test::Unit::TestCase
     role = Role.new(:name=>'test019',:description=>'test019')
     role.save
     role.reset_rights(changes)
-    assert role.allow?('data','create')
-    assert role.allow?('document','sign')
-    assert !role.allow?('document','publish')
+    assert role.right?('data','create')
+    assert role.right?('document','sign')
+    assert !role.right?('document','publish')
   end  
 
   
@@ -123,20 +123,20 @@ class RoleTest < Test::Unit::TestCase
     role = Role.new(:name=>'test023',:description=>'test023')
     role.save
     role.rebuild
-    assert !role.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert !role.right?(VALID_SUBJECT,VALID_ACTION)
     role.grant_all(VALID_SUBJECT)
-    assert role.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert role.right?(VALID_SUBJECT,VALID_ACTION)
   end 
 
   def test023_deny_all
     role = Role.new(:name=>'test023',:description=>'test023')
     role.save
     role.rebuild
-    assert !role.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert !role.right?(VALID_SUBJECT,VALID_ACTION)
     role.grant_all(VALID_SUBJECT)
-    assert role.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert role.right?(VALID_SUBJECT,VALID_ACTION)
     role.deny_all(VALID_SUBJECT)
-    assert !role.allow?(VALID_SUBJECT,VALID_ACTION)
+    assert !role.right?(VALID_SUBJECT,VALID_ACTION)
   end 
   
   def test024_project_role_subjects

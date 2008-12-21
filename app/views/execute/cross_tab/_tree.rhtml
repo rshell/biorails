@@ -11,6 +11,7 @@
 		
     tree_loader.on("beforeload", function(tree_loader, node) {
         tree_loader.baseParams.scope = node.attributes.scope;
+        tree_loader.baseParams.root = node.attributes.root;
     }, this);
         
     var parameter_tree = new Ext.tree.TreePanel({
@@ -34,6 +35,7 @@
            new Ajax.Request( "<%=cross_tab_url(:action=>'add',:id=>@cross_tab) %>",
                     {asynchronous:true, evalScripts:true,
                      parameters: { node: node.attributes.id,
+                                   root:  node.attributes.root,
                                    scope: node.attributes.scope }});                          
         } catch (e) {
               console.log('Problem cannot add Parameter ');
@@ -51,12 +53,11 @@
         iconCls         : 'icon-project',
         id		: 'root',
         children        : [
-            { id: 'roles',     scope: 'root', iconCls:'icon-parameter_role' ,   text: 'By Role'    },
-            { id: 'types',     scope: 'root', iconCls:'icon-parameter_type' ,   text: 'By Type'    },
-            { id: 'assays',    scope: 'root', iconCls:'icon-assay' ,            text: 'By Assay'},
-            { id: 'methods',   scope: 'root', iconCls:'icon-protocol' ,         text: 'By Protocol'},
-            { id: 'process',   scope: 'root', iconCls:'icon-process_instance',  text: 'By Process' },
-            { id: 'parameters',scope: 'root', iconCls:'icon-assay_parameter' ,  text: 'By Alias'  }]
+            { id: 'roles',root: 'roles',     scope: 'root', iconCls:'icon-parameter_role' ,   text: 'By Role'    },
+            { id: 'types', root: 'types',     scope: 'root', iconCls:'icon-parameter_type' ,   text: 'By Type'    },
+            { id: 'assays', root: 'assays',   scope: 'root', iconCls:'icon-assay' ,            text: 'By Assay'},
+            { id: 'process', root: 'process',   scope: 'root', iconCls:'icon-process_instance',  text: 'By Process ' },
+            { id: 'parameters', root: 'parameters',scope: 'root', iconCls:'icon-assay_parameter' ,  text: 'By Alias'  }]
     });
  
     // Render the tree.

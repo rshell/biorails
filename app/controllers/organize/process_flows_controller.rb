@@ -8,15 +8,17 @@
 #
 #
 class Organize::ProcessFlowsController < ApplicationController
+
   use_authorization :organization,
-                    :actions => [:list,:show,:new,:create,:release,:withdraw,:copy,:edit,:update,:destroy],
-                    :rights => :current_user
+                    :use => [:show,:list,:index],
+                    :build => [:new,:add,:change,:copy,:create,:edit,:release,
+                               :step,:update,:withdraw]
 
   before_filter :setup_for_process_step_id ,  
                 :only => [ :remove,:change,:step]
               
   before_filter :setup_for_process_flow_id ,  
-                :only => [ :show, :edit, :update,:add, :tree,:release,:withdraw,:purge,:copy, :destroy]
+                :only => [ :show, :edit, :update,:add, :tree,:release,:withdraw,:purge,:copy,:modernize, :destroy]
               
   before_filter :setup_for_project ,  :only => [ :new,:list,:index]
   
@@ -80,9 +82,14 @@ class Organize::ProcessFlowsController < ApplicationController
 #
   def copy
     @process_flow = @process_flow.copy
+    @process_flow.modernize
     redirect_to :action => 'show', :id => @process_flow.id
   end
-  
+
+  def modernize
+    @process_flow.modernize
+    redirect_to :action => 'show', :id => @process_flow.id
+  end
 
 # Show details for a protocol
 # 
@@ -149,10 +156,21 @@ class Organize::ProcessFlowsController < ApplicationController
     logger.debug ex.backtrace.join("\n")  
     return render( :text => [{:id=>'error',:text=>ex.message}].to_json )
   end  
+###
+# Destory a protocol totally
 #
-#
-#
-##
+  def destroy
+    AssayProtocol.transaction do
+      if @process_flow.used?
+        flash[:warning] =" This version is fixed and cant be destroyed as its in use"
+      else
+        protocol = @process_flow.protocol
+        (protocol.versions.size<2 ?  protocol.destroy : @process_flow.destroy)
+      end
+    end
+    redirect_to assay_url(:action => 'show', :id => @assay);
+  end
+
 ###
 # Edit the protocol creating a new version of the instance if the protocol is in use 
 # in a existing task. As a special feature if protocol is already in use a copy is 
@@ -206,6 +224,7 @@ class Organize::ProcessFlowsController < ApplicationController
        @process = from_dom_id(params[:node]) 
      end
      @process_step = @process_flow.add(@process) if @process
+     @versions = @process_step.process.protocol.versions.released.collect{|i|[i.name,i.id]} if  @process_step
    else
      flash[:warning] =" This version is fixed and cant be changed"     
    end
@@ -246,7 +265,7 @@ class Organize::ProcessFlowsController < ApplicationController
 # Show Step Edit form
 #
   def step
-   @tab =2   
+   @tab =2
    unless @process_flow.flexible? 
      flash[:warning] =" This version is fixed and cant be changed"     
      @process_step=nil
@@ -265,7 +284,7 @@ class Organize::ProcessFlowsController < ApplicationController
  # Update the a step with new protocol version or reschedule
  #
   def change
-   if params[:commit]== l(:button_save) and @process_flow.flexible? 
+   if params[:commit]== l(:Save) and @process_flow.flexible?
       @process_step.update_attributes(params[:process_step])
    end
    @process_step =nil if @process_step.valid?     
@@ -287,30 +306,31 @@ class Organize::ProcessFlowsController < ApplicationController
     @tab = params[:tab]||0
     if params[:id]
       @assay = current_project.assay( params[:id] )
-      unless @assay
-         return show_access_denied      
-      end      
+      return show_access_denied unless @assay
       @assay_protocols = @assay.protocols
+      set_project(@assay.project)
+      set_element(@assay.folder)
     else
       @assay_protocols = current_project.protocols
-    end 
+    end
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end 
   #
   # Setup for a process flow 
   #
   def setup_for_process_flow_id
     @tab = params[:tab]||0
-    @process_flow    = current_project.process_flow(params[:id])
     @process_flow = ProcessFlow.load(params[:id])  
-    set_project(@process_flow.protocol.project) if @process_flow  and @process_flow.protocol
-    @process_flow  ||= current_project.process_flow(params[:id])
-
-    unless @process_flow
-         return show_access_denied      
-    end      
+    return show_access_denied unless @process_flow
     @assay_protocol  = @process_flow.protocol
     @assay           = @assay_protocol.assay
-    @project_folder  = @process_flow.folder 
+    set_project(@process_flow.protocol.project)
+    set_element(@project_folder  = @process_flow.folder)
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end 
   #
   # Filter to setup scope for a process step
@@ -319,9 +339,13 @@ class Organize::ProcessFlowsController < ApplicationController
     @tab = params[:tab]||0
     @process_step    = ProcessStep.find(params[:id])
     @process_flow    = @process_step.flow
+    @versions = @process_step.process.protocol.versions.released.collect{|i|[i.name,i.id]} if  @process_step
     @assay_protocol  = @process_flow.protocol
     @assay           = @assay_protocol.assay
-    @project_folder  = @process_flow.folder 
+    set_element @project_folder  = @process_flow.folder
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end 
   
 end

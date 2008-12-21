@@ -14,7 +14,7 @@
 <%dialog "Edit Role" do %>
 <% form_tag :action => 'update', :id => @role do %>
   <%= render :partial => 'edit' %>
-  <%= submit_tag l(:button_save) %>
-  <%= link_to l(:label_cancel), role_url( :action => 'list') %>
+  <%= submit_tag l(:Save) %>
+  <%= link_to l(:Cancel), role_url( :action => 'list') %>
 <% end %>
 <%end%>

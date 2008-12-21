@@ -1,0 +1,16 @@
+<% content_for :center do -%>
+  <%= render :partial=>'header'%>
+  <%= render :partial=>'status'%>
+<% end %>
+
+<% content_for :help do -%>
+    <%= render :partial => 'help' %>   
+<% end %>
+
+<% content_for :messages do -%>
+   <%= render :partial => '/shared/messages',:locals=>{:objects=>[:project_folder,:reference]} %>
+<% end %>
+
+<% content_for :footer do %>
+  <%= render :partial => '/shared/version_history',:locals=>{:folder=>@project_folder} %>
+<% end %>

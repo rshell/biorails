@@ -45,10 +45,22 @@ class Organize::ProcessFlowsControllerTest < Test::Unit::TestCase
     assert assigns(:assay_protocol).valid?
   end
   
+  def test_modernize
+    get :modernize, :id => @item.id
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
+  end
+
+  def test_destroy
+    get :destroy, :id => @item.id
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
+  end
+
   def test_show_invalid
     get :show, :id => 24242432
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_show_denied
@@ -59,16 +71,16 @@ class Organize::ProcessFlowsControllerTest < Test::Unit::TestCase
     assert_nil Project.current.member(User.current)
     assert_nil ProcessFlow.load(@item.id)
     get :show, :id => @item.id
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
     
   def list_show_denied
     @request.session[:current_project_id] =2
     @request.session[:current_user_id] = 9    
     get :list, :id => @assay.id
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
     
   def test_edit

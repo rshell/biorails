@@ -16,8 +16,8 @@
 class Admin::ParameterRolesController < ApplicationController
 
   use_authorization :catalogue,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user
+              :use => [:list,:show],
+              :admin => [:new,:create,:destroy,:edit,:index,:update]
  
   def index
     list

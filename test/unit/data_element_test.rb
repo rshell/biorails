@@ -66,8 +66,8 @@ class DataElementsTest < Test::Unit::TestCase
     assert element.lookup('b').path
     assert element.like(nil)
     assert element.like('a')
-    assert !element.lookup('z')
-    assert_equal element.children.size,4, "wrong number of children #{element.children.size}"
+    assert_nil element.lookup('z')
+    assert_equal 4,element.children.size, "wrong number of children #{element.children.collect{|i|i.name}.join(',')}"
   end
 
 
@@ -83,7 +83,7 @@ class DataElementsTest < Test::Unit::TestCase
     assert element.to_array
     assert element.valid?, "not valid #{element.errors.full_messages.to_sentence}" 
     assert  element.save,"failed to save"     
-    assert_equal element.children.size,6, "wrong number of children #{element.children.size}"
+    assert_equal 6, element.children.size, "wrong number of children #{element.children.collect{|i|i.name}.join(',')}"
     assert_save_ok element
     child = element.lookup("1")
     assert_equal child,element.reference(child.id)
@@ -146,6 +146,7 @@ class DataElementsTest < Test::Unit::TestCase
     assert element.save,"failed to save"     
     assert_ok element     
     assert element.lookup(@assay.name)
+    assert element.lookup(@assay.name).to_s
     assert element.reference(@assay.id)
     assert element.values
     assert element.to_array

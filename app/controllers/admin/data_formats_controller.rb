@@ -4,9 +4,8 @@
 # 
 class Admin::DataFormatsController < ApplicationController
   
-  use_authorization :catalogue,
-    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-    :rights => :current_user
+  use_authorization :system,
+              :admin => [:new,:create,:destroy,:edit,:index,:list,:show,:update]
                      
   def index
     list

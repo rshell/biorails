@@ -10,8 +10,11 @@
   </div>
 <% end -%>
 
-<% content_for :status do %>
+<% content_for :messages do -%>
+<%= render :partial => 'shared/messages', :locals => { :objects => ['assay_protocol','protocol_version']}  %>
+<%end %>
 
+<% content_for :status do %>
 <div class=" x-panel-header x-accordion-hd"  >
   <span class="x-panel-header-text" > Create entry sheet </span>
 </div> 

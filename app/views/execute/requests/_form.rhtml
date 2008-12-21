@@ -2,32 +2,23 @@
 
   <div class="form-element">
     <label for="user_request_name">
-      <%=l(:label_name)%>
+      <%=l(:Name)%>
     </label>
     <%= text_field :user_request, 'name' , {:class=>"text-input"} %>
   </div>
 
+<%= hidden_field :user_request, :project_id%>
 <% if @user_request.new_record?%>
   <div class="form-element">
     <label for="user_request_data_element_id">
-      <%=l(:label_item_type)%>
+      <%=l(:Item_Type)%>
     </label>
     <%= select( :user_request,
         :data_element_id,
         @user_request.allowed_elements.collect{|c|[c.path,c.id]})  %>
   </div>
-
-  <div class="form-element">
-    <label for="user_request_project_id">
-      <%=l(:label_for_project)%>
-    </label>
-    <%= select( :user_request, :project_id,
-        current_user.projects.collect{|c|[c.name,c.id]})  %>
-  </div>
-
 <% else %>
   <%= hidden_field :user_request, :data_element_id%>
-  <%= hidden_field :user_request, :project_id%>
 <% end %>
 
 </div>
@@ -35,7 +26,7 @@
 <div class="row">
   <div class="form-element">
     <label for="user_request_description">
-      <%=l(:label_description)%>
+      <%=l(:Description)%>
     </label>
     <%= text_area(:user_request, 'description',{:rows=>5, :cols=>80} )  %>
   </div>
@@ -45,30 +36,16 @@
 
   <div class="form-element">
     <label for="user_request_requested_by_user_id">
-      <%=l(:label_requestor)%>
+      <%=l(:Requestor)%>
     </label>
-    <%= select_named :user_request, 'requested_by_user_id', User %>
+    <%= select_values :user_request, 'requested_by_user_id', current_project.users %>
   </div>
 
   <div class="form-element">
     <label for="user_request_expected_at">
-      <%=l(:label_date_required)%>
+      <%=l(:Date_Required)%>
     </label>
     <%= date_field 'user_request', 'expected_at'  %>
-  </div>
-
-  <div class="form-element">
-    <label for="user_request_status_id">
-      <%=l(:label_status)%>
-    </label>
-    <%= select( :user_request, :status_id, @user_request.allowed_status_list)  %>
-  </div>
-
-  <div class="form-element">
-    <label for="user_request_priority_id">
-      <%=l(:label_priority)%>
-    </label>
-    <%= select( :user_request, :priority_id, @user_request.allowed_priority_list)  %>
   </div>
 
 </div>

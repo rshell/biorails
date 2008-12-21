@@ -1,39 +1,14 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: assays
-#
-#  id                 :integer(4)      not null, primary key
-#  name               :string(128)     default(""), not null
-#  description        :string(1024)    default(""), not null
-#  category_id        :integer(4)
-#  research_area      :string(255)
-#  purpose            :string(255)
-#  started_at         :datetime
-#  ended_at           :datetime
-#  expected_at        :datetime
-#  team_id            :integer(4)      not null
-#  project_id         :integer(4)      not null
-#  status_id          :integer(4)      default(0), not null
-#  lock_version       :integer(4)      default(0), not null
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  updated_by_user_id :integer(4)      default(1), not null
-#  created_by_user_id :integer(4)      default(1), not null
-#  project_element_id :integer(4)
-#
-
 --- 
 00000000002_assay: !ruby/object:Assay 
   attributes: 
     team_id: "2"
     name: Assay2
-    updated_at: 2008-08-14 10:29:37
+    updated_at: 2008-10-22 15:14:25
     project_id: "2"
     purpose: More than one is good
     ended_at: 
     updated_by_user_id: "1"
-    lock_version: "6"
+    lock_version: "7"
     expected_at: 2008-03-10 00:00:00
     id: "2"
     category_id: 
@@ -50,12 +25,12 @@
   attributes: 
     team_id: "2"
     name: Assay1
-    updated_at: 2008-08-14 10:29:37
+    updated_at: 2008-10-22 15:14:25
     project_id: "2"
     purpose: Testing Assay
     ended_at: 
     updated_by_user_id: "1"
-    lock_version: "6"
+    lock_version: "7"
     expected_at: 2008-03-06 00:00:00
     id: "1"
     category_id: 

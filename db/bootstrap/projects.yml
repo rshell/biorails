@@ -1,17 +1,27 @@
----
-projects_001:
-  done_hours:
-  name: Public
-  expected_hours:
-  team_id: "1"
-  ended_at:
-  title: Public
-  timezone:
-  updated_by_user_id: "1"
-  expected_at:
-  id: "1"
-  description: Public project!
-  host:
-  status_id: "0"
-  comment_age:
-  email: public@biorails.org
+--- 
+00000000001_project: !ruby/object:Project 
+  attributes: 
+    team_id: "1"
+    done_hours: 
+    name: global
+    updated_at: 2008-09-17 09:22:23
+    expected_hours: 
+    ended_at: 
+    title: Global
+    timezone: 
+    project_type_id: "1"
+    updated_by_user_id: "1"
+    lock_version: "1"
+    expected_at: 2009-03-17 09:22:22
+    id: "1"
+    description: Public area
+    project_element_id: "1"
+    created_by_user_id: "1"
+    host: 
+    status_id: "0"
+    parent_id: 
+    comment_age: 
+    created_at: 2008-09-17 09:22:23
+    started_at: 2008-09-17 09:22:22
+    email: public@biorails.org
+  attributes_cache: {}

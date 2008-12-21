@@ -1,4 +1,8 @@
-<p>Project [{{record.name}}]: {{record.description}}</p>
+<dl>
+    <dt>Project [{{record.name}}]: </dt>
+    <dd>{{record.title}}</dd>
+    <dd>{{record.description}}</dd>
+<dl>
 <ul>
 {% for item in project.folder.elements %}
 <li>

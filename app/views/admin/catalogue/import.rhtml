@@ -1,14 +1,14 @@
 <%content_for :center do %>
 <%=render :partial => 'admin/header' %>
 <div class='panel'>
-    <h2 class="icon icon-data_system-large"><%=l(:label_import_catalogue_into_system) %>
+    <h2 class="icon icon-data_system-large"><%=l(:Import_Catalogue_into_System) %>
     </h2>
     <%form_tag({:action =>'import_file'} , {:multipart => true}) do %>
     <%= render :partial => '/shared/messages',  :locals => { :objects => ['data_context']} %>
     <div class="row">
         <div class="form-element">
             <label for="filename">
-                <%=l(:label_catalogue_to_import) %>
+                <%=l(:Catalogue_to_import) %>
             </label>
             <%=file_field_tag(:file) %>
         </div>
@@ -16,7 +16,7 @@
     <div class="row">
         <div class="form-element">
             <label for="catalogue_name">
-                <%=l(:label_name) %>
+                <%=l(:Name) %>
             </label>
             <%= text_field_tag :name, nil , {:class=>"text-input"} %>
         </div>
@@ -28,13 +28,13 @@
             <%=l(:notice_backup_database_context) %>
         </p>
         <br/>
-        <%= submit_tag(l(:label_import)) %>
+        <%= submit_tag(l(:Import)) %>
     </div>
     <% end %>
 </div>
 <% end %>
 <% content_for :help do %>
-<h2><%=l(:label_guide) %>
+<h2><%=l(:Guide) %>
 </h2>
 <div class='panel'>
     <%=l(:help_catalogue2) %>

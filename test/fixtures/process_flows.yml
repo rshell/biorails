@@ -5,17 +5,16 @@
     analysis_method_id: 
     name: flow3:1
     expected_hours: "24"
-    updated_at: 2008-08-14 10:29:48
+    updated_at: 2008-10-22 15:14:25
     type: ProcessFlow
     updated_by_user_id: "1"
-    lock_version: "6"
+    lock_version: "7"
     id: "10"
     description: new workflow created for assay Assay1
     report_id: 
     version: "1"
     project_element_id: "104"
     created_by_user_id: "1"
-    how_to: 
     created_at: 2008-08-04 09:29:56
     assay_protocol_id: "4"
   attributes_cache: {}
@@ -26,17 +25,16 @@
     analysis_method_id: 
     name: flow3:2
     expected_hours: "24"
-    updated_at: 2008-08-14 10:29:48
+    updated_at: 2008-10-22 15:14:25
     type: ProcessFlow
     updated_by_user_id: "1"
-    lock_version: "6"
+    lock_version: "7"
     id: "11"
     description: new workflow created for assay Assay1
     report_id: 
     version: "2"
     project_element_id: "105"
     created_by_user_id: "1"
-    how_to: 
     created_at: 2008-08-04 09:29:57
     assay_protocol_id: "4"
   attributes_cache: {}

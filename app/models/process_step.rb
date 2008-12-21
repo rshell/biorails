@@ -124,6 +124,23 @@ class ProcessStep < ActiveRecord::Base
     end
   end
 
+ def to_xml(options = {})
+      my_options = options.dup
+      my_options[:reference] = {:process=>:name}
+      my_options[:except] = [:process_flow_id]
+     Alces::XmlSerializer.new(self,my_options ).to_s
+ end
+
+ ##
+ # Get from xml
+ # Lookup the references to catalogue by name was may be in a difference database
+ #
+ def self.from_xml(xml,options ={} )
+      my_options = options.dup
+      my_options[:reference] = {:process=>:name}
+      Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+ end
+
 protected
 
   def self.copy_step(other)

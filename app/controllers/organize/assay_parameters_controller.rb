@@ -8,12 +8,11 @@
 #
 class Organize::AssayParametersController < ApplicationController
   use_authorization :organization,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user
+                    :use => [:list,:show,:new,:create,:edit,:update,:destroy]
 
   before_filter :setup_assay , :only => [:index, :list,:new,:refresh,:create,:export,:import, :import_file]
   
-  before_filter :setup_assay_parameter , :only => [ :show, :edit, :update,:destroy]
+  before_filter :setup_assay_parameter , :only => [ :show, :edit, :update,:destroy,:protocol_list,:process_metrics,:experiment_metrics]
                     
   def index
     list
@@ -29,14 +28,65 @@ class Organize::AssayParametersController < ApplicationController
 # show the details of a current parameter with usage statisticsts etc
 #
   def show
-    protocol_list
-    protocol_metrics
-    experiment_metrics
     respond_to do | format |
       format.html { render :action => 'show'}
       format.xml  { render :xml =>  @assay_parameter.to_xml}
     end    
   end
+
+##
+# Generate a report on protocol using this parameter type
+#
+ def protocol_list
+   @report = Biorails::ReportLibrary.parameter_list("Parameter usage for #{@assay_parameter.name}") do | report|
+      report.column('assay_parameter_id').filter = "#{@assay_parameter.id}"
+   end
+   @report.save
+
+    respond_to do | format |
+      format.html { render :action => 'report' }
+      format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
+      format.pdf  { render_pdf :action => 'report',:layout=>false }
+      format.json { render :json => @report.data.to_json }
+      format.xml  { render :xml => @report.data.to_xml }
+    end
+  end
+
+
+##
+# Generate a report on protocol level statistics filter down to only this parameter type
+#
+  def process_metrics
+    @report = Biorails::ReportLibrary.process_statistics("Process Stats #{@assay_parameter.name}") do | report|
+      report.column('assay_parameter_id').filter = "#{@assay_parameter.id}"
+    end
+    @report.save
+    respond_to do | format |
+      format.html { render :action => 'report' }
+      format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
+      format.pdf  { render_pdf :action => 'report',:layout=>false }
+      format.json { render :json => @report.data.to_json }
+      format.xml  { render :xml => @report.data.to_xml }
+    end
+  end
+
+##
+# Generate a report on experiment level statistics filter down to only this parameter type
+#
+  def experiment_metrics
+   @report = Biorails::ReportLibrary.experiment_statistics("Experiment Stats #{@assay_parameter.name}") do | report|
+    report.column('assay_parameter_id').filter = "#{@assay_parameter.id}"
+   end
+   @report.save
+    respond_to do | format |
+      format.html { render :action => 'report' }
+      format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
+      format.pdf  { render_pdf :action => 'report',:layout=>false }
+      format.json { render :json => @report.data.to_json }
+      format.xml  { render :xml => @report.data.to_xml }
+    end
+  end
+
 #
 # Create a new assay Parameter
 #
@@ -141,7 +191,9 @@ class Organize::AssayParametersController < ApplicationController
   def refresh    
     @assay_parameter = AssayParameter.new
     @assay_parameter.assay =  @assay
-    if params[:parameter_type_id]
+    if params[:parameter_type_id].blank?
+
+    else
       @parameter_type = ParameterType.find(params[:parameter_type_id])
       @assay_parameter.type =  @parameter_type
       @parameter_type_alias = @parameter_type.aliases.find_by_name(params[:alias]) if params[:alias]
@@ -176,17 +228,17 @@ class Organize::AssayParametersController < ApplicationController
   def test_save
    begin
       @successful = false 
-      field_domid = params[:element]
-      result_domid = field_domid.gsub(/test/,'result')
       @assay_parameter = AssayParameter.find(params[:id])
+      field_domid = params[:element]
+      result_domid = "result_#{@assay_parameter.id}"
       @assay = @assay_parameter.assay
       @assay_parameters = @assay.parameters
       @value =  @assay_parameter.parse(params[:value])
+      @successful = !@value.nil?
       @text =   @assay_parameter.format(@value)
-      @successful = true 
    rescue Exception => ex
       logger.error "current error: #{ex.message}"
-      logger.error ex.backtrace.join("\n") 
+      logger.error ex.backtrace.join("\n")
       @successful = false
    end  
     respond_to do | format |
@@ -194,15 +246,15 @@ class Organize::AssayParametersController < ApplicationController
       format.xml  { render :xml =>  @assay_parameter.to_xml}
       format.js   {
        render :update do | page |
-         if  @successful 
+          if  @successful
             page[field_domid].value = @text
             case @value
-            when Unit 
-              page.replace_html result_domid, "#{@value.class} #{@value.to_base} [#{@value}]"
-            when ActiveRecord::Base 
-              page.replace_html result_domid, "#{@value.class}##{@value.id}"
+            when Unit
+              page.replace_html result_domid, "#{@text} [#{@value.to_base}]"
+            when ActiveRecord::Base
+              page.replace_html result_domid, "#{@text} [#{@value.class}##{@value.id}]"
             else
-              page.replace_html result_domid, "[#{@value.class}] #{@text}"
+              page.replace_html result_domid, "#{@text}"
             end
             page.visual_effect :highlight, field_domid, {:endcolor=>'#99FF99',:restorecolor=>'#99FF99'}
           else
@@ -218,55 +270,30 @@ protected
   
   def setup_assay
     @assay = Assay.load(params[:id])  
-    set_project(@assay.project) if @assay  
     @assay ||= current_project.assay(params[:id])  
+    return show_access_denied unless @assay
     @assay_parameters = @assay.parameters
-    unless @assay
-      return show_access_denied      
-    end
+    @parameter_types = ParameterType.select_list
+    set_project(@assay.project)
+    set_element(@assay.folder)
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end
 
   def setup_assay_parameter    
-    @assay_parameter = current_project.assay_parameter(params[:id])
-    unless @assay_parameter
-      return show_access_denied      
-    end
-    @assay = @assay_parameter.assay  
-  end
-##
-# Generate a report on protocol using this parameter type
-# 
- def protocol_list
-   @protocol_report = Report.internal_report("ParameterProtocols",Parameter) do |report|
-       report.column('assay_parameter_id').is_visible = false
-       report.column('assay_parameter_id').filter = "#{@assay_parameter.id}"
-       report.column('process.name').customize(:is_sortable=>true,:is_visiable=>true)
-   end 
-   @protocol_data = @protocol_report.run(:page=>params[:page])
+    @assay_parameter = AssayParameter.load(params[:id])
+    @parameter_type =@assay_parameter.type
+    return show_access_denied  unless @assay_parameter
+    @assay = @assay_parameter.assay
+    set_project(@assay.project)
+    set_element(@assay_parameter.folder)
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end
 
 
-##
-# Generate a report on protocol level statistics filter down to only this parameter type
-# 
-  def protocol_metrics
-   @metrics_report = Report.internal_report("ParameterStatistics",ProcessStatistics) do | report |
-      report.column('assay_parameter_id').is_visible = false
-      report.column('assay_parameter_id').filter = "#{@assay_parameter.id}"
-   end  
-   @metrics_data = @metrics_report.run(:page=>params[:page])
-  end
 
-##
-# Generate a report on experiment level statistics filter down to only this parameter type
-# 
-  def experiment_metrics
-   @experiment_report = Report.internal_report("ExperimentStatistics",ExperimentStatistics) do | report|
-     report.column('assay_parameter_id').is_visible = false
-     report.column('assay_parameter_id').filter = "#{@assay_parameter.id}"
-   end
-   @experiment_data = @experiment_report.run(:page=>params[:page])
-  end
-  
 end
 

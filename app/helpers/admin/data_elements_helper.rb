@@ -41,8 +41,8 @@ module Admin::DataElementsHelper
 
   def table_row(row)
       txt = '<tr>'
-      txt += '<th>'+ row['id'].to_s + '</th>' 
-      txt += '<td>'+ row['name'].to_s + '</td>' 
+      txt += "<th>#{row.id}</th>"
+      txt += "<td>#{row.name}</td>"
       txt +='</tr>'
       return txt  
   rescue

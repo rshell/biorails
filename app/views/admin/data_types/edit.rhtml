@@ -10,10 +10,10 @@
 <%end%>
 
 <%= render :partial => 'admin/header'%>
-<% dialog l(:label_data_type_edit) do %>
+<% dialog l(:Data_Type_Edit) do %>
 	<% form_tag :action => 'update', :id => @data_type do %>
 	  <%= render :partial => 'form' %>
-	  <%= submit_tag l(:button_save) %>
-        <%= link_to l(:label_cancel),data_type_url(:action => 'list') %>
+	  <%= submit_tag l(:Save) %>
+        <%= link_to l(:Cancel),data_type_url(:action => 'list') %>
 	<% end %>
 <% end %>

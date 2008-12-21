@@ -1,8 +1,48 @@
 <div class='box'>
   <% form_tag :action => 'update', :id => @experiment do %>
-    <%= render :partial => 'form' %>
+
+<div class="row">
+  <div class="form-element">
+    <label for="experiment_name">
+      <%=l(:Name) %>
+    </label>
+    <%= text_field 'experiment', 'name' , {:class=>"text-input"} %>
+    <%= hidden_field 'experiment', 'project_id' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-element">
+    <label for="assay_description">
+      <%=l(:Description) %>
+    </label>
+    <%= text_area('experiment', 'description',{:rows=>5, :cols=>80} 	) %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-element">
+    <label for="experiment_started_at">
+      <%=l(:Date_Start) %>
+    </label>
+    <%= date_field 'experiment', 'started_at' %>
+  </div>
+  <div class="form-element">
+    <label for="experiment_ended_at">
+      <%=l(:Date_Expected) %>
+    </label>
+    <%= date_field 'experiment', 'expected_at' %>
+  </div>
+  <div class="form-element">
+    <label for="experiment_team_id">
+      <%=l(:Team_Assigned) %>
+    </label>
+    <%= collection_select 'experiment', 'team_id', @experiment.project.teams,:id,:name %>
+  </div>
+</div>
+
     <div class="row">
-    <%= submit_tag l(:button_save) %>
+    <%= submit_tag l(:Save) %>
     </div>
   <% end %>
 </div>

@@ -9,7 +9,7 @@
 <%unless !@process_flow or @process_flow.new_record?%>
 <div class="x-form-item">
     <label class="x-form-item-label" for="'process_step_start_offset_hours">
-      <%=l(:label_label)%>
+      <%=l(:Label)%>
     </label>
     <div class="x-form-element">
       <%= text_field 'process_flow', 'name' %>
@@ -18,7 +18,7 @@
 
 <div class="x-form-item">
     <label class="x-form-item-label" for="'process_step_start_offset_hours">
-      <%=l(:label_expected_hours)%>
+      <%=l(:Expected_Duration)%>
     </label>
     <div class="x-form-element">
       <%= text_field 'process_flow', 'expected_hours' %>
@@ -27,7 +27,7 @@
 
 <div class="x-form-item">
     <label class="x-form-item-label" for=process_step_description">
-      <%=l(:label_description)%>
+      <%=l(:Description)%>
     </label>
     <div class="x-form-element" >
        <%= text_area( 'process_flow', 'description',{:rows=>5, :cols=>80})  %>
@@ -37,7 +37,7 @@
 <%else%>
 <div class="x-form-item">
   <label class="x-form-item-label" for="assay_protocol_name">
-    <%=l(:label_name)%>
+    <%=l(:Name)%>
   </label>
   <div class="x-form-element" >
     <%= text_field( 'assay_protocol', 'name')  %>
@@ -46,7 +46,7 @@
 
 <div class="x-form-item">
   <label class="x-form-item-label" for="assay_protocol_description">
-    <%=l(:label_description)%>
+    <%=l(:Description)%>
   </label>
   <div class="x-form-element" >
     <%= text_area( 'assay_protocol', 'description',{:rows=>5, :cols=>80}	)  %>

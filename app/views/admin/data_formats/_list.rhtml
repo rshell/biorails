@@ -5,10 +5,10 @@
     <%= @data_type.name %>:<%= @data_type.description %>
   </th>
   <tr>
-    <th><%=l(:label_name)%></th>
-    <th><%=l(:label_test_string)%></th>
-    <th><%=l(:label_regex_rule)%></th>
-    <th><%=l(:label_action)%></th>
+    <th><%=l(:Name)%></th>
+    <th><%=l(:Test_String)%></th>
+    <th><%=l(:Regex_Rule)%></th>
+    <th><%=l(:Action)%></th>
   </tr>
 <% for data_format in @data_formats %>
   <tr class="<%= cycle('odd', 'even') %>">
@@ -20,7 +20,7 @@
     </td>
     <td><%=h data_format.description %></td>
       <td>
-        <%= link_to l(:label_edit),data_format_url( :action => 'edit', :id => data_format), :class=>'icon icon-edit' %>
+        <%= link_to l(:Edit),data_format_url( :action => 'edit', :id => data_format), :class=>'icon icon-edit' %>
       </td>
   </tr>
 <% end %>

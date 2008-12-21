@@ -1,0 +1,26 @@
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
+<% end %>
+
+<% content_for :right do %>
+<%= render :partial => 'help' %>
+<% end %>
+
+<% content_for :messages do %>
+<%= error_messages_for 'state_flow' %>
+<% end %>
+
+<% content_for :center do %>
+<%= render :partial => 'header' %>
+    <h2><%=l(:State_New) %>
+    </h2>
+    <div class="panel">
+        <% form_tag(state_flow_url(:action => 'create'), :class => "tabular") do %>
+        <%= render :partial=>'form' %>
+        <div class="row">
+            <%= submit_tag l(:Create) %>
+            <%= link_to l(:Cancel), state_url(:action => 'list') %>
+        </div>
+        <% end %>
+    </div>
+<% end %>

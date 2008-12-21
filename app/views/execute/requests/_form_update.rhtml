@@ -1,0 +1,14 @@
+  <div class="form-element">
+    <label for="user_request_state_id">
+      <%=l(:Status)%>
+    </label>
+    <%= select_values( :user_request, :state_id, @user_request.allowed_status_list)  %>
+  </div>
+
+
+  <div class="form-element">
+    <label for="user_request_priority_id">
+      <%=l(:Priority)%>
+    </label>
+    <%= select_values( :user_request, :priority_id, @user_request.allowed_priority_list)  %>
+  </div>

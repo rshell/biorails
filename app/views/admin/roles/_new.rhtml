@@ -2,21 +2,21 @@
 <!--[form:role]-->
 <p>
     <label for="role_name">
-        <%=l(:label_name)%>
+        <%=l(:Name)%>
     </label>
     <br/>
     <%= text_field 'role', 'name'  %>
 </p>
 <p>
     <label for="role_name">
-        <%=l(:label_type)%>
+        <%=l(:Type)%>
     </label>
     <br/>
     <%= select_tag :role_type ,options_for_select([["System wide user rights ", "UserRole"], ["Project scope rights", "ProjectRole"]])  %>
 </p>
 <p>
     <label for="role_description">
-        <%=l(:label_description)%>
+        <%=l(:Description)%>
     </label>
     <br/>
     <%= text_area 'role', 'description', :rows => 3 %> 

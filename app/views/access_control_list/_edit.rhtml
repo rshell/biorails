@@ -1,0 +1,26 @@
+ 
+  <%if @project_element %>
+  <h2>
+    <%=l(:Currently_editing_acl)%>: <%=@acl.id%> 
+    <%=l(:text_to_replace_acl)%>: <%=@project_element.access_control_list_id %><br/>
+  </h2>  
+  <%end%>
+<div class='panel'>            
+  <div id='<%=@acl.dom_id%>'>
+    <%= render :partial => '/access_control_list/rules'%>
+  </div>
+  
+  <%if @project_element %>
+  <%form_tag  acl_url(:action=>'update') do %>
+  <%= hidden_field_tag :access_control_list_id,@acl.id %>
+  <%= hidden_field_tag :project_element_id,@project_element.id %>
+  <div class='box'>
+    <%= submit_tag l('Save') %>
+    <%= submit_tag l('Cancel') %>
+    <br />
+    <%=l(:Update_acls_in_children)%>
+    <%=check_box_tag :children,:yes,true %>
+    <%end%>
+  </div>
+  <%end%>
+</div>

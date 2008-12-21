@@ -25,12 +25,24 @@
 #
 class ProjectType < ActiveRecord::Base
   
-  validates_uniqueness_of :name
+  PROJECT = "project"
+  ASSAY_GROUP = "assay_group"
+  STUDY = "study"
+  ORGANIZATION = "organization"
+  
+  validates_uniqueness_of :name,:case_sensitive=>false
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :dashboard
+  validates_associated :state_flow
+
+  belongs_to :state_flow
 
   has_many :projects
+
+  def validate
+     errors.add('dashboard',"Invalid no matching views found") unless ProjectType.dashboard_list.any?{|i|i==self.dashboard}
+  end
 
   def path
     return self.name
@@ -46,8 +58,7 @@ class ProjectType < ActiveRecord::Base
          dir = Dir.open(item)
          if dir.entries.include?("show.rhtml") &&
             dir.entries.include?("_actions.rhtml") &&
-            dir.entries.include?("_show.rhtml") &&
-            dir.entries.include?("_status.rhtml") &&
+            dir.entries.include?("_tabs.rhtml") &&
             dir.entries.include?("_help.rhtml")
            list << File.split(item).last
          end
@@ -89,6 +100,12 @@ class ProjectType < ActiveRecord::Base
     else
       name.to_s
     end      
+  end
+  #
+  # Return true if this type is a study
+  #
+  def study?
+    return (self.dashboard == "study")
   end
 
 end

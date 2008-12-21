@@ -36,7 +36,7 @@ class ModelElement < DataElement
 # Check the SQL is valid 
 #
   def validate
-    logger.info "Checkling model #{content}"
+    logger.info "Checking model #{content}"
     self.estimated_count = self.model.count
     return  true #super.validate
   rescue Exception => ex

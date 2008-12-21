@@ -10,8 +10,8 @@
 class Organize::AssayQueuesController < ApplicationController
 
   use_authorization :organization,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user
+                    :use => [:list,:show],
+                    :build => [:new,:create,:edit,:update,:destroy]
 
           
   before_filter :setup_assay , :only => [ :new, :create]
@@ -39,12 +39,9 @@ class Organize::AssayQueuesController < ApplicationController
   def results
    @assay_queue = AssayQueue.find(params[:id])
    @assay = @assay_queue.assay
-   @report = Report.internal_report("Service Queue Results",QueueResult) do | report |
+   @report = Biorails::SystemReportLibrary.queue_results("Service Queue Results") do | report |
       report.column('assay_queue_id').filter = @assay_queue.id
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
    end
-   @data = @report.run(:page => params[:page])
    render :action => :report
   end
   
@@ -72,7 +69,7 @@ class Organize::AssayQueuesController < ApplicationController
     @assay.queues << @assay_queue
     if @assay_queue.save
       flash[:notice] = 'AssayQueue was successfully created.'
-      redirect_to :action => 'list',:id => @assay
+      redirect_to assay_url(:action => 'show',:id => @assay, :tab=>3)
     else
       render :action => 'new'
     end
@@ -103,17 +100,13 @@ class Organize::AssayQueuesController < ApplicationController
       @assay_queue = @request_service.queue
       @assay = @assay_queue.assay
       @request_service.update_state(params)
-      @request_service.items.each do |item| 
-         item.update_state(params)
-         item.save
-      end
-      @request_service.save
     end
     
     respond_to do | format |
       format.html { render :action => 'show' }
       format.js   { render :update do | page |
           page.replace_html @request_service.dom_id(:updated_at), :partial => 'request_service',:locals => { :queue_item => @request_service } 
+          page.message_panel(:partial => 'shared/messages', :locals => { :objects => [:request_service,:assay_queue] })
           page.visual_effect :highlight, @request_service.dom_id(:updated_at),:duration => 1.5
       end }
       format.json { render :json => @request_service.to_json }
@@ -151,10 +144,14 @@ protected
   #
   def setup_assay
     @assay = Assay.load(params[:id])    
-    @assay ||= current_project.assay(params[:id])      
+    @assay ||= current_project.assay(params[:id])
     unless @assay
       return show_access_denied      
     end
+    set_element(@assay.folder)
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end
   #
   # Setup for a specific assay queue with check access
@@ -166,5 +163,9 @@ protected
     end
     @assay = @assay_queue.assay
     set_project(@assay.project)   
+    set_element(@assay_queue.folder)
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end  
 end

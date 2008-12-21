@@ -1,0 +1,51 @@
+  <div class="row">
+    <div class="form-element">
+      <label for="tab1">
+        <%=l(:Overview) %>
+      </label>
+      <%=select_tag( :home_tab1,options_for_select(@options,UserSetting.home_tab1)) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-element">
+      <label for="tab2">
+        <%=l(:Documents) %>
+      </label>
+      <%=select_tag( :home_tab2,options_for_select(@options,UserSetting.home_tab2)) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-element">
+      <label for="tab3">
+        <%=l(:Oganisation) %>
+      </label>
+      <%=select_tag( :home_tab3,options_for_select(@options,UserSetting.home_tab3)) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-element">
+      <%=l(:Execution) %>
+      <label for="tab4">
+      </label>
+      <%=select_tag( :home_tab4,options_for_select(@options,UserSetting.home_tab4)) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-element">
+      <label for="tab5">
+        <%=l(:Studies) %>
+      </label>
+      <%=select_tag( :home_tab5,options_for_select(@options,UserSetting.home_tab5)) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-element">
+      <label for="tab6">
+        <%=l(:Custom) %>
+      </label>
+      <%=select_tag( :home_tab6,options_for_select(@options,UserSetting.home_tab6)) %>
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />

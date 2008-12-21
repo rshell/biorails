@@ -2,345 +2,66 @@
 00000000006_user_role: !ruby/object:UserRole 
   attributes: 
     name: Power-User
-    updated_at: 2008-03-03 13:51:14 Z
+    updated_at: 2008-10-20 14:46:46
     cache: |
       --- 
-      assays: {}
-      
-      experiments: {}
-      
-      teams: {}
-      
-      user: 
-        "*": true
-      auth: {}
-      
-      help: {}
-      
+      teams: 
+        build: true
+        use: true
+      execution: 
+        all: true
       catalogue: 
-        new: true
-        list: true
-        create: true
-        show: true
-      project: {}
-      
-      dba: {}
-      
-      assay_parameters: {}
-      
-      audit: 
-        show: true
-        "*": true
-      assay_queues: {}
-      
-      biorails: {}
-      
-      tasks: {}
-      
-      queue_items: {}
-      
-      requests: {}
-      
-      users: 
-        list: true
-        show: true
-      home: 
-        calendar: true
-        blog: true
-        destroy: true
-        projects: true
-        timeline: true
-        show: true
-        index: true
-        "*": true
-      assay_protocols: {}
-      
+        admin: true
+      project: 
+        build: true
+        use: true
+      system: 
+        admin: true
+      organization: 
+        build: true
+        use: true
       reports: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      signatures: {}
-      
-      folders: {}
-      
-      report: 
-        "*": true
-      finder: {}
-      
-      inventory: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
+        build: true
+        use: true
 
-    updated_by_user_id: 1
+    updated_by_user_id: "1"
     type: UserRole
-    id: 6
+    id: "6"
     description: General Power user role with rights to manage reports and delete stuff
-    created_by_user_id: 1
+    created_by_user_id: "1"
     parent_id: 
-    created_at: 2007-06-11 12:06:50 Z
+    created_at: 2007-06-11 12:06:50
   attributes_cache: {}
 
 00000000003_user_role: !ruby/object:UserRole 
   attributes: 
     name: Admin-User
-    updated_at: 2008-03-03 13:53:15 Z
-    cache: |
-      --- 
-      assays: {}
+    updated_at: 2008-10-20 14:24:25
+    cache: |+
+      --- {}
       
-      teams: {}
-      
-      experiments: {}
-      
-      "": 
-        "": true
-      user: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      auth: {}
-      
-      help: {}
-      
-      catalogue: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        new_usage: true
-        create: true
-        new_element: true
-        show: true
-        update: true
-        "*": true
-      protocol: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      assay: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      project: {}
-      
-      dba: 
-        new: true
-        list: true
-        backup: true
-        edit: true
-        destroy: true
-        initialize: true
-        create: true
-        show: true
-        recover: true
-        update: true
-        "*": true
-      assay_parameters: {}
-      
-      system: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      audit: 
-        show: true
-        "*": true
-      cataloge: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      assay_queues: {}
-      
-      biorails: {}
-      
-      tasks: {}
-      
-      queue_items: {}
-      
-      experiment: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      requests: {}
-      
-      users: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      request: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      home: 
-        calendar: true
-        blog: true
-        destroy: true
-        projects: true
-        timeline: true
-        show: true
-        index: true
-        "*": true
-      signatures: {}
-      
-      assay_protocols: {}
-      
-      reports: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      folders: {}
-      
-      report: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      finder: {}
-      
-      inventory: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-
-    updated_by_user_id: 1
+    updated_by_user_id: "1"
     type: UserRole
-    id: 3
+    id: "3"
     description: Systems Catalogue Administrator
-    created_by_user_id: 1
-    parent_id: 2
-    created_at: 2006-06-23 12:03:48 Z
+    created_by_user_id: "1"
+    parent_id: "2"
+    created_at: 2006-06-23 12:03:48
   attributes_cache: {}
 
 00000000007_user_role: !ruby/object:UserRole 
   attributes: 
     name: Normal-User
-    updated_at: 2008-03-03 13:52:25 Z
-    cache: |
-      --- 
-      assays: {}
+    updated_at: 2008-10-20 14:24:25
+    cache: |+
+      --- {}
       
-      teams: {}
-      
-      experiments: {}
-      
-      auth: {}
-      
-      help: {}
-      
-      catalogue: 
-        list: true
-        show: true
-      project: {}
-      
-      dba: {}
-      
-      assay_parameters: {}
-      
-      audit: 
-        show: true
-        "*": true
-      assay_queues: {}
-      
-      biorails: {}
-      
-      tasks: {}
-      
-      queue_items: {}
-      
-      requests: {}
-      
-      users: 
-        list: true
-        show: true
-      home: 
-        calendar: true
-        blog: true
-        destroy: true
-        projects: true
-        timeline: true
-        show: true
-        index: true
-        "*": true
-      signatures: {}
-      
-      assay_protocols: {}
-      
-      reports: 
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      folders: {}
-      
-      finder: {}
-      
-      inventory: 
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-
-    updated_by_user_id: 1
+    updated_by_user_id: "1"
     type: UserRole
-    id: 7
+    id: "7"
     description: "Standard User "
-    created_by_user_id: 1
+    created_by_user_id: "1"
     parent_id: 
-    created_at: 2007-06-11 12:48:05 Z
+    created_at: 2007-06-11 12:48:05
   attributes_cache: {}
 

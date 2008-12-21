@@ -1,9 +1,9 @@
-<% dialog l(:label_concept) + @data_concept.path do %>
+<% dialog l(:Concept) + @data_concept.path do %>
 	  <% form_tag :action => 'update', :id => @data_concept do %>
 	  <fieldset class='form'>
 	      <%= render :partial => 'form_concept' %>
 	  </fieldset>
-	  <%= submit_tag l(:button_save) %>
+	  <%= submit_tag l(:Save) %>
 	  <% end %>
   <% end %>
 

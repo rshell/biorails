@@ -1,77 +1,85 @@
 <div class="x-panel">
-    <div class="x-panel-header x-accordion-hd">
-        <span class="icon icon-calendar x-panel-header-text"><%=@user.name %></span>
-    </div>
-    <%form_tag({:action =>'calendar', :id=> @user.id} ) do %>
+  <div class="x-panel-header x-accordion-hd">
+    <span class="icon icon-calendar x-panel-header-text"><%=@user.name %></span>
+  </div>
+  <%form_tag({:action =>'calendar', :id=> @user.id} ) do %>
     <div id='sub-panel-calendar' class='guide'>
-        <%= error_messages_for("user") %>
-        <fieldset>
-            <legend class="icon icon-date">
-                <%=l(:label_date_picker) %>
-            </legend>
-            <p>
-                <%=l(:label_month) %>
-            </p>
-            <p>
-                <%= select_month(@calendar.started_at,
-                :prefix => "month",
-                :discard_type => true) %>
-            </p>
-            <p>
-                <%=l(:label_year) %>
-            </p>
-            <p>
-                <%= select_year(@calendar.started_at,
-                :prefix => "year",
-                :discard_type => true) %>
-            </p>
-            <br/>
-        </fieldset>
+      <%= error_messages_for("user") %>
+
+      <fieldset>
+        <legend class="icon icon-date">
+          <%=l(:Date_Picker) %>
+        </legend>
+        <p>
+          <%=l(:Month) %>
+        </p>
+        <p>
+          <%= select_month(@calendar.started_at,
+            :prefix => "month",
+            :discard_type => true) %>
+        </p>
+        <p>
+          <%=l(:Year) %>
+        </p>
+        <p>
+          <%= select_year(@calendar.started_at,
+            :prefix => "year",
+            :discard_type => true) %>
+        </p>
         <br/>
-        <fieldset class='boldnotbold'>
-            <legend>
-                <%=l(:label_types) %>
-            </legend>
-            <br/>
-            <ul style='list-style:none;'>
-                <li>
-                    <%= check_box_tag 'items[task]', 'y',
-                    checked = @options['items']['task'] %>
-                    <b class="icon icon-task-small">Tasks</b>
-                </li>
-                <li>
-                    <%= check_box_tag 'items[queue]', 'y',
-                    checked = @options['items']['queue'] %>
-                    <b class="icon icon-queue_item-small" style='list-style:none;'><%=l(:label_queued_items) %>
-                    </b>
-                </li>
-                <li>
-                    <%= check_box_tag 'items[request]', 'y',   checked = @options['items']['request'] %>
-                    <b class="icon icon-request-small"><%=l(:label_requests) %></b>
-                </li>
-                <li>
-                    <%= check_box_tag 'items[experiment]', 'y',checked = @options['items']['experiment'] %>
-                    <b class='icon icon-experiment-small'><%=l(:label_experiments) %></b>
-                </li>
-            </ul>
-            <br/>
-        </fieldset>
+      </fieldset>
+
+      <br/>
+
+      <fieldset class='boldnotbold'>
+        <legend>
+          <%=l(:Types) %>
+        </legend>
         <br/>
-        <fieldset class='boldnotbold'>
-            <legend class="icon icon-status">
-                <%=l(:label_status) %>
-            </legend>
-            <br/>
-            <ul style='list-style:none;'>
-                <% for state in Task.schedule_states.keys.sort %>
-                <li>
-                    <%= check_box_tag "states[#{state}]", Task.schedule_states[state],checked = @options['states'][state]||@options['states'][state.to_s] %>
-                    <b class='icon icon-status_<%=Task.schedule_states[state]%>'><%=Task.schedule_states[state] %></b>
-                </li>
-                <% end %>
-            </ul>
-            <br/>
-        </fieldset>
-        <%= submit_tag("Update") %>
-        <% end %>
-    </div>
+        <ul style='list-style:none;'>
+          <li>
+            <%= check_box_tag 'items[task]', 'y',
+              checked = @options['items']['task'] %>
+            <b class="icon icon-task-small">Tasks</b>
+          </li>
+          <li>
+            <%= check_box_tag 'items[queue]', 'y',
+              checked = @options['items']['queue'] %>
+            <b class="icon icon-queue_item-small" style='list-style:none;'><%=l(:Queued_Items) %>
+            </b>
+          </li>
+          <li>
+            <%= check_box_tag 'items[request]', 'y',   checked = @options['items']['request'] %>
+            <b class="icon icon-request-small"><%=l(:Requests) %></b>
+          </li>
+          <li>
+            <%= check_box_tag 'items[experiment]', 'y',checked = @options['items']['experiment'] %>
+            <b class='icon icon-experiment-small'><%=l(:Experiments) %></b>
+          </li>
+        </ul>
+        <br/>
+      </fieldset>
+
+      <br/>
+
+      <fieldset class='boldnotbold'>
+        <legend class="icon icon-status">
+          <%=l(:Status) %>
+        </legend>
+        <br/>
+        <ul style='list-style:none;'>
+          <% for state in State.states  %>
+            <li>
+              <%= check_box_tag "states[#{state.id}]",@options['states']["#{state.id}"],!@options['states']["#{state.id}"].blank? %>
+              <%=state.to_s%>
+            </li>
+
+          <% end %>
+        </ul>
+        <br/>
+      </fieldset>
+
+      <%= submit_tag("Update") %>
+    <% end %>
+  </div>
+</div>

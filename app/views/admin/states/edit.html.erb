@@ -11,9 +11,9 @@
 <% end %>
 
 <% content_for :center do %>
-<%= render :partial => 'admin/header'%>
+<%= render :partial => 'header'%>
 <h2 class='icon icon-status'>
-  <%=l(:label_state_edit)%>
+  <%=l(:State_Edit)%>
   [<%=@state.name%>]
 </h2>
 
@@ -21,8 +21,8 @@
   <% form_tag({:action => 'update',:id=>@state.id}, :class => "tabular") do %>
     <%= render :partial=>'form'  %>
     <div class="row">
-        <%= submit_tag l(:button_save) %>
-        <%= link_to l(:label_cancel), state_url(:action => 'list')%>
+        <%= submit_tag l(:Save) %>
+        <%= link_to l(:Cancel), state_url(:action => 'list')%>
     </div>
   <% end %>
   </div>

@@ -1,3 +1,4 @@
+<%= render :partial=>'header',:locals=>{:folder=>@project_folder}%>
 <div id='<%= @project_folder.dom_id %>'>
 </div>
 <script type="text/javascript"> 
@@ -8,6 +9,7 @@ Ext.onReady(function(){
               border:true,
               autoShow: true,
               autoScroll: true,
+              frozen: <%= !@project_folder.changeable? %>,
               autoDestroy: true,
               shim: true,
               autoWidth: true,

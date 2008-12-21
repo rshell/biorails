@@ -1,0 +1,74 @@
+  <% dialog l(:Task_New) do %>
+
+    <% form_tag :action => 'create' do %>
+      <div class="row">
+        <div class="form-element">
+          <label for="task_name">
+            <%=l(:Name)%>
+          </label>
+          <%= text_field 'task', 'name' , {:class=>"text-input"} %>
+      </div>
+
+      <div class="form-element">
+        <label for="tasks_assay_protocol_id">
+          <%=l(:Experiment)%>
+        </label>
+        <strong><%=@experiment.name%></strong>
+        <%= hidden_field(:task, :experiment_id) %>
+      </div>
+      </div>
+
+      <div class="row">
+        <div id='protocol_id' class="form-element">
+          <label for="tasks_protocol_version_id">
+            <%=l(:Running_Assay_Method)%>
+          </label>
+          <%= select_process_instance(:task, :protocol_version_id,@experiment.project.process_instances) %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-element">
+          <label for="assay_description">
+            <%=l(:Description)%>
+          </label>
+          <%= text_area('task', 'description', {:rows=>5, :cols=>80} )%>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-element">
+          <label for="task_assigned_to">
+            <%=l(:Assigned_To)%>
+          </label>
+           <%= select_values 'task', 'assigned_to_user_id', current_project.users %>
+        </div>
+        <div class="form-element">
+          <label for="task_assigned_team">
+            <%=l(:Assigned_Team)%>
+          </label>
+          <%= collection_select 'task', 'team_id', @task.project.teams,:id,:name %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-element">
+          <label for="task_started_at">
+            <%=l(:Date_Start)%>
+          </label>
+          <%= date_field 'task', 'started_at'  %>
+        </div>
+
+        <div class="form-element">
+          <label for="task_ended_at">
+            <%=l(:Date_Expected)%>
+          </label>
+          <%= date_field 'task', 'expected_at'  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <%= submit_tag l(:Save) %>
+      </div>
+    <%end%>
+<%end%>

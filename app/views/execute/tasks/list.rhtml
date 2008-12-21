@@ -1,49 +1,17 @@
-<%= render :partial=>'projects/header'%>	
-<div class='panel'> 
-  <div class="title" id="task">
-    <h2 class='icon icon-task-large' style='text-indent:0.5em;'>
-      List Tasks
-    </h2>
-  </div>
-  <div class='panel'>
-    <table class="report">
-        <tr>
-          <th>
-            <%=l(:label_task)%>
-          </th>
-          <th><%=l(:label_experiment)%></b></th>
-          <th><%=l(:label_process)%></th>
-          <th><%=l(:label_assigned_to)%></th>
-          <th><%=l(:label_started)%></th>
-          <th><%=l(:label_completed)%></th>
-          <th><%=l(:label_rows)%></th>
-          <th>
-            <%=l(:label_actions)%>
-          </th>
-        </tr>
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => @project} %>
+  <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => @project} %>
+<% end -%>
 
-      <% for task in @tasks %>
-        <tr class="<%= cycle('odd', 'even') %>">
-          <td>  <%= link_to task.name,            task_url(:action => 'show', :id => task.id) %></td>
-          <td>  <%= link_to task.experiment.name ,experiment_url( :action => 'show',:id => task.experiment_id) %></td>
-          <td>  <%= link_to task.process.name,process_instance_url(:action => 'show',:id => task.protocol_version_id) %>        </td>
-          <td><%=h task.assigned_to %></td>
-          <td><%= short_date( task.started_at) %></td>
-          <td><%= short_date( task.ended_at ) %></td>
-          <td><%=h task.contexts.size %></td>
-          <td>
-            <p class='icon icon-del'>
-              <%= link_to 'Destroy', {
-                :action => 'destroy',
-                :id => task },
-                :confirm => l(:text_are_you_sure),
-                :method => "post" %>
-            </p>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-  <%= will_paginate @tasks %>
-  </div>
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['project','report'] } %>
+<% end -%>
 
-</div>
+<% content_for :help do -%>
+  <%=render :partial =>'help' %>
+<% end -%>
+
+<% content_for :center do -%>
+  <%= render :partial=>'projects/header' %>
+  <%= render :partial => 'shared/report',:locals => {:report => @report } %>
+<% end -%>

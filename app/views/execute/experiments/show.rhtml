@@ -14,10 +14,10 @@
 <% content_for :center do -%>
   <%= render :partial=>'header'%>
   <%= tab_strip("task-tabs", 0 ,[ 
-	 {:name =>l(:label_overview), :partial =>'show' },
-	 {:name =>l(:label_folders) , :url=>folder_url(:action=>'show', :format=>:ext, :id=>@experiment.folder)},
-	 {:name =>l(:label_view)    , :url=> experiment_url(:action=>'print',  :format=>:ext, :id=>@experiment) },
-	 {:name =>l(:label_import)  , :url=> experiment_url(:action=>'import', :format=>:ext, :id=>@experiment) },
-	 {:name =>l(:label_metrics) , :url=> experiment_url(:action=>'metrics',:format=>:ext, :id=>@experiment) },
-	 {:name =>l(:label_access)  , :url=>  acl_url(:action=>'show',:format=>:ext, :id=>@experiment.folder)} ])  %>
+	 {:name =>l(:Overview), :partial =>'show' },
+	 {:name =>l(:Access)  , :url=>  acl_url(:action=>'show',:format=>:ext, :id=>@experiment.folder)   },
+	 {:name =>l(:View)    , :url=> experiment_url(:action=>'print',  :format=>:ext, :id=>@experiment) },
+	 {:name =>l(:Import)  , :url=> experiment_url(:action=>'import', :format=>:ext, :id=>@experiment) },
+	 {:name =>l(:Metrics) , :url=> experiment_url(:action=>'metrics',:format=>:ext, :id=>@experiment) },
+     {:name =>l(:Published) , :url=>  folder_url(:action=>'status',:format=>:ext, :id=>@experiment.folder)} ])  %>
 <%end%>

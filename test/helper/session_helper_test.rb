@@ -7,5 +7,13 @@ class SessionHelperTest < TestHelper
     Project.current = Project.find(2)
     User.current = User.find(3)
   end  
+
+  def test_breadcrumb_list_no_status
+    assert breadcrumb_list_no_status(ProjectFolder.find(:first))
+  end
+
+  def test_breadcrumb_list
+    assert breadcrumb_list(ProjectFolder.find(:first))
+  end
   
 end

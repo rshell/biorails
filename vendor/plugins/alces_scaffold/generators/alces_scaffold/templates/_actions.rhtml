@@ -5,24 +5,24 @@
     </b>
   </span>
   <div class='boldnotbold'>
-    <%%= link_to "<b class='icon icon-list'>"+l(:label_list)+"</b>",    
+    <%%= link_to "<b class='icon icon-list'>"+l(:List)+"</b>",
                                   <%= singular_name %>_url(),
                                   :method => :get  %>  
     <%% if @<%= singular_name %> %>
       <%% unless @<%= singular_name %>.new_record?%>
-        <%%= link_to  "<b class='icon icon-show'>"+l(:label_show)+"</b>",  
+        <%%= link_to  "<b class='icon icon-show'>"+l(:Show)+"</b>",
                                   <%= singular_name %>_url(:action=>:show, :id=>@<%= singular_name %>),
                                   :method => :get%>
-        <%%= link_to "<b class='icon icon-edit'>"+l(:label_edit)+"</b>",  
+        <%%= link_to "<b class='icon icon-edit'>"+l(:Edit)+"</b>",
                                   <%= singular_name %>_url(:action=>:edit, :id=>@<%= singular_name %>),
                                   :method => :get  %>
-        <%%= link_to "<b class='icon icon-del'>"+l(:label_delete)+"</b> ",
+        <%%= link_to "<b class='icon icon-del'>"+l(:Delete)+"</b> ",
                                   <%= singular_name %>_url(:action=>:destroy, :id=>@<%= singular_name %>), 
                                   :confirm => l(:text_are_you_sure), 
                                   :method => :delete %>
       <%% end %>
     <%% else %>  
-      <%%= link_to "<b class='icon icon-new'>"+l(:label_new)+"</b>",   <%= singular_name %>_url(:action=>:new),:method => :get %>
+      <%%= link_to "<b class='icon icon-new'>"+l(:New)+"</b>",   <%= singular_name %>_url(:action=>:new),:method => :get %>
     <%% end %>
   </div>
 </div>

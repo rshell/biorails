@@ -1,71 +1,71 @@
 <!--[form:experiment]--><%= hidden_field( 'task','experiment_id') %>
 <div class="row">
-    <div class="form-element">
-        <label for="task_name">
-            <%=l(:label_name) %>
-        </label>
-        <%= text_field 'task', 'name' , {:class=>"text-input"} %>
-        <%= hidden_field 'task', 'project_id' %>
-    </div>
-    <div class="form-element">
-        <label for="task_process">
-            <%=l(:label_experiment) %>
-        </label>
-        <b><%= @task.experiment.name %>
-        </b>
-    </div>
-    <div class="form-element">
-        <label for="task_process">
-            <%=l(:label_process) %>
-        </label>
-        <b><%= @task.process.path %>
-        </b>
-        <br/>
-        <i>[<%=l(:text_times_run) %><%=@task.process.tasks.size %>]</i>
-    </div>
-    <div class="form-element">
-        <label for="task_process">
-            <%=l(:label_assay) %>
-        </label>
-        <b><%= @task.experiment.assay.name %>
-        </b>
-    </div>
+  <div class="form-element">
+    <label for="task_name">
+      <%=l(:Name) %>
+    </label>
+    <%= text_field 'task', 'name' , {:class=>"text-input"} %>
+    <%= hidden_field 'task', 'project_id' %>
+  </div>
+  <div class="form-element">
+    <label for="task_process">
+      <%=l(:Experiment) %>
+    </label>
+    <b><%= @task.experiment.name %>
+    </b>
+  </div>
+  <div class="form-element">
+    <label for="task_process">
+      <%=l(:Process) %>
+    </label>
+    <b><%= @task.process.path %>
+    </b>
+    <br/>
+    <i>[<%=l(:text_times_run) %><%=@task.process.tasks.size %>]</i>
+  </div>
+  <div class="form-element">
+    <label for="task_process">
+      <%=l(:Assay) %>
+    </label>
+    <b><%= @task.experiment.assay.name %>
+    </b>
+  </div>
 </div>
 <div class="row">
-    <div class="form-element">
-        <label for="assay_description">
-            <%=l(:label_description) %>
-        </label>
-        <%= text_area('task', 'description',{:rows=>5,:cols=>77}) %>
-    </div>
+  <div class="form-element">
+    <label for="assay_description">
+      <%=l(:Description) %>
+    </label>
+    <%= text_area('task', 'description',{:rows=>5,:cols=>77}) %>
+  </div>
 </div>
 <div class="row">
-    <div class="form-element">
-        <label for="task_started_at">
-            <%=l(:label_date_started) %>
-        </label>
-        <%= date_field 'task', 'started_at' %>
-    </div>
-    <div class="form-element">
-        <label for="task_ended_at">
-            <%=l(:label_date_expected) %>
-        </label>
-        <%= date_field 'task', 'expected_at' %>
-    </div>
+  <div class="form-element">
+    <label for="task_started_at">
+      <%=l(:Date_Start) %>
+    </label>
+    <%= date_field 'task', 'started_at' %>
+  </div>
+  <div class="form-element">
+    <label for="task_ended_at">
+      <%=l(:Date_Expected) %>
+    </label>
+    <%= date_field 'task', 'expected_at' %>
+  </div>
 </div>
 <div class="row">
-    <hr/>
-    <div class="form-element">
-        <label for="experiment_team_id">
-            <%=l(:assigned_team) %>
-        </label>
-        <%= select_values 'task', 'assigned_to_user_id', Team.find(:all) %>
-    </div>
-    <div class="form-element">
-        <label for="task_assigned_to">
-            <%=l(:label_assigned_to) %>
-        </label>
-        <%= select_values 'task', 'assigned_to_user_id', current_project.users %>
-    </div>
+  <hr/>
+  <div class="form-element">
+    <label for="experiment_team_id">
+      <%=l(:Team_Assigned) %>
+    </label>
+    <%=  select_values 'task', 'team_id', @task.project.teams %>
+  </div>
+  <div class="form-element">
+    <label for="task_assigned_to">
+      <%=l(:Assigned_To) %>
+    </label>
+    <%= select_values 'task', 'assigned_to_user_id', current_project.users %>
+  </div>
 </div>
 <!--[eoform:task]-->

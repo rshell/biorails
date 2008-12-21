@@ -4,14 +4,5 @@
 
 <%= render :partial=>'header'%>
 
-<div class="panel">
-<h2>
-<%=@report.name%>
-</h2>
-    <%= render :partial => 'shared/report',
-      :locals => {:report => @report,
-      :data => @data,:show=>'show', :edit=>'edit' } %>
-</div>
-<hr/>
-<%= will_paginate  @data%>
+<%= render :partial => 'shared/report', :locals => {:report => @report } %>
 

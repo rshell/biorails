@@ -6,7 +6,6 @@
 #  id                 :integer(4)      not null, primary key
 #  name               :string(30)      default(""), not null
 #  description        :string(2048)    default(""), not null
-#  status_id          :integer(4)      default(0), not null
 #  public_role_id     :integer(4)      default(1), not null
 #  external_role_id   :integer(4)      default(1)
 #  email              :string(255)
@@ -50,23 +49,13 @@ class Team < ActiveRecord::Base
   #
   # Maked sure teams are named objects with a description for use in tooltips etc
   #
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name,:case_sensitive=>false
   validates_presence_of :name
   validates_presence_of :description
-  validates_presence_of :status_id 
   #
   # This record has a full audit log created for changes 
   #   
   acts_as_audited :change_log
-  #
-  # Add name and description to free text indexing systems
-  #
-  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-    :description=>{:store=>:yes,:boost=>0},
-  }, 
-    :default_field => [:name],           
-    :single_index => true, 
-    :store_class_name => true 
   #
   # Default Access control list for team
   #
@@ -86,16 +75,15 @@ class Team < ActiveRecord::Base
   #
   # List of all the projects
   #
-  has_many :projects, :class_name=>'Project',:foreign_key =>'team_id',:order=>'name', :dependent => :destroy 
+  has_many :projects, :class_name=>'Project',:foreign_key =>'team_id',:order=>'name'
   #
   # List of all the assays
   #
-  has_many :assays, :class_name=>'Assay',:foreign_key =>'team_id',:order=>'name', :dependent => :destroy 
+  has_many :assays, :class_name=>'Assay',:foreign_key =>'team_id',:order=>'name'
   #
   # List of all the experiments
   #
-  has_many :experiments, :class_name=>'Experiment',:foreign_key =>'team_id',:order=>'name', :dependent => :destroy 
-
+  has_many :experiments, :class_name=>'Experiment',:foreign_key =>'team_id',:order=>'name'
   #
   # List of all the users who are not a member of the project
   # 
@@ -111,6 +99,22 @@ class Team < ActiveRecord::Base
   #  
   def member(user)
     memberships.find(:first,:conditions=>['user_id=?',user.id])
+  end
+  #
+  # Add a User, assay of users or a team to
+  #
+  #
+  def add(item)
+    case item
+    when Team
+      item.memberships.collect{|i| self.add(i.user)}
+    when User
+      self.memberships.create(:user_id=>item.id,:team_id=>self.id)
+    when Array
+      item.collect{|i|self.add(i)}
+    else
+      nil
+    end
   end
   #
   # test wheather is the the owner of the project
@@ -130,7 +134,7 @@ class Team < ActiveRecord::Base
   end
 
   def to_s
-    "#{l(:label_team)}[#{name}]"
+    "#{l(:Team)}[#{name}]"
   end
   
   protected

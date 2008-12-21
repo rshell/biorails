@@ -6,10 +6,10 @@
       </b>
     </span>
     <% if @project_folder.reference %>
-      <%= link_to "#{l(:label_open)} #{@project_folder.style.titlecase}", reference_to_url(@project_folder) %>
+      <%= link_to "#{l(:Open)} #{@project_folder.style.titlecase}", reference_to_url(@project_folder) %>
     <% end %>
     <% unless folder.nil? || folder.new_record? %>
-      <%= link_to_remote l(:label_refresh_folder), :url=>folder_url( :action => 'show', :id => folder.id ) %>
+      <%= link_to_remote l(:Folder_Refresh), :url=>folder_url( :action => 'show', :id => folder.id ) %>
     <%end%>
   </div>
 <% end %>

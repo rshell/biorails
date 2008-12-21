@@ -29,6 +29,7 @@
             <%= render :partial => 'list_usages', :locals =>{:concept => @data_concept } %>
         </div>
     </div>
+</div>
     <% end %>
     <script type="text/javascript">
         Ext.onReady(function(){
@@ -54,5 +55,6 @@
             });
             var tree = new Biorails.ConceptTree('concepts-tree-panel');
             tree.applyToMarkup('concepts-panel');
+            Ext.getCmp('extra-id').setActiveTab(1);
         });
     </script>

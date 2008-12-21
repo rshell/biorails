@@ -8,8 +8,7 @@ class Admin::UsersController < ApplicationController
 ##
 #  
   use_authorization :users,
-                    {:actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user }
+                    :use => [:list,:show,:new,:create,:edit,:update,:destroy]
 
  ##
  # List all the users on the systems. Currently not paginated 
@@ -20,12 +19,49 @@ class Admin::UsersController < ApplicationController
   end
   
   def list 
-    @users = User.find(:all)
+    @users = User.find(:all, :order=>:name)
   end
+
+  def ldap
+    page = params[:id]||'a'     
+    @users = User.ldap_users(page)
+  end
+
 
   def show
     @user = current(User,params[:id])
-  end 
+    @ldap = User.ldap_user(@user.login) if User.respond_to?(:ldap_user)
+  end
+
+  def memberships
+    @user = current(User,params[:id])
+  end
+
+  def add
+    @user = current(User,params[:id])
+    @team = current(Team,params[:team_id])
+    return show_access_denied unless @team.owner?(User.current)
+    @membership = @team.memberships.new(:user_id=>@user.id)
+    if @membership.save
+      flash[:notice] = 'Membership was successfully created.'
+    else
+      flash[:warning] = 'Failed to add membership because, ',@membership.errors.full_messages().join(',')
+    end
+    redirect_to :action => 'memberships',:id=>@user
+  end
+
+  def remove
+    @membership =Membership.find(params[:id])
+    @user = @membership.user
+    @team = @membership.team
+    return show_access_denied unless @team.owner?(User.current)
+    if @membership.destroy
+      flash[:notice] = 'Membership was removed.'
+    else
+      flash[:warning] = 'Failed to add membership because ',@membership.errors.full_messages().join(',')
+    end
+    redirect_to :action => 'memberships',:id=>@user
+  end
 
   def edit
     @user = current(User,params[:id])
@@ -43,7 +79,11 @@ class Admin::UsersController < ApplicationController
  #
    def choices
     @value   = params[:query] || ""
-     render :text =>[].to_json
+    users = User.ldap_users(@value) 
+    @list = { :matches=>@value,  
+              :total=>users.size, 
+              :items=> users.collect {|e|  {:id => e[:uid].to_s,  :name => e[:cn].to_s}  }     }
+     render :text => @list.to_json
   end  
   
 
@@ -52,7 +92,12 @@ class Admin::UsersController < ApplicationController
   #
   def create
     @user = User.new(params[:user])
-    @user.set_password( params[:user][:password]) unless  params[:user][:password].empty?  
+    if @user.password.blank?
+       @user.password = nil
+    else
+        @user.set_password(@user.password)
+    end
+    @user.fill_from_ldap
     if @user.save
     @user.memberships.create(:team_id=> Biorails::Record::DEFAULT_TEAM_ID)
     flash[:notice] = "User created."
@@ -64,9 +109,14 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id]) 
-    if  @user.update_attributes(params[:user])
-      @user.set_password( params[:user][:password]) unless  params[:user][:password].empty?  
-      @user.save!
+    @user.fill_from_ldap
+    @user.update_attributes(params[:user])
+    if @user.password.blank?
+       @user.password = nil
+    else
+        @user.set_password(@user.password)
+    end
+    if @user.save
       flash[:notice] ='Profile updated.'
       redirect_to :action => 'index'
     else

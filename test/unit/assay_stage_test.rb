@@ -50,5 +50,10 @@ class AssayStageTest < Test::Unit::TestCase
     	assert assay_stage.errors.invalid?(attr_name.to_sym), "Should be an error message for :#{attr_name}"
 		end
 	end
+
+  def test_is_dictionary
+    assert_dictionary_lookup(AssayStage)
+  end
+
 end
 

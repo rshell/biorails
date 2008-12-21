@@ -1,0 +1,28 @@
+default_witness:
+  default: 1
+  tip: Default person to witness items in this project
+  label: Default Witness
+  lookup: User
+default_date:
+  default:
+  label: Signoff Date
+  tip: Date
+  date: now
+default_text:
+  default:
+  label: Comments
+  tip: Test
+study_director:
+  default: 1
+  tip: Scientist responsible for the study
+  label: Study Director
+  lookup: User
+study_sponsor:
+  default: none
+  tip: The scientist requesting the study
+  label: Study Sponsor
+discovery_project:
+  default: 1
+  tip: Discovery project requesting the study
+  label: Discovery Project
+  lookup: CirceProject

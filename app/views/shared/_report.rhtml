@@ -1,92 +1,56 @@
-    <div id='<%=report.dom_id('grid')%>'>
-    </div>
-    <script type="text/javascript">
-        Ext.onReady( function() {
-          var report_store = new Ext.data.GroupingStore({
-                      remoteSort: true,
-                      proxy: new Ext.data.HttpProxy({
-                                  url: '/reports/grid/<%=report.id%>', 
-                                  method: 'post'}),
-                      reader: new Ext.data.JsonReader({  
-                                root: 'items', 
-                                totalProperty: 'total', 
-                                id: 'id'},
-                                Ext.data.Record.create(<%=report.ext_columns_json%> )
-        					  )        
-                    }); 
-        
-          var report_model =  new Ext.grid.ColumnModel(
-               <%=report.ext_model_json%> ) ;
-          
-          var report_filters = new Ext.ux.grid.GridFilters( 
-                         {filters: <%=report.ext_filters_json%> });
-            
-          var report_options = {
-                    renderTo: '<%=report.dom_id(:grid)%>',
-                    store: report_store,        
-                    cm:    report_model ,
-                    view: new Ext.grid.GroupingView({
-                                       forceFit : true,
-                                       autoFill:true}),
-                    sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
-                    plugins: report_filters,
-                    width:'auto',
-                    autoHeight: true,
-        			autoScroll: false,
-                    stripeRows: true,
-                    clicksToEdit: 1,
-                    forceFit: false,
-                    frame:true,
-                    iconCls:'icon-grid',
-                     tbar: [
-                      { 
-                          text: '<b><%=report.name%> </b> ' 
-                      },  '->',
-                      { 
-                          text:'<%=l(:label_print)%>',
-                          iconCls:'icon-print',
-                          tooltip:'Create a Printout sytle of report',
-                          handler : function(item){
-                             window.open('<%=report_url(:action => 'print', :id => report)%>');
-                          }
-                      },                      { 
-                          text:'<%=l(:label_print_pdf)%>',
-                          iconCls:'icon-pdf',
-                          tooltip:'Create a Printout sytle of report',
-                          handler : function(item){
-                            window.open('<%=report_url(:action => 'print',:format=>:pdf, :id => report)%>');
-                          }
-                      },                      { 
-                          text:'<%=l(:label_print_csv)%>',
-                          iconCls:'icon-xls',
-                          tooltip:'Create a Printout sytle of report',
-                          handler : function(item){
-                             window.location = '<%=report_url(:action => 'export', :id => report)%>';
-                          }
-                      }],
-                    bbar: new Ext.PagingToolbar({
-                          pageSize: <%=report.limit%>,
-                          store: report_store,
-                          autoWidth: true,
-                          displayInfo: true,
-                          displayMsg: 'Displaying {0} - {1} of {2}',
-                          emptyMsg: "No results to display"
-                      })       
-                 };
-           if (Ext.isIE6) {
-               report_options['width']= Biorails.getWidth()-10;
-               report_options['autoWidth'] = false
-           } else { 
-               report_options['autoWidth'] = true
-           };
-          
-        var grid = new Ext.grid.EditorGridPanel(report_options);
-        grid.on('rowclick', function(grid, rowIndex, e){
-              var rec = grid.store.getAt(rowIndex);
-              window.location = rec.get('url');
-              grid.getView().focusEl.focus();
-            });
-        	
-        grid.store.load({	params: {start: <%=report.start%>,	limit: <%=report.limit%>	}});     
-        });
-    </script>
+
+<div id='<%=report.dom_id('report')%>'>
+</div>
+
+<script type="text/javascript">
+Ext.onReady( function() {
+    var advanced_filter = new Ext.ux.grid.GridFilters({filters: <%=report.ext_advanced_filters%>});
+
+      var search = new Ext.ux.grid.Search({
+				iconCls:'icon-zoom'
+                ,checkIndexes: [<%=report.ext_default_filter%>]
+				,disableIndexes: <%=report.ext_non_filterable%>
+                ,searchText:'Filter'
+				,minChars:5
+                ,position:'top'
+				,autoFocus:true
+                ,width:200
+				,menuStyle:'radio'
+			})
+  var options = {
+      renderTo: '<%=report.dom_id(:report)%>',
+      data_url: '<%=report_url(:action => 'grid',:id => report)%>',
+      base_url: '<%=report_url()%>',
+      report_id: <%=report.id%>,
+      data_record: <%=report.ext_columns_json%>,
+      data_model:  <%=report.ext_model_json%>,
+      start: <%=report.start%>,
+      limit: <%=report.limit%>,
+      plugins: [search,advanced_filter],
+      tbar: [{
+          text: '<%=l(:Print)%>',
+          iconCls: 'icon-print',
+          tooltip: 'Create a Printout style of report',
+          handler : function(item){
+             window.open('<%=report_url(:action => 'print', :id => report)%>');
+          }
+      },{
+          text: '<%=l(:Print_PDF)%>',
+          iconCls: 'icon-pdf',
+          tooltip: 'Create a Printout style of report',
+          handler : function(item){
+            window.open('<%=report_url(:action => 'print',:format=>:pdf, :id => report)%>');
+          }
+      },{
+          text:'<%=l(:Print_CSV)%>',
+          iconCls: 'icon-xls',
+          tooltip: 'Create a Printout style of report',
+          handler : function(item){
+             window.location = '<%=report_url(:action => 'export', :id => report)%>';
+          }
+      },'->']
+  };
+
+  var report= new Biorails.ReportView(options);
+});
+</script>

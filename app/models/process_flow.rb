@@ -124,6 +124,15 @@ class ProcessFlow < ProtocolVersion
       return item
     end
   end 
+#
+# Update flow to latest version of all process instances for step
+#
+  def modernize
+    steps.each do |step|
+      step.process = step.process.protocol.released
+      step.save
+    end
+  end
   
   def add(process)
      step = ProcessStep.new
@@ -162,24 +171,20 @@ class ProcessFlow < ProtocolVersion
   def linked_items(object)  
     items = []
     case object
-    when 'root' then     items = User.current.projects
-    when Project then
-      items = Assay.find_by_sql(<<SQL
-select * from assays where assays.project_id  = #{object.id}
-and exists (select 1 from protocol_versions, assay_protocols
-                where assay_protocols.id=protocol_versions.assay_protocol_id
-                  and assay_protocols.assay_id = assays.id
-                  and protocol_versions.status='released')
-SQL
-        )
-    when Assay then     
+    when 'root'
+      items = Team.find(:all)
+    when Project
+      items = object.linked_assays
+    when Team
+      items = Assay.list(:all, :include=>[:project],:conditions=>['projects.team_id=?',object.id])
+    when Assay     
       items = ProtocolVersion.find(:all,
               :include=>[:protocol],
               :conditions=>['protocol_versions.status=? and assay_protocols.assay_id=?','released',object.id])
       
-    when AssayProtocol then  
-      items = ProtocolVersion.find_by_sql(<<SQL
-select * from assay_protocols where assay_protocol.assay_id = #{object.id}
+    when AssayProtocol
+      items = AssayProtocol.find(:all,:conditions=> <<SQL
+assay_protocols.assay_id = #{object.id}
 and exists (select 1 from protocol_versions 
                 where assay_protocols.id=protocol_versions.assay_protocol_id 
                   and protocol_versions.status='released')  
@@ -196,5 +201,9 @@ SQL
   def to_liquid
     ProcessFlowDrop.new self
   end
+
+   def to_xml(options = {})
+     Alces::XmlSerializer.new(self, options.merge( {:include=> [:steps]} )  ).to_s
+   end
 
 end

@@ -30,16 +30,10 @@ class Compound < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-                              :description=>{:store=>:yes,:boost=>0},
-                               }, 
-                   :default_field => [:name],           
-                   :single_index => true, 
-                   :store_class_name => true 
                    
   has_many   :batches, :dependent => :destroy
   
-  validates_uniqueness_of :name
+  #validates_uniqueness_of :name
   validates_presence_of :name
  #
   # Convert to jpg with 

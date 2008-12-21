@@ -1,7 +1,7 @@
 <table class="report">
   <tr>
     <th class="label">
-        <%=l(:label_name)%>
+        <%=l(:Name)%>
     </th>
     <td colspan='5'>
       <%= assay_queue.name %>
@@ -9,7 +9,7 @@
   </tr>
   <tr>
     <th class="label">
-        <%=l(:label_description)%>
+        <%=l(:Description)%>
     </th>
     <td colspan='5'>
       <%= assay_queue.description %>
@@ -17,19 +17,19 @@
   </tr>
   <tr>
     <th class="label">
-        <%=l(:label_stage)%>
+        <%=l(:Stage)%>
     </th>
     <td>
       <%= assay_queue.stage.name if assay_queue.stage %>
     </td>
     <th class="label">
-        <%=l(:label_managed_by)%>
+        <%=l(:Managed_By)%>
     </th>
     <td>
       <%= assay_queue.assigned_to.name %>
     </td>
     <th class="label">
-        <%=l(:label_assay)%>
+        <%=l(:Assay)%>
     </th>
     <td>
         <%=link_to assay_queue.assay.name, assay_url(:action => 'show', :id => assay_queue.assay) %>

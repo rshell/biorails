@@ -10,8 +10,9 @@
 class Execute::ExperimentsController < ApplicationController
 
   use_authorization :execution,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user
+                    :build => [:destroy],
+                    :use => [:list,:show,:new,:create,:edit,:update]
+                  
 
  before_filter :setup_experiments,
     :only => [ :new,:list,:index,:create]
@@ -29,11 +30,7 @@ class Execute::ExperimentsController < ApplicationController
 # list all the experiments 
 # 
   def list
-   @report = Biorails::ReportLibrary.experiment_list do | report |
-      report.column('project_id').customize(:filter => current_project.id, :is_visible => false)
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
-   end
+   @report = Biorails::ReportLibrary.experiment_list("Experiment_List")
     respond_to do | format |
       format.html { render :action => 'list' }
       format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
@@ -98,52 +95,53 @@ class Execute::ExperimentsController < ApplicationController
   end
   
   def refresh
-    ok = true
     if params[:assay_id]
-      @assay = Assay.find( params[:assay_id] ) 
-      @process ||= @assay.protocols.first.released
+      @assay = Assay.find( params[:assay_id] )
     elsif params[:protocol_version_id]
       @process = ProtocolVersion.find(params[:protocol_version_id])
       @assay = @process.protocol.assay
-    else 
-      ok = false
     end
+    @assay ||= Assay.list(:first)
+    @process ||= @assay.protocols.first.released
     @experiment = Experiment.new(:protocol_version_id=>@process.id, :assay_id=>@assay.id)
     @experiment.description = @process.description if @process
     respond_to do | format |
       format.html { render :action => 'new' }
       format.ext  { render :partial => 'process_selector' }
       format.js   { render :update do | page |
-          if ok
-            page.replace_html('process_selector', :partial => 'process_selector' ) 
-            page.visual_effect :highlight, 'experiment_description',:duration => 1.5 
-            page.visual_effect :highlight, 'experiment_protocol_version_id',:duration => 1.5 
-            page[:experiment_description][:value]="A run of #{@process.description}"
-          end
+          page.replace_html('process_selector', :partial => 'process_selector' )
+          page.visual_effect :highlight, 'experiment_description',:duration => 1.5
+          page.visual_effect :highlight, 'experiment_protocol_version_id',:duration => 1.5
+          page[:experiment_description][:value]="A run of #{@process.description}"
       end }
     end
   end
 ##
 # Return from new to create a Experiment record
   def create
-    Experiment.transaction do
-      @experiment = Experiment.new(params[:experiment])    
-      if @experiment.save
-        set_project @experiment.project 
-        set_element @folder = @experiment.folder  
-        @experiment.run 
-        flash[:notice] = 'Experiment was successfully created.'
-        redirect_to :action => 'show', :id => @experiment.id
-      else
-        render :action => 'new'
+    return show_access_denied unless current_project.changeable?
+    begin
+      Experiment.transaction do
+        @experiment = Experiment.new(params[:experiment])
+        if @experiment.save
+          set_project @experiment.project
+          set_element @folder = @experiment.folder
+          @experiment.run
+          flash[:notice] = 'Experiment was successfully created.'
+          return redirect_to :action => 'show', :id => @experiment.id
+        end
       end
+    rescue Exception => ex
+      flash[:error] = ex.message
     end
+    render :action => 'new'
   end
 
 ##
 # Edit a experiment details
 # 
   def edit
+    return show_access_denied unless @experiment.changeable?
     respond_to do | format |
       format.html { render :action => 'edit' }
       format.ext  { render :partial => 'edit' }
@@ -157,6 +155,7 @@ class Execute::ExperimentsController < ApplicationController
 # Update a existing experiment
 # 
   def update
+    return show_access_denied unless @experiment.changeable?
     Experiment.transaction do
       if @experiment.update_attributes(params[:experiment])
         flash[:notice] = 'Experiment was successfully updated.'
@@ -170,12 +169,16 @@ class Execute::ExperimentsController < ApplicationController
   
   def update_row
     @task = Task.load(params[:id])
-    @task.attributes.keys.each do |key|
-        @task[key] = params[key] unless params[key].blank? 
-    end        
-    ok = @task.save
+    if @task
+      @task.attributes.keys.each do |key|
+          @task[key] = params[key] unless params[key].blank?
+      end
+      ok = @task.save
+    else
+      ok =false
+    end
     respond_to do | format |
-      format.html { redirect_to :action => 'show', :id => task.experiment }
+      format.html { redirect_to :action => 'show', :id => @task.experiment_id }
       format.js   { render :update do | page |
         if ok 
           page.replace_html(@task.dom_id(:row), :partial => 'task',:locals => { :task => @task } ) 
@@ -193,17 +196,26 @@ class Execute::ExperimentsController < ApplicationController
 # Delete the passed experiment
 # 
   def destroy
-    @experiment.destroy
+    return show_access_denied unless @experiment.changeable?
+    begin
+    Experiment.transaction do
+      if @experiment.changeable? and right?(:data,:destroy)
+         @experiment.destroy
+      else
+        flash[:warning] ="Can not destroy #{@experiment.name}"
+      end
+    end
+    rescue Exception => ex
+      flash[:error] ="destroy Failed with error: #{ex.message}"
+    end
     redirect_to :action => 'list'
   end
 #
 #  export Report of Elements as CVS
 #  
   def export
-    @assay_protocol = AssayProtocol.find(params[:assay_protocol_id])
-    task = @experiment.add_task(:assay_protocol_id =>params[:assay_protocol_id] )
-    task.protocol = @assay_protocol
-    task.process = @assay_protocol.process  
+    task = @experiment.add_task(:protocol_version_id =>params[:protocol_version_id] )
+    task.process = ProcessInstance.find(params[:protocol_version_id])
     filename = "#{@experiment.name}-#{task.name}.csv"
     task.description ="This task is linked to external cvs file for import created called #{filename}"
     task.save  
@@ -240,15 +252,21 @@ class Execute::ExperimentsController < ApplicationController
 # 
   def import_file
     Experiment.transaction do 
-      if params[:file] # Firefox style
-         @task = @experiment.import_task(params[:file])  
-      elsif params['File'] # IE6 style tmp/file
-         @task = @experiment.import_task(params['File'])  
+      return show_access_denied unless @experiment.changeable?
+      file = params[:file] || params['File']
+      if file.is_a? StringIO or file.is_a? File
+         @task = @experiment.import_task(file)
       end 
     end
-    session.data[:current_params]=nil
-    flash[:info]= "import task #{@task.name}" 
-    redirect_to :controller => 'tasks', :action => 'show', :id => @task
+    if @task.errors.size==0
+      session.data[:current_params]=nil
+      flash[:info]= "import task #{@task.name}"
+      redirect_to :controller => 'tasks', :action => 'show', :id => @task
+    else
+     flash[:warning] = "There were warning in inport"
+     flash[:info] = " Double check file format is CSV and matches template from above, common problem is files saved from excel as xls and not cvs"
+     redirect_to :action => 'import'
+    end
 
   rescue  Exception => ex
      session.data[:current_params]=nil
@@ -256,24 +274,34 @@ class Execute::ExperimentsController < ApplicationController
      logger.error ex.backtrace.join("\n") 
      flash[:error] = "Import Failed:" + ex.message
      flash[:info] = " Double check file format is CSV and matches template from above, common problem is files saved from excel as xls and not cvs"
-     redirect_to :action => 'import'   
+     redirect_to :action => 'import'
   end
   
  protected
 
   def setup_experiments
-    set_project(Project.load( params[:id] )) if  params[:id]
-    @assay = current_project.usable_assays[0]    
+    if  params[:id]
+      set_project(Project.load( params[:id] ))
+      @assay = Assay.load(params[:assay_id]) if params[:assay_id]
+    end
+    set_element(current_project.folder(Experiment.root_folder_under))
+    @assay ||= current_project.usable_assays[0]
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end  
   
   def setup_experiment
     @experiment = Experiment.load(params[:id])
     if  @experiment
+      set_project(@experiment.project)
       @folder = set_element( @experiment.folder)
       return @experiment
     else
       return show_access_denied
     end
-
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end
 end

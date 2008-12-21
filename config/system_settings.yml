@@ -22,6 +22,9 @@ author_assert_text:
 witness_assert_text:
   default: I witness that this document is the work of the signing author(s) and  affirm this by attaching my electronic signature
   tip: Test that a witness signs
+withdraw_asset_text:
+  default: This is withdraw this folder document from publication
+  tip: Test that a witness signs
 witness_request_text:
   default: Please follow the link below to witness that I am the author of the attached document
   tip: Text displayed in emails automatically generated from author to witness
@@ -76,8 +79,8 @@ ntp_server:
 ldap_host:
   default: 
   tip: Name or address of the LDAP server to use
-ldap_port:
-  default: 
+ldap_port: 
+  default:
   tip:  port to access the ldap server on
 ldap_base:
   default: "ou=Users,dc=alces,dc=co,dc=uk"
@@ -100,3 +103,14 @@ character_set:
 max_table_columns:
   default: 10
   tip: Maximum number of columns to attempt to fix across in task tables
+force_generated_project_yn:
+  default: false
+  tip: Force use of generated project identifiers
+force_generated_assay_yn:
+  default: false
+  tip: Force use of generated assay identifiers
+force_generated_experiment_yn:
+  default: false
+  tip: Force use of generated experiment identifiers
+
+

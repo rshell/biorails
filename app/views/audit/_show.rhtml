@@ -8,12 +8,12 @@
     </tr>
     <tr>
         <th>
-          <%=l(:label_action)%>
+          <%=l(:Action)%>
         </th>
         <th>
-          <%=l(:label_user)%>
+          <%=l(:User)%>
         </th>
-        <th><%=l(:label_created_at)%></th>
+        <th><%=l(:Created)%></th>
         <% for column in @root.class.content_columns %>
            <th>
            <%= column.name.to_s %> 

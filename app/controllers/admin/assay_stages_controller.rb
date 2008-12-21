@@ -4,10 +4,9 @@
 ##
 #
 class Admin::AssayStagesController < ApplicationController
-  use_authorization :catalogue,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user
 
+  use_authorization :catalogue,
+              :admin => [:new,:create,:destroy,:edit,:index,:list,:show,:update]
   def index
     list
     render :action => 'list'

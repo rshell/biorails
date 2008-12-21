@@ -1,0 +1,20 @@
+ <% form_tag do %>
+      <p>
+      <input type="text" name="months" size="2" value="<%= @months %>" />
+      <%= l(:Months_From) %>
+      <%= select_month(@month_from, :prefix => "month", :discard_type => true) %>
+      <%= select_year(@year_from, :prefix => "year", :discard_type => true) %>
+      <%= hidden_field_tag 'zoom', @zoom %>
+      <fieldset>
+      <ul style='list-style:none;'>
+        <% for state in State.states  %>
+          <li>
+            <%= check_box_tag "states[#{state.id}]",@options['states']["#{state.id}"],!@options['states']["#{state.id}"].blank? %>
+            <%=state.to_s%>
+          </li>
+        <% end %>
+      </ul>
+      </fieldset>
+        <%= submit_tag l(:Submit), :class => "button-small" %>
+      </p>
+  <% end %>

@@ -38,38 +38,53 @@ class Admin::UsersControllerTest < Test::Unit::TestCase
     assert_ok(assigns(:user))
   end
   
-  def test_create_invalid_user
+  def test005_create_invalid_user
     @params = {:user => {:name =>nil,:password =>'test3', :role_id => 1}}
     post :create, @params, @session
     assert_not_nil assigns(:user)
-    assert !assigns(:user).valid? 
+    assert !assigns(:user).valid?
     assert assigns(:user).errors
-    assert assigns(:user).errors[:login]    
+    assert assigns(:user).errors[:login]
     assert_response :success
   end
+
+  def test006_create_no_password
+    @params = {:user => {:name =>nil,:password =>'', :role_id => 1}}
+    post :create, @params, @session
+    assert_not_nil assigns(:user)
+    assert !assigns(:user).valid?
+    assert assigns(:user).errors
+    assert assigns(:user).errors[:login]
+    assert_response :success
+  end
+
   
-  
-  def test005_edit
+  def test007_edit
     get :edit,:id=>@item.id
     assert_response :success
   end
 
-  def test006_update
+  def test008_update
     @params = {:id=>@item.id,:user => {:name =>'test3',:password =>'test3', :login =>'test3', :role_id => 1}}
     post :update,  @params, @session
     assert_response :redirect
     assert_ok(assigns(:user))
   end  
 
-  def test007_update_fail
-    @params = {:id=>@item.id,:user => {:name =>nil,:password =>'test3', :login =>nil, :role_id => 1}}
+  def test009_update_fail
+    @params = {:id=>@item.id,:user => {:name =>nil,:password =>'', :login =>nil, :role_id => 1}}
     post :update,  @params, @session
     assert_response :success
     assert !assigns(:user).valid? 
   end  
 
-  def test008_show
+  def test010_show
     get :show,:id=>3
+    assert_response :success
+  end
+
+  def test011_ldap
+    get :ldap,:id=>'a'
     assert_response :success
   end
 

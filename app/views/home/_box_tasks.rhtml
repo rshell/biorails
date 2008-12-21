@@ -1,6 +1,6 @@
 <div class="box">
-  <b><%=link_to l(:label_my_latest,5,l(:label_tasks)), task_url(:action => 'list'), :class=>'icon icon-task' %></b>
-    <p><strong class="icon icon-red"><%=l(:label_overdue) %>
+  <b><%=link_to l(:My_Latest,5,l(:Tasks)), task_url(:action => 'list'), :class=>'icon icon-task' %></b>
+    <p><strong class="icon icon-red"><%=l(:Overdue) %>
     </strong></p>
     <dl>
       <% for item in @user.tasks.overdue(5) %>
@@ -8,7 +8,7 @@
           </dt>
       <% end %>
     </dl>
-    <p><strong class="icon icon-green"><%=l(:label_current) %>
+    <p><strong class="icon icon-green"><%=l(:Current) %>
     </strong></p>
     <dl>
       <% for item in @user.tasks.current(5) %>
@@ -16,7 +16,7 @@
           </dt>
       <% end %>
     </dl>
-    <p><strong class="icon icon-amber"><%=l(:label_coming) %>
+    <p><strong class="icon icon-amber"><%=l(:Coming) %>
     </strong></p>
     <dl>
       <% for item in @user.tasks.future(5) %>

@@ -1,17 +1,17 @@
 <div>
   <span class='menu'>
     <b class='icon icon-team'>
-      <%=l(:label_teams)%>
+      <%=l(:Teams)%>
     </b>
   </span>
-    <%= link_to l(:label_list), team_url(:action => 'list') %>
+    <%= link_to l(:List), team_url(:action => 'list') %>
     <% if @team %>
-      <%= link_to l(:label_show), team_url( :action => 'show', :id => @team)%>
-      <%= link_to l(:label_edit), team_url( :action => 'edit', :id => @team) %>
+      <%= link_to l(:Show), team_url( :action => 'show', :id => @team)%>
+      <%= link_to l(:Edit), team_url( :action => 'edit', :id => @team) %>
       <%  unless @team.in_use?  %>
-        <%= link_to( l(:label_delete)+"[#{@team.name}]", team_url({ :action => 'destroy', :id => @team }), :confirm => l(:text_are_you_sure),:method => "post")  %>
+        <%= link_to( l(:Delete)+"[#{@team.name}]", team_url({ :action => 'destroy', :id => @team }), :confirm => l(:text_are_you_sure),:method => "post")  %>
       <% end %>
     <% else %>  
-    <%= link_to( l(:label_new),   team_url(:action => 'new')) %>
+    <%= link_to( l(:New),   team_url(:action => 'new')) %>
     <% end %>
 </div>

@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'gd2'
-module Technoweenie # :nodoc:
-  module AttachmentFu # :nodoc:
+module Alces # :nodoc:
+  module Attachments # :nodoc:
     module Processors
       module Gd2Processor
         def self.included(base)

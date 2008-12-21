@@ -1,6 +1,6 @@
 
 <% content_for :messages do -%>
-    <%=render :partial =>'shared/messages',:locals => { :objects => ['task' ]} %>
+    <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment','task']} %>
 <%end%>
 
 <% content_for :footer do -%>
@@ -16,12 +16,13 @@
 
 <%= render :partial=>'header'%>		
 <%= tab_strip("task-tabs",@tab,[ 
- {:name =>l(:label_overview)    , :url=> task_url(:action=>'show',   :format=>:ext, :id=>@task) },
- {:name =>l(:label_sheet)   , :url=> task_url(:action=>'sheet',  :format=>:ext, :id=>@task) },
- {:name =>l(:label_folders) , :url=>folder_url(:action=>'show', :format=>:ext, :id=>@task.folder)},
- {:name =>l(:label_view)     , :url=> task_url(:action=>'print',  :format=>:ext, :id=>@task) },
- {:name =>l(:label_import) , :url=> task_url(:action=>'import', :format=>:ext, :id=>@task) },
- {:name =>l(:label_metrics)  , :url=> task_url(:action=>'metrics',:format=>:ext, :id=>@task) } ,
- {:name =>l(:label_access)  ,  :url=>  acl_url(:action=>'show',:format=>:ext, :id=>@task.folder)} ])  %>
+ {:name =>l(:Overview)    , :url=> task_url(:action=>'show',   :format=>:ext, :id=>@task) },
+ {:name =>l(:Access)  ,  :url=>  acl_url(:action=>'show',:format=>:ext, :id=>@task.folder)},
+ {:name =>l(:Sheet)   , :url=> task_url(:action=>'sheet',  :format=>:ext, :id=>@task) },
+ {:name =>l(:View)     , :url=> task_url(:action=>'print',  :format=>:ext, :id=>@task) },
+ {:name =>l(:Import) , :url=> task_url(:action=>'import', :format=>:ext, :id=>@task) },
+ {:name =>l(:Metrics)  , :url=> task_url(:action=>'metrics',:format=>:ext, :id=>@task) } ,
+ {:name =>l(:Publish) , :url=>  folder_url(:action=>'status',:format=>:ext, :id=>@task.folder)}
+])  %>
 <%end%>
 

@@ -4,16 +4,16 @@
 
 <% content_for :center do -%>
 
-  <%dialog l(:label_permissions) do %>
+  <%dialog l(:Permissions) do %>
     <div class="box" >
       <h2 class="icon icon-warning">
-        <%=l(:label_access_denied)%>
+        <%=l(:Access_Denied)%>
       </h2>
       <p>
             <%=l(:text_wrong_privilege)%>
       </p>
       <br />
-      <h3> <%=l(:text_your_current_context_is)%> <%=l(:label_project)%> [<%=current_project.name%>] and user [<%=current_user.name%>]</h3>
+      <h3> <%=l(:text_your_current_context_is)%> <%=l(:Project)%> [<%=current_project.name%>] and user [<%=current_user.name%>]</h3>
       <p>
         [<%=current_user.name %>] is a  <%= current_user.admin? ? 'adminstrator' : 'standard user' %>  
 		with the role  [<%=current_user.role.name%>] governing the access to functions  

@@ -30,7 +30,7 @@ class ParameterRole < ActiveRecord::Base
 # Generic rules for a name and description to be present
   validates_presence_of :name
   validates_presence_of :description
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name,:case_sensitive=>false
 
 ##
 # This record has a full audit log created for changes 

@@ -20,7 +20,6 @@
 #  created_at           :datetime        not null
 #  updated_at           :datetime        not null
 #  request_service_id   :integer(4)
-#  status_id            :integer(4)      default(0), not null
 #  priority_id          :integer(4)
 #  updated_by_user_id   :integer(4)      default(1), not null
 #  created_by_user_id   :integer(4)      default(1), not null
@@ -44,7 +43,13 @@ class QueueItem < ActiveRecord::Base
 
   acts_as_catalogue_reference
 
-  acts_as_scheduled 
+#
+# Owner project
+#
+  acts_as_folder_linked  :service
+ 
+  acts_as_scheduled
+
 
 ##
 # This record has a full audit log created for changes 
@@ -95,14 +100,19 @@ class QueueItem < ActiveRecord::Base
  end
  
  def update_state(params)
-    self.state_id = params[:status_id].to_i     if params[:status_id]
     self.priority_id = params[:priority_id]     if params[:priority_id]
     self.assigned_to_user_id = params[:user_id] if params[:user_id]
     self.comments << params[:comments]          if params[:comments]
+    if params[:state_id]
+      self.folder.set_state(params[:state_id].to_i)
+    else
+      self.save!
+    end
+    self.reload
  end
 
   def used_by_task_reference(task_item)
-    if self.is_active and (self.task_id.nil? or self.task_id==task_item.task_id)
+    if self.active? and (self.task_id.nil? or self.task_id==task_item.task_id)
       unless task_item.value 
          task_item.value = self.value
          task_item.save
@@ -110,7 +120,7 @@ class QueueItem < ActiveRecord::Base
       if task_item.value == self.value
          self.task_id = task_item.task_id
          self.experiment_id = task_item.task.experiment_id
-         self.status_id = PROCESSING if self.status_id < PROCESSING
+         self.state_id = task.state_id
          self.save
       else
         logger.error "Cant assign #{task_item.value} != #{self.value}"

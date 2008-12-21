@@ -15,8 +15,15 @@
 #
 
 class StateChange < ActiveRecord::Base
-   belongs_to :from, :foreign_key => "old_state_id",:class_name=>'State'
-   belongs_to :to, :foreign_key => "new_state_id",:class_name=>'State'
+#
+# This represents a from=>to state change
+#
+  belongs_to :from, :foreign_key => "old_state_id",:class_name=>'State'
+  belongs_to :to,   :foreign_key => "new_state_id",:class_name=>'State'
+#
+# Changes are grouped together into a state flow
+#
+  belongs_to :state_flow,:foreign_key => "state_flow_id",:class_name=>'StateFlow'
    
   def name
     self.to.name

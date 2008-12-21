@@ -8,8 +8,7 @@
 class Organize::QueueItemsController < ApplicationController
 
   use_authorization :organization,
-                    :actions => [:show,:destroy],
-                    :rights => :current_user
+                    :use => [:show,:destroy]
                          
   def show
     @queue_item = QueueItem.find(params[:id])

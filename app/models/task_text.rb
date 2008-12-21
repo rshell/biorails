@@ -28,7 +28,7 @@ class TaskText < ActiveRecord::Base
 ##
 # This record has a full audit log created for changes 
 #   
-  acts_as_audited :change_log
+  acts_as_audited :change_log, :auditing_enabled =>true
 
   validates_presence_of :task
   validates_presence_of :context

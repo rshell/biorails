@@ -7,7 +7,7 @@ Description:
 Purpose of the stylesheet follows.
 */
 .biorails {   
-    position:relative;    
+    position:relative;
     margin:0;
     padding:0;
     border:0 none;
@@ -16,7 +16,7 @@ Purpose of the stylesheet follows.
 .biorails ol { list-style-type: decimal }
 
 .help{
-float: right;
+    float: right;
 }
 
 a {
@@ -35,7 +35,10 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 .content{
     width:100%;
     float:left;
+    z-index:1;
 }
+
+.x-grid3-header-offset {width: auto;}
 
 .icon {
     z-index:100;
@@ -46,16 +49,16 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
     margin: 3px;
 }
 .actions a {
-	height: 1em;
-	line-height: 1em;
-	text-decoration: none;
-	text-align: center;
+    height: 1em;
+    line-height: 1em;
+    text-decoration: none;
+    text-align: center;
     padding: 2px 2px 2px 20px;
     margin: 2px;
     text-decoration: none;
 }
 .actions a:hover {
-	border: 1px solid #000099;
+    border: 1px solid #000099;
 }
 
 .splitcontentleft{
@@ -84,14 +87,13 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 /* Content Header */
 
 .content_header {   
-    position:relative;    
+    position:relative;
     display: block;
     border: 1px solid #c0c0c0;
-	z-index: 0;
     font: 11px arial, sans-serif;
     color: black;
     padding: 3px 3px 3px 3px;
-    margin: 3px 0 0 0; 
+    margin: 3px 0 0 0;
 }
 
 
@@ -99,29 +101,27 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 .content_header h1 {
     font-size: 1.5em;
     text-indent: 0.5em;
-	float: left;
-	margin-bottom: -1em;
+    float: left;
+    margin-bottom: -1em;
 }
 
 .help {float: right}
 
 .content_actions {
-	display:block;
-	background-color: red;
+    display:block;
+    background-color: red;
 }
 
 .actions_left {
     float: left;
-    z-index: 3000;
-    position:relative;    
+    position:relative;
 }
 
 
 .actions_right {
     float: right;
-    z-index: 300;
-    position:relative;    
-    }
+    position:relative;
+}
 
 
 .project {}
@@ -139,58 +139,68 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
     background-color:#fafbfc;
     color:#505050;
     line-height:1.5em;
-    z-index: -100;
 }
 
 .box ul, menu, dir {
     display: block;
     list-style-type: disc;
     margin: 1em 0 1em 0;
-    padding-top: 7px; 
-    padding-right: 7px; 
-    padding-bottom: 7px; 
-    padding-left: 30px; 
+    padding-top: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    padding-left: 30px;
 }
 
 .box ol {
     display: block;
     list-style-type: decimal;
     margin: 1em 0 1em 0;
-    padding-top: 7px; 
-    padding-right: 7px; 
-    padding-bottom: 7px; 
-    padding-left: 30px; 
+    padding-top: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    padding-left: 30px;
+}
+
+
+.box dl {}
+
+.box dt {
+    font-weight: bold;
+}
+
+.box dd {
+    
+    text-indent: 2em;
 }
 
 
 .state-level0 {
     background-color: #fffdc5;
-
-    }
+}
 .state-level1{
     background-color: #fffdc3;
-    }
+}
 
- .state-level2 {
+.state-level2 {
     background-color: #ffbb9b;
-    }
-    
+}
+
 .layout-level3 {
     background-color: #ECF3E1;
 }
 
- .state-level4 {
+.state-level4 {
     background-color: #c1ffc3;
-    }
+}
 
 .state-level5 {
     background-color: #bfffd1;
-    }
+}
 
 .state-level-1 {
     background-color: #ffd3f1;
-    }
-    
+}
+
 .handle {
     cursor: move;
 }
@@ -226,7 +236,7 @@ img.calendar-trigger {
 div.tooltip:hover span.tip{
     display:block;
     position:absolute;
-    top:-24px; left:24px; width:auto;
+    top:24px; left:24px; width:auto;
     border:1px solid #555;
     background-color:#fff;
     padding: 4px;
@@ -292,9 +302,9 @@ div.sidemenu div a:hover {
 /*========== Guide ==============*/
 
 .guide {
-    
-  font-family: Arial,Helvetica,sans-serif;
-  font-size: smaller;
+
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: smaller;
 }
 
 /*HTML Diff highlighting */
@@ -325,7 +335,6 @@ Report Table Style
 .report {
     width: 100%;
     background-color: white;
-    z-index: 5;
 }
 
 .report table {
@@ -386,7 +395,7 @@ Report Table Style
     background-position:right;
     background-repeat:no-repeat;
     background-image: url('/images/up.png')
-    
+
 }
 
 .report th .asc {
@@ -398,14 +407,13 @@ Report Table Style
 
 
 .report  th {
-    z-index: 20;
     color:#fff;
     background: #6593cf;
     font: bold 11px arial, sans-serif;
     padding: 0;
     margin:0;
     padding: 0px 5px 0px 5px;
-    
+
 }
 
 .report  th p {
@@ -498,7 +506,7 @@ Sheet Table Style
     height: 98%;
     empty-cells: show;
     min-height:20em;
-    
+
 }
 .sheet table {
     margin: 0 0 0 0;
@@ -580,25 +588,25 @@ Cells
 .gantt {
     position:static;
     margin:0;
-    font-size: 11px; 
-    line-height: 18px; 
-    font-family: sans-serif; 
-    background-color: #eeeeee; 
-    padding-top: 7px; 
-    padding-right: 7px; 
-    padding-bottom: 7px; 
-    padding-left: 7px; 
-    border-top-color: #888888; 
-    border-left-color: #888888; 
-    border-right-color: #888888; 
-    border-bottom-color: #888888; 
-    border-top-width: 1px; 
-    border-left-width: 1px; 
-    border-right-width: 1px; 
-    border-bottom-width: 1px; 
-    border-top-style: solid; 
-    text-align: left; 
-    z-index: 10000; 
+    font-size: 11px;
+    line-height: 18px;
+    font-family: sans-serif;
+    background-color: #eeeeee;
+    padding-top: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    border-top-color: #888888;
+    border-left-color: #888888;
+    border-right-color: #888888;
+    border-bottom-color: #888888;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    text-align: left;
+    z-index: 10000;
 }
 
 .gantt .gantt_hdr {
@@ -652,6 +660,22 @@ Cells
     border: 1px solid #eee;
     color: #ddd;
 }
+/* Added back colour for remote combobox */
+.x-combo-remote {
+    background-color: yellow;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-color: teal;
+    border-bottom-color: teal;
+    border-left-color: teal;
+    border-right-color: teal;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
 
 /* invalid field on entry grid */
 .x-cell-invalid, textarea.x-cell-invalid{
@@ -660,6 +684,11 @@ Cells
 }  
 /* pending save field on entry grid */
 .x-cell-pending, textarea.x-cell-pending{
+    background:#FFFFB5;
+    border: 1px solid #FF6300;
+}
+/* pending save field on entry grid */
+.x-cell-active, textarea.x-cell-pending{
     background:#FFFFB5;
     border: 1px solid #FF6300;
 }
@@ -679,54 +708,54 @@ Cells
     padding:1px 0 0 0;
 }
 
+
 .breadcrumb {
-  /*background-color: white;*/
-  /*border-bottom-style: solid;
-  border-left-style: solid;
-  border-right-style: solid;
-  border-bottom-width: 1px;
-  border-left-width: 1px;
-  border-right-width: 1px;
-  border-bottom-color: #cccccc;
-  border-left-color: #cccccc;
-  border-right-color: #cccccc;*/
-  font-family: Arial,Helvetica,sans-serif;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 3px;
-  width: 100%;
+    /*background-color: white;*/
+    /*border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-color: #cccccc;
+    border-left-color: #cccccc;
+    border-right-color: #cccccc;*/
+    font-family: Arial,Helvetica,sans-serif;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+    width: 100%;
 }
 
 .breadcrumb a {
-/*	background: transparent url(/images/enterprise/arrow/arrow_right.png) no-repeat center right;*/
-	text-decoration: none;
-	padding-right: 2px; /*adjust bullet image padding*/
-	color: navy;
+    /*	background: transparent url(/images/enterprise/arrow/arrow_right.png) no-repeat center right;*/
+    text-decoration: none;
+    padding-right: 2px; /*adjust bullet image padding*/
+    color: navy;
 }
 
 .breadcrumb a:visited, .breadcrumb a:active{
-	color: navy;
+    color: navy;
 }
 
 .breadcrumb a:hover{
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 
 /* Panels */
 
 .panel {   
-    position:relative;    
+    position:relative;
     display: block;
     border: 1px solid #c0c0c0;
-    z-index: 10;
     font: 11px arial, sans-serif;
     color: black;
     background-color: white;
-	  width:100%;
+    width:100%;
 }
 
-    
+
 .panel p {
     display: block;
     margin: 1.0em 0px
@@ -883,24 +912,25 @@ Cells
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
-    padding-top: 7px; 
-    padding-right: 7px; 
-    padding-bottom: 7px; 
-    padding-left: 10px; 
+    padding-top: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
 }
 
 .panel ol {
     display: block;
     list-style-type: decimal;
-    padding-top: 7px; 
-    padding-right: 7px; 
-    padding-bottom: 7px; 
-    padding-left: 10px; 
+    padding-top: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
 }
+
 
 .panel li {
     display: list-item
@@ -917,7 +947,7 @@ Cells
 .panel box dd {
     display: block;
     margin: 10px;
-    
+
 }
 
 .panel dl {

@@ -1,7 +1,7 @@
 require 'red_artisan/core_image/processor'
 
-module Technoweenie # :nodoc:
-  module AttachmentFu # :nodoc:
+module Alces # :nodoc:
+  module Attachments # :nodoc:
     module Processors
       module CoreImageProcessor
         def self.included(base)

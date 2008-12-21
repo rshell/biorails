@@ -1,18 +1,16 @@
-<h3><%=l(:label_methods) %>
-</h3>
-<div class='box'>
+<div class='box content' style='width:94%'>
     <table class="report">
         <thead>
             <tr>
                 <th colspan='<%=assay.stages.size%>'>
-                    <b class="icon icon-protocol"><%=l(:label_processes_released) %>
+                    <b class="icon icon-protocol"><%=l(:Processes_Released) %>
                     </b>
                 </th>
             </tr>
             <tr>
                 <% for stage in assay.stages %>
                 <th>
-                    <%=stage.name %>[<%=l(:label_runs) %>]
+                    <%=stage.name %>[<%=l(:Runs) %>]
                 </th>
                 <% end %>
             </tr>
@@ -31,34 +29,33 @@
                 <% end %>
             </tr>
         </tbody>
-    </table><hr/>
-    <%= link_to( l(:label_process_add), process_instance_url(:action => 'new',  :id => @assay), :class=>'icon icon-protocol-add') %>
+    </table>
+    <hr/><%= link_to( l(:Process_New), process_instance_url(:action => 'new',  :id => @assay), :class=>'icon icon-protocol-add') if @assay.changeable? %>
 </div>
-<div class='box'>
-    <table class="report">
+
+<div class='box splitcontentleft' style='width:40%'>
+    <table class="report" style>
         <thead>
             <tr>
                 <th colspan='<%=assay.stages.size%>'>
-                    <b class="icon icon-workflow"><%=l(:label_recipes_released) %>
+                    <b class="icon icon-workflow"><%=l(:Recipes_Released) %>
                     </b>
                 </th>
             </tr>
         </thead>
         <tbody>
+            <% for stage in assay.stages %>
+            <% for process in assay.protocols_in_stage(stage) %>
+            <% if process.multistep? %>
             <tr>
-                <% for stage in assay.stages %>
                 <td>
-                    <% for process in assay.protocols_in_stage(stage) %>
-                    <% if process.multistep? %>
-                    <%= link_to process.name,
-                    process_flow_url( :action => 'show', :id=>process) %>
-                    <% end %>
-                    <%end %>
+                    <%= link_to process.name, process_flow_url( :action => 'show', :id=>process) %>
                 </td>
-                <% end %>
             </tr>
+            <% end %>
+            <%end %>
+            <% end %>
         </tbody>
     </table>
-    <hr/>
-    <%= link_to( l(:label_recipe_new),  process_flow_url(:action => 'new',  :id => @assay), :class=>'icon icon-protocol-add') %>
+    <hr/><%= link_to( l(:Recipe_New),  process_flow_url(:action => 'new',  :id => @assay), :class=>'icon icon-protocol-add') %>
 </div>

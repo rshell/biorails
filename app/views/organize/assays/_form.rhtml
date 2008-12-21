@@ -2,16 +2,21 @@
     <!--[form:assay]-->
     <div class="form-element">
         <label for="assay_name">
-            <%=l(:label_name) %>
+            <%=l(:Name) %>
         </label>
+    <% if SystemSetting.force_generated_assay_yn? %>
+        <%= hidden_field 'assay', 'name' , {:class=>"text-input"} %>
+        [<%=l(:System_Genererated)%>]
+     <%else%>
         <%= text_field 'assay', 'name' , {:class=>"text-input"} %>
+     <%end%>
         <%= hidden_field 'assay', 'project_id' %>
     </div>
 </div>
 <div class="row">
     <div class="form-element">
         <label for="assay_description">
-            <%=l(:label_description) %>
+            <%=l(:Description) %>
         </label>
         <%= text_area('assay', 'description', {:rows=>5,:cols=>80}) %>
     </div>
@@ -19,7 +24,7 @@
 <div class="row">
     <div class="form-element">
         <label for="assay_started_at">
-            <%=l(:label_date_start)%>
+            <%=l(:Date_Start)%>
         </label>
         <%= date_field 'assay', 'started_at' %>
     </div>
@@ -27,7 +32,7 @@
 <div class="row">
     <div class="form-element">
         <label for="assay_expected_at">
-            <%=l(:label_date_expected)%>
+            <%=l(:Date_Expected)%>
         </label>
         <%= date_field 'assay', 'expected_at' %>
     </div>

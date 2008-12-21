@@ -38,7 +38,7 @@ class TaskReference < ActiveRecord::Base
 ##
 # This record has a full audit log created for changes 
 #   
-  acts_as_audited :change_log
+  acts_as_audited :change_log, :auditing_enabled =>true
 
   
   validates_presence_of :task
@@ -83,8 +83,8 @@ class TaskReference < ActiveRecord::Base
  end
  
  def to_s
-   return self.parameter.default_value.to_s if self.data_name.empty? 
-   data_name.to_s
+   return self.parameter.default_value.to_s unless self.data_id
+   "#{self.data_name}"
  end
 
 end

@@ -36,13 +36,13 @@ class ListElement < DataElement
   #
   # after save of masters read the content and convert to child items
   #
-  after_save :populate 
+  after_save :populate
 
 #
 # Check the SQL is valid 
 #
   def validate
-    logger.info "Checkling list #{content}"
+    logger.info "Checking list #{content}"
     unless FasterCSV.parse(content).size>0
       errors.add(:content,"Cant find any items on list '#{content}'")      
     end
@@ -51,13 +51,12 @@ class ListElement < DataElement
     return false
   end
   
-  
-protected
   def populate
+     return true if Biorails::Dba.importing?
      estimated_count = 0
      FasterCSV.parse(content) do |row|
        row.each do |item|
-           add_child(item)
+           add_child(item) unless lookup(item)
            estimated_count +=1
        end
      end

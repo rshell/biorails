@@ -9,8 +9,7 @@
 class Execute::RequestsController < ApplicationController
 
   use_authorization :execution,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user
+                    :use => [:list,:show,:new,:create,:edit,:update,:destroy]
                   
   before_filter :setup_requests,
     :only => [ :list,:index,:new,:create] 
@@ -29,10 +28,7 @@ class Execute::RequestsController < ApplicationController
 # List of all the items for set queue
 # 
   def list                                     
-    @report = Biorails::ReportLibrary.project_request_list 
-    @report.column('project_id').filter = current_project.id
-    @report.set_filter(params[:filter])if params[:filter] 
-    @report.add_sort(params[:sort]) if params[:sort]
+    @report = Biorails::ReportLibrary.request_list 
   end
   
 ##
@@ -44,11 +40,7 @@ class Execute::RequestsController < ApplicationController
 # Show the status of a request item with a history of testing of the requested item in the 
 # current assay. eg a schedule of task data entry
   def results
-   @report = Biorails::ReportLibrary.request_results_list do | report |
-      report.column('service.request_id').filter = @user_request.id.to_s
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
-   end
+   @report = Biorails::ReportLibrary.request_results_list(@user_request)
    render :action => :report
   end
 ##
@@ -189,22 +181,41 @@ class Execute::RequestsController < ApplicationController
 # Delete the current request
 # 
   def destroy
-    @user_request.destroy
+    begin
+    Request.transaction do
+      if @user_request.changeable? and right?(:data,:destroy)
+         @user_request.destroy
+      else
+        flash[:warning] ="Can not destroy #{@user_request.name}"
+      end
+    end
+    rescue Exception => ex
+      flash[:error] ="destroy Failed with error: #{ex.message}"
+    end
     redirect_to :action => 'list'
   end
   
 protected
 
   def setup_requests
-    set_project(Project.load( params[:id] )) if  params[:id]    
+    if  params[:id]
+      @project = Project.load( params[:id])
+      set_project(@project)
+      set_element(@project.folder(Request.root_folder_under))
+    end
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end  
 
   def setup_request
-    @user_request = Request.find(params[:id])
+    @user_request = Request.load(params[:id])
     return show_access_denied unless @user_request   
-    @project_folder =current_project.folder(@user_request)
+    set_element @project_folder = @user_request.folder
+    set_project(@user_request.project)
     return true
-  rescue
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
     return show_access_denied
   end  
   

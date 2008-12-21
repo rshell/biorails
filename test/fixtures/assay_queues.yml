@@ -1,35 +1,12 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: assay_queues
-#
-#  id                  :integer(4)      not null, primary key
-#  name                :string(128)     default(""), not null
-#  description         :string(1024)    default(""), not null
-#  assay_id            :integer(4)
-#  assay_stage_id      :integer(4)
-#  assay_parameter_id  :integer(4)
-#  assay_protocol_id   :integer(4)
-#  status              :string(255)     default("new"), not null
-#  priority            :string(255)     default("normal"), not null
-#  lock_version        :integer(4)      default(0), not null
-#  created_at          :datetime        not null
-#  updated_at          :datetime        not null
-#  updated_by_user_id  :integer(4)      default(1), not null
-#  created_by_user_id  :integer(4)      default(1), not null
-#  assigned_to_user_id :integer(4)      default(1)
-#  project_element_id  :integer(4)
-#
-
 --- 
 00000000001_assay_queue: !ruby/object:AssayQueue 
   attributes: 
     status: new
     name: ServiceQueue1
-    updated_at: 2008-08-14 10:29:45
+    updated_at: 2008-10-22 15:14:25
     assay_parameter_id: "3"
     updated_by_user_id: "1"
-    lock_version: "5"
+    lock_version: "6"
     priority: normal
     assay_id: "1"
     id: "1"
@@ -46,10 +23,10 @@
   attributes: 
     status: new
     name: DR
-    updated_at: 2008-08-14 10:29:45
+    updated_at: 2008-10-22 15:14:25
     assay_parameter_id: "6"
     updated_by_user_id: "1"
-    lock_version: "5"
+    lock_version: "6"
     priority: normal
     assay_id: "2"
     id: "2"

@@ -1,0 +1,30 @@
+<% content_for :sidemenu do%>
+
+  <%= render :partial => '/menu/admin_menu'%>
+  <div>
+    <span class='menu'>
+      <b class='icon icon-data_identifier'><%=l(:data_identifier)%>
+      </b>
+    </span>
+
+    <%= link_to l(:List), data_identifier_url(:action => 'list')%>
+    <%= link_to l(:New), data_identifier_url(:action => 'new')%>
+    <%= link_to l(:Edit), data_identifier_url(:action => 'edit', :id => @data_identifier)%>
+    <%= link_to l(:Show), data_identifier_url(:action => 'show',:id => @data_identifier)%>
+    <%= link_to l(:Delete), data_identifier_url(:action => 'destroy', :id => @data_identifier ),
+      :confirm => l(:text_are_you_sure), :method => :post%>
+</div>
+<% end %>
+
+<% content_for :center do%>
+<%= render :partial => 'admin/header'%>
+
+  <% dialog l(:data_identifier) do %>
+    <% form_tag :action => 'update', :id => @data_identifier do %>
+      <%= render :partial => 'form' %>
+      <%= submit_tag l(:Save) %>
+      <%= link_to l(:Cancel), :action => 'list'%>
+    <% end %>
+  <% end %>
+
+<% end %>

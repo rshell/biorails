@@ -6,10 +6,11 @@
       </b>
     </span>
     <%unless experiment.new_record? %>
-    <%= link_to( l(:label_overview), experiment_url( :action => 'show', :id => experiment)) %>
-    <%= link_to l(:label_folder),    folder_url(:action => 'show', :id => experiment.folder  )%>
-    <%= link_to(l(:label_experiment_copy),    experiment_url( :action => 'copy' , :id => experiment)) %>
-    <%= link_to( l(:label_delete),  experiment_url( :action => 'destroy', :id => experiment ), :confirm => l(:text_are_you_sure),:method => "post") if experiment.tasks.size==0  %>
+    <%= link_to( l(:Overview), experiment_url( :action => 'show', :id => experiment)) %>
+    <%= link_to l(:Folder),    folder_url(:action => 'show', :id => experiment.folder  )%>
+    <%= link_to(l(:Experiment_Copy),    experiment_url( :action => 'copy' , :id => experiment)) %>
+    <%= link_to( l(:Delete),  experiment_url( :action => 'destroy', :id => experiment ),
+                                  :confirm => l(:text_are_you_sure),:method => "post") if experiment.tasks.size==0  %>
   <%end %>
   </div>
 <%end%>

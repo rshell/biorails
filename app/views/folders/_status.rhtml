@@ -1,10 +1,19 @@
-<%= render :partial => 'shared/messages',
-    :locals => { :objects => ['project','project_folder',
-    'project_element','project_content']}  %>
+<div class="panel">
+
+<%if @project_folder.published? %>
+  <%= render :partial => 'status_actions',:locals=>{:folder=>@project_folder} if right?(:document,:withdraw) %>
+
+  <h1><%=l(:Published)%></h1>
+  <%= render :partial => 'document',:locals=>{:folder=>@project_folder} %>
+
+<%else%>
+  <%= render :partial => 'status_actions',:locals=>{:folder=>@project_folder} %>
+
+  <div class="box">
+    <h1> <%=@project_folder.name%> is <%=@project_folder.state%> </h1>
+     <%= render :partial => 'status_children',:locals=>{:folder=>@project_folder} %>
+  </div>
 
 
-<% if @project_folder and @project_folder.reference %>
-  This folder is referenced to a <%=@project_folder.style %>
-  <%= link_to  @project_folder.reference.name,
-      reference_to_url(@project_folder) %>
 <% end %>
+</div>

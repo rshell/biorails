@@ -2,8 +2,12 @@
   <%= render :partial =>'actions' %>
 <% end %>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['report' ]} %>
+<%end%>
+
 <h1 class='icon icon-report'>
-    <%=l(:label_visualise_tables_for_query)%>[<%=@report.name%>] <%=l(:label_based_on_model)%> [<%=@report.base_model%>]
+    <%=l(:Visualise_tables_for_query)%>[<%=@report.name%>] <%=l(:Based_on_Model)%> [<%=@report.base_model%>]
 </h1>
 
 <div class="panel" id="visualize-model">

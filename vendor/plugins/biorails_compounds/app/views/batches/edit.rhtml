@@ -6,9 +6,9 @@
       </b>
     </span>
     <div class='boldnotbold'>
-      <%= link_to "<b class='icon icon-show'>"+l(:label_show)+"</b>",
+      <%= link_to "<b class='icon icon-show'>"+l(:Show)+"</b>",
         :action => 'show', :id => @batch %>
-      <%= link_to "<b class='icon icon-list'>"+l(:label_list)+"</b>",
+      <%= link_to "<b class='icon icon-list'>"+l(:List)+"</b>",
         :action => 'list' %>
     </div>
   </div>
@@ -26,7 +26,7 @@
     <% form_tag :action => 'update', :id => @batch do %>
     <%= render :partial => 'form' %>
     <div class='row'>
-      <%= submit_tag l(:button_save) %>
+      <%= submit_tag l(:Save) %>
     </div>
     <% end %>
   <% end %>

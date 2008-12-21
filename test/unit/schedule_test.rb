@@ -57,7 +57,7 @@ class ScheduleTest < Test::Unit::TestCase
   def test007_tasks_for_user
     schedule = Schedule.new(Task)
     schedule.calendar({:year=>2007,:month=>1})
-    schedule.filter =["user_id",User.find(:first)]
+    schedule.filter =["created_by_user_id=?",User.find(:first)]
     schedule.refresh
     
     assert_not_nil schedule
@@ -67,7 +67,7 @@ class ScheduleTest < Test::Unit::TestCase
   def test008_requests_for_user
     schedule = Schedule.new(RequestService,{:start=>'created_at',:end=>'expected_at'})
     schedule.calendar({:year=>2007,:month=>1})
-    schedule.filter = ["user_id",User.find(:first)]
+    schedule.filter = ["created_by_user_id=?",User.find(:first)]
     schedule.refresh
 
     assert_not_nil schedule
@@ -78,7 +78,7 @@ class ScheduleTest < Test::Unit::TestCase
   def test009_experiments_for_project
     schedule = Schedule.new(Experiment,{:start=>'created_at',:end=>'updated_at'})
     schedule.calendar({:year=>2007,:month=>1})
-    schedule.filter = ["project_id",Project.find(:first)]
+    schedule.filter = ["project_id=?",Project.find(:first)]
     schedule.refresh
 
     assert_not_nil schedule
@@ -87,7 +87,7 @@ class ScheduleTest < Test::Unit::TestCase
   def test010_tasks_for_project
     schedule = Schedule.new(Task)
     schedule.calendar({:year=>2007,:month=>1})
-    schedule.filter = ["project_id",Project.find(:first)]
+    schedule.filter = ["project_id=?",Project.find(:first)]
     schedule.refresh
     assert_not_nil schedule
     assert schedule.filter
@@ -99,7 +99,7 @@ class ScheduleTest < Test::Unit::TestCase
   def test011_scale
     schedule = Schedule.new(Task)
     schedule.calendar({:year=>2007,:month=>1})
-    schedule.filter = ["project_id",Project.find(2)]
+    schedule.filter = ["project_id=?",Project.find(2)]
     schedule.refresh
     schedule.scale
     assert_not_nil schedule
@@ -108,12 +108,12 @@ class ScheduleTest < Test::Unit::TestCase
   def test012_for_day
     schedule = Schedule.new(Task)
     schedule.calendar({:year=>2007,:month=>1})
-    schedule.filter = ["project_id",Project.find(2)]
+    schedule.filter = ["project_id=?",Project.find(2)]
     schedule.refresh
     list = schedule.for_day(Date.today)
     assert_not_nil list
     assert list.is_a?(Array)
   end   
 
-  
+
 end

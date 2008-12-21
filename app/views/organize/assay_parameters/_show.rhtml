@@ -1,0 +1,16 @@
+<div i class="box">
+ <h1 class="icon icon-parameter-large" style='text-indent:0.5em'>[<%=@assay_parameter.assay.name %>]
+            Assay Parameter
+            [<strong><%=@assay_parameter.name %></strong>]</h1>
+
+<% for column in AssayParameter.content_columns %>
+    <p>
+      <b><%= column.human_name %>:</b>
+      <%=h @assay_parameter.send(column.name) %>
+    </p>
+  <% end %>
+  <p>
+  In later versions we are planning to add histogram of values
+  describing use of the parameters and general
+  metrics for analysis and QA.
+</div>

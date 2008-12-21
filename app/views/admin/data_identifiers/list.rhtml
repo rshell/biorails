@@ -1,0 +1,51 @@
+<% content_for :sidemenu do%>
+  <%= render :partial => '/menu/admin_menu'%>
+  <div>
+    <span class='menu'>
+      <b class='icon icon-data_identifier'>
+        <%=l(:Data_Identifiers)%>
+      </b>
+    </span>
+    <%= link_to l(:List), data_identifier_url(:action => 'list')%>
+    <%= link_to l(:New), data_identifier_url(:action => 'new')%>
+  </div>
+<% end %>
+<%= render :partial => 'admin/header'%>
+
+<h1 class="icon icon-data_identifier">
+  Name Identifier Generation Rules
+</h1>
+<div class='panel'>
+  <table class="report">
+    <tr>
+      <th><%=l(:Name)%></th>
+      <th><%=l(:prefix)%></th>
+      <th><%=l(:current_counter)%></th>
+      <th><%=l(:postfix)%></th>
+      <th><%=l(:mask)%></th>
+      <th><%=l(:current_step)%></th>
+      <th><%=l(:lock_version )%></th>
+      <th><%=l(:Action)%></th>
+    </tr>
+    <% for data_identifier in @data_identifiers %>
+      <tr  class="<%= cycle('odd', 'even') %> boldnotbold">
+        <td>
+          <%= link_to data_identifier.name, data_identifier_url( :action => 'show', :id => data_identifier) %>
+        </td>
+        <td> <%=h data_identifier.prefix%></td>
+        <td> <%=h data_identifier.current_counter%></td>
+        <td> <%=h data_identifier.postfix%></td>
+        <td> <%=h data_identifier.mask%></td>
+        <td> <%=h data_identifier.current_step%></td>
+        <td> <%=h data_identifier.lock_version%></td>
+        <td>
+          <%= link_to l(:Edit),data_identifier_url( :action => 'edit', :id => data_identifier), :class=>'icon icon-edit' %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= will_paginate   @data_identifiers%>
+  <hr /><%= link_to l(:New), data_identifier_url(:action => 'new'), :class=>'icon icon-add' %>
+
+</div>

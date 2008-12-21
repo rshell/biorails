@@ -1,36 +1,33 @@
 <table class="report">
     <tr>
         <th colspan='2' rowspan='2'>
-            <%=l(:label_assay) %>
+            <%=l(:Assay) %>
         </th>
         <th colspan='3'>
-            <%=l(:label_process) %>
+            <%=l(:Process) %>
         </th>
         <th colspan='2'>
-            <%=l(:label_released_version) %>
+            <%=l(:Released_Version) %>
         </th>
         <th colspan='1' rowspan='2'>
-            <%=l(:label_latest_version) %>
-        </th>
-        <th colspan='1' rowspan='2'>
-            <%=l(:label_actions) %>
+            <%=l(:Latest_Version) %>
         </th>
     </tr>
     <tr>
         <th>
-            <%=l(:label_name) %>
+            <%=l(:Name) %>
         </th>
         <th>
-            <%=l(:label_stage) %>
+            <%=l(:Stage) %>
         </th>
         <th>
-            <%=l(:label_edits) %>
+            <%=l(:Edits) %>
         </th>
         <th>
-            <%=l(:label_version) %>
+            <%=l(:Version) %>
         </th>
         <th>
-            <%=l(:label_tasks) %>
+            <%=l(:Tasks) %>
         </th>
     </tr>
     <% for assay_protocol in @assay_protocols %>
@@ -42,7 +39,7 @@
             <%=h assay_protocol.assay.style %>
         </td>
         <td>
-            <%=h assay_protocol.name %>
+            <%=link_to(assay_protocol.name, process_instance_url(:action => 'show',:id => assay_protocol.latest)) if assay_protocol.latest %>
         </td>
         <td>
             <%=h assay_protocol.stage.name if assay_protocol.stage %>
@@ -65,11 +62,8 @@
         <td>
             <%=assay_protocol.latest.path if assay_protocol.latest %>
         </td>
-        <td>
-            <%=link_to( 'show', process_instance_url(:action => 'show',:id => assay_protocol.latest)) if assay_protocol.latest %>
-        </td>
     </tr>
     <% end %>
     <% end %>
 </table>
-<hr/><%= link_to l(:label_add),  process_instance_url(:action => 'new',  :id => @assay), :class=>'icon icon-protocol-add' if @assay %>
+<hr/><%= link_to l(:Add),  process_instance_url(:action => 'new',  :id => @assay), :class=>'icon icon-protocol-add' if @assay %>

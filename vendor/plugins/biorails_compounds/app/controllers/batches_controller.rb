@@ -4,10 +4,6 @@
 # 
 class BatchesController < ApplicationController
 
-  use_authorization :inventory,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights =>  :current_user  
-
   def index
     list
     render :action => 'list'

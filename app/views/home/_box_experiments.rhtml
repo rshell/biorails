@@ -1,5 +1,5 @@
 <div class='box'>
-  <b><%= link_to( l(:label_my_latest,5, l(:label_experiments)), experiment_url( :action => 'list'), :class=>'icon icon-experiment') %></b>
+  <b><%= link_to( l(:My_Latest,5, l(:Experiments)), experiment_url( :action => 'list'), :class=>'icon icon-experiment') %></b>
   <% for item in @user.latest(Experiment,5) %>
     <dl>
       <dt><%= link_to item.name, experiment_url( :action => 'show', :id => item), :class=>"icon icon-status_#{item.status}" %>

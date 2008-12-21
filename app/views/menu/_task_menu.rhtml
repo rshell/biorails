@@ -3,11 +3,11 @@
     <span class='menu'><b class='icon icon-task'><%=h task.name %>
         </b></span>
     <% unless task.new_record? %>
-    <%= link_to( l(:label_overview),task_url( :action => 'show', :id => task)) %>
-    <%= link_to( l(:label_folder), folder_url( :action => 'show', :id => task.folder)) %>
-    <%= link_to( l(:label_analyse), task_url( :action => 'analysis', :id => task)) %>
-    <%if task.contexts.size==0 %>
-    <%= link_to( l(:label_delete),task_url( :action => 'destroy', :id => task ), :confirm => l(:text_are_you_sure),:method => "post") %>
+    <%= link_to( l(:Overview),task_url( :action => 'show', :id => task)) %>
+    <%= link_to( l(:Folder), folder_url( :action => 'show', :id => task.folder)) %>
+    <%= link_to( l(:Analyse), task_url( :action => 'analysis', :id => task)) %>
+    <%if task.contexts.size==0 and task.changeable? %>
+    <%= link_to( l(:Delete),task_url( :action => 'destroy', :id => task ), :confirm => l(:text_are_you_sure),:method => "post") %>
     <%end %>
     <%end %>
 </div>

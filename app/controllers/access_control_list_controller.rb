@@ -1,8 +1,8 @@
 class AccessControlListController < ApplicationController
   
   use_authorization :project,
-                    :actions => [:show,:edit,:update,:remove,:add_user,:add_team],
-                    :rights => :current_user
+                    :use => [:show],
+                    :build => [:add_team,:add_user,:edit,:remove,:update]
 
   before_filter :get_element ,  :only => [ :show,:edit]
   before_filter :get_acl ,  :only => [ :add_user,:add_team,:update]
@@ -31,26 +31,10 @@ class AccessControlListController < ApplicationController
 # :id project element id
 #
   def edit
-    @acl = @acl.copy unless @acl.changable?
+    @acl = @acl.copy unless @acl.changeable?
     respond_to do |format|
       format.html { render :action=>:edit}
       format.ext { render :partial=>:edit}
-      format.xml  { render :xml => @acl.to_xml }
-    end
-  end
-
-  def edit
-    @acl = @acl.copy unless @acl.changable?
-    respond_to do |format|
-      format.html { render :action=>:edit}
-      format.xml  { render :xml => @acl.to_xml }
-    end
-  end
-
-  def team
-    @acl = @acl.copy unless @acl.changable?
-    respond_to do |format|
-      format.html { render :action=>:edit}
       format.xml  { render :xml => @acl.to_xml }
     end
   end
@@ -63,7 +47,8 @@ class AccessControlListController < ApplicationController
   #
   def update
     ok = false
-    if params[:commit]== l(:button_save)   
+    begin
+    if params[:commit]== l(:Save)   
               
         logger.info flash[:info] ="updated access control list #{@project_element.access_control_list_id} => #{@acl.id}"
         @acl = AccessControlList.find(params[:access_control_list_id])
@@ -72,8 +57,12 @@ class AccessControlListController < ApplicationController
          logger.info flash[:info] ="Canceled changes to access "
          ok =@acl.destroy unless @acl.used?
     end
+    rescue Exception => ex
+      flash[:warning] = ex.message
+      ok=false
+    end
     if ok
-      redirect_to folder_url(:action=>'show',:id=>@project_element.id)
+      redirect_to reference_to_url(@project_element)
     else
       render :action=>:edit
     end
@@ -89,7 +78,7 @@ class AccessControlListController < ApplicationController
       format.ext  { render :partial=>:edit}
       format.js  { 
         render :update do | page |  
-          page.main_panel   :partial => 'edit'
+          page.replace_html @acl.dom_id,:partial => '/access_control_list/rules'
           page.help_panel   :partial => 'help'
         end 
       }
@@ -105,10 +94,9 @@ class AccessControlListController < ApplicationController
     @acl.grant(params[:user_id],params[:role_id],'User')
     respond_to do |format|
       format.html { redirect_to :action=>:edit,:id=>@acl.id}
-      format.ext  { render :partial=>:edit}
       format.js  { 
         render :update do | page |  
-          page.main_panel   :partial => 'edit'
+          page.replace_html @acl.dom_id,:partial => '/access_control_list/rules'
           page.help_panel   :partial => 'help'
         end 
       }
@@ -127,7 +115,7 @@ class AccessControlListController < ApplicationController
       format.ext  { render :partial=>:edit }
       format.js  { 
         render :update do | page |  
-          page.main_panel   :partial => 'edit'
+          page.replace_html @acl.dom_id,:partial => '/access_control_list/rules'
           page.help_panel   :partial => 'help'
         end 
       }
@@ -138,12 +126,18 @@ class AccessControlListController < ApplicationController
     def get_acl
       @acl = AccessControlList.find(params[:access_control_list_id])      
       @project_folder = @project_element = ProjectElement.find(params[:project_element_id])
+    rescue Exception => ex
+      logger.warn "failed to get element #{ex.message}"
+      return show_access_denied
     end
     
     def get_ace
       @ace = AccessControlElement.find(params[:access_control_element_id])
       @project_folder =@project_element = ProjectElement.find(params[:project_element_id])
       @acl = @ace.access_control_list 
+    rescue  Exception => ex
+      logger.warn "failed to get element #{ex.message}"
+      return show_access_denied
     end
 
     def  get_element
@@ -151,5 +145,8 @@ class AccessControlListController < ApplicationController
                                                :include=>[:access_control_list])      
       @acl = @project_element.access_control_list
       @acl ||= AccessControlList.create
+    rescue Exception => ex
+      logger.warn "failed to get element #{ex.message}"
+      return show_access_denied
     end
 end

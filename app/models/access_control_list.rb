@@ -22,22 +22,24 @@
 # See license agreement for additional rights
 #
 class AccessControlList < ActiveRecord::Base
-  DEFAULT_SUBJECT='data'
-  DEFAULT_ACTION='create'
+  DEFAULT_SUBJECT ='data'
+  DEFAULT_ACTION  ='create'
 
   SQL_UNLINKED_USERS = <<-SQL
      select u.* from users u where not exists 
      (select 1 from access_control_elements e
      where e.owner_id=u.id and e.owner_type='User' and e.access_control_list_id=?)
+     order by u.name asc, u.id asc
 SQL
 
   SQL_UNLINKED_TEAMS = <<-SQL
      select t.* from teams t where not exists 
      (select 1 from access_control_elements e
      where e.owner_id=t.id and e.owner_type='Team' and e.access_control_list_id=?)
+     order by t.name asc,t.id asc
 SQL
 
-  SQL_PERMSSION_FILTER = <<-SQL      
+  SQL_PERMSSION_FILTER = <<-SQL
     select * 
      from access_control_elements e 
      inner join role_permissions p on (p.role_id = e.role_id) 
@@ -45,7 +47,7 @@ SQL
      and   p.action = ? 
      and   e.access_control_list_id = ?
      and ((owner_type='User' and owner_id = ?) or  (owner_type='Team' 
-           and (select 1 from memberships m where m.team_id=e.owner_id and m.user_id=? )))
+           and exists (select 1 from memberships m where m.team_id=e.owner_id and m.user_id=? )))
      order by e.owner_type desc,e.id asc        
 SQL
   
@@ -59,7 +61,7 @@ SQL
 # Optional Link to a team to specify this should be updated as team its based on changes
 #
   belongs_to :team
-  
+
   before_save :calculate_checksum
   before_update :can_update_used_list
   
@@ -79,21 +81,23 @@ SQL
       @roles ||= ProjectRole.find(:all)
    end
    
-   def users
-     list ={}
-     rules.each do |rule| 
-       case rule.owner
-       when Team
-         for member in rule.owner.memberships
-           unless list[member.user_id]
-             list[member.user_id] = "* #{member.user.name} "
+   def users(subject=nil,action=nil)
+     list =[]
+     rules.each do |rule|
+       if subject.nil? or action.nil? or rule.role.right?(subject,action)
+         case rule.owner
+         when Team
+           for member in rule.owner.memberships
+             unless list[member.user_id]
+               list << ["(#{member.team.name}) #{member.user.name}",member.user_id]
+             end
            end
+         else
+           list << [rule.owner.name,rule.owner_id]
          end
-       else 
-         list[rule.owner_id]  = rule.owner.name        
        end
      end
-     list.map{|key,value|[value,key]}
+     list.uniq.sort{|a,b|a[0]<=>b[0]}
    end
 #
 # Standard permission? check on access control list
@@ -105,7 +109,7 @@ SQL
      (list.size>0 ? list.first : false)
    end   
    
-   def allow?(subject,action)
+   def right?(subject,action)
      permission?(User.current,subject.to_s,action.to_s)
    end
 #
@@ -177,8 +181,15 @@ SQL
    #
    # If the user is changable
    #
-   def changable?
+   def changeable?
        new_record? and (usages.size  < 2)
+   end
+
+   def self.rebuild_checksums
+     find(:all).each do |acl|
+       acl.calculate_checksum
+       acl.save
+     end
    end
    #
    # Calculdate checksum to allow identical list to be easily spotted

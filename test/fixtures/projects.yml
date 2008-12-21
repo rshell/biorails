@@ -1,47 +1,44 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: projects
-#
-#  id                 :integer(4)      not null, primary key
-#  name               :string(30)      default(""), not null
-#  description        :string(1024)    default(""), not null
-#  status_id          :integer(4)      default(0), not null
-#  title              :string(255)
-#  email              :string(255)
-#  host               :string(255)
-#  comment_age        :integer(4)
-#  timezone           :string(255)
-#  started_at         :datetime
-#  ended_at           :datetime
-#  expected_at        :datetime
-#  done_hours         :float
-#  team_id            :integer(4)      not null
-#  expected_hours     :float
-#  lock_version       :integer(4)      default(0), not null
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  updated_by_user_id :integer(4)      default(1), not null
-#  created_by_user_id :integer(4)      default(1), not null
-#  project_type_id    :integer(4)      default(1)
-#  parent_id          :integer(4)
-#  project_element_id :integer(4)
-#
-
 --- 
+00000000030_project: !ruby/object:Project 
+  attributes: 
+    team_id: "1"
+    done_hours: 
+    name: test_org
+    updated_at: 2008-11-25 09:19:29
+    expected_hours: 
+    ended_at: 
+    title: test_org
+    timezone: 
+    project_type_id: "4"
+    updated_by_user_id: "2"
+    lock_version: "1"
+    expected_at: 2008-12-02 09:19:29
+    id: "30"
+    description: test_org
+    project_element_id: "401"
+    created_by_user_id: "2"
+    host: 
+    status_id: "0"
+    parent_id: 
+    comment_age: 
+    created_at: 2008-11-25 09:19:29
+    started_at: 2008-11-25 09:19:29
+    email: 
+  attributes_cache: {}
+
 00000000001_project: !ruby/object:Project 
   attributes: 
     team_id: "1"
     done_hours: 
     name: Global
-    updated_at: 2008-08-14 10:29:32
+    updated_at: 2008-11-25 09:10:08
     expected_hours: 
     ended_at: 
     title: Global
     timezone: 
     project_type_id: "1"
     updated_by_user_id: "1"
-    lock_version: "11"
+    lock_version: "12"
     expected_at: 2009-02-04 10:29:45
     id: "1"
     description: This is the global project and by default, everyone in the system is a member and can see the contents.
@@ -61,14 +58,14 @@
     team_id: "2"
     done_hours: 
     name: Project X
-    updated_at: 2008-08-14 10:29:32
+    updated_at: 2008-11-25 09:10:08
     expected_hours: 
     ended_at: 
-    title: 
+    title: ProjectX
     timezone: 
     project_type_id: "1"
     updated_by_user_id: "1"
-    lock_version: "11"
+    lock_version: "12"
     expected_at: 2009-02-04 10:29:45
     id: "2"
     description: Project to uncover the secret formula in Coca-Cola.
@@ -88,14 +85,14 @@
     team_id: "3"
     done_hours: 
     name: Project Y
-    updated_at: 2008-08-14 10:29:33
+    updated_at: 2008-11-25 09:10:08
     expected_hours: 
     ended_at: 
-    title: 
+    title: ProjectY
     timezone: 
     project_type_id: "1"
     updated_by_user_id: "1"
-    lock_version: "11"
+    lock_version: "12"
     expected_at: 2009-02-04 10:29:45
     id: "3"
     description: Cure for baldness
@@ -110,19 +107,46 @@
     email: 
   attributes_cache: {}
 
+00000000029_project: !ruby/object:Project 
+  attributes: 
+    team_id: "1"
+    done_hours: 
+    name: test_study
+    updated_at: 2008-11-25 09:18:58
+    expected_hours: 
+    ended_at: 
+    title: test_study
+    timezone: 
+    project_type_id: "3"
+    updated_by_user_id: "2"
+    lock_version: "1"
+    expected_at: 2008-12-02 09:18:58
+    id: "29"
+    description: test_study
+    project_element_id: "400"
+    created_by_user_id: "2"
+    host: 
+    status_id: "0"
+    parent_id: 
+    comment_age: 
+    created_at: 2008-11-25 09:18:58
+    started_at: 2008-11-25 09:18:58
+    email: 
+  attributes_cache: {}
+
 00000000004_project: !ruby/object:Project 
   attributes: 
     team_id: "4"
     done_hours: 
     name: Project Z
-    updated_at: 2008-08-14 10:29:33
+    updated_at: 2008-11-25 09:10:08
     expected_hours: 
     ended_at: 
-    title: 
+    title: ProjectZ
     timezone: 
     project_type_id: "1"
     updated_by_user_id: "1"
-    lock_version: "11"
+    lock_version: "12"
     expected_at: 2009-02-04 10:29:46
     id: "4"
     description: Cure for Malaria
@@ -134,6 +158,33 @@
     comment_age: 
     created_at: 2007-12-11 10:19:13
     started_at: 2008-08-04 10:29:46
+    email: 
+  attributes_cache: {}
+
+00000000028_project: !ruby/object:Project 
+  attributes: 
+    team_id: "1"
+    done_hours: 
+    name: test_assay_group
+    updated_at: 2008-11-25 09:18:11
+    expected_hours: 
+    ended_at: 
+    title: test_assay
+    timezone: 
+    project_type_id: "2"
+    updated_by_user_id: "2"
+    lock_version: "1"
+    expected_at: 2008-12-02 09:18:11
+    id: "28"
+    description: test_assay
+    project_element_id: "399"
+    created_by_user_id: "2"
+    host: 
+    status_id: "0"
+    parent_id: 
+    comment_age: 
+    created_at: 2008-11-25 09:18:11
+    started_at: 2008-11-25 09:18:11
     email: 
   attributes_cache: {}
 

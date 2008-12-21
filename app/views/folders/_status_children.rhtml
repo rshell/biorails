@@ -1,0 +1,19 @@
+<table class='report'>
+  <tr>
+    <th><%=l(:Item)%></th>
+    <th> <%=l(:Status)%> </th>
+    <th><%=l(:Publish)%>?</th>
+    <th><%=l(:Actions)%></th>
+  </tr>
+
+  <% for item in  @all_children %>
+    <tr>
+      <td> <%=image_tag(item.icon( {:images=>true}))%>
+           <%=link_to item.path,reference_to_url(item) %></td>
+      <td> <%=states_combo(item,item.project.state_flow) %></td>
+      <td> <%=(item.allow_state?(@new_status,false) ? l(:Yes) : l(:No))%> </td>
+      <td> <%=link_to "Preview",folder_url(:action=>:print,:id=>item.id),:popup=>true %>  </td>
+    </tr>
+  <% end  %>
+
+</table>

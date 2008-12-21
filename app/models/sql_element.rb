@@ -37,7 +37,7 @@ class SqlElement < DataElement
 # Check the SQL is valid 
 #
   def validate
-    logger.info "Checkling sql #{sql_select}"
+    logger.info "Checking sql #{sql_select}"
     self.lookup('1')
     return (!self.system.nil?)
   rescue Exception => ex
@@ -72,15 +72,22 @@ class SqlElement < DataElement
         sql = sql.gsub(/; *$/,'')  # remove final sql separator
         sql = sql.gsub(/"/,"'")  # convert " to correct '
         sql = sql.gsub(/:user_id/,User.current.id.to_s)
-        sql = sql.gsub(/:user_name/,User.current.login)
+        sql = sql.gsub(/:user_name/,User.current.name)
+        sql = sql.gsub(/:user_login/,User.current.login)
         sql = sql.gsub(/:project_id/,Project.current.id.to_s)
+        sql = sql.gsub(/:project_folder_id/,Project.current.folder.id.to_s)
+        sql = sql.gsub(/:folder_id/,ProjectFolder.current.id.to_s)
         sql = sql.gsub(/:project_name/,Project.current.name)
+        if TaskContext.current
+          TaskContext.current.self_and_ancestors.each do |context|
+            context.items.each do |key,item|
+              sql = sql.gsub(":column_#{item.name}",item.to_s)
+              sql = sql.gsub(":reference_#{item.data_type}",item.data_id.to_s) if item.is_a?(TaskReference)
+            end
+          end
+        end
     end
     return sql
-#    if ProjectFolder.current
-#      sql = sql.gsub(/:folder_id/,ProjectFolder.current.id.to_s)
-#      sql = sql.gsub(/:folder_name/,ProjectFolder.current.name)
-#    end 
   end
 ##
 # Count the number of records returned with a select count(*) from (select ....)
@@ -96,9 +103,10 @@ class SqlElement < DataElement
 # Lookup to find value in a list
   def lookup(name)
     return nil unless (self.system.can_connect?)
-    item = self.system.remote_connection.select_one("select * from (#{sql_select}) x where x.name='"+name+"'")
-    item ||= self.system.remote_connection.select_one("select * from (#{sql_select}) x where x.name='"+name.to_s.downcase+"'")
-    item ||= self.system.remote_connection.select_one("select * from (#{sql_select}) x where x.name='"+name.to_s.upcase+"'")
+    self.system.reset_connection(DataValue)
+    item = DataValue.find_by_sql("select * from (#{sql_select}) x where x.name='"+name+"'")[0]
+    item ||= DataValue.find_by_sql("select * from (#{sql_select}) x where x.name='"+name.to_s.downcase+"'")[0]
+    item ||= DataValue.find_by_sql("select * from (#{sql_select}) x where x.name='"+name.to_s.upcase+"'")[0]
     return item    
   rescue Exception => ex
      logger.error "ERROR: lookup of #{name} failed, #{ex.message}"    
@@ -110,7 +118,8 @@ class SqlElement < DataElement
 # 
   def reference(id)
     return nil unless (self.system.can_connect?)
-    self.system.remote_connection.select_one(" select * from (#{sql_select}) x where  x.id='#{id}'")
+    self.system.reset_connection(DataValue)
+    DataValue.find_by_sql(" select * from (#{sql_select}) x where  x.id='#{id}'")[0]
   rescue Exception => ex
      logger.error "ERROR: lookup of #{name} failed, #{ex.message}"    
      nil
@@ -124,11 +133,13 @@ class SqlElement < DataElement
   def like(name, limit=25, offset=0 )
     sql = ""
     return [{'name' => "<b>Error: no link</b>"}] unless (self.system.can_connect?)
-    if (! defined?(ActiveRecord::ConnectionAdapters::OracleAdapter).nil? && self.system.remote_connection.class == ActiveRecord::ConnectionAdapters::OracleAdapter)
+
+    case self.system.remote_connection.class.to_s
+    when /Oracle/
       sql = <<SQL
-        select * from 
+        select * from
           (select x.*, ROWNUM row_num FROM (#{sql_select}) x
-           where  lower(x.name) like '#{name.downcase}%' order by x.name ) 
+           where  lower(x.name) like '#{name.downcase}%' order by x.name )
         where row_num between #{offset} and #{(offset+limit)}
 SQL
    else
@@ -136,9 +147,10 @@ SQL
        select * from (#{sql_select}) x where  lower(x.name) like '#{name.downcase}%' order by name limit #{limit} offset #{offset}
 SQL
    end
-    self.system.remote_connection.select_all(sql)
+   self.system.reset_connection(DataValue)
+   DataValue.find_by_sql(sql)
  rescue Exception => ex
-     logger.error "ERROR: lookup of #{name} failed, #{ex.message}"    
+     logger.error "ERROR: lookup of #{name} failed, #{ex.message}"
      []
   end
  

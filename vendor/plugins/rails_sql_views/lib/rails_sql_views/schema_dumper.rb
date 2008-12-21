@@ -34,15 +34,17 @@ module ActiveRecord
     # Add views to the stream
     def views(stream)
       @connection.views.sort.each do |v|
-        next if ["schema_info", ignore_views].flatten.any? do |ignored|
-          case ignored
-          when String: v == ignored
-          when Symbol: v == ignored.to_s
-          when Regexp: v =~ ignored
-          else
-            raise StandardError, 'ActiveRecord::SchemaDumper.ignore_views accepts an array of String and / or Regexp values.'
+        if ActiveRecord::Migrator.respond_to?(:schema_migrations_table_name)
+          next if [ActiveRecord::Migrator.schema_migrations_table_name, ignore_views].flatten.any? do |ignored|
+            case ignored
+            when String then v == ignored
+            when Symbol then v == ignored.to_s
+            when Regexp then v =~ ignored
+            else
+              raise StandardError, 'ActiveRecord::SchemaDumper.ignore_views accepts an array of String and / or Regexp values.'
+            end
           end
-        end 
+        end
         view(v, stream)
       end
     end
@@ -76,5 +78,22 @@ module ActiveRecord
       
       stream
     end
+
+    def tables(stream)
+      @connection.nonview_tables.sort.each do |tbl|
+        if ActiveRecord::Migrator.respond_to?(:schema_migrations_table_name)
+          next if [ActiveRecord::Migrator.schema_migrations_table_name, ignore_tables].flatten.any? do |ignored|
+            case ignored
+            when String then tbl == ignored
+            when Regexp then tbl =~ ignored
+            else
+              raise StandardError, 'ActiveRecord::SchemaDumper.ignore_tables accepts an array of String and / or Regexp values.'
+            end
+          end
+        end
+        table(tbl, stream)
+      end
+    end
+
   end
 end

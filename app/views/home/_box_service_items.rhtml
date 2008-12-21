@@ -4,10 +4,10 @@
   </b>
   <table id="my_service_queues" class="report">
     <tr class='header'>
-      <th><%=l(:label_queue)%></th>
-      <th><%=l(:label_item)%></th>
-      <th><%=l(:label_date)%></th>
-      <th><%=l(:label_status)%></th>
+      <th><%=l(:Queue)%></th>
+      <th><%=l(:Item)%></th>
+      <th><%=l(:Date)%></th>
+      <th><%=l(:Status)%></th>
     </tr>
     <% for item in @user.latest(QueueItem,10) %>
     <tr class="<%= cycle('odd', 'even') %>">

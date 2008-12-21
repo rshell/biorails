@@ -14,6 +14,7 @@ class FormHelperTest < Test::Unit::TestCase
   def setup
     Project.current = Project.find(2)
     User.current = User.find(3)
+    @parameter = Parameter.find(:first)
   end  
   
   def test_dialog
@@ -56,46 +57,46 @@ class FormHelperTest < Test::Unit::TestCase
   
   def test_select_values_for_assay
     @data_element = DataElement.find(:first)
-    assert select_values(:data_element,:name,Assay.find(:first)) 
+    assert select_values(:data_element,:name,Assay.find(:all))
   end
 
   def test_select_values_for_experiment
     @data_element = DataElement.find(:first)
-    assert select_values(:data_element,:name,Experiment.find(:first)) 
+    assert select_values(:data_element,:name,Experiment.find(:all))
   end
 
   def test_select_values_for_project
     @data_element = DataElement.find(:first)
-    assert select_values(:data_element,:name,Project.find(:first)) 
+    assert select_values(:data_element,:name,Project.find(:all))
   end
 
   def test_select_values_for_project_folder
     @data_element = DataElement.find(:first)
-    assert select_values(:data_element,:name,ProjectFolder.find(:first)) 
+    assert select_values(:data_element,:name,ProjectFolder.find(:all))
   end
 
   def test_select_values_for_data_concept
     @data_element = DataElement.find(:first)
-    assert select_values(:data_element,:name,DataConcept.find(:first)) 
+    assert select_values(:data_element,:name,DataConcept.find(:all))
   end
 
   def test_select_values_for_data_element
     @data_element = DataElement.find(:first)
-    assert select_values(:data_element,:name,DataElement.find(:first)) 
+    assert select_values(:data_element,:name,DataElement.find(:all))
   end
 
   def test_select_values_for_common_types
     @data_element = DataElement.find(:first)
-    assert select_values(:data_element,:name,Assay.find(:first)) 
-    assert select_values(:data_element,:name,Experiment.find(:first)) 
-    assert select_values(:data_element,:name,Project.find(:first)) 
-    assert select_values(:data_element,:name,ProjectFolder.find(:first)) 
-    assert select_values(:data_element,:name,DataConcept.find(:first)) 
-    assert select_values(:data_element,:name,DataElement.find(:first)) 
+    assert select_values(:data_element,:name,Assay.find(:all))
+    assert select_values(:data_element,:name,Experiment.find(:all))
+    assert select_values(:data_element,:name,Project.find(:all))
+    assert select_values(:data_element,:name,ProjectFolder.find(:all))
+    assert select_values(:data_element,:name,DataConcept.find(:all))
+    assert select_values(:data_element,:name,DataElement.find(:all))
   end
 
   def test_select_values_with_errors
-    assert select_values(nil,:name,Assay.find(:first),[]) 
+    assert select_values(nil,:name,Assay.find(:all),[])
   end
   
   def test_select_data_element
@@ -130,9 +131,59 @@ class FormHelperTest < Test::Unit::TestCase
     assert html.size>0
   end
   
+  def test_select_concept
+    element = DataElement.find(:first)
+    concept = element.concept
+    html = select_concept(:parameter,:data_format,concept)
+    assert html.is_a?(String),html
+    assert html.size>0
+  end
+
+  def test_select_concept_by_id
+    element = DataElement.find(:first)
+    concept = element.concept
+    html = select_concept(:parameter,:data_format,concept.id)
+    assert html.is_a?(String),html
+    assert html.size>0
+  end
+
+  def test_select_concept_invalid
+    html = select_concept(:parameter,:data_format,8888888)
+    assert html.is_a?(String),html
+    assert html.size>0
+  end
+
+   def test_select_concept_unused
+    concept = DataConcept.create(:name=>'dsgsdgdsgds',:description=>'dsgdsgdsgdsg')
+    html = select_concept(:parameter,:data_format,concept)
+    assert html.is_a?(String),html
+    assert html.size>0
+  end
+
+  def test_select_element
+    element = DataElement.find(:first)
+    html = select_element(:parameter,:data_format,element)
+    assert html.is_a?(String),html
+    assert html.size>0
+  end
+
+  def test_select_element_by_id
+    element = DataElement.find(:first)
+    html = select_element(:parameter,:data_format,element.id)
+    assert html.is_a?(String),html
+    assert html.size>0
+  end
+
+  def test_select_element_invalid
+    element = DataElement.find(:first)
+    html = select_element(:parameter,:data_format,539805034)
+    assert html.is_a?(String),html
+    assert html.size>0
+  end
+
   def test_select_named
     @parameter = Parameter.find(:first)
-    html = select_named(:parameter,:data_format,DataFormat) 
+    html = select_named(:parameter,:data_format,DataFormat)
     assert html.is_a?(String),html
     assert html.size>0
   end
@@ -177,7 +228,7 @@ class FormHelperTest < Test::Unit::TestCase
   def test_select_process_instance_and_lastest
     @experiment = Experiment.find(:first)
     Project.current = Project.find(2)
-    html = select_process_instance(:experiment,:assay_protocol_id,nil,true) 
+    html = select_process_instance(:experiment,:assay_protocol_id,nil) 
     assert html.is_a?(String),html
     assert html.size>0
   end

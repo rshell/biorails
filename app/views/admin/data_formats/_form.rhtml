@@ -2,34 +2,34 @@
 
     <!--[form:data_format]-->
     <label for="data_format_data_type">
-      <%=l(:label_data_type)%>
+      <%=l(:Data_Type)%>
     </label>
     <br />
-    <%= select( :data_format, :data_type_id ,[[l(:label_text),1],[l(:label_number),2],[l(:label_date),3],[l(:label_url),6]]) %>
+    <%= select( :data_format, :data_type_id ,[[l(:Text),1],[l(:Number),2],[l(:Date),3],[l(:Time),4],[l(:URL),6]]) %>
     <br />
 
     <label for="data_format_name">
-      <%=l(:label_name)%>
+      <%=l(:Name)%>
     </label>
     <br />
     <%= text_field :data_format, 'name' , {:class=>"text-input"} %>
     <br />
 
     <label for="data_format_default_value">
-      <%=l(:label_default)%>
+      <%=l(:Default)%>
     </label>
     <br />
     <%= text_field :data_format, 'default_value' , {:class=>"text-input"} %>
     <br />
 
     <label for="data_format_description">
-      <%=l(:label_description)%>
+      <%=l(:Description)%>
     </label>
     <br />
     <%= text_area :data_format, 'description',{:rows=>2, :cols=>80}   %>
     <br />
     <label for="data_format_format_regex">
-      <%=l(:label_input_regex_rule)%>
+      <%=l(:Input_regex_rule)%>
     </label>
     <br />
     <%= text_field :data_format, 'format_regex' , {:size=>50,:class=>"text-input",
@@ -37,12 +37,12 @@
           :onkeyup=> "RegExMatchOnKey( $('data_format_format_regex').value, $('test_match' ) )"} %>
     <br />
 
-    <label for="data_format_format_regex"><%=l(:label_ouptput_printf_values)%></label>
+    <label for="data_format_format_regex"><%=l(:Ouptput_printf_values)%></label>
     <br />
     <%= text_field :data_format, 'format_sprintf' , {:size=>50,:class=>"text-input"} %>
     <br />
     <label for="data_format_test">
-      <%=l(:label_test_string)%>
+      <%=l(:Test_String)%>
       <%= link_to_function('[test match]', "RegExMatchCheck( $('data_format_format_regex').value, $('test_match' ) );") %>
     </label>
     <br />

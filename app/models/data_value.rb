@@ -20,5 +20,9 @@
 
 class DataValue < ActiveRecord::Base 
 set_table_name 'tmp_data'
+
+ def to_s
+   "[self.id,self.name]"
+ end
 end
 

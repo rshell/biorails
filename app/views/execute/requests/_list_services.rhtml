@@ -1,8 +1,8 @@
 <ul>
   <% for item in request.services %>
     <li>
-      <%=item.name %>: <%=item.queue.path %>
-      <%= link_to "<b class='icon icon-del'>&nbsp;</b>",
+      <%=item.name %>: <%=item.queue.path %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= link_to "<b class='icon icon-del'>#{l(:Delete)}</b>",
           request_url(:action => 'remove_service', :id => item.id) %>
     </li>
   <% end %>

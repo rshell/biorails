@@ -1,6 +1,5 @@
 <% content_for :center do -%>
-  <%= render :partial=>'header'%>     
-  <%= render :partial => 'show_folder' %> 
+  <%= render :partial => 'show_folder' %>
 <% end %>    
 
 <% content_for :help do -%>
@@ -8,7 +7,7 @@
 <% end %>
 
 <% content_for :messages do -%>
-   <%= render :partial => '/shared/messages',:locals=>{:objects=>[]} %>   
+   <%= render :partial => '/shared/messages',:locals=>{:objects=>[:project_folder,:project_element]} %>
 <% end %>
 
 <% content_for :footer do %>

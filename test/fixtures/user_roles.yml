@@ -2,7 +2,7 @@
 00000000006_user_role: !ruby/object:UserRole 
   attributes: 
     name: manager
-    updated_at: 2008-08-14 10:28:52
+    updated_at: 2008-10-22 15:13:31
     cache: |+
       --- {}
       
@@ -18,7 +18,7 @@
 00000000003_user_role: !ruby/object:UserRole 
   attributes: 
     name: Administrator
-    updated_at: 2008-08-14 10:28:52
+    updated_at: 2008-10-22 15:13:31
     cache: |+
       --- {}
       
@@ -34,7 +34,7 @@
 00000000007_user_role: !ruby/object:UserRole 
   attributes: 
     name: User
-    updated_at: 2008-08-14 10:28:52
+    updated_at: 2008-10-22 15:13:31
     cache: |+
       --- {}
       

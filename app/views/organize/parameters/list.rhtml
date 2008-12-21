@@ -12,8 +12,7 @@
   </div>
 
   <div class='panel'>
-    <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>    
-    <%= will_paginate  @data%>    
+    <%= render :partial => 'shared/report', :locals => {:report => @report,:show=>'show', :edit=>'edit' } %>      
   </div>
 <%end%>
               

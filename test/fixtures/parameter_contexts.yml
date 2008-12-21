@@ -1,34 +1,14 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: parameter_contexts
-#
-#  id                  :integer(4)      not null, primary key
-#  protocol_version_id :integer(4)      not null
-#  parent_id           :integer(4)
-#  level_no            :integer(4)      default(0)
-#  label               :string(255)
-#  default_count       :integer(4)      default(1)
-#  left_limit          :integer(4)      default(0), not null
-#  right_limit         :integer(4)      default(0), not null
-#  lock_version        :integer(4)      default(1), not null
-#  created_at          :datetime
-#  updated_at          :datetime
-#  updated_by_user_id  :integer(4)      default(1), not null
-#  created_by_user_id  :integer(4)      default(1), not null
-#  output_style        :string(255)     default("default"), not null
-#
-
 --- 
 00000000008_parameter_context: !ruby/object:ParameterContext 
   attributes: 
-    updated_at: 2008-08-14 10:29:50
+    output_style: default
+    updated_at: 2008-10-22 15:14:25
     protocol_version_id: "5"
-    left_limit: "0"
+    left_limit: "1"
     updated_by_user_id: "1"
     lock_version: "1"
     id: "8"
-    right_limit: "0"
+    right_limit: "4"
     default_count: "1"
     level_no: "0"
     created_by_user_id: "1"
@@ -39,13 +19,14 @@
 
 00000000004_parameter_context: !ruby/object:ParameterContext 
   attributes: 
-    updated_at: 2008-08-14 10:29:50
+    output_style: default
+    updated_at: 2008-10-22 15:14:25
     protocol_version_id: "2"
-    left_limit: "0"
+    left_limit: "2"
     updated_by_user_id: "1"
     lock_version: "1"
     id: "4"
-    right_limit: "0"
+    right_limit: "3"
     default_count: "6"
     level_no: "0"
     created_by_user_id: "1"
@@ -56,13 +37,14 @@
 
 00000000005_parameter_context: !ruby/object:ParameterContext 
   attributes: 
-    updated_at: 2008-08-14 10:29:50
+    output_style: default
+    updated_at: 2008-10-22 15:14:25
     protocol_version_id: "3"
-    left_limit: "0"
+    left_limit: "1"
     updated_by_user_id: "1"
     lock_version: "1"
     id: "5"
-    right_limit: "0"
+    right_limit: "2"
     default_count: "1"
     level_no: "0"
     created_by_user_id: "1"
@@ -73,13 +55,14 @@
 
 00000000001_parameter_context: !ruby/object:ParameterContext 
   attributes: 
-    updated_at: 2008-08-14 10:29:50
+    output_style: default
+    updated_at: 2008-10-22 15:14:25
     protocol_version_id: "1"
-    left_limit: "0"
+    left_limit: "1"
     updated_by_user_id: "1"
     lock_version: "1"
     id: "1"
-    right_limit: "0"
+    right_limit: "4"
     default_count: "1"
     level_no: "0"
     created_by_user_id: "1"
@@ -90,13 +73,14 @@
 
 00000000002_parameter_context: !ruby/object:ParameterContext 
   attributes: 
-    updated_at: 2008-08-14 10:29:50
+    output_style: default
+    updated_at: 2008-10-22 15:14:25
     protocol_version_id: "1"
-    left_limit: "0"
+    left_limit: "2"
     updated_by_user_id: "1"
     lock_version: "1"
     id: "2"
-    right_limit: "0"
+    right_limit: "3"
     default_count: "3"
     level_no: "0"
     created_by_user_id: "1"
@@ -107,13 +91,14 @@
 
 00000000003_parameter_context: !ruby/object:ParameterContext 
   attributes: 
-    updated_at: 2008-08-14 10:29:50
+    output_style: default
+    updated_at: 2008-10-22 15:14:25
     protocol_version_id: "2"
-    left_limit: "0"
+    left_limit: "1"
     updated_by_user_id: "1"
     lock_version: "1"
     id: "3"
-    right_limit: "0"
+    right_limit: "4"
     default_count: "1"
     level_no: "0"
     created_by_user_id: "1"
@@ -124,13 +109,14 @@
 
 00000000009_parameter_context: !ruby/object:ParameterContext 
   attributes: 
-    updated_at: 2008-08-14 10:29:50
+    output_style: default
+    updated_at: 2008-10-22 15:14:25
     protocol_version_id: "5"
-    left_limit: "0"
+    left_limit: "2"
     updated_by_user_id: "1"
     lock_version: "1"
     id: "9"
-    right_limit: "0"
+    right_limit: "3"
     default_count: "10"
     level_no: "0"
     created_by_user_id: "1"
@@ -141,13 +127,14 @@
 
 00000000006_parameter_context: !ruby/object:ParameterContext 
   attributes: 
-    updated_at: 2008-08-14 10:29:50
+    output_style: default
+    updated_at: 2008-10-22 15:14:25
     protocol_version_id: "4"
-    left_limit: "0"
+    left_limit: "1"
     updated_by_user_id: "1"
     lock_version: "1"
     id: "6"
-    right_limit: "0"
+    right_limit: "4"
     default_count: "1"
     level_no: "0"
     created_by_user_id: "1"
@@ -158,13 +145,14 @@
 
 00000000007_parameter_context: !ruby/object:ParameterContext 
   attributes: 
-    updated_at: 2008-08-14 10:29:50
+    output_style: default
+    updated_at: 2008-10-22 15:14:25
     protocol_version_id: "4"
-    left_limit: "0"
+    left_limit: "2"
     updated_by_user_id: "1"
     lock_version: "1"
     id: "7"
-    right_limit: "0"
+    right_limit: "3"
     default_count: "6"
     level_no: "0"
     created_by_user_id: "1"

@@ -1,25 +1,9 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: element_types
-#
-#  id                 :integer(4)      not null, primary key
-#  name               :string(30)      default(""), not null
-#  description        :string(255)     default("_show"), not null
-#  class_name         :string(255)     default("0"), not null
-#  publish_to_team_id :integer(4)      default(1), not null
-#  created_at         :datetime        not null
-#  created_by_user_id :integer(4)      default(1), not null
-#  updated_at         :datetime        not null
-#  updated_by_user_id :integer(4)      default(1), not null
-#
-
 --- 
 00000000005_element_type: !ruby/object:ElementType 
   attributes: 
     class_name: ProjectWiki
     name: wiki
-    updated_at: 2008-08-14 10:29:31
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     id: "5"
     description: text/textile
@@ -32,7 +16,7 @@
   attributes: 
     class_name: ProjectContent
     name: html
-    updated_at: 2008-08-14 10:29:31
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     id: "1"
     description: Html Content
@@ -45,7 +29,7 @@
   attributes: 
     class_name: ProjectFolder
     name: folder
-    updated_at: 2008-08-14 10:29:31
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     id: "4"
     description: Project Folder
@@ -58,7 +42,7 @@
   attributes: 
     class_name: ProjectAsset
     name: file
-    updated_at: 2008-08-14 10:29:31
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     id: "2"
     description: Attached file
@@ -71,7 +55,7 @@
   attributes: 
     class_name: ProjectReference
     name: reference
-    updated_at: 2008-08-14 10:29:31
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     id: "3"
     description: cross reference

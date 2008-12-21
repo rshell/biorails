@@ -1,0 +1,20 @@
+<div class="content_header execution">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-report-large'><%= link_to( "#{l(:Report)} [#{@report.name}]", system_report_url( :action => :show, :id => @report.id)) %>
+    </h1>
+    <br>
+    <br>
+    <div class='actions_left'>
+        <%= link_to( l(:Folder)	, folder_url( :action => :show, :id => @report.project_element_id), :class=>'icon icon-folder') if @report.project_element_id %>
+        <%= link_to( l(:Run)		, system_report_url( :action => :show, :id => @report.id), :class=>'icon icon-run') %>
+    </div>
+    <div class='actions_right'>
+        <%= link_to( l(:Reports_New),     system_report_url(:action=>:new),:method => :get, :class=>'icon icon-add') %>
+        <%if @report and !@report.new_record? %>
+        <%= link_to( l(:Edit)		, system_report_url(:action=>:edit, :id=>@report), :class=>'icon icon-edit') if right?(:reports,:build)%>
+        <%= link_to( l(:List)		,system_report_url(), :class=>'icon icon-list') %>
+        <%= link_to( l(:Delete)	, system_report_url(:action=>:destroy, :id=>@report), :confirm => l(:text_are_you_sure), :method => :delete, :class=>'icon icon-del') %>
+        <%end %>
+    </div>
+    <br/>
+</div>

@@ -12,7 +12,7 @@ class Organize::AssayParametersControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
     Project.current = @project = Project.find(2)
     User.current = @user = User.find(3)
-    @assay = Assay.find(:first)
+    @assay = Assay.list(:first)
     @parameter_type1 = ParameterType.find(:first)
     @parameter_type_alias = ParameterTypeAlias.find(:first)
     @parameter_type2 = @parameter_type_alias.type
@@ -53,6 +53,21 @@ class Organize::AssayParametersControllerTest < Test::Unit::TestCase
 
   def test_import
     get :import,:id=>@assay.id
+    assert_response :success
+  end
+
+  def test_protocol_list
+    get :protocol_list,:id=>@item.id
+    assert_response :success
+  end
+
+  def test_process_metrics
+    get :process_metrics,:id=>@item.id
+    assert_response :success
+  end
+
+  def test_experiment_metrics
+    get :experiment_metrics,:id=>@item.id
     assert_response :success
   end
 
@@ -113,9 +128,9 @@ class Organize::AssayParametersControllerTest < Test::Unit::TestCase
     @item = @assay.parameters[0]
     @request.session[:current_project_id] =1
     @request.session[:current_user_id] = 1    
-    get :show, :id => @item.id
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    get :show, :id => 88888
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_new
@@ -163,6 +178,8 @@ class Organize::AssayParametersControllerTest < Test::Unit::TestCase
       :parameter_type_id=>"24", :data_type_id=>"2", 
       :description=>"Concentration of compounds etc"
     );
+    assert AssayParameter.load(unused_parameter.id)
+    
     post :destroy, :id=>unused_parameter.id
     assert_redirected_to :action=>'list'
   end

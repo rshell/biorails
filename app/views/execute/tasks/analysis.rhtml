@@ -2,7 +2,7 @@
 
 <div class="panel">
   <h2 class='icon icon-analysis'>
-      <%=l(:label_analysis)%>
+      <%=l(:Analysis)%>
   </h2>
   <div class='box'>
     <div id='analysis-form'>
@@ -15,7 +15,7 @@
     <%if  @analysis and @analysis.run? %>
       <%=@analysis.report%>
     <% else %>
-       <%=l(:label_not_run)%>
+       <%=l(:Not_Run)%>
     <% end %>
     </div>
   </div>

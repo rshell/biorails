@@ -41,10 +41,16 @@ class Organize::ProcessInstancesControllerTest < Test::Unit::TestCase
     assert assigns(:assay_protocol).valid?
   end
 
+  def test_show
+    get :format, :id => @item.id
+    assert_response :success
+    assert_template 'format'
+  end
+
   def test_show_invalid
     get :show, :id => 24242432
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_show_denied
@@ -55,8 +61,8 @@ class Organize::ProcessInstancesControllerTest < Test::Unit::TestCase
     assert_nil Project.current.member(User.current)
     assert_nil ProcessInstance.load(@item.id) 
     get :show, :id => @item.id
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
     
   def test_show_js
@@ -209,14 +215,14 @@ class Organize::ProcessInstancesControllerTest < Test::Unit::TestCase
  
   def test_update_fixed_context_js
     assert !@item.flexible?
-    get :update_context, :id => @parameter_context.id,:label=>'xxx',:default_count=>'4',:format=>'js'
+    get :update_context, :id => @parameter_context.id,:label=>'xxx',:default_count=>'4',:output_style=>'default',:format=>'js'
     assert_response :success
     assert_not_nil assigns(:parameter_context)
   end
  
   def test_update_context
     assert @unused_item.flexible?
-    get :update_context, :id => @unused_item.contexts[0].id,:label=>'xxx',:default_count=>'4'
+    get :update_context, :id => @unused_item.contexts[0].id,:label=>'xxx',:output_style=>'default', :default_count=>'4'
     assert_response :redirect
     assert_redirected_to :action => 'show'
     assert_not_nil assigns(:parameter_context)
@@ -232,20 +238,20 @@ class Organize::ProcessInstancesControllerTest < Test::Unit::TestCase
  
   def test_update_context_js
     assert @unused_item.flexible?
-    get :update_context, :id => @unused_item.contexts[0].id,:label=>'xxx',:default_count=>'4',:format=>'js'
+    get :update_context, :id => @unused_item.contexts[0].id,:label=>'xxx',:output_style=>'default', :default_count=>'4',:format=>'js'
     assert_response :success
     assert_not_nil assigns(:parameter_context)
   end
  
   def test_add_context
-    get :add_context, :id => @parameter_context.id,:label=>'xxx2',:default_count=>'4'
+    get :add_context, :id => @parameter_context.id,:label=>'xxx2',:default_count=>'4',:output_style=>'default'
     assert_response :redirect
     assert_redirected_to :action => 'show'
     assert_not_nil assigns(:parameter_context)
   end
  
   def test_add_context_js
-    get :add_context, :id => @parameter_context.id,:label=>'xxx2',:default_count=>'4',:format=>'js'
+    get :add_context, :id => @parameter_context.id,:label=>'xxx2',:default_count=>'4',:format=>'js',:output_style=>'default'
     assert_response :success
     assert_not_nil assigns(:parameter_context)
   end
@@ -253,7 +259,8 @@ class Organize::ProcessInstancesControllerTest < Test::Unit::TestCase
   def test_remove_fixed_context
     get :remove_context, :id => @parameter_context.id
     assert_response :redirect
-    assert flash[:warning]
+    assert !flash[:info],flash[:info]
+    assert flash[:error]
     assert_redirected_to :action => 'show'
     assert_not_nil assigns(:parameter_context)
   end
@@ -269,6 +276,7 @@ class Organize::ProcessInstancesControllerTest < Test::Unit::TestCase
   
   def test_remove_leaf_context
     context = @unused_item.contexts.last
+    assert context.process.changeable?
     get :remove_context, :id => context
     assert_response :redirect
     assert_nil flash[:error],flash[:error]
@@ -400,21 +408,22 @@ class Organize::ProcessInstancesControllerTest < Test::Unit::TestCase
     
     post :add_context,:id=>new_version.contexts[0].id,:label=>'xxx',:default_count=>3,:format=>'js'
     assert_response :success
-    assert_template '_current_context'
+    assert !flash[:error],flash[:error]
+    assert !flash[:warning],flash[:warning]
+    assert assigns(:successful)
     new_context = assigns(:parameter_context)
     assert new_context.valid?    
     sp1 = @assay.parameters[0]
     
     post :add_parameter,:id=>new_context.id,:node=>"sp_#{sp1.id}",:lock_version=>new_context.lock_version,:format=>'js'
     assert_response :success
-    assert_template '_current_context'
+    assert assigns(:successful)
     assert_not_nil assigns(:parameter)   
     new_parameter = assigns(:parameter)   
     assert new_parameter.valid?    
     
     post :update_parameter ,:id=>new_parameter.id,:field=>'name',:value=>'xxxxx_3',:format=>'js'
     assert_response :success
-    assert_template '_current_context'
     assert_not_nil assigns(:parameter)   
     new_parameter = assigns(:parameter)   
     assert new_parameter.valid?    

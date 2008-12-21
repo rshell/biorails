@@ -1,7 +1,9 @@
+<%= render :partial=>'shared/user_header'%>
+
 <%  started = Date.civil(2007,3,1)  %>
 
 <div class='panel'>
-<%= month_navigator(@calendar)  %>
+<%= month_navigator(@calendar,{'action'=>'calendar'})  %>
 
 <% calendar(@calendar) do |item|  %>
 

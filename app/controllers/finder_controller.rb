@@ -13,21 +13,18 @@ class FinderController < ApplicationController
      @hitlist = []
      @projects = current_user.projects.collect{|i|i.id}
      unless @search_text.nil? || @search_text.empty?
-        @hitlist = Project.find_by_contents(@search_text,:models=>:all,:limit=>50).collect do |item|  
-          if item.respond_to?(:project_id)                
-             @projects.any?{|a|a == item.project_id} ?   item : nil
-          else
-             item
-          end
+        @hitlist = ProjectElement.find(:all, :conditions=>['lower(name) like ?',"#{@search_text.downcase}%"],:limit=>50)
+        if @hitlist.size==0
+          @hitlist = ProjectElement.find(:all,:include=>:content,
+            :conditions=>['body_html like ?',"%#{@search_text}%"],:limit=>50)
         end
-        @hitlist = @hitlist.compact
       end 
     respond_to do | format |
       format.html { render :partial => 'search', :layout=>false }
       format.json { render :json => {:text=>@search_text,:items=>@hitlist}.to_json }
       format.xml  { render :xml => {:text=>@search_text,:items=>@hitlist}.to_xml }
       format.js  { render :update do | page |  
-            page.status_panel :partial => 'search'
+            page.main_panel :partial => 'search'
          end 
       }
     end

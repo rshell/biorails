@@ -1,26 +1,26 @@
 <% content_for :messages do -%>
-<%= render :partial => 'shared/messages', :locals => { :objects => ['assay_protocol','process_flow']}  %>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['assay_protocol','process_flow']}  %>
 <%end %>
 
 <% content_for :center do%>
-<% if current_project.runnable? %>
-<%= render :partial=>'organize/assays/header'%>
-<%= render :partial => 'new' %>
-<% else %>
-<div class="panel">
-  <h1 class='icon icon-warning'>
-    <%=l(:notice_recipe_creation_problem)%>
-  </h1>
-  <p>
-  <%=l(:help_recipe_creation_problem)%>
-  <%= link_to l(:label_process_new), process_instance_url(:action => 'new',  :id => @assay), :class=>'icon icon-protocol-add'%>
-</div>
-<% end %>
+  <% if current_project.runnable? %>
+    <%= render :partial=>'organize/assays/header'%>
+    <%= render :partial => 'new' %>
+  <% else %>
+    <div class="panel">
+      <h1 class='icon icon-warning'>
+        <%=l(:notice_recipe_creation_problem)%>
+      </h1>
+      <p>
+      <%=l(:help_recipe_creation_problem)%>
+      <%= link_to l(:Process_New), process_instance_url(:action => 'new',  :id => @assay), :class=>'icon icon-protocol-add'%>
+    </div>
+  <% end %>
 <%end%>
 
 <% content_for :right do%>
-<h1 class='icon icon-workflow'>
-  <%=l(:label_recipe_building)%>
-</h1>
-<%=l(:help_recipe)%>
+  <h1 class='icon icon-workflow'>
+    <%=l(:Recipe_Building)%>
+  </h1>
+  <%=l(:help_recipe)%>
 <%end%>

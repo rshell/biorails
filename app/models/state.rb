@@ -28,29 +28,28 @@
 # 
 #
 class State < ActiveRecord::Base
-  FLOWS = ['default','assay','experiment','content','task','project']
+  FLOWS  = ['default','assay','experiment','content','task','project']
 
-  LEVELS = { -1  =>'aborted' ,
+  LEVELS = { -1  =>'ignored' ,
               0 => 'new',
               1=>'pending' ,
               2=> 'active' ,
               3 => 'done',
               4 => 'published' }
-  DEFAULT_FLOW='default'
+  DEFAULT_FLOW ='default'
 
   ERROR_LEVEL   = -1
   ACTIVE_LEVEL  = 1
   FROZEN_LEVEL  = 3
   PUBLIC_LEVEL  = 4
 
-  before_destroy :check_not_in_use  
-  #
-  # List of allowed transfers
-  #
-  has_many :flows, :foreign_key => "old_state_id",:class_name=>'StateChange', :dependent => :delete_all 
-    
+  before_destroy :check_not_in_use
+
+  has_many :next_states,     :foreign_key=>'new_state_id', :class_name => 'StateChange'
+  has_many :previous_states, :foreign_key=>'old_state_id', :class_name => 'StateChange'
+
   validates_presence_of :name
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name,:case_sensitive=>false
   validates_length_of :name, :maximum => 30
   validates_format_of :name, :with => /^[\w\s\'\-]*$/i
   #
@@ -59,114 +58,31 @@ class State < ActiveRecord::Base
   def before_save
     State.update_all "is_default=#{connection.quoted_false}" if self.is_default?
   end  
-  #
-  # List of labeled flow name scopes for changes
-  #
-  def self.labels
-    FLOWS
-  end
-  
-  def customized?(flow)
-    flows.find(:first,:conditions=>['flow=?',flow])
-  end
-  
-  def next_states(label=DEFAULT_FLOW)
-     list = flows.find(:all,:include=>[:to],:conditions=>['flow = ?',label.to_s]).collect{|i|i.to}     
-     list = flows.find(:all,:include=>[:to],:conditions=>['flow = ?',DEFAULT_FLOW]).collect{|i|i.to} if list.size==0  
-     list     
-  end
-  #
-  # Update all state based on a passed hash structure
-  #
-  def self.set_flow(states,label=DEFAULT_FLOW)
-    StateChange.transaction do
-      all = State.find(:all)
-      keys = all.collect{|i|i.id}
-      for item in all
-        enabled = states[item.id] || states[item.id.to_s] || []
-        enabled = enabled.collect{|i|i.to_i}
-        disabled = keys - enabled
-        puts "update #{item.name} => on #{enabled.join(',')} off #{disabled.join(',')}"
-        enabled.each{ |i|item.enable(i,label)}
-        disabled.each{|i|item.disable(i,label)}
-      end
-    end
-  end
-  #
-  # Get a hash of allowed state changes 
-  #
-  def self.get_flow(label=DEFAULT_FLOW)
-    items ={}
-    for t in  StateChange.find(:all,:conditions=>['flow=?',label.to_s],:order=>'old_state_id,new_state_id')
-      items[t.old_state_id] ||=[t.old_state_id]
-      items[t.old_state_id] << t.new_state_id      
-    end
-    return items
-  end
-  
-  #
-  # See if a state change is allowed
-  #
-  def self.allow?(from,to,label=DEFAULT_FLOW)
-     from = get(from)   
-     to = get(to)
-     return true if (from == to)
-     from.flows.find(:first,:conditions=>['new_state_id=? and flow=? ',to.id,label])          
-  end
-  #
-  # See if a state change is allowed
-  #
-  def allow?(other,label=DEFAULT_FLOW)
-    return State.allow?(self,other,label)
+ 
+  def self.flows
+    StateFlow.find(:all)
   end
 
-  #
-  # Set a allowed chnage
-  #
-  def self.enable(from,to,label=DEFAULT_FLOW)
-     from = get(from)   
-     to = get(to)
-     return false unless from and to 
-     return true if allow?(from,to,label)     
-     from.flows.create(:new_state_id=>to.id,:flow=>label.to_s)
-  end
-  #
-  # Set a allowed chnage
-  #
-  def enable(other,label=DEFAULT_FLOW)   
-    return State.enable(self,other,label)
-  end
-  #
-  # Set state change to disallowed
-  #
-  def self.disable(from,to,label=DEFAULT_FLOW)
-     from = get(from)   
-     to = get(to)
-     change = State.allow?(from,to,label)    
-     return true unless change
-     change.destroy if change.is_a?(ActiveRecord::Base)
-  end
-  #
-  # Set state change to disallowed
-  #
-  def disable(other,label=DEFAULT_FLOW)   
-    return State.disable(self,other,label)
-  end
-  
-  def allowed(label=DEFAULT_FLOW)
-    self.flows.find(:all,:include=>[:next],:conditions=>['flow=?',label.to_s]).collect{|i|[i.next.name,i.next.id]}
+  def self.states
+    State.find(:all)
   end
   #
   # Is failed with a negative level
   #
-  def failed?
+  def ignore?
     self.level_no <= ERROR_LEVEL
+  end
+  #
+  # is the level editible
+  #
+  def editable?
+    self.level_no > ERROR_LEVEL and self.level_no < FROZEN_LEVEL
   end
   #
   # Active 1-3
   #
   def active?
-    self.level_no >= ACTIVE_LEVEL and self.level_no <= FROZEN_LEVEL
+    self.level_no >= ACTIVE_LEVEL and self.level_no < FROZEN_LEVEL
   end
   #
   # Completed 4+
@@ -174,7 +90,15 @@ class State < ActiveRecord::Base
   def completed?
     self.level_no >= FROZEN_LEVEL
   end
-
+  #
+  # is the item finished
+  #
+  def finished?
+    self.published? or self.ignore?
+  end
+  #
+  # is the item published
+  #
   def published?
     self.level_no >= PUBLIC_LEVEL
   end
@@ -185,12 +109,15 @@ class State < ActiveRecord::Base
     self.level_no
   end
 
+  def signed?
+    self.level_no == PUBLIC_LEVEL
+  end
+
   def level=(value)
     self.level_no = value
   end
-
   #
-  # Get hte level text for display
+  # Get the level text for display
   #
   def level_text
     LEVELS[self.level_no]
@@ -204,12 +131,34 @@ class State < ActiveRecord::Base
   #
   # Name of the state is used as the string representation
   #
-  def to_s; name end
+  def to_s
+    "<span class='state-level#{level_no}'>#{name}</span>"
+  end
   #
   # Is there a task linked to this status
   #
   def in_use?
     ProjectElement.exists?(["state_id=?", self.id])
+  end
+  #
+  def self.get(key)
+    item = nil
+    begin
+       case item
+       when String then
+         item = State.find_by_name(key)
+       when State
+         return key
+       when ActiveRecord::Base
+         item = key.state if key.respond_to?(:state)
+       else
+         item = State.find(key)
+       end
+      item ||= State.find(:first)
+    rescue
+      item =nil
+    end
+    item ||= State.find(:first)
   end
   
 private
@@ -217,14 +166,5 @@ private
     raise "Can't delete status" if in_use?
   end
   
-  def self.get(item)
-     case item 
-     when String then State.find_by_name(item)
-     when State  then item 
-     when ActiveRecord::Base then   item.state
-     else
-         State.find(item)
-     end   
-  end
 
 end

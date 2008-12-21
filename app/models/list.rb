@@ -32,12 +32,6 @@ class List < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-   acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-                              :description=>{:store=>:yes,:boost=>0},
-                               }, 
-                   :default_field => [:name],           
-                   :single_index => true, 
-                   :store_class_name => true 
 
 # Generic rules for a name and description to be present
   validates_presence_of :name
@@ -56,41 +50,7 @@ class List < ActiveRecord::Base
    return nil if new_value.nil?
    item = ListItem.new
    item.list = self
-   case new_value
-   when Hash
-       item.data_type = 'Hash'
-       item.data_id   = new_value[:id]
-       item.data_name = new_value[:name] 
-
-    when Fixnum
-       value = reference(new_value)      
-       return nil unless value
-       item.data_type = value.class.to_s
-       item.data_id   = value.id  
-       item.data_name = value.name 
-
-   when String
-       value = lookup(new_value)  
-       return nil unless value
-       item.data_type = value.class.to_s
-       item.data_id   = value['id']  
-       item.data_name = value['name'] 
-
-    when ListItem
-       item.data_type = new_value.data_type
-       item.data_id   = new_value.data_id 
-       item.data_name = new_value.data_name 
-    else
-      if (new_value.respond_to?(:date_type) and new_value.respond_to?(:date_name) and new_value.respond_to?(:date_id)) 
-        item.data_type = new_value.data_type
-        item.data_id   = new_value.data_id 
-        item.data_name = new_value.data_name 
-      else
-        item.data_type = new_value.class.to_s
-        item.data_id   = new_value.id
-        item.data_name = new_value.name 
-      end
-   end
+   item.value = new_value
    self.items << item
    return item
  end

@@ -29,6 +29,7 @@ class AccessControlElement < ActiveRecord::Base
   validates_presence_of :role_id
   validates_presence_of :owner_id
   validates_presence_of :owner_type 
+  validates_associated :owner
   
   after_create :update_list_checksum
   
@@ -50,8 +51,7 @@ class AccessControlElement < ActiveRecord::Base
       l("direct")
     when Team
       owner.memberships.collect{|member|
-        member.user.name
-        (member.owner? ? "<b>#{member.user.name}</b>" : "#{member.user.name}") 
+        (member.owner? ? "<b>#{member.user.name}</b>" : "#{member.user.name}")  if member and member.user
       }.join(" , ")
     else
       l("custom")

@@ -1,14 +1,14 @@
 <% content_for :sidemenu do %>
 <%= render :partial => '/menu/admin_menu' %>
 <div>
-    <span class='menu'><b class='icon icon-assay_stage'><%=l(:label_assay_stage) %>
+    <span class='menu'><b class='icon icon-assay_stage'><%=l(:Assay_Stage) %>
         </b></span>
-    <%= link_to l(:label_list), assay_stage_url(:action => 'list') %>
-    <%= link_to l(:label_new),  assay_stage_url(:action => 'new') %>
-    <%= link_to l(:label_edit), assay_stage_url(:action => 'edit', :id => @assay_stage) %>
-    <%= link_to l(:label_show), assay_stage_url(:action => 'show',:id => @assay_stage) %>
+    <%= link_to l(:List), assay_stage_url(:action => 'list') %>
+    <%= link_to l(:New),  assay_stage_url(:action => 'new') %>
+    <%= link_to l(:Edit), assay_stage_url(:action => 'edit', :id => @assay_stage) %>
+    <%= link_to l(:Show), assay_stage_url(:action => 'show',:id => @assay_stage) %>
     <% if @assay_stage.protocols.size==0 %>
-    <%= link_to l(:label_delete), assay_stage_url(:action => 'destroy', :id => @assay_stage ), :confirm => l(:text_are_you_sure), :method => :post %>
+    <%= link_to l(:Delete), assay_stage_url(:action => 'destroy', :id => @assay_stage ), :confirm => l(:text_are_you_sure), :method => :post %>
     <% end %>
 </div>
 <% end %>
@@ -18,9 +18,9 @@
     <div class='box'>
         <%=@assay_stage.description %>
     </div>
-    <%= link_to l(:label_list),       assay_stage_url(:action => 'list'), :class=>'icon icon-list' %>
-    <%= link_to l(:label_edit),       assay_stage_url(:action => 'edit', :id => @assay_stage), :class=>'icon icon-edit' %>
+    <%= link_to l(:List),       assay_stage_url(:action => 'list'), :class=>'icon icon-list' %>
+    <%= link_to l(:Edit),       assay_stage_url(:action => 'edit', :id => @assay_stage), :class=>'icon icon-edit' %>
     <% if @assay_stage.protocols.size==0 %>
-    <%= link_to l(:label_delete), assay_stage_url(:action => 'destroy', :id => @assay_stage ), :confirm => l(:text_are_you_sure), :method => :post, :class=>'icon icon-del' %>
+    <%= link_to l(:Delete), assay_stage_url(:action => 'destroy', :id => @assay_stage ), :confirm => l(:text_are_you_sure), :method => :post, :class=>'icon icon-del' %>
     <% end %>
 </div>

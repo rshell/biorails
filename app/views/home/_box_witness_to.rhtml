@@ -1,22 +1,22 @@
 <div class="box">
-    <b><%=link_to l(:label_documents_requesting_approval),signature_url( :action=>'list_pending'), :class=>"icon icon-sign" %>
+    <b><%=link_to l(:Documents_Requesting_Approval),signature_url( :action=>'list_pending'), :class=>"icon icon-sign" %>
     </b>
     <table class="report">
         <tr class='header'>
             <th>
-                <%=l(:label_documents) %>
+                <%=l(:Documents) %>
             </th>
             <th>
-                <%=l(:label_project) %>
+                <%=l(:Project) %>
             </th>
             <th>
-                <%=l(:label_folder) %>
+                <%=l(:Folder) %>
             </th>
             <th>
-                <%=l(:label_date) %>
+                <%=l(:Date) %>
             </th>
             <th>
-                <%=l(:label_witness) %>
+                <%=l(:Witness) %>
             </th>
         </tr>
         <% for signature in @signatures_to_witness %>

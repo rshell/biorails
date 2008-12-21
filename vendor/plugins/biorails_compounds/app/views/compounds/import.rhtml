@@ -1,10 +1,9 @@
-<div class='main' id='maintitle'>
 <div class="title">
     <%=subject_icon('compounds')%> Import Compounds
     Imports compounds from a CVS file with following columns
     compound_id (for update), compound_name, compound_smiles, compound_registration_date
 
-<%=form_tag( {:action =>'import_file'}, :multipart => true) do %>
+<%form_tag( {:action =>'import_file'}, :multipart => true) do %>
 <%= error_messages_for("import") %>
 
     <fieldset> 

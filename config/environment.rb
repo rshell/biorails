@@ -8,9 +8,7 @@
 #
 # Should work under 2.0 or 1.2 rails unlocked as testing with 2.0 at present
 #
-# RAILS_GEM_VERSION = '1.2.6'
 #RAILS_GEM_VERSION = '2.0.2'
-#ENV['NLS_LANG']='_DENMARK.WE8MSWIN1252'
 # remove as caused oracle performance problems ENV['NLS_COMP']='linguistic'
 
 #
@@ -32,7 +30,8 @@ require 'rubygems/package'
 require 'matrix'
 require 'archive/tar/minitar'
 require 'zip/zipfilesystem'
-require 'net/ldap' 
+require 'chronic'
+
 # gem install ruby-net-ldap
 #require 'mini_magick'
 # now added as plugin require 'liquid'

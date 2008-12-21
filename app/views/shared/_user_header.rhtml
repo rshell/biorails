@@ -6,12 +6,12 @@
     <br/>
 
     <div class='actions_left'>
-        <%= link_to "#{l(:label_my)} #{l(:label_calendar)}",  home_url( :action => 'calendar'), :class=>'icon icon-calendar' %>
-        <%= link_to l(:label_my_documents),  signature_url( :action => 'list_authored'), :class=>'icon icon-pdf' %>
+        <%= link_to "#{l(:My)} #{l(:Calendar)}",  home_url( :action => 'calendar'), :class=>'icon icon-calendar' %>
+        <%= link_to l(:My_Documents),  signature_url( :action => 'list_authored'), :class=>'icon icon-pdf' %>
     </div>
     <div class='actions_right'>
-        <%= link_to( l(:label_project_new),  project_url(:action => 'new'), :class=>'icon icon-project-add') %>
-        <%= link_to( l(:label_request_add),  request_url(:action => 'new'), :class=>'icon icon-request-add') %>
+        <%= link_to( l(:Project_New),  project_url(:action => 'new'), :class=>'icon icon-project-add') %>
+        <%= link_to( l(:Request_Add),  request_url(:action => 'new'), :class=>'icon icon-request-add') %>
     </div>
     <br/>
 </div>

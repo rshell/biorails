@@ -1,0 +1,18 @@
+<%for column in model.content_columns %>
+<span id='<%="#{root}~#{link}#{column.name}" %>' class='column'><%=column.name %>
+    <%=link_to_remote "<b class='icon icon-add'>Add</b>",
+    :url=>{ :action =>'add_column',:id=>@report.id,
+    :column=>"#{root}~#{link}#{column.name}"} %>
+</span>
+<%= draggable_element "#{root}~#{link}#{column.name}",:zindex=>99999, :revert=> true %>
+<%end %>
+<%for relation in model.reflections.values %>
+<%if (@has_many or relation.macro!=:has_many) and !relation.options[:polymorphic] %>
+<h3><%= link_to_remote  "<u class='icon icon-#{relation.macro}'>#{relation.name}</u>",
+    :update=>"link_#{link}#{relation.name}",
+    :url=>{:action =>'expand', :id=> root,:context=>@report.id, :link=>"#{link}#{relation.name}"} %>
+    <%end %>
+</h3>
+<div id='link_<%="#{link}#{relation.name}"%>'>
+</div>
+<%end %>

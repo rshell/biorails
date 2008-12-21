@@ -1,3 +1,4 @@
+
 <% content_for :center do -%>
 <%= render :partial=>'header' %>
 <div class='panel'>
@@ -8,13 +9,15 @@
     :locals => { :request_service => @request_service } %>
 </div>
 <%end %>
+
 <% content_for :footer do %>
   <%= render :partial => '/shared/version_history',:locals=>{:folder=>@request_service.folder} %>
 <%= render :partial => 'shared/audit',:locals =>{ :item => @request_service} %>
 <%end %>
+
 <% content_for :right do %>
 <div class=" x-panel-header x-accordion-hd">
-    <span class="icon icon-team x-panel-header-text"><%=l(:label_request)%> <%=l(:label_service) %>
+    <span class="icon icon-team x-panel-header-text"><%=l(:Request)%> <%=l(:Service) %>
     </span>
 </div>
 <div class='panel'>

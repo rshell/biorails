@@ -54,19 +54,11 @@ class AssayProtocol < ActiveRecord::Base
   # This record has a full audit log created for changes 
   #   
     acts_as_audited :change_log
-  #
-  # free text indexing
-  #
-    acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-                                :description=>{:store=>:yes,:boost=>0},
-                                 }, 
-                     :default_field => [:name],           
-                     :single_index => true, 
-                     :store_class_name => true 
+
   ##
   # Protocol is identified by a unique name
   # 
-    validates_uniqueness_of :name, :scope =>"assay_id"
+    validates_uniqueness_of :name, :scope =>"assay_id",:case_sensitive=>false
     validates_presence_of   :name
     validates_presence_of   :description
     validates_presence_of   :assay_id
@@ -88,6 +80,10 @@ class AssayProtocol < ActiveRecord::Base
      #
      def live
        find(:all,:conditions=>'exists (select 1 from tasks where tasks.protocol_version_id = protocol_versions.id)')
+     end
+
+     def released
+       find(:all, :conditions=>"status='released'", :order =>" version DESC")
      end
      #
      # Limit set to contexts using the the a object
@@ -177,7 +173,7 @@ class AssayProtocol < ActiveRecord::Base
        ProtocolVersion.transaction do
          self.versions.each do |version|
             unless (version.latest? or version.used? or version.released?)
-             puts version.name
+             logger.debug "purged process  #{version.name}"
              version.destroy
             end
          end         
@@ -237,26 +233,6 @@ class AssayProtocol < ActiveRecord::Base
        and s.id = ?      
 SQL
        return Task.count_by_sql( [sql ,self.id])  
-    end
-    #
-    # custom conversion to xml
-    #
-    def to_xml(options = {})
-         my_options = options.dup
-         my_options[:reference] ||= {:process=>:name}
-         my_options[:except] = [:process] << options[:except]
-         my_options[:include] = [:versions, :stage]
-        Alces::XmlSerializer.new(self, my_options ).to_s
-    end
-
-   ##
-   # Get from xml
-   # 
-    def self.from_xml(xml,options = {})
-         my_options = options.dup
-         my_options[:except] = [:process] << options[:except]
-         my_options[:include] = [:versions,:stage]
-         Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
     end
 
     def to_liquid

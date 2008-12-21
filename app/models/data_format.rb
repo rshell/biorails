@@ -31,26 +31,26 @@
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
 # 
-
 class DataFormat < ActiveRecord::Base
 
-  SCI_NUMBER = %r{([+-]?\d*[\.,]?\d+(?:[Ee][+-]?)?\d*)}
-  NUMBER_REGEX = /#{SCI_NUMBER}*\s*(.+)?/
-  UNIT_STRING_REGEX = /#{SCI_NUMBER}*\s*([^\/]*)\/*(.+)*/
+  SCI_NUMBER         = %r{([+-]?\d*[\.,]?\d+(?:[Ee][+-]?)?\d*)}
+  NUMBER_REGEX       = /#{SCI_NUMBER}*\s*(.+)?/
+  UNIT_STRING_REGEX  = /#{SCI_NUMBER}*\s*([^\/]*)\/*(.+)*/
 
   NUMBER_FORMAT = [
     ["Any Number including scientific (eg 1.1E-07)",'[+-]?\d*[.]?\d+(?:[Ee][+-]?)?\d*)'],
+    ["Time only  eg hh:mm:ss",'[+-]?[\d,:]*'],
     ["Integer only  eg nnnn",'[+-]?\d*'],
     ["Rational only eg nnnnn.nnnn",'[+-]?\d*[.]?\d'],
   ]
   DATE_FORMATS = [
-     ['ISO year-month-day [eg 1999-01-31]','%Y-%m-%d'],
-     ['USA month-day-year [eg 01-31-1999]','%m-%d-%Y'],
-     ['UK day-month-year [eg 31-01-1999]','%d-%m-%Y'],
-     ['ISO timestamp [eg 1999-01-31 23:59:00]','%Y-%m-%d %H:%M:%S'],
-     ['USA timestamp [eg 01-31-1999 23:59:00]','%m-%d-%Y %H:%M:%S'],
-     ['UK timestamp [eg 31-01-1999 23:59:00]','%d-%m-%Y %H:%M:%S'],
-    ]
+    ['ISO year-month-day [eg 1999-01-31]','%Y-%m-%d'],
+    ['USA month-day-year [eg 01-31-1999]','%m-%d-%Y'],
+    ['UK day-month-year [eg 31-01-1999]','%d-%m-%Y'],
+    ['ISO timestamp [eg 1999-01-31 23:59:00]','%Y-%m-%d %H:%M:%S'],
+    ['USA timestamp [eg 01-31-1999 23:59:00]','%m-%d-%Y %H:%M:%S'],
+    ['UK timestamp [eg 31-01-1999 23:59:00]','%d-%m-%Y %H:%M:%S'],
+  ]
   acts_as_dictionary :name 
   # ## This record has a full audit log created for changes
   # 
@@ -59,7 +59,7 @@ class DataFormat < ActiveRecord::Base
   # Generic rules for a name and description to be present
   validates_presence_of :name
   validates_presence_of :description
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name,:case_sensitive=>false
 
   has_many :parameters, :dependent => :nullify
   has_many :assay_parameters,  :dependent => :nullify
@@ -161,17 +161,14 @@ class DataFormat < ActiveRecord::Base
       return nil unless self.regexp =~ text.to_s
     end
     begin 
-       date = Date.strptime(text.to_s, self.formatted)
+      date = Date.strptime(text.to_s, self.formatted)
     rescue
-      logger.debug "Failed to match #{text} with #{self.formatted}"
       begin
-        date  = Date.parse(text.to_s)
+        date = Chronic.parse(text.to_s)
       rescue Exception => ex
-        logger.debug "Failed to parse #{text} as date "
-        logger.debug ex.backtrace.join("\n")
+        logger.debug "Failed to match #{text} with chronic #{ex.message}"
       end
     end
-    logger.debug  " converted #{text} => #{date}"
     return date    
   end
   #
@@ -190,19 +187,23 @@ class DataFormat < ActiveRecord::Base
   # Parse a number , using the unit passed in options as default
   #
   def parse_number(text,options={})
-    return nil unless text =~ NUMBER_REGEX
-    unit_text =$2 
-    unit_text = options[:unit] if $2.blank?
-    text = $1    
-    if self.mask?  
-      m = self.regexp.match(text.to_s)
-      return nil unless m
-      text = m[0] 
-    end    
-    value = text.to_f
-    
-    return value if unit_text.empty? 
-    Unit.new(value,unit_text)
+    if text=~ Unit::TIME_REGEX or text=~ Unit::FEET_INCH_REGEX or text=~ Unit::LBS_OZ_REGEX or text =~ Unit::RATIONAL_NUMBER
+      Unit.new(text)
+    elsif text =~ Unit::NUMBER_REGEX
+      unit_text =$2
+      unit_text = options[:unit] if $2.blank?
+      text = $1
+      if self.mask?
+        m = self.regexp.match(text.to_s)
+        return nil unless m
+        text = m[0]
+      end
+      value = text.to_f
+      return value if unit_text.empty?
+      Unit.new(value,unit_text)
+    else
+      nil
+    end
   end
   #
   # Print a text string
@@ -221,8 +222,7 @@ class DataFormat < ActiveRecord::Base
       return sprintf(self.formatted,value.scalar)     
     end        
     return "#{sprintf(self.formatted,value.scalar)} #{value.units}"     
-  end
-  
+  end  
   #
   # Print a formatted date string
   #
@@ -231,5 +231,8 @@ class DataFormat < ActiveRecord::Base
     date.strftime(self.formatted)
   end
   
-
+  def to_s
+    self.name
+  end
+  
 end

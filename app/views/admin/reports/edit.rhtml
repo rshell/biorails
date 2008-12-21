@@ -1,0 +1,27 @@
+<% content_for :sidemenu do%>
+  <%= render :partial =>'actions' %>
+<% end %>
+
+<% content_for :status do%>
+  <div id='column-tree'></div>
+<%end%>
+
+<% content_for :help do%>
+  <%= render :partial =>'help' %>
+<%end%>
+
+<% content_for :center do%>
+  <%= render :partial=>'edit' %>
+<%end %>
+
+<script>
+   Ext.onReady( function() {
+    var tree = new Biorails.ColumnTree({
+                    renderTo:'column-tree',
+                    model:'<%=@report.model.to_s %>',
+                    report_id: <%=@report.id %> });
+     Ext.getCmp('extra-id').setActiveTab(1);
+     //tree.applyToMarkup('column-tree');
+  });
+</script>
+

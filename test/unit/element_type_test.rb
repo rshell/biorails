@@ -21,6 +21,7 @@ class ElementTypeTest < ActiveSupport::TestCase
     assert item 
     assert item.id == 1
     assert item.name == 'html'
+    assert item.path
     assert_equal item.model,ProjectContent
   end
 
@@ -78,7 +79,7 @@ class ElementTypeTest < ActiveSupport::TestCase
   #
   def test09_new_element
     folder = ProjectFolder.find(:first)
-    style = @model.find(4)
+    style = ElementType.find(4)
     item = style.new_element(folder,{:name=>'xxxx',:title=>'testing'})
     assert item 
     assert item.valid?
@@ -94,10 +95,10 @@ class ElementTypeTest < ActiveSupport::TestCase
   end
   
   def test11_lookup_by_symbol
-    asset = ElementType.find(4)
+    element =ElementType.find(4)
     item = ElementType.lookup(:folder)
     assert item
-    assert_equal item,asset    
+    assert_equal item,element
   end
 
   def test12_lookup_by_id
@@ -127,5 +128,16 @@ class ElementTypeTest < ActiveSupport::TestCase
     assert ElementType.lookup(ElementType::REFERENCE)
     assert ElementType.lookup(ElementType::FOLDER)
   end
+
+  def test16_element_classes
+    assert @model.element_classes
+  end
+
+  def test17_model
+    element = ElementType.find(4)
+    element.model = ProjectElement.find(:first)
+    assert element.model
+  end
+
 end
 

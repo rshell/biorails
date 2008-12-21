@@ -3,20 +3,20 @@
 <% end %>
 <% content_for :center do %>
 <%= render :partial => 'admin/header' %>
-<h2 class='class icon icon-parameter_type'><%=l(:label_parameter_type) %>
+<h2 class='class icon icon-parameter_type'><%=l(:Parameter_Type) %>
 [<%=@parameter_type.name %>]</h2>
 <div class="panel">
   <div class='box'>
     <p>
-      <b><%=l(:label_description) %>:</b>
+      <b><%=l(:Description) %>:</b>
       <%=@parameter_type.description %>
     </p>
     <p>
-      <b><%=l(:label_data_type) %>:</b>
+      <b><%=l(:Data_Type) %>:</b>
       <%=@parameter_type.data_type.name %>
     </p>
     <p>
-      <b><%=l(:label_quality_being_measured) %>: </b>
+      <b><%=l(:Quality_Being_Measured) %>: </b>
       <%=@parameter_type.storage_unit %>
     </p>
   </div>
@@ -27,11 +27,14 @@
     <%= render :partial=>'usages' %>
     <%else %>
     <p>
-      <%=l(:text_unused_parameter_type) %>...<%= link_to"#{ l(:label_delete)}?",  { :action => 'remove', :id =>  @data_format }, :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del' %>
+      <%=l(:text_unused_parameter_type) %>...
+      <%= link_to"#{ l(:Delete)}?",  
+        parameter_type_url( :action => 'destroy', :id =>  @parameter_type ), 
+        :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del' %>
     </p>
     <%end %>
   </div>
-  <%= link_to l(:label_list),  parameter_type_url(:action => 'list'), :class=>'icon icon-list' %>
+  <%= link_to l(:List),  parameter_type_url(:action => 'list'), :class=>'icon icon-list' %>
 </div>
 <% end %>
 <% content_for :right do -%>

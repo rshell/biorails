@@ -1,19 +1,21 @@
+<% if @parameter_type %>
 <div class="form-element">
     <label for="assay_parameter_parameter_role_id">
-        <%=l(:label_parameter_role) %>
+        <%=l(:Parameter_Role) %>
     </label>
-    <%= select_named(:assay_parameter, :parameter_role_id, ParameterRole) %>
+    <%= select_parameter_role(:assay_parameter, :parameter_role_id) %>
 </div>
 <div class="form-element">
     <label for="assay_parameter_data_type_id">
-        <%=l(:label_data_type) %>
+        <%=l(:Data_Type) %>
     </label>
     <%= hidden_field :assay_parameter, :data_type_id %>
     <%=@assay_parameter.style %>
 </div>
 <div class="form-element">
     <label for="assay_parameter_default_value">
-        <%=l(:label_default_value) %>
+        <%=l(:Default_Value) %>
     </label>
     <%= text_field :assay_parameter, :default_value , {:size =>40,:class=>"text-input"} %>
 </div>
+<%end%>

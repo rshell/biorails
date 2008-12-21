@@ -1,0 +1,22 @@
+<div class="content_header admin">
+  <%= render :partial => 'shared/help_link' %>
+  <h1 class='icon icon-admin-large'>
+    <%= link_to l(:Administration),   catalogue_url( :action => 'list') %>
+  </h1>
+  <br/>
+  <br/>
+  <div class='actions_left'>
+    <%= link_to l(:Users), user_url( :action => 'list'), :class=>'icon icon-user' %>
+    <%= link_to l(:Teams), team_url( :action => 'list'), :class=>'icon icon-team' %>
+    <%= link_to l(:Roles), role_url( :action => 'list'), :class=>'icon icon-role' %>
+    <%= link_to l(:List_LDAP), user_url( :action => 'ldap',:id=>'a'), :class=>'icon icon-list' %>
+  </div>
+  <div class='actions_right'>
+    <%= link_to l(:New), user_url( :action => 'new'), :class=>'icon icon-user-add' %>
+    <%  if @user and right?(:system,:admin)  %>
+    <%= link_to( l(:Membership), user_url( :action => 'memberships',:id=>@user.id), :class=>'icon icon-team') %>
+    <%= link_to( l(:Edit), user_url( :action => 'edit',:id=>@user.id), :class=>'icon icon-edit') %>
+    <%  end %>
+  </div>
+  <br/>
+</div>

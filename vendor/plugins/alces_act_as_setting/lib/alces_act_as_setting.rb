@@ -20,7 +20,7 @@ module Alces
           class_inheritable_reader :acts_as_settings_options
           cattr_accessor :acts_as_settings_defaults
           cattr_accessor :default_settings
-          self.default_settings = YAML::load(File.open(acts_as_settings_options[:filename]))
+          self.default_settings = HashWithIndifferentAccess.new(YAML::load(File.open(acts_as_settings_options[:filename])))
         #
         # generate methods for default list of allowed defaults
         #
@@ -32,7 +32,7 @@ module Alces
             end
 
             def self.#{name}?
-              self[:#{name}].to_s == "1"
+              self[:#{name}].to_s == "1" or self[:#{name}].to_s == "true" or self[:#{name}].to_s.downcase == "y"
             end
 
             def self.#{name}=(value)
@@ -42,11 +42,11 @@ module Alces
             class_eval src, __FILE__, __LINE__
           end
 
-          validates_uniqueness_of :name
           validates_inclusion_of :name, :in => self.default_settings.keys
 
           unless self.acts_as_settings_options[:scope] =='none'
           class_eval <<CODE
+           validates_uniqueness_of :name, :scope=>"#{self.acts_as_settings_options[:scope]}"
           #
           # Get a named value
           #  will read current value from database or use default from yaml file 
@@ -66,6 +66,7 @@ module Alces
 CODE
           else  
           class_eval <<CODE
+           validates_uniqueness_of :name
           #
           # Get a named value
           #  will read current value from database or use default from xml 

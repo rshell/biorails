@@ -51,7 +51,7 @@ class ProjectReference < ProjectElement
   validates_presence_of   :reference_type
 
   def freeze
-    update_content(reference.to_html)
+    update_content(reference.to_html) if reference
   end  
   
 
@@ -70,12 +70,5 @@ class ProjectReference < ProjectElement
      '/images/model/note.png'
   end  
 
-  #
-  # Set the Content Data for use in forms
-  #
-  def html
-    self.content.html if self.content
-    self.reference.to_html    
-  end
   
 end

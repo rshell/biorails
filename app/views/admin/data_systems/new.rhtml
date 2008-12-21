@@ -8,11 +8,11 @@
 
 <% content_for :center do%>
 <%= render :partial => 'admin/header' %>
-<%dialog l(:label_data_source) do%>
+<%dialog l(:Data_Source) do%>
 <% validated_form_tag :action => 'create', :id => @data_system do %>
 <%= render :partial => 'form' %>
-<%= submit_tag l(:button_save) %>
-<%= link_to l(:label_cancel), :action => 'list' %>
+<%= submit_tag l(:Save) %>
+<%= link_to l(:Cancel), :action => 'list' %>
 <% end %>
 <% end %>
 

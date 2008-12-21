@@ -1,8 +1,8 @@
-<h3 class='icon icon-parameter'><%=@data_concept.name %> <%=l(:label_usages) %></h3>
+<h3 class='icon icon-parameter'><%=@data_concept.name %> <%=l(:Usages) %></h3>
 <p>
     <%=l(:text_this_form_shows_parameter_type_using_the, @data_concept.name) %>
     <%=l(:text_to_manage) %>
-    [<%= link_to( l(:label_parameter_types),{:controller=>'parameter_types', :action => 'list'}) %>].
+    [<%= link_to( l(:Parameter_Types),{:controller=>'parameter_types', :action => 'list'}) %>].
 </p>
 <p>
     <%=l(:help_concept_usage) %>
@@ -16,7 +16,7 @@
             </th>
             <% end %>
             <th>
-                <%=l(:label_actions) %>
+                <%=l(:Actions) %>
             </th>
         </tr>
     </thead>
@@ -29,7 +29,7 @@
             </td>
             <% end %>
             <td>
-                <%= link_to(l(:label_delete), parameter_type_url(:action => 'destroy' ,:id=> row.id),
+                <%= link_to(l(:Delete), parameter_type_url(:action => 'destroy' ,:id=> row.id),
                 :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del' ) if row.not_used %>
             </td>
         </tr>
@@ -37,5 +37,5 @@
     </tbody>
 </table>
 <p class='icon icon-add'>
-    <%= link_to_remote( l(:label_add), :url=>{ :action => 'new_usage', :id=> @data_concept.id }) %>
+    <%= link_to_remote( l(:Add), :url=>{ :action => 'new_usage', :id=> @data_concept.id }) %>
 </p>

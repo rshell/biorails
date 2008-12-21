@@ -78,7 +78,7 @@ class UserTest < Test::Unit::TestCase
   
   def test004_create_project
      user = User.find(:first)
-     project = user.create_project(:name=>"test-projects",:description=>'somthing')
+     project = user.create_project(:name=>"test-projects",:description=>'something',:title=>'something')
      project.save
      assert_ok project
   end
@@ -142,28 +142,28 @@ class UserTest < Test::Unit::TestCase
 
   def test015_assay
      User.current = User.find(3)
-     assert Assay.find_visible(:all)
+     assert Assay.list(:all)
 
   end   
 
   def test016_experiment
      assert User.current = User.find(3)
-     assert Experiment.find_visible(:all)
+     assert Experiment.list(:all)
   end
   
 
   def test017_protocol
      User.current =User.find(3)
-     assert AssayProtocol.find_visible(:first)
+     assert AssayProtocol.list(:first)
      User.current = User.find(1)
-     assert AssayProtocol.find_visible(:all)
+     assert AssayProtocol.list(:all)
   end   
 
   def test018_task
      User.current = User.find(3)
-     assert Task.find_visible(:first)
+     assert Task.list(:first)
      User.current = User.find(1)
-     assert Task.find_visible(:all)
+     assert Task.list(:all)
   end   
   
   def test019_lastest_for_rshell

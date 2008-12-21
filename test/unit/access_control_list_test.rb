@@ -3,12 +3,13 @@ require File.dirname(__FILE__) + '/../test_helper'
 class AccessControlListTest < ActiveSupport::TestCase
   # Replace this with your real tests.
   def setup
-     @team = Team.find(2)
-     @project = Project.current = Project.find(2)
+     @team = Team.find(:first)
+     @project = Project.current = Project.find(:first)
      @user = User.current = User.find(3)
-     @role = ProjectRole.find(1)
-     @acl = AccessControlList.find(1)
+     @role = ProjectRole.find(:first)
+     @acl = AccessControlList.find(:first)
   end
+
   def test_setup
     assert_ok @team
     assert_ok @project
@@ -30,7 +31,8 @@ class AccessControlListTest < ActiveSupport::TestCase
   end
 
   def test_has_used?
-    assert @acl.used?
+    @used_acl = ProjectFolder.find(:first).access_control_list
+    assert @used_acl.used?
   end
 
   def test_to_s

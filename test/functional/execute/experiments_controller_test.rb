@@ -31,28 +31,105 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
   end
 
   def test_list
-    get :list
-    assert_response :success
-    assert_template 'list'
-    assert_not_nil assigns(:report)
+     get :list
+     assert_response :success
+     assert_template 'list'
+     assert_not_nil assigns(:report)
+   end
+
+  def test_list_in_project
+     get :list,:id =>1
+     assert_response :success
+     assert_template 'list'
+     assert_not_nil assigns(:report)
+   end
+
+  def test_list_invalid_project
+     get :list,:id=>334532423
+     assert_response :success
+     assert_template 'list'
+     assert_not_nil assigns(:report)
+   end
+
+     def test_show
+     get :show, :id => @first.id
+     assert_response :success
+     assert_template 'show'
+     assert_not_nil assigns(:experiment)
+     assert assigns(:experiment).valid?
+   end
+
+  def test_show_invalid_id
+     get :show, :id => 99999999
+     assert_response :success
+     assert_template 'access_denied'
+   end
+
+  def test_update_row_with_new_user
+    @task = Task.find(:first)
+    get :update_row, { :id=> @task.id, :assigned_to_user_id=>4}
+    assert_response :redirect
   end
 
-  def test_show
-    get :show, :id => @first.id
+  def test_update_row_with_new_user_js
+    @task = Task.find(:first)
+    get :update_row,  :id=> @task.id, :assigned_to_user_id=>4, :format=>'js'
     assert_response :success
-    assert_template 'show'
-    assert_not_nil assigns(:experiment)
-    assert assigns(:experiment).valid?
+  end
+
+  def test_update_row_with_new_status
+    @task = Task.find(:first)
+    get :update_row, { :id=> @task.id, :state_id=>4}
+    assert_response :redirect
+  end
+
+  def test_update_row_with_new_status_js
+    @task = Task.find(:first)
+    get :update_row,  :id=> @task.id, :state_id=>4, :format=>'js'
+    assert_response :success
+  end
+
+  def test_update_row_invalid
+    @task = Task.find(:first)
+    get :update_row, :format=>'js'
+    assert_response :success
+  end
+
+  def test_refresh_via_assay
+    get :refresh, :assay_id => @first.assay_id
+    assert_response :success
+  end
+
+  def test_refresh_via_assay_ajax
+    get :refresh, :assay_id => @first.assay_id,:format=>'js'
+    assert_response :success
+  end
+
+  def test_refresh_via_assay_ext
+    get :refresh, :assay_id => @first.assay_id ,:format=>'ext'
+    assert_response :success
+  end
+
+   def test_refresh_via_protocol_version
+    get :refresh, :assay_id => @first.protocol_version_id
+    assert_response :success
+  end
+
+   def test_refresh_via_invalid
+    get :refresh, :invalid_option => @first.protocol_version_id
+    assert_response :success
   end
 
   def test_show_no_id
     get :show,:id=>nil
-    assert_response :redirect
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_show_invalid_id
     get :show,:id=>34535535
-    assert_response :redirect
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_print
@@ -71,6 +148,14 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
 
   def test_export_ok
     get :export,:id => @first.id, :assay_protocol_id => AssayProcess.find(:first)
+    assert_response :success
+    assert_not_nil assigns(:experiment)
+    assert assigns(:experiment).valid?
+  end
+
+  def test_export_ok_with_process
+    protocol = AssayProcess.find(:first)
+    get :export,:id => @first.id, :assay_protocol_id => protocol.id ,:protocol_version_id=>protocol.latest.id
     assert_response :success
     assert_not_nil assigns(:experiment)
     assert assigns(:experiment).valid?
@@ -224,20 +309,18 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
     file = File.open(File.join(RAILS_ROOT,'test','fixtures','files','Experiment1-bad-data.csv'))
     post :import_file, :id=>1,:file=>file
     assert !flash[:error],flash[:error]
-    assert !flash[:warning],flash[:warning]
-    assert flash[:info]
+    assert flash[:warning]
     assert_response :redirect
-    assert_redirected_to :action => 'show'
+    assert_redirected_to :action => 'import'
   end
     
   def test_import_file_bad_context
     file = File.open(File.join(RAILS_ROOT,'test','fixtures','files','Experiment1-bad-context.csv'))
     post :import_file, :id=>1,:file=>file
     assert !flash[:error],flash[:error]
-    assert !flash[:warning],flash[:warning]
-    assert flash[:info]
+    assert flash[:warning]
     assert_response :redirect
-    assert_redirected_to :action => 'show'
+    assert_redirected_to :action => 'import'
   end
     
   def test_import_file_new_task_good_data
@@ -257,5 +340,5 @@ class Execute::ExperimentsControllerTest < Test::Unit::TestCase
     assert_response :redirect
     assert_redirected_to :action => 'show'
   end
-    
+
 end

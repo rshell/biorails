@@ -1,11 +1,11 @@
 <% unless @task.process.analysis_method %>
-  <%=l(:label_no_predifined_analysis)%></>
+  <%=l(:No_predifined_analysis)%></>
 <%else%>
   <% form_tag  task_url(:action => 'analysis', :id => @task.id,:run=>"yes") do %>
     <div class="row">
       <div class="form-element">
         <label for="analysis_class_name">
-          <%=l(:label_analaysis_method)%> [<%=@analysis.name%>] <%=@analysis.description%>
+          <%=l(:Analysis_Method)%> [<%=@analysis.name%>] <%=@analysis.description%>
         </label>
         <br />
       </div>
@@ -15,19 +15,19 @@
         <tr>
           <th>
             <b class='icon icon-name'>
-              <%=l(:label_name)%>
+              <%=l(:Name)%>
             </b>
           </th>
           <th>
             <b class='icon icon-description'>
-              <%=l(:label_type)%>
+              <%=l(:Type)%>
             </b>
           </th>
-          <th><%=l(:label_mode)%></th>
-          <th><%=l(:label_default)%></th>
+          <th><%=l(:Mode)%></th>
+          <th><%=l(:Default)%></th>
           <th>
             <b class='icon icon-parameter'>
-              <%=l(:label_parameter)%>
+              <%=l(:Parameter)%>
             </b>
           </th>
         </tr>
@@ -59,7 +59,7 @@
       </table>
     </div>
     <div class='row'>
-      <%= submit_tag l(:label_run) %>
+      <%= submit_tag l(:Run) %>
     </div>
   <% end %>
 

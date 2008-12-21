@@ -1,13 +1,17 @@
 <div>
-  <span class='menu'><b class="icon icon-data_system"><%=l(:label_administration)%></b></span>
-  <%= link_to l(:label_catalogue), catalogue_url( :action => 'list') %>
-  <%= link_to l(:label_data_sources), url_for(:controller=>'admin/data_systems',:action => 'list') %>
-  <%= link_to l(:label_data_formats), url_for(:controller=>'admin/data_formats',:action => 'list' )%>
-  <%= link_to l(:label_parameter_roles),  url_for(:controller=>'admin/parameter_roles',:action => 'list' )%>
-  <%= link_to l(:label_parameter_types), url_for(:controller=>'admin/parameter_types',:action => 'list' )%>
-  <%= link_to l(:label_users),  :controller=>'users', :action => 'index' %>
-  <%= link_to l(:label_roles), :controller=>'roles', :action => 'list' %>
-  <%= link_to l(:label_system_reports), report_url( :action => 'internal') %>
-  <%= link_to l(:label_database_uml), help_url( :action => 'uml') %>
+  <span class='menu'><b class="icon icon-data_system"><%=l(:Administration)%></b></span>
+  <% if right?(:catalog,:admin) %>
+    <%= link_to l(:Catalogue), catalogue_url( :action => 'list')  %>
+    <%= link_to l(:Data_Sources), url_for(:controller=>'admin/data_systems',:action => 'list') %>
+    <%= link_to l(:Data_Formats), url_for(:controller=>'admin/data_formats',:action => 'list' )%>
+    <%= link_to l(:Parameter_Roles),  url_for(:controller=>'admin/parameter_roles',:action => 'list' )%>
+    <%= link_to l(:Parameter_Types), url_for(:controller=>'admin/parameter_types',:action => 'list' ) %>
+  <% end %>
+  <% if right?(:system,:admin) %>
+    <%= link_to( l(:Users),  :controller=>'users', :action => 'index' ) %>
+    <%= link_to( l(:Roles), :controller=>'roles', :action => 'list'   ) %>
+    <%= link_to( l(:System_Reports), system_report_url( :action => 'show')) %>
+    <%= link_to l(:Database_UML), help_url( :action => 'uml') %>
+  <% end %>
 
 </div>

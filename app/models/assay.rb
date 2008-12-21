@@ -14,7 +14,6 @@
 #  expected_at        :datetime
 #  team_id            :integer(4)      not null
 #  project_id         :integer(4)      not null
-#  status_id          :integer(4)      default(0), not null
 #  lock_version       :integer(4)      default(0), not null
 #  created_at         :datetime        not null
 #  updated_at         :datetime        not null
@@ -64,20 +63,11 @@ class Assay < ActiveRecord::Base
   # This record has a full audit log created for changes
   # 
   acts_as_audited :change_log
-  #
-  # Rules to Free Text searching 
-  #
-  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-    :description=>{:store=>:yes,:boost=>0},
-    :research_area=>{:boost=>1},
-    :purpose=>{:boost=>0} }, 
-    :default_field => [:name],           
-    :single_index => true, 
-    :store_class_name => true
+
   # 
   # Generic rules for a name and description to be present
   # 
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name,:case_sensitive=>false
 
   validates_presence_of :name
   validates_presence_of :description
@@ -111,8 +101,8 @@ class Assay < ActiveRecord::Base
   has_many :protocols ,
     :class_name => "AssayProtocol",
     :foreign_key => "assay_id",
-    :order => "assay_stage_id desc",
-    :dependent => :destroy do    
+    :order => "assay_protocols.assay_stage_id desc",
+    :dependent => :destroy do
     #
     # Limit protocols to only live in use versions
     #
@@ -126,6 +116,14 @@ SQL
     end     
   end
 
+  has_many :workflows ,
+    :class_name => "AssayWorkflow",
+    :foreign_key => "assay_id"
+
+  has_many :processes ,
+    :class_name => "AssayProcess",
+    :foreign_key => "assay_id"
+
   #   has_many 'analysis_methods' ,
   #   :class_name => "AnalysisDefinition",
   #   :foreign_key => "assay_id",
@@ -135,7 +133,7 @@ SQL
   # ## List of experiments carried out for this assay
   # 
   has_many_scheduled :experiments,  :class_name=>'Experiment',
-    :foreign_key =>'assay_id',:dependent => :destroy,:order => "name desc"
+    :foreign_key =>'assay_id',:dependent => :destroy, :order => "experiments.name desc"
 
   # ## The assay has a collection of prefered parameters and roles assocated
   # with it
@@ -156,7 +154,7 @@ SQL
 
   def initialize(options = {})
     super(options)      
-    self.description = "Assay Definition by #{User.current.name} for team #{Team.current.name}" if self.description.blank?
+    self.description = "<Please update with scope of assay definition>" if self.description.blank?
     Identifier.fill_defaults(self)    
     self.started_at  ||= Time.new
     self.expected_at ||= Time.new + 6.months
@@ -208,22 +206,20 @@ SQL
   # Rules for sharing a assay
   # 
   def shareable?( other )
-    (other.visible? and self.visible? and self.published? and other.folder.changable?)  
+    (other.visible? and self.visible? and self.is_setup? and other.changeable?)
   end
   
   def shareable_status(other)
-    return 'folder #{other.name} not visible' unless other.visible? 
-    return 'assay #{name} not visible' unless self.visible?
-    return 'assay not published? ' unless self.published? 
-    return 'folder not changable'  unless other.folder.changable?  
+    return 'assay not no setup? ' unless self.is_setup?
+    return "assay #{self.name} not visible for #{User.current}" unless self.visible?
+    return "folder #{other.name}  not visible to #{self.name}" unless other.visible?
+    return 'folder  #{other.name} not changable'  unless other.changeable?
     'ok'    
   end
-  # 
-  # Is the assy ok for use externally
-  # 
-  def published?
-    return is_setup?
-  end  
+
+  def runnable?
+    Project.current.changeable? && is_setup? && process_instances.size>0
+  end
   # 
   # Test if the assay is now setup
   # 
@@ -424,7 +420,7 @@ SQL
   
   def to_xml(options = {})
     my_options = options.dup
-    my_options[:include] ||= [:parameters,:queues,:protocols]
+    my_options[:include] ||= [:parameters,:queues,:processes]
     Alces::XmlSerializer.new(self, my_options  ).to_s
   end
 
@@ -432,7 +428,7 @@ SQL
   # 
   def self.from_xml(xml,options = {})
     my_options = options.dup
-    my_options[:include] ||= [:parameters,:queues,:protocols]
+    my_options[:include] ||= [:parameters,:queues,:processes]
     Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
   end
  

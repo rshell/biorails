@@ -1,7 +1,7 @@
 <table class='report' style='border: solid thin'>
   <tr>
     <th>
-        <%=l(:label_item)%>
+        <%=l(:Item)%>
     </th>
     <%for item in @user_request.services %>
       <th>
@@ -9,7 +9,7 @@
       </th>
     <% end %>
     <th>
-        <%=l(:label_action)%>
+        <%=l(:Action)%>
     </th>
   </tr>
     <%for item in  @user_request.items %>
@@ -22,7 +22,7 @@
         <% end %>
           <td>
             <p class='icon icon-del'>
-              <%= link_to l(:label_remove), request_url(:action => 'remove_item', :request_id=> @user_request.id, :id => item.id ) %>
+              <%= link_to l(:Reemove), request_url(:action => 'remove_item', :request_id=> @user_request.id, :id => item.id ) %>
             </p>
           </td>
       </tr>

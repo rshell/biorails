@@ -3,7 +3,6 @@
     <% for hit in session[:hits] %>
     <li>
         <strong><%= hit.class.to_s %><%= hit.name %>
-            Match<%=100*hit.ferret_score %>
         </strong>
     </li>
     <% end %>

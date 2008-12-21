@@ -28,25 +28,6 @@
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
 #
-# == Schema Information
-# Schema version: 338
-#
-# Table name: parameter_contexts
-#
-#  id                  :integer(11)   not null, primary key
-#  protocol_version_id :integer(11)   not null
-#  parent_id           :integer(11)   
-#  level_no            :integer(11)   default(0)
-#  label               :string(255)   
-#  default_count       :integer(11)   default(1)
-#  left_limit          :integer(11)   default(0), not null
-#  right_limit         :integer(11)   default(0), not null
-#  lock_version        :integer(11)   default(1), not null
-#  created_at          :datetime      
-#  updated_at          :datetime      
-#  updated_by_user_id  :integer(11)   default(1), not null
-#  created_by_user_id  :integer(11)   default(1), not null
-#
  
 class ParameterContext < ActiveRecord::Base
 
@@ -57,7 +38,7 @@ class ParameterContext < ActiveRecord::Base
  validates_presence_of :label
  validates_format_of :label, :with => /^[A-Z,a-z,0-9,_]*$/, :message => 'name is must be alphanumeric eg. [A-z,0-9,_]'
 
-  validates_presence_of :default_count
+ validates_presence_of :default_count
 
  belongs_to :process, :class_name=>'ProcessInstance',:foreign_key=>'protocol_version_id'
 
@@ -70,10 +51,10 @@ class ParameterContext < ActiveRecord::Base
 # In term the context is defined 
 #
  has_many :parameters,  :class_name=>'Parameter',
-                        :foreign_key =>'parameter_context_id', 
+                        :foreign_key =>'parameter_context_id',
                         :dependent => :destroy,
                         :include=>[:type,:role,:assay_parameter,:data_format,:data_element], 
-                        :order => 'column_no' do
+                        :order => 'column_no', :dependent => :destroy do
      #
      # Limit set to contexts using the the a object
      #
@@ -103,7 +84,12 @@ class ParameterContext < ActiveRecord::Base
 
   
  before_destroy :can_destroy_if_not_used_or_release
-   
+ before_validation :fill_process_from_parent
+
+ def fill_process_from_parent
+  self.protocol_version_id = self.parent.protocol_version_id  if self.parent
+ end
+
  def can_destroy_if_not_used_or_release
    if (process and not process.flexible?)
      logger.error  errors.add_to_base("Cannot deleted parameter context #{label} as in use") 
@@ -116,10 +102,12 @@ class ParameterContext < ActiveRecord::Base
 # Path
 #  
  def path(scope='process')
+    root= self.self_and_ancestors.collect{|i|i.label}
+    root.join('/')
     case scope.to_s
-    when 'world','project','assay' then "#{process.path(scope)}/#{self.label}"
-    when 'process' then "#{process.name}/#{self.label}"
-    else "#{self.label}"
+    when 'world','project','assay' then "#{process.path(scope)}/#{root.join('/')}"
+    when 'process' then "#{process.name}/#{root.join('/')}"
+    else "#{root.join('/')}"
     end
  end  
   
@@ -228,7 +216,7 @@ class ParameterContext < ActiveRecord::Base
    
  
  def to_xml(options = {})
-     Alces::XmlSerializer.new(self, options.merge( {:include=> [:parameters]} )  ).to_s
+     Alces::XmlSerializer.new(self, options.merge( {:include=> [:parameters,:children]} )  ).to_s
  end
 
  ##
@@ -236,7 +224,7 @@ class ParameterContext < ActiveRecord::Base
 # 
  def self.from_xml(xml,options ={} )
       my_options = options.dup
-      my_options[:include] = [:parameters]
+      my_options[:include] = [:parameters,:children]
  
       Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
  end 
@@ -288,6 +276,10 @@ class ParameterContext < ActiveRecord::Base
      block[n] = values
    end    
    return block
+ end
+
+ def self.output_styles
+   ['default','form','scaled','rotated','split','group-2','group-3','group-4','group-5','group-6','group-7','group-8','group-9','group-10']
  end
  
 end

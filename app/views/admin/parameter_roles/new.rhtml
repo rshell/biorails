@@ -8,12 +8,12 @@
 
 <% content_for :center do -%>
   <%= render :partial => 'admin/header'%>
-  <% dialog l(:label_parameter_role_new) do %>
-    <%=l(:label_parameter_role_new_full)%>
+  <% dialog l(:Parameter_Role_New) do %>
+    <%=l(:text_parameter_role_new_full)%>
     <% form_tag :action => 'create' do %>
       <%= render :partial => 'form' %>
-      <%= submit_tag l(:button_save) %>
-      <%= link_to l(:label_cancel),  parameter_role_url(:action => 'list') %>
+      <%= submit_tag l(:Save) %>
+      <%= link_to l(:Cancel),  parameter_role_url(:action => 'list') %>
     <% end %>
   <% end %>
 

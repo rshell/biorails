@@ -1,9 +1,8 @@
 Ext.ux.grid.filter.StringFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
-	updateBuffer: 500,
-	icon: '/img/small_icons/famfamfam/find.png',
+	icon: 'ux-gridfilter-text-icon',
 	
 	init: function(){
-		var value = this.value = new Ext.ux.menu.EditableItem({icon: this.icon});
+		var value = this.value = new Ext.ux.menu.EditableItem({iconCls: this.icon});
 		value.on('keyup', this.onKeyUp, this);
 		this.menu.add(value);
 		

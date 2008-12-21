@@ -2,6 +2,10 @@
 <%= render :partial =>'actions'%>
 <% end %>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['report' ]} %>
+<%end%>
+
 <% content_for :help do%>
 <%=render :partial => 'snapshot' %>
 <%end%>

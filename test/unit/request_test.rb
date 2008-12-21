@@ -6,12 +6,6 @@ class RequestTest < Test::Unit::TestCase
   def setup
     # Retrieve ## Biorails::Dba.import_model via their name
      @model = Request
-     User.current = User.find(3)
-     Project.current  = Project.find(2)
-  end
-  
-  def test_truth
-    assert true
   end
   
   def test01_new
@@ -34,6 +28,11 @@ class RequestTest < Test::Unit::TestCase
     assert 'sdgdsgsdgds',first.name
   end
 
+  def test02_name
+    first = @model.find(:first)
+    assert first.name
+  end
+
   def test03_description
     first = @model.find(:first)
     assert first.description
@@ -48,37 +47,32 @@ class RequestTest < Test::Unit::TestCase
     first = @model.find(:first)
     assert first.project
   end
-
-  def test06_name
-    first = @model.find(:first)
-    assert first.name
-  end
   
   def test07_create
-    element = DataElement.find(32)
-    req = Request.create(:name=>'dddd',:description=>'dsfsfsf',:data_element_id=>element.id)
+    element = DataElement.find(28)
+    req = Request.create(:name=>'dddd',:description=>'dsfsfsf',:started_at=>'2000-1-1',:expected_at=>'2018-1-1',:data_element_id=>element.id)
     assert_ok req
     assert req.list
     assert_equal req.list.name,req.name
-    assert_ok item = Compound.create(:name=>'test')
+    assert_ok item = User.find(1)
     assert_ok req.add_item(item)
   end
   
   def test07_create_with_item
-    element = DataElement.find(32)
-    req = Request.create(:name=>'ddd2',:description=>'dsfsfsf',:data_element_id=>element.id)
+    element = DataElement.find(28)
+    req = Request.create(:name=>'ddd2',:description=>'dsfsfsf',:started_at=>'2000-1-1',:expected_at=>'2018-1-1',:data_element_id=>element.id)
     assert_ok req
     assert req.list
     assert_equal req.list.name,req.name
-    assert_ok item = Compound.create(:name=>'test')
+    assert_ok item = User.find(1)
     assert_ok req.add_item(item)
   end
   
   def test07_create_with_service
     queue = AssayQueue.find(2)
-    element = DataElement.find(32)
+    element = DataElement.find(28)
     assert_ok queue
-    req = Request.create(:name=>'ddd3',:description=>'dsfsfsf',:data_element_id=>element.id)
+    req = Request.create(:name=>'ddd3',:description=>'dsfsfsf',:started_at=>'2000-1-1',:expected_at=>'2018-1-1',:data_element_id=>element.id)
     assert_ok req
     assert req.list
     assert_equal req.list.name,req.name
@@ -87,13 +81,13 @@ class RequestTest < Test::Unit::TestCase
   
   def test07_create_with_service_and_item_and_submit
     queue = AssayQueue.find(2)
-    element = DataElement.find(32)
+    element = DataElement.find(120)
     assert_ok queue
-    req = Request.create(:name=>'ddd3',:description=>'dsfsfsf',:data_element_id=>element.id)
+    req = Request.create(:name=>'ddd3',:description=>'dsfsfsf',:started_at=>'2000-1-1',:expected_at=>'2010-1-1',:data_element_id=>element.id)
     assert_ok req
     assert req.list
     assert_equal req.list.name,req.name
-    assert_ok item = Compound.create(:name=>'test')
+    assert_ok item = element.values[0]
     assert_ok req.add_item(item)
     assert_ok req.add_service(queue)
     req.submit
@@ -164,7 +158,7 @@ class RequestTest < Test::Unit::TestCase
     req = @model.find(:first)
     assert_equal 35, req.data_element_id
     req.list.items.each{|i|i.destroy}
-    item = Compound.create(:name=>'test')
+    item = Compound.find(:first)
     assert_ok item
     request_item = req.add_item(item)
     assert_ok request_item
@@ -184,23 +178,24 @@ class RequestTest < Test::Unit::TestCase
   
   
   def create_request
-    queue = AssayQueue.find(:first)
-    items = Task.find(:all)
+    assert queue = AssayQueue.find(:first)
+    assert items = Task.find(:all)
     assert items,"#{queue.data_element.name}"
     assert_not_equal items.size,0,"Cant find any #{queue.data_element.name}"
-    puts queue.data_element.name
+    assert queue.data_element.name
     request = Request.create(:name =>'test2',:description=>'test1')
     assert request
     request.data_element = DataElement.find(33)
     request.requested_by = User.find(1)
-    request.expected_at=DateTime.now
-    request.status ='new'
+    request.expected_at=DateTime.now+100.day
     request.priority = 'normal'
-    assert request.save
+    request.save
+    assert_ok request
     assert request.add_service(queue)
     request.add_item(items[0])
     request.add_item(items[1])
-    assert request.save
+    request.save
+    assert_ok request
     return request
   end
   

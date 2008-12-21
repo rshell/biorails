@@ -7,7 +7,6 @@
 #  name                :string(128)     default(""), not null
 #  description         :string(1024)    default(""), not null
 #  category_id         :integer(4)
-#  status_id           :integer(4)      default(0), not null
 #  assay_id            :integer(4)
 #  protocol_version_id :integer(4)
 #  assay_protocol_id   :integer(4)
@@ -45,20 +44,13 @@ class Experiment < ActiveRecord::Base
   # ## This record has a full audit log created for changes
   # 
   acts_as_audited :change_log
-  # 
-  # free text index
-  # 
-  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-    :description=>{:store=>:yes,:boost=>0},
-  }, 
-    :default_field => [:name],           
-    :single_index => true, 
-    :store_class_name => true 
+
   # 
   # Owner project
   # 
-  belongs_to :project  
+  belongs_to :project
   belongs_to :team
+  belongs_to :assay
 
   acts_as_folder_linked :project, :under =>'experiments'
 
@@ -68,31 +60,48 @@ class Experiment < ActiveRecord::Base
   acts_as_scheduled  :summary=>:tasks
 
   has_many_scheduled :tasks,  :class_name=>'Task',:foreign_key =>'experiment_id',:dependent => :destroy
-  has_many_scheduled :queue_items,  :class_name=>'QueueItem',:foreign_key =>'experiment_id'
+  has_many_scheduled :queue_items,  :class_name=>'QueueItem',:dependent => :nullify,:foreign_key =>'experiment_id'
+
+  belongs_to :project
+  #
+  ## Stats view of whats happened in the experiment
+  #
+  has_many :stats, :class_name => "ExperimentStatistics"
+  #
+  ## Experiments is carried out in the scope of a  assay
+  #
+  belongs_to :assay
+  ## Current default process
+  #
+  #  @todo replace with a method based on the assay/workflow
+  #
+  belongs_to :process, :class_name =>'ProtocolVersion', :foreign_key=>'protocol_version_id'
 
   # 
   # validation rules
-  # 
+  #
   validates_uniqueness_of :name
-  validates_presence_of   :name
+  
+  validates_presence_of   :name,:case_sensitive=>false
   validates_presence_of   :description
   validates_presence_of   :assay_id
   validates_presence_of   :protocol_version_id
   validates_presence_of   :project_id
-  #  validates_presence_of   :started_at
-  #  validates_presence_of   :expected_at
 
-  # ## Stats view of whats happened in the experiment
-  # 
-  has_many :stats, :class_name => "ExperimentStatistics"
-  # ## Experiments is carried out in the scope of a  assay
-  # 
-  belongs_to :assay
-  # ## Current default process
-  # 
-  #  @todo replace with a method based on the assay/workflow
-  # 
-  belongs_to :process, :class_name =>'ProtocolVersion', :foreign_key=>'protocol_version_id'
+  validates_associated :assay
+  validates_associated :process
+  validates_associated :project
+  validates_associated :project_element
+
+  validates_presence_of   :started_at
+  validates_presence_of   :expected_at
+
+  validates_format_of :name, :with => /^[A-Z,a-z,0-9,_,\.,\-,+,\$,\&, ,:,#,\/]*$/,
+    :message => 'name only accept a limited range of characters [A-z,0-9,_,.,$,&,+,-, ,#,@,:]'
+  
+  def validate
+    validate_period
+  end
   # 
   # @todo remove with time once refrences gone
   # 
@@ -122,7 +131,7 @@ class Experiment < ActiveRecord::Base
   # 
   before_create :set_default_project_and_team
 
-  def set_default_project_and_team    
+  def set_default_project_and_team
     self.project ||= Project.current          
     self.team ||= Team.current
   end
@@ -133,16 +142,21 @@ class Experiment < ActiveRecord::Base
  after_create :after_create_move_template_element
  
   def  after_create_move_template_element
+    return if Biorails::Dba.importing?
     after_create_generate_folder
-    link_to_process_folder  unless Biorails::Dba.importing?
+    if !process.multistep?
+      logger.info "Folder Content ignored for single step process or importing"
+    else
+       link_to_process_folder
+    end
   end
   # 
   # add links to process folder to pick up defaults
   # 
   def link_to_process_folder
-    self.process.folder.elements.each do |element|
-      self.folder.add_reference(element.name,element) 
-    end
+      self.process.folder.elements.each do |element|
+        self.folder.copy(element)
+      end
   end
   # 
   # Constructor uses current values for User,project and team in creation of a
@@ -150,10 +164,9 @@ class Experiment < ActiveRecord::Base
   # => , team_id => )
   # 
   def initialize(options = {})
-    super(options)      
+    super(options)
     Identifier.fill_defaults(self)
   end   
-  
   # ## first task to start in the experiment
   # 
   def first_task    
@@ -173,6 +186,14 @@ class Experiment < ActiveRecord::Base
       self.tasks.max{|i,j|i.started_at <=> j.started_at}
     end 
   end 
+  #
+  # Check allowed to process data
+  #
+  def start_processing
+    return false if self.active? or self.finished?
+    new_state = self.folder.state_flow.next_level(self.state)
+    self.folder.set_state(new_state,false)
+  end
 
   # ## Get the named experiment from the list attrached to the assay
   # 
@@ -231,14 +252,14 @@ SQL
   def run(flow=nil,start=nil)
     Task.transaction do
       flow  ||= self.process
-      start ||= Time.now
+      start ||= [Time.now,self.started_at].max
       unless flow.multistep?
         
         task = add_task(:name => flow.name, :protocol_version_id=>flow.id);
         task.description = flow.description
         task.expected_hours = flow.expected_hours
         task.started_at =  (start )
-        task.expected_at = (start + flow.expected_hours.hours  )          
+        task.expected_at = (start + flow.expected_hours.hours  )
         self.tasks << task
         task.save!
       else       
@@ -249,9 +270,9 @@ SQL
             task = add_task(:name => step.name,  :protocol_version_id=>step.protocol_version_id);
             task.description = step.description
             task.done_hours = 0
-            task.expected_hours = step.expected_hours
             task.started_at =  (start + step.start_offset_hours.hours )
-            task.expected_at = (start + step.end_offset_hours.hours  )          
+            task.expected_at = (start + step.end_offset_hours.hours  )
+            task.expected_hours = step.expected_hours
             self.tasks << task
             task.save!
           end
@@ -263,13 +284,15 @@ SQL
   # 
   def copy(name = nil, start = nil)
     start ||= Time.now
-    expt = Experiment.new(:started_at => start, :expected_at=>(start + self.period ))
+    finish = start + (self.expected_at - self.started_at)
+    expt = Experiment.new(  :started_at => start, :expected_at=> finish)
     expt.name = name || Identifier.next_user_ref
     expt.description = self.description
     expt.assay = self.assay
     expt.project = self.project
     expt.process = self.process
     # expt.process_flow self.process_flow
+
     expt.save!  
     delta_time = expt.started_at - self.started_at
     logger.info "Experiment #{expt.started_at} #{expt.finished_at}"
@@ -289,9 +312,10 @@ SQL
     task = Task.new(options)
     task.experiment = self
     task.process  ||= self.default_process
-    task.project  ||= self.project
-    task.project = Project.current
-    task.done_hours = 0
+    task.project  = self.project
+    task.started_at  =  [Time.now,self.started_at].max
+    task.expected_at = (task.started_at + task.process.expected_hours.hours  )
+    task.done_hours  = 0
     task.description ||="A run of #{self.process.description}"
     task.assigned_to_user_id = User.current.id
     logger.info "New Task[#{task.id}] is #{task.name}"
@@ -431,13 +455,14 @@ SQL
       end
     end
     @extras= items - @lookup.values.collect{|i|i.name}
+    @extras= @extras.compact
      
     for name in @extras
       if task.flexible?
         definition.add_parameter(name)
-        logger.info  "Added Parameter #{name}"    
+        logger.info "Added Parameter #{name}"
       else
-        logger.info  "Extra Parameter #{name} ignored"    
+        logger.info "Extra Parameter #{name} ignored"
       end          
     end     
     return definition
@@ -446,7 +471,7 @@ SQL
     logger.error ex.message
     logger.debug ex.backtrace.join("\n") 
     logger.info "Rejected: #{row.join(',')}"
-    self.errors.add_to_base  " Line [" + @line.to_s + "] failed to read context: " + ex.message
+    task.errors.add_to_base  " Line [" + @line.to_s + "] failed to read context: " + ex.message
   end
   
   # ############################################################################
@@ -462,12 +487,14 @@ SQL
     context = task.context(label)
     col=0
     if context
+      TaskContext.current = context
+      TaskContext.current.lock!
       for parameter in context.parameters
         value = row[col+3]
         logger.info "TaskItem[#{label},#{col}] #{parameter.name} = #{value}"
         ret = context.set_value(parameter,value)
-        unless ret[:error]
-             logger.warn "cell[#{row_no}][#{parameter.name}]= #{value} Not saved #{ret[:error]}"
+        if ret[:errors]
+             task.errors.add_to_base("row #{row_no} not saved #{ret[:error]} on cell [#{label}][#{parameter.name}]=#{value} ")
         end
         col +=1
       end
@@ -479,7 +506,7 @@ SQL
     logger.error ex.message
     logger.debug ex.backtrace.join("\n") 
     logger.info  "Rejected: #{row.join(',')}"
-    self.errors.add_to_base " file line [" + @line.to_s + "] import failed: " + ex.message
+    task.errors.add_to_base(" file line [" + @line.to_s + "] import failed: " + ex.message)
   end
 
   def to_html_cached?

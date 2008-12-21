@@ -13,11 +13,11 @@
 class Admin::TeamsController < ApplicationController
 
   use_authorization :teams,
-    :actions => [:list,:show,:new,:grant,:deny,:create,:edit,:update,:destroy],
-    :rights =>  :current_user
+    :build => [:list,:show,:new,:grant,:deny,:create,:edit,:update,:destroy],
+    :use => [:list,:show]
   
   before_filter :setup_team,
-    :only => [ :show,:destroy, :add,:remove, :grant,:deny,:print,:edit,:update]
+    :only => [ :show,:destroy, :add,:add_team,:remove, :grant,:deny,:print,:edit,:update]
   
   before_filter :setup_teams,
     :only => [ :index,:list]
@@ -86,6 +86,7 @@ class Admin::TeamsController < ApplicationController
   # Edit the team
   # 
   def edit
+    return show_access_denied unless @team.owner?(User.current)
     respond_to do |format|
       format.html { render :action => 'edit'}
       format.xml {render :xml =>  @team.to_xml}
@@ -94,21 +95,35 @@ class Admin::TeamsController < ApplicationController
   end
   
   def add
+    return show_access_denied unless @team.owner?(User.current)
     @membership = @team.memberships.new(params[:membership])
     if @membership.save
       flash[:notice] = 'Membership was successfully created.'
     else
-      flash[:error] = 'Failed to add membership because ',@membership.errors.full_messages().join(',')
+      flash[:warning] = 'Failed to add membership because, ',@membership.errors.full_messages().join(',')
+    end
+    redirect_to :action => 'show',:id=>@team
+  end
+
+  def add_team
+    return show_access_denied unless @team.owner?(User.current)
+    other = Team.find(params[:source_team_id])
+    list = @team.add(other)
+    if list
+      flash[:notice] = "Membership was successfully created #{list.join(',')}"
+    else
+      flash[:warning] = 'Failed to add membership because, ',@membership.errors.full_messages().join(',')
     end
     redirect_to :action => 'show',:id=>@team
   end
 
   def remove
+    return show_access_denied unless @team.owner?(User.current)
     @membership =@team.memberships.find(params[:membership_id])
     if @membership.destroy
       flash[:notice] = 'Membership was removed.'
     else
-      flash[:warn] = 'Failed to add membership because ',@membership.errors.full_messages().join(',')
+      flash[:warning] = 'Failed to add membership because ',@membership.errors.full_messages().join(',')
     end
     redirect_to :action => 'show',:id=>@team
   end
@@ -119,11 +134,18 @@ class Admin::TeamsController < ApplicationController
 # :role_id
 #
   def grant
-    @ace = @acl.grant(params[:owner_id],params[:role_id],params[:owner_type])
-    if @ace.valid?
+    return show_access_denied unless @team.owner?(User.current)
+    @ace = @acl.grant(params[:team_id],params[:role_id],params[:owner_type]) unless params[:team_id].blank?
+    @ace = @acl.grant(params[:user_id],params[:role_id],params[:owner_type]) unless params[:user_id].blank?
+    @ace = @acl.grant(params[:owner_id],params[:role_id],params[:owner_type]) unless params[:owner_id].blank?
+    if @ace
+      flash[:warning] = " Duplicate grant, no changes"
+    elsif  @ace.nil?
+      flash[:warning] = " Nothing changing"
+    elsif  @ace.valid?
       flash[:notice] = "Granted Access to #{@ace.to_s}"
     else
-      flash[:warn] = "Failed to grant access #{@ace.errors.full_messages().join(',')}"
+      flash[:warning] = "Failed to grant access #{@ace.errors.full_messages().join(',')}"
     end
     redirect_to :action => 'show',:id=>@team   
   end
@@ -135,7 +157,7 @@ class Admin::TeamsController < ApplicationController
     if @acl.deny(params[:owner_id],params[:role_id],params[:owner_type])
       flash[:notice] = "Denied access to #{params[:owner_type]}[#{params[:owner_id]}]"
     else
-      flash[:warn] = "Failed deny access to #{params[:owner_type]}[#{params[:owner_id]}]"
+      flash[:warning] = "Failed deny access to #{params[:owner_type]}[#{params[:owner_id]}]"
     end
     redirect_to :action => 'show',:id=>@team   
   end  
@@ -143,6 +165,7 @@ class Admin::TeamsController < ApplicationController
   # Update model and change to show team
   # 
   def update
+    return show_access_denied unless @team.owner?(User.current)
     Team.transaction do
       if @team.update_attributes(params[:team])
         flash[:notice] = 'team was successfully updated.'
@@ -163,6 +186,7 @@ class Admin::TeamsController < ApplicationController
   # ## Destroy a team
   # 
   def destroy
+    return show_access_denied unless @team.owner?(User.current)
     unless @team.in_use?
       @team.destroy 
     end
@@ -176,16 +200,14 @@ class Admin::TeamsController < ApplicationController
     
   def setup_teams
     @user = current_user
-    @teams ||= Team.find(:all) if User.current.admin?
+    @teams ||= Team.find(:all,:order=>:name) if User.current.admin?
     @teams ||= User.current.teams
   end
 
   def setup_team
     @user = current_user
-    @team ||= Team.find(params[:team_id]) unless params[:team_id].blank?
     @team ||= Team.find(params[:id]) unless params[:id].blank?
     @acl  = AccessControlList.from_team(@team)
-    return show_access_denied unless @team.owner?(User.current)
   end  
       
 end

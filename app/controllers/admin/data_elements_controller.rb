@@ -4,8 +4,8 @@
 class Admin::DataElementsController < ApplicationController
 
   use_authorization :catalogue,
-    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-    :rights => :current_user
+    :use => [:choice,:select,:list,:show],
+    :admin => [:new,:add,:create,:destroy,:export,:index]
 
   in_place_edit_for :data_element, :name
   in_place_edit_for :data_element, :description  
@@ -39,42 +39,42 @@ class Admin::DataElementsController < ApplicationController
   #  * url is in the form /data_element/choices/n with value=xxxx parameter
   # 
   def choices
-    element =DataElement.find( params[:id] )
-    text = request.raw_post || request.query_string
-    @value =  params[:match] || URI.unescape(text.split("=")[1])
-    @choices = element.like(@value)
+    model = ModelExtras.model_from_name( params[:id])
+    value   = "#{params[:query]}%"
+    if model.respond_to?(:like)
+        source = model.like(value)
+    elsif model.respond_to?(:list)
+        source = model.list(:all,:conditions=>['name like ?',value],:limit=>20,:order=>:name)
+    end
+    source ||= model.find(:all,:conditions=>['name like ?',value],:limit=>20,:order=>:name)
+
+    @choices =[{:id=>nil,:name =>"",:description=>"Please Select a Item"}]
+    if source[0].respond_to?(:path)
+      source.each { |item| @choices << {:name=>"#{item.name} (#{item.path})",:id=>item.id}}
+    else
+      source.each { |item| @choices << {:name=>item.name,:id=>item.id}}
+    end
+
     @list = {:element_id=>params[:id],
       :matches=>@value,
       :total=>@choices.size ,
-      :items =>@choices.collect{|i|{:id=>i.id,:name=>i.name,:description=>i.description}} }
-    respond_to do |format|
-      format.html {render  :text => @list.to_json}
-      format.xml  { render :xml => @list.to_xml }
-      format.csv  { render :text => @choices.to_csv }
-      format.json { render :json => @list.to_json}
-    end
+      :items =>@choices}
+    render :text => @list.to_json
   end  
 
   def select
     element = DataElement.find( params[:id] )
     @value   = params[:query] || ""
     @choices = element.like(@value) || []
-    if @choices[0].is_a? ActiveRecord::Base
-      @list = {:element_id=>params[:id],
-        :matches=>@value,
-        :total=>@choices.size ,
-        :items =>@choices.collect{|i|{ 
-            :id=>i.id, :name=>i.name,
-            :description=> (i.respond_to?(:description) ? i.description : i.name ) }}}
-    else                                  
-      @list = {:element_id=>params[:id],
-        :matches=>@value,
-        :total=>@choices.size ,
-        :items =>@choices.collect{|i|{ 
-            :id=>i['id'],
-            :name=>i['name'],
-            :description=>i['description']}} }
-    end
+    @choices = @choices.collect{|i|{
+          :id=>i.id,
+          :name=>i.name}}
+
+    @choices = @choices << {:id=>nil,:name =>DataElement::BLANK,:description=>"Please Select a Item"}
+    @list = {:element_id=>params[:id],
+      :matches=>@value,
+      :total=>@choices.size ,
+      :items =>@choices}
     render :text => @list.to_json
   end  
   

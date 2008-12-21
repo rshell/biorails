@@ -20,8 +20,8 @@ class ProjectFolderTest < Test::Unit::TestCase
   end
   
   def test_add_folder
-    folder = ProjectFolder.find(2)
-    item = folder.add_folder("xxxx")
+    assert folder = ProjectFolder.find_by_name('Project X')
+    assert item = folder.add_folder("xxxx")
     folder.reload
     assert_ok item
     assert_equal "xxxx",item.name

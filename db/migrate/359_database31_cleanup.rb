@@ -3,11 +3,11 @@ class Database31Cleanup < ActiveRecord::Migration
     #
     # remove team where not needed
     #
-    remove_column :project_elements, :team_id
-    remove_column :requests,         :team_id
-    remove_column :cross_tabs,       :team_id
-    remove_column :memberships,       :role_id
-    rename_column :states,:level,    :level_no
+    remove_column( :project_elements, :team_id)  if ProjectElement.column_names.any?{|i|i=='team_id'}
+    remove_column( :requests,         :team_id)  if Request.column_names.any?{|i|i=='team_id'}
+    remove_column( :cross_tabs,       :team_id)  if CrossTab.column_names.any?{|i|i=='team_id'}
+    remove_column( :memberships,       :role_id) if Membership.column_names.any?{|i|i=='role_id'}
+    rename_column( :states,:level,    :level_no) if State.column_names.any?{|i|i=='level'}
   end
 
   def self.down

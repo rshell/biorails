@@ -152,11 +152,11 @@ setting_mail_from: Adresse d'émission
 setting_host_name: Nom d'hôte
 setting_text_formatting: Formatage du texte
 
-label_user: Utilisateur
-label_user_plural: Utilisateurs
-label_user_new: Nouvel utilisateur
-label_project: Projet
-label_project_new: Nouveau projet
+User: Utilisateur
+User_plural: Utilisateurs
+User_New: Nouvel utilisateur
+Project: Projet
+Project_New: Nouveau projet
 label_project_plural: Projets
 label_project_latest: Derniers projets
 label_issue: Demande
@@ -166,7 +166,7 @@ label_issue_view_all: Voir toutes les demandes
 label_document: Document
 label_document_new: Nouveau document
 label_document_plural: Documents
-label_role: Rôle
+Role: Rôle
 label_role_plural: Rôles
 label_role_new: Nouveau rôle
 label_role_and_permissions: Rôles et permissions
@@ -176,7 +176,7 @@ label_member_plural: Membres
 label_tracker: Tracker
 label_tracker_plural: Trackers
 label_tracker_new: Nouveau tracker
-label_workflow: Workflow
+Workflow: Workflow
 label_issue_status: Statut de demandes
 label_issue_status_plural: Statuts de demandes
 label_issue_status_new: Nouveau statut
@@ -193,14 +193,14 @@ label_information_plural: Informations
 label_please_login: Identification
 label_register: S'enregistrer
 label_password_lost: Mot de passe perdu
-label_home: Accueil
+Home: Accueil
 label_my_page: Ma page
 label_my_account: Mon compte
 label_my_projects: Mes projets
-label_administration: Administration
-label_login: Connexion
+Administration: Administration
+Login: Connexion
 label_logout: Déconnexion
-label_help: Aide
+Help: Aide
 label_reported_issues: Demandes soumises
 label_assigned_to_me_issues: Demandes qui me sont assignées
 label_last_login: Dernière connexion
@@ -208,7 +208,7 @@ label_last_updates: Dernière mise à jour
 label_last_updates_plural: %d dernières mises à jour
 label_registered_on: Inscrit le
 label_activity: Activité
-label_new: Nouveau
+New: Nouveau
 label_logged_as: Connecté en tant que
 label_environment: Environnement
 label_authentication: Authentification
@@ -218,12 +218,12 @@ label_auth_source_plural: Modes d'authentification
 label_subproject: Sous-projet
 label_subproject_plural: Sous-projets
 label_min_max_length: Longueurs mini - maxi
-label_list: Liste
-label_date: Date
+List: Liste
+Date: Date
 label_integer: Entier
-label_boolean: Booléen
+Boolean: Booléen
 label_string: Texte
-label_text: Texte long
+Text: Texte long
 label_attribute: Attribut
 label_attribute_plural: Attributs
 label_download: %d Téléchargement
@@ -235,17 +235,17 @@ label_attachment: Fichier
 label_attachment_new: Nouveau fichier
 label_attachment_delete: Supprimer le fichier
 label_attachment_plural: Fichiers
-label_report: Rapport
+Report: Rapport
 label_report_plural: Rapports
-label_news: Annonce
+News: Annonce
 label_news_new: Nouvelle annonce
 label_news_plural: Annonces
-label_news_latest: Dernières annonces
+News_Latest: Dernières annonces
 label_news_view_all: Voir toutes les annonces
 label_change_log: Historique
 label_settings: Configuration
-label_overview: Aperçu
-label_version: Version
+Overview: Aperçu
+Version: Version
 label_version_new: Nouvelle version
 label_version_plural: Versions
 label_confirmation: Confirmation
@@ -256,26 +256,26 @@ label_open_issues: ouvert
 label_open_issues_plural: ouverts
 label_closed_issues: fermé
 label_closed_issues_plural: fermés
-label_total: Total
-label_permissions: Permissions
+Total: Total
+Permissions: Permissions
 label_current_status: Statut actuel
 label_new_statuses_allowed: Nouveaux statuts autorisés
 label_all: tous
-label_none: aucun
-label_next: Suivant
-label_previous: Précédent
+None: aucun
+Next: Suivant
+Previous: Précédent
 label_used_by: Utilisé par
-label_details: Détails...
+Details: Détails...
 label_add_note: Ajouter une note
 label_per_page: Par page
-label_calendar: Calendrier
-label_months_from: mois depuis
-label_gantt: Gantt
+Calendar: Calendrier
+Months_From: mois depuis
+Gantt: Gantt
 label_internal: Interne
 label_last_changes: %d derniers changements
 label_change_view_all: Voir tous les changements
 label_personalize_page: Personnaliser cette page
-label_comment: Commentaire
+Comment: Commentaire
 label_comment_plural: Commentaires
 label_comment_add: Ajouter un commentaire
 label_comment_added: Commentaire ajouté
@@ -289,12 +289,12 @@ label_equals: égal
 label_not_equals: différent
 label_in_less_than: dans moins de
 label_in_more_than: dans plus de
-label_in: dans
+in: dans
 label_today: aujourd'hui
 label_less_than_ago: il y a moins de
 label_more_than_ago: il y a plus de
 label_ago: il y a
-label_contains: contient
+Contains: contient
 label_not_contains: ne contient pas
 label_day_plural: jours
 label_repository: Dépôt SVN
@@ -317,17 +317,17 @@ label_sort_lowest: Descendre en dernier
 label_roadmap: Roadmap
 
 button_login: Connexion
-button_submit: Soumettre
-button_save: Sauvegarder
+Submit: Soumettre
+Save: Sauvegarder
 button_check_all: Tout cocher
 button_uncheck_all: Tout décocher
-button_delete: Supprimer
-button_create: Créer
+Delete: Supprimer
+Create: Créer
 button_test: Tester
 button_edit: Modifier
-button_add: Ajouter
+Add: Ajouter
 button_change: Changer
-button_apply: Appliquer
+Apply: Appliquer
 button_clear: Effacer
 button_lock: Verrouiller
 button_unlock: Déverrouiller
@@ -336,7 +336,7 @@ button_list: Lister
 button_view: Voir
 button_move: Déplacer
 button_back: Retour
-button_cancel: Annuler
+Cancel: Annuler
 button_activate: Activer
 button_sort: Trier
 

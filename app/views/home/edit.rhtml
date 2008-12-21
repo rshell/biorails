@@ -1,0 +1,25 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/user_menu' , :locals=>{ :user => @user} %>
+<% end %>
+
+<% content_for :center do -%>
+  <%= render :partial=>'shared/user_header'%>
+  <%= render :partial =>'edit' %>
+<% end %>
+
+<% content_for :messages do -%>
+   <%= render :partial => '/shared/messages',:locals=>{:objects=>[]} %>   
+<% end %>
+
+<% content_for :status do -%>
+   <%= render :partial => '/shared/messages',:locals=>{:objects=>[]} %>   
+<% end %>
+
+<% content_for :help do -%>
+  <%= render :partial =>'help' %>
+<% end %>
+
+
+
+
+

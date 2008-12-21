@@ -17,11 +17,6 @@ class HomeControllerTest < Test::Unit::TestCase
     @folder = @item.parent   
   end
 
-  # Replace this with your real tests.
-  def test_truth
-    assert true
-  end
-  
   def test_setup
     assert_not_nil @controller
     assert_not_nil @response
@@ -30,6 +25,11 @@ class HomeControllerTest < Test::Unit::TestCase
   
   def test_show
     get :show
+    assert_response :success
+  end
+
+  def test_password
+    post :password
     assert_response :success
   end
 
@@ -95,6 +95,25 @@ class HomeControllerTest < Test::Unit::TestCase
     get :todo
     assert_response :success
   end
+
+  def test_domain
+    get :domains
+    assert_response :success
+    assert_template 'report'
+    assert assigns(:report)
+    assert_equal SystemReport,assigns(:report).class
+    assert_ok assigns(:report)
+  end
+
+  def test_domain_xml
+    get :domains,:format=>"xml"
+    assert_response :success
+  end
+
+  def test_domain_js
+    get :domains,:format=>"js"
+    assert_response :success
+  end
   
   def test_todo_ajax
     get :todo, :format=>'js'
@@ -152,6 +171,29 @@ class HomeControllerTest < Test::Unit::TestCase
     assert_response :success
   end
 
-   
+  def test_edit
+    get :edit
+    assert_response :success
+  end
+
+  def test_edit_xml
+    get :edit,:format=>'xml'
+    assert_response :success
+  end
+
+  def test_update
+    get :update, {"home_tab2"=>"box_documents",
+                  "home_tab3"=>"box_organisation",
+                  "home_tab4"=>"box_execution",
+                  "home_tab5"=>"box_services",
+                  "default_language"=>"en",
+                  "home_tab6"=>"box_projects",
+                  "default_project_id"=>"1",
+                  "home_tab1"=>"box_overview"}
+    assert_response :redirect
+    assert_redirected_to :action=>'show'
+  end
+
+
 end
 

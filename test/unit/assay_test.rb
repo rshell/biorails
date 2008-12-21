@@ -79,7 +79,7 @@ class AssayTest < Test::Unit::TestCase
       xml = assay.to_xml()
       assert_not_nil xml
   end
-    
+
     
   def test008_from_xml
     assay = Assay.from_xml(nil)
@@ -194,7 +194,11 @@ class AssayTest < Test::Unit::TestCase
     assay = Assay.find(:first)
     assert assay.to_html
   end
-    
+
+  def test_is_dictionary
+    assert_dictionary_lookup(Assay)
+  end
+
   def test_assay_path
     assay= Assay.find_by_name('Assay1')
     assert_equal 'Project X:Assay1', assay.path
@@ -262,7 +266,7 @@ class AssayTest < Test::Unit::TestCase
     
   def test_published
     assay=Assay.find_by_name('Assay1')
-    assert assay.published?
+    assert assay.is_setup?
   end
     
   def test_export_import
@@ -339,8 +343,8 @@ class AssayTest < Test::Unit::TestCase
      assert_equal @first,x
   end
 
-  def test_class_find_visible
-     assert list = Assay.find_visible(:all)
+  def test_class_find_list
+     assert list = Assay.list(:all)
      assert list.size>0
   end
 
@@ -356,9 +360,9 @@ class AssayTest < Test::Unit::TestCase
      assert_equal @first.name, folder.name
   end
 
-  def test_instance_changable?
-     assert Assay.new.changable?
-     assert @first.changable?
+  def test_instance_changeable?
+     assert Assay.new.changeable?
+     assert @first.changeable?
   end
 
   def test_instance_visible?

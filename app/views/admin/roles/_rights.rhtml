@@ -1,5 +1,5 @@
-<div class='panel'>
-    <h3 class='icon icon-role'><%=l(:label_permissions) %>
+<div class='box'>
+    <h3 class='icon icon-role'><%=l(:Permissions) %>
         <%=l(:text_for) %>
         <%= @role.name %>
     </h3>
@@ -7,10 +7,10 @@
         <thead>
             <tr>
                 <th>
-                    <%=l(:label_subject) %>
+                    <%=l(:Module) %>
                 </th>
                 <th colspan=11>
-                    <%=l(:label_allowed_actions_for_role) %>
+                    <%=l(:Allowed_actions_for_role) %>
                 </th>
             </tr>
         </thead>
@@ -21,7 +21,7 @@
                     <%=subject %>
                 </th>
                 <% for action in Role.possible_actions(subject) %>
-                <%if @role.allow?(subject,action) %>
+                <%if @role.right?(subject,action) %>
                 <td>
                     <%=action %>
                 </td>

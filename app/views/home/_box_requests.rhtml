@@ -1,6 +1,6 @@
 <div class="box">
     <b class="icon icon-request">
-    <%=link_to l(:label_my_latest, 5, l(:label_requests)), home_url(:action=>:requests) %>
+    <%=link_to l(:My_Latest, 5, l(:Requests)), home_url(:action=>:requests) %>
     </b>
     <dl>
       <% for item in @user.latest(RequestService,5,'requested_by_user_id') %>

@@ -1,30 +1,30 @@
-<h3 class='icon icon-data_element'><%=@data_concept.name %> <%=l(:label_implementations) %></h3>
+<h3 class='icon icon-data_element'><%=@data_concept.name %> <%=l(:Implementations) %></h3>
 <p>
-    <%=l(:text_context_intro) %> <%= link_to(l(:label_data_sources),{:controller=>'data_systems', :action => 'list'}) %>
+    <%=l(:text_context_intro) %> <%= link_to(l(:Data_Sources),{:controller=>'data_systems', :action => 'list'}) %>
 </p>
 <table class="report" width='100%'>
     <thead>
         <tr>
             <th>
-                <%=l(:label_name) %>
+                <%=l(:Name) %>
             </th>
             <th>
-                <%=l(:label_description) %>
+                <%=l(:Description) %>
             </th>
             <th>
-                <%=l(:label_style) %>
+                <%=l(:Style) %>
             </th>
             <th>
-                <%=l(:label_data_system) %>
+                <%=l(:Data_System) %>
             </th>
             <th>
-                <%=l(:label_methods) %>
+                <%=l(:Methods) %>
             </th>
             <th>
-                <%=l(:label_assays) %>
+                <%=l(:Assays) %>
             </th>
             <th>
-                <%=l(:label_actions) %>
+                <%=l(:Actions) %>
             </th>
         </tr>
     </thead>
@@ -50,12 +50,12 @@
                 <%=row.assay_parameters.size %>
             </td>
             <td>
-                <%= link_to_remote(l(:label_delete),:url => { :action => 'remove_element' ,:id=> row.id}, :confirm => l(:text_are_you_sure),:method => "post" ) if row.not_used %>
+                <%= link_to_remote(l(:Delete),:url => { :action => 'remove_element' ,:id=> row.id}, :confirm => l(:text_are_you_sure),:method => "post" ) if row.not_used %>
             </td>
         </tr>
         <% end %>
     </tbody>
 </table>
 <p class='icon icon-add'>
-    <%= link_to_remote(l(:label_add), :url => { :action => 'new_element' , :id=> @data_concept.id }) %>
+    <%= link_to_remote(l(:Add), :url => { :action => 'new_element' , :id=> @data_concept.id }) %>
 </p>

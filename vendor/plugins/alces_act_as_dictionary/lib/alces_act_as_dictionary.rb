@@ -29,7 +29,6 @@ module Alces
         def acts_as_dictionary( options={} )
           include Alces::ActAsDictionary::InstanceMethods         
           extend Alces::ActAsDictionary::SingletonMethods
-
         end
       end
 #######################################################################################
@@ -47,17 +46,24 @@ module Alces
             # Defined Like method for use in a lookup
             #
             def like(name,limit = 20,offset=0)
-              self.find(:all, :conditions=>['name like ? ',name+'%'], :limit=>limit, :offset=>offset)
+              self.find(:all, :conditions=>['name like ? ',name+'%'], :limit=>limit, :offset=>offset,:order=>:name)
             end
 
             #
-            # Defined Like method for use in a lookup
+            # Defined lookup method to convert name to object
             #
             def lookup(name)
               self.find(:first,    :conditions=>['name = ? ',name])
             end
+            #
+            # Defined reference method for id to object
+            #
+            def reference(id)
+              self.find(id)
+            end
       end # module SingletonMethods
-      
+
+  
 
 #######################################################################################
 # Add to model Instance

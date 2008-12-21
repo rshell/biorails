@@ -1,21 +1,26 @@
-<div class="content_header content">
-    <%= render :partial => 'shared/help_link' %>
-    <h1 class='icon icon-model_<%=@project_folder.style.downcase%>'>
-      <%=@project_folder.style.titlecase %>
-        <% if @project_folder.parent %>
-          <% if @project_folder.reference %>
-            [<%= link_to  @project_folder.reference.name, reference_to_url(@project_folder) %>]
-          <% else %>
-            [<%= link_to  @project_folder.name, folder_url(@project_folder) %>]
-          <% end %>
-        <% else %>
-          [<%= link_to @project_folder.path, project_url( :action => 'show',:id=> @project_folder.id) %>]
-        <% end %>
-    </h1>
-    <br/><br/>
-    <div class='actions_left'>
-        <%= link_to l(:label_open_folder), folder_url(:action => 'show', :id => @project_folder  ), :class=>'icon icon-folder' if @project_folder.reference %>
-    </div>
-    <br/>
+<% folder||= @project_folder %>
+<div class="content_header">
+  <%= render :partial => 'shared/help_link' %>
+  <h1 class='icon icon-folder'>
+    <%=l(:Folder_For)%>
+    [<%= link_to  folder.name, reference_to_url(folder) if folder %>]
+  </h1>
+  <br />
+  <br />
+  <div class='actions_left'>
+    <%= link_to "#{l(folder.reference_type)}: #{folder.name}",
+      reference_to_url(folder ),
+      :class=>"icon icon-#{folder.reference_type.downcase}" if folder.reference %>
+    <%= link_to l(:Open_Folder), folder_url(:action => 'show', :id => folder  ),
+      :class=>'icon icon-folder' %>
+  </div>
+  <div class='actions_right'>
+    <%if folder.all_children_count==0 && folder.changeable? && folder.reference.blank? && right?(:data,:destroy)%>
+    <%= link_to( l(:Delete), folder_url( :action => 'destroy', :id => folder ),
+      :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del')  %>
+    <%end%>
+    <%= link_to l(:State), folder_url(:action => 'status', :id => folder  ), :class=>'icon icon-status' %>
+  </div>
+  <br />
 </div>
-<%=breadcrumb_list @project_folder if @project_folder %>
+<%=breadcrumb_list folder if folder %>

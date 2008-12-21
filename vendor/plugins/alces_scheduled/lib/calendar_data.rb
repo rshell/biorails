@@ -45,16 +45,28 @@ require 'date'
        @items = []
        @delta = 1.day
     end
-       
+    
+    def self.find_boxed(klass,folder,states,started_at, finished_at)
+    sql = <<-SQL
+exists ( 
+ select 1 from project_elements
+        where project_elements.left_limit>= #{folder.left_limit}
+        and project_elements.right_limit <= #{folder.right_limit}
+        and project_elements.project_id  =  #{folder.project_id}
+        and project_elements.reference_type='#{klass.class_name}'
+        and project_elements.state_id in ( #{ states.keys.join(',') } )
+        and #{klass.table_name}.id = project_elements.reference_id )
+    and (   (#{klass.table_name}.started_at  between  ? and  ? )
+        or (#{klass.table_name}.expected_at between  ? and  ? ) )
+SQL
+      list = klass.list(:all,
+                   :order => "#{klass.table_name}.started_at, #{klass.table_name}.ended_at",
+                   :conditions => [ sql,  started_at, finished_at, started_at, finished_at] )
+      
+    end
+
     def add_model_from_folder_tree(klass,folder,states)
-      cond = <<-TEXT
-   status_id in ( #{ states.keys.join(',') } ) 
-   and #{folder.exists_within_sql_filter(klass)} 
-   and (   (#{klass.table_name}.started_at  between  ? and  ? ) 
-        or (#{klass.table_name}.expected_at between  ? and  ? ) ) 
-TEXT
-      list = klass.find(:all, :order => "#{klass.table_name}.started_at, #{klass.table_name}.ended_at", 
-                   :conditions => [ cond,  started_at, finished_at, started_at, finished_at] )
+      list = CalendarData.find_boxed(klass,folder,states, started_at, finished_at )
       self.fill(list)                     
     end
     

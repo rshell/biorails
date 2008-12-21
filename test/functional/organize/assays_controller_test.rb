@@ -46,16 +46,16 @@ class Organize::AssaysControllerTest < Test::Unit::TestCase
 
   def test_show_invalid
     get :show, :id => 24242432
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_show_denied
     @request.session[:current_project_id] =2
     @request.session[:current_user_id] = 9   
     get :show, :id => @item.id
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
   
   def test_show_xml
@@ -89,6 +89,22 @@ class Organize::AssaysControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'list'
   end
+
+  def test_processes
+    get :processes,:id=>@item.id
+    assert_response :success
+  end
+
+  def test_recipes
+    get :recipes,:id=>@item.id
+    assert_response :success
+  end
+
+  def test_processes
+    get :processes,:id=>@item.id
+    assert_response :success
+  end
+
 
   def test_import_file_failed
     post :import_file, :id => @item.id
@@ -209,7 +225,7 @@ class Organize::AssaysControllerTest < Test::Unit::TestCase
     assert_not_nil Assay.find(@item.id)
     post :destroy, :id => @item.id
     assert_response :redirect
-    assert_redirected_to :action => 'show'
+    assert_redirected_to :action => 'list'
     assert_raise(ActiveRecord::RecordNotFound) {
       Assay.find(@item.id)
     }

@@ -1,11 +1,4 @@
 <%if @team %>
 <%= render :partial => 'header' %>
-<div class="splitcontentleft" style='width:48%'>
-    <%=render :partial=> 'box_projects' %>
-    <%=render :partial=> 'box_assays' %>
-</div>
-<div class="splitcontentright" style='width:48%'>
-    <%=render :partial=> 'box_membership' if @team.memberships %>
-    <%=render :partial=> 'box_access_control_list' if @team.access_control_list %>
-</div>
+<%= render :partial => 'tabs' %>
 <%end %>

@@ -1,4 +1,4 @@
-<% if @task.is_finished %>
+<% if @task.finished? %>
 This task is marked as <%= @task.status %> so cant be changed now. 
 <br />
 See update tab to change status
@@ -16,7 +16,7 @@ See update tab to change status
         Ext.form.Field.prototype.msgTarget = 'side';
 
         <% if @task.rows_for(parameter_context).size > 1 %>
-          var panel = Biorails.Task.ContextTable(data);
+          var panel = new Biorails.Task.ContextTable(data);
         <% else %>
           var panel = new Biorails.Task.ContextForm(data);
         <% end %>
@@ -25,5 +25,5 @@ See update tab to change status
       </script>
   <% end %>
   <hr />
-  <%= link_to_remote "<b class='icon icon-task'>Make Flexible</b>",  :url => task_url( :action => 'make_flexible', :id => @task) %>
+  <%= link_to "<b class='icon icon-task'>Make Flexible</b>", task_url( :action => 'make_flexible', :id => @task) %>
 <% end %>

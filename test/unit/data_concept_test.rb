@@ -18,7 +18,29 @@ class DataConceptsTest < Test::Unit::TestCase
      assert first.id
      assert first.name
   end
-  
+
+  def test_elements
+     first = DataElement.find(:first).concept
+     assert first.elements?
+     assert first.name
+  end
+
+  def test_children
+     first = @model.find(:first)
+     assert first.children?
+  end
+
+  def test_parameter_types
+     first = ParameterType.find(:first,:conditions=>"data_concept_id is not null").data_concept
+     assert first.parameter_types?
+  end
+
+  def test_leaf
+     first = @model.find(:all).last
+     assert first.leaf?
+
+  end
+
   def test_new
     first = @model.new
     assert first

@@ -1,0 +1,17 @@
+<% content_for :sidemenu do -%>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project} %>
+  <%= render :partial =>'/menu/project_status_menu' , :locals=>{ :project => current_project} %>
+<% end -%>
+
+<% content_for :messages do -%>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['assay']} %>
+<%end %>
+
+<% content_for :help do -%>
+  <%= render :partial => 'help' %>
+<% end %>
+
+<% content_for :center do -%>
+  <%= render :partial=>'projects/header' %>
+  <%= render :partial => 'shared/report', :locals => {:report => @report } %>
+<% end %>

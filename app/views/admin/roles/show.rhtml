@@ -1,43 +1,36 @@
 <% content_for :sidemenu do %>
-<%= render :partial => 'menu' %>
+  <%= render :partial => 'menu' %>
 <% end %>
+
 <% content_for :right do %>
-<%= render :partial => 'help' %>
+  <%= render :partial => 'help' %>
 <% end %>
-<%= render :partial => 'admin/header' %>
-    <h2 class='icon icon-role'><%=l(:label_role) %>
-        [<%= @role.name %>] </h2>
-    <div class='panel'>
-        <table class='report' style='width:50%'>
-            <tr>
-                <th>
-                    <%=l(:label_description) %>
-                </th>
-                <td>
-                    <%= @role.description %>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    <%=l(:label_created_at) %>
-                </th>
-                <td>
-                    <%= short_date @role.created_at %>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    <%=l(:label_updated_at) %>
-                </th>
-                <td>
-                    <%= short_date @role.updated_at %>
-                </td>
-            </tr>
-        </table>
+
+<% content_for :center do %>
+  <%= render :partial => 'admin/header' %>
+  <div class='panel'>
+  <h2 class='icon icon-role'><%=l(:Role) %> [<%= @role.name %>] </h2>
+  <div class='box'>
+    <table class='report' style='width:50%'>
+      <tr>
+        <th><%=l(:Description) %></th>
+        <td><%= @role.description %> </td>
+      </tr>
+      <tr>
+        <th><%=l(:Created) %> </th>
+        <td><%= short_date @role.created_at %></td>
+      </tr>
+      <tr>
+        <th><%=l(:Updated) %>        </th>
+        <td><%= short_date @role.updated_at %>           </td>
+      </tr>
+    </table>
+  </div>
     <%=render :partial=>'users' if @role.is_a? UserRole %>
     <%= render :partial=>'rights' %>
     <hr />
-    <%= link_to l(:label_edit), role_url( :action => 'edit',:id=>@role.id), :class=>'icon icon-edit' %>
-    <%= link_to l(:label_list), role_url( :action => 'list'), :class=>'icon icon-list' %>
-    <%= link_to l(:label_new),role_url( :action => 'new'), :class=>'icon icon-new' %>
-</div>
+    <%= link_to l(:Edit), role_url( :action => 'edit',:id=>@role.id), :class=>'icon icon-edit' %>
+    <%= link_to l(:List), role_url( :action => 'list'), :class=>'icon icon-list' %>
+    <%= link_to l(:New),role_url( :action => 'new'), :class=>'icon icon-new' %>
+  </div>
+<% end %>

@@ -4,12 +4,7 @@
 
 <% content_for :center do -%>
   <%= render :partial=>'header'%>
-  <div class="panel">
-    <br />
-    <%=l(:text_result_publishing_rules)%>
-    <br />
-    <%= render :partial => 'shared/report', :locals => {:report => @report,:show=>'show', :edit=>'edit' } %>
-  </div>
+  <%= render :partial => 'shared/report', :locals => {:report => @report,:show=>'show' } %>
 <%end %>
 
 

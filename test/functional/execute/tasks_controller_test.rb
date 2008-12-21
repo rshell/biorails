@@ -35,7 +35,6 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     get :list
     assert_response :success
     assert_template 'list'
-    assert_not_nil assigns(:tasks)
   end
 
   def test_show
@@ -46,10 +45,16 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     assert assigns(:task).valid?
   end
 
+  def test_recalc
+    get :recalc, :id => @first.id
+    assert_response :redirect
+    assert_redirected_to :action => 'show', :id => @first.id,:tab=>2
+  end
+
   def test_show_invalid
     get :show, :id => 24242432
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_show_granted_via_admin_flag
@@ -74,7 +79,8 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     assert !Project.current.owner?(User.current)
     assert_nil Task.load(2)
     get :show, :id => 2
-    assert_response :redirect
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_assign
@@ -295,26 +301,24 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
   def test_cell_value_numeric
     row = TaskContext.find(15)
     task = row.task
-    task.status_id = Alces::ScheduledItem::NEW
     assert task.save    
-    assert task.start_processing
-    get :cell_value, :id=>row.id ,:label=>'Concentration[5]', :field=>'parameter_12',:row=>5, :column=>6,:value=>"15 %" , :originalValue=>1 
+    get :cell_value, :id=>row.id ,:label=>'Concentration[5]', :field=>'parameter_12',:row=>5, :column=>6,:value=>"15.00" , :originalValue=>1
     assert_response :success
     assert_not_nil assigns(:context)
     assert assigns(:context).valid?
+    assert assigns(:item)
+    assert assigns(:item)[:value],  assigns(:item)
+    assert assigns(:item)[:passed], assigns(:item)
     row.reload
     task.reload
     item = row.item(Parameter.find(12))
-    assert_equal "15 %".to_unit,item.value,item.to_yaml
-    assert_equal Alces::ScheduledItem::PROCESSING, task.status_id
+    assert_equal "15 %",item.to_unit.to_s
   end
   
   def test_cell_value_text
     row = TaskContext.find(17)
     task = row.task
-    task.status_id = Alces::ScheduledItem::NEW
     assert task.save    
-    assert task.start_processing
     get :cell_value, :id=>row.id ,:label=>'context0[0]', :field=>'parameter_9',:row=>5, :column=>6,:value=>"xxxx" , :originalValue=>1 
     assert_response :success
     assert_not_nil assigns(:context)
@@ -322,16 +326,13 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     row.reload
     task.reload
     item = row.item(Parameter.find(9))
-    assert_equal "xxxx",item.to_s,item.to_xml
-    assert_equal Alces::ScheduledItem::PROCESSING, task.status_id
+    assert_equal "xxxx",item.to_s
   end
 
   def test_cell_value_reference_failed
     row = TaskContext.find(10)
     task = row.task
-    task.status_id = Alces::ScheduledItem::NEW
     assert task.save    
-    assert task.start_processing
     get :cell_value, :id=>row.id ,:label=>'context0', :field=>'parameter_6',:row=>0, :column=>1,:value=>"xxxx" , :originalValue=>1 
     assert_response :success
     assert_not_nil assigns(:context)
@@ -340,16 +341,13 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     task.reload
     item = row.item(Parameter.find(6))
     assert item.new_record?, item.to_xml
-    assert_equal Alces::ScheduledItem::PROCESSING, task.status_id
   end
   
   
   def test_cell_value_delete
     row = TaskContext.find(15)
     task = row.task
-    task.status_id = Alces::ScheduledItem::NEW
     assert task.save    
-    assert task.start_processing
     get :cell_value, :id=>row.id ,:label=>'Concentration[5]', :field=>'parameter_12',:row=>5, :column=>6,:value=>'' , :originalValue=>1 
     assert_response :success
     assert_not_nil assigns(:context)
@@ -357,17 +355,15 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     row.reload
     task.reload
     item = row.item(Parameter.find(12))
-    assert item.new_record?,item.to_xml
-    assert_equal Alces::ScheduledItem::PROCESSING, task.status_id
+    assert item.new_record?
   end
   
 
   def test_cell_value_quantity
     row = TaskContext.find(15)
     task = row.task
-    task.status_id = Alces::ScheduledItem::NEW
+
     assert task.save    
-    assert task.start_processing
     get :cell_value, :id=>15 ,:label=>'Concentration[5]', :field=>'parameter_12',:row=>5, :column=>6,:value=>'0.811 mM' , :originalValue=>1 
     assert_response :success
     assert_not_nil assigns(:context)
@@ -376,7 +372,7 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
     task.reload
     item = row.item(Parameter.find(12))
     assert "0.811 mM",item.to_s
-    assert_equal Alces::ScheduledItem::PROCESSING, task.status_id
+
   end
   
   def test_new
@@ -519,6 +515,7 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
       assert_not_nil @first
       post :destroy, :id => @first.id
       assert_response :redirect
+      assert_nil flash[:warning]
       assert_redirected_to :action => 'show'
       assert_raise(ActiveRecord::RecordNotFound) {
         Task.find(@first.id)
@@ -526,5 +523,40 @@ class Execute::TasksControllerTest < Test::Unit::TestCase
    #   raise ActiveRecord::Rollback 
     end
   end
-  
+
+  def test_select_model_element
+    get :select, :id => ModelElement.find(1),:query=>'Test'
+    assert_response :success
+  end
+
+  def test_select_model_element_with_context
+    context = Task.find(2).contexts[0]
+    get :select, :id => ModelElement.find(1),:query=>'Test',:task_context_id=>context.id
+    assert_equal nil,  TaskContext.current
+    assert_response :success
+  end
+
+  def test_select_list_element
+    get :select, :id => ListElement.find(80),:query=>'Dose'
+    assert_response :success
+  end
+
+  def test_select_list_element_with_context
+    context = Task.find(2).contexts[0]
+    get :select, :id => ListElement.find(80),:query=>'Dose',:task_context_id=>context.id
+    assert_equal nil, TaskContext.current
+    assert_response :success
+  end
+
+  def test_select_list_element_with_null_context
+    get :select, :id => ListElement.find(80),:query=>'Dose',:task_context_id=>nil
+    assert_equal nil,  TaskContext.current
+    assert_response :success
+  end
+
+  def test_select_list_element_with_invalid_context
+    get :select, :id => ListElement.find(80),:query=>'Dose',:task_context_id=>32244342
+    assert_equal nil,  TaskContext.current
+    assert_response :success
+  end
 end

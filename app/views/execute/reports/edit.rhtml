@@ -2,6 +2,11 @@
   <%= render :partial =>'actions' %>
 <% end %>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['report' ]} %>
+<%end%>
+
+
 <% content_for :status do%>
   <div id='column-tree'></div>
 <%end%>
@@ -11,7 +16,7 @@
 <%end%>
 
 <% content_for :center do%>
-  <%= render :partial => 'edit'%>
+  <%= render :partial=>'edit' %>
 <%end %>
 
 <script>
@@ -20,7 +25,7 @@
                     renderTo:'column-tree',
                     model:'<%=@report.model.to_s %>',
                     report_id: <%=@report.id %> });
-
+     Ext.getCmp('extra-id').setActiveTab(1);
      //tree.applyToMarkup('column-tree');
   });
 </script>

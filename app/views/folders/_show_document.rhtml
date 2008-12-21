@@ -1,5 +1,4 @@
 <%= render :partial=>'header'%>		
-
 <div id='<%= @project_folder.dom_id %>'>
 </div>
 <script type="text/javascript"> 
@@ -11,6 +10,7 @@ var el = "<%= @project_folder.dom_id%>";
                     border:true,
                     height: Biorails.getHeight()-80,
                     autoShow: true,
+                    frozen: <%= !@project_folder.changeable? %>,
                     autoScroll: true,
                     autoDestroy: true,
                     shim: true,

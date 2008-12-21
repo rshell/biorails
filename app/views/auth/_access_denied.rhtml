@@ -1,22 +1,18 @@
-<% content_for :sidemenu do -%>
-  <%= render :partial =>'menu/user_menu' , :locals=>{ :user => current_user} %>
-<% end %>
+  <%dialog l(:Permissions) do %>
+    <div class="box" >
+      <h2 class="icon icon-warning">
+        <%=l(:Access_Denied)%>
+      </h2>
+      <p>
+            <%=l(:text_wrong_privilege)%>
+      </p>
+      <br />
+      <h3> <%=l(:text_your_current_context_is)%> <%=l(:Project)%>
+      [<%=current_project.name%>] and user [<%=current_user.name%>]</h3>
+      <p>
+        [<%=current_user.name %>] is a  <%= current_user.admin? ? 'adminstrator' : 'standard user' %>
+		with the role  [<%=current_user.role.name%>] governing the access to functions
+      </p>
 
-<h1 class="icon icon-warning">
-  <%=l(:label_access_denied)%>
-</h1>
-<p>
-    <%=l(:label_user)%> 
-    <strong>
-        <%=session[:current_user_id] %>
-    </strong>
-    <%=l(:text_does_not_have_rights)%>
-</p>
-<ul>
-  <li>
-        <%=l(:label_controller)%>: <%=params[:controller]%>
-    </li>
-    <li>
-        <%=l(:label_action)%>: <%=params[:action]%>
-    </li>
-</ul>
+    </div>
+  <% end %>

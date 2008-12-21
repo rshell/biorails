@@ -11,7 +11,7 @@ class ProcessBuildTest < Test::Unit::TestCase
     @experiment = @task.experiment
     @assay   = @experiment.assay
     @process_instance = @task.protocol.new_version
-    @parameter_context = @process_instance.contexts[0] 
+    @parameter_context = @process_instance.contexts[0]
   end
 
   def test_setup
@@ -59,7 +59,7 @@ class ProcessBuildTest < Test::Unit::TestCase
     item = new_task.contexts[0].item(parameter)
     assert item.is_a?(TaskText), "should be a TaskText not #{item.class}"
 
-    ok = new_task.contexts[0].set_value(parameter,'1999-1-31')
+    ok = new_task.contexts[0].set_value(parameter,'1999-01-31')
     assert_equal '1999-01-31',ok[:value]
     assert !ok[:error]
     new_task.reload
@@ -185,8 +185,8 @@ class ProcessBuildTest < Test::Unit::TestCase
     assert "1.232 mm".to_unit,item.value
 
     ok = new_task.contexts[0].set_value(parameter,'2.34')
-    assert ok[:value]
-    assert !ok[:errors]
+    assert ok[:value], " no value in #{ok.map{|n,v|"#{n}=#{v}"}.join(',')}"
+    assert !ok[:errors], " errors in #{ok.map{|n,v|"#{n}=#{v}"}.join(',')}"
     new_task.reload
     item = new_task.contexts[0].item(parameter)    
     assert item.is_a?(TaskValue), "should be a TaskValue not #{item.class}"
@@ -253,7 +253,7 @@ class ProcessBuildTest < Test::Unit::TestCase
       :description=>'text',
       :data_type_id=>data_format.data_type_id)
 
-    
+
     assert_ok assay_parameter =AssayParameter.create(:name=> parameter_type.name,
       :description=>parameter_type.description,
       :parameter_type_id => parameter_type.id,
@@ -306,20 +306,20 @@ class ProcessBuildTest < Test::Unit::TestCase
   
   
   def test_reference_type
-    assert_ok parameter_type = ParameterType.create(:name=>'test_reference',
+    assert_ok parameter_type_ref = ParameterType.create(:name=>'test_reference',
       :description=>'text',
       :data_concept_id => @data_element.data_concept_id,
       :data_type_id=>5)
 
-    assert_ok assay_parameter_url =AssayParameter.create(:name=> parameter_type.name,
-      :description=>parameter_type.description,
-      :parameter_type_id => parameter_type.id,
+    assert_ok assay_parameter_ref =AssayParameter.create(:name=> parameter_type_ref.name,
+      :description=>parameter_type_ref.description,
+      :parameter_type_id => parameter_type_ref.id,
       :parameter_role_id => @parameter_role.id,
       :assay_id => @assay.id,
-      :data_type_id=>parameter_type.data_type_id,
+      :data_type_id=>parameter_type_ref.data_type_id,
       :data_element_id=>@data_element.id)
 
-    assert_ok parameter = @parameter_context.add_parameter(assay_parameter_url)
+    assert_ok parameter = @parameter_context.add_parameter(assay_parameter_ref)
 
     assert_equal @task,parameter.parse(@task.name)
     assert_equal @task.name,parameter.format(@task)
@@ -338,8 +338,77 @@ class ProcessBuildTest < Test::Unit::TestCase
     new_task.reload
     assert @task.name,item.to_s
     assert_equal nil,item.to_unit
-    assert @task,item.value       
-    
-  end    
+    assert @task,item.value
+  end
+#
+# Testing formula processing on a task value
+#
+  def test_reference_formula
+    #
+    # Create a reference parameter
+    #
+    assert_ok parameter_type = ParameterType.create(:name=>'test_reference',
+      :description=>'text',
+      :data_concept_id => @data_element.data_concept_id,
+      :data_type_id=>5)
+
+    assert_ok assay_parameter_ref =AssayParameter.create(:name=> parameter_type.name,
+      :description=>parameter_type.description,
+      :parameter_type_id => parameter_type.id,
+      :parameter_role_id => @parameter_role.id,
+      :assay_id => @assay.id,
+      :data_type_id=>parameter_type.data_type_id,
+      :data_element_id=>@data_element.id)
+
+    assert_ok parameter_ref = @parameter_context.add_parameter(assay_parameter_ref)
+
+    assert_equal @task,parameter_ref.parse(@task.name)
+    assert_equal @task.name,parameter_ref.format(@task)
+
+    #
+    # create a formula parameter
+    #
+    assert_ok data_format = DataFormat.create(:name=>'text_text',
+      :description=>'value',
+      :data_type_id=>1)
+
+    assert_ok parameter_type_formula = ParameterType.create(:name=>"test_formula",
+      :description=>'text',
+      :data_type_id=>data_format.data_type_id)
+
+    assert_ok parameter_type_formula =AssayParameter.create(:name=> parameter_type_formula.name,
+      :description=>parameter_type_formula.description,
+      :parameter_type_id => parameter_type_formula.id,
+      :parameter_role_id => @parameter_role.id,
+      :assay_id => @assay.id,
+      :data_type_id=>parameter_type_formula.data_type_id,
+      :data_format_id=>data_format.id)
+
+    assert_ok parameter_formula = @parameter_context.add_parameter(parameter_type_formula)
+    parameter_formula.default_value = "=test_reference.name"
+    assert parameter_formula.save
+
+    new_task =   @experiment.add_task(:description=>'test',:protocol_version_id=>@process_instance.id)
+    assert_save_ok new_task
+    new_task.populate
+
+    assert_equal @parameter_context,new_task.contexts[0].definition
+    assert_equal 1,new_task.contexts.size
+
+    item = new_task.contexts[0].item(parameter_ref)
+    assert item.is_a?(TaskReference), "should be a TaskReference not #{item.class}"
+
+    ref_name = @task.name
+    ok = new_task.contexts[0].set_value(parameter_ref,ref_name)
+    assert_equal ref_name,ok[:value]
+    assert !ok[:error]
+    new_task.reload
+
+    item = new_task.contexts[0].item(parameter_formula)
+    assert item.is_a?(TaskText), "should be a TaskText not #{item.class}"
+
+    ok = new_task.contexts[0].set_value(parameter_formula,"")
+    assert_equal ref_name,ok[:value]
+  end
 
 end

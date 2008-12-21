@@ -6,18 +6,17 @@
              service_url( :action => 'show', :id => request_service) %>
 </td>
 <td><%=short_date(request_service.expected_at) %> </td>
-<td>
-  <%= select_tag 'status_id',
-      options_for_select(request_service.allowed_status_list,request_service.status_id),
-      {:id=>request_service.dom_id('status_id')}  %>
+<td valign="top">
+      <%= select_tag 'state_id',
+        options_from_collection_for_select(request_service.allowed_status_list,:id,:name,request_service.state_id),
+        {:id=>request_service.dom_id('state_id')} %>
 
-  <%= observe_field request_service.dom_id('status_id'),
-      :url=>{:action=>'update_service',:id=>request_service},
-      :with =>'status_id' %>
-  <br />
+      <%= observe_field request_service.dom_id('state_id'),
+        :url=>{:action=>'update_service',:id=>request_service},
+        :with =>'state_id' %>
   <%= request_service.status_summary %>
 </td>
-<td>
+<td valign="top">
   <%= select_tag 'priority_id',
         options_for_select(request_service.allowed_priority_list,
         request_service.priority_id), {:id=>request_service.dom_id('priority_id')}  %>
@@ -25,7 +24,7 @@
         :url=>{:action=>'update_service',:id=>request_service},
         :with =>'priority_id' %>
 </td>
-<td>
+<td valign="top">
   <%= select_tag 'assigned_to_user_id',
         options_for_select(User.selector, request_service.assigned_to_user_id),
         {:id=>request_service.dom_id('user_id')}  %>

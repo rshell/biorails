@@ -8,13 +8,17 @@
   <%= render :partial=>'projects/header' %>
   <% if current_project.runnable? %>
 
-    <% dialog l(:label_experiment_new) do %>
+    <% dialog l(:Experiment_New) do %>
 
       <% form_tag :action => 'create',:id=>current_project do %>
         <%= render :partial => 'form' %>
         <div class="row">
-          <%= submit_tag l(:button_create) %>
-          <%= link_to( l(:label_cancel), experiment_url( :action => 'list')) %>
+          <%= submit_tag l(:Create) %>
+          <% if params[:assay_id] %>
+            <%= link_to( l(:Cancel), assay_url( :action => 'show',:id=>params[:assay_id],:tab=>6)) %>
+          <%else%>
+            <%= link_to( l(:Cancel), experiment_url( :action => 'list')) %>
+          <%end%>
         </div>
       <% end %>
 

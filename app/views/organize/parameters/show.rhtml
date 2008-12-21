@@ -1,7 +1,4 @@
 <%= render :partial=>'organize/assays/header' %>
-<% tab_ids = ['tab-usage','tab-metrics','tab-results'] %>
-<% tab_names = ['Protocols','Task Metrics','Results'] %>
-<%= render :partial => 'layouts/tabpanel_js',:locals => {:div_ids => tab_ids } -%>
 <div class='main' id='maintitle'>
     <div class="title">
         Parameter [<strong><%=@parameter.name %></strong>]
@@ -14,18 +11,5 @@
         <p>
             <%=h @parameter.description %>
         </p>
-        <!--img src="/charts/histogram/<%=@parameter.id%>"-->
-        <div id='<%=tab_ids[0]%>' style="display:block;">
-            <%= render :partial => 'layouts/tabpanel_list',:locals => {:div_ids => tab_ids, :div_names => tab_names,:div_current => tab_ids[0] } %>
-            List of all the processes containing this parameter<%= render :partial => 'shared/report', :locals => {:report => @protocol_report,:data => @protocol_data } %>
-        </div>
-        <div id='<%=tab_ids[1]%>' style="display:none;">
-            <%= render :partial => 'layouts/tabpanel_list',:locals => {:div_ids => tab_ids, :div_names => tab_names,:div_current => tab_ids[1] } %>
-            <%= render :partial => 'shared/report', :locals => {:report => @task_report,:data => @task_data } %>
-        </div>
-        <div id='<%=tab_ids[2]%>' style="display:none;">
-            <%= render :partial => 'layouts/tabpanel_list',:locals => {:div_ids => tab_ids, :div_names => tab_names,:div_current => tab_ids[2] } %>
-            <%= render :partial => 'shared/report', :locals => {:report => @results_report,:data => @results_data } %>
-        </div>
     </div>
 </div>

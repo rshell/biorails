@@ -1,0 +1,21 @@
+<div>
+  <%= render :partial =>'/menu/admin_menu'   %>
+  <span class='menu'>
+    <b class='icon icon-report'>
+      <%=l(:System)%> <%=l(:Reports)%>
+    </b>
+  </span>
+  <%= link_to l(:List), system_report_url()%>
+  <%= link_to l(:Import), system_report_url(:action => 'import') %>
+  <% if @report and !@report.new_record? %>
+      <%= link_to l(:Show), system_report_url(:action => 'show', :id => @report.id) %>
+      <%= link_to l(:Export), system_report_url(:action => 'export_def', :id => @report.id) %>
+      <%= link_to l(:Edit), system_report_url(:action => 'edit', :id => @report.id) %>
+      <%= link_to l(:Reset), system_report_url( :action => 'destroy', :id => @report.id ),
+                    :confirm => l(:text_are_you_sure),:method => "post" %>
+  <%end%>
+</div>
+
+
+
+

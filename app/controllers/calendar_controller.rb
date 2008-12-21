@@ -1,4 +1,7 @@
 class CalendarController < ApplicationController
+
+  use_authorization :project,
+    :use => [:gantt,:show]
   
   before_filter :setup_folder , :only => [ :show, :gantt]
   
@@ -10,11 +13,9 @@ class CalendarController < ApplicationController
   def show
     @options ={ 'month' => Date.today.month,
       'year'=> Date.today.year,
-      'items'=> {'task'=>1},
-      'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
+      'items'=> {'task'=>1}, 'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4}}.merge(params)
  
     logger.debug " Calendar for #{@options.to_yaml}"
-
     started = Date.civil(@options['year'].to_i,@options['month'].to_i,1)   
 
     @calendar = CalendarData.new(started,1)
@@ -36,11 +37,6 @@ class CalendarController < ApplicationController
     end
   end  
   
-  def add_model_to_calendar(klass,calendar,states)
-    find_options = {:conditions=> "status_id in ( #{ states.keys.join(',') } ) and #{exists_within_sql_filter(klass)}"}
-    klass.add_into(calendar,find_options)
-  end
-
  # ## Display of Gantt chart of task in  the project This will need to show
   # assays,experiments and tasks in order
   # 
@@ -50,7 +46,7 @@ class CalendarController < ApplicationController
       'items'=> {'task'=>1},
       'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
       
-    find_options = "status_id in ( #{ @options['states'].keys.join(',') } )"
+    find_options = "state_id in ( #{ @options['states'].keys.join(',') } )"
                     
     if params[:year] and params[:year].to_i >0
       @year_from = params[:year].to_i
@@ -69,9 +65,7 @@ class CalendarController < ApplicationController
     
     @date_from = Date.civil(@year_from, @month_from, 1)
     @date_to = (@date_from >> @months) - 1
-    @tasks = Task.find(:all, :limit=> 100,
-       :conditions=> ["started_at > ? and started_at < ? and #{@folder.exists_within_sql_filter(Task)}",@date_from, @date_to])
-    
+    @tasks =  CalendarData.find_boxed(Task,@folder,@options['states'],@date_from,@date_to)
     
     @options_for_rfpdf ||= {}
     @options_for_rfpdf[:file_name] = "gantt.pdf"

@@ -28,6 +28,7 @@ class TaskDrop < BaseDrop
   def initialize(source,options={})
     super source
     @options  = options
+    @max_columns = [SystemSetting.max_table_columns.to_i,2].max
   end
  
   def contexts
@@ -75,7 +76,8 @@ class TaskDrop < BaseDrop
     return "no context #{name}" unless definition
     case style
     when 'split'
-      return split_view(context,task) 
+      len = SystemSetting.max_table_columns.to_i
+      return split_view(context,task,false,len)
     when 'rotate'
       return rotated_view(context,task) 
     when 'scaled'       
@@ -83,7 +85,7 @@ class TaskDrop < BaseDrop
     when 'form'       
       return record_view(context,task) 
     else
-      return normal_view(context,task) 
+      return normal_view(context,task)
     end
   end
   
@@ -113,24 +115,32 @@ HTML
 
   def table_view(task,auditing =true)
     out = String.new
-    out << '<table WIDTH="95%" BORDER="1" CELLPADDING="1" CELLSPACING="0">' << "\n"
     old = nil  
     n= 0
     for context in task.process.contexts
       case context.output_style
+      when /group-(\d+)/
+        len = [2,$1.to_i].max
+        out << split_view(context,task,auditing,len)
       when 'split'
-        out << split_view(context,task,auditing) 
-      when 'rotate'
-        out << rotated_view(context,task,auditing) 
+       len = SystemSetting.max_table_columns.to_i
+        out << split_view(context,task,auditing,len)
+      when 'rotated'
+        out << rotated_view(context,task,auditing)
+
       when 'scaled'       
         out << scaled_view(context,task,auditing) 
       when 'form'       
-        out << record_view(context,task,context.parameters,auditing) 
+        out << record_view(context,task,context.parameters,auditing)
+      when context.default_count ==1
+        out << record_view(context,task,context.parameters,auditing)
+      when context.parameters.size > @max_columns
+        out << split_view(context,task,auditing)
       else
         out << normal_view(context,task,context.parameters,auditing) 
       end
     end
-    out << '</table>' << "\n"
+    out
   rescue Exception => ex
     logger.error ex.backtrace.join("\n")    
     logger.error ex.message
@@ -139,33 +149,41 @@ HTML
   # Rotate page for table
   #
   def scaled_view(definition,task,auditing=true)
+    @source.logger.info "Create scaled table for #{task.name}"
     width = guess_width(definition)
-    out = "<font size='1'>"
-    out << normal_view(definition,task,auditing)
-    out = "</font>"
+    out = "<br />\n"
+    out << "<font size='1'>"
+    out << normal_view(definition,task,definition.parameters,auditing)
+    out << "</font>"
+    out
   end
   #
   # Rotate page for table
   #
   def rotated_view(definition,task,auditing=true)
-    out = "<!-- MEDIA LANDSCPAE YES -->\n"
-    out << normal_view(definition,task,auditing)
-    out << "<!-- MEDIA LANDSCPAE NO -->\n"
+    @source.logger.info "Create rotated table for #{task.name}"
+    out = '<br />'
+    out << '<!-- MEDIA LANDSCAPE YES -->'
+    out << normal_view(definition,task,definition.parameters,auditing)
+    out << '<!-- MEDIA LANDSCAPE NO -->'
+    out
   end
   #
   # Split the table into a number of sub tables printed
   # one after another
   #
-  def split_view(definition,task,chuck_size=6,auditing=true)
-    len = row.definition.parameters.size / chuck_size 
+  def split_view(definition,task,auditing=true,len=6)
+    @source.logger.info "Create split table for #{task.name}"
     splits =[]
-    row.definition.parameters.each_with_index do |x,i|
+    out =""
+    definition.parameters.each_with_index do |x,i|
       splits << [] if i%len ==0
       splits.last << x
     end
-    for parameters in splits
-      out << normal_view(definition,task,parameters,auditing)
-    end 
+    for parameters_subset in splits
+      out << normal_view(definition,task,parameters_subset,auditing)
+    end
+    out
   end
   #
   # Standard table output format
@@ -173,7 +191,7 @@ HTML
   def normal_view(definition,task,parameters=nil,auditing=true)
     parameters ||= definition.parameters
     out = String.new
-    out << '<table WIDTH="95%" BORDER="1" CELLPADDING="1" CELLSPACING="0">' << "\n"
+    out << '<table WIDTH="95%" BORDER="1" CELLPADDING="1" CELLSPACING="1">' << "\n"
     out << "<thead><tr >"
     out << "<th BGCOLOR='#cccccc'><span> #{definition.label} x #{definition.default_count.to_s} </span></th>\n"
     out << "<th BGCOLOR='#cccccc'><span> Groups </span></th>\n"
@@ -183,7 +201,7 @@ HTML
     out << "</tr></thead>\n"
     out << "<tbody>\n"
     old = ""
-    for row in task.contexts
+    for row in task.contexts.find(:all,:order=>:row_no)
       if row.definition == definition
         if old != row.row_group
           out << "<tr><td BGCOLOR='#cccccc' colspan='#{definition.parameters.size+2}'><span> #{row.row_group} </span></td></tr>\n" 
@@ -204,6 +222,7 @@ HTML
           else
             out << item.to_s
           end
+          out << '&nbsp;'
           out << "  </td>\n"
         end
         out << "</tr>\n"
@@ -211,9 +230,10 @@ HTML
     end    
     out << "</tbody>\n"
     out << '</table>' << "\n"
+    out
   rescue Exception => ex
-    logger.error ex.backtrace.join("\n")    
     logger.error ex.message
+    logger.error ex.backtrace.join("\n")    
   end  
   
   def record_view(definition,task,parameters=nil,auditing=true)
@@ -224,7 +244,7 @@ HTML
         out << '<table WIDTH="95%" BORDER="1" CELLPADDING="1" CELLSPACING="0">' << "\n"
         out << "<tr><th align='left' colspan='2' BGCOLOR='#cccccc'><strong><u>#{row.label}</u></strong> </th></tr>\n" 
         for parameter in parameters
-          out << "<tr><th  width='30%' align='left' BGCOLOR='#cccccc'> #{parameter.name} #{parameter.style} #{parameter.display_unit}</th>\n" 
+          out << "<tr><th  width='30%' align='left' BGCOLOR='#cccccc'> #{parameter.name} #{parameter.style} #{parameter.display_unit} </th>\n"
           out << "<td class='cell'>"
           item = row.item(parameter)
           if (auditing and item.id)     
@@ -232,9 +252,11 @@ HTML
           else
             out << item.to_s
           end
+          out << '&nbsp;'
           out << "  </td>\n"
           out << "</tr>\n"
         end
+        out << "</table>\n"
       end
     end
     return out    
@@ -248,7 +270,7 @@ HTML
     old = nil
     n= 0
     for row in task.contexts
-      if row.parameters.size>SystemSetting.max_table_columns
+      if row.parameters.size>@max_columns
         out << data_view_list(row,auditing)
       else  
         if row.definition != old
@@ -264,8 +286,8 @@ HTML
     end    
     out << '</table>' << "\n"
   rescue Exception => ex
-    logger.error ex.backtrace.join("\n")    
     logger.error ex.message
+    logger.error ex.backtrace.join("\n")    
   end
 
   def data_view_list(row,auditing)
@@ -280,6 +302,7 @@ HTML
       else
         out << item.to_s
       end
+      out << '&nbsp;'
       out << "  </td>\n"
       out << "</tr>\n"
     end
@@ -300,6 +323,7 @@ HTML
       else
         out << item.to_s
       end
+      out << '&nbsp;'
       out << "  </td>\n"
     end
     out << "</tr>\n"

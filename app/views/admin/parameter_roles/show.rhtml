@@ -7,25 +7,25 @@
   <%= render :partial => 'admin/header'%>
   <div class="panel">
     <h2 class="icon icon-parameter_role">
-      <%=l(:label_parameter_role)%> [<strong><%=@parameter_role.name%></strong>]
+      <%=l(:Parameter_Role)%> [<strong><%=@parameter_role.name%></strong>]
     </h2>
     
     <div class='box'>
-      <p> <b><%=l(:label_description)%>: </b> <%=@parameter_role.description%> </p>
+      <p> <b><%=l(:Description)%>: </b> <%=@parameter_role.description%> </p>
     </div>  
 
     <div class='box'>
-      <b> <%=l(:label_usages)%></b>
+      <b> <%=l(:Usages)%></b>
       <%if @parameter_role.used? %>
         <%= render :partial=>'usages' %>
       <%else%>
       <%=l(:text_parameter_role_not_used)%>...
-      <%= link_to l(:label_delete), { :action => 'destroy', :id =>  @parameter_role.id }, :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del' %>?
+      <%= link_to l(:Delete), { :action => 'destroy', :id =>  @parameter_role.id }, :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del' %>?
       <%end%>
     </div>
-    <%= link_to l(:label_list), parameter_role_url(:action => 'list'), :class=>'icon icon-list' %>
+    <%= link_to l(:List), parameter_role_url(:action => 'list'), :class=>'icon icon-list' %>
     <%if @parameter_role && !@parameter_role.new_record? %>
-      <%= link_to l(:label_edit),  parameter_role_url(:action => 'edit', :id => @parameter_role), :class=>'icon icon-edit' %>
+      <%= link_to l(:Edit),  parameter_role_url(:action => 'edit', :id => @parameter_role), :class=>'icon icon-edit' %>
     <% end %>
   </div>
 <% end %>

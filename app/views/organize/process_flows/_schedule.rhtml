@@ -1,121 +1,120 @@
 <div class='box'>
-    <table class='report'>
-        <thead>
-            <%if @process_flow.scaler > 1 %>
-            <tr>
-                <th colspan='2'>
-                    &nbsp
-                </th>
-                <th>
-                    <%=l(:label_weeks) %>
-                </th>
-                <% (1..@process_flow.expected_weeks).each do |week| %>
-                <th colspan='<%=(168/@process_flow.scaler).floor%>'>
-                    Week <%=week %>
-                </th>
-                <% end %>
-                <th>
-                </th>
-            </tr>
-            <%end %>
-            <tr>
-                <th>
-                    <%=l(:label_step_name) %>
-                </th>
-                <th>
-                </th>
-                <th>
-                    <%=l(:label_days) %>
-                </th>
-                <% (1..@process_flow.expected_days).each do |day| %>
-                <th colspan='<%=(24/@process_flow.scaler).floor%>'>
-                    <%=l(:label_day) %>
-                    <%=day %>
-                </th>
-                <% end %>
-                <th>
-                </th>
-            </tr>
-            <%if @process_flow.scaler == 1 %>
-            <tr>
-                <th colspan='2'>
-                    &nbsp
-                </th>
-                <th>
-                    <%=l(:label_hours) %>
-                </th>
-                <% (1..@process_flow.expected_days*24).each do |hour| %>
-                <th colspan='1'>
-                    <%=hour %>
-                </th>
-                <% end %>
-                <th colspan=2>
-                </th>
-            </tr>
-            <%end %>
-            <tr>
-                <th>
-                    [<%=l(:label_process)%>]
-                </th>
-                <th>
-                    <%=l(:label_offset)%>
-                </th>
-                <th>
-                    <%=l(:label_length)%>
-                </th>
-                <th colspan='<%=@process_flow.expected_days*24/@process_flow.scaler%>'>
-                    <%= l(:label_scheduled_steps) %>
-                </th>
-                <th>
-                    <%=l(:label_actions)%>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @process_flow.steps.each do |step| %>
-            <tr>
-                <th>
-                    <%=link_to_remote "#{step.name}", :url=>process_flow_url(:action=>:step, :id=>step.id) %>
-                    [<%=step.process.path(:assay) %>] 
-                </th>
-                <th>
-                    <%=(step.start_offset_hours).floor %>
-                </th>
-                <th>
-                    <%=(step.expected_hours).floor %>
-                </th>
-                <%if @process_step and @process_step.id == step.id %>
-                <td colspan='<%=1+(@process_flow.expected_days*24/@process_flow.scaler).floor%>'>
-                    <%= render :partial =>'change' %>
-                </td>
-                <% else %>
-                <td colspan='<%=(step.starting)%>'>
-                </td>
-                <th colspan='<%=(step.period)%>'>
-                </th>
-                <td colspan='<%=(step.remaining)%>'>
-                </td>
-                <td>
-                    <% if @process_flow.flexible? %>
-                    <span class='icon icon-edit'><%=link_to_remote l(:label_edit), :url=>process_flow_url(:action=>:step, :id=>step.id) %></span>
-                    <span class='icon icon-del'><%=link_to_remote l(:label_delete), :url=>process_flow_url(:action=>:remove,:id=>step.id) %></span>
-                    <% end %>
-                </td>
-                <% end %>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
-  </div>
-    <% if @process_flow.flexible? %>
-    <div class='box'>
-        <% form_tag process_flow_url(:action=>'add',:id=>@process_flow) do %>
-        <label for=":process_step_protocol_version_id" class='icon icon-protocol_version'>
-            <%=l(:label_process_add_recipe) %>
-        </label>
-        <%= select_process_instance(:process_step, :protocol_version_id) %>
-        <%= submit_tag l(:label_add) %>
-        <%end %>
-    </div>
-    <% end %>
+  <table class='report'>
+    <thead>
+      <%if @process_flow.scaler > 1 %>
+        <tr>
+          <th colspan='3'>
+            &nbsp;
+          </th>
+          <th colspan=3>
+            <%=l(:Weeks) %>
+          </th>
+          <% (1..@process_flow.expected_weeks).each do |week| %>
+            <th colspan='<%=(168/@process_flow.scaler).floor%>'>
+              Week <%=week %>
+            </th>
+          <% end %>
+        </tr>
+      <%end %>
+      <tr>
+        <th colspan=3>
+          <%=l(:Process) %>
+        </th>
+        <th colspan='3'>
+          <%=l(:Days)%>
+        </th>
+        <% (1..(1+@process_flow.expected_days)).each do |day| %>
+          <th colspan='<%=(24/@process_flow.scaler).floor%>'>
+            <%=l(:Day) %>
+            <%=day %>
+          </th>
+        <% end %>
+      </tr>
+      <%if @process_flow.scaler == 1 %>
+        <tr>
+          <th colspan='3'>
+            &nbsp;
+          </th>
+          <th colspan='3'>
+            <%=l(:hours) %>
+          </th>
+          <% (1..(1+@process_flow.expected_days*24)).each do |hour| %>
+            <th colspan='1'>
+              <%=hour %>
+            </th>
+          <% end %>
+        </tr>
+      <%end %>
+      <tr>
+        <th>
+          <%=l(:Step_Name) %>
+        </th>
+        <th>
+          <%=l(:Offset) %>
+        </th>
+        <th>
+          <%=l(:Length) %>
+        </th>
+        <th colspan='3'>
+          &nbsp;
+        </th>
+        <th colspan='<%=  1+@process_flow.expected_days*24/@process_flow.scaler %>'>
+          <%= l(:Scheduled_Steps) %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @process_flow.steps.each do |step| %>
+        <tr>
+          <th>
+            <div class="tooltip">
+              <%= "#{step.name}" %>
+              <span class="tip">
+                <%= step.process.description %> in [<%= step.process.path(:assay) %>]
+              </span>
+            </div>
 
+            <% if @process_flow.flexible? %>
+
+              <%=link_to_remote "<span class='icon icon-edit'>[#{l(:Edit)}]</span>" , {:url=>process_flow_url(:action=>:step, :id=>step.id)} %>
+
+            <% else %>
+              [<%=step.process.path(:assay)%>]
+            <% end %>
+          </th>
+          <th>
+            <%=(step.start_offset_hours).floor %>
+          </th>
+          <th>
+            <%=(step.expected_hours).floor %>
+          </th>
+          <td colspan=2>
+          </td>
+          <%if @process_step and @process_step.id == step.id %>
+            <td colspan='<%=1+(@process_flow.expected_days*24/@process_flow.scaler).floor%>'>
+              <%= render :partial =>'change' %>
+            </td>
+          <% else %>
+            <td colspan='<%=(step.starting)%>'>
+            </td>
+            <th colspan='<%=(step.period)%>'>
+            </th>
+            <td colspan='<%=(step.remaining)%>'>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% if @process_flow.flexible? %>
+  <div class='box'>
+    <% form_tag process_flow_url(:action=>'add',:id=>@process_flow) do %>
+      <label for=":process_step_protocol_version_id" class='icon icon-protocol_version'>
+        <%=l(:Process_to_add_to_Recipe) %>
+      </label>
+      <%= select_process_instance(:process_step, :protocol_version_id) %>
+      <%= submit_tag l(:Add) %>
+    <%end %>
+  </div>
+<% end %>

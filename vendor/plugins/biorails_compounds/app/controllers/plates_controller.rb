@@ -5,10 +5,6 @@
 #
 class PlatesController < ApplicationController
 
-  use_authorization :inventory,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights =>  :current_user  
- 
 
   in_place_edit_for :plate, :name
   in_place_edit_for :plate, :description

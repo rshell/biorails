@@ -1,11 +1,12 @@
  <div class='panel'>
  <% form_remote_tag :url=>process_flow_url(:action => 'change', :id => @process_step.id) do  %>
+    <%=link_to_remote( l(:Delete), {:url=>process_flow_url(:action=>:remove,:id=>@process_step)},:class=>'icon icon-cancel') %>
     <div class="row">
       <%= render :partial => 'step_form' %>
     </div>
     <div class="row">
-        <%= submit_tag l(:button_save) %>
-        <%= submit_tag l(:button_cancel) %>
+        <%= submit_tag l(:Save) %>
+        <%= submit_tag l(:Cancel) %>
     </div>
     <br />
  <% end %>

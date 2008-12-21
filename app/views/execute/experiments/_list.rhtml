@@ -1,8 +1,2 @@
 <%= render :partial => 'shared/report', :locals => {:report => @report,:data => @data,:show=>'show', :edit=>'edit' } %>
 
-<% unless current_project.linked_assays.size == 0 %>
-  <%= link_to( l(:label_experiment_add), experiment_url( :action => :new,:id => current_project.id), :class=>'icon icon-add') %>
-<% else %>
-  <%=l(:text_add_assay)%>...
-  <%= link_to( l(:label_assay_add), assay_url( :action => 'list',:id => current_project.id), :class=>'icon icon-assay-add') %>
-<% end %>

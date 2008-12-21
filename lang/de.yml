@@ -152,11 +152,11 @@ setting_mail_from: Emission address
 setting_host_name: Host Name
 setting_text_formatting: Textformatierung
 
-label_user: Benutzer
-label_user_plural: Benutzer
-label_user_new: Neuer Benutzer
-label_project: Projekt
-label_project_new: Neues Projekt
+User: Benutzer
+User_plural: Benutzer
+User_New: Neuer Benutzer
+Project: Projekt
+Project_New: Neues Projekt
 label_project_plural: Projekte
 label_project_latest: Neueste Projekte
 label_issue: Antrag
@@ -166,7 +166,7 @@ label_issue_view_all: Alle Anträge ansehen
 label_document: Dokument
 label_document_new: Neues Dokument
 label_document_plural: Dokumente
-label_role: Rolle
+Role: Rolle
 label_role_plural: Rollen
 label_role_new: Neue Rolle
 label_role_and_permissions: Rollen und Rechte
@@ -176,7 +176,7 @@ label_member_plural: Mitglieder
 label_tracker: Tracker
 label_tracker_plural: Tracker
 label_tracker_new: Neuer Tracker
-label_workflow: Workflow
+Workflow: Workflow
 label_issue_status: Antrag Status
 label_issue_status_plural: Antrag Stati
 label_issue_status_new: Neuer Status
@@ -193,14 +193,14 @@ label_information_plural: Informationen
 label_please_login: Anmelden
 label_register: Anmelden
 label_password_lost: Passwort vergessen
-label_home: Hauptseite
+Home: Hauptseite
 label_my_page: Meine Seite
 label_my_account: Mein Konto
 label_my_projects: Meine Projekte
-label_administration: Administration
-label_login: Einloggen
+Administration: Administration
+Login: Einloggen
 label_logout: Abmelden
-label_help: Hilfe
+Help: Hilfe
 label_reported_issues: Gemeldete Issues
 label_assigned_to_me_issues: Mir zugewiesen
 label_last_login: Letzte Anmeldung
@@ -208,7 +208,7 @@ label_last_updates: Letztes aktualisiertes
 label_last_updates_plural: %d Letztes aktualisiertes
 label_registered_on: Angemeldet am
 label_activity: Aktivität
-label_new: Neue
+New: Neue
 label_logged_as: Angemeldet als
 label_environment: Environment
 label_authentication: Authentisierung
@@ -218,12 +218,12 @@ label_auth_source_plural: Authentisierung Modi
 label_subproject: Vorprojekt von
 label_subproject_plural: Vorprojekte
 label_min_max_length: Min - Max Länge
-label_list: Liste
-label_date: Date
+List: Liste
+Date: Date
 label_integer: Zahl
-label_boolean: Boolesch
+Boolean: Boolesch
 label_string: Text
-label_text: Langer Text
+Text: Langer Text
 label_attribute: Attribut
 label_attribute_plural: Attribute
 label_download: %d Herunterlade
@@ -235,17 +235,17 @@ label_attachment: Datei
 label_attachment_new: Neue Datei
 label_attachment_delete: Löschungakten
 label_attachment_plural: Dateien
-label_report: Bericht
+Report: Bericht
 label_report_plural: Berichte
-label_news: Neuigkeit
+News: Neuigkeit
 label_news_new: Neuigkeite addieren
 label_news_plural: Neuigkeiten
-label_news_latest: Letzte Neuigkeiten
+News_Latest: Letzte Neuigkeiten
 label_news_view_all: Alle Neuigkeiten anzeigen
 label_change_log: Change log
 label_settings: Konfiguration
-label_overview: Übersicht
-label_version: Version
+Overview: Übersicht
+Version: Version
 label_version_new: Neue Version
 label_version_plural: Versionen
 label_confirmation: Bestätigung
@@ -256,26 +256,26 @@ label_open_issues: geöffnet
 label_open_issues_plural: geöffnet
 label_closed_issues: geschlossen
 label_closed_issues_plural: geschlossen
-label_total: Gesamtzahl
-label_permissions: Berechtigungen
+Total: Gesamtzahl
+Permissions: Berechtigungen
 label_current_status: Gegenwärtiger Status
 label_new_statuses_allowed: Neue Status gewährten
 label_all: alle
-label_none: kein
-label_next: Weiter
-label_previous: Zurück
+None: kein
+Next: Weiter
+Previous: Zurück
 label_used_by: Benutzt von
-label_details: Details...
+Details: Details...
 label_add_note: Eine Anmerkung addieren
 label_per_page: Pro Seite
-label_calendar: Kalender
-label_months_from: Monate von
-label_gantt: Gantt
+Calendar: Kalender
+Months_From: Monate von
+Gantt: Gantt
 label_internal: Intern
 label_last_changes: %d änderungen des Letzten
 label_change_view_all: Alle änderungen ansehen
 label_personalize_page: Diese Seite personifizieren
-label_comment: Anmerkung
+Comment: Anmerkung
 label_comment_plural: Anmerkungen
 label_comment_add: Anmerkung addieren
 label_comment_added: Anmerkung fügte hinzu
@@ -289,12 +289,12 @@ label_equals: ist
 label_not_equals: ist nicht
 label_in_less_than: an weniger als
 label_in_more_than: an mehr als
-label_in: an
+in: an
 label_today: heute
 label_less_than_ago: vor weniger als
 label_more_than_ago: vor mehr als
 label_ago: vor
-label_contains: enthält
+Contains: enthält
 label_not_contains: enthält nicht
 label_day_plural: Tage
 label_repository: SVN Behälter
@@ -317,17 +317,17 @@ label_sort_lowest: Letzter
 label_roadmap: Roadmap
 
 button_login: Einloggen
-button_submit: Einreichen
-button_save: Speichern
+Submit: Einreichen
+Save: Speichern
 button_check_all: Alles auswählen
 button_uncheck_all: Alles abwählen
-button_delete: Löschen
-button_create: Anlegen
+Delete: Löschen
+Create: Anlegen
 button_test: Testen
 button_edit: Bearbeiten
-button_add: Hinzufügen
+Add: Hinzufügen
 button_change: Wechseln
-button_apply: Anwenden
+Apply: Anwenden
 button_clear: Zurücksetzen
 button_lock: Verriegeln
 button_unlock: Entriegeln
@@ -336,7 +336,7 @@ button_list: Aufzulisten
 button_view: Siehe
 button_move: Bewegen
 button_back: Rückkehr
-button_cancel: Annullieren
+Cancel: Annullieren
 button_activate: Aktivieren
 button_sort: Sortieren
 

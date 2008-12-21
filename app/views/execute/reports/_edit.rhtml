@@ -1,54 +1,10 @@
 <%= render :partial=>'header' %>
 <% if @report %>
-<div id='tabs-edit'>
-    <div id='tab-columns' class="tab-content x-hidden">
-        <%=render :partial=>'columns' %>
-    </div>
-    <div id='tab-update' class="tab-content x-hidden">
-        <%=render :partial=>'update' %>
-    </div>
-    <div id='tab-preview' class="tab-content x-hidden">
-    </div>
-    <div id='tab-visual' class="tab-content x-hidden">
-    </div>
-    <br/>
-</div>
-<%= link_to( l(:label_cancel), report_url(:action => 'list'), :class=>'icon icon-cancel') %>
-<script type="text/javascript"> 
-    
-    Ext.onReady(function(){
-        var dropzone = new Biorails.Report.DropTarget('tab-columns',{report_id: <%=@report.id %> });
-    
-        var tabs = new Ext.TabPanel({
-            renderTo:'tabs-edit',
-                    activeTab: <%=@tab||0%>,
-                    defaults: {
-                      autoHeight: true,
-                      autoWidth: true
-                    },
-                    items: [{
-                                    title: 'Columns',
-                                    contentEl: 'tab-columns'
-                            },{
-                                    title: 'Update',
-                                    contentEl: 'tab-update'
-                           },{
-                                    title: 'Preview',
-                                    contentEl: 'tab-preview',
-                                    listeners:{
-                                        activate : function(panel){panel.getUpdater().refresh();}
-                                    },
-                                    autoLoad: "<%=report_url(:action=>'show', :format=>:ext, :id=>@report)%>"
-                           },{
-                                    title: 'Visualize',
-                                    contentEl: 'tab-visual',
-                                    listeners:{
-                                        activate : function(panel){panel.getUpdater().refresh();}
-                                    },
-                                    autoLoad: "<%=report_url(:action=>'visualize', :format=>:ext, :id=>@report)%>"                     }]
-                });
-       });
-    
-      
-</script>
-<%end %>
+<%= tab_strip("task-reports",@tab||0,[
+ {:name =>l(:columns) , :partial=>'columns'},
+ {:name =>l(:details) , :partial=>'update'},
+ {:name =>l(:preview)   , :url=>report_url(:action=>'show', :format=>:ext, :id=>@report) },
+ {:name =>l(:visualize) , :url=> report_url(:action=>'visualize', :format=>:ext, :id=>@report) }
+])  %>
+<% end %>
+

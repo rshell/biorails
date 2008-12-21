@@ -1,23 +1,8 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: assay_stages
-#
-#  id                 :integer(4)      not null, primary key
-#  name               :string(128)     default(""), not null
-#  description        :string(1024)    default(""), not null
-#  lock_version       :integer(4)      default(0), not null
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  updated_by_user_id :integer(4)      default(1), not null
-#  created_by_user_id :integer(4)      default(1), not null
-#
-
 --- 
 00000000005_assay_stage: !ruby/object:AssayStage 
   attributes: 
     name: Preparation
-    updated_at: 2008-08-14 10:29:36
+    updated_at: 2008-10-22 15:14:25
     updated_by_user_id: "1"
     lock_version: "0"
     id: "5"
@@ -29,7 +14,7 @@
 00000000008_assay_stage: !ruby/object:AssayStage 
   attributes: 
     name: Analysis
-    updated_at: 2008-08-14 10:29:36
+    updated_at: 2008-10-22 15:14:25
     updated_by_user_id: "1"
     lock_version: "0"
     id: "8"
@@ -41,7 +26,7 @@
 00000000006_assay_stage: !ruby/object:AssayStage 
   attributes: 
     name: Data Capture
-    updated_at: 2008-08-14 10:29:36
+    updated_at: 2008-10-22 15:14:25
     updated_by_user_id: "1"
     lock_version: "0"
     id: "6"

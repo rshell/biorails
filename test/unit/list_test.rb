@@ -73,11 +73,23 @@ class ListTest < Test::Unit::TestCase
     assert item
     assert item.valid?, item.errors.full_messages().join('\n')
   end
-  
+
+  def test_reference
+    list = List.create(:name=>'x-format2',:description=>'testing',:data_element_id=>1)
+    assert list.reference(1)
+  end
+
+  def test_lookup
+    list = List.create(:name=>'x-format2',:description=>'testing',:data_element_id=>1)
+    assert list.lookup("Text")
+  end
+
   def test_add_string
     list = List.create(:name=>'x-format2',:description=>'testing',:data_element_id=>1)
     item = list.add("Text")
     assert item
+    assert item.reference(1)
+    assert item.lookup("Text")
     assert item.valid?, item.errors.full_messages().join('\n')
   end
 

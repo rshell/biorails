@@ -8,9 +8,9 @@
 #
 class AuditController < ApplicationController
 
-  use_authorization :audit,
-                    :actions => [:show],
-                    :rights => :current_user  
+  use_authorization :reports,
+    :build => [:new,:create,:edit,:update,:destroy],
+    :use => [:list,:show]
 #
 # This displays the audit trail for last 100 changes to a given record
 # Eg for changes to project 1 its :-

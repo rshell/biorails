@@ -3,36 +3,36 @@
         <thead>
             <tr>
                 <th colspan='3'>
-                    <%=l(:label_experiment) %>
+                    <%=l(:Experiment) %>
                 </th>
                 <th colspan='2'>
-                    <%=l(:label_method_default) %>
+                    <%=l(:Method_Default) %>
                 </th>
                 <th colspan='2'>
-                    <%=l(:label_task) %>
+                    <%=l(:Task) %>
                 </th>
             </tr>
             <tr>
                 <th>
-                    <%=l(:label_name) %>
+                    <%=l(:Name) %>
                 </th>
                 <th>
-                    <%=l(:label_user) %>
+                    <%=l(:User) %>
                 </th>
                 <th>
-                    <%=l(:label_updated) %>
+                    <%=l(:Updated) %>
                 </th>
                 <th>
-                    <%=l(:label_name) %>
+                    <%=l(:Name) %>
                 </th>
                 <th>
-                    <%=l(:label_style) %>
+                    <%=l(:Style) %>
                 </th>
                 <th>
-                    <%=l(:stat_count) %>
+                    <%=l(:Count) %>
                 </th>
                 <th>
-                    <%=l(:label_latest) %>
+                    <%=l(:Latest) %>
                 </th>
             </tr>
         </thead>
@@ -70,5 +70,3 @@
         </tbody>
     </table>
 </div>
-<hr /><%= link_to( l(:label_experiment), experiment_url(:action => 'new',  :id => current_project.id),
-  :class=>'icon icon-experiment-add') if @assay.is_setup? and current_project.runnable? %>

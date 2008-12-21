@@ -1,17 +1,29 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ProjectTest < Test::Unit::TestCase
+  ## Biorails::Dba.import_model :user_roles
+  ## Biorails::Dba.import_model :project_roles
+  ## Biorails::Dba.import_model :users
+  ## Biorails::Dba.import_model :projects
+  ## Biorails::Dba.import_model :memberships
+  ## Biorails::Dba.import_model :assays
 
+  def assert_ok(object)
+     assert_not_nil object, ' Object is missing'
+     assert object.errors.empty? , " #{object.class}.#{object.id} has errors: "+object.errors.full_messages().join(',')
+     assert object.valid?,         " #{object.class}.#{object.id} not valid: "+object.errors.full_messages().join(',')
+     assert !object.new_record?,   " #{object.class}:#{object} not saved"
+  end
   
   def test001_valid
-     project = Project.new(:name=>'test1',:description=>'sssss',:status_id=>0)
+     project = Project.new(:name=>'test1',:description=>'sssss',:title=>'dggsdgsd',:status_id=>0)
      assert project.valid? , project.errors.full_messages().join('\n')
   end
   
   def test002_duplicate_name
-     project = Project.new(:name=>'test2',:description=>'sssss',:status_id=>0,:team_id=>1)
+     project = Project.new(:name=>'test2',:description=>'sssss',:title=>'dggsdgsd',:status_id=>0,:team_id=>1)
      assert project.save , project.errors.full_messages().join('\n')
-     project = Project.new(:name=>'test2',:description=>'sssss',:status_id=>0,:team_id=>1)
+     project = Project.new(:name=>'test2',:description=>'sssss',:title=>'dggsdgsd',:status_id=>0,:team_id=>1)
      assert !project.valid? , "Should not allow duplicate name"
   end
 
@@ -28,7 +40,7 @@ class ProjectTest < Test::Unit::TestCase
 
   def test004_save
      team = Team.find(:first)
-     project = Project.new(:name=>'test4',:description=>'sssss',:team_id => team.id)
+     project = Project.new(:name=>'test4',:description=>'sssss',:title=>'dggsdgsd',:team_id => team.id)
      assert project.save , project.errors.full_messages().join('\n')
      assert_ok project
      
@@ -53,9 +65,9 @@ class ProjectTest < Test::Unit::TestCase
     project.folder.access_control_list.grant(User.current,Role.find(5))
     assay = Assay.find(2)       
     assert project.project_element.visible?  , "project needs to be visible"
-    assert project.project_element.changable?," project needs to be changable to can add reference"
+    assert project.changeable?," project needs to be changable to can add reference"
     assert assay.visible?,"assay must be visible"
-    assert assay.published?,"assay must be published"
+    assert assay.is_setup?,"assay must be setup"
     assert assay.shareable?(project)
     assert project.share(assay)    
    end
@@ -99,9 +111,17 @@ class ProjectTest < Test::Unit::TestCase
     assert project.member(User.find(1)), "there are users linked to this project"
   end
     
+  def test017_partial_template
+    project = Project.find(1)
+    assert project.project_type_id
+    assert_equal project.project_type_id,1
+    assert_equal project.project_type.name,'project'
+    assert_equal File.join('projects','project','show') , project.partial_template("projects/project/show")
+    assert_equal "no_moose_exists" , project.partial_template("no_moose_exists")
+  end
   
  def test018_home_folder
-    project = Project.new(:name =>'test18',:description=>'test',:team_id=>1,:project_type_id=>1)
+    project = Project.new(:name =>'test18',:description=>'test',:title=>'dggsdgsd',:team_id=>1,:project_type_id=>1)
     assert project.valid?
     assert project.save
     assert project.home_folder
@@ -330,5 +350,31 @@ class ProjectTest < Test::Unit::TestCase
     end
   end
 
-   
+  def test046_path
+    project = Project.create(:name=>'dddddd',:description=>'degfdsgfsd',:title=>'dggsdgsd',:parent_id=>1)
+    assert_ok project
+    assert project.path
+    assert project.state_flow
+  end
+
+  def test047_linked
+    project = Project.find(1)
+    assert_ok project
+    assert project.linked(Task)
+  end
+
+  def test048_add_and_remove_link
+    project = Project.find(1)
+    assert_ok project
+    cmpd = Compound.find(:first)
+    link = project.add_link(cmpd)
+    assert link
+    assert project.linked(Compound)
+    project.remove_link(cmpd)
+  end
+
+  def test_is_dictionary
+    assert_dictionary_lookup(Project)
+  end
+
 end

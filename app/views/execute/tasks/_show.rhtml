@@ -2,14 +2,14 @@
 <div class='panel'>
 <%if @task.queues? %> 
     <h3 class='icon icon-queue_item'>
-        <%=l(:label_associated_request_items)%>
+        <%=l(:Associated_Request_Items)%>
     </h3>
   <div class="box">
     <%= render :partial =>'/organize/assay_queues/queue_items', :locals=>{:queue_items=>@task.queue_items} %>
   <hr />
-  <%= link_to( l(:label_auto_assign_items_to_task), task_url( :action => 'assign',  :id => @task.id), :class=>'icon icon-queue') %>
-  <%= link_to( l(:label_update_requested_items), task_url( :action => 'update_queue',  :id => @task.id), :class=>'icon icon-queue') %>
-  <%= link_to( l(:label_update_any_requested_items), task_url( :action => 'update_queue',:any=>'y',  :id => @task.id), :class=>'icon icon-queue') %>
+  <%= link_to( l(:Auto_assign_items_to_task), task_url( :action => 'assign',  :id => @task.id), :class=>'icon icon-queue') %>
+  <%= link_to( l(:Update_requested_items), task_url( :action => 'update_queue',  :id => @task.id), :class=>'icon icon-queue') %>
+  <%= link_to( l(:Update_any_requested_items), task_url( :action => 'update_queue',:any=>'y',  :id => @task.id), :class=>'icon icon-queue') %>
 </div>
 <%end%>
 </div>

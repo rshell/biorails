@@ -14,7 +14,6 @@
 #  lock_version         :integer(4)      default(0), not null
 #  created_at           :datetime        not null
 #  updated_at           :datetime        not null
-#  status_id            :integer(4)      default(0), not null
 #  priority_id          :integer(4)
 #  updated_by_user_id   :integer(4)      default(1), not null
 #  created_by_user_id   :integer(4)      default(1), not null
@@ -41,12 +40,7 @@ class RequestService < ActiveRecord::Base
 # This scheduled item is in turn broken down as follows
 # 
   acts_as_scheduled :summary=>:items
-  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-                              :description=>{:store=>:yes,:boost=>0},
-                               }, 
-                   :default_field => [:name],           
-                   :single_index => true, 
-                   :store_class_name => true 
+
 
   has_many_scheduled :items, :class_name => "QueueItem" ,:dependent => :destroy
 
@@ -54,10 +48,13 @@ class RequestService < ActiveRecord::Base
   validates_presence_of :name 
 
   validates_presence_of :started_at
+  validates_presence_of :expected_at
   validates_presence_of :request_id
   validates_presence_of :service_id 
-  validates_presence_of :status_id
 
+  def validate
+    validate_period
+  end
  
 ##
 # This record has a full audit log created for changes 
@@ -90,7 +87,7 @@ class RequestService < ActiveRecord::Base
         with_scope :find => options  do
             case object
             when Project             
-              find(:all, :include=>[:queue=>[:assay]],
+              find(:all, :include=>[:queue=>[:assay],:project_element=>[:state]],
                   :conditions=>["assays.project_id=?",object.id] )
             when AssayQueue     
               find(:all, 
@@ -144,33 +141,41 @@ class RequestService < ActiveRecord::Base
   end
 
  def update_state(params)
-    self.state_id = params[:status_id]          if params[:status_id]
     self.priority_id = params[:priority_id]     if params[:priority_id]
     self.assigned_to_user_id = params[:user_id] if params[:user_id]
     self.comments << params[:comments]         if params[:comments]
+    if params[:state_id].blank?
+       self.save!
+    else
+       self.folder.set_state(params[:state_id])
+    end
+    self.reload
+    items.each do |item|
+       item.update_state(params)
+    end
  end  
  
 ##
 # Submit the request
 #  
   def accept
-      self.status = Alces::ScheduledItem::ACCEPTED
+      folder and folder.set_state(folder.state_flow.next_level(State::ACTIVE_LEVEL))
   end 
   
   def reject
-      self.status =  Alces::ScheduledItem::REJECTED
+      folder and folder.set_state(folder.state_flow.previous_level(0))
   end
 
   def complete
-      self.status =  Alces::ScheduledItem::COMPLETED
+      folder and folder.set_state(folder.state_flow.next_level(State::FROZEN_LEVEL))
   end
 
   def num_active
-    return items.inject(0){|sum, item| sum + (item.is_active ? 1 : 0 )}
+    return items.inject(0){|sum, item| sum + (item.active? ? 1 : 0 )}
   end
 
   def num_finished
-    return items.inject(0){|sum, item| sum + (item.is_finished ? 1 : 0 )}
+    return items.inject(0){|sum, item| sum + (item.finished? ? 1 : 0 )}
   end
   
   def percent_done

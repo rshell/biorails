@@ -1,79 +1,23 @@
 <% content_for :sidemenu do -%>
-<%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project} %>
-<%= render :partial =>'/menu/assay_menu' , :locals=>{ :assay => @assay} %>
-<div>
-    <span class='menu'><b class='icon icon-parameter'><%=l(:label_parameters) %>
-        </b></span>
-    <%= link_to l(:label_export), :controller =>'assay_parameters', :action => 'export', :id=>@assay %>
-    <%= link_to l(:label_import), :controller =>'assay_parameters', :action => 'import', :id=>@assay %>
-    <%= link_to l(:label_edit), :controller =>'assay_parameters', :action => 'edit', :id=>@assay_parameter %>
-    <%= link_to l(:label_new), :controller =>'assay_parameters', :action => 'new', :id=>@assay %>
-</div>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project} %>
+  <%= render :partial =>'/menu/assay_menu' , :locals=>{ :assay => @assay} %>
+  <div>
+    <span class='menu'><b class='icon icon-parameter'><%=l(:Parameters) %>
+    </b></span>
+    <%= link_to l(:Export), :controller =>'assay_parameters', :action => 'export', :id=>@assay %>
+    <%= link_to l(:Import), :controller =>'assay_parameters', :action => 'import', :id=>@assay %>
+    <%= link_to l(:Edit), :controller =>'assay_parameters', :action => 'edit', :id=>@assay_parameter %>
+    <%= link_to l(:New), :controller =>'assay_parameters', :action => 'new', :id=>@assay %>
+  </div>
 <% end -%>
 <% content_for :center do -%>
-<%= render :partial=>'organize/assays/header' %>
-    <div class="main">
-        <h1 class="icon icon-parameter-large" style='text-indent:0.5em'>[<%=@assay_parameter.assay.name %>]
-            Assay Parameter
-            [<strong><%=@assay_parameter.name %></strong>]</h1>
-        <div id='tabs1'>
-            <div id="tab-show" class="tab-content">
-                <% for column in AssayParameter.content_columns %>
-                <p>
-                    <b><%= column.human_name %>:</b>
-                    <%=h @assay_parameter.send(column.name) %>
-                </p>
-                <% end %>
-                <p>
-                In later versions we are planning to add histogram of values
-                describing use of the parameters and general
-                metrics for analysis and QA.
-            </div>
-            <div id="tab-usage" class="tab-content x-hidden">
-                <%= render :partial => 'example' %>
-            </div>
-            <div id="tab-protocol" class="tab-content x-hidden">
-                List of all the processes containing this parameter<%= render :partial => 'shared/report',
-                :locals => {:report => @protocol_report,:data => @protocol_data } %>
-            </div>
-            <div id="tab-params" class="tab-content x-hidden">
-                <%= render :partial => 'shared/report',
-                :locals => {:report => @metrics_report,:data => @metrics_data } %>
-            </div>
-            <div id="tab-expt" class="tab-content x-hidden">
-                <%= render :partial => 'shared/report',
-                :locals => {:report => @experiment_report,:data => @experiment_data } %>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        
-        Ext.onReady(function(){
-            var tabs = new Ext.TabPanel({
-                renderTo: 'tabs1',
-                activeTab: 0,
-                defaults: {
-                    autoHeight: true,
-                    autoScroll: true,
-                    bodyStyle: 'padding:5px'
-                },
-                items: [{
-                    title: 'Show',
-                    contentEl: 'tab-show'
-                }, {
-                    title: 'Examples',
-                    contentEl: 'tab-usage'
-                }, {
-                    title: 'Methods',
-                    contentEl: 'tab-protocols'
-                }, {
-                    title: 'Metrics [Parameter]',
-                    contentEl: 'tab-params'
-                }, {
-                    title: 'Metrics [Experiment]',
-                    contentEl: 'tab-expt'
-                }]
-            });
-        });
-    </script>
+  <%= render :partial=>'header' %>
+
+  <%= tab_strip("assay-parameter-tabs", @tab||0 ,[
+      {:name =>l(:Overview)   , :partial =>'show' },
+      {:name =>l(:Examples)    , :partial => 'example'},
+      {:name =>l(:Processes)     , :url=> assay_parameter_url(:action=>'protocol_list', :format=>:ext, :id=>@assay_parameter) },
+      {:name =>l('Process Metrics') , :url=> assay_parameter_url(:action=>'process_metrics', :format=>:ext, :id=>@assay_parameter) },
+      {:name =>l('Experiment Metrics')    , :url=> assay_parameter_url(:action=>'experiment_metrics', :format=>:ext, :id=>@assay_parameter) } ])  %>
+
 <% end %>

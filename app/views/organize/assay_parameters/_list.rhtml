@@ -1,80 +1,87 @@
-  <table class="report">
-    
-    <thead>
-      <tr>
-        <th>
-          <%=l(:label_parameters) %>
-        </th>
-        <th>
-          <%=l(:label_units) %>
-        </th>
-        <th>
-          <%=l(:label_role) %>
-        </th>
-        <th>
-          <%=l(:label_parameter_type) %>
-        </th>
-        <th>
-          <%=l(:label_data_type) %>
-        </th>
-        <th>
-          <%=l(:label_default) %>
-        </th>
-        <th>
-          <%=l(:label_test) %>
-        </th>
-        <th>
-          <%=l(:label_actions) %>
-        </th>
+<table class="report">
+  
+  <thead>
+    <tr>
+      <th>
+        <%=l(:Parameters) %>
+      </th>
+      <th>
+        <%=l(:Units) %>
+      </th>
+      <th>
+        <%=l(:Role) %>
+      </th>
+      <th>
+        <%=l(:Parameter_Type) %>
+      </th>
+      <th>
+        <%=l(:Data_Type) %>
+      </th>
+      <th>
+        <%=l(:Default) %>
+      </th>
+      <th>
+        <%=l(:test) %>
+      </th>
+      <th>
+        <%=l(:returned) %>
+      </th>
+      <th>
+        <%=l(:Actions) %>
+      </th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% for usage in @assay_parameters %>
+      <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+        <td>
+          <%=link_to(usage.name, parameter_url( :action => 'edit', :id => usage), 
+            :class=>"icon icon-#{usage.role.name}") if usage and usage.role %>
+        </td>
+        <td>
+          <%=usage.display_unit %>
+        </td>
+        <td>
+          <%=usage.role.name %>
+        </td>
+        <td>
+          <%=usage.type.name if usage.type %>
+        </td>
+        <td>
+          <%if usage.data_type_id==5 %>
+            <b class='icon icon-data_type_dictionary'>
+              <%=usage.data_element.name if usage.data_element %>
+            </b>
+          <%else %>
+            <b class='icon icon-data_type_<%=usage.data_type.name%>'>
+              <%=usage.data_format.name if usage.data_format %>
+            </b>
+          <%end %>
+        </td>
+        <td>
+          <%=usage.default_value %>
+        </td>
+        <td>
+          <%=my_field_tag("cell_#{usage.id}",
+            "test_#{usage.id}",
+            usage,
+            { :save=> parameter_url(:action=>'test_save', :id=>usage) }) %>
+        </td>
+        <td>
+          <span id="result_<%=usage.id%>"></span>
+        </td>
+        <td>
+          <%if usage.used? %>
+            In Use
+          <% else %>
+            <span class="icon icon-del">
+              <%= link_to( l(:Delete), {:controller =>'assay_parameters', :action => 'destroy', :id => usage }, :confirm => l(:text_are_you_sure),:method => "post" )  if right?(:organization, :build) %>
+            </span>        
+          <%end %>
+        </td>
       </tr>
-    </thead>
-    
-    <tbody>
-      <% for usage in @assay_parameters %>
-        <tr class="<%= cycle('odd', 'even') %> boldnotbold">
-          <td>
-            <%=link_to(usage.name, parameter_url( :action => 'edit', :id => usage), 
-                     :class=>"icon icon-#{usage.role.name}") if usage and usage.role %>
-          </td>
-          <td>
-            <%=usage.display_unit %>
-          </td>
-          <td>
-            <%=usage.role.name %>
-          </td>
-          <td>
-            <%=usage.type.name if usage.type %>
-          </td>
-          <td>
-            <%if usage.data_type_id==5 %>
-              <b class='icon icon-data_type_dictionary'>
-                <%=usage.data_element.name if usage.data_element %>
-              </b>
-            <%else %>
-              <b class='icon icon-data_type_<%=usage.data_type.name%>'>
-                <%=usage.data_format.name if usage.data_format %>
-              </b>
-            <%end %>
-          </td>
-          <td>
-            <%=usage.default_value %>
-          </td>
-          <td>
-            <%=my_field_tag("cell_#{usage.id}_3",
-              "test_#{usage.id}",
-              usage,
-              { :save=> parameter_url(:action=>'test_save', :id=>usage) }) %>
-            <span id="result_<%=usage.id%>"></span>
-          </td>
-          <td>
-            <%if usage.used? %>
-              In Use
-            <% else %>
-              <%= link_to( "&nbsp; &nbsp;&nbsp;", {:controller =>'assay_parameters', :action => 'destroy', :id => usage }, :confirm => l(:text_are_you_sure),:method => "post", :class => 'icon-del' )%>
-            <%end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>   
-  </table>
+    <% end %>
+  </tbody>   
+</table>
 

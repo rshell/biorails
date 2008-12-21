@@ -54,16 +54,7 @@ require 'ftools'
 class ProjectFolder < ProjectElement
 
   cattr_accessor :current
-##
-# Details of the order
-#   Checking assays
-
-  has_many :elements,  :class_name  => 'ProjectElement',
-                       :foreign_key => 'parent_id',
-                       :include => [:asset,:content],
-                       :order       => 'project_elements.left_limit'  
-  
-  
+ 
   def assets(limit=100)
     ProjectAsset.find(:all,:conditions=>['project_elements.parent_id=? ',self.id],:include => [:asset],:order=>'project_elements.updated_at desc',:limit=>limit) 
   end
@@ -76,13 +67,7 @@ class ProjectFolder < ProjectElement
   # Summary text for a the folder content
   #
   def summary    
-#    if self.published?
-#        text = "Published " 
-#    elsif self.signed?
-#        text = "Signed " 
-#    else  
-        text = ""
-#    end
+    text = ""
     text << " #{self.style.capitalize} "
     text << " folder " if self.reference_id
     text << " with #{self.all_children_count} items "
@@ -110,11 +95,16 @@ class ProjectFolder < ProjectElement
 # Copy the passed element under this one
 #
  def copy(item)
-   element = item.clone
-   element.reference=item
+   element =nil
+   if item.reference
+     element = ProjectReference.new(:name=>item.name,:title=>item.title,:state_id=>item.state_id,:element_type => item.element_type)
+     element.reference= item.reference
+   else
+     element = item.clone
+     element.reference= item
+   end
    element.parent= self
-   logger.debug "cloned element ==============================================="
-   logger.debug element.to_yaml
+   element.state = self.state
    element.project_id = self.project_id
    element.position = self.elements.size
    element.parent_id = self.id
@@ -124,30 +114,70 @@ class ProjectFolder < ProjectElement
  end
   
   def self.add_root(project)
+    ProjectFolder.transaction do
     ProjectFolder.create({
            :name =>project.name,
            :title =>project.title,
            :reference => project,
+           :state_id => State.find(:first).id,
            :project => project,
-           :state_id => 1,
+           :element_type_id => 4,
            :access_control_list => AccessControlList.from_team(project.team)
    })
+  end
   end
   #
   # Add a link to another project element with possible of setting the owner
   #
-  def add_link(from,owner_id=nil)
-    raise "No right to add to distination" unless self.allow?(:data,:create)    
-    if from.is_a?(ProjectElement)
-       raise "No right to update source" unless from.allow?(:data,:update)
-       add_element(ElementType::REFERENCE,{
-           :name =>from.name,
-           :title =>from.title,
-           :reference => from.reference,
-           :access_control_list_id => from.access_control_list_id,
-         })
+  def add_link(from,options={})
+    ProjectFolder.transaction do
+      raise "No right to add to destination" unless self.right?(:data,:create)
+      if from.is_a?(ProjectElement)
+         raise "No right to update source" unless from.right?(:data,:update)
+         add_element(ElementType::REFERENCE,{
+             :name =>from.name,
+             :title => options[:title] || from.title,
+             :reference => from.reference,
+             :access_control_list_id => from.access_control_list_id,
+           })
+      else
+         add_element(ElementType::REFERENCE,{
+             :name =>from.name,
+             :title => options[:title] ||from.name,
+             :reference => from,
+             :access_control_list_id => self.access_control_list_id,
+           })
+      end
     end 
-  end  
+  end
+  #
+  # List of Linked Items
+  #  * model class to link to
+  #  * return list of linked items of this class
+  #
+  def linked(klass)
+      find_within(:all,:conditions=>['reference_type=?',klass.to_s])
+  end
+  #
+  # List of Linked Items
+  #  * model class to link to
+  #  * return list of linked items of this class
+  #
+  def linked_objects(klass)
+      items = linked(klass)
+      items.collect{|i|i.reference}
+  end
+  #
+  # List of Linked Items
+  #  * model class to link to
+  #  * return boolean true == destoried
+  #
+  def remove_link(object)
+    if (object)
+      item = find_within(:first,:conditions=>['reference_type=? and reference_id = ?',object.class.to_s,object.id])
+      item.destroy if item
+    end
+  end
   #
   # Make a html file copy all assets and html to folder_filepath
   #
@@ -208,8 +238,7 @@ class ProjectFolder < ProjectElement
   def self.current
     @current || Project.current.home
   end
-  
-    
+      
 protected
   #
   # Serialize the current item out as html copying all asset to folder

@@ -31,8 +31,22 @@ class ProjectContentTest < Test::Unit::TestCase
   def test_html_urls
     first = @model.find(:first)
     assert first.content
-    list = first.content.html_urls    
+    list = first.content.html_urls
     assert_equal [],list
+  end
+
+    def test_html_urls2
+    first = @model.find(:first)
+    first.content.body_html = 'bla bla <a href="xx">test</a> bla bla <a href="yy">test</a> '
+    list = first.content.html_urls
+    assert_equal ["xx",'yy'],list
+  end
+
+  def test_html_summary
+    first = @model.find(:first)
+    assert first.content
+    list = first.content.summary
+    assert list
   end
 
   def test_to_html

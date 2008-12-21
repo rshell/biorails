@@ -8,9 +8,8 @@
 
 class Admin::RolesController < ApplicationController
 
-  use_authorization :users,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user
+  use_authorization :catalogue,
+              :admin => [:new,:create,:destroy,:edit,:index,:list,:show,:update]
 
   def index
     list

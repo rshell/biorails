@@ -1,61 +1,99 @@
 <div class="box" >
-    <h3 class="icon icon-user"><%=l('Default Access Control List') %></h3>
-    <table id="team_acl" class="report">
-        <thead>
-            <tr>
-                <th>
-                    <%=l(:label_name_fullname) %>
-                </th>
-                <th>
-                    <%=l(:label_role) %>
-                </th>
-                <th>
-                    <%=l(:label_action) %>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <% for item in @acl.rules %>
-            <tr class="<%= cycle('odd', 'even') %> ">
-            <td>
-                <%=h item.owner_name %>
-            </td>
-            <td>
-                <%=h item.role_name %>
-            </td>
-            <td>
-             
-        <%=link_to( l(:label_remove),team_url(:action=>'deny',
-                                              :id=>@team.id,
-                                              :role_id=>item.role_id,
-                                              :owner_type=>item.owner_type,
-                                              :owner_id=>item.owner_id),{
-                  :method=>'delete',
-                  :connfirm=>"Delete Acccess for #{item.owner_name}"
-                 }) if  (item.owner!=@team and item.owner!=User.current)  %>            
-            </td>
+  <div class="box">
+    <p>
+      When a root <%=l(:Projects)%> is created an <%=l(:ACL)%> is taken
+      from the default <%=l(:Team)%>.  Sub <%=l(:Projects)%> inherit the <%=l(:ACL)%>
+      of their parent <%=l(:Project)%>.
+      When a Team is registered, the Team and the creator are automatically added to the
+      <%=l(:ACL)%> as members and managers respectively.  Other users and
+      Teams can be added to this <%=l(:ACL)%> as required.
+    </p>
+  </div>
+  <div class="box">
+  <table id="team_acl" class="report">
+    <thead>
+      <tr>
+        <th>
+          <%=l(:Name_Full_Name) %>
+        </th>
+        <th>
+          <%=l(:Role) %>
+        </th>
+        <th>
+          <%=l(:Action) %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for item in @acl.rules %>
+        <tr class="<%= cycle('odd', 'even') %> ">
+          <td>
+            <%=h item.owner_name %>
+          </td>
+          <td>
+            <%=h item.role_name %>
+          </td>
+          <td>
+
+            <%=link_to( l(:Remove),team_url(:action=>'deny',
+                :id=>@team.id,
+                :role_id=>item.role_id,
+                :owner_type=>item.owner_type,
+                :owner_id=>item.owner_id),{
+                :method=>'delete',
+                :connfirm=>"Delete Acccess for #{item.owner_name}"
+              }) if  (item.owner!=@team and item.owner!=User.current and @team.owner?(User.current))  %>
+          </td>
         </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+
+<%if @team.owner?(User.current)%>
+    <%if @acl.unused_teams.size > 0%>
+
+      <div class="splitcontentleft">
+        <%form_tag team_url(:action =>'grant',:id=>@team),:method=>:post do %>
+          <div class='form-element'>
+            <label for="acl_team_id">  <%=l(:Teams)%> </label>
+            <%= hidden_field_tag :owner_type,'Team' %>
+            <%= select_tag(:team_id, options_from_collection_for_select(@acl.unused_teams, "id", "name") ) %>
+          </div>
+          <div class='form-element'>
+            <label for="acl_role_id">  <%=l(:Role)%> </label>
+            <%= select_tag(:role_id , options_from_collection_for_select(@acl.roles, "id", "name") ) %>
+          </div>
+          <br />
+          <%= submit_tag "grant" %>
         <% end %>
-        </tbody>
-    </table>
-    <hr/>
- <%if @acl.unused_teams.size > 0%>
-   <%form_tag team_url(:action =>'grant',:id=>@team),:method=>:post do %>
-   Other teams:     
-        <%= hidden_field_tag :owner_type,'Team' %>
-        <%= select_tag(:owner_id, options_from_collection_for_select(@acl.unused_teams, "id", "name") ) %>
-        <%= select_tag(:role_id , options_from_collection_for_select(@acl.roles, "id", "name") ) %>
+      </div>
+  
+    <%end%>
+
+
+    <%if @acl.unused_users.size >0 %>
+      <div class="splitcontentright">
+      <%form_tag team_url(:action =>'grant',:id=>@team),:method=>:post do %>
+        <div class='form-element'>
+          <label for="acl_user_id">  <%=l(:Users)%> </label>
+             <%= select_named_tag(:user_id ,User,nil,:width=>200)  %>
+             <%= hidden_field_tag :owner_type,'User' %>
+        </div>
+
+        <div class='form-element'>
+          <label for="acl_role_id">  <%=l(:Role)%> </label>
+          <%= select_tag(:role_id , options_from_collection_for_select(@acl.roles, "id", "name") ) %>
+        </div>
+        <br />
         <%= submit_tag "grant" %>
-   <% end %>   
- <%end%> 
- <%if @acl.unused_users.size >0%>
-        
-   <%form_tag team_url(:action =>'grant',:id=>@team),:method=>:post do %>
-   Other users:
-        <%= hidden_field_tag :owner_type,'User' %>
-        <%= select_tag(:owner_id, options_from_collection_for_select(@acl.unused_users, "id", "name") ) %>
-        <%= select_tag(:role_id , options_from_collection_for_select(@acl.roles, "id", "name") ) %>
-        <%= submit_tag "grant" %>
-   <% end %>   
-<%end%> 
+      <% end %>
+      </div>
+   <br />
+   <br />
+   <br />
+  <%end%>
+  <%else%>
+    Need to be owner to change the team
+  <%end%>
 </div>

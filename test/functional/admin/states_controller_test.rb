@@ -14,7 +14,7 @@ class Admin::StatesControllerTest < Test::Unit::TestCase
     @request.session[:current_user_id] = 3
     @model = State
     @item = State.create(:name=>'test',:description=>'test',
-             :is_default=>true,:position=>1,:level_no=>1)
+      :is_default=>true,:position=>1,:level_no=>1)
   end
 
   def test_index
@@ -57,16 +57,22 @@ class Admin::StatesControllerTest < Test::Unit::TestCase
     assert_equal num+1 , @model.count
   end
 
-  def test_edit
-    get :edit, :id => @item.id
+  def test_edit_success
+    post :update, :id => @item.id, :state=>{:name=>'hello', :description=>'hello2'}
+    assert_response :redirect
+    assert_redirected_to :action => 'list'
+  end
+
+  def test_edit_fail
+    post :update, :id => @item.id, :state=>{:name=>nil, :description=>'hello2'}
     assert_response :success
     assert_template 'edit'
   end
 
   def test_update
-    post :update, :id => @item.id
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
+    get :edit, :id => @item.id
+    assert_response :success
+    assert_template 'edit'
   end
 
   def test_destroy

@@ -102,29 +102,7 @@ HTML
     logger.error ex.message
     "Err. (no html editor found)"
   end
-  #
-  # Lookup Combo for default data element linked to a concept.
-  #
-  def select_data_value(object,method,concept_name)
-      list = [[nil,nil]]
-      concept = DataConcept.find_by_name(concept_name)
-      data_element = concept.default       if concept
-      data_element.values.each{|item|list.concat([[item.name,item.description]]) } if data_element
-    <<HTML
-  #{select(object, method, list)}
-  <script type="text/javascript">
-    Ext.onReady( function(){ 
-              new Biorails.SelectField({
-                           transform: '#{object}_#{method}',
-                           root_class: '#{data_element.class}',
-                           root_id: '#{data_element.id}'
-                        });
-   });
-  </script> 
-HTML
-  rescue Exception => ex
-    logger.error ex.message
-  end  
+ 
   # 
   # multiple purpose selector of items Accepts
   #    1. arrays of named objects
@@ -134,27 +112,16 @@ HTML
   # 
   def select_values(object,method, source = nil,initial_list=nil)
     list = initial_list || [[nil,nil]]
-    case source
-    when String
-      concept = DataConcept.find_by_name(source)
-      list.concat(concept.default.choices)  if concept and concept.default
-    when Class
-      list.concat(source.find(:all,:order=>'name').collect{|i|[i.name,i.id]})      
-    when Assay
-      source.protocols.each { |item| list.concat(item.elements.collect{|c|[c.name,c.id] })}
-    when Experiment
-      source.tasks.each { |item|list.concat(item.elements.collect{|c|[c.name,c.id]}) }
-    when Project
-      source.folders.each { |item| list.concat(item.elements.collect{|c|[c.path,c.id]}) }
-    when ProjectFolder
-      source.elements.each { |item| list.concat(item.collect{|c|[c.name,c.id]}) }
-    when DataConcept
-      source.decendents.each { |item| list.concat(item.elements.collect{|c|[c.path,c.id]})}
-    when DataElement
-      source.decendents.each { |item| list.concat([item.path,item.id])}
-    else
+    if source[0].respond_to?(:path)
+      source.each { |item| list << [item.path,item.id]}
+    elsif source[0].respond_to?(:name)
       source.each { |item| list << [item.name,item.id]}
-    
+    elsif source[0].is_a?(ActiveRecord::Base)
+      source.each { |item| list << [item.to_s,item.id]}
+    elsif source[0].is_a?(Array)
+      source.each { |item| list << [item[0],item[1]]}
+    else
+      source.each { |item| list << [item.to_s,item]}
     end
     <<HTML
   #{select(object, method ,list)}
@@ -174,8 +141,8 @@ HTML
 
   def assigned_user_combo(entity,options={})
     options = {
-        :with =>'assigned_to_user_id',  
-        :url=>{:action=>'update_row',:id=>entity},}.merge(options)
+      :with =>'assigned_to_user_id',
+      :url=>{:action=>'update_row',:id=>entity},}.merge(options)
     
     text = select_tag 'assigned_to_user_id', 
       options_for_select( entity.folder.access_control_list.users, entity.assigned_to_user_id), 
@@ -183,40 +150,27 @@ HTML
 
     text << observe_field(entity.dom_id('assigned_to_user_id'),options)    
     return content_tag('div',text)   
- end
+  end
 
-  def states_combo(element,workflow)
-      element.state_id =1  unless element.state
-      list = element.state.next_states(workflow)
-      list << element.state
+  def states_combo(element,cascade=true)
+    if element.state.published? or element.state.signed?
+      content_tag('strong',element.state)
+    elsif element.right?(:data,:update)
+      state =State.get(element.state)
+      list =  element.allowed_states(cascade)
+      list = list.select{|i|!i.signed?}
       text = select_tag(element.dom_id('state_id') ,
-            options_from_collection_for_select(list,:id,:name,element.state_id ),
-            :class=>"state-level#{element.state.level_no} icon icon-status_#{element.state.name.downcase}" )
+        options_from_collection_for_select(list,:id,:name,state.id ),
+        :class=>"state-level#{state.level_no} icon icon-status_#{state.name.downcase}" )
       
       text << observe_field(element.dom_id('state_id'), 
-              :url=>element_url({:action=>'state',:display=>'combo',:id=>element}), 
-              :update=>element.dom_id('state'),
-              :with =>'state_id')  
+        :url=>element_url({:action=>'state',:display=>'combo',:id=>element}),
+        :update=>element.dom_id('state'),
+        :with =>'state_id')
             
       return content_tag('div',text,
-                           :id=>element.dom_id('state')   )  
-  end
-  
-  def states_bar(element,workflow=nil)
-      element.state_id =State.find(:first)  unless element.state
-      changes = element.state.next_states(workflow)   
-      text = content_tag(:b,"[#{element.state.name}]" ,
-                         :class=>"state-level#{element.state.level_no}")
-                       
-      text << " => "
-      text << changes.collect{|i|link_to_remote(i.name,
-             :update=>element.dom_id(:state),
-             :url=>element_url(:action=>'state',
-                               :state_id=>i.id,
-                               :display=>'bar',
-                               :id=>element.id))}.join("|")     
-                         
-      content_tag('div',text,:id=>element.dom_id(:state))         
+        :id=>element.dom_id('state')   )
+    end
   end
   
   # ## Return a list of the allowed Elements that can be used as specializations
@@ -226,7 +180,7 @@ HTML
   #  * method of the object to build selector for
   #  * root [default=nil] root on tree of items to display
   # 
-  def select_data_element(object,method, root=nil)   
+  def select_data_element(object,method, root=nil)
     list = []
     case root
     when String
@@ -252,6 +206,21 @@ HTML
 HTML
     rescue Exception => ex
     logger.error ex.message
+    return "[No Element]"  << hidden_field(object,method )
+  end
+
+
+  def select_data_element_tag(object, source = nil, value=nil,options={})
+    data_element = case source
+                    when String then DataElement.find_by_name(source)
+                    when Fixnum then DataElement.find_(source)
+                    when DataElement then source
+                      DataElement.find(:first,:conditions=>'parent_id is null',:order=>'name')
+                    end
+    select_tag(object, options_for_select(data_element.values.collect{|i|[i.name,i.name]},value))
+  rescue Exception => ex
+     logger.error ex.message
+     return "[No Element #{ex.message}]"  << hidden_field_tag(object)
   end
 
   # ## List of a allowed data formats
@@ -270,24 +239,120 @@ HTML
 HTML
     rescue Exception => ex
     logger.error ex.message
-    return "[No Formats]"  << hidden_field(object,method ) 
+    return "[No Formats]"  << hidden_field(object,method )
   end
-
-  # ##
-  # 
-  # ## Return a list of the allowed Elements that can be used as specializations
-  # of the passed concept.
-  # 
-  def select_named( object,method, model = nil, initial=nil)   
-    list = initial || []
-    if model 
-      list.concat(model.find(:all,:order=>'name').collect{|i|[i.name,i.id]})
-    end 
-    return select(object, method ,list)
+  #
+  # Lookup Combo for default data element linked to a concept.
+  #
+  def select_concept(object,method,concept,value=nil)
+    data_concept = (concept.is_a?(DataConcept) ? concept : DataConcept.find(concept) )
+    return "[No data concept: #{concept}]" unless data_concept
+    return "[No implementation of concept: #{concept}]" unless data_concept.default
+    select_element(object,method, data_concept.default,value)
   rescue Exception => ex
     logger.error ex.message
-    return "[No #{model.to_s}]"  << hidden_field(object,method) 
+    return "[Error: #{ex.message} for Concept #{concept} ]"  << hidden_field(object,method)
   end
+  #
+  # Lookup Combo for default data element linked to a concept.
+  #
+  def select_element(object,method, element,value=nil)
+    data_element = (element.is_a?(element) ? element : DataElement.find(element) )
+    return "[No data element: #{element}]" unless data_element
+    <<HTML
+      #{hidden_field(object, method,value.id)}
+		  #{text_field_tag("#{object}_#{method}_name",value.name)}
+		 <script type="text/javascript">
+		   Ext.onReady( function(){
+            new Biorails.PropertyComboField({
+                  url: '/admin/element/select/#{data_element.id}',
+                  hiddenField: '#{object}_#{method}',
+                  valueField:  'id',
+                  minListwidth: 150,
+                  displayField: 'name',
+                  applyTo: '#{object}_#{method}_name'
+                 });
+           } );
+		 </script>
+HTML
+  rescue Exception => ex
+    logger.error ex.message
+    return "[Error: #{ex.message} for Concept #{element} ]"  << hidden_field(object,method)
+  end
+
+  def select_parameter_role(object, method_name)
+    list = ParameterRole.find(:all,:order=>:name)
+    collection_select(object, method_name,list,:id,:name)
+  rescue Exception => ex
+    logger.error ex.message
+    return "[Error: #{ex.message} #{source.to_s} Model]"  << hidden_field(object,method_name)
+  end
+  #
+  # Select within the scope of the passed instance or model
+  #
+  def select_named(object, method_name, source = nil,options={})
+      model = ModelExtras.model_from_name(source)
+      begin
+        value =  eval("@#{object}.send :#{method_name}") unless object.nil? or method_name.nil?
+        value =  model.find(value)
+      rescue Exception=>ex
+        logger.info "select_named(#{object},#{method_name},#{source}..) #{ex.message}"
+        value = nil
+      end
+
+    return <<HTML
+
+      #{hidden_field(object, method_name)}
+		  #{text_field_tag("#{object}_#{method_name}_name", (value ? value.name : nil))  }
+
+		  <script type="text/javascript">
+			Ext.onReady( function(){
+            new Biorails.PropertyComboField({
+                  url: '/admin/element/choices/#{model}',
+                  hiddenField: '#{object}_#{method_name}',
+                  minListwidth: 150,
+                  width: #{options[:width]||150},
+                  valueField:  'id',
+                  displayField: 'name',
+                  applyTo: '#{object}_#{method_name}_name'
+                 });
+            } );
+		  </script>
+HTML
+  rescue Exception => ex
+    logger.error ex.message
+    return "[Error: #{ex.message} #{source.to_s} Model]"  << hidden_field(object,method_name)
+  end
+
+  #
+  # Select within the scope of the passed instance or model
+  #
+  def select_named_tag(object, source = nil, value=nil,options={})
+      model = ModelExtras.model_from_name(source)
+      field_options = {:type=>:hidden, :value=> value,:name=>object, :id=> object}.merge(options)
+      value = model.find(value||:first)
+      return <<HTML
+      #{tag(:input, field_options)}
+		  #{text_field_tag("#{object}_name",(value ? value.name : nil))}
+		  <script type="text/javascript">
+			Ext.onReady( function(){
+            new Biorails.PropertyComboField({
+                  url: '/admin/element/choices/#{model}',
+                  hiddenField: "#{object}",
+                  valueField:  'id',
+                  minListwidth: 150,
+                  width: #{options[:width]||150},
+                  displayField: 'name',
+                  applyTo: "#{object}_name"
+                 });
+            } );
+		  </script>
+HTML
+  rescue Exception => ex
+    logger.error ex.message
+    return "[Error: #{ex.message} #{source.to_s} Model]"  << hidden_field_tag(object)
+  end
+
   # 
   # 
   # 
@@ -310,16 +375,11 @@ HTML
     return "[No Protocols]"  << hidden_field(object,method) 
   end  
 
-  def select_process_instance(object,method, item = nil,latest=false)
+  def select_process_instance(object,method, list = nil)
     protocol_options= []
-    Project.current.protocols.each do |item|
-      unless item.multistep?
-        if item.released 
-          protocol_options << ["#{item.released.summary} ",item.released.id]
-        elsif (latest)
-          protocol_options << ["#{item.latest.summary} ",item.latest.id]
-        end
-      end
+    list ||= Project.current.process_instances
+    list.each do |item|
+      protocol_options << ["#{item.summary} ",item.id]
     end
     
     <<HTML
@@ -350,7 +410,7 @@ HTML
       text_field_tag(cell.dom_id,cell.value)
     end     
   rescue Exception => ex
-     logger.warn "#Error "+ex.message         
+    logger.warn "#Error "+ex.message
   end
 
   # ## 1) Display Text field 2) On change validate with regex 3) On exit of

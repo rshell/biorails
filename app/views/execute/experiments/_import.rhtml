@@ -1,5 +1,5 @@
 <div class='box'>
-<h2><%=l(:label_import) %><%=l(:label_tasks) %>
+<h2><%=l(:Import) %><%=l(:Tasks) %>
 </h2>
 <p>
     <%=l(:help_import_task) %>
@@ -12,24 +12,24 @@
 <fieldset>
     <%if @experiment.process.multistep? %>
     <legend class="icon icon-protocol">
-        <%=l(:label_recipe) %><%=l(:text_steps) %>
+        <%=l(:Recipe) %><%=l(:text_steps) %>
     </legend>
     <table class='report'>
         <tr>
             <th>
-                <%=l(:label_step) %>
+                <%=l(:Step) %>
             </th>
             <th>
-                <%=l(:label_step_start) %>
+                <%=l(:Step_Start) %>
             </th>
             <th>
-                <%=l(:label_step_duration) %>
+                <%=l(:Step_Duration) %>
             </th>
             <th>
-                <%=l(:label_template) %>
+                <%=l(:Template) %>
             </th>
             <th>
-                <%=l(:label_description) %>
+                <%=l(:Description) %>
             </th>
         </tr>
         <%for step in @experiment.process.steps %>
@@ -44,7 +44,7 @@
                 <%= step.expected_hours %>
             </td>
             <td>
-                <%= link_to step.process.path(:assay), :action => 'export', :id => @experiment.id, :assay_protocol_id => step.process.id, :class=>'icon icon-xls' %>
+                <%= link_to step.process.path(:assay), {:action => 'export', :id => @experiment.id, :protocol_version_id => step.process.id}, :class=>'icon icon-xls' %>
             </td>
             <td>
                 <%= step.process.description %>
@@ -60,10 +60,10 @@
     <%=@experiment.assay %>
 </legend>
 <ul>
-    <%for protocol in @experiment.assay.process_instances %>
+    <%for process in @experiment.assay.process_instances %>
     <li style="margin-left:1em">
-        <%= link_to "#{l(:label_template)} #{l(:label_for)} [#{protocol.path(:assay)}]", :action => 'export', :id => @experiment.id, :assay_protocol_id => protocol.id, :class=>'icon icon-xls' %>
-        <%= protocol.definition.description %>
+        <%= link_to "#{l(:Template)} #{l(:For)} [#{process.path(:assay)}]",{ :action => 'export', :id => @experiment.id, :protocol_version_id => process.id}, :class=>'icon icon-xls' %>
+        <%= process.description %>
     </li>
     <%end %>
 </ul>
@@ -72,12 +72,12 @@
     <%=l(:help_import_csv) %>: 
 </p>
 <br/>
-<%  if @experiment.allow?(:data,:update) %>
+<%  if @experiment.right?(:data,:update) %>
   <%form_tag({:action =>'import_file', :id=> @experiment.id} , {:multipart => true}) do %>
     <%= error_messages_for("import") %>
     <%=file_field_tag(:file, :size=>64) %>
     <br/>
-    <%= submit_tag( l(:button_import)) %>
+    <%= submit_tag( l(:Import)) %>
 
   <% end %>
 <%else%>

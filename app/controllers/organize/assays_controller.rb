@@ -35,33 +35,33 @@
 class Organize::AssaysController < ApplicationController
 
   use_authorization :organization,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-                    :rights => :current_user
+    :build => [:new,:create,:edit,:update,:destroy],
+    :use => [:list,:show, :processes, :recipes,:unlink,:link]
 
   before_filter :setup_assays ,
     :only => [ :list,:index]
   
+  
   before_filter :setup_assay ,
-    :only => [ :show, :edit, :update,:destroy,:print,:experiments, :parameters, :queues,:export,:protocols,:metrics]
-  
-  
+    :only => [ :show, :edit, :update,:destroy,:print,:experiments,:processes, :parameters, :queues,:export,:protocols,:metrics, :recipes]
+
   def index
     list
   end
   
-##
-# Display a List of Available assays for this user
-# 
-# 
+  ##
+  # Display a List of Available assays for this user
+  #
+  #
   def list
     respond_to do | format |
       format.html { render :action => 'list' }
       format.ext  { render :partial =>'list'}
     end
   end
-##
-# Show a overview of the current assay
-# 
+  ##
+  # Show a overview of the current assay
+  #
   def show
     respond_to do | format |
       format.html { render :action => 'show' }
@@ -70,9 +70,9 @@ class Organize::AssaysController < ApplicationController
     end
   end 
 
-##
-# Printed output for a model
-# 
+  ##
+  # Printed output for a model
+  #
   def print
     respond_to do | format |
       format.html { render :text => @assay.to_html }
@@ -83,21 +83,28 @@ class Organize::AssaysController < ApplicationController
     end
   end 
   
-##
-# List of exparametersperiments for the assay.
-#
+  ##
+  # List of exparametersperiments for the assay.
+  #
   def experiments
+    @report = Biorails::ReportLibrary.experiment_list("Experiments_In_#{@assay.name}") do | report |
+      report.column('assay.id').customize(:filter => @assay.id, :is_visible => true)
+    end
     respond_to do | format |
       format.html { render :action => 'experiments' }
       format.ext  { render :partial => 'experiments' }
-      format.json { render :json => @assay.to_json }
-      format.xml  { render :xml => @assay.to_xml }
+      format.pdf  { render_pdf :action => 'list',:layout=>false }
+      format.json { render :json => @report.data.to_json }
+      format.xml  { render :xml => @report.data.to_xml }
     end
   end
-##
-# Show the summary stats for the assay
-#
+  ##
+  # Show the summary stats for the assay
+  #
   def metrics
+    @report = Biorails::ReportLibrary.assay_statistics("Statistics #{@assay.name}") do | report |
+      report.column('assay_id').customize(:filter => @assay.id, :is_visible => true)
+    end
     respond_to do | format |
       format.html { render :action => 'metrics' }
       format.ext  { render :partial => 'metrics' }
@@ -105,51 +112,85 @@ class Organize::AssaysController < ApplicationController
       format.xml  { render :xml => @assay.to_xml }
     end
   end
-##
-# Show the services queues for the assay
-#
+  ##
+  # Show the services queues for the assay
+  #
   def queues
+    @report = Biorails::ReportLibrary.assay_queue_list(
+      "Assay Queues in #{@assay.name}") do | report |
+      report.column('assay_id').customize(:filter => @assay.id, :is_visible => false)
+    end
     respond_to do | format |
       format.html { render :action => 'queues' }
       format.ext  { render :partial => 'queues' }
-      format.json { render :json => @assay.queues.to_json }
-      format.xml  { render :xml => @assay.queues.to_xml }
-    end
-end
-##
-# Configuration of a Assay. This manages the setup of parameter list and 
-# list of users associated with a assay
-#   
-  def parameters
-    respond_to do | format |
-      format.html { render :action => 'parameters' }
-      format.ext { render :partial => 'parameters' }
-      format.json { render :json => @assay.parameters.to_json }
-      format.xml  { render :xml =>  @assay.parameters.to_xml }
+      format.pdf  { render_pdf :action => 'list',:layout=>false }
+      format.json { render :json => @report.data.to_json }
+      format.xml  { render :xml => @report.data.to_xml }
     end
   end
-##
-# Standard entry point for data entry mode for assays. This will display a list of   
-# 
+  ##
+  # Configuration of a Assay. This manages the setup of parameter list and
+  # list of users associated with a assay
+  #
+  def parameters
+    @report = Biorails::ReportLibrary.assay_parameter_list(
+      "Assay Parameters in #{@assay.name}") do | report |
+      report.column('assay_id').customize(:filter => @assay.id, :is_visible => false)
+    end
+    respond_to do | format |
+      format.html { render :action => 'parameters' }
+      format.ext  { render :partial => 'parameters' }
+      format.pdf  { render_pdf :action => 'list',:layout=>false }
+      format.json { render :json => @report.data.to_json }
+      format.xml  { render :xml => @report.data.to_xml }
+    end
+  end
+  ##
+  # Standard entry point for data entry mode for assays. This will display a list of
+  #
   def protocols
     redirect_to process_instance_url(:action => 'list',:id=>@assay)
   end
 
-  def recipes
-    redirect_to process_flow_url(:action => 'list',:id=>@assay)
+  def processes
+    @report = Biorails::ReportLibrary.assay_processes_list(
+      "Assay Processes in #{@assay.name}") do | report |
+      report.column('assay_id').customize(:filter => @assay.id, :is_visible => false)
+    end
+    respond_to do | format |
+      format.html { render :action => 'report' }
+      format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
+      format.json { render :json => @report.data.to_json }
+      format.xml  { render :xml => @report.data.to_xml }
+    end
   end
-#
-# Generate a New Assay and put up dialog for creation of assay
-# 
+  
+  def recipes
+    @report = Biorails::ReportLibrary.assay_recipe_list(
+      "Assay Recipes in #{@assay.name}") do | report |
+      report.column('protocol.assay.id').customize(:filter => @assay, :is_visible => false)
+
+    end
+    respond_to do | format |
+      format.html { render :action => 'report' }
+      format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
+      format.json { render :json => @report.data.to_json }
+      format.xml  { render :xml => @report.data.to_xml }
+    end
+  end
+    
+  #
+  # Generate a New Assay and put up dialog for creation of assay
+  #
   def new
     @assay = Assay.new
     @assay.started_at =Time.new
     @assay.expected_at = Time.new + 3.months
   end
   
-##
-# response to new with details to created a assay
-#   
+  ##
+  # response to new with details to created a assay
+  #
   def create
     @assay = Assay.new(params[:assay])
     if @assay.save
@@ -162,9 +203,9 @@ end
     end
   end
 
-##
-#Edit the current assay 
-#
+  ##
+  #Edit the current assay
+  #
   def edit
     respond_to do | format |
       format.html { render :action => 'edit' }
@@ -175,9 +216,9 @@ end
     end
   end
 
-##
-#manage the response to edit
-#
+  ##
+  #manage the response to edit
+  #
   def update
     @successful = @assay.update_attributes(params[:assay])
     if @successful
@@ -188,61 +229,62 @@ end
     end
   end
 
-##
-#Export a protocool as a XML file
-#  
- def export
+  ##
+  #Export a protocool as a XML file
+  #
+  def export
     xml = @assay.to_xml()
     send_data(xml,:type => 'text/xml; charset=iso-8859-1; header=present', :filename => @assay.name+'.xml')     
- end
+  end
 
-##
-#Import a a assay xml file
-#
- def import 
+  ##
+  #Import a a assay xml file
+  #
+  def import
     @tab = params[:tab]||0
     @project = current_project
     render :action => 'list'   
- end
- #
- # Share a assay with another project
- #
- def  link
+  end
+  #
+  # Share a assay with another project
+  #
+  def  link
     @assay = Assay.find(params[:assay_id])
     if @assay.shareable?(current_project)
-       current_project.share(@assay)
+      current_project.share(@assay)
     else
-      flash[:warning]="Not Allowed to share #{@assay.name} with project"
+      flash[:warning]="Not allowed to share #{@assay.name} with project"
     end
     redirect_to assay_url(:action => 'list')
- end
+  end
 
- def unlink
+  def unlink
     @assay = Assay.find(params[:id])
     unless current_project.folder.contains?(@assay.folder)
-       current_project.remove_link(@assay)
+      current_project.remove_link(@assay)
     else
       flash[:warning]="Cant remove as is owned by this domain or its children"
     end
     redirect_to assay_url(:action => 'list')
- end
+  end
 
-ASSAY_MODELS = [:assay,:assay_parameter,:assay_queue,:assay_protocol,
-                :assay_process,:process_instance,
-                :assay_workflow, :process_flow,
-                :protocol_version,:parameter_context,:parameter] unless defined? ASSAY_MODELS
-##
-#Import a a assay xml file
-#
- def import_file 
-   @tab=1
-   Assay.transaction do
+  ASSAY_MODELS = [:assay,:assay_parameter,:assay_queue,:assay_protocol,
+    :assay_process,:process_instance,
+    :assay_workflow, :process_flow,
+    :protocol_version,:parameter_context,:parameter] unless defined? ASSAY_MODELS
+  ##
+  #Import a a assay xml file
+  #
+  def import_file
+    @tab=1
+    Assay.transaction do
       options = {:override=>{:project_id=>current_project.id,:name=>params[:name] },
-                 :include=>[],:ignore=>[], :create  =>ASSAY_MODELS }
+        :include=>[],:ignore=>[], :create  =>ASSAY_MODELS }
            
       options[:include] << :parameters
       options[:include] << :queues if params[:assay_queue] 
-      options[:include] << :protocols if params[:assay_protocol]
+      options[:include] << :processes if params[:assay_processes]
+      options[:include] << :workflows if params[:assay_workflows]
       @assay = Assay.from_xml(params[:file]||params['File'],options)  
       @assay.project = current_project
       unless @assay.save 
@@ -254,46 +296,55 @@ ASSAY_MODELS = [:assay,:assay_parameter,:assay_queue,:assay_protocol,
     flash[:info]= "Import Assay #{@assay.name}" 
     redirect_to( assay_url(:action => 'show', :id => @assay))
 
- rescue Exception => ex
+  rescue Exception => ex
     session.data[:current_params]=nil    
     logger.error "current error: #{ex.message}"
     flash[:error] = "Import Failed #{ex.message}"
     redirect_to assay_url(:action => 'list')
- end
-##
-# Destroy a assay
-#
+  end
+  ##
+  # Destroy a assay
+  #
   def destroy
     begin
-      @successful = @assay.destroy
-      session[:assay] = nil
-      session[:experiment] = nil
-      session[:task] = nil
-      @assay = nil
-    rescue
-       flash[:error] = $!.to_s
-       @successful  = false
+      Assay.transaction do
+        if @assay.changeable? and right?(:data,:destroy)
+          @assay.destroy
+        else
+          flash[:warning] ="Can not destroy #{@assay.name}"
+        end
+      end
+    rescue Exception => ex
+      flash[:error] ="destroy Failed with error: #{ex.message}"
     end
-    redirect_to :action => 'show'
+    redirect_to :action => 'list'
+
   end
 
-protected
+  protected
 
   def setup_assays
+    @tab = params[:tab]||0
     set_project(Project.load( params[:id] )) if  params[:id]
+    set_element(Project.current.folder(Assay.root_folder_under))
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end
 
   def setup_assay
-    @assay = Assay.load(params[:id])  
     @tab = params[:tab]||0
-    if @assay
-      set_element(@assay.folder)
-      logger.info "set_assay_content(#{@assay.name})"
-      @folder = @assay.folder
-      ProjectFolder.current = @folder
-    else
-      return show_access_denied      
+    @assay = Assay.load(params[:id])  
+    return show_access_denied unless @assay
+    @folder = current_project.folder.folder?(@assay)
+    unless @folder
+      set_project @assay.project
     end
+    @folder ||= @assay.folder
+    set_element(@folder)
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end
     
   

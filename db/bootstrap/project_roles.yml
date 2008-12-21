@@ -1,380 +1,71 @@
----
-00000000001_project_role: !ruby/object:ProjectRole
-  attributes:
-    name: Team-Viewer
-    updated_at: 2008-03-03 13:54:53 Z
-    cache: |
-      ---
-      assays:
-        list: true
-        show: true
-      experiments:
-        list: true
-        show: true
-      teams:
-        list: true
-        show: true
-      "":
-        "": true
-      auth: {}
-
-      help: {}
-
-      catalogue: {}
-
-      project:
-        list: true
-        show: true
-      dba: {}
-
-      assay_parameters:
-        list: true
-        show: true
-      audit: {}
-
-      assay_queues:
-        list: true
-        show: true
-      biorails: {}
-
-      queue_items:
-        list: true
-        show: true
-      tasks:
-        list: true
-        show: true
-      requests:
-        list: true
-        show: true
-      users: {}
-
-      home: {}
-
-      assay_protocols:
-        list: true
-        show: true
-      reports: {}
-
-      signatures: {}
-
-      folders:
-        list: true
-        show: true
-      finder: {}
-
-      inventory: {}
-
-      project_requests:
-        list: true
-        show: true
-
-    updated_by_user_id: 1
+--- 
+00000000001_project_role: !ruby/object:ProjectRole 
+  attributes: 
+    name: Project-Viewer
+    updated_at: 2008-10-20 14:24:26
+    cache: |+
+      --- {}
+      
+    updated_by_user_id: "1"
     type: ProjectRole
-    id: 1
+    id: "1"
     description: Members of a team who can simply see work in a read only manor
-    created_by_user_id: 1
-    parent_id:
+    created_by_user_id: "1"
+    parent_id: 
+    created_at: 2008-09-17 09:22:15
   attributes_cache: {}
 
-00000000002_project_role: !ruby/object:ProjectRole
-  attributes:
-    name: Team-Member
-    updated_at: 2008-03-03 13:55:31 Z
+00000000002_project_role: !ruby/object:ProjectRole 
+  attributes: 
+    name: Project-Member
+    updated_at: 2008-10-20 14:47:07
     cache: |
-      ---
-      assays:
-        list: true
-        show: true
-      experiments:
-        new: true
-        list: true
-        edit: true
-        destroy: true
+      --- 
+      document: 
+        witness: true
+        sign: true
+        publish: true
+      data: 
+        share: true
+        assign: true
         create: true
-        show: true
+        verify: true
         update: true
-        "*": true
-      teams:
-        list: true
-        show: true
-      "":
-        "": true
-      user:
-        list: true
-        show: true
-      auth: {}
 
-      help: {}
-
-      catalogue: {}
-
-      protocol:
-        list: true
-        show: true
-      assay:
-        list: true
-        show: true
-      project:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      dba: {}
-
-      assay_parameters:
-        list: true
-        show: true
-      system:
-        list: true
-        show: true
-      audit: {}
-
-      cataloge:
-        list: true
-        show: true
-      assay_queues:
-        list: true
-        show: true
-      biorails: {}
-
-      tasks:
-        new: true
-        list: true
-        edit: true
-        make_flexible: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      queue_items:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      experiment:
-        new: true
-        list: true
-        create: true
-        show: true
-        update: true
-      requests:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      users: {}
-
-      request:
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      home: {}
-
-      assay_protocols:
-        list: true
-        show: true
-      reports: {}
-
-      signatures: {}
-
-      folders:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      report:
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      finder: {}
-
-      inventory: {}
-
-      project_requests:
-        list: true
-        "*": true
-
-    updated_by_user_id: 1
+    updated_by_user_id: "1"
     type: ProjectRole
-    id: 2
+    id: "2"
     description: Project Member
-    created_by_user_id: 1
-    parent_id: 1
-    created_at: 2006-06-23 12:03:50 Z
+    created_by_user_id: "1"
+    parent_id: "1"
+    created_at: 2006-06-23 12:03:50
   attributes_cache: {}
 
-00000000005_project_role: !ruby/object:ProjectRole
-  attributes:
-    name: Team-Manager
-    updated_at: 2008-03-03 13:54:13 Z
+00000000005_project_role: !ruby/object:ProjectRole 
+  attributes: 
+    name: Project-Manager
+    updated_at: 2008-10-20 14:46:20
     cache: |
-      ---
-      assays:
-        new: true
-        list: true
-        edit: true
+      --- 
+      document: 
+        withdraw: true
+        witness: true
+        sign: true
+        publish: true
+      data: 
+        share: true
+        assign: true
         destroy: true
         create: true
-        show: true
+        verify: true
         update: true
-        "*": true
-      experiments:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      teams:
-        new: true
-        list: true
-        edit: true
-        create: true
-        show: true
-        update: true
-      auth: {}
 
-      help: {}
-
-      project_queues:
-        list: true
-        show: true
-        "*": true
-      project_assays:
-        list: true
-        show: true
-        "*": true
-      catalogue: {}
-
-      project:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      dba: {}
-
-      assay_parameters:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      audit: {}
-
-      project_experiments:
-        list: true
-        show: true
-        "*": true
-      assay_queues:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      biorails: {}
-
-      queue_items:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      tasks:
-        new: true
-        list: true
-        edit: true
-        make_flexible: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      requests:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      users: {}
-
-      home: {}
-
-      reports: {}
-
-      assay_protocols:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      signatures: {}
-
-      folders:
-        new: true
-        list: true
-        edit: true
-        destroy: true
-        create: true
-        show: true
-        update: true
-        "*": true
-      finder: {}
-
-      inventory: {}
-
-      project_requests:
-        list: true
-        show: true
-        "*": true
-
-    updated_by_user_id: 1
+    updated_by_user_id: "1"
     type: ProjectRole
-    id: 5
+    id: "5"
     description: Project owner with full rights
-    created_by_user_id: 1
-    parent_id:
-    created_at: 2007-06-11 12:05:52 Z
+    created_by_user_id: "1"
+    parent_id: 
+    created_at: 2007-06-11 12:05:52
   attributes_cache: {}
 

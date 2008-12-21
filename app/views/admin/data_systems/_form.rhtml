@@ -2,57 +2,57 @@
 <!--[form:data_system]-->
 
 <label for="data_system_data_context_id" class='icon icon-data_context'>
-  <%=l(:label_context)%>
+  <%=l(:Context)%>
 </label>
 <%= collection_select(:data_system, :data_context_id, @data_system.allowed_contexts, :id, :name) %>
 <br />
 
 <label for="data_system_name">
-  <%=l(:label_name)%>
+  <%=l(:Name)%>
 </label>
 <br />
 <%= text_field :data_system, 'name',  :class=>"text-input"  %>
 <br />
 <label for="data_system_description">
-  <%=l(:label_description)%>
+  <%=l(:Description)%>
 </label>
 <br />
   <%= text_area( 'data_system', 'description',:rows=>4,:cols=>80) %>
 <br />
 
 <label for="data_system_adapter" class='icon icon-login'>
-  <%=l(:label_data_adaptor)%>
+  <%=l(:Adaptor)%>
 </label>
     <%= select(:data_system, :adapter, @data_system.allowed_adapters {|p| p})%>
 <br />
 
 <label for="data_system_host">
-  <%=l(:label_data_host)%>
+  <%=l(:Data_Host)%>
 </label>
 <br />
     <%= text_field :data_system, 'host', :size=> 32 , :class=>"text-input"  %>
 <br />
 
 <label for="data_system_database">
-  <%=l(:label_database)%>
+  <%=l(:Database)%>
 </label>
 <br />
     <%= text_field :data_system, 'database', :size=> 32, :class=>"text-input"   %>
 <br />
 <label for="data_system_username">
-  <%=l(:label_username)%>
+  <%=l(:Username)%>
 </label>
 <br />
     <%= text_field :data_system, 'username', :size=> 32, :class=>"text-input"   %>
 <br />
 <label for="data_system_password">
-  <%=l(:label_password)%>
+  <%=l(:Password)%>
 </label>
 <br />
     <%= text_field :data_system, 'password', :size=> 32, :class=>"text-input"   %>
 <br />
     <label for="data_system_test_object">
-      <%=l(:label_test_object)%>
+      <%=l(:Test_Object)%>
     </label>
 <br />
     <%= text_field :data_system, 'test_object', :size=> 32, :class=>"text-input"   %>

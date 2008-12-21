@@ -1,381 +1,95 @@
-# == Report Controller
+# == Report Controller (Project)
 #
-# This is a generic report builder and runner for [http://biorails.org] it provides the ability to 
+# This is a generic report builder and runner for [http://biorails.org] it provides the ability to
 # generate a ActiveRecord style find query with included linked objects for the bases of the report.
-# 
+#
 # This query is saved in Report and ReportColumn to create a reusable report defintion which can be
-# reused. Generally one instance of a object appears on one row of results. The reports generator 
-# usage relationships in the Active Record Models (has_many and belongs_to) to allow the selection og 
+# reused. Generally one instance of a object appears on one row of results. The reports generator
+# usage relationships in the Active Record Models (has_many and belongs_to) to allow the selection og
 # fields from user models.
-# 
+#
 # == Copyright
 # Copyright © 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights
 #
-# 
-class Execute::ReportsController < ApplicationController
+#
+class Execute::ReportsController <  Admin::ReportsController
+
+  PROJECT_REPORT_MODELS = [
+    Experiment,Task,TaskContext,TaskResult,TaskValue,TaskText,TaskReference,
+    Project,ProjectElement,ProjectAsset,
+    Request,RequestService,QueueItem,QueueResult,
+    AssayStatistics,ProcessStatistics,ExperimentStatistics,TaskStatistics,
+    Assay,AssayParameter,AssayProtocol,AssayProcess,AssayWorkflow,
+    ProcessInstance,ProcessFlow,ProcessStep,Parameter]
 
   use_authorization :reports,
-    :actions => [:list,:show,:new,:create,:edit,:update,:destroy],
-    :rights => :current_user
-                      
+    :build => [:new,:create,:edit,:update,:destroy],
+    :use => [:list,:show]
 
-  COLOURS = ['#40e0d0','#ffffb3','#ffe4b5','#e6f5d0','#e6e6fa','#e0ffff','#ffefdb','#dcdcdc',
-    '#ffe1ff','#ffe4b5','#ffe4c4','#ffe4e1','#ffffd9','#ffffe0','#ffffe5',
-    '#fffff0','#ffec8b','#ffed6f','#ffeda0','#ffefd5','#ffefdb'] unless defined? COLOURS
-  
-  GRAPHIZ_STYLES = ['dot','neato','twopi','fdp'] unless defined? GRAPHIZ_STYLES
-               
-  def index
-    list
-  end
-  ##
-  # List of created reports
-  # 
-  #  * params[id] filter down list for a single type of model
-  #
-  def list
-    @internal = false
-    @report = Biorails::ReportLibrary.report_list do | report |
-      report.column('project_id').customize(:filter => current_project.id, :is_visible => false)
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
-     end
-    respond_to do | format |
-      format.html { render :action => 'show' }
-      format.ext  { render :partial => 'shared/report', :locals => {:report => @report,:show=>'show', :edit=>'edit' } }
-      format.json { render :json => @report.grid.to_json}
-      format.xml  { render :xml => @report.data.to_xml }
-    end
+  before_filter :setup_list,
+    :only => [ :new,:list,:index,:create]
 
-  end
-
-  ##
-  # Show a report based on saved definition. This accepts further filters and sort details 
-  # 
-  #  * params[:id] id of the report to show
-  #  * params[:filter] is used as map parameter to filter {:status => 'low',:label => 'AB%'} 
-  #  * params[:sort] this is used to change the sort order for the columns e eg "name,label:desc"
-  # 
-  def show
-    @report = Report.find(params[:id])
-    @report.column('id').customize(:is_visible => false)
-    @snapshot_name = Identifier.next_id(current_user.login)   
-    respond_to do | format |
-      format.html { render :action => 'show' }
-      format.ext { render :partial => 'show' }
-      format.json { render :json =>  @report.grid.to_json }
-      format.xml  { render :xml => {   :rows  =>  @report.run.collect{|i|i.attributes},
-          :id => @report.id,:page => params[:page] }.to_xml }
-      format.js   { 
-        render :update do | page |
-          page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report } 
-        end 
-         
-      }
-    end
-  end 
- 
-  def grid
-    @report = Report.find(params[:id])
-    @report.add_ext_filter(params)     
-    render :inline => "<%= data_json(@report) %>"
-  end
- 
- 
-  def internal
-    return show_access_denied unless current_user.allow?(:system,:admin)
-    @project = current_project
-    @report = Biorails::ReportLibrary.internal_report_list do | report |
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
-    end
-   
-    respond_to do | format |
-      format.html { render :action => 'show' }
-      format.json { render :json => @report.grid.to_json}
-      format.xml  { render :xml => @report.data.to_xml }
-    end
-  end
+  before_filter :setup_record,
+    :only => [ :show, :edit, :copy, :update,:destroy,:export,
+               :print,:grid,:snapshot,:visualize,:columns]
 
   ##
   # Generate new report for a model
-  # 
+  #
   #  * params[:id] optional name of the model to use as basis of report
-  #  
+  #
   def new
-    @models = Biorails::UmlModel.models
-    @report = Report.new(:name=> Identifier.next_id(Report), :project_id=>current_project.id, :style=>'Report')
+    @models = PROJECT_REPORT_MODELS
+    @report = ProjectReport.new(:name=> Identifier.next_id(Report), :project_id=>current_project.id, :style=>'Report')
     @report.model = TaskResult
     respond_to do |format|
       format.html { render :action=>'new'}
       format.xml  { render :xml => @report.to_xml(:include=>[:model,:columns])}
-    end      
+    end
   end
- 
+
   ##
-  #Create a new report and if this work jump to report editor to add custom columns 
+  #Create a new report and if this work jump to report editor to add custom columns
   #
   # * params[:report] for the map of properties of the Report object to create
   #
   def create
     @models = Biorails::UmlModel.models
-    @report = Report.new(params[:report])    
-    @report.errors.clear
-    @report.errors.full_messages().each {|e| logger.info "Report #{e.to_s}"}
+    @report = ProjectReport.new(params[:report])
     if @report.save
-      set_project @report.project if @report.project 
+      set_project @report.project if @report.project
       redirect_to :action => 'edit', :id => @report
     else
       @report.errors.full_messages().uniq.each {|e| logger.info "Report #{e.to_s}"}
       render :action => 'new'
     end
   end
- 
-  ##
-  # Edit a existing report 
-  def edit
-    @report = Report.find(params[:id])  
-    @internal = @report.internal
-    @has_many = true
-    @data = @report.run(:page => 1)
-    respond_to do | format |
-      format.html { render :action => 'edit' }
-      format.ext { render :partial => 'edit' }
-      format.json { render :json => @data.to_json }
-      format.xml  { render :xml => @data.to_xml }
+
+protected
+
+
+  def setup_list
+    set_project(Project.find( params[:id] )) if  params[:id]
+    @report = Biorails::ReportLibrary.report_list do | report |
+      report.column('project_id').customize(:filter => current_project.id, :is_visible => false)
     end
+    set_element(Project.current.folder(ProjectReport.root_folder_under))
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end
 
-  ##
-  # update the record with details from form input. This uses
-  # 
-  #  * params[:id] for the lookup of the Report
-  #  * params[:report][] for a map of Report properties to update
-  #  * params[:columns][][] as 2 level map of column name then properties
-  #  
-  def update
+  def setup_record
     @report = Report.find(params[:id])
-    @internal = @report.internal
-    @report.update_attributes(params[:report])
-    respond_to do |format|
-      format.html { redirect_to :action => 'edit', :id => @report}
-      format.xml  { render :xml => @report.to_xml(:include=>[:model,:columns])}
-      format.js  { render :update do | page |
-          page.main_panel  :partial => 'edit' 
-        end
-      }
-    end      
+    if @report and @report.project and @report.project_element
+         set_element(@report.project_element)
+         set_project(@report.project)
+    end
+    return true
+  rescue Exception => ex
+      logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+      return show_access_denied
   end
-
-
-  def print
-    @report = Report.find(params[:id])
-    @internal = @report.internal
-    @data = @report.run(:page=>1,:per_page=>1000)  
-    respond_to do |format|
-      format.html { render :action=>'print', :layout => false}
-      format.pdf { render_pdf( "#{@report.name}.pdf", :action => 'print', :layout => false) }
-    end      
-  end 
- 
-  ###
-  # Save a Run of a report to as ProjectContent for reporting
-  # 
-  def snapshot    
-    @report = Report.find(params[:id])
-    @internal = @report.internal
-    if params[:folder_id].blank?
-      @project_folder  = current_project.folder("shapshots")
-    else  
-      @project_folder  =ProjectFolder.find(params[:folder_id])
-    end
-    name = params[:name]
-    name ||= Identifier.next_id(current_user.login) 
-
-    title = params[:title]
-    title ||= @report.name
-
-    @columns = @report.displayed_columns
-    @data = @report.run(:page => params[:page]||1)
-    @html = render_to_string(:action=>'print', :layout => false)
-    @project_element = @project_folder.add_content(name, @html)
-    @project_element.reference = @report
-    if @project_element.save
-      redirect_to folder_url( :action =>'show',:id=>@project_folder )
-    else
-      redirect_to report_url( :action =>'show',:id=>@report )
-    end
-  end
-
-  #
-  # create a UML diagram for the report
-  #
-  def visualize
-    @report = Report.find(params[:id])
-    @internal = @report.internal
-    respond_to do | format |
-      format.html { render :action => 'visualize' }
-      format.ext { render :partial => 'visualize' }
-    end    
-  end
-  #
-  # Delete a defined report from the system
-  #
-  def destroy
-    Report.find(params[:id]).destroy
-    redirect_to :action => 'list'
-  end
-  ##
-  # Alias for show
-  # 
-  def run
-    show
-  end 
-  ##
-  # expand a element of the attribute tree
-  # 
-  #  * param[:id] 
-  #  * param[:link] 
-  #
-  def columns
-    @report = Report.find(params[:id])
-    @model = @report.model
-    @path = "" 
-    if params[:node] && params[:node]!="."
-      @path = params[:node] + "."   
-      @path .split(".").each do |item|
-        @model = eval(@model.reflections[item.to_sym].class_name)              
-      end       
-    end
-    respond_to do | format |
-      format.html { render :partial => 'tree'}
-      format.json { render :partial => 'tree'}
-    end
-  end
-
- 
-  #
-  #  export Report of Concepts as CVS
-  #  
-  def export
-    @report = Report.find(params[:id])
-    @columns = @report.displayed_columns
-    output = StringIO.new
-    CSV::Writer.generate(output, ',') do |csv|
-      csv << @columns.collect{|col|col.label}
-      for row in @report.run(:page => 1,:per_page=>1000)
-        values = @columns.collect{ |column| [column.value(row)].flatten }
-        max = values.collect{ |item| item.size}.max
-        for item  in (0..max-1)
-          csv << values.collect{ |value| value[item] }
-        end 
-      end
-    end
-    output.rewind
-    send_data(output.read,
-      :type => 'text/csv; charset=iso-8859-1; header=present',
-      :filename => "report_#{@report.name}.csv")
-  end  
-
-  ##
-  # customize details for a column
-  # 
-  def update_column   
-    @column = ReportColumn.find(params[:id])
-    @report = @column.report
-    @successful= @column.customize({params[:field] => params[:value]} )   
-    respond_to do | format |
-      format.html { render( :inline => 'ok')}
-      format.json { render( :partial => @column.to_json)}
-      format.xml { render( :partial => @column.to_xml)}
-    end
-  end
-
-  ##
-  # add a column to the report
-  # 
-  def move_column
-    @column = ReportColumn.find(params[:id])
-    @report = @column.report
-    no = @column.order_num + params[:no].to_i
-    logger.debug "move_column #{@column.name} from #{@column.order_num} to #{no}"
-    other = @report.columns.detect{|i|i.order_num.to_s==no.to_s}
-    if other 
-      other.order_num = @column.order_num
-      other.save
-    end
-    @column.order_num =no
-    @successful=@column.save     
-    @report.reload
-    respond_to do | format |
-      format.html { render :action => 'edit' }
-      format.json { render :json => @report.to_json }
-      format.xml  { render :xml => @report.to_xml }
-      format.js { render :update do | page |
-          page.main_panel(:partial => 'edit') if @successful
-          page.message_panel(:partial => 'shared/messages', :locals => { :objects => [:column,:report] })
-        end 
-      }
-    end
-  end 
-  ##
-  # add a column to the report
-  # 
-  def add_column
-    @report = Report.find(params[:id])
-    text = params[:column]
-    text ||= request.raw_post || request.query_string
-    logger.debug "add_column #{text}"
-    @column = @report.column(text.split("~")[1])
-    @successful=@column.save
-    respond_to do | format |
-      format.html { render :action => 'edit' }
-      format.json { render :json => @report.to_json }
-      format.xml  { render :xml => @report.to_xml }
-      format.js { render :update do | page |
-          page.main_panel(:partial => 'edit') if @successful
-          page.message_panel(:partial => 'shared/messages', :locals => { :objects => [:column,:report] })
-        end 
-      }
-    end
-  end
-  ##
-  # Remove a column from the report
-  #  
-  def remove_column
-    @column = ReportColumn.find(params[:id])
-    @report = @column.report
-    @successful=@column.destroy
-    @report.reload
-    respond_to do | format |
-      format.html { render :action => 'edit' }
-      format.json { render :json => @report.to_json }
-      format.xml  { render :xml => @report.to_xml }
-      format.js { render :update do | page |
-          page.main_panel(:partial => 'edit') if @successful
-          page.message_panel(:partial => 'shared/messages', :locals => { :objects => [:column,:report] })
-        end 
-      }
-    end
-  end
-  #
-  #
-  # Display the column layout
-  #
-  def layout
-    @report = Report.find(params[:id])  
-    @data = {:report_id => @report.id,  
-      :total => @report.columns.size,
-      :items => @report.columns.collect{ |column| column.to_ext } }
-  
-    respond_to do | format |
-      format.html {  render :text => @data.to_json}
-      format.json { render :json => @data.to_json }
-      format.xml  { render :xml => @data.to_xml }
-    end
-  end
- 
-
 
 end

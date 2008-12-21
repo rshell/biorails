@@ -1,10 +1,11 @@
-<%dialog l(:label_process_add) do %>
+<%dialog l(:Process_New) do %>
 <% form_tag :action => 'create', :id => @assay.id do %>
 <div class="row">
     <%= render :partial => 'form' %>
 </div>
 <div class="row">
     <%= submit_tag "Save" %>
+    <%= link_to l(:Cancel), assay_url(:action => 'show',:id => @assay,:tab=>4) %>
 </div>
 <% end %>
 <%end %>

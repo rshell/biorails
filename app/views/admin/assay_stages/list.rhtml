@@ -3,24 +3,24 @@
     <div>
       <span class='menu'>
         <b class='icon icon-assay_stage'>
-          <%=l(:label_assay_stages)%>
+          <%=l(:Assay_Stages)%>
         </b>
       </span>
-      <%= link_to l(:label_list), assay_stage_url(:action => 'list')%>
-      <%= link_to l(:label_new), assay_stage_url(:action => 'new')%>
+      <%= link_to l(:List), assay_stage_url(:action => 'list')%>
+      <%= link_to l(:New), assay_stage_url(:action => 'new')%>
     </div>
 <% end %>
 <%= render :partial => 'admin/header'%>
 
     <h2 class="icon icon-assay_stage">
-    <%=l(:label_assay_stages)%>
+    <%=l(:Assay_Stages)%>
     </h2>
 <div class='panel'>
     <table class="report">
     <tr>
-        <th><%=l(:label_name)%></th>
-        <th><%=l(:label_description)%></th>
-        <th><%=l(:label_action)%></th>
+        <th><%=l(:Name)%></th>
+        <th><%=l(:Description)%></th>
+        <th><%=l(:Action)%></th>
     </tr>
     
     <% for assay_stage in @assay_stages %>
@@ -31,13 +31,13 @@
         <td>
             <%=h assay_stage.description%></td>
         <td>
-            <%= link_to l(:label_edit),assay_stage_url( :action => 'edit', :id => assay_stage), :class=>'icon icon-edit' %>
+            <%= link_to l(:Edit),assay_stage_url( :action => 'edit', :id => assay_stage), :class=>'icon icon-edit' %>
         </td>
     </tr>
     <% end %>
     </table>
     
     <%= will_paginate   @assay_stages%>
-    <hr /><%= link_to l(:label_new), assay_stage_url(:action => 'new'), :class=>'icon icon-add' %>
+    <hr /><%= link_to l(:New), assay_stage_url(:action => 'new'), :class=>'icon icon-add' %>
     
 </div>

@@ -1,7 +1,7 @@
 <table class="report">
     <tr>
         <th class="label">
-            <%=l(:label_name) %>
+            <%=l(:Name) %>
         </th>
         <td>
             <%= @user_request.name %>
@@ -9,7 +9,7 @@
     </tr>
     <tr>
         <th class="label">
-            <%=l(:label_description) %>
+            <%=l(:Description) %>
         </th>
         <td>
             <%= @user_request.description %>
@@ -17,7 +17,7 @@
     </tr>
     <tr>
         <th class="label">
-            <%=l(:label_status) %>
+            <%=l(:Status) %>
         </th>
         <td>
             <%= @user_request.status %>
@@ -25,7 +25,7 @@
     </tr>
     <tr>
         <th class="label">
-            <%=l(:label_priority) %>
+            <%=l(:Priority) %>
         </th>
         <td>
             <%= @user_request.priority %>
@@ -33,7 +33,7 @@
     </tr>
     <tr>
         <th class="label">
-            <%=l(:label_date_required) %>
+            <%=l(:Date_Required) %>
         </th>
         <td>
             <%= short_date @user_request.expected_at %>
@@ -41,10 +41,10 @@
     </tr>
     <tr>
         <th class="label">
-            <%=l(:label_requestor) %>
+            <%=l(:Requestor) %>
         </th>
         <td>
-            <%= @user_request.requested_by.name %>
+            <%= @user_request.requested_by %>
         </td>
     </tr>
 </table>

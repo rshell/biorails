@@ -2,7 +2,7 @@
 <%= render :partial => 'menu' %>
 <% end %>
 <%= render :partial => 'admin/header' %>
-<h2 class="icon icon-parameter_role"><%=l(:label_parameter_roles) %>
+<h2 class="icon icon-parameter_role"><%=l(:Parameter_Roles) %>
 </h2>
 <div class="panel">
   <div class='box'>
@@ -11,13 +11,13 @@
     <table class="report">
       <tr>
         <th>
-          <%=l(:label_name) %>
+          <%=l(:Name) %>
         </th>
         <th>
-          <%=l(:label_description) %>
+          <%=l(:Description) %>
         </th>
         <th>
-          <%=l(:label_action) %>
+          <%=l(:Action) %>
         </th>
       </tr>
       <% for parameter_role in @parameter_roles %>
@@ -29,7 +29,7 @@
           <%=h parameter_role.description %>
         </td>
         <td>
-          <%= link_to l(:label_edit),parameter_role_url( :action => 'edit', :id => parameter_role), :class=>'icon icon-edit' %>
+          <%= link_to l(:Edit),parameter_role_url( :action => 'edit', :id => parameter_role), :class=>'icon icon-edit' %>
         </td>
       </tr>
       <% end %>
@@ -39,7 +39,7 @@
       </tr>
     </table>
     <%= will_paginate @parameter_roles %>
-  <hr/><%= link_to l(:label_new),  parameter_role_url(:action => 'new'), :class=>'icon icon-new' %>
+  <hr/><%= link_to l(:New),  parameter_role_url(:action => 'new'), :class=>'icon icon-new' %>
 </div>
 
 <% content_for :right do -%>

@@ -12,73 +12,72 @@ Biorails.Protocol = function(){
         getEditor: function(item, value){
             switch (item.data_type_id)   {
                 case 2 :  
-                return new Ext.form.TextField({
-                    name: item.name,
-//                    maskRe: new RegExp(item.regex),
-                    value: value,
-					autoShow: true,
-                    fieldLabel: item.name});
-                break;                      
+                    return new Ext.form.TextField({
+                        name: item.name,
+                        value: value,
+                        autoShow: true,
+                        fieldLabel: item.name});
+                    break;
                 case 3 : 
-                return new Biorails.DateField({
-                    name: item.name, 
-                    format: 'Y-m-d',                    
-					autoShow: true,
-                    value: value,
-                    fieldLabel: item.name});
-                break;
+                    return new Biorails.DateField({
+                        name: item.name,
+                        format: 'Y-m-d',
+                        autoShow: true,
+                        value: value,
+                        fieldLabel: item.name});
+                    break;
                 case 4: 
-                return new Ext.form.TimeField({
-                    name: item.name, 
-					autoShow: true,
-                    value: value,
-                    fieldLabel: item.name});
-                break;
+                    return new Ext.form.TimeField({
+                        name: item.name,
+                        autoShow: true,
+                        value: value,
+                        fieldLabel: item.name});
+                    break;
                 case 5:  
-                return new Biorails.ComboField({
-                    name: item.name,  
-                    value: value,
-					autoShow: true,
-                    root_id: item.data_element_id, 
-                    fieldLabel: item.name});
-                break;
+                    return new Biorails.ComboField({
+                        name: item.name,
+                        value: value,
+                        autoShow: true,
+                        url: '/admin/element/select/' + item.data_element_id,
+                        root_id: item.data_element_id,
+                        fieldLabel: item.name});
+                    break;
                 case 6: 
-                return new Ext.form.TextField({
-                    name: item.name,   
-                    value: value,
-                    vtype: 'url',  
-					autoShow: true,
-                    fieldLabel: item.name});
-                break;
+                    return new Ext.form.TextField({
+                        name: item.name,
+                        value: value,
+                        vtype: 'url',
+                        autoShow: true,
+                        fieldLabel: item.name});
+                    break;
                 case 7:  
-                return new Biorails.FileComboField({
-                    name: item.name,  
-                    value: value,
-					autoShow: true,
-                    folder_id: item.folder_id, 
-                    fieldLabel: item.name});
-                break;
+                    return new Biorails.FileComboField({
+                        name: item.name,
+                        value: value,
+                        autoShow: true,
+                        folder_id: item.folder_id,
+                        fieldLabel: item.name});
+                    break;
                 default:
-                return new Ext.form.TextField({
-                    name: item.name,  
-					autoShow: true,
-                    value: value,
-//                    maskRe: new RegExp(item.regex),
-                    fieldLabel: item.name});
-                break;
+                    return new Ext.form.TextField({
+                        name: item.name,
+                        autoShow: true,
+                        value: value,
+                        fieldLabel: item.name});
+                    break;
             };
         },  
         getRenderer: function(item) {
             switch (item.data_type_id)   {                    
-                case 3 : 
-                     return function(v){
-                        return Ext.util.Format.date(v,'Y-m-d');
-                    }; 
-                break;
+//                case 3 : 
+//                    return function(v){
+//                        return Ext.util.Format.date(v,'Y-m-d');
+//                    }; 
+//                    break;
               
                 default:
-                return function(v){ return Ext.util.Format.htmlEncode(v); }; 
-                break;
+                    return function(v){ return Ext.util.Format.htmlEncode(v); };
+                    break;
             };            
         },
         /**
@@ -111,13 +110,14 @@ Biorails.Protocol = function(){
                             allowBlank:false,
                             name: 'default_count'
                         },
-                          new Ext.form.ComboBox({
+                        new Ext.form.ComboBox({
                             store: ['default','form','scaled','rotated','split'],
-                            fieldLabel: 'Output Sytle',
-                            typeAhead: true,
-                            editable:false,
-                            value:'default',
+                            fieldLabel: 'Output Style',
+                            typeAhead: false,
+                            forceSelection: true,
+                            editable: true,
                             allowBlank: false,
+                            value:'default',
                             name: 'output_style'
                         })]
                 });
@@ -191,11 +191,13 @@ Biorails.Protocol = function(){
                             allowBlank:false
                         },  new Ext.form.ComboBox({
                             store: ['default','form','scaled','rotated','split'],
-                            fieldLabel: 'Output Sytle',
-                            typeAhead: true,
-                            editable:false,
-                            value:config.output_style,
+                            fieldLabel: 'Output Style',
+                            typeAhead: false,
+                            forceSelection: true,
+                            editable: true,
                             allowBlank: false,
+                            mode: 'local',
+                            value:config.output_style,
                             name: 'output_style'
                         })]
                 });
@@ -325,7 +327,7 @@ Ext.namespace("Biorails.Protocol.ParameterTree");
 Biorails.Protocol.ParameterTree = function(config){
     
     Biorails.Protocol.ParameterTree.superclass.constructor.call(this,Ext.apply(config,{
-        title:'Assy Parameters',
+        title:'Assay Parameters',
         minHeight: 400,
         autoShow: true, 
         autoHeight: true,
@@ -334,6 +336,7 @@ Biorails.Protocol.ParameterTree = function(config){
         animate: true,
         enableDD: true,
         ddGroup:'parameterDD',
+        ddText: 'drag and drop context to add a column',
         iconCls:'icon-assay', 
         root:  new Ext.tree.AsyncTreeNode({   text: 'Parameters',
             expanded: true,  
@@ -347,33 +350,112 @@ Ext.extend(Biorails.Protocol.ParameterTree,  Ext.tree.TreePanel, {} );
 
 //----------------------------------------  Protocol Preview Context Table ------------------------------------
 
-Biorails.Protocol.ContextTable = function(config) {
-    var record;
-    var store;
-    var model;
-    
-    /**
-     * Function for updating database
-     * @param {Object} event
-     */
-    function saveCell(event) {
+Biorails.Protocol.ContextTable = Ext.extend(Ext.grid.EditorGridPanel,{
+    rowMouseUp: 0,
+    initComponent : function() {
+        /**
+         * Generate a Record from current context
+         * Generate a fake data store for preview (currenly linked to server)
+         */
+        record = this.context.parameters.each( function(item){
+            {name: item.name}
+        });
+
+        var row =[];
+        var i=0;
+        row = this.context.parameters.each( function(item){
+            row[i] = item.default_value;
+            i++
+        });
+        rows = []
+        for(i=0;i<this.context.default_count;i++) {
+            rows[i] = row;
+        };
+        //store = new Ext.data.SimpleStore({  fields: record});
+        //store.loadData([row,row])
+        store = new Ext.data.Store({
+            data: {
+                id: this.context.id,
+                total: 2,
+                items: rows
+            },
+            pruneModifiedRecords: true,
+            reader: new Ext.data.JsonReader({
+                root: 'items',
+                totalProperty: 'total',
+                id: 'id' },
+            record),
+            remoteSort: false
+        });
+        // Column model for report definition with label,filter and sort changable
+        var columns =[];
+         i= 0;
+        this.context.parameters.each( function(item){
+            columns[i] = {
+                header: item.name,
+                width: 100,
+                sortable: false,
+                resizable: true,
+                parameter: item,
+                dataIndex: item.name,
+                renderer: Biorails.Protocol.getRenderer(item),
+                editor: Biorails.Protocol.getEditor(item,item.default_value)
+            }
+            i++;
+        });
+        model = new Ext.grid.ColumnModel(columns);
+        model.defaultSortable =true;
+
+        Ext.apply(this, {
+            store: store,
+            cm:    model ,
+            viewConfig: {  forceFit: true  },
+            autoHeight : true,
+            layoutOnTabChange:true,
+            width: Biorails.getWidth()-10,
+            sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
+            enableDragDrop: true,
+            stripeRows: true,
+            loadMask: true,
+            enableColumnMove: false,
+            iconCls:'icon-grid',
+            clicksToEdit: 0
+        });
+        // finally call the superclasses implementation
+        Biorails.Protocol.ContextTable.superclass.initComponent.call(this);
+        this.on('afteredit', this.saveCell,this);
+        this.on('mouseup', this.getCurrentRow, this);
+    },
+    getCurrentRow: function(e, t){
+                 var row;
+                 if( (row = this.view.findRowIndex(t)) !== false)  {
+                    this.rowMouseUp=row;
+                 }else {
+                    this.rowMouseUp=false;
+                 }
+    },
+    saveCell: function(event) {
+         var fieldValue =null;
         if (event.value instanceof Date)            
         {   
-            var fieldValue = event.value.format('Y-m-d H:i:s');
+             fieldValue = event.value.format('Y-m-d H:i:s');
         } else
         {
-            var fieldValue = event.value;
+            fieldValue = event.value;
         }	
         Ext.Ajax.request( {  
             waitMsg: 'Saving changes...',
-            url: config.url,
+            url: this.context.url,
+            asynchronous:true,
+            evalJS:true,
             method: 'POST',
             params: { 
                 id: event.record.data.id,
                 column: {id: event.record.data.id},
                 field: event.field,
                 value: event.value,
-                originalValue: event.record.modified                                                                                                                              //when the response comes back from the server can we make an undo array?                         
+                originalValue: event.record.modified
+                //when the response comes back from the server can we make an undo array?
             },
             failure: function(response, options){
                 Ext.MessageBox.alert('Warning','Failed to update report...');
@@ -383,288 +465,106 @@ Biorails.Protocol.ContextTable = function(config) {
                 store.commitChanges();
             }                                   
         }
-    ); 
-    };
-    /**
-     * Generate a Record from current context
-     * Generate a fake data store for preview (currenly linked to server)
-     */
-    function getStore(){
-        if (!store) {
-            record = config.parameters.each( function(item){ 
-                {name: item.name} 
-            });
-            
-            row = config.parameters.each(function(item){ 
-                item.default_value
-            });
-            rows = []
-            for(i=0;i<config.default_count;i++) {
-                rows[i] = row;
-            }
-            //store = new Ext.data.SimpleStore({  fields: record});
-            //store.loadData([row,row])
-            store = new Ext.data.Store({
-
-                data: { id: config.id, total: 2,items: rows },
-                pruneModifiedRecords: true,
-                reader: new Ext.data.JsonReader({
-                root: 'items',  totalProperty: 'total', id: 'id' },record),        
-                remoteSort: true	
-            });
-
-        }
-        return store;
-    };
-
-    /**
-     * Geneate a Column View based on passed context 
-     */
-    function getModel(){
-        if (!model)
-        {
-            // Column model for report definition with label,filter and sort changable
-            var columns =[];
-            var i=0;
-            config.parameters.each( function(item){ 
-                columns[i] = {
-                    header: item.name,
-                    width: 50,
-                    sortable: true,
-                    parameter: item,
-                    dataIndex: item.name,
-                    renderer: Biorails.Protocol.getRenderer(item),
-                    editor: Biorails.Protocol.getEditor(item,item.default_value)
-                }
-                i++;   
-            }); 
-            model = new Ext.grid.ColumnModel(columns);
-            model.defaultSortable =true;
-        };
-        return model;
-    };
-   
-    /**
-     * Call superclass to generate the actual grid
-     */
-    Biorails.Protocol.ContextTable.superclass.constructor.call(this, {
-        store: getStore(),        
-        cm:    getModel() ,
-        viewConfig: {  forceFit: true  },
-        context: config,
-        autoHeight : true,
-        width: Biorails.getWidth()-10,
-        sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
-        enableDragDrop: true,
-        stripeRows: true,
-        enableColumnMove: false,
-        listeners:{
-            scope:this,
-            'mouseup':{scope:this.grid, fn:function(e, t){
-                    var row;
-                    if( (row = this.view.findRowIndex(t)) !== false)  this.rowMouseUp=row;
-                    else this.rowMouseUp=false;
-                }}
-        },
-        frame:true,
-        iconCls:'icon-grid',        
-        clicksToEdit: 0
-    });
-    /**
-     * Add handler to save cell after edit
-     */
-    this.addListener('afteredit', saveCell);
-    this.on('render',    function(panel){ panel.enableDD();  });
-
-};
-
-Ext.extend(Biorails.Protocol.ContextTable,Ext.grid.EditorGridPanel,{
+    )} ,
     /**
      * Function to add a dropped a parameter
      */
     add: function(source,event,data){
         if (data.node.leaf) {
-            return Biorails.Protocol.addParameter( this.context_id, this.lock_version, data.node.id, 0);  
+            return Biorails.Protocol.addParameter( this.context_id, this.lock_version, data.node.id, 0);
         }
-    },
-  
-    /*
-     * Custom Rendering function to add drop zone on grid after its rendered
-     */    
-    enableDD: function(){
-        try{ 
-            var dropzone = new Ext.dd.DropTarget(this.id, {
-                ddGroup : 'parameterDD',
-                context_id: this.context.id,
-                lock_version : this.context.lock_version,
-                panel: this,
-                notifyDrop : this.add });
-
-        } catch (e) {
-            console.log('Problem with setup drop zone on Biorails.Protocol.ContextTable ');
-            console.log(e);
-        }        
+        return null;
     }
-
 
 });
 
 
 //----------------------------------------  Protocol Preview Context Form ---------------------------------------------
 
-Biorails.Protocol.ContextForm = function(config) {
+Biorails.Protocol.ContextForm = Ext.extend( Ext.form.FormPanel, {
     
-    var form;
-    var config = config;
+    initComponent : function() {
+        fields =[new Ext.form.Hidden({
+                fieldLabel: 'Context Id:',
+                value: this.context.id,
+                name: 'parameter_context_id'})];
+        var i = 1;
+        this.context.parameters.each( function(item){
+            fields[i] = Biorails.Protocol.getEditor(item,null);
+            fields[i].on('change',this.updateDb);
+            i++;
+        });
+
+        Ext.apply(this, {
+            labelWidth: 150,
+            frame: true,
+            autoHeight: true,
+            autoWidth: true,
+            layoutOnTabChange:true,
+            bodyStyle:'padding:5px 5px 0',
+            defaults: {width: 400},
+            defaultType: 'textfield',
+            items : fields
+        });
+        // finally call the superclasses implementation
+        Biorails.Protocol.ContextForm.superclass.initComponent.call(this);
+
+        this.on('afteredit', this.saveCell);
+    },
     /**
      * Function for updating database
      * @param {Object} event
      */
-    function updateDb(field, value, oldValue) {
+    updateDb: function(field, value, oldValue) {
         if (value == oldValue) {
             var newValue = value;
-            if (value instanceof Date)            
-            {   
-                var newValue = value.format('Y-m-d H:i:s');
+            if (value instanceof Date)
+            {
+                 newValue = value.format('Y-m-d H:i:s');
             }
-            Ext.Ajax.request( {  
+            Ext.Ajax.request( {
                 waitMsg: 'Saving changes...',
                 url: config.url,
                 method: 'POST',
-                params: {  
+                params: {
                     field: field.name,
                     value: newValue,
-                    originalValue: oldValue                                                                                                                             //when the response comes back from the server can we make an undo array?                         
+                    originalValue: oldValue
+                    //when the response comes back from the server can we make an undo array?
                 },
                 failure: function(response, options){
                     Ext.MessageBox.alert('Warning','Failed to update cell...');
-                },                                     
+                },
                 success: function(response, options){
-                }                                   
+                }
             }
-        ); 
+        );
         }
-    }; 
-  
-    
+    },  
     /**
      * Generate Field definition from configuration
      */
-    function getFields() {
-        var fields =[new Ext.form.Hidden({fieldLabel: 'Context Id:',value: config.id,name: 'parameter_context_id'})];
-        var i = 1;
-        config.parameters.each( function(item){
-            fields[i] = Biorails.Protocol.getEditor(item,null);
-            fields[i].on('change',updateDb);
-            i++;  
-        });
+    getFields: function() {
         return fields;
-    };
-    
-    Biorails.Protocol.ContextForm.superclass.constructor.call(this,{
-        labelWidth: 75,
-        frame: true,
-        context: config,
-        autoHeight: true,
-        bodyStyle:'padding:5px 5px 0',
-        defaults: {width: 400},
-        defaultType: 'textfield',
-        items : getFields()
-    });  
-    this.on('render', function(panel){ panel.enableDD();  });      
-};
-
-Ext.extend(Biorails.Protocol.ContextForm, Ext.form.FormPanel,{
-    
-    droppedParameter: function(source,event,data){
-        if (data.node.leaf) {
-            return Biorails.Protocol.addParameter(this.context_id,this.lock_version,data.node.id,0);  
-        }
-    },  
-    /*
-     * Custom Rendering function to add drop zone on grid after its rendered
-     */    
-    enableDD: function(){
-        try{ 
-            var dropzone = new Ext.dd.DropTarget(this.id, {
-                ddGroup : 'parameterDD',
-                context_id: this.context.id,
-                lock_version : this.context.lock_version,
-                panel: this,
-                notifyDrop : this.droppedParameter  });
-        } catch (e) {
-            console.log('Problem with setup drop zone on Biorails.Protocol.ContextForm ');
-            console.log(e);
-        }        
-    }   
-
+    }
 });
 
 //----------------------------------------  Protocol Context Definition Table ------------------------------------
 
-Biorails.Protocol.ContextEditor = function(config) {
+Biorails.Protocol.ContextEditor = Ext.extend( Ext.grid.EditorGridPanel,{
+    rowMouseUp: 0,
 
-    var grid;
-    var record;
-    var store;
-    var model;
-    /*
-     * Custom column renderer for cancel icon
-     */
-    function renderId(val){
-        return '<img alt="remove" src="/images/enterprise/actions/cancel.png"/>';
-    };
-
-    /**
-     * Handler for a cell click to call delete row if 1st column clicked
-     */
-    function cellClicked( grid, rowIndex,  columnIndex, event){
-        if (columnIndex == 0){
-            var record = store.getAt(rowIndex);
-            Biorails.Protocol.removeParameter(record.data.id,1)
-        }
-    };    
-
-    /**
-     * Function for updating database
-     * @param {Object} event
-     */
-    function saveCell(event) {
-        if (event.value instanceof Date)            
-        {   
-            var fieldValue = event.value.format('Y-m-d H:i:s');
-        } else
-        {
-            var fieldValue = event.value;
-        }	
-        Ext.Ajax.request( {  
-            waitMsg: 'Saving changes...',
-            url: '/processes/update_parameter/'+ event.record.data.id ,
-            method: 'POST',
-            params: { 
-                field: event.field,
-                value: event.value                                                                                                                             //when the response comes back from the server can we make an undo array?                         
-            },
-            failure: function(response, options){
-                Ext.MessageBox.alert('Warning','Failed to update report...');
-                store.rejectChanges();
-            },                                     
-            success: function(response, options){
-                store.commitChanges();
-            }                                   
-        }
-    ); 
-    };  
-    /**
-     * Setup Context Ajax data loader
-     */
-    function setupStore(){
+    initComponent : function() {
+        /**
+         * Setup Context Ajax data loader
+         */
         record = Ext.data.Record.create([
             {name: 'id', type: 'int' },
             {name: 'column_no', type: 'int'},
             {name: 'description'},
             {name: 'style'},
             {name: 'name'},
+            {name: 'mandatory'},
             {name: 'default_value'},
             {name: 'regex'},
             {name: 'unit'},
@@ -672,76 +572,294 @@ Biorails.Protocol.ContextEditor = function(config) {
             {name: 'data_type_id', type: 'int'},
             {name: 'data_format_id', type: 'int'},
             {name: 'data_element_id', type: 'int'}]   );
-    
+
         store = new Ext.data.Store({
-            proxy: new Ext.data.HttpProxy({url: '/processes/context/'+config.id, method: 'GET'}),
+            proxy: new Ext.data.HttpProxy({
+                url: '/processes/context/'+this.context.id,
+                method: 'GET'
+            }),
 
             reader: new Ext.data.JsonReader({
-                root: 'items',  totalProperty: 'total', id: 'id' },record),        
-            remoteSort: true	
+                root: 'items',
+                totalProperty: 'total',
+                id: 'id'
+            },record),
+            remoteSort: true
         });
-        store.load();
-    };
-    
-    /**
-     * Setup Column Model
-     */
-    function setupColumns(){
+       store.load();
+        /**
+         * Setup Column Model
+         */
         model = new Ext.grid.ColumnModel([
-            { header: "Remove", width: 44, id:'id', renderer: renderId, dataIndex: 'id' },
-            { header: "No.", width: 32, dataIndex: 'column_no'   },        
-            { header: "Definition", width: 150, dataIndex: 'description' },        
-            { header: "Style",  width: 80, dataIndex: 'style' },        
-            { header: "Unit", width: 32,  dataIndex: 'unit' },        
+            { header: "Remove", width: 44, id:'id', renderer: this.renderId, dataIndex: 'id' },
+            { header: "No.", width: 32, dataIndex: 'column_no'   },
+            { header: "Definition", width: 150, dataIndex: 'description' },
+            { header: "Style",  width: 80,  dataIndex: 'style' },
+            { header: "Unit", width: 32,    dataIndex: 'unit' },
+            { header: "Mandatory",width:32, 
+                dataIndex: 'mandatory',
+                editor: new Ext.form.TextField()},
             { header: "Name",    width: 90,  dataIndex: 'name',
                 editor: new Ext.form.TextField({allowBlank: false,
                     maskRe: /^[A-Z,a-z,0-9,_]*$/,
                     invalidText: 'Only Alpha Numeric characters allowed',
-                    blankText:'Parameters must have a name' }) 
-            },        
-            { header: "Default",   width: 180,  sortable: true,dataIndex: 'default_value', 
-                editor: new Ext.form.TextField()        
-            }]);
+                    blankText:'Parameters must have a name' })
+            },
+            {   header: "Default",
+                width: 180,
+                sortable: true,
+                dataIndex: 'default_value',
+                editor: new Ext.form.TextField()
+            }
+        ]);
 
         model.defaultSortable =false;
-    };
-
-    setupStore();
-    setupColumns();
-    /**
-     * Setup Context Model
+        /**
+         * Setup Context Model
+         */
+        Ext.apply(this, {
+            store: store,
+            cm:    model ,
+            viewConfig: {  forceFit: true  },
+            autoHeight : true,
+            width: Biorails.getWidth()-10,
+            sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
+            enableDragDrop: true,
+            ddGroup : 'paramDD',
+            ddText: 'drag and drop over another row to swap positions',
+            stripeRows: true,
+            enableColumnMove: false,
+            listeners:{
+                scope:this,
+                'mouseup':{scope:this.grid, fn:function(e, t){
+                        var row;
+                        if( (row = this.view.findRowIndex(t)) !== false)  this.rowMouseUp=row;
+                        else this.rowMouseUp=false;
+                    }}
+            },
+            frame:true,
+            iconCls:'icon-grid'
+        });
+        // finally call the superclasses implementation
+        Biorails.Protocol.ContextEditor.superclass.initComponent.call(this);
+        this.on('mouseup', this.getCurrentRow, this);
+        this.on('cellclick', this.cellClicked,this);
+        this.on('afteredit', this.saveCell,this);
+        this.on('render', function(panel){
+            panel.enableDD();
+        },this);
+    },
+    getCurrentRow: function(e, t){
+                 var row;
+                 if( (row = this.view.findRowIndex(t)) !== false)  {
+                    this.rowMouseUp=row;
+                 }else {
+                    this.rowMouseUp=false;
+                 }
+    },
+    /*
+     * Custom column renderer for cancel icon
      */
-    Biorails.Protocol.ContextEditor.superclass.constructor.call(this,{ 
-        store: store,        
-        cm:    model ,
-        context: config,
-        viewConfig: {  forceFit: true  },
-        autoHeight : true,
-        width: Biorails.getWidth()-10,
-        sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
-        enableDragDrop: true,
-        stripeRows: true,
-        enableColumnMove: false,
-        listeners:{
-            scope:this,
-            'mouseup':{scope:this.grid, fn:function(e, t){
-                    var row;
-                    if( (row = this.view.findRowIndex(t)) !== false)  this.rowMouseUp=row;
-                    else this.rowMouseUp=false;
-                }}
-        },
-        frame:true,
-        iconCls:'icon-grid'
-    });
-    store.load();
-    
-    this.on('cellclick', cellClicked);
-    this.addListener('afteredit', saveCell);
-    this.on('render',  function(grid){ grid.enableDD();  });
-}
+    renderId:  function(val){
+        return '<img alt="remove" src="/images/enterprise/actions/cancel.png"/>';
+    },
+    /**
+     * Handler for a cell click to call delete row if 1st column clicked
+     */
+    cellClicked:  function( grid, rowIndex,  columnIndex, event){
+        if (columnIndex == 0){
+            var record = this.store.getAt(rowIndex);
+            Biorails.Protocol.removeParameter(record.data.id,2)
+        }
+    },
+    /**
+     * Function for updating database
+     * @param {Object} event
+     */
+    saveCell:  function(event) {
+        var fieldValue = null;
+        if (event.value instanceof Date)
+        {
+            fieldValue = event.value.format('Y-m-d H:i:s');
+        } else
+        {
+            fieldValue = event.value;
+        }
+        Ext.Ajax.request( {
+            waitMsg: 'Saving changes...',
+            url: '/processes/update_parameter/'+ event.record.data.id ,
+            method: 'post',
+            params: {
+                field: event.field,
+                value: event.value                                                                                                                             //when the response comes back from the server can we make an undo array?
+            },
+            failure: function(response, options){
+                Ext.MessageBox.alert('Warning','Failed to update report...');
+                store.rejectChanges();
+            },
+            success: function(response, options){
+                store.commitChanges();
+            }
+        }
+    );
+    },
+    /**
+     * Handler for dropped parameters, checks if a node or row then moves or
+     * adds parameter
+     *
+     */
+    movedParameter: function(source,event,data){
+        if (data.rowIndex!= null) {
+            var source_row = data.grid.store.getAt(data.rowIndex);
+            var dest_row  = this.grid.store.getAt( data.grid.rowMouseUp );
+            return Biorails.Protocol.moveParameter( source_row.data.id,dest_row.data.id, 2);
+        }
+        return null;
+    },
+    /*
+     * Custom Rendering function to add drop zone on grid after its rendered
+     */
+    enableDD: function(){
+        try{
+            var dropzone = new Ext.dd.DropTarget(this.id, {
+                grid: this,
+                ddGroup : 'paramDD',
+                lock_version : this.context.lock_version,
+                context_id: this.context.id,
+                notifyDrop : this.movedParameter });
+            dropzone.addToGroup("paramDD");
 
-Ext.extend(Biorails.Protocol.ContextEditor,Ext.grid.EditorGridPanel,{
-    /** 
+        } catch (e) {
+            console.log('Problem with setup drop zone on Biorails.Protocol.ContextEditor ');
+            console.log(e);
+        }
+    }
+});
+
+
+//----------------------------------------  Protocol Context ------------------------------------
+/**
+ * Protocol Context Editor and Preview Panel
+ *
+ *  This Takes as protocol context as json and generate a suitable editor panel
+ *
+ */
+Biorails.Protocol.Context = Ext.extend(Ext.Panel, {
+    initComponent : function() {
+           table_panel = new Biorails.Protocol.ContextTable( {id:this.id+"_0", context: this.context } );
+           form_panel = new Biorails.Protocol.ContextForm( { id:this.id+"_1", context: this.context } );
+           editor_panel = new Biorails.Protocol.ContextEditor( {id:this.id+"_2", context: this.context } );
+
+        var sizeField = new Ext.form.NumberField({
+            fieldLabel: 'Default Count',
+            name: 'default_count',
+            value: 1,
+            width:32,
+            allowBlank:false});
+
+        Ext.apply(this, {
+            layout:"card",
+            activeItem: this.mode,
+            layoutOnTabChange:true,
+            tbar: [{
+                    text: 'Context ['+this.context.path+'] expected '+this.context.default_count+' rows',
+                    context: this.context,
+                    handler: function(panel){
+                      Biorails.Protocol.editContext(this.context);
+                    }
+                },'->',{
+                    text:'Table',
+                    tooltip:'Preview the block as a table',
+                    panel: this,
+                    handler: this.showTable,
+                    iconCls:'icon-list'
+                },'-', {
+                    text:'Form',
+                    tooltip:'Show the block as a form',
+                    panel: this,
+                    handler: this.showForm,
+                    iconCls:'icon-show'
+                },'-', {
+                    text:'Customize',
+                    tooltip:'Context editor to allow for customization',
+                    panel: this,
+                    handler: this.showEditor,
+                    iconCls:'icon-edit'
+                }],
+            bbar: [{
+                    text:'Add Child',
+                    iconCls:'icon-add',
+                    context: this.context,
+                    tooltip:'New Child context',
+                    handler: function(){
+                        Biorails.Protocol.addContext( this.context.id );
+                    }
+                },'->', (this.context.parent_id == null ? "" : {
+                    text:'Remove',
+                    iconCls:'icon-cancel',
+                    context: this.context,
+                    tooltip:'Remove context and all children',
+                    handler: function(){
+                        Biorails.Protocol.removeContext(this.context.id);
+                    }
+                })],
+            defaults: {  border:false  },
+            autoHeight: true,
+            autoWidth : true,
+            width: Biorails.getWidth()-10,
+            autoScroll: false,
+            items: [table_panel,form_panel,editor_panel]
+
+        });
+        if (Ext.isIE6) {
+            Ext.apply(this, {
+                autoWidth : false,
+                width: Biorails.getWidth()
+            });
+        }
+        // finally call the superclasses implementation
+        Biorails.Protocol.Context.superclass.initComponent.call(this);
+        this.on('render', function(panel){
+            panel.enableDD();
+        },this);
+    },
+    /*
+     * Change panels to display the Table view
+     */
+    showTable: function(item){
+       Ext.getCmp(item.panel.id+"_1").hide();
+       Ext.getCmp(item.panel.id+"_2").hide();
+       panel = Ext.getCmp(item.panel.id+"_0");
+       panel.show();
+       panel.enable();
+       panel.doLayout(false);
+       item.panel.mode = 0;
+    },
+    /*
+     * Change panels to display the Form view
+     */
+    showForm: function(item){
+       Ext.getCmp(item.panel.id+"_0").hide();
+       Ext.getCmp(item.panel.id+"_2").hide();
+       panel = Ext.getCmp(item.panel.id+"_1");
+       panel.show();
+       panel.enable();
+       panel.doLayout(false);
+       item.panel.mode = 1;
+    },
+    /*
+     * Change panels to display the Editor
+     */
+    showEditor: function(item){
+       Ext.getCmp(item.panel.id+"_0").hide();
+       Ext.getCmp(item.panel.id+"_1").hide();
+       panel = Ext.getCmp(item.panel.id+"_2");
+       panel.show();
+       panel.enable();
+       panel.doLayout(false);
+       item.panel.mode = 2;
+    },
+    /**
      * Handler for dropped parameters, checks if a node or row then moves or
      * adds parameter
      *
@@ -749,128 +867,29 @@ Ext.extend(Biorails.Protocol.ContextEditor,Ext.grid.EditorGridPanel,{
     droppedParameter: function(source,event,data){
         if (data.node){
             if (data.node.leaf) {
-                return Biorails.Protocol.addParameter(this.context_id,this.lock_version,data.node.id,1);  
+                return Biorails.Protocol.addParameter(this.context_id,this.lock_version,data.node.id,this.grid.mode);
             }
-        }
-        else if (data.rowIndex) {  
-            var source_row = data.grid.store.getAt(data.rowIndex);                
-            var dest_row  = this.grid.store.getAt( this.grid.rowMouseUp );
-            return Biorails.Protocol.moveParameter( source_row.data.id,dest_row.data.id, 1);
-        }
-    },  
+        }       
+        return null;
+    },
     /*
      * Custom Rendering function to add drop zone on grid after its rendered
-     */    
+     */
     enableDD: function(){
-        try{ 
+        try{
             var dropzone = new Ext.dd.DropTarget(this.id, {
                 grid: this,
                 ddGroup : 'parameterDD',
                 lock_version : this.context.lock_version,
                 context_id: this.context.id,
-                notifyDrop : this.droppedParameter }); 
-            dropzone.addToGroup("GridDD"); 
+                notifyDrop : this.droppedParameter });
+            dropzone.addToGroup("GridDD");
 
         } catch (e) {
             console.log('Problem with setup drop zone on Biorails.Protocol.ContextEditor ');
             console.log(e);
-        }        
+        }
     }
 });
 
-
-//----------------------------------------  Protocol Context ------------------------------------
-/**
- * Protocol Context Editor and Preview Panel 
- *
- *  This Takes as protocol context as json and generate a suitable editor panel
- *
- */
-Biorails.Protocol.Context = function(config,mode) {  
-    var context = config; 
-    var preview_panel= (config.default_count == 1 ? new Biorails.Protocol.ContextForm(config) : new Biorails.Protocol.ContextTable(config) );
-
-    var editor_panel= new Biorails.Protocol.ContextEditor(config);
-
-    var sizeField = new Ext.form.NumberField({
-        fieldLabel: 'Default Count',
-        name: 'default_count',
-        value: 1,
-        width:32,
-        allowBlank:false});
-    /**
-     * Event Handler to show Preview
-     */
-    function showPreview() {
-        preview_panel.show();
-        editor_panel.hide();       
-    };
-   
-    /**
-     * Event Handler to show editor
-     */
-    function  showEditor(){
-        preview_panel.hide();
-        editor_panel.show();
-    };  
-    /**
-     * Event Handler to show editor
-     */
-    function  edit(){
-        Biorails.Protocol.editContext(context);
-    }; 
-    /** 
-     * Build Panel with top/bottom panel functions set
-     */
-    Biorails.Protocol.Context.superclass.constructor.call(this,{
-        layout:"card",
-        context: config,
-        tbar: [{
-                text: 'Context ['+config.path+'] expected '+config.default_count+' rows',
-                handler: function(panel){
-                    edit();
-                }
-            },'->',{
-                text:'Preview',
-                tooltip:'Show as a table',                            
-                handler: function(){
-                    showPreview();
-                },                                
-                iconCls:'icon-list'
-            },'-', {
-                text:'Edit',
-                tooltip:'Context editor to allow for customization',                            
-                handler: function(){
-                    showEditor();
-                },                            
-                iconCls:'icon-edit'
-            }],
-        bbar: [{ 
-                text:'Add Child',
-                iconCls:'icon-add',
-                tooltip:'New Child context',
-                handler: function(){
-                    Biorails.Protocol.addContext(config.id);
-                } 
-            },'->', (config.parent_id == null ? "" : {
-                text:'Remove',
-                iconCls:'icon-cancel',
-                tooltip:'Remove context and all children',                              
-                handler: function(){
-                    Biorails.Protocol.removeContext(config.id);
-                } 
-            })],
-        activeItem: mode, // make sure the active item is set on the container config!
-        bodyStyle: 'padding:1px',
-        defaults: {  border:false  },         
-        autoHeight: true,
-        width: Biorails.getWidth()-5,
-        autoWidth : false,
-        autoScroll: false,
-        items: [preview_panel,editor_panel]
-    }); 
-    //   this.on('render',    function(panel){ panel.enableDD();  });
-};    
-
-Ext.extend(Biorails.Protocol.Context, Ext.Panel,{});
   

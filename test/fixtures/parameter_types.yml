@@ -1,28 +1,9 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: parameter_types
-#
-#  id                 :integer(4)      not null, primary key
-#  name               :string(50)      default(""), not null
-#  description        :string(1024)    default(""), not null
-#  weighing           :integer(4)      default(0), not null
-#  lock_version       :integer(4)      default(0), not null
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  data_concept_id    :integer(4)
-#  data_type_id       :integer(4)
-#  storage_unit       :string(255)
-#  updated_by_user_id :integer(4)      default(1), not null
-#  created_by_user_id :integer(4)      default(1), not null
-#
-
 --- 
 00000000024_parameter_type: !ruby/object:ParameterType 
   attributes: 
     name: Concentration
     storage_unit: concentration
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -38,7 +19,7 @@
   attributes: 
     name: Mass
     storage_unit: mass
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -54,7 +35,7 @@
   attributes: 
     name: Enzyme
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "1"
     lock_version: "0"
@@ -70,7 +51,7 @@
   attributes: 
     name: Length
     storage_unit: length
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -86,7 +67,7 @@
   attributes: 
     name: Count
     storage_unit: counting
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "1"
@@ -102,7 +83,7 @@
   attributes: 
     name: AUC
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -118,7 +99,7 @@
   attributes: 
     name: ClinScore
     storage_unit: 
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "5"
     lock_version: "0"
@@ -134,7 +115,7 @@
   attributes: 
     name: Rate
     storage_unit: rate
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -150,7 +131,7 @@
   attributes: 
     name: Volume
     storage_unit: volume
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -166,7 +147,7 @@
   attributes: 
     name: TreatmentGroup
     storage_unit: 
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "5"
     lock_version: "0"
@@ -182,7 +163,7 @@
   attributes: 
     name: URL
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "6"
     lock_version: "1"
@@ -198,7 +179,7 @@
   attributes: 
     name: Time
     storage_unit: time
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -214,7 +195,7 @@
   attributes: 
     name: Plate
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "5"
     lock_version: "0"
@@ -230,7 +211,7 @@
   attributes: 
     name: File
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "7"
     lock_version: "0"
@@ -246,7 +227,7 @@
   attributes: 
     name: Species
     storage_unit: 
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "5"
     lock_version: "0"
@@ -262,7 +243,7 @@
   attributes: 
     name: Duration
     storage_unit: time
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -278,7 +259,7 @@
   attributes: 
     name: Identifier
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "1"
     lock_version: "0"
@@ -294,7 +275,7 @@
   attributes: 
     name: Clearance
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "1"
@@ -310,7 +291,7 @@
   attributes: 
     name: Normal
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "2"
@@ -326,7 +307,7 @@
   attributes: 
     name: Temperature
     storage_unit: temperature
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -342,7 +323,7 @@
   attributes: 
     name: organism
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "1"
     lock_version: "0"
@@ -361,7 +342,7 @@
   attributes: 
     name: Subject
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "5"
     lock_version: "0"
@@ -377,7 +358,7 @@
   attributes: 
     name: Route
     storage_unit: 
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "5"
     lock_version: "0"
@@ -393,7 +374,7 @@
   attributes: 
     name: unitless
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -409,7 +390,7 @@
   attributes: 
     name: Date
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "3"
     lock_version: "0"
@@ -425,7 +406,7 @@
   attributes: 
     name: IC50
     storage_unit: concentration
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -441,7 +422,7 @@
   attributes: 
     name: Compound
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "5"
     lock_version: "0"
@@ -457,7 +438,7 @@
   attributes: 
     name: Dose
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "0"
@@ -473,7 +454,7 @@
   attributes: 
     name: Molecule
     storage_unit: 
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "5"
     lock_version: "0"
@@ -489,7 +470,7 @@
   attributes: 
     name: Location
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "1"
     lock_version: "0"
@@ -505,7 +486,7 @@
   attributes: 
     name: Inhibition
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:25
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     data_type_id: "2"
     lock_version: "1"

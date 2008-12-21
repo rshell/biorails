@@ -13,7 +13,6 @@
 #  protocol_version_id :integer(4)      not null
 #  assigned_to_user_id :integer(4)      default(1)
 #  is_milestone        :boolean(1)
-#  status_id           :integer(4)      default(0), not null
 #  priority_id         :integer(4)
 #  started_at          :datetime
 #  expected_at         :datetime
@@ -65,22 +64,14 @@ class Task < ActiveRecord::Base
   # 
   # This record has a full audit log created for changes
   # 
-  acts_as_audited :change_log
-  # 
-  # Set up free text
-  # 
-  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-    :description=>{:store=>:yes,:boost=>0},
-  }, 
-    :default_field => [:name],           
-    :single_index => true, 
-    :store_class_name => true 
+  acts_as_audited :change_log , {:auditing_enabled =>true}
+
     
   attr_accessor :rows
   # 
   # Validation rules for the task
   # 
-  validates_uniqueness_of :name, :scope =>"experiment_id"
+  validates_uniqueness_of :name, :scope =>"experiment_id",:case_sensitive=>false
   validates_presence_of   :name
   validates_presence_of   :description
   validates_presence_of :project_id
@@ -88,7 +79,10 @@ class Task < ActiveRecord::Base
   validates_presence_of :protocol_version_id
   validates_presence_of :started_at
   validates_presence_of :expected_at  
-  validates_presence_of :status_id
+
+  validate  :validate_period
+  validate  :validate_references
+
 
   # ## Link to view for summary stats for assay
   # 
@@ -106,7 +100,7 @@ class Task < ActiveRecord::Base
   # ## In the Process sets of parameters are grouped into a context of usages
   # 
   has_many :contexts, :class_name =>'TaskContext', :dependent => :destroy, 
-    :order => 'task_contexts.row_no,task_contexts.id' do
+    :order => 'task_contexts.left_limit,task_contexts.parent_id,task_contexts.id' do
     # 
     #  get records matching by row_no, label of ParameterContext
     # 
@@ -147,7 +141,7 @@ class Task < ActiveRecord::Base
   # for processing.
   # 
   # 
-  has_many :values, :class_name=>'TaskValue' do
+  has_many :values, :class_name=>'TaskValue',:dependent => :destroy do
     def ordered
       find(:all,:order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'])
     end
@@ -161,7 +155,7 @@ class Task < ActiveRecord::Base
   end 
 
 
-  has_many :texts, :class_name=>'TaskText' do
+  has_many :texts, :class_name=>'TaskText',:dependent => :destroy do
 
     def ordered
       find(:all,:order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'])
@@ -176,7 +170,7 @@ class Task < ActiveRecord::Base
   end 
 
 
-  has_many :references, :class_name=>'TaskReference' do
+  has_many :references, :class_name=>'TaskReference',:dependent => :destroy do
 
     def ordered
       find(:all,:order =>'task_contexts.row_no,parameters.column_no',:include => ['context','parameter'])
@@ -332,13 +326,17 @@ SQL
   # 
   def add_context(parameter_context = nil, new_label = nil, parent =nil)   
     TaskContext.transaction do
-      parameter_context ||= ( parent ? parent.definition.children.first :  self.process.first_context )  
+      parameter_context ||= ( parent ? parent.definition.children.first :  self.process.first_context )
+      raise("parameter_context_id not in process linked to task") unless parameter_context.protocol_version_id == self.protocol_version_id
       if  parameter_context
         context = TaskContext.new
-        context.sequence_no = self.contexts.matching(parameter_context).size + 1  
         if parent
-          context.label ||= new_label || "#{parameter_context.label}.#{parent.seq}.#{context.sequence_no}"
+           raise("Failed parameter_context invalid should have parent") if parameter_context.parent_id.blank?
+           context.sequence_no = self.contexts.matching("#{parameter_context.label}.#{parent.seq}").size + 1
+           context.label ||= new_label || "#{parameter_context.label}.#{parent.seq}.#{context.sequence_no}"
         else
+          raise("Failed parameter_context invalid should not have a parent") unless parameter_context.parent_id.blank?
+          context.sequence_no = self.contexts.matching(parameter_context).size + 1
           context.label ||= new_label || "#{parameter_context.label}.#{context.sequence_no}"         
         end       
         context.task = self
@@ -400,13 +398,13 @@ SQL
     queue_items_to_update ||= self.queue_items
     return unless queues?
     for item in queue_items_to_update
-      if item.is_active and (item.task_id.nil? or item.task_id==self.id)
+      if item.active? and (item.task_id.nil? or item.task_id==self.id)
         item.task_id = self.id
         item.experiment_id = self.experiment_id
-        if self.is_active or self.is_finished
-          item.status_id = self.status_id 
-        elsif  self.is_status(FAILED_STATES)
-          item.status_id = WAITING 
+        if self.state.active? or self.state.finished?
+          item.state_id = self.state_id
+        elsif  self.state.ignore?
+          item.state = State.find(:first)
         end
         item.save
       end
@@ -492,9 +490,10 @@ SQL
         end
       end        
     end
-    return { :task_id => self.id,   
+    return { :task_id => self.id,
+      :folder_id => self.project_element_id,
       :flexible =>  self.flexible?,             
-      :data =>   data.values,
+      :values =>   data.values,
       :parent_id => definition.parent_id,
       :expected => definition.default_count,
       :level_no => definition.level_no,
@@ -503,12 +502,92 @@ SQL
     }          
   end
   # ## populated the task creating all the expected context rows
-  # 
+  #
   def populate
-    @rows = rows_indexed_by(:row_no)  
-    return @rows   
+    @rows = rows_indexed_by(:row_no)
+    return @rows
   end
 
+   # ## populated the task creating all the expected context rows
+  #
+  def recalculate
+    cleanup_references
+    contexts.each do |context|
+      context.recalculate
+    end
+    @rows = nil
+  end
+
+  def validate_mandatory
+    list = verify_mandatory
+    list.size==0
+  end
+#
+# SQL to list all contexts missing a mandatory field
+#
+  def verify_mandatory
+    list = TaskContext.find_by_sql( <<-SQL
+select * from task_contexts c where task_id=#{self.id}
+and exists (select 1 from parameters p
+            where p.parameter_context_id = c.parameter_context_id
+	    and mandatory='Y')
+and (exists (select 1 from task_references r where r.task_context_id = c.id)
+     or exists (select 1 from task_texts t   where t.task_context_id = c.id)
+     or exists (select 1 from task_values v  where v.task_context_id = c.id) )
+and (exists (
+    select 1 from parameters p1
+    where p1.parameter_context_id = c.parameter_context_id
+    and p1.data_type_id=5  and mandatory='Y'
+    and not exists (select 1 from task_references r2
+	            where r2.parameter_id   = p1.id
+		    and   r2.task_context_id= c.id ))
+and exists (
+    select 1 from parameters p2
+    where p2.parameter_context_id = c.parameter_context_id
+    and p2.data_type_id in (1,3,4,6,7)  and p2.mandatory='Y'
+    and not exists (select 1 from task_texts t2
+	            where t2.parameter_id   = p2.id
+		    and   t2.task_context_id= c.id ))
+and exists (
+    select 1 from parameters p3
+    where p3.parameter_context_id = c.parameter_context_id
+    and p3.data_type_id=2  and p3.mandatory='Y'
+    and not exists (select 1 from task_values v2
+	            where v2.parameter_id   = p3.id
+		    and   v2.task_context_id= c.id )))
+SQL
+    )
+    list.each do |item|
+       self.errors.add(:contexts,"row #{item.label} missing mandatory fields")
+    end
+  end
+
+  def validate_references
+    list = verify_references
+    list.size == 0
+  end
+
+  def cleanup_references
+    list = verify_references
+    list.collect{|i| i.destroy}
+  end
+
+  def verify_references
+    invalid_list=[]
+    references.each do |item|
+      TaskContext.current = item.context
+      ref = item.object
+      TaskContext.current = nil
+      unless ref and ref.id and ref.name
+        logger.info("removed reference #{item.id} #{item.data_name}")
+        self.errors.add(:references , "#{item.label}=#{item.data_name} not valid")
+        invalid_list << item
+      end   
+    end
+    invalid_list
+  end
+
+  
   def to_html_cached?
     (respond_to?(:project_element) and respond_to?(:updated_at)  and project_element and 
        (project_element.content and self.updated_at <= project_element.content.updated_at
@@ -535,11 +614,11 @@ SQL
   def rows_for(item)
     case item
     when ParameterContext  
-        rows.select{|i|i.parameter_context_id == item.id} 
+        self.contexts.find_all_by_parameter_context_id(item.id)
      when String
-        rows.select{|i|i.label == item} 
+        self.contexts.find_all_by_label(item)
     when Fixnum
-        rows.select{|i|i.parameter_context_id == item} 
+        self.contexts.find_all_by_parameter_context_id(item)
     else
       []
     end      
@@ -617,16 +696,37 @@ SQL
   # 
   # Get rows with local caching of rows
   # 
-  def context(label, parameter_context  = nil)
-    row ||= self.contexts.find(:first,:conditions=>['task_contexts.label=?',label])
-    unless row
-      parameter_context ||= self.process.context(label.split("[")[0])
-      row = self.add_context(parameter_context)
-      row.label = label
-      row.save!
+  def context(label)
+    task_context = self.contexts.find(:first,:conditions=>['task_contexts.label=?',label])
+    parent_context = self
+    #
+    # Build tree of contexts
+    #
+    unless task_context
+      list = label.split(".")
+      parameter_context = self.process.context(list.delete_at(0))
+      if parameter_context.parent
+       list.pop
+        parent_label = "#{parameter_context.parent.name}.#{list.join('.')}"
+        parent_context = self.context(parent_label)
+        #
+        # Recheck to context created in population of parent
+        #
+        task_context = self.contexts.find(:first,:conditions=>['task_contexts.label=?',label])
+      elsif list.size>=3
+        self.errors.add(:context,"label #{label} should have a parent parameter context")
+      end
     end
-    @rows[label] ||= row if @rows
-    return row
+    #
+    # If not found create now tree populated
+    #
+    unless task_context
+      task_context = parent_context.add_context(parameter_context)
+      task_context.label = label
+      task_context.save!
+    end
+    @rows[label] ||= task_context if @rows
+    return task_context
   end
   # 
   # get item creating if needed
@@ -649,7 +749,7 @@ SQL
     task.assigned_to_user_id = self.assigned_to_user_id
     task.done_hours = 0
     task.expected_hours = self.expected_hours
-    if task.is_finished
+    if task.finished?
       task.expected_hours =  self.period / (24*60*60)
     end
     task.started_at =  (self.started_at.to_time + delta_time)
@@ -672,11 +772,10 @@ SQL
   # Check allowed to process data
   # 
   def start_processing
-    return true if self.is_status(Alces::ScheduledItem::PROCESSING)
-    return false unless is_allowed_state(Alces::ScheduledItem::PROCESSING)
-    self.status_id = Alces::ScheduledItem::PROCESSING
-    self.save!   
-    return true
+    return false if self.active? or self.finished?
+    new_state = self.folder.state_flow.next_level(self.state)
+    self.experiment.start_processing
+    self.folder.set_state(new_state,true)
   end  
 
   # 
@@ -741,13 +840,14 @@ SQL
     for c in self.process.roots 
       1.upto(c.default_count) do |n|
         new_label = "#{c.label}.#{n}"
-        row = self.context( new_label,c)
+        row = self.context( new_label)
         list << row
         list << row.populate
       end      
     end
     hash ={}
     list.flatten.each{|i|hash[i.send(index)] = i}
+    self.contexts.collect{|i|hash[i.send(index)] = i}
     return hash  
   end
   # 
@@ -783,10 +883,8 @@ SQL
 
   def fill_records_ended_at_time
     # Set the Ended date id the task is finshed and delete the entry if not
-    if self.is_finished
+    if self.finished?
       self.ended_at = Time.now
-    else
-      self.ended_at = ''
     end  
   end
   
@@ -797,6 +895,12 @@ SQL
     if self.process
       self.description = self.process.description  if self.description.blank?
     end
+    if self.experiment and self.process
+      self.started_at  ||=  [Time.now,experiment.started_at].max
+      self.expected_at ||= self.started_at + self.process.expected_hours.hours
+    end
+    self.done_hours ||= 0
+
   end
     
   # 
@@ -805,7 +909,7 @@ SQL
   def link_to_process_folder
     unless Biorails::Dba.importing?
       self.process.folder.elements.each do |element|
-        self.folder.add_reference(element.name,element) 
+        self.folder.copy(element)
       end
     end
   end 

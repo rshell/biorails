@@ -3,20 +3,20 @@
 <div class="row">
     <div class="form-element">
         <label for="user_login">
-            <%=l(:label_name) %>
+            <%=l(:Name) %>
         </label>
         <%= f.text_field :login %>
     </div>
     <div class="form-element">
         <label for="user_role" class='icon icon-role'>
-            <%=l(:label_access_level) %>
+            <%=l(:Access_Level) %>
         </label>
         <%= select_named( :user, :role_id ,UserRole) %>
     </div>
     <%if @user.new_record? %>
     <div class="form-element">
         <label for="project_role" class='icon icon-role'>
-            <%=l(:label_root_team_role)%>
+            <%=l(:Roles_Root_Project)%>
         </label>
         <%= select_named( :project, :role_id ,ProjectRole) %>
     </div>
@@ -26,7 +26,7 @@
     <div class="form-element">
         <%= f.check_box :is_disabled %>
         <label>
-            <%=l(:label_user_disable) %>
+            <%=l(:User_Disable) %>
         </label>
     </div>
 </div>
@@ -34,12 +34,12 @@
     <div class="form-element">
         <%= f.check_box :admin %>
         <label>
-            <%=l(:label_user_system_liability) %>
+            <%=l(:Full_system_liability) %>
         </label>
     </div>
 </div>
 <div class="row">
-    <%= submit_tag(l(:button_save)) %>
+    <%= submit_tag(l(:Save)) %>
 </div>
 <script type="text/javascript">
     Ext.onReady(function(){

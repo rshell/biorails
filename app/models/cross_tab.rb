@@ -16,7 +16,7 @@
 #
 
 # == Description
-# Master object of ruleset for generation of a Cross Tab sytle report.This manages the rules for 
+# Master object of ruleset for generation of a Cross Tab style report.This manages the rules for 
 # taskContext v.s. Parameters table of results. The cross tab is built of a collection of 
 # columns based on parameters and filters. 
 #  
@@ -72,7 +72,7 @@ class CrossTab < ActiveRecord::Base
   # 
   has_many :columns ,:class_name=>'CrossTabColumn',
     :include => [:parameter_type=>[],:assay_parameter=>[], :parameter=>[:context=>[:process]]],
-    :order =>'protocol_versions.name,parameter_contexts.label,parameters.name'    
+    :order =>'protocol_versions.name,parameter_contexts.label,parameters.column_no'
   
   # 
   # There is a set of filters applied to a cross tab
@@ -148,7 +148,7 @@ class CrossTab < ActiveRecord::Base
     
   acts_as_dictionary :name
   validates_presence_of :name
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name,:scope=>'project_id', :case_sensitive=>false
   validates_presence_of :description  
   #
   # Initialize the object and make sure its owned
@@ -230,7 +230,7 @@ class CrossTab < ActiveRecord::Base
   # 
   def add_columns(item)
     ret = true
-    logger.warn("add #{item.class} #{item.to_s}")
+    logger.debug("add #{item.class} #{item.to_s}")
     case item
     when Parameter
       column = self.add(item)
@@ -315,12 +315,13 @@ class CrossTab < ActiveRecord::Base
     end
     cond_contexts =[]
     for context in self.contexts  
-       item = " task_contexts.parameter_context_id = '#{context.id}' "
+       item = ""
        self.filters.using(context).each do |filter|
              item << " and " + filter.exists_rule
        end
-       cond_contexts << item
+       cond_contexts << " task_contexts.parameter_context_id = '#{context.id}' #{item} " if item.size>0
     end
+    return cond if cond_contexts.size==0
     cond << "and ( (#{cond_contexts.join(') or (')})  )"
     logger.debug "conditions filters: #{cond}"
     return cond
@@ -347,18 +348,21 @@ class CrossTab < ActiveRecord::Base
   # the task contexts are registered
   # 
   #
-  def results(page=1,count = 25)
+  def results(page=1,count = 50)
     WillPaginate::Collection.create(page, count, self.estimated_rows) do |pager|
       table =[]
-      for row in self.task_contexts(page,count) 
+      for row in self.task_contexts(page,count)
+        row_with_values = false
         hash = {}
+        hash[-3] = row.task
         hash[-2] = row.task.name
         hash[-1] =  row.label
         hash[0] = row.id
         for cell in row.items.values
+          row_with_values = true
           hash[cell.parameter_id] = cell.to_s
         end
-        table << hash
+        table << hash if row_with_values
       end
       pager.replace table
     end
@@ -366,11 +370,34 @@ class CrossTab < ActiveRecord::Base
   # 
   # List of rows linked to this report
   # 
-  def task_contexts(page=1,count = 25)
-      
-    TaskContext.paginate(:all,:order=>'tasks.name,task_contexts.left_limit,task_contexts.id asc',
+  def task_contexts(page=1,count = 50)
+    filter_sql = self.conditions
+    unless User.current.admin?
+       filter_sql << <<-SQL
+and (
+  exists ( select 1 from project_elements inner join states on (project_elements.state_id = states.id)
+           where states.level_no >=#{State::PUBLIC_LEVEL}
+           and project_elements.id = tasks.project_element_id
+         )
+  or
+  exists ( select 1 from access_control_elements 
+           inner join project_elements on (project_elements.access_control_list_id = access_control_elements.access_control_list_id)
+           inner join states on (project_elements.state_id = states.id)
+           where project_elements.id = tasks.project_element_id
+           and states.level_no > #{State::ACTIVE_LEVEL}
+     and  ( (access_control_elements.owner_type='User'and access_control_elements.owner_id = #{User.current.id} )
+         or ( access_control_elements.owner_type='Team' and exists (select 1 from memberships
+              where memberships.team_id=access_control_elements.owner_id and memberships.user_id=#{User.current.id} )
+            )
+          )
+     )
+)
+SQL
+    end
+    TaskContext.paginate(:all,
       :include=>[:task,:values,:texts,:references],
-      :conditions=>self.conditions,  
+      :order=>'tasks.project_id desc,tasks.experiment_id desc,tasks.name,task_contexts.left_limit,task_contexts.id asc',
+      :conditions=>filter_sql,
       :total_entries=>self.estimated_rows, :per_page=>count, :page=>page)    
   end
   #
@@ -406,27 +433,27 @@ class CrossTab < ActiveRecord::Base
         {:id=>'protocols',:text=>'protocols'}, {:id=>'parameters',:text=>'parameters'} ]
     when 'roles' then   items = ParameterRole.find(:all)
     when 'types' then   items = ParameterType.find(:all)
-    when 'assays' then items = self.project.assays
+    when 'assays' then items =  Assay.list(:all)
     when 'protocols'
-      items = AssayProtocol.find(:all, :include =>[:assay=>:project],:conditions=>['assays.project_id=?',project_id])    
+      items = AssayProtocol.list(:all, :include =>[:assay=>:project],:conditions=>['assays.project_id=?',project_id])
     
     when 'processes','process'
-      items = ProtocolVersion.find(:all,:include =>[:protocol=>[:assay]],:conditions=>['assays.project_id=?',project_id])
+      items = ProtocolVersion.list(:all,:include =>[:protocol=>[:assay]],:conditions=>['assays.project_id=?',project_id])
     
     when 'parameters'
-      items = AssayParameter.find(:all,:include =>[:assay],:conditions=>['assays.project_id=?',project_id])
+      items = AssayParameter.list(:all,:include =>[:assay],:conditions=>['assays.project_id=?',project_id])
     
     when Project 
-      items = Assay.find(:all,:conditions=>['assays.project_id=?',object.id])
+      items = Assay.list(:all,:conditions=>['assays.project_id=?',object.id])
       
     when Assay
-      items = AssayProtocol.find(:all,:include=>[:assay=>:project], :conditions=>{:assay_id=> object.id})
+      items = AssayProtocol.list(:all,:include=>[:assay=>:project], :conditions=>{:assay_id=> object.id})
       
     when AssayProtocol
-      items = ProtocolVersion.find(:all,:conditions=>{:assay_protocol_id=> object.id})
+      items = ProtocolVersion.list(:all,:conditions=>{:assay_protocol_id=> object.id})
        
     when AssayParameter
-      items = ProtocolVersion.find(:all,
+      items = ProtocolVersion.list(:all,
         :conditions=>[' exists ( select 1 from parameters where parameters.assay_parameter_id=? and parameters.protocol_version_id= protocol_versions.id )', 
           object.id] )
     
@@ -446,7 +473,7 @@ class CrossTab < ActiveRecord::Base
       end
     
     when ParameterType
-      items = ProtocolVersion.find(:all,
+      items = ProtocolVersion.list(:all,
         :conditions=>[' exists ( select 1 from parameters where parameters.parameter_type_id=? and parameters.protocol_version_id= protocol_versions.id )',
           object.id] )
     
@@ -468,7 +495,8 @@ class CrossTab < ActiveRecord::Base
   # 
   # SQL quueries to get tree details limited to used parameters
   # 
-  def linked_items_live(object,scope=nil)  
+  def linked_items_live(object,scope=nil)
+    items =[]
     case object
     when 'root'
       items = [{:id=>'roles',:text=>'roles'},{:id=>'types',:text=>'types'}, {:id=>'assays',:text=>'assays'},
@@ -476,27 +504,25 @@ class CrossTab < ActiveRecord::Base
              
     when 'roles'   then   items = ParameterRole.find_all_used
     when 'types'   then   items = ParameterType.find_all_used
-    when 'assays' then   items = self.project.assays
-    when 'protocols'
-      cond = <<SQL
-       exists (select 1 from tasks,protocol_versions 
-       where protocol_versions.id=tasks.protocol_version_id 
-         and protocol_versions.assay_protocol_id=assay_protocols.id)
-       and assays.project_id =?
-SQL
-      items = AssayProtocol.find(:all, :include =>[:assay=>:project], :conditions=>[cond,project_id] )    
-    
+    when 'assays' then    items = Assay.list(:all)
+    when 'protocols'     
+      items = AssayProtocol.list(:all, :include =>[:assay=>:project] )
     when 'processes','process'
-      items = ProtocolVersion.find(:all,:include =>[:protocol=>:assay],
-        :conditions=>['assays.project_id=? and exists (select  1 from tasks where tasks.protocol_version_id=protocol_versions.id)',project_id])
+      cond = <<SQL
+exists (select 1 from tasks
+        where protocol_versions.id=tasks.protocol_version_id
+          and tasks.project_id =?)
+SQL
+      items = ProtocolVersion.list(:all,:include =>[:protocol=>:assay],
+        :conditions=>[cond,project_id])
  
     when 'parameters'
       cond = <<SQL
-       exists (select 1 from tasks,protocol_versions,parameters 
-       where protocol_versions.id=tasks.protocol_version_id 
-         and protocol_versions.id=parameters.protocol_version_id
-         and parameters.assay_parameter_id=assay_parameters.id)
-         and assays.project_id =?
+       exists (select 1 from tasks, protocol_versions, parameters
+       where protocol_versions.id = tasks.protocol_version_id
+         and protocol_versions.id = parameters.protocol_version_id
+         and parameters.assay_parameter_id = assay_parameters.id
+         and tasks.project_id =?)
 SQL
       items = AssayParameter.find(:all,:include =>[:assay],:conditions=>[cond,project_id])
     

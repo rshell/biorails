@@ -1,17 +1,36 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: access_control_lists
-#
-#  id           :integer(4)      not null, primary key
-#  content_hash :string(255)
-#  team_id      :integer(4)
-#
+--- 
+00000000002_access_control_list: !ruby/object:AccessControlList 
+  attributes: 
+    team_id: "2"
+    id: "2"
+    content_hash: 1bf19c3bd3e234f1f156b4a827c40b25
+  attributes_cache: {}
 
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+00000000004_access_control_list: !ruby/object:AccessControlList 
+  attributes: 
+    team_id: "4"
+    id: "4"
+    content_hash: ec192512d024800c3eeedfd38e482fe0
+  attributes_cache: {}
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+00000000001_access_control_list: !ruby/object:AccessControlList 
+  attributes: 
+    team_id: "1"
+    id: "1"
+    content_hash: 9698a9708e25d2c02cdf9fbb64ac2803
+  attributes_cache: {}
+
+00000000003_access_control_list: !ruby/object:AccessControlList 
+  attributes: 
+    team_id: "3"
+    id: "3"
+    content_hash: 8d039f057790fedc1f7f3aea4e4adb2b
+  attributes_cache: {}
+
+00000000005_access_control_list: !ruby/object:AccessControlList 
+  attributes: 
+    team_id: "9"
+    id: "5"
+    content_hash: 44c67ed88bcbf526b41f8917bf912d1a
+  attributes_cache: {}
+

@@ -1,0 +1,94 @@
+<div class="panel">
+  <% if @state_flow %>
+    <h2> Workflow <%=@state_flow.name%>  </h2>
+    <div class="box">
+      <%=@state_flow.description%>
+      <br />
+      Used in the following Domains:-
+      <ul>
+      <% for item in @state_flow.project_types %>
+        <li><strong><%=item.name%></strong>  <%=item.description%>
+      <%end%>
+      </ul>
+    </div>
+    <div class="box">
+      Workflow progression rules
+      <ul>
+        <% for state in @state_flow.states %>
+          <li>
+            [<%=state.to_s %>]
+            status items allowed to change to
+            <% for item in @state_flow.next_states(state) %>
+              <%if item.signed? %>
+                [<strong><%=item.to_s%></strong>]
+              <%elsif item.check_children? %>
+                <i>[<%=item.to_s%>]</i>
+              <%else%>
+                [<%=item.to_s%>]
+              <%end%>
+              &nbsp;
+            <%end%>
+          </li>
+        <% end %>
+      </ul>
+      key:<br/>
+      &nbsp; &nbsp;[<strong>signed</strong>] states where a sign document of content is created,<br/>
+      &nbsp; &nbsp;[<i>forced</i>] states where all children must be updated to this state
+    </div>
+
+    <% for state in @state_flow.states -%>
+      <%if state.signed? %>
+        <h2><%=state.to_s%> (signature required)</h2>
+        <div class="box">
+          This state require a signature for entry/exit of this state.
+          <%unless state.check_children? %>
+            <p><strong> Warning:</strong> This state < should be set to cascade to children, so all data
+            is %=state.to_s%> together.
+            </p>
+          <%end%>
+          To be changed to <strong><%=state.to_s%></strong>
+          items need to be in:-
+          <ul>
+            <%for item in @state_flow.previous_states(state)%>
+              <li>
+                State <%=item.to_s%> (<%=item.level_text%>)
+              </li>
+            <% end %>
+          </ul>
+          All children of the record must also be one of states above, or set to an ignored level
+          <%for item in @state_flow.next_states(state)%>
+            <%unless item.check_children? %>
+              <p><strong> Warning:</strong> state <%=item.to_s %>
+                should be set to cascade to children all all items are withdrawn from this state
+              </p>
+            <%end%>
+          <% end %>
+        </div>
+
+      <%else%>
+        <%if state.check_children? %>
+
+          <h2><%=state.to_s%> (cascaded to all children)</h2>
+          <div class="box">
+            To be changed to <strong><%=state.to_s%></strong>
+            items need to be in:-
+            <ul>
+              <%for item in @state_flow.previous_states(state)%>
+                <li>
+                  State <%=item.to_s%> (<%=item.level_text%>)
+                  <%= 'withdrawal signature required'  if item.signed?%>
+                </li>
+              <% end %>
+            </ul>
+            All children of the record must also be one of states above, or set to an ignored level
+          </div>
+        <% end -%>
+      <%end%>
+    <% end -%>
+
+    <%= button_to l(:Edit), state_flow_url( :action => 'edit',:id=> @state_flow) %>
+
+  <% end %>
+
+
+</div>

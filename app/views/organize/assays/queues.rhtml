@@ -4,7 +4,7 @@
 </h1>
 
 <% content_for :center do -%>
-
+  <%=  render :partial => 'shared/report', :locals => {:report => @report } %>
 <%end%>
 
 <% content_for :right do -%>
@@ -19,6 +19,6 @@
      may submit items to the same queue.
    </p>
   </div>
-  <%= link_to l(:label_new), queue_url( :action => 'new', :id=>@assay.id), :class=>'icon icon-service' %>
+  <%= link_to l(:New), queue_url( :action => 'new', :id=>@assay.id), :class=>'icon icon-service' %>
 <%end%>
 

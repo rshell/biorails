@@ -24,9 +24,6 @@
 $:.unshift(File.dirname(__FILE__))
   
 require 'rubygems'
-unless Kernel.respond_to?(:gem)
-  Kernel.send :alias_method, :gem, :require_gem
-end
   
 unless defined?(ActiveRecord)
   begin
@@ -41,9 +38,12 @@ require 'core_ext/module'
 
 require 'rails_sql_views/connection_adapters/abstract/schema_definitions'
 require 'rails_sql_views/connection_adapters/abstract/schema_statements'
+require 'rails_sql_views/connection_adapters/abstract_adapter'
 require 'rails_sql_views/connection_adapters/mysql_adapter'
 require 'rails_sql_views/connection_adapters/postgresql_adapter'
 require 'rails_sql_views/connection_adapters/sqlserver_adapter'
+require 'rails_sql_views/connection_adapters/sqlite_adapter'
+require 'rails_sql_views/connection_adapters/jdbc_adapter'
 require 'rails_sql_views/connection_adapters/sqlite3_adapter'
 require 'rails_sql_views/connection_adapters/oracle_adapter'
 require 'rails_sql_views/connection_adapters/oracle_enhanced_adapter'

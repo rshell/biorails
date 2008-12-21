@@ -1,9 +1,9 @@
 <div class=" x-panel-header x-accordion-hd">
-    <span class="icon icon-project x-panel-header-text"><%=@user.name %>'s <%=l(:label_tasks) %>
+    <span class="icon icon-project x-panel-header-text"><%=@user.name %>'s <%=l(:Tasks) %>
     </span>
 </div>
 <div class='panel'>
-    <h3 class="icon icon-green"><%=l(:label_current) %>
+    <h3 class="icon icon-green"><%=l(:Current) %>
     </h3>
     <table>
         <% for item in @user.tasks.current(5) %>
@@ -12,13 +12,13 @@
                 <%= link_to item.name, task_url( :action => 'show', :id => item) %>
             </td>
             <td>
-                <%=l(:label_due) %>:<%= short_date(item.ended_at) %>
+                <%=l(:Due) %>:<%= short_date(item.ended_at) %>
             </td>
         </tr>
         <% end %>
     </table>
     <br/>
-    <h3 class="icon icon-red"><%=l(:label_overdue) %>
+    <h3 class="icon icon-red"><%=l(:Overdue) %>
     </h3>
     <table>
         <% for item in @user.tasks.overdue(5) %>
@@ -27,13 +27,13 @@
                 <%= link_to item.name, task_url( :action => 'show', :id => item) %>
             </td>
             <td>
-                <%=l(:label_due) %>:<%= short_date(item.ended_at) %>
+                <%=l(:Due) %>:<%= short_date(item.ended_at) %>
             </td>
         </tr>
         <% end %>
     </table>
     <br/>
-    <h3 class="icon icon-amber"><%=l(:label_coming) %>
+    <h3 class="icon icon-amber"><%=l(:Coming) %>
     </h3>
     <table>
         <% for item in @user.tasks.future(5) %>
@@ -42,7 +42,7 @@
                 <%= link_to item.name, task_url( :action => 'show', :id => item) %>
             </td>
             <td>
-                <%=l(:label_due) %>:<%= short_date(item.ended_at) %>
+                <%=l(:Due) %>:<%= short_date(item.ended_at) %>
             </td>
         </tr>
         <% end %>

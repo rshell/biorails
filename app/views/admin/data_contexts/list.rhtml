@@ -3,17 +3,17 @@
     <div>
       <span class='menu'>
         <b class='icon icon-data_context'>
-            <%=l(:label_dictionary)%>
+            <%=l(:Dictionary)%>
         </b>
       </span>
-      <%= link_to l(:label_list),
+      <%= link_to l(:List),
             :action => 'list' %>
     </div>
 <% end %>
 <%= render :partial => 'admin/header' %>
 <div class='main' id='maintitle'>
     <h2 class='icon icon-data_context'>
-        <%=l(:label_dictionary)%>
+        <%=l(:Dictionary)%>
     </h2>
         <table class="report">
         <%= render :partial => 'shared/report',:locals =>

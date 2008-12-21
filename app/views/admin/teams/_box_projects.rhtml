@@ -1,19 +1,22 @@
 <div class="box" >
-    <h3 class="icon icon-project"><%=l(:label_projects) %></h3>
+    <h3 class="icon icon-project"><%=l(:Projects) %></h3>
+    <p>
+      The <%=l(:Projects)%> associated with this team
+    </p>
     <table id="team_projects" class="report">
         <thead>
             <tr class='header'>
                 <th>
-                    <%=l(:label_name) %>
+                    <%=l(:Name) %>
                 </th>
                 <th>
-                    <%=l(:label_style) %>
+                    <%=l(:Style) %>
                 </th>
                 <th>
-                    <%=l(:label_created_by) %>
+                    <%=l(:Creator) %>
                 </th>
                 <th>
-                    <%=l(:label_status) %>
+                    <%=l(:Status) %>
                 </th>
             </tr>
         </thead>
@@ -40,5 +43,5 @@
             <% end %>
         </tbody>
     </table>
-    <hr/><%= link_to( l(:label_new), project_url(   :action => 'new', :id=>@team.id), :class=>"icon icon-add") %>
+    <hr/><%= link_to( l(:New), project_url(   :action => 'new', :id=>@team.id), :class=>"icon icon-add") %>
 </div>

@@ -1,27 +1,8 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: task_values
-#
-#  id                 :integer(4)      not null, primary key
-#  task_context_id    :integer(4)      not null
-#  parameter_id       :integer(4)      not null
-#  data_value         :float           not null
-#  display_unit       :string(255)
-#  lock_version       :integer(4)      default(0), not null
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  task_id            :integer(4)      not null
-#  storage_unit       :string(255)
-#  updated_by_user_id :integer(4)      default(1), not null
-#  created_by_user_id :integer(4)      default(1), not null
-#
-
 --- 
 00000000028_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:58
+    updated_at: 2008-10-22 15:14:27
     display_unit: "%"
     task_id: "2"
     updated_by_user_id: "1"
@@ -37,7 +18,7 @@
 00000000021_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:58
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "2"
     updated_by_user_id: "1"
@@ -53,7 +34,7 @@
 00000000017_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: uM
     task_id: "2"
     updated_by_user_id: "1"
@@ -69,7 +50,7 @@
 00000000010_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "1"
     updated_by_user_id: "1"
@@ -85,7 +66,7 @@
 00000000009_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "1"
     updated_by_user_id: "1"
@@ -101,7 +82,7 @@
 00000000006_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: mM
     task_id: "1"
     updated_by_user_id: "1"
@@ -117,7 +98,7 @@
 00000000027_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:58
+    updated_at: 2008-10-22 15:14:27
     display_unit: "%"
     task_id: "2"
     updated_by_user_id: "1"
@@ -133,7 +114,7 @@
 00000000020_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:58
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "2"
     updated_by_user_id: "1"
@@ -149,7 +130,7 @@
 00000000016_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: uM
     task_id: "2"
     updated_by_user_id: "1"
@@ -165,7 +146,7 @@
 00000000005_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "3"
     updated_by_user_id: "1"
@@ -181,7 +162,7 @@
 00000000015_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: uM
     task_id: "2"
     updated_by_user_id: "1"
@@ -197,7 +178,7 @@
 00000000004_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "3"
     updated_by_user_id: "1"
@@ -213,7 +194,7 @@
 00000000014_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: uM
     task_id: "2"
     updated_by_user_id: "1"
@@ -229,7 +210,7 @@
 00000000003_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "3"
     updated_by_user_id: "1"
@@ -245,7 +226,7 @@
 00000000013_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: uM
     task_id: "2"
     updated_by_user_id: "1"
@@ -261,7 +242,7 @@
 00000000002_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: m
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: in
     task_id: "3"
     updated_by_user_id: "1"
@@ -277,7 +258,7 @@
 00000000001_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: mM
     task_id: "3"
     updated_by_user_id: "1"
@@ -293,7 +274,7 @@
 00000000026_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:58
+    updated_at: 2008-10-22 15:14:27
     display_unit: "%"
     task_id: "2"
     updated_by_user_id: "1"
@@ -309,7 +290,7 @@
 00000000025_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:58
+    updated_at: 2008-10-22 15:14:27
     display_unit: "%"
     task_id: "2"
     updated_by_user_id: "1"
@@ -325,7 +306,7 @@
 00000000024_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:58
+    updated_at: 2008-10-22 15:14:27
     display_unit: "%"
     task_id: "2"
     updated_by_user_id: "1"
@@ -341,7 +322,7 @@
 00000000019_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:58
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "2"
     updated_by_user_id: "1"
@@ -357,7 +338,7 @@
 00000000008_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "1"
     updated_by_user_id: "1"
@@ -373,7 +354,7 @@
 00000000029_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:58
+    updated_at: 2008-10-22 15:14:27
     display_unit: "%"
     task_id: "2"
     updated_by_user_id: "1"
@@ -389,7 +370,7 @@
 00000000023_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:58
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "2"
     updated_by_user_id: "1"
@@ -405,7 +386,7 @@
 00000000018_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "2"
     updated_by_user_id: "1"
@@ -421,7 +402,7 @@
 00000000012_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: uM
     task_id: "2"
     updated_by_user_id: "1"
@@ -437,7 +418,7 @@
 00000000007_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: m
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: in
     task_id: "1"
     updated_by_user_id: "1"
@@ -453,7 +434,7 @@
 00000000022_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: ""
-    updated_at: 2008-08-14 10:29:58
+    updated_at: 2008-10-22 15:14:27
     display_unit: ""
     task_id: "2"
     updated_by_user_id: "1"
@@ -469,7 +450,7 @@
 00000000011_task_value: !ruby/object:TaskValue 
   attributes: 
     storage_unit: mol/m^3
-    updated_at: 2008-08-14 10:29:57
+    updated_at: 2008-10-22 15:14:27
     display_unit: uM
     task_id: "2"
     updated_by_user_id: "1"

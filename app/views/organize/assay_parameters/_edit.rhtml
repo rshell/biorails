@@ -1,5 +1,5 @@
-<%= render :partial => 'organize/assays/header' %>
-<% dialog l(:label_parameter_edit) + " [" + @assay_parameter.name + "]" do %>
+<%= render :partial => 'header' %>
+<% dialog l(:Parameter_Edit) + " [" + @assay_parameter.name + "]" do %>
 <% form_tag :action => 'update', :id => @assay_parameter do %>
 <!--[form:assay_parameter]--><% hidden_field :assay_parameter, :assay_id %>
 <% hidden_field :assay_parameter, :name %>
@@ -20,7 +20,7 @@
 <div class="row" id='form_name'>
     <div class="form-element">
         <label for="assay_parameter_name">
-            <%=l(:label_name) %>
+            <%=l(:Name) %>
         </label>
         <%= text_field :assay_parameter,:name %>
     </div>
@@ -39,7 +39,7 @@
 <br/>
 <div class='row'>
     <div class="form-element">
-        <%= submit_tag l(:button_save) %>
+        <%= submit_tag l(:Save) %>
     </div>
 </div>
 <br/>

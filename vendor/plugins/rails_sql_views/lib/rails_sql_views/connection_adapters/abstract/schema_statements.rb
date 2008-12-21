@@ -1,6 +1,7 @@
 module RailsSqlViews
   module ConnectionAdapters # :nodoc:
     module SchemaStatements
+      
       # Create a view.
       # The +options+ hash can include the following keys:
       # [<tt>:check_option</tt>]
@@ -10,14 +11,24 @@ module RailsSqlViews
         if supports_views?
           view_definition = ViewDefinition.new(self, select_query)
 
-          yield view_definition
+          yield view_definition if block_given?
 
           if options[:force]
             drop_view(name) rescue nil
           end
+
           create_sql = "CREATE VIEW "
-          create_sql << "#{name} AS #{view_definition.select_query}"
+          create_sql << "#{name} "
+          if supports_view_columns_definition? && !view_definition.to_sql.blank?
+            create_sql << "("
+            create_sql << view_definition.to_sql
+            create_sql << ") " 
+          end
+          create_sql << "AS #{view_definition.select_query}"
+          create_sql << " WITH #{options[:check_option]} CHECK OPTION" if options[:check_option]
           execute create_sql
+        else
+          STDERR.puts "Views not supported for #{self.class}. Not creating #{name}"
         end
       end
 
@@ -36,7 +47,10 @@ module RailsSqlViews
           drop_view(new_name) rescue nil
         end
 
-        view_sql = "CREATE VIEW #{new_name} (#{mapper.view_cols.join(', ')}) "
+        view_sql = "CREATE VIEW #{new_name} "
+        if supports_view_columns_definition?
+          view_sql << "(#{mapper.view_cols.join(', ')}) "
+        end
         view_sql << "AS SELECT #{mapper.select_cols.join(', ')} FROM #{old_name}"
         execute view_sql
       end

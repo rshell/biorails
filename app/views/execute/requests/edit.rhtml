@@ -1,66 +1,71 @@
 <% content_for :messages do -%>
-<%=render :partial =>'shared/messages',:locals => { :objects => ['user_request' ]} %>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['user_request' ]} %>
 <%end %>
+
 <% content_for :center do -%>
-<%= render :partial=>'header' %>
-<% dialog "#{l(:label_request_update)} [#{@user_request.name}]" do %>
-<% form_tag :action => 'update',:id=> @user_request.id do %>
-<%= render :partial => 'form' %>
-<div class="row">
-    <%= submit_tag l(:button_submit) %>
-</div>
-<% end %>
-<% end %>
-<% dialog l(:label_details) do %>
-<table width='98%'>
-    <tr>
-        <th>
-            <b class='icon icon-service'><%=l(:label_services) %>
-            </b>
-        </th>
-        <th>
-            <b class='icon icon-queue_item'><%=l(:label_items) %>[<%=@user_request.data_element.name %>]</b>
-        </th>
-    </tr>
-    <tr>
-        <td valign="top">
-            <% form_tag :action => 'add_service',:id =>@user_request.id do %>
-            <span><%= select( :service, :id, @user_request.allowed_services.collect{|c|[c.path,c.id]}) %>
-                <%= submit_tag "add" %>
-            </span>
-            <% end %>
-        </td>
-        <td valign="top">
-            <% form_remote_tag :url => request_url(:action => 'add_item',:id =>@user_request.id) do %>
-            <span><%=my_lookup_tag("value","value", @user_request.data_element,{ :save=>"/requests/add_item/#{@user_request.id}"} ) %>
-                <!--%= submit_tag "add" %--></span>
-            <% end %>
-        </td>
-    </tr>
-    <tr>
-        <td valign="top">
-            <div id="current_services">
-                <%= render :partial => 'list_services', :locals => { :request => @user_request } %>
-            </div>
-        </td>
-        <td valign="top">
-            <div id="current_items">
-                <%= render :partial => 'list_items', :locals => { :request => @user_request } %>
-            </div>
-        </td>
-    </tr>
-</table>
+  <%= render :partial=>'header' %>
+
+  <div class='box'>
+    <h2> <%="#{l(:Request_update)} [#{@user_request.name}]"%> </h2>
+    <% form_tag :action => 'update',:id=> @user_request.id do %>
+      <%= render :partial => 'form' %>
+      <%= render :partial => 'form_update' %>
+      <div class="row">
+        <%= submit_tag l(:Submit) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="splitcontentleft">
+    <div class='box'>
+      <b class='icon icon-service'><%=l(:Service_Queues) %>     </b>
+      <% form_tag :action => 'add_service',:id =>@user_request.id do %>
+        <div class="row">
+          <div class="form-element">
+            <%= select_values( :service, :id, @user_request.allowed_services,[]) %>
+          </div>
+          <div class="form-element">
+            <%= submit_tag "add" %>
+          </div>
+        </div>
+      <% end %>
+      <br />
+      <div id="current_services">
+        <%= render :partial => 'list_services', :locals => { :request => @user_request } %>
+      </div>
+    </div>
+  </div>
+  <div class="splitcontentright">
+    <div class='box'>
+      <b class='icon icon-queue_item'><%=l(:Items) %>[<%=@user_request.data_element.name %>]</b>
+      <% form_remote_tag :url => request_url(:action => 'add_item',:id =>@user_request.id) do %>
+      <div class="row">
+        <div class="form-element">
+            <span><%=my_lookup_tag("value","value", @user_request.data_element ) %></span>
+          </div>
+          <div class="form-element">
+            <%= submit_tag "add" %>
+          </div>
+        </div>
+      <% end %>
+      <br />
+      <div id="current_items">
+        <%= render :partial => 'list_items', :locals => { :request => @user_request } %>
+      </div>
+    </div>
+  </div>
 <%end %>
-<%end %>
+
 <% content_for :footer do %>
-<%= render :partial => 'shared/audit',:locals =>{ :item => @user_request} %>
+  <%= render :partial => 'shared/audit',:locals =>{ :item => @user_request} %>
 <%end %>
+
 <% content_for :right do %>
-<div class=" x-panel-header x-accordion-hd">
-    <span class="icon icon-request x-panel-header-text"><%=l(:label_requests) %>
+  <div class=" x-panel-header x-accordion-hd">
+    <span class="icon icon-request x-panel-header-text"><%=l(:Requests) %>
     </span>
-</div>
-<div class='panel'>
+  </div>
+  <div class='panel'>
     <%=l(:help_request) %>
-</div>
+  </div>
 <%end %>

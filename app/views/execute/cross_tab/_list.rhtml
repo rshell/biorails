@@ -1,20 +1,20 @@
 <%= render :partial=>'projects/header' %>
-<h2 class="icon icon-crosstab"><%=l(:label_cross_tabs) %>
+<h2 class="icon icon-crosstab"><%=l(:Cross_Tabs) %>
 </h2>
 <div class='panel'>
   <table class='report'>
     <tr>
       <th>
-        <%=l(:label_name) %>
+        <%=l(:Name) %>
       </th>
       <th>
-        <%=l(:label_project) %>
+        <%=l(:Project) %>
       </th>
       <th>
-        <%=l(:label_description) %>
+        <%=l(:Description) %>
       </th>
       <th>
-        <%=l(:label_action) %>
+        <%=l(:Action) %>
       </th>
     </tr>
     <% for cross_tab in @cross_tabs %>
@@ -29,11 +29,11 @@
         <%=h cross_tab.description %>
       </td>
       <td>
-        <%= link_to l(:label_edit),cross_tab_url(:action=>:edit, :id=>cross_tab), :class=>'icon icon-edit' %>
+        <%= link_to l(:Edit),cross_tab_url(:action=>:edit, :id=>cross_tab), :class=>'icon icon-edit' %>
       </td>
     </tr>
     <% end %>
   </table>
   
-  <hr /><%= link_to( l(:label_new), cross_tab_url(:action=>:new),:method => :get, :project => current_project, :class=>'icon icon-new') %>
+  <hr /><%= link_to( l(:New), cross_tab_url(:action=>:new),:method => :get, :project => current_project, :class=>'icon icon-new') %>
 </div>

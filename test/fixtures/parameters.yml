@@ -1,39 +1,8 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: parameters
-#
-#  id                   :integer(4)      not null, primary key
-#  protocol_version_id  :integer(4)      not null
-#  parameter_type_id    :integer(4)      not null
-#  parameter_role_id    :integer(4)      not null
-#  parameter_context_id :integer(4)      not null
-#  column_no            :integer(4)
-#  sequence_num         :integer(4)
-#  name                 :string(62)      default(""), not null
-#  description          :string(1024)
-#  display_unit         :string(20)
-#  data_element_id      :integer(4)
-#  qualifier_style      :string(1)
-#  access_control_id    :integer(4)      default(0), not null
-#  lock_version         :integer(4)      default(0), not null
-#  mandatory            :string(255)     default("N")
-#  default_value        :string(255)
-#  data_type_id         :integer(4)      not null
-#  data_format_id       :integer(4)
-#  assay_parameter_id   :integer(4)
-#  assay_queue_id       :integer(4)
-#  created_at           :datetime        not null
-#  updated_at           :datetime        not null
-#  updated_by_user_id   :integer(4)      default(1), not null
-#  created_by_user_id   :integer(4)      default(1), not null
-#
-
 --- 
 00000000028_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration_1
-    updated_at: 2008-08-14 10:29:52
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "1"
     default_value: ""
     display_unit: mM
@@ -61,9 +30,9 @@
 00000000014_parameter: !ruby/object:Parameter 
   attributes: 
     name: CompoundRole
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "11"
-    default_value: Test
+    default_value: Blank
     display_unit: 
     parameter_context_id: "5"
     access_control_id: "0"
@@ -89,7 +58,7 @@
 00000000006_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
-    updated_at: 2008-08-14 10:29:50
+    updated_at: 2008-10-22 15:14:25
     assay_parameter_id: "6"
     default_value: ""
     display_unit: 
@@ -117,7 +86,7 @@
 00000000018_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "6"
     default_value: ""
     display_unit: 
@@ -145,7 +114,7 @@
 00000000004_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
-    updated_at: 2008-08-14 10:29:50
+    updated_at: 2008-10-22 15:14:25
     assay_parameter_id: "3"
     default_value: ""
     display_unit: 
@@ -173,7 +142,7 @@
 00000000027_parameter: !ruby/object:Parameter 
   attributes: 
     name: Length
-    updated_at: 2008-08-14 10:29:52
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "2"
     default_value: ""
     display_unit: in
@@ -201,7 +170,7 @@
 00000000020_parameter: !ruby/object:Parameter 
   attributes: 
     name: Species
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "12"
     default_value: Rat
     display_unit: 
@@ -229,7 +198,7 @@
 00000000008_parameter: !ruby/object:Parameter 
   attributes: 
     name: Species
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "12"
     default_value: Rat
     display_unit: 
@@ -257,7 +226,7 @@
 00000000005_parameter: !ruby/object:Parameter 
   attributes: 
     name: QueueCompound
-    updated_at: 2008-08-14 10:29:50
+    updated_at: 2008-10-22 15:14:25
     assay_parameter_id: "3"
     default_value: ""
     display_unit: 
@@ -285,7 +254,7 @@
 00000000021_parameter: !ruby/object:Parameter 
   attributes: 
     name: Receptor
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "10"
     default_value: 5-HT2A
     display_unit: 
@@ -313,7 +282,7 @@
 00000000010_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "9"
     default_value: ""
     display_unit: uM
@@ -341,7 +310,7 @@
 00000000017_parameter: !ruby/object:Parameter 
   attributes: 
     name: Inhibition
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "13"
     default_value: ""
     display_unit: "%"
@@ -369,7 +338,7 @@
 00000000011_parameter: !ruby/object:Parameter 
   attributes: 
     name: CPM
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "7"
     default_value: ""
     display_unit: ""
@@ -397,7 +366,7 @@
 00000000029_parameter: !ruby/object:Parameter 
   attributes: 
     name: Count_1
-    updated_at: 2008-08-14 10:29:52
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "4"
     default_value: ""
     display_unit: ""
@@ -425,7 +394,7 @@
 00000000023_parameter: !ruby/object:Parameter 
   attributes: 
     name: Count
-    updated_at: 2008-08-14 10:29:52
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "4"
     default_value: ""
     display_unit: ""
@@ -453,7 +422,7 @@
 00000000007_parameter: !ruby/object:Parameter 
   attributes: 
     name: IC50
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "8"
     default_value: ""
     display_unit: uM
@@ -481,7 +450,7 @@
 00000000001_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration
-    updated_at: 2008-08-14 10:29:50
+    updated_at: 2008-10-22 15:14:25
     assay_parameter_id: "1"
     default_value: ""
     display_unit: mM
@@ -509,7 +478,7 @@
 00000000019_parameter: !ruby/object:Parameter 
   attributes: 
     name: IC50
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "8"
     default_value: ""
     display_unit: uM
@@ -537,7 +506,7 @@
 00000000013_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "6"
     default_value: ""
     display_unit: 
@@ -565,7 +534,7 @@
 00000000025_parameter: !ruby/object:Parameter 
   attributes: 
     name: Compound
-    updated_at: 2008-08-14 10:29:52
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "3"
     default_value: ""
     display_unit: 
@@ -593,7 +562,7 @@
 00000000009_parameter: !ruby/object:Parameter 
   attributes: 
     name: Receptor
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "10"
     default_value: 5-HT2A
     display_unit: 
@@ -621,7 +590,7 @@
 00000000003_parameter: !ruby/object:Parameter 
   attributes: 
     name: Count
-    updated_at: 2008-08-14 10:29:50
+    updated_at: 2008-10-22 15:14:25
     assay_parameter_id: "4"
     default_value: ""
     display_unit: ""
@@ -649,7 +618,7 @@
 00000000026_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration
-    updated_at: 2008-08-14 10:29:52
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "1"
     default_value: ""
     display_unit: mM
@@ -677,7 +646,7 @@
 00000000022_parameter: !ruby/object:Parameter 
   attributes: 
     name: MaxInhibition
-    updated_at: 2008-08-14 10:29:52
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "13"
     default_value: ""
     display_unit: "%"
@@ -705,7 +674,7 @@
 00000000015_parameter: !ruby/object:Parameter 
   attributes: 
     name: Concentration
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "9"
     default_value: ""
     display_unit: uM
@@ -733,7 +702,7 @@
 00000000016_parameter: !ruby/object:Parameter 
   attributes: 
     name: CPM
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "7"
     default_value: ""
     display_unit: ""
@@ -761,7 +730,7 @@
 00000000012_parameter: !ruby/object:Parameter 
   attributes: 
     name: Inhibition
-    updated_at: 2008-08-14 10:29:51
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "13"
     default_value: ""
     display_unit: "%"
@@ -789,7 +758,7 @@
 00000000024_parameter: !ruby/object:Parameter 
   attributes: 
     name: QueueCompound
-    updated_at: 2008-08-14 10:29:52
+    updated_at: 2008-10-22 15:14:26
     assay_parameter_id: "3"
     default_value: ""
     display_unit: 
@@ -817,7 +786,7 @@
 00000000002_parameter: !ruby/object:Parameter 
   attributes: 
     name: Length
-    updated_at: 2008-08-14 10:29:50
+    updated_at: 2008-10-22 15:14:25
     assay_parameter_id: "2"
     default_value: ""
     display_unit: in

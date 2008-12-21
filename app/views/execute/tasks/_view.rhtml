@@ -1,3 +1,10 @@
 <div class='panel' style='border: thin solid #eee'>
-<%=@task.to_html%>
+<%=@task.to_html(@cache)%>
+<hr />
+<%=l(:Current_Style)%>: <%= @task.process.contexts.collect{|i|"#{i.name}:#{i.output_style}"}.join(" , ") %>
+<br />
+<%=button_to l(:Refresh), task_url(:action=>:show,:id=>@task,:tab=>3,:refresh=>"yes") %>
+<%=button_to "#{l(:Reformat)}  #{@task.process.name}",process_instance_url(:action=>:format,:id=>@task.process.id,:task_id=>@task.id),:popup=>true %>
+<br />
+<br />
 </div>

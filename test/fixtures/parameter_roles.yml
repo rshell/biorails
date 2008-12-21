@@ -1,24 +1,8 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: parameter_roles
-#
-#  id                 :integer(4)      not null, primary key
-#  name               :string(50)      default(""), not null
-#  description        :string(1024)    default(""), not null
-#  weighing           :integer(4)      default(0), not null
-#  lock_version       :integer(4)      default(0), not null
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  updated_by_user_id :integer(4)      default(1), not null
-#  created_by_user_id :integer(4)      default(1), not null
-#
-
 --- 
 00000000003_parameter_role: !ruby/object:ParameterRole 
   attributes: 
     name: setting
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     lock_version: "4"
     id: "3"
@@ -31,7 +15,7 @@
 00000000006_parameter_role: !ruby/object:ParameterRole 
   attributes: 
     name: condition
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     lock_version: "3"
     id: "6"
@@ -44,7 +28,7 @@
 00000000001_parameter_role: !ruby/object:ParameterRole 
   attributes: 
     name: observation
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     lock_version: "3"
     id: "1"
@@ -57,7 +41,7 @@
 00000000004_parameter_role: !ruby/object:ParameterRole 
   attributes: 
     name: subject
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     lock_version: "3"
     id: "4"
@@ -70,7 +54,7 @@
 00000000002_parameter_role: !ruby/object:ParameterRole 
   attributes: 
     name: result
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:21
     updated_by_user_id: "1"
     lock_version: "4"
     id: "2"

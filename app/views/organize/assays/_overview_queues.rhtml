@@ -1,11 +1,9 @@
-    <h3><%=l(:label_queues_and_status) %>
-    </h3>
-    <div class='box'>
+<div class='box splitcontentright' style='width:40%'>
     <table class="report">
         <thead>
             <tr>
                 <th>
-                    <%= l(:label_queues) %>
+                    <%= l(:Queues) %>
                 </th>
             </tr>
         </thead>
@@ -22,5 +20,5 @@
         </tbody>
     </table>
     <hr/>
-    <%= link_to( l(:label_queue_add),   queue_url(:action => 'new',  :id => @assay), :class=>'icon icon-queue-add') %>
+    <%= link_to( l(:Queue_Add),   queue_url(:action => 'new',  :id => @assay), :class=>'icon icon-queue-add') if  @assay.changeable? %>
 </div>

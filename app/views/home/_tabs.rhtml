@@ -1,7 +1,8 @@
   <%= tab_strip("home-tabs", 0 ,[
-    {:name =>l(:label_overview)     , :partial=> 'show' },
-    {:name =>l(:label_documents)    , :partial=> 'box_documents'},
-    {:name =>l(:label_design)       , :partial=> 'box_organisation'},
-    {:name =>l(:label_execution)    , :partial=> 'box_execution' },
-    {:name =>l(:label_studies)      , :partial=> 'box_user_projects'}
+    {:name =>l(:Overview)     , :partial=> UserSetting.home_tab1 },
+    {:name =>l(:Documents)    , :partial=> UserSetting.home_tab2},
+    {:name =>l(:Organisation)       , :partial=> UserSetting.home_tab3},
+    {:name =>l(:Execution)    , :partial=> UserSetting.home_tab4 },
+    {:name =>l(:Studies)      , :partial=> UserSetting.home_tab5},
+    {:name =>l(:Custom)       , :partial=> UserSetting.home_tab6}
     ]) %>

@@ -1,19 +1,33 @@
-<div class="content_header organisation">
-  <%= render :partial => 'shared/help_link' %>
-  <h1 class='icon icon-assay-large'>
-    <%= link_to( l(:label_assay) + " [" + @assay_queue.assay.name + "]", assay_url( :action => :show, :id => @assay_queue.assay.id)) %>
-  </h1>
-  <br />
-  <br />
-  <div class='actions_left'>
-    <%= link_to l(:label_open_folder), folder_url(:action => 'show', :id => @assay_queue.assay.folder ), :class=>'icon icon-folder'%>
-    <%= link_to @assay_queue.assay.project.name, project_url(:action => 'show', :id => @assay_queue.assay.project.id), :class=>"icon icon-project-#{@assay_queues.assay.project.style.downcase}"%>
+<%if @assay %>
+  <div class="content_header organisation">
+    <%= render :partial => 'shared/help_link' %>
+    <h1 class='icon icon-queue-large'>
+      <%= link_to( l(:Queues) + " [" + @assay.name + "]", assay_url( :action => :show, :id => @assay.id,:tab=>3)) %>
+    </h1>
+    <br />
+    <br />
+    <div class='actions_left'>
+      <%= link_to l(:Assay),       assay_url(:action => 'show', :id => @assay,:tab=>0 ),  :class=>'icon icon-assay' %>
+      <%= link_to( l(:Parameters), assay_url(:action => 'show', :id => @assay,:tab=>2 ), :class=>'icon icon-parameter') %>
+      <%= link_to( l(:Queues),     assay_url(:action => 'show', :id => @assay,:tab=>3 ), :class=>'icon icon-queue') %>
+      <%= link_to( l(:Processes),  assay_url(:action => 'show', :id => @assay,:tab=>4 ), :class=>'icon icon-queue') %>
+    </div>
+    <div class='actions_right'>
+      <% if  @assay.changeable? %>
+        <%= link_to l(:List),  queue_url( :action => 'list', :id =>@assay), :class=>'icon icon-request' %>
+        <%= link_to l(:Add), queue_url( :action => 'new', :id => @assay), :class=>'icon icon-add' %>
+        <% if @assay_queue and !@assay_queue.new_record?  %>
+          <%= link_to l(:Edit), queue_url( :action => 'edit', :id => @assay_queue), :class=>'icon icon-edit' %>
+          <%= link_to l(:Items),  queue_url(:action => 'items', :id => @assay_queue), :class=>'icon icon-queue_item' %>
+          <%= link_to l(:Results), queue_url( :action => 'results', :id=>@assay_queue), :class=>'icon icon-result' %>
+        <%end %>
+      <%end %>
+    </div>
+    <br />
   </div>
-  <div class='actions_right'>
-    <%= link_to( l(:label_parameters),parameter_url(:action => 'list' , :id => @assay_queues.assay),  :class=>'icon icon-parameter')  %>
-    <%= link_to( l(:label_queues),queue_url(:action => 'list', :id => @assay_queues.assay ), :class=>'icon icon-queue') %>
-    <%= link_to( "&nbsp; #{l(:label_export)}",  assay_url( :action =>'export',:id => @assay_queues.assay), :class=>'icon icon-xml') %>
-  </div>
-  <br />
-</div>
-<%=breadcrumb_list @assay.folder %>
+  <% if @assay_queue and !@assay_queue.new_record? %>
+    <%= breadcrumb_list @assay_queue.folder %>
+  <%else%>
+    <%=breadcrumb_list @assay.folder %>
+  <%end %>
+<%end %>

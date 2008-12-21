@@ -1,0 +1,9 @@
+Example of first 10 rows of current report :-
+<fieldset>
+  <%if @data.nil?%>
+    <%=l(:text_no_data_returned_by_query)%>
+  <%else %>
+    <%= render :partial => 'shared/report',
+    :locals => {:table => @report, :data =>@data } %>
+  <%end%>
+</fieldset>

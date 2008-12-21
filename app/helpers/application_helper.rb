@@ -148,90 +148,8 @@ module ApplicationHelper
     if object
         link_to(name,object_to_url(object,options) )
     end
-  end   
-  
-  
-  ##
-# Convert a type/id reference into a url to the correct controlelr
-#    
-  def object_to_url( object,options = {:action=>'show'})
-    return "" unless object
-    id = object.id
-    if object
-      case  object
-      when ProjectAsset then    asset_url(   options.merge(  { :id=>id ,:folder_id=>object.parent_id}) )
-      when ProjectContent then  content_url( options.merge({ :id=>id ,:folder_id=>object.parent_id}) )
-      when ProjectElement then  folder_url(  options.merge( { :id=>id ,:folder_id=>object.parent_id}) )
-
-      when QueueItem then       queue_item_url( options.merge({ :id=> id}) )
-      when ProcessInstance then process_instance_url(   options.merge({ :id=> object.id}) )
-      when ProcessFlow     then process_flow_url(   options.merge({ :id=> object.id}) )
-      when RequestService then  request_url(options.merge({:id=>object.request.id}) )
-
-      when Project then         project_url( options.merge({ :id=>id} ) )
-      when ProjectElement then  folder_url( options.merge({ :id=>id} ) )
-      when ProjectFolder then   folder_url( options.merge({ :id=>id} ) )
-      
-      when Assay then           assay_url(  options.merge({ :id=>id}) )
-      when AssayProtocol then   assay_url(   options.merge({ :id=>object.assay_id})  )
-      when AssayQueue then      queue_url(  options.merge({ :id=>id})  )
-      when QueueItem then       queue_item_url( options.merge({ :id=> id}) )
-      when AssayParameter then  assay_parameter_url( options.merge({:id=>id}) )
-  
-      when Experiment then      experiment_url(   options.merge({:id=>id})  )
-      when Task then            task_url(         options.merge({:id=>id})  )
-      when Report then          report_url(       options.merge({:id=>id})  )
-      when Request then         request_url(      options.merge({:id=>id})  )
-#
-# @todo hooks from plugins 
-#
-      when Compound then       compound_url(       options.merge({:id=>id})  )
-      when Batch then          batch_url(          options.merge({:id=>id})  )
-      when Plate then          plate_url(          options.merge({:id=>id}) )
-       
-      else 
-        # catch all guess controller from model name
-        #
-        url_for( options.merge({:controller=>object.class.to_s.tableize,:action=>'show', :id=>id}) )
-      end
-    end
-  end  
-   
-  # ## Convert a element in to a url call to display it
-  # 
-  def element_to_url(element)
-    case element
-    when ProjectFolder
-      folder_url(:action=>'show', :id=> element.id )
-    when ProjectContent
-      content_url(:action=>'show', :id=>element.id ,:folder_id=>element.parent_id )
-    when ProjectAsset
-      asset_url(:action=>'show',:id=>element.id,:folder_id=>element.parent_id )
-    else
-      element_url(:action=>'show', :id=>element.id, :folder_id=>element.parent_id )
-    end
-  end  
-
-  # ## Convert a type/id reference into a url to the correct controlelr
-  # 
-  def reference_to_url(element)
-    case element.attributes['reference_type']
-    when 'Project'  then        project_url(:action=>'show', :id=>element.reference_id )
-    when 'ProjectContent' then  content_url(:action=>'show', :id=>element.id ,:folder_id=>element.parent_id )
-    when 'ProjectAsset'  then   asset_url(:action=>'show',:id=>element.id,:folder_id=>element.parent_id )
-    when 'Assay'  then          assay_url(:action=>'show', :id=> element.reference_id )
-    when 'AssayParameter' then  assay_parameter_url(:action=>'show', :id=> element.reference_id )
-    when 'AssayProtocol' then   object_to_url(element.reference.latest )
-    when 'ProtocolVersion' then object_to_url(element.reference )
-    when 'Experiment' then      experiment_url(:action=>'show', :id=> element.reference_id )
-    when 'Task' then            task_url(:action=>'show', :id=> element.reference_id )
-    when 'Report' then          report_url(:action=>'show', :id=> element.reference_id )
-    when 'Request' then         request_url(:action=>'show', :id=> element.reference_id )
-    when 'Compound' then        compound_url(:action=>'show', :id=> element.reference_id )
-    else
-      element_to_url(element)
-    end
-  end  
+  end      
+ 
   #
   # Complete tree for project
   #  
@@ -268,7 +186,11 @@ module ApplicationHelper
         item = element_to_hash(rec)     
           if (open_element == rec)       
              item[:expanded] = true
-             item[:children] = elements_to_open(rec.children,chain[1..10000]) 
+             new_chain = chain[1..10000]
+             item[:children] = elements_to_open(rec.children,new_chain)
+             if new_chain.size==0
+                item[:cls] ="x-tree-selected"
+             end
           end
       items << item  
     end       
@@ -292,13 +214,14 @@ module ApplicationHelper
   # Convert a element to a hash to transfer to javascript
   #
   def element_to_hash(rec)
+
       {
       :id => rec.id,
       :text => rec.name,
       :href => reference_to_url(rec),
-      :icon => rec.icon,
-      :iconCls =>  "icon-#{rec.class.to_s.underscore}",
+      :iconCls =>  (rec.reference_type ? "icon-#{rec.reference_type.underscore}" : "icon-#{rec.class.to_s.underscore}"),
       :allowDrag => true,
+      :cls =>'',
       :allowDrop => (rec.class == ProjectFolder),	
       :leaf => !(rec.class == ProjectFolder), 
       :qtip => rec.summary		
@@ -365,5 +288,7 @@ HTML
     </script>  
 HTML
   end
+
+
 
 end

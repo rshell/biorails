@@ -27,20 +27,8 @@ class SoapApi < ActionWebService::API::Base
     member :ok,:bool
     member :class_id,:int
     member :class_name,:string
-    member :errors, [:string]
-    
-    def self.ok(rec)
-      item = new
-      item.class_id = rec.id
-      item.class_name = rec.class.to_s
-      if rec.valid? 
-         item.ok = true
-      else
-         item.ok = false
-         item.errors = rec.errors.full_messages
-      end
-      item
-    end    
+    member :messages,:string
+    member :errors, [:string]       
   end
 
   class BiorailsPair < ActionWebService::Struct
@@ -54,6 +42,29 @@ class SoapApi < ActionWebService::API::Base
     member :description , :string
   end
 
+  class BiorailsConcept < SoapApi::BiorailsDictionary
+    member :parent_id , :int, true
+    member :not_used , :boolean
+    member :not_implemented , :boolean
+  end
+
+  class BiorailsLookup < SoapApi::BiorailsDictionary
+    member :data_concept_id , :int, false
+    member :data_concept_name , :string, false
+    member :data_system_id , :int, false
+    member :data_system_name , :string, false
+    member :summary , :string, false
+    member :estimated_count , :int, false
+    member :not_used , :boolean, false
+  end
+
+  class BiorailsListItem < ActionWebService::Struct
+    member :id , :int
+    member :data_type , :string
+    member :data_id, :int
+    member :data_name , :string
+  end
+
   class BiorailsNamed < ActionWebService::Struct
     member :id , :int
     member :name , :string
@@ -62,18 +73,43 @@ class SoapApi < ActionWebService::API::Base
   end
 
   class BiorailsProject < SoapApi::BiorailsNamed
-    member :parent_id , :int    
-    member :project_type_id , :int    
-    member :status_id , :int   
+    member :parent_id , :int
+    member :project_type_id , :int
+    member :state_id , :int
     member :errors,[:string]
   end
-  
+
+  class BiorailsQueueItem < ActionWebService::Struct
+    member :assay_queue_id, :int
+    member :request_service_id, :int
+    member :state_id, :int
+    member :name , :string
+    member :data_type,:string
+    member :data_id,:int
+  end
+
+  class BiorailsRequestService < SoapApi::BiorailsNamed
+    member :project_id, :int
+    member :data_element_id , :int
+    member :request_service_id, :int
+    member :status_id, :int
+    member :items, [BiorailsQueueItem]
+    member :errors,[:string]
+  end
+
+  class BiorailsRequest < SoapApi::BiorailsNamed
+    member :project_id, :int
+    member :data_element_id , :int
+    member :status_id, :int
+    member :services,[BiorailsRequestService]
+    member :items, [BiorailsListItem]
+    member :errors,[:string]
+  end  
 
   class BiorailsAssayParameter < SoapApi::BiorailsNamed
     member :assay_id , :int
     member :role_name, :string
     member :display_unit, :string
-    member :regexp_rule, :string
     member :data_type_id , :int
     member :parameter_type_id , :int
     member :parameter_role_id , :int
@@ -146,7 +182,7 @@ class SoapApi < ActionWebService::API::Base
   
   class BiorailsExperiment < BiorailsNamed
     member :project_id , :int
-    member :status_id, :integer
+    member :state_id, :int
     member :started_at, :date
     member :expected_at, :date
     member :ended_at, :date
@@ -194,10 +230,11 @@ class SoapApi < ActionWebService::API::Base
   end
 
   class BiorailsTask < BiorailsNamed
+    member :experiment_name,:string
     member :project_id , :int
     member :experiment_id , :int
     member :protocol_version_id, :int
-    member :status_id, :integer
+    member :state_id, :integer
     member :started_at, :date
     member :expected_at, :date
     member :ended_at, :date
@@ -247,10 +284,22 @@ class SoapApi < ActionWebService::API::Base
     :expects => [ {:username => :string},{:password =>:string} ],
     :returns => [:string]
                 
-  api_method  :matches,
-    :expects => [ {:data_element_id => :int},{:text =>:string} ],
+  api_method  :data_concept_list,
+    :expects => [ {:session_id => :string} ],
+    :returns => [[BiorailsConcept]]
+
+  api_method  :data_element_list,
+    :expects => [ {:session_id => :string}, {:data_concept_id => :int} ],
+    :returns => [[BiorailsLookup]]
+
+  api_method  :data_value_list,
+    :expects => [ {:session_id => :string}, {:data_element_id => :int}, {:limit => :int} ],
     :returns => [[BiorailsDictionary]]
-                
+
+  api_method  :data_value_like,
+    :expects => [ {:session_id => :string},{:data_element_id => :int},{:text =>:string} ],
+    :returns => [[BiorailsDictionary]]
+
   #----------------------------------------------------------------------------------
   # Project/Folders management
   #
@@ -368,6 +417,40 @@ class SoapApi < ActionWebService::API::Base
     
 
 #----------------------------------------------------------------------------------
+# Requests
+#
+  api_method  :request_list,
+    :expects => [ {:session_id => :string},
+                  {:project_id => :int}],
+    :returns => [[BiorailsNamed]]
+
+  api_method  :user_request,
+    :expects => [ {:session_id => :string},
+                  {:experiment_id => :int}],
+    :returns => [BiorailsRequest]
+
+  api_method  :request_create,
+    :expects => [ {:session_id => :string},
+		{:project_id=> :integer},
+		{:name => :string},
+		{:description => :string},
+		{:expected_at => :date},
+		{:data_element_id => :integer}],
+    :returns => [BiorailsStatus]
+
+  api_method  :request_add_service,
+    :expects => [ {:session_id => :string},
+		{:request_id=> :integer},
+		{:assay_queue_id => :integer}],
+    :returns => [BiorailsStatus]
+
+  api_method  :request_add_item,
+    :expects => [ {:session_id => :string},
+		{:request_id=> :integer},
+		{:name => :string}],
+    :returns => [BiorailsStatus]
+
+#----------------------------------------------------------------------------------
 # Execution of assays
 #
   api_method  :import_definition_save,
@@ -404,6 +487,14 @@ class SoapApi < ActionWebService::API::Base
                   {:project_id => :int}],
     :returns => [[BiorailsNamed]]
 
+  api_method :task_import,
+    :expects => [{:session_id => :string},{:experiment_id => :int},{:cvs => :string} ],
+    :returns =>  [BiorailsStatus]
+
+  api_method :task_export,
+    :expects => [ {:session_id => :string},{:task_id => :int} ],
+    :returns => [:string]
+
   api_method  :task,
     :expects => [ {:session_id => :string},
                   {:task_id => :int}],
@@ -425,7 +516,8 @@ class SoapApi < ActionWebService::API::Base
 
   api_method  :task_row_append,
     :expects => [ {:session_id => :string},
-		{:task_context_id=> :integer},
+		{:task_id=> :integer},
+		{:parent_context_id=> :integer},
 		{:parameter_context_id => :integer},
 		{:names => [:string] },
 		{:values => [:string] }],

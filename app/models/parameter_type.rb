@@ -36,9 +36,11 @@ class ParameterType < ActiveRecord::Base
 #
 # Generic rules for a name and description to be present
   validates_presence_of :name
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name,:case_sensitive=>false
   validates_presence_of :description
   validates_presence_of :data_type_id
+
+  before_validation :correct_storage_unit_for_data_type
   
   belongs_to :data_type
   belongs_to :data_concept
@@ -138,6 +140,16 @@ class ParameterType < ActiveRecord::Base
   def qualitive?
     (self.data_type_id == 5)
   end
+  #
+  # remove units for text,date etc
+  # add sec as unit for times
+  #
+  def correct_storage_unit_for_data_type
+    case self.data_type_id
+    when 1,3,5,6,7,8 then self.storage_unit = nil
+    when 4 then self.storage_unit = "s"
+    end
+  end
 ##
 # Get a string describing the style of the parameter in term of a data element or data format
 # 
@@ -235,6 +247,13 @@ class ParameterType < ActiveRecord::Base
       Alces::XmlSerializer.new(self, my_options  ).to_s
   end
 
+  def to_s
+    "#{self.name} [#{self.data_type} #{self.data_concept}]"
+  end
+
+  def storage_unit
+    self.attributes['storage_unit'].to_s
+  end
 ##
 # Get DataElement from xml
 # 
@@ -242,6 +261,11 @@ class ParameterType < ActiveRecord::Base
       my_options = options.dup
       my_options[:include] ||= [:data_type]
       Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+  end
+
+
+  def self.select_list
+    [["[none]",nil]].concat(find(:all,:order=>'name').collect{|i|[i.to_s,i.id]})
   end
 
 end

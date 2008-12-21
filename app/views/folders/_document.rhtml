@@ -1,18 +1,35 @@
 <div class='panel'>
- <%= @project_folder.to_html %>
+ <%= folder.to_html %>
 <% for item in folder.children %>
-      <%= item.to_html %>
+      <%= item.to_html unless item.state.ignore?  %>
 <% end %>
 <hr />
 <h3 class='icon icon-litref'>
-  <%=l(:label_ref_to_source_materials)%>
+  <%=l(:Ref_to_source_materials)%>
 </h3>
- <% for item in folder.elements %>
   <ul>
+ <% for item in folder.elements %>
     <li>
-      <p class="icon icon-model_<%=item.style%>"><%= link_to item.name, element_to_url(item) %> (<%=item.style%>)
-      </p>
+      <span class="icon icon-model_<%=item.style%>">
+        <%= link_to "[#{item.state}] #{short_date(item.updated_at)} #{item.name} ", element_to_url(item) %>(<%=item.style %>)
+      </span>
+
     </li>
-  </ul>
  <% end %>
+  </ul>
+<h3 class='icon icon-sign'>
+  <%=l(:Signatures)%>
+</h3>
+  <ul>
+ <% for signature in folder.signed %>
+    <li>
+      <span class="icon icon-pdf"> <%=  link_to "Version #{version_no(signature.filename)}", signature.file_url %>
+         by <%= signature.signer.name %>  on <%= short_date(signature.signed_date) %>
+      </span>
+    </li>
+ <% end %>
+  </ul>
+</div>
+
+
 </div>

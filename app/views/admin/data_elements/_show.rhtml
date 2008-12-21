@@ -1,0 +1,36 @@
+<h2 class='icon icon-data_element'>
+    <%=l(:Data_Element)%> [<strong><%= @data_element.path %></strong>]
+    <%=l(:in)%> [<strong><%=@data_element.system.name%></strong>]
+</h2>
+<div class="panel boldnotbold">
+  <div class='box'>
+    <table class='report'>
+      <tbody>
+        <tr><th><%=l(:Data_System)%>:</th><td><%= @data_element.system.name if @data_element.system %> </td></tr>
+        <tr><th><%=l(:Name)%>: </th><td><%= @data_element.name %> </td></tr>
+        <tr><th><%=l(:Description)%>: </th><td><%= in_place_editor_field(:data_element,:description,{},{:rows=>2,:cols=>60}) %> </td></tr>
+      </tbody>
+    </table>
+    <div class="row">
+    This is implemented with the style [<%=@data_element.style%>] and based on [<i><%=@data_element.content%></i>]
+    </div><hr />
+       <label for="Lookup_Test"><%=l(:Example)%></label>
+           <%=@data_element.name %>
+           <%=my_lookup_tag(:test,:name, @data_element) %>
+  </div>
+
+    <div class="row">
+     <div class="form-element">
+        <% if @data_element.style=='list'%>
+        <%=render :partial=>'child'%>
+        <% else %>
+        <%= values %>
+        <% end %>
+     </div>
+
+
+  </div>
+<hr />
+<b class='icon icon-list'><%= link_to l(:List), :action => 'show',  :controller => 'data_systems', :id => @data_element.system %></b>
+
+</div>

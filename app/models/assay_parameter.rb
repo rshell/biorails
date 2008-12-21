@@ -30,25 +30,6 @@
 # Copyright � 2006 Robert Shell, Alces Ltd All Rights Reserved
 # See license agreement for additional rights ##
 #
-# == Schema Information
-# Schema version: 338
-#
-# Table name: assay_parameters
-#
-#  id                 :integer(11)   not null, primary key
-#  parameter_type_id  :integer(11)   not null
-#  parameter_role_id  :integer(11)   not null
-#  assay_id           :integer(11)   
-#  name               :string(255)   default(), not null
-#  default_value      :string(255)   
-#  data_element_id    :integer(11)   
-#  data_type_id       :integer(11)   not null
-#  data_format_id     :integer(11)   
-#  description        :string(1024)  default(), not null
-#  display_unit       :string(255)   
-#  created_by_user_id :integer(11)   default(1), not null
-#  updated_by_user_id :integer(11)   default(1), not null
-#
  
 class AssayParameter < ActiveRecord::Base
 
@@ -60,22 +41,20 @@ class AssayParameter < ActiveRecord::Base
   validates_presence_of :assay_id
   validates_presence_of :parameter_type_id
   validates_presence_of :parameter_role_id
+  validates_presence_of :parameter_type
+  validates_presence_of :role
   validates_presence_of :data_type_id
   validates_presence_of :data_element_id, :if => :qualitive?
+  validate :check_default_value
+
 
   validates_uniqueness_of :name, :scope => [:assay_id]
   validates_format_of :name, :with => /^[A-Z,a-z,0-9,_]*$/, :message => 'name is must be alphanumeric eg. [A-z,0-9,_]'
 
-
   # ## This record has a full audit log created for changes
   # 
   acts_as_audited :change_log
-  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-    :description=>{:store=>:yes,:boost=>0},
-  }, 
-    :default_field => [:name],           
-    :single_index => true, 
-    :store_class_name => true 
+ 
   #
   # Owner project
   #  
@@ -162,7 +141,15 @@ class AssayParameter < ActiveRecord::Base
       end  
     end 
   end 
- 
+
+  def check_default_value
+    return true if self.default_value.blank? or self.default_value =~ /=.*$/
+    item = parse(self.default_value)
+
+    if item.blank?
+      errors.add(:default_value,"Cant parse default value this parameter")
+    end
+  end
   # 
   # alias for parameters collection as represent usage of a assay_parameter
   # 
@@ -183,6 +170,9 @@ class AssayParameter < ActiveRecord::Base
     self.name + "[" + role.name+"]"
   end
 
+  def role_name
+    role.name if role
+  end
   # 
   # Path
   # 
@@ -241,29 +231,25 @@ class AssayParameter < ActiveRecord::Base
   # mask for data entry
   #
   def mask
-    return self.data_format.mask if data_format   
+    return self.data_format.mask if self.data_format
     '(.*)'
   end
- 
   # 
   # Simple value parser
   # 
-  def parse(new_value)  
-    value = new_value
-    case self.data_type.id
-   
-    when Biorails::Type::DATE
-      value =  DateTime.strptime(new_value,"%Y-%m-%d")
-     
-    when Biorails::Type::NUMERIC
-      value = Unit.new(new_value)
-      value = Unit.new(new_value,self.display_unit)  if value.units == "" and self.display_unit 
-
-    when Biorails::Type::TIME
-      value =  DateTime.strptime(new_value,"%Y-%m-%d %H:%M:%S")
-
-    when Biorails::Type::DICTIONARY
+  def parse(new_value)
+    if data_format
+      value = data_format.parse(new_value)
+    elsif element
       value = element.lookup(new_value)
+    else
+      value = new_value
+    end
+    #
+    # convert number to unit if needed
+    #
+    if value.is_a?(Numeric) and display_unit and !value.is_a?(Unit)
+      value = Unit.new(value,display_unit)
     end
     logger.info "parsed #{new_value} => #{value}"
     return value
@@ -275,7 +261,7 @@ class AssayParameter < ActiveRecord::Base
     if template     
       self.name = template.name 
       self.description =  template.description
-      self.role =  template.parameter_role
+      self.parameter_role_id =  template.parameter_role_id
       self.data_element =  template.data_element
       self.data_format  =  template.data_format
       self.display_unit =  template.display_unit

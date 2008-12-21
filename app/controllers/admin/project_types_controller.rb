@@ -17,9 +17,8 @@
 
 class Admin::ProjectTypesController < ApplicationController
 
-  use_authorization :catalogue, 
-              :actions => [:list,:show,:new,:create,:edit,:update,:destroy], 
-              :rights => :current_user
+  use_authorization :catalogue,
+              :admin => [:new,:create,:destroy,:edit,:index,:list,:show,:update]
    
   before_filter :find_project_type ,
     :only => [ :show, :edit, :update,:destroy]
@@ -56,7 +55,8 @@ class Admin::ProjectTypesController < ApplicationController
   # GET /project_types/1.xml
   def show
     @project_type = ProjectType.find(params[:id])
-
+    @state_flow = @project_type.state_flow
+     @state_flow ||= StateFlow.find(:first)
     respond_to do |format|
       format.html # show.rhtml
       format.xml  { render :xml => @project_type.to_xml }
@@ -152,7 +152,7 @@ protected
 # Get the current page of objects
 # 
   def find_project_types
-    start = (params[:start] || 1).to_i      
+    start = (params[:start] || 0).to_i
     size = (params[:limit] || 25).to_i 
     sort_col = (params[:sort] || 'id')
     sort_dir = (params[:dir] || 'ASC')

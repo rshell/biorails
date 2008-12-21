@@ -2,131 +2,113 @@
 00000000003_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Uppercase
-    updated_at: 2008-09-12 15:07:43
+    updated_at: 2008-10-28 15:42:02 Z
     default_value: 
-    updated_by_user_id: "1"
-    data_type_id: "1"
-    lock_version: "0"
-    id: "3"
+    updated_by_user_id: 1
+    data_type_id: 1
+    lock_version: 0
+    id: 3
     description: A-Z
     format_sprintf: 
-    created_by_user_id: "1"
+    created_by_user_id: 1
     format_regex: ^[A-Z]*$
-    created_at: 2008-09-09 12:06:45
+    created_at: 2008-09-09 12:06:45 Z
   attributes_cache: {}
 
 00000000004_data_format: !ruby/object:DataFormat 
   attributes: 
     name: No Spaces
-    updated_at: 2008-09-12 15:07:43
+    updated_at: 2008-10-28 15:42:02 Z
     default_value: 
-    updated_by_user_id: "1"
-    data_type_id: "1"
-    lock_version: "0"
-    id: "4"
+    updated_by_user_id: 1
+    data_type_id: 1
+    lock_version: 0
+    id: 4
     description: Name without spaces
     format_sprintf: 
-    created_by_user_id: "1"
+    created_by_user_id: 1
     format_regex: ^[A-Z,a-z,0-9]*$
-    created_at: 2008-09-09 12:06:45
+    created_at: 2008-09-09 12:06:45 Z
   attributes_cache: {}
 
 00000000001_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Decimal
-    updated_at: 2008-09-12 15:07:43
+    updated_at: 2008-10-28 15:42:01 Z
     default_value: 
-    updated_by_user_id: "1"
-    data_type_id: "2"
-    lock_version: "0"
-    id: "1"
+    updated_by_user_id: 1
+    data_type_id: 2
+    lock_version: 0
+    id: 1
     description: Standard Number format +/-nnn.nnnnn with units
     format_sprintf: "%g"
-    created_by_user_id: "1"
+    created_by_user_id: 1
     format_regex: ^[-+]?[0-9]*\.?[0-9]+[ ,A-z,/,%]*$
-    created_at: 2008-09-09 12:06:45
+    created_at: 2008-09-09 12:06:45 Z
   attributes_cache: {}
 
 00000000005_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Whole Number
-    updated_at: 2008-09-12 15:07:43
+    updated_at: 2008-10-28 15:42:02 Z
     default_value: 
-    updated_by_user_id: "1"
-    data_type_id: "2"
-    lock_version: "0"
-    id: "5"
+    updated_by_user_id: 1
+    data_type_id: 2
+    lock_version: 0
+    id: 5
     description: Integer Value
     format_sprintf: "%d"
-    created_by_user_id: "1"
+    created_by_user_id: 1
     format_regex: ^[-+]?[0-9]*$
-    created_at: 2008-09-09 12:06:45
+    created_at: 2008-09-09 12:06:45 Z
   attributes_cache: {}
 
 00000000002_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Text
-    updated_at: 2008-09-12 15:07:43
+    updated_at: 2008-10-28 15:42:02 Z
     default_value: 
-    updated_by_user_id: "1"
-    data_type_id: "1"
-    lock_version: "0"
-    id: "2"
+    updated_by_user_id: 1
+    data_type_id: 1
+    lock_version: 0
+    id: 2
     description: Free Format Text
     format_sprintf: 
-    created_by_user_id: "1"
+    created_by_user_id: 1
     format_regex: 
-    created_at: 2008-09-09 12:06:45
+    created_at: 2008-09-09 12:06:45 Z
   attributes_cache: {}
 
 00000000008_data_format: !ruby/object:DataFormat 
   attributes: 
     name: Date
-    updated_at: 2008-09-12 15:07:43
+    updated_at: 2008-10-28 15:42:02 Z
     default_value: 
-    updated_by_user_id: "1"
-    data_type_id: "3"
-    lock_version: "0"
-    id: "8"
+    updated_by_user_id: 1
+    data_type_id: 3
+    lock_version: 0
+    id: 8
     description: Dates
     format_sprintf: "%Y-%m-%d"
-    created_by_user_id: "1"
+    created_by_user_id: 1
     format_regex: 
-    created_at: 2008-09-09 12:06:45
+    created_at: 2008-09-09 12:06:45 Z
   attributes_cache: {}
 
-00000000006_data_format: !ruby/object:DataFormat 
-  attributes: 
-    name: Positive
-    updated_at: 2008-09-12 15:07:43
-    default_value: 
-    updated_by_user_id: "1"
-    data_type_id: "2"
-    lock_version: "0"
-    id: "6"
-    description: |-
-      Description:  	Positive integer value.
-      Matches: 	123|||10|||54
-      Non-Matches: 	-54|||54.234|||abc
-    format_sprintf: 
-    created_by_user_id: "1"
-    format_regex: ^[0-9,.]*$
-    created_at: 2008-09-09 12:06:45
-  attributes_cache: {}
 
 00000000007_data_format: !ruby/object:DataFormat 
   attributes: 
     name: URL
-    updated_at: 2008-09-12 15:07:43
+    updated_at: 2008-10-28 15:42:02 Z
     default_value: 
-    updated_by_user_id: "1"
-    data_type_id: "6"
-    lock_version: "0"
-    id: "7"
+    updated_by_user_id: 1
+    data_type_id: 6
+    lock_version: 0
+    id: 7
     description: Hyperlink
     format_sprintf: 
-    created_by_user_id: "1"
+    created_by_user_id: 1
     format_regex: (http://)[a..Z]*
-    created_at: 2008-09-09 12:06:45
+    created_at: 2008-09-09 12:06:45 Z
   attributes_cache: {}
 

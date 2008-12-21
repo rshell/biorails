@@ -1,15 +1,15 @@
 <table class="report">
   <tr>
     <th>
-      <%=l(:label_assay)%><%=l(:label_name)%>
+      <%=l(:Assay)%><%=l(:Name)%>
     </th>
     <th>
-      <%=l(:label_assay)%><%=l(:label_parameter)%>
+      <%=l(:Assay)%><%=l(:Parameter)%>
     </th>
-    <th><%=l(:label_parameter_type)%></th>
-    <th><%=l(:label_data_type)%></th>
-    <th><%=l(:label_data_format)%></th>
-    <th><%=l(:label_element)%></th>
+    <th><%=l(:Parameter_Type)%></th>
+    <th><%=l(:Data_Type)%></th>
+    <th><%=l(:Data_Format)%></th>
+    <th><%=l(:Data_Element)%></th>
   </tr>
   <%for item in  @parameter_role.assay_parameters %>
     <tr class="<%= cycle('odd', 'even') %>">

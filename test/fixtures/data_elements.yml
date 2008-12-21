@@ -1,25 +1,1521 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: data_elements
-#
-#  id                 :integer(4)      not null, primary key
-#  name               :string(50)      default(""), not null
-#  description        :string(1024)    default(""), not null
-#  data_system_id     :integer(4)      not null
-#  data_concept_id    :integer(4)      not null
-#  access_control_id  :integer(4)
-#  lock_version       :integer(4)      default(0), not null
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  parent_id          :integer(4)
-#  style              :string(10)      default(""), not null
-#  content            :string(4000)    default("")
-#  estimated_count    :integer(4)
-#  type               :string(255)
-#  updated_by_user_id :integer(4)      default(1), not null
-#  created_by_user_id :integer(4)      default(1), not null
-#
+--- 
+00000000172_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: WistarHans
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "172"
+    description: " WistarHans"
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "170"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
 
---- {}
+00000000036_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: Request
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "0"
+    id: "36"
+    description: List of subjects associated with a request
+    content: RequestList
+    data_concept_id: "11"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:58:11
+  attributes_cache: {}
+
+00000000093_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Finished
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "93"
+    description: Finished
+    content: ""
+    data_concept_id: "53"
+    created_by_user_id: "1"
+    parent_id: "90"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000131_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: iv
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "131"
+    description: iv
+    content: ""
+    data_concept_id: "56"
+    created_by_user_id: "1"
+    parent_id: "130"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000083_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Profile
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "83"
+    description: Profile
+    content: ""
+    data_concept_id: "52"
+    created_by_user_id: "1"
+    parent_id: "80"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000080_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Catagory
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "4"
+    id: "80"
+    description: Protocol Catagory
+    content: Screen,Dose,Profile,Tox
+    data_concept_id: "52"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 21:17:22
+  attributes_cache: {}
+
+00000000125_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Standard
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "125"
+    description: " Standard"
+    content: ""
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: "120"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000185_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: nM
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "185"
+    description: nM
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "180"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000070_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: FolderTest
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "4"
+    id: "70"
+    description: folders
+    content: "1,2,3,4"
+    data_concept_id: "51"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-13 12:28:31
+  attributes_cache: {}
+
+00000000071_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: "1"
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "71"
+    description: "1"
+    content: ""
+    data_concept_id: "51"
+    created_by_user_id: "1"
+    parent_id: "70"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000113_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Mouse
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "113"
+    description: " Mouse"
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "110"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000100_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Organ
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "4"
+    id: "100"
+    description: Organ
+    content: liver, intestine, skin, lungs
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-11-05 23:07:35
+  attributes_cache: {}
+
+00000000144_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: ug
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "144"
+    description: ug
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "140"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000032_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: Project
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "0"
+    id: "32"
+    description: "List of all projects on the systems "
+    content: Project
+    data_concept_id: "49"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:55:25
+  attributes_cache: {}
+
+00000000103_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: skin
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "103"
+    description: " skin"
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "100"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000132_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: im
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "132"
+    description: im
+    content: ""
+    data_concept_id: "56"
+    created_by_user_id: "1"
+    parent_id: "130"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000005_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: ParameterType
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "0"
+    id: "5"
+    description: Parameter Types , A little recursive as parameter types are defined with data elements
+    content: ParameterType
+    data_concept_id: "30"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:42:41
+  attributes_cache: {}
+
+00000000084_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Tox
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "84"
+    description: Tox
+    content: ""
+    data_concept_id: "52"
+    created_by_user_id: "1"
+    parent_id: "80"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000160_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Controls
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "2"
+    id: "160"
+    description: No Inhib, Blank etc
+    content: NoInhibitor, Blank
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-10-11 12:07:40
+  attributes_cache: {}
+
+00000000031_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: Folder
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "0"
+    id: "31"
+    description: Project Folder
+    content: ProjectFolder
+    data_concept_id: "51"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:53:42
+  attributes_cache: {}
+
+00000000182_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: mM
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "182"
+    description: mM
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "180"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000037_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: Plate
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "0"
+    id: "37"
+    description: Plate containers
+    content: Container
+    data_concept_id: "8"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:59:01
+  attributes_cache: {}
+
+00000000074_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: "4"
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "74"
+    description: "4"
+    content: ""
+    data_concept_id: "51"
+    created_by_user_id: "1"
+    parent_id: "70"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000150_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Area
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "4"
+    id: "150"
+    description: Research Areas
+    content: A,B,C,D
+    data_concept_id: "54"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 20:42:42
+  attributes_cache: {}
+
+00000000151_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: A
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "151"
+    description: A
+    content: ""
+    data_concept_id: "54"
+    created_by_user_id: "1"
+    parent_id: "150"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000072_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: "2"
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "72"
+    description: "2"
+    content: ""
+    data_concept_id: "51"
+    created_by_user_id: "1"
+    parent_id: "70"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000116_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Rhesus
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "116"
+    description: " Rhesus"
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "110"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000145_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: ng
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "145"
+    description: ng
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "140"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000090_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Status
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "3"
+    id: "90"
+    description: Protocol Status
+    content: New,Active,Finished
+    data_concept_id: "53"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 21:15:55
+  attributes_cache: {}
+
+00000000091_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: New
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "91"
+    description: New
+    content: ""
+    data_concept_id: "53"
+    created_by_user_id: "1"
+    parent_id: "90"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000104_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: lungs
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "104"
+    description: " lungs"
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "100"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000029_sql_element: !ruby/object:SqlElement 
+  attributes: 
+    name: Administrators
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: SqlElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "29"
+    description: Users with full Administration role
+    content: select * from users where role_id=3
+    data_concept_id: "48"
+    created_by_user_id: "1"
+    parent_id: 
+    style: sql
+    created_at: 2007-06-06 14:51:30
+  attributes_cache: {}
+
+00000000001_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: DataFormat
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "0"
+    id: "1"
+    description: Data Format List for the system
+    content: DataFormat
+    data_concept_id: "29"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:31:27
+  attributes_cache: {}
+
+00000000081_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Screen
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "81"
+    description: Screen
+    content: ""
+    data_concept_id: "52"
+    created_by_user_id: "1"
+    parent_id: "80"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000183_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: uM
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "183"
+    description: uM
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "180"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000110_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Species
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "6"
+    id: "110"
+    description: Default species
+    content: Human, Rat, Mouse,  Dog, Cynomolgus, Rhesus
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-10-11 11:10:17
+  attributes_cache: {}
+
+00000000111_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Human
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "111"
+    description: Human
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "110"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000154_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: D
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "154"
+    description: D
+    content: ""
+    data_concept_id: "54"
+    created_by_user_id: "1"
+    parent_id: "150"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000123_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Positive
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "123"
+    description: " Positive"
+    content: ""
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: "120"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000152_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: B
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "152"
+    description: B
+    content: ""
+    data_concept_id: "54"
+    created_by_user_id: "1"
+    parent_id: "150"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000171_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: SpragueDawley
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "171"
+    description: SpragueDawley
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "170"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000170_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Strain
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "2"
+    id: "170"
+    description: Strains of species
+    content: SpragueDawley, WistarHans
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-10-13 15:00:26
+  attributes_cache: {}
+
+00000000033_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: Task
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "0"
+    id: "33"
+    description: Task in the system
+    content: Task
+    data_concept_id: "27"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:55:53
+  attributes_cache: {}
+
+00000000142_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: kg
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "142"
+    description: kg
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "140"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000101_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: liver
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "101"
+    description: liver
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "100"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000006_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: Roles
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "6"
+    id: "6"
+    description: Roles a user can take in the system
+    content: Role
+    data_concept_id: "39"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:43:10
+  attributes_cache: {}
+
+00000000161_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: NoInhibitor
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "161"
+    description: NoInhibitor
+    content: ""
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: "160"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000082_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Dose
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "82"
+    description: Dose
+    content: ""
+    data_concept_id: "52"
+    created_by_user_id: "1"
+    parent_id: "80"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000102_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: intestine
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "102"
+    description: " intestine"
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "100"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000114_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Dog
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "114"
+    description: "  Dog"
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "110"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000143_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: mg
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "143"
+    description: mg
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "140"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000162_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Blank
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "162"
+    description: " Blank"
+    content: ""
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: "160"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000002_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: DataType
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "0"
+    id: "2"
+    description: Data Type implemented in the biorails site
+    content: DataType
+    data_concept_id: "28"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:37:38
+  attributes_cache: {}
+
+00000000035_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: Compounds
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "10"
+    id: "35"
+    description: Compounds
+    content: Compound
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:56:50
+  attributes_cache: {}
+
+00000000133_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: o
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "133"
+    description: o
+    content: ""
+    data_concept_id: "56"
+    created_by_user_id: "1"
+    parent_id: "130"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000130_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Route
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "3"
+    id: "130"
+    description: Adding routes of admin
+    content: iv,im,o
+    data_concept_id: "56"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-13 12:30:28
+  attributes_cache: {}
+
+00000000034_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: Batches
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "10"
+    id: "34"
+    description: "Batches of a compound "
+    content: Batch
+    data_concept_id: "7"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:56:31
+  attributes_cache: {}
+
+00000000120_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: CompoundRole
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "5"
+    id: "120"
+    description: Role any compound may take within an Experiment
+    content: Blank, Test, Positive, Negative, Standard
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-10-11 10:54:03
+  attributes_cache: {}
+
+00000000121_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Blank
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "121"
+    description: Blank
+    content: ""
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: "120"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000181_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: M
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "181"
+    description: M
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "180"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000180_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: Molar
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "5"
+    id: "180"
+    description: Molar Units
+    content: M,mM,uM,pM,nM
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 14:45:45
+  attributes_cache: {}
+
+00000000073_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: "3"
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "73"
+    description: "3"
+    content: ""
+    data_concept_id: "51"
+    created_by_user_id: "1"
+    parent_id: "70"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000146_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: pg
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "146"
+    description: pg
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "140"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000115_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Cynomolgus
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "115"
+    description: " Cynomolgus"
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "110"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000028_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: Users
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "9"
+    id: "28"
+    description: User
+    content: User
+    data_concept_id: "48"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:49:09
+  attributes_cache: {}
+
+00000000092_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Active
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "92"
+    description: Active
+    content: ""
+    data_concept_id: "53"
+    created_by_user_id: "1"
+    parent_id: "90"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000122_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Test
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "122"
+    description: " Test"
+    content: ""
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: "120"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000004_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: ParameterRole
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "0"
+    id: "4"
+    description: Parameter Roles lookup to allow separation of data into a number of bin for fruther use.
+    content: ParameterRole
+    data_concept_id: "31"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:41:08
+  attributes_cache: {}
+
+00000000124_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Negative
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "124"
+    description: " Negative"
+    content: ""
+    data_concept_id: "6"
+    created_by_user_id: "1"
+    parent_id: "120"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000153_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: C
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "153"
+    description: C
+    content: ""
+    data_concept_id: "54"
+    created_by_user_id: "1"
+    parent_id: "150"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000184_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: pM
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "184"
+    description: pM
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "180"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
+
+00000000003_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: Groups
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "0"
+    id: "3"
+    description: User Groups registered on the current system
+    content: Team
+    data_concept_id: "33"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:38:15
+  attributes_cache: {}
+
+00000000030_model_element: !ruby/object:ModelElement 
+  attributes: 
+    name: Experiment
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ModelElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "0"
+    id: "30"
+    description: Experiments
+    content: Experiment
+    data_concept_id: "24"
+    created_by_user_id: "1"
+    parent_id: 
+    style: model
+    created_at: 2007-06-06 14:52:43
+  attributes_cache: {}
+
+00000000112_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: Rat
+    updated_at: 2008-10-22 15:14:20
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "112"
+    description: " Rat"
+    content: ""
+    data_concept_id: "47"
+    created_by_user_id: "1"
+    parent_id: "110"
+    style: child
+    created_at: 2008-10-22 15:14:20
+  attributes_cache: {}
+
+00000000140_list_element: !ruby/object:ListElement 
+  attributes: 
+    name: weight
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: ListElement
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: "6"
+    id: "140"
+    description: Weight
+    content: g,kg,mg,ug,ng,pg
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: 
+    style: list
+    created_at: 2007-06-06 14:47:17
+  attributes_cache: {}
+
+00000000141_data_element: !ruby/object:DataElement 
+  attributes: 
+    name: g
+    updated_at: 2008-10-22 15:14:21
+    access_control_id: 
+    updated_by_user_id: "1"
+    type: 
+    lock_version: "1"
+    data_system_id: "1"
+    estimated_count: 
+    id: "141"
+    description: g
+    content: ""
+    data_concept_id: "26"
+    created_by_user_id: "1"
+    parent_id: "140"
+    style: child
+    created_at: 2008-10-22 15:14:21
+  attributes_cache: {}
 

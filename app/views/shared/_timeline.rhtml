@@ -4,13 +4,13 @@
     <% form_tag do %>
     <p>
       <input type="text" name="months" size="2" value="<%= @gantt.months %>" />
-      <%= l(:label_months_from) %>
+      <%= l(:Months_From) %>
       <%= select_month(@gantt.month_from,
           :prefix => "month", :discard_type => true) %>
       <%= select_year(@gantt.year_from,
           :prefix => "year", :discard_type => true) %>
       <%= hidden_field_tag 'zoom', @gantt.zoom %>
-      <%= submit_tag l(:button_submit),
+      <%= submit_tag l(:Submit),
           :class => "button-small" %>
     </p>
     <% end %>
@@ -214,7 +214,7 @@ end %>
 
 <table width="100%">
 <tr>
-<td align="left"><%= link_to ('&#171; ' + l(:label_previous)), :year => (@gantt.date_from << @gantt.months).year, :month => (@gantt.date_from << @gantt.months).month, :zoom => @gantt.zoom, :months => @gantt.months %></td>
-<td align="right"><%= link_to (l(:label_next) + ' &#187;'), :year => (@gantt.date_from >> @gantt.months).year, :month => (@gantt.date_from >> @gantt.months).month, :zoom => @gantt.zoom, :months => @gantt.months %></td>
+<td align="left"><%= link_to ('&#171; ' + l(:Previous)), :year => (@gantt.date_from << @gantt.months).year, :month => (@gantt.date_from << @gantt.months).month, :zoom => @gantt.zoom, :months => @gantt.months %></td>
+<td align="right"><%= link_to (l(:Next) + ' &#187;'), :year => (@gantt.date_from >> @gantt.months).year, :month => (@gantt.date_from >> @gantt.months).month, :zoom => @gantt.zoom, :months => @gantt.months %></td>
 </tr>
 </table>

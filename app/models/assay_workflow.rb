@@ -33,6 +33,25 @@
 #
 
 class AssayWorkflow < AssayProtocol
+    #
+    # custom conversion to xml
+    #
+    def to_xml(options = {})
+         my_options = options.dup
+         my_options[:except] = options[:except]
+         my_options[:include] = [:versions]
+        Alces::XmlSerializer.new(self, my_options ).to_s
+    end
+
+   ##
+   # Get from xml
+   #
+    def self.from_xml(xml,options = {})
+         my_options = options.dup
+         my_options[:except] = options[:except]
+         my_options[:include] = [:versions]
+         Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+    end
   
    # Create a new ProcessInstance from this AssayProtocol
    #

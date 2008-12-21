@@ -3,7 +3,7 @@ module Alces # :nodoc:
   module Attachments # :nodoc:
     @@default_processors = %w(MiniMagick Rmagick ImageScience)
     @@tempfile_path      = File.join(RAILS_ROOT, 'tmp', 'attachments')
-    @@content_types      = ['image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/x-png']
+    @@content_types      = ['image/tiff','image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/x-png']
     mattr_reader :content_types, :tempfile_path, :default_processors
     mattr_writer :tempfile_path
 

@@ -43,12 +43,34 @@ class ProjectTypeTest < Test::Unit::TestCase
     assert item.is_a?(Array)
   end
   
+  def test07_action_template
+    item = ProjectType.new(:name=>'test07',:description=>'test')
+    dash = ProjectType.dashboard_list[0]
+    assert dash
+    item.dashboard = dash
+    assert item.save
+    assert_equal File.join('projects',dash,'show') , item.action_template(:show)
+    assert_equal File.join('projects',dash,'show') , item.action_template("show")
+    assert_equal "no_moose_exists" , item.action_template("no_moose_exists")
+  end
+
+   def test08_partial_template
+    item = ProjectType.new(:name=>'test08',:description=>'test')
+    dash = ProjectType.dashboard_list[0]
+    assert dash
+    item.dashboard = dash
+    assert item.save
+    assert_equal File.join('projects',dash,'tabs') , item.partial_template("tabs")
+    assert_equal File.join('projects',dash,'tabs') , item.partial_template(:tabs)
+    assert_equal "no_moose_exists" , item.partial_template("no_moose_exists")
+  end
 
   def test09_not_valid
-    item = ProjectType.new(:description=>'')
+    item = ProjectType.new(:description=>'',:dashboard=>nil,:name=>'')
     assert item 
     assert !item.valid?
     assert item.errors[:name]
+    assert item.errors[:dashboard]
     assert item.errors[:description]
   end
 
@@ -56,7 +78,7 @@ class ProjectTypeTest < Test::Unit::TestCase
     item = ProjectType.new
     item.name ="xxxx"
     item.description ='sfsfs '
-    item.dashboard = 'projects'
+    item.dashboard = ProjectType.dashboard_list[0]
     assert item.valid?
   end
 

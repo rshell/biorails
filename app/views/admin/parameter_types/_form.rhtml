@@ -3,14 +3,19 @@
 
 <p>
   <label for="parameter_type_data_type_id">
-    <%=l(:label_data_type)%>
+    <%=l(:Data_Type)%>
   </label>
   <br/>
-  <%= select( :parameter_type, :data_type_id ,ParameterType.allowed_data_types) %>
+  <% if @parameter_type.qualitive? %>
+     <%=l(:Fixed)%>: <%= @parameter_type.style %>
+     <%= hidden_field( :parameter_type, :data_type_id)%>
+  <% else %>
+     <%= select( :parameter_type, :data_type_id ,ParameterType.allowed_data_types) %>
+  <% end %>
 </p>
 <p>
   <label for="parameter_type_name">
-    <%=l(:label_name)%>
+    <%=l(:Name)%>:
   </label>
   <br/>
   <%= text_field :parameter_type, :name,:size=>'80'  %>
@@ -18,7 +23,7 @@
 
 <p>
   <label for="parameter_type_description">
-    <%=l(:label_description)%>
+    <%=l(:Description)%>:
   </label>
   <br/>
   <%= text_area :parameter_type, :description,:rows=>4,:cols=>80  %>
@@ -26,17 +31,29 @@
 
 <p>
   <label for="parameter_type_weighing">
-    <%=l(:label_weighting)%>
+    <%=l(:Weighting)%>:
   </label>
   <br/>
   <%= text_field :parameter_type, :weighing  %>
 </p>
 
-<p>
+<p id="field_parameter_units">
   <label for="parameter_type_storage_unit">
-    <%=l(:label_quality_being_measured)%>
+    <%=l(:Quality_Being_Measured)%>:  <%=@parameter_type.storage_unit%>
   </label>
   <br/>
   <%= select( :parameter_type, :storage_unit, Unit::DIMENSIONS_LOOKUP)  %>
 </p>
 <!--[eoform:parameter_type]-->
+<script>
+  var sync_type_and_units = function(){
+    if ($('parameter_type_data_type_id').value !=2) {
+      $('field_parameter_units').hide();
+    } else {
+      $('field_parameter_units').show();
+    };
+  };
+  sync_type_and_units();
+// Script to hide/show unit it selected numeric data type
+  $('parameter_type_data_type_id').onblur =  sync_type_and_units;
+</script>

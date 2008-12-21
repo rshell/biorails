@@ -29,27 +29,34 @@
 # See license agreement for additional rights ##
 #
 class Report < ActiveRecord::Base
-   acts_as_dictionary :name 
+  acts_as_dictionary :name 
+#
+# Owner project
+#
+ acts_as_folder_linked  :project, :under =>'reports'
+
+ belongs_to :project
+
 ##
-# This record has a full audit log created for changes 
-#   
-  acts_as_audited :change_log
+# This record has a full audit log created for changes
+#
+ acts_as_audited :change_log
 #
 # Generic rules for a name and description to be present
-  validates_uniqueness_of :name, :scope =>"internal"
   validates_presence_of :name
   validates_presence_of :description
+  validates_uniqueness_of :name, :scope =>"project_id",:case_sensitive=>false
+
+  after_save :save_columns
+
+  def save_columns
+    columns.each{|i|i.save}
+  end
 
   has_many :columns, 
            :class_name=>'ReportColumn', 
            :order=>'order_num,name', 
            :dependent => :destroy 
-
-  belongs_to :project
-#
-# Owner project
-#  
- acts_as_folder_linked  :project, :under =>'reports'
 
   attr_accessor :default_action
   attr_accessor :params
@@ -111,9 +118,10 @@ class Report < ActiveRecord::Base
 #
 #get a named column
 #
- def column(name)
+ def column(name,options={})
     column = has_column?(name)
     column ||= add_column(name)
+    column.customize(options) if options.size>0
     return column
  end
 #
@@ -132,6 +140,7 @@ class Report < ActiveRecord::Base
     column.label = column_name.split('.').collect{|c|c.capitalize}.join(' ')
     column.is_visible =  !(column_name =~ /(lock_version|_by|_at|_id|_count)$/ ) 
     route = column_name.split(".")
+    column.order_num = columns.size+1
     if route.size>1 
        logger.debug "add_column route= #{route[0]}"
        join = self.model.reflections[route[0].to_sym]
@@ -221,10 +230,18 @@ class Report < ActiveRecord::Base
       c.sort_num = 1
       c.sort_direction = params[:dir] || 'ASC'
     end
-    if params[:filter]
-      params[:filter].values.each do |item|
-         c = columns.detect{|col|col.id.to_s == item[:field]}
-         c.filter= item[:data][:value] if c and item[:data]        
+    unless params[:fields].blank?
+      list = params[:fields].gsub(/[\[\]]/,'').split(",")
+      text = params[:query]
+      list.each do |item|
+         c = columns.detect{|col|col.id.to_s == item.to_s}
+         if c
+           unless /[%,>,<,=]/ =~ text
+              c.filter= "#{text}%"
+           else
+              c.filter= text
+           end
+         end
       end
    end
  end
@@ -240,7 +257,7 @@ end
 # value in column
 # 
 def filter_columns
-   return self.columns.reject{|column|column.filter_operation.nil?}   
+   return self.columns.reject{|column|column.filter_operation.nil?}
 end
 #
 # Get a sorted list of all the columns in the query
@@ -248,16 +265,31 @@ end
  def displayed_columns 
     return self.columns.reject{|column|!column.is_visible}.sort{|a,b| a.order_num <=> b.order_num}
  end
+
+def ext_default_filter
+   list = self.columns.select{|column| column.is_filterible && column.is_visible && column.filter_text.blank? }
+   list.collect{|column|column.id}[0]
+end
 #
 # extjs format filter for grid
 #
- def ext_filters_json
+ def ext_non_filterable
    out = []
    n=0
    columns.collect do |rec| 
-     if rec.is_visible and rec.is_filterible
-       out[n] = {:type => "string",:name=> rec.name,:dataIndex => "#{rec.id}"}.to_json
+     unless rec.is_visible and rec.is_filterible
+       out[n] = rec.id
        n +=1
+     end
+   end
+   "["+out.join(",\n")+"]"
+ end
+
+ def ext_advanced_filters
+   out = []
+   columns.collect do |column|
+     unless column.is_visible and column.is_filterible
+     out << "{ type:'string',dataIndex: #{column.id} }"
      end
    end
    "["+out.join(",\n")+"]"
@@ -353,42 +385,19 @@ end
    if @model
      @options = params.merge(new_params)
      @options = @options.merge({:conditions => conditions, :order => order, :include => includes })
-     data = @model.paginate(:all, @options ) 
-     data.total_entries= @model.count({:conditions => conditions, :include => includes})         
+     data = []
+     if @model.respond_to?(:with_visible_data_scope)
+        @model.with_visible_data_scope do
+           data =@model.paginate(:all, @options )
+        end
+     else
+        data =@model.paginate(:all, @options )
+     end
+     data.total_entries= @model.count({:conditions => conditions, :include => includes})
      return data
    end  
  end 
-##
-# Default report to build if none found in library
-#    
-  def self.internal_report( name, model, &block)
-    name ||= "Biorails::List #{model}"
-    Report.transaction do
-      report = Report.find(:first,:conditions=>['name=? and base_model=?',name.to_s, model.to_s])
-      if report.nil?
-          logger.info " Generating default report #{name} for model #{model}"
-          report = Report.new
-          report.name = name 
-          report.description = "Default reports for display as /#{model.to_s}/list"
-          report.model= model
-          report.internal=true
-          report.style ='System'
-          report.save
-          for col in model.content_columns
-            report.column(col.name)
-         end          
-          report.column('id').is_visible = false
-          if report.has_column?('name')
-             report.column('name').is_filterible = true
-          end
-          report.save!
-      else
-          logger.info " Using current report #{name} for model #{model.class_name}"             
-      end #built report
-      yield report if block_given?   
-      return report
-    end # commit transaction
-  end
+
 
   def self.find_all_using_model(name)
     find(:all,:conditions=>[
@@ -408,6 +417,28 @@ end
     return item
   end
 
+  def to_xml(options = {})
+    my_options = options.dup
+    my_options[:include] ||= [:columns]
+    my_options[:except] = [:project_id,:project_element_id] <<  my_options[:except]
+    Alces::XmlSerializer.new(self, my_options  ).to_s
+  end
+
+  # ## Get Assay from xml
+  #
+  def self.from_xml(xml,options = {})
+    my_options = options.dup
+    my_options[:include] ||= [:columns]
+    Alces::XmlDeserializer.new(self,my_options ).to_object(xml)
+  end
+
+  def to_script
+    puts "report = internal_report('#{name}',#{base_model}) do | report |"
+    columns.each do |c|
+      puts "report.column('#{c.name}', :label=>'#{c.label}',:is_filterible=>'#{c.is_filterible}',:is_visible=>'#{c.is_visible}',:filter=>'#{c.filter}')"
+    end
+    puts "end"
+  end
  
 end
 

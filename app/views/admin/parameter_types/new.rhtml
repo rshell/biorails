@@ -8,12 +8,12 @@
 
 <% content_for :center do %>
 <%= render :partial => 'admin/header'%>
-  <%dialog l(:label_parameter_type_new) do %>    
+  <%dialog l(:Parameter_Type_New) do %>    
     <% validated_form_tag :action => 'create' do %>
       <%= render :partial => 'form' %>
       <br />
-      <%= submit_tag l(:button_create) %>
-      <%= link_to l(:button_cancel), :action => 'list' %>
+      <%= submit_tag l(:Create) %>
+      <%= link_to l(:Cancel), :action => 'list' %>
     <% end %>
   <% end %>
 <% end %>

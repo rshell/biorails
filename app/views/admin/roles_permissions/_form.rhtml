@@ -4,14 +4,14 @@
 
 <p>
     <label for="role_id">
-        <%=l(:label_role)%>
+        <%=l(:Role)%>
     </label> (<%= @role.name %>)
     <br/>
     <%= hidden_field 'roles_permission', 'role_id'  %></p>
 
 <p>
     <label for="role_id">
-        <%=l(:label_permission)%>
+        <%=l(:Permission)%>
     </label>
     <br/>
     <%= collection_select 'roles_permission', 'permission_id',

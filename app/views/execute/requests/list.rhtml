@@ -1,11 +1,11 @@
 <% content_for :center do -%>
   <%= render :partial=>'header' %>
   <%= render :partial => 'list' %>
-  <span class='icon icon-new'><%= link_to l(:label_new), :action => 'new' %></span>
+  <span class='icon icon-new'><%= link_to l(:New), :action => 'new' %></span>
 <%end %>
 
 <% content_for :right do %>
-<h2 class='icon icon-report'><%=l(:label_reports) %></h2>
+<h2 class='icon icon-report'><%=l(:Reports) %></h2>
 <div class="panel">
     <%=l(:help_filtering_sorting_rules) %>
 </div>

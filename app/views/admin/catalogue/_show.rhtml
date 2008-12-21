@@ -2,24 +2,24 @@
   <% if @data_concept.class==DataContext%>
   <h3 class='breadcrumb'>
     <b>
-    	<%=l(:label_context)%> [<%= link_to_remote l(:label_edit), :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>]:
+    	<%=l(:Context)%> [<%= link_to_remote l(:Edit), :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>]:
     </b>
     <%= @data_concept.name %>
   </h3>
     <% if @context.children.size <5 %>
       <p>
         <%=l(:notice_empty_database)%> 
-        [<%=link_to l(:label_import), catalogue_url(:action=>'import')%>].
+        [<%=link_to l(:Import), catalogue_url(:action=>'import')%>].
       </p>
       <%else%>
       <p>
         <%=l(:text_export_dictionary)%>
-        [<%=link_to l(:label_exported), catalogue_url(:action=>'list',:format=>'xml')%>]
+        [<%=link_to l(:Exported), catalogue_url(:action=>'list',:format=>'xml')%>]
       </p>
     <% end %>
   <%else%>
     <h3 class='breadcrumb'>
-      <b><%=l(:label_concept)%>[<%= link_to_remote l(:label_edit),
+      <b><%=l(:Concept)%>[<%= link_to_remote l(:Edit),
           :url=>{ :action => 'edit' ,:id=> @data_concept.id} %>] :
       </b>
       <%=link_to_remote "#{@data_concept.parent.path}/", :url => {:action=>'show', :id => @data_concept.parent.id}  if  @data_concept.parent %>

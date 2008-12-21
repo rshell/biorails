@@ -16,9 +16,10 @@ class ClipboardTest  < Test::Unit::TestCase
 
    def test_dump_load
     clip = Clipboard.new
-    clip.marshal_load([1,2,3])
-    assert_equal 3,clip.size
-    assert_equal [1,2,3],clip.marshal_dump
+    items = Project.find(2).folder.elements.collect{|i|i.id}
+    clip.marshal_load(items)
+    assert_equal items.size,clip.size
+    assert_equal items,clip.marshal_dump
     clip.clear
     assert_equal [],clip.marshal_dump    
   end

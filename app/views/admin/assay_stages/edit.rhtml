@@ -2,25 +2,25 @@
 <%= render :partial => '/menu/admin_menu'%>
 <div>
     <span class='menu'>
-        <b class='icon icon-assay_stage'><%=l(:label_assay_stage)%>
+        <b class='icon icon-assay_stage'><%=l(:Assay_Stage)%>
         </b>
     </span>
   
-    <%= link_to l(:label_list), assay_stage_url(:action => 'list')%>
-    <%= link_to l(:label_new), assay_stage_url(:action => 'new')%>
-    <%= link_to l(:label_edit), assay_stage_url(:action => 'edit', :id => @assay_stage)%>
-    <%= link_to l(:label_show), assay_stage_url(:action => 'show',:id => @assay_stage)%>
+    <%= link_to l(:List), assay_stage_url(:action => 'list')%>
+    <%= link_to l(:New), assay_stage_url(:action => 'new')%>
+    <%= link_to l(:Edit), assay_stage_url(:action => 'edit', :id => @assay_stage)%>
+    <%= link_to l(:Show), assay_stage_url(:action => 'show',:id => @assay_stage)%>
     <% if @assay_stage.protocols.size==0 %>
-    <%= link_to l(:label_delete), assay_stage_url(:action => 'destroy', :id => @assay_stage ), :confirm => l(:text_are_you_sure), :method => :post%>
+    <%= link_to l(:Delete), assay_stage_url(:action => 'destroy', :id => @assay_stage ), :confirm => l(:text_are_you_sure), :method => :post%>
     <% end %>
   
 </div>
 <% end %>
 <%= render :partial => 'admin/header'%>
-  <% dialog l(:label_assay_stage) do %>
+  <% dialog l(:Assay_Stage) do %>
   <% form_tag :action => 'update', :id => @assay_stage do %>
   <%= render :partial => 'form' %>
-  <%= submit_tag l(:button_save) %>
-  <%= link_to l(:label_cancel), :action => 'list'%>
+  <%= submit_tag l(:Save) %>
+  <%= link_to l(:Cancel), :action => 'list'%>
   <% end %>
   <% end %>

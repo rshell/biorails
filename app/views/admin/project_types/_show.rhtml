@@ -1,11 +1,13 @@
-<%= render :partial => 'admin/header' %>
-<h2 class="icon icon-project"><%=l(:label_project_type) %>
+<%= render :partial => 'header' %>
+<h2 class="icon icon-project"><%=l(:Project_Type) %>
 [<%=@project_type.path %>]</h2>
 <div class="panel">
+  <div class='box'>
+
     <table class="report">
       <tr>
         <th>
-          <%=l(:label_name) %>
+          <%=l(:Name) %>
         </th>
         <td>
           <%= @project_type.name %>
@@ -13,7 +15,7 @@
       </tr>
       <tr>
         <th>
-          <%=l(:label_description) %>
+          <%=l(:Description) %>
         </th>
         <td>
           <%= @project_type.description %>
@@ -21,14 +23,16 @@
       </tr>
       <tr>
         <th>
-          <%=l(:label_dashboard) %>
+          <%=l(:Dashboard) %>
         </th>
         <td>
           <%= @project_type.dashboard %>
         </td>
       </tr>
     </table>
-  <%= link_to l(:label_list), project_type_url(), :method => :get, :class=>'icon icon-list' %>
-  <%= link_to l(:label_edit), project_type_url(:action=>:edit, :id=>@project_type), :method => :get, :class=>'icon icon-edit' %>
-  <%= link_to l(:label_delete), project_type_url(:action=>:destroy, :id=>@project_type), :confirm => l(:text_are_you_sure), :method => :delete, :class=>'icon icon-del' %>
+  </div>
+
+  <%= link_to l(:List), project_type_url(), :method => :get, :class=>'icon icon-list' %>
+  <%= link_to l(:Edit), project_type_url(:action=>:edit, :id=>@project_type), :method => :get, :class=>'icon icon-edit' %>
+  <%= link_to l(:Delete), project_type_url(:action=>:destroy, :id=>@project_type), :confirm => l(:text_are_you_sure), :method => :delete, :class=>'icon icon-del' %>
 </div>

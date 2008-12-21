@@ -1,11 +1,11 @@
 <h1>
-  <%= l(:label_home) %>
+  <%= l(:Home) %>
 </h1>
 
 <div class="splitcontentleft">
   <div class="box">
     <h3>
-      <%=l(:label_news_latest)%>
+      <%=l(:News_Latest)%>
     </h3>
     <%= render :partial => 'news/news', :collection => @news if @news %>
   </div>
@@ -13,7 +13,7 @@
 
 <div class="splitcontentright">
   <div class="box">
-  <h3 class="icon22 icon-projects"><%=l(:label_lastest_projects)%></h3>
+  <h3 class="icon22 icon-projects"><%=l(:Lastest_Projects)%></h3>
     <ul>
     <% for project in current_user.latest(Project,5) %>
       <li>
@@ -32,7 +32,7 @@
 
 <div class="splitcontentleft">
   <div class="box">
-  <h3 class="icon22 icon-projects"><%=l(:label_lastest_tasks)%></h3>
+  <h3 class="icon22 icon-projects"><%=l(:Lastest_Tasks)%></h3>
     <ul>
       <% for project in current_user.latest(Task,5) %>
         <li>
@@ -52,7 +52,7 @@
 <div class="splitcontentright">
   <div class="box">
     <h3 class="icon icon-project">
-      <%=l(:label_lastest_requests)%>
+      <%=l(:Latest_Requests)%>
     </h3>
     <ul>
       <% for project in current_user.latest(Request,5) %>

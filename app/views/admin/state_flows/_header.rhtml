@@ -1,0 +1,28 @@
+<div class="content_header admin">
+  <%= render :partial => 'shared/help_link' %>
+  <h1 class='icon icon-admin-large'>
+    <%= link_to l(:Administration),   catalogue_url( :action => 'list') %>
+  </h1>
+  <br/>
+  <br/>
+
+  <div class='actions_left'>
+    <%= link_to l(:States), state_url(), :method => :get ,:class => 'icon icon-status' %>
+    <%= link_to l(:State_Flows), state_flow_url(), :method => :get,:class => 'icon icon-workflow'  %>
+    <%= link_to l(:Project_Type), project_type_url(), :method => :get,:class => 'icon icon-project'  %>
+    <%= link_to l(:Assay_Stages), assay_stage_url(),:class => 'icon icon-assay', :method => :get  %>
+  </div>
+
+  <div class='actions_right'>
+    <% if @state_flow %>
+      <% unless @state_flow.new_record?%>
+        <%= link_to l(:Show), state_flow_url(:action=>:show, :id=>@state_flow),:class => 'icon icon-show', :method => :get%>
+        <%= link_to l(:Edit), state_flow_url(:action=>:edit, :id=>@state_flow),:class => 'icon icon-edit', :method => :get  %>
+        <%= link_to l(:Delete), state_flow_url(:action=>:destroy, :id=>@state_flow),:class => 'icon icon-del', :confirm => l(:text_are_you_sure), :method => :delete unless @state_flow.used? %>
+      <% end %>
+    <% else %>
+      <%= link_to l(:New), state_flow_url(:action=>:new),:method => :get,:class => 'icon icon-new' %>
+    <% end %>
+  </div>
+  <br/>
+</div>

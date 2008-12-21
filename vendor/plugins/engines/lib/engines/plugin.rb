@@ -78,7 +78,7 @@ module Engines
       add_plugin_view_paths
       Assets.mirror_files_for(self)
       if ::RAILS_ENV == 'development'
-        ActiveSupport::Dependencies.load_once_paths = ActiveSupport::Dependencies.load_once_paths.select  do  |path| 
+        ActiveSupport::Dependencies.load_once_paths = ActiveSupport::Dependencies.load_once_paths.select  do  |path|
           (path =~ /#{name}\/app/).nil?
         end
       end
@@ -94,7 +94,6 @@ module Engines
       view_path = File.join(directory, 'app', 'views')
       if File.exist?(view_path)
         ActionController::Base.view_paths.insert(1, view_path) # push it just underneath the app
-        ActionView::TemplateFinder.process_view_paths(view_path)
       end
     end
 

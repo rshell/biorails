@@ -2,7 +2,7 @@
     <table class="report">
         <tr>
             <th class="label">
-                <%=l(:label_name) %>
+                <%=l(:Name) %>
             </th>
             <td colspan='3'>
                 <%= @assay_protocol.name %>
@@ -10,7 +10,7 @@
         </tr>
         <tr>
             <th class="label">
-                <%=l(:label_description) %>
+                <%=l(:Description) %>
             </th>
             <td colspan='3'>
                 <%= @assay_protocol.description %>
@@ -18,7 +18,7 @@
         </tr>
         <tr>
             <th class="label">
-                <%=l(:label_lit_ref) %>
+                <%=l(:Lit_Ref) %>
             </th>
             <td colspan='3'>
                 <%= @assay_protocol.literature_ref %>
@@ -26,13 +26,13 @@
         </tr>
         <tr>
             <th class="label">
-                <%=l(:label_category) %>
+                <%=l(:Category) %>
             </th>
             <td>
                 <%= @assay_protocol.protocol_catagory %>
             </td>
             <th class="label">
-                <%=l(:label_status) %>
+                <%=l(:Status) %>
             </th>
             <td>
                 <%= @assay_protocol.protocol_status %>
@@ -40,14 +40,13 @@
         </tr>
         <tr>
             <th class="label">
-                <%=l(:label_label) %>
+                <%=l(:Label) %>
             </th>
             <td>
                 <%= @protocol_version.name %>
-                <%=" [released]" if @protocol_version == @assay_protocol.process %>
             </td>
             <th class="label">
-                <%=l(:label_version) %>
+                <%=l(:Version) %>
             </th>
             <td>
                 <%= @protocol_version.version %>

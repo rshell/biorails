@@ -4,7 +4,7 @@
       Actions
     </b>
   </span>
-  <%= link_to( l(:label_assay_add),     assay_url(:action => 'new')) %>
-  <%= link_to( l(:label_experiment_add),  experiment_url(:action => 'new'))  %>
-  <%= link_to( l(:label_request_add), request_url(:action => 'new'))  %>
+  <%= link_to( l(:Assay_Add),     assay_url(:action => 'new')) if current_project.changeable? %>
+  <%= link_to( l(:Experiment_Add),  experiment_url(:action => 'new')) if current_project.changeable? %>
+  <%= link_to( l(:Request_Add), request_url(:action => 'new')) if current_project.changeable? %>
 </div>

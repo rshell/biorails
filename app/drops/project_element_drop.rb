@@ -31,7 +31,7 @@ class ProjectElementDrop < BaseDrop
  end
  
  def folder_content
-   @source.children.collect{|i|i.html}.join("\n")
+   @source.children.collect{|i|i.html if i.state.level_no>=0}.join("\n")
  end
  
  def html

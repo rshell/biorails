@@ -23,8 +23,8 @@
 class Admin::CatalogueController < ApplicationController
 
   use_authorization :catalogue,
-                    :actions => [:list,:show,:new,:create,:edit,:update,:destroy,:new_element,:new_usage],
-                    :rights => :current_user
+              :admin => [:new,:create,:create_element,:create_usage,:destroy,
+                         :edit,:index,:list,:new_element,:new_usage,:remove_element,:show,:tree,:update]
                    
   def index
     @data_concept  = @context = DataContext.find(:first)
@@ -146,7 +146,10 @@ def create_element
         flash[:notice] = 'DataElement was successfully created.'
         return render(:action => 'show.rjs') if request.xhr?
         return redirect_to( :action => 'list', :id => @data_element.concept)
-       end
+      else
+        raise("cant save new lookup")
+      end
+
      end
    rescue Exception => ex
       @data_concept ||= DataConcept.find(:first)
@@ -178,7 +181,8 @@ def create_usage
       redirect_to :action => 'list', :id => @data_concept
     else
       flash[:warning] = 'ParameterType failed  to save.'
-      redirect_to :action => 'list', :id => @data_concept
+      return render( :action => 'new_parameter_type')  if request.xhr?
+      render( :partial => 'new_parameter_type')
     end
    rescue Exception => ex
       flash[:error] = 'ParameterType has problems:'+ ex.message

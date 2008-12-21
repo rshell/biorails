@@ -11,8 +11,17 @@ class ProtocolVersionTest < Test::Unit::TestCase
      first = @model.find(:first)
      assert first.id
      assert first.name
+     assert first.usages
+     assert first.allowed_roles
+     assert_equal !first.released?, first.withdrawn
+     assert_equal first.released?, first.released
   end
   
+  def test_find
+     first = @model.find(:first)
+     assert !first.can_destroy_if_not_used_or_release
+  end
+
   def test_new
     first = @model.new
     assert first

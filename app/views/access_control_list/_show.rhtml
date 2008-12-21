@@ -1,0 +1,17 @@
+<div class="panel" style='border: 1px solid #c0c0c0;'>
+<table class='report'>
+  <tr>
+    <th> <%=l(:name)%> </th>
+    <th> <%=l(:granted)%> </th>
+    <th> <%=l(:access)%> </th>
+  </tr>
+  <% for rule in @project_element.access_control_list.rules %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td> <%=rule.owner_name %> </td>
+      <td> <%=rule.breakdown %> </td>
+      <td> <%=rule.role_name %> </td>
+    </tr>
+  <% end %>
+</table>
+<%= button_to(l(:Edit),acl_url(:action=>:edit,:id=>@project_element)) if @project_element.right?(:data,:share)%>
+</div>

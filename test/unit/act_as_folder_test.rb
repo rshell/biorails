@@ -18,7 +18,7 @@ class ActAsFolderTest < Test::Unit::TestCase
   end 
 
   def is_class_find_visible(model)
-     assert list = model.find_visible(:all)
+     assert list = model.list(:all)
      assert list.size>0
   end
 
@@ -28,8 +28,8 @@ class ActAsFolderTest < Test::Unit::TestCase
      assert_equal instance.name, folder.name
   end
 
-  def is_instance_changable?(model)
-     assert model.changable?
+  def is_instance_changeable?(model)
+     assert model.changeable?
   end
 
   def is_instance_visible?(model,instance)
@@ -61,7 +61,7 @@ class ActAsFolderTest < Test::Unit::TestCase
     model = Assay
     instance = model.find(:first)
     is_instance_folder(instance)
-    is_instance_changable?(instance)
+    is_instance_changeable?(instance)
     is_instance_visible?(model,instance)
   end
   
@@ -69,7 +69,7 @@ class ActAsFolderTest < Test::Unit::TestCase
     model = AssayParameter
     instance = model.find(:first)
     is_instance_folder(instance)
-    is_instance_changable?(instance)
+    is_instance_changeable?(instance)
     is_instance_visible?(model,instance)
   end
   
@@ -77,7 +77,7 @@ class ActAsFolderTest < Test::Unit::TestCase
     model = AssayQueue
     instance = model.find(:first)
     is_instance_folder(instance)
-    is_instance_changable?(instance)
+    is_instance_changeable?(instance)
     is_instance_visible?(model,instance)
   end
   
@@ -92,7 +92,7 @@ class ActAsFolderTest < Test::Unit::TestCase
     model = Experiment
     instance = model.find(:first)
     is_instance_folder(instance)
-    is_instance_changable?(instance)
+    is_instance_changeable?(instance)
     is_instance_visible?(model,instance)
   end
   
@@ -100,17 +100,17 @@ class ActAsFolderTest < Test::Unit::TestCase
     model = Task
     instance = model.find(:first)
     is_instance_folder(instance)
-    is_instance_changable?(instance)
+    is_instance_changeable?(instance)
     is_instance_visible?(model,instance)
   end
 
   
   def test_share    
     project_x = Project.find(2)
-    assert project_x.home.allow?(:data,:update)
+    assert project_x.home.right?(:data,:update)
     
     project_y = Project.find(3)    
-    assert project_y.home.allow?(:data,:create)
+    assert project_y.home.right?(:data,:create)
     
     User.current = User.find(3)
     
@@ -127,10 +127,10 @@ class ActAsFolderTest < Test::Unit::TestCase
   
   def test_publish    
     project_x = Project.find(2)
-    assert project_x.home.allow?(:data,:edit)
+    assert project_x.home.right?(:data,:edit)
     
     project_y = Project.find(3)    
-    assert project_y.home.allow?(:data,:create)
+    assert project_y.home.right?(:data,:create)
     
     User.current = User.find(3)
     

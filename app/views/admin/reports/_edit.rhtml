@@ -1,0 +1,10 @@
+<%= render :partial=>'header' %>
+<% if @report %>
+<%= tab_strip("task-reports",@tab||0,[
+ {:name =>l(:columns) , :partial=>'columns'},
+ {:name =>l(:details) , :partial=>'update'},
+ {:name =>l(:preview)   , :url=>system_report_url(:action=>'show', :format=>:ext, :id=>@report) },
+ {:name =>l(:visualize) , :url=> system_report_url(:action=>'visualize', :format=>:ext, :id=>@report) }
+])  %>
+<% end %>
+

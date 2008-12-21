@@ -16,7 +16,6 @@
 # See license agreement for additional rights ##
 #
 class ApplicationController < ActionController::Base
-
   layout 'biorails3'
 
   # #audit DataConcept,DataContext,DataSystem,DataElement,DataFormat,DataType,
@@ -46,7 +45,7 @@ class ApplicationController < ActionController::Base
   # 
   helper_method :logged_in?
   helper_method :has_rights?
-  helper_method :allows?
+  helper_method :right?
   helper_method :current_user
   helper_method :current_team
   helper_method :current_project
@@ -55,6 +54,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_clipboard
   helper_method :browser_is?
   helper_method :get_browser
+  helper_method :object_to_url
+  helper_method :element_to_url
+  helper_method :reference_to_url
  
   protected #----- End of public actions --------------------------------------------------------------------------------
 
@@ -132,13 +134,11 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !session[:current_user_id].nil?
   end
-  
-  def has_rights?(subject='data')
-    logged_in? #and current_users.?(subject)
-  end
-  
-  def allows?(subject,action)
-    logged_in? and (current_user.allow?(subject,action) or current_element.allow?(subject,action))
+  #
+  # Rights Check for the current context of folder and user
+  #
+  def right?(subject,action=nil)
+    logged_in? and (current_user.right?(subject,action) or current_element.right?(subject,action))
   end
 
   # ## Default authenticate called before all authorization activity to make
@@ -152,9 +152,6 @@ class ApplicationController < ActionController::Base
     logged_in?
   end
 
-  def current_username
-    current_user.login
-  end
   # ## Reference to the current User
   # 
   def current_user
@@ -170,18 +167,11 @@ class ApplicationController < ActionController::Base
   def current_project
     if session and session[:current_project_id]  
       @current_project ||= Project.find(session[:current_project_id])
-    else
-      @current_project ||= Project.find(SystemSetting.get('public_project_id').value)
     end
+    @current_project ||= Project.list(:first,:order=>:id)
+    @current_project ||= Project.find(:first,:order=>:id)
     Team.current = @current_project.team
-    @current_team = @current_project.team
     Project.current = @current_project
-  end
-  # 
-  # 
-  # 
-  def current_team
-    @current_team ||= Team.find(Biorails::Record::DEFAULT_TEAM_ID)
   end
   # 
   # 
@@ -190,6 +180,8 @@ class ApplicationController < ActionController::Base
     if session[:current_element_id]  
       @current_element ||= ProjectElement.find(session[:current_element_id])
     end
+    @current_element ||= current_project.folder
+    ProjectFolder.current = @current_element
   end
   # 
   # Change the Current user in session
@@ -211,7 +203,7 @@ class ApplicationController < ActionController::Base
     logger.info("set_project #{project.name}")
     if current_user.project(project.id) 
       session[:current_project_id] = project.id
-      @current_project = project
+      Project.current = @current_project = project
     else
       return show_access_denied      
     end
@@ -244,7 +236,16 @@ class ApplicationController < ActionController::Base
   # 
   def show_access_denied
     flash[:error]= "Access denied for url #{url_for(params)}"
-    redirect_to auth_url(:action => "access_denied")    
+    respond_to do | format |
+      format.html { render :template => '/auth/access_denied' }
+      format.ext  { render :partial => 'auth/access_denied' }
+      format.js   {
+         render :update do | page |
+           page.replace_html 'center',  :partial => 'auth/access_denied'
+           page.replace_html 'messages',  :partial => 'shared/messages'
+         end
+         }
+    end
     return false
   end
   # 
@@ -279,7 +280,7 @@ class ApplicationController < ActionController::Base
   # Render a page as PDF for output based on current html
   # 
   def render_pdf(filename,options={})
-    @html = render_to_string(options)
+    @html = Biorails.utf8_to_codepage(render_to_string(options))
     html_send_as_pdf(filename, @html)
   end
 
@@ -330,5 +331,79 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  ##
+# Convert a type/id reference into a url to the correct controlelr
+#    
+  def object_to_url( object,options = {:action=>'show'})
+    return "" unless object
+    id = object.id
+    if object
+      case  object
+      when ProjectAsset then    asset_url(   options.merge(  { :id=>id ,:folder_id=>object.parent_id}) )
+      when ProjectContent then  content_url( options.merge({ :id=>id ,:folder_id=>object.parent_id}) )
+      when ProjectElement then  folder_url(  options.merge( { :id=>id ,:folder_id=>object.parent_id}) )
+      when RequestService then  request_url( options.merge({:id=>object.request.id}) )
+      when ProjectElement then  folder_url(  options.merge({ :id=>id} ) )
+      when ProjectFolder then   folder_url(  options.merge({ :id=>id} ) )
+      when AssayProtocol then   assay_url(   options.merge({ :id=>object.assay_id})  )
+      when AssayQueue then      queue_url(   options.merge({ :id=>id})  )
+      when Signature  then      folder_url( {:action=>'document', :id=>object.project_element_id} )
+      when SystemReport then    system_report_url( options.merge({:id=>id})  )
+      when ProjectReport then   report_url(        options.merge({:id=>id})  )
+      else
+        begin
+          send("#{object.class.to_s.underscore}_url",{:action=>'show',:id=>object.id})         
+        rescue Exception => ex
+          logger.warn("Cant work out url for #{object.class}.#{object.id}")
+          nil
+        end
+      end
+    end
+  end  
+   
+  # ## Convert a element in to a url call to display it
+  # 
+  def element_to_url(element)
+    case element
+    when ProjectFolder
+      folder_url(:action=>'show', :id=> element.id )
+    when ProjectContent
+      content_url(:action=>'show', :id=>element.id ,:folder_id=>element.parent_id )
+    when ProjectAsset
+      asset_url(:action=>'show',:id=>element.id,:folder_id=>element.parent_id )
+    when ProjectReference
+       object_to_url(element.reference)
+    else
+      element_url(:action=>'show', :id=>element.id, :folder_id=>element.parent_id )
+    end
+  end 
+  # ## Convert a type/id reference into a url to the correct controlelr
+  # 
+  def reference_to_url(element)
+    case element.attributes['reference_type']
+    when 'Project'  then        project_url( :action=>'show', :id=>element.reference_id )
+    when 'ProjectContent' then  content_url( :action=>'show', :id=>element.id ,:folder_id=>element.parent_id )
+    when 'ProjectAsset'  then   asset_url(   :action=>'show',:id=>element.id,:folder_id=>element.parent_id )
+
+    when 'Assay'  then          assay_url(          :action=>'show', :id=> element.reference_id )
+    when 'AssayParameter'  then assay_parameter_url(:action=>'show', :id=> element.reference_id )
+    when 'AssayQueue'      then assay_queue_url(    :action=>'show', :id=> element.reference_id )
+    when 'AssayProtocol'   then object_to_url(element.reference.latest )
+    when 'ProtocolVersion' then object_to_url(element.reference )
+
+    when 'Experiment' then      experiment_url(:action=>'show', :id=> element.reference_id )
+    when 'Task' then            task_url(      :action=>'show', :id=> element.reference_id )
+    when 'Report' then          report_url(    :action=>'show', :id=> element.reference_id )
+    when 'CrossTab' then        cross_tab_url( :action=>'show', :id=> element.reference_id )
+    when 'Request' then         request_url(   :action=>'show', :id=> element.reference_id )
+    when 'RequestService' then  request_service_url(:action=>'show', :id=> element.reference_id )
+    when 'QueueItem' then       request_service_url(:action=>'show', :id=> element.reference.service )
+    when 'Compound' then        compound_url(  :action=>'show', :id=> element.reference_id )
+    when 'Batch' then           batch_url(     :action=>'show', :id=> element.reference_id )
+    when 'CircePlate' then      plate_url(     :action=>'show', :id=> element.reference_id )
+    else
+      element_to_url(element)
+    end
+  end   
 
 end  # class ApplicationController

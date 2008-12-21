@@ -2,7 +2,7 @@
 <%= render :partial => 'menu' %>
 <% end %>
 <%= render :partial => 'admin/header' %>
-    <h2 class='icon icon-user-large' style='text-indent:0.5em'><%=l(:label_users_ldap) %>
+    <h2 class='icon icon-user-large' style='text-indent:0.5em'><%=l(:Users_LDAP) %>
     </h2>
     <div class="panel">
         <% for letter in ('a'..'z') %>
@@ -10,39 +10,39 @@
         <table class='report'>
             <tr>
                 <th colspan='1'>
-                    <%=l(:label_user) %>
+                    <%=l(:User) %>
                 </th>
                 <th colspan='3'>
-                    <%=l(:label_biorails) %>
+                    <%=l(:BioRails) %>
                 </th>
                 <th colspan='4'>
-                    <%=l(:label_LDAP) %>
+                    <%=l(:LDAP) %>
                 </th>
             </tr>
             <tr>
                 <th>
-                    <%=l(:label_login) %>
+                    <%=l(:Login) %>
                 </th>
                 <th>
-                    <%=l(:label_name) %>
+                    <%=l(:Name) %>
                 </th>
                 <th>
-                    <%=l(:label_role) %>
+                    <%=l(:Role) %>
                 </th>
                 <th>
-                    <%=l(:label_updated_at) %>
+                    <%=l(:Updated) %>
                 </th>
                 <th>
-                    <%=l(:label_email) %>
+                    <%=l(:Email_address) %>
                 </th>
                 <th>
-                    <%=l(:label_department) %>
+                    <%=l(:Department) %>
                 </th>
                 <th>
-                    <%=l(:label_telephone) %>
+                    <%=l(:Telephone) %>
                 </th>
                 <th>
-                    <%=l(:label_mobile) %>
+                    <%=l(:Mobile) %>
                 </th>
             </tr>
             <% for entry in @users %>
@@ -69,7 +69,7 @@
                 </th>
                 <td>
                     <p class='icon icon-user-add'>
-                        <%= link_to l(:label_new), :action => 'new',:login=>entry.cn %>
+                        <%= link_to l(:New), :action => 'new',:login=>entry.cn %>
                     </p>
                 </td>
                 <%end %>
@@ -87,7 +87,7 @@
                 </td>
             </tr>
             <% end -%>
-        </table><hr />  <%= link_to l(:label_list_local), user_url( :action => 'list'), :class=>'icon icon-list' %>
+        </table><hr />  <%= link_to l(:List_Local), user_url( :action => 'list'), :class=>'icon icon-list' %>
     </div>
 <% content_for :right do -%>
 <%= render :partial=>'help' %>

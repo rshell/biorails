@@ -16,56 +16,22 @@
 <% end %>
 
 <% content_for :center do -%>
-<%= render :partial=>'organize/assays/header'%>
-<h2 class='icon icon-protocol_version'><%=l(:label_process_version) %> <strong>[<%=@protocol_version.name %>]</strong></h2>
-<div id='tabs-process'>
-  <div id="tab-show" class="tab-content x-hidden">
-    <%= render :partial => 'show' %>
-  </div>
-  <div id="tab-edit" class="tab-content x-hidden">
-    <%= render :partial => 'edit' %>
-  </div>
-  <div id="tab-layout" class="tab-content x-hidden">
-    <%= render :partial => 'layout' %>
-  </div>
-  <div id="tab-metrics" class="tab-content x-hidden">
-  </div>
-</div>
+<%= render :partial=>'header'%>
+<%= tab_strip('tabs-process', @tab||0 ,[
+{:name =>l(:Overview) , :partial =>'show' },
+{:name =>l(:Update)  	, :partial =>'edit' },
+{:name =>l(:Layout)    , :partial =>'layout' },
+{:name =>l(:Format)  	, :url=> process_instance_url(:action=>'format', :format=>:ext, :id=>@protocol_version) },
+{:name =>l(:Metrics) 	, :url=> process_instance_url(:action=>'metrics', :format=>:ext, :id=>@protocol_version)},
+])  %>
+
+
 <script type="text/javascript"> 
 
-    Ext.onReady(function(){
-        
-      var tabs = new Ext.TabPanel({
-          renderTo:'tabs-process',
-                  activeTab: <%=@tab||0%>,
-                  defaults: {
-                                  autoHeight: true,
-                                  autoWidth: true,
-                                  autoScroll: true,
-                                  bodyStyle: 'padding:0px'
-                  },
-                  items: [{
-                                  title: 'Overview',
-                                  contentEl: 'tab-show'                              
-                          },{
-                                  title: 'Update',
-                                  contentEl: 'tab-edit'
-                          },{
-                                  title: 'Layout',
-                                  contentEl: 'tab-layout'
-                          },{
-                                  title: 'Metrics',
-                                  contentEl: 'tab-metrics',                              
-                                  listeners:{
-                                      activate : function(panel){panel.getUpdater().refresh();}
-                                 },
-                                 autoLoad: "<%=process_instance_url(:action=>'metrics', :format=>:ext, :id=>@protocol_version)%>"
-                          }]
-              });
-    
+    Ext.onReady(function(){        
           var tree = new Biorails.Protocol.ParameterTree({el:'parameter-tree',assay_id: <%= @assay_protocol.assay.id %> });
           tree.applyToMarkup('parameter-tree');
-    
+          Ext.getCmp('extra-id').setActiveTab(1);
     });
     
 </script>

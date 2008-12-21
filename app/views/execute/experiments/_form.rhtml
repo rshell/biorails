@@ -1,48 +1,56 @@
 <div class="row">
-    <div class="form-element">
-        <label for="experiment_name">
-            <%=l(:label_name) %>
-        </label>
-        <%= text_field 'experiment', 'name' , {:class=>"text-input"} %>
-        <%= hidden_field 'experiment', 'project_id' %>
-        <%= hidden_field 'experiment', 'team_id' %>
-    </div>
-    <div class="form-element">
-        <label for="experiment_assay_id">
-            <%=l(:label_assay_main) %>
-        </label>
-        <%= collection_select(:experiment, :assay_id ,current_project.usable_assays, :id, :name) %>
-        <%= observe_field 'experiment_assay_id', :url => experiment_url(:action=>'refresh'),:with =>'assay_id' %>
-    </div>
+  <div class="form-element">
+    <label for="experiment_name">
+      <%=l(:Name) %>
+    </label>
+    
+    <% if SystemSetting.force_generated_experiment_yn? %>
+       <%= hidden_field 'experiment', 'name' , {:class=>"text-input"} %>
+       [<%=l(:System_Genererated)%>]
+     <%else%>
+       <%= text_field 'experiment', 'name' , {:class=>"text-input"} %>
+     <%end%>
+
+    <%= hidden_field 'experiment', 'project_id' %>
+  </div>
+  <div class="form-element">
+    <label for="experiment_assay_id">
+      <%=l(:Assay_Main) %>
+    </label>
+    <%= collection_select(:experiment, :assay_id ,current_project.usable_assays, :id, :name) %>
+    <%= observe_field 'experiment_assay_id', :url => experiment_url(:action=>'refresh'),:with =>'assay_id' %>
+  </div>
 </div>
 <div id='process_selector'>
-    <%= render(:partial => 'process_selector') %>
+  <%= render(:partial => 'process_selector') %>
 </div>
+
 <div class="row">
-    <div class="form-element">
-        <label for="assay_description">
-            <%=l(:label_description) %>
-        </label>
-        <%= text_area('experiment', 'description',{:rows=>5, :cols=>80} 	) %>
-    </div>
+  <div class="form-element">
+    <label for="assay_description">
+      <%=l(:Description) %>
+    </label>
+    <%= text_area('experiment', 'description',{:rows=>5, :cols=>80} 	) %>
+  </div>
 </div>
+
 <div class="row">
-    <div class="form-element">
-        <label for="experiment_started_at">
-            <%=l(:label_date_start) %>
-        </label>
-        <%= date_field 'experiment', 'started_at' %>
-    </div>
-    <div class="form-element">
-        <label for="experiment_ended_at">
-            <%=l(:label_date_expected) %>
-        </label>
-        <%= date_field 'experiment', 'expected_at' %>
-    </div>
-    <div class="form-element">
-        <label for="experiment_team_id">
-            <%=l(:assigned_team) %>
-        </label>
-        <%= select_values 'task', 'assigned_to_user_id', Team.find(:all) %>
-    </div>
+  <div class="form-element">
+    <label for="experiment_started_at">
+      <%=l(:Date_Start) %>
+    </label>
+    <%= date_field 'experiment', 'started_at' %>
+  </div>
+  <div class="form-element">
+    <label for="experiment_ended_at">
+      <%=l(:Date_Expected) %>
+    </label>
+    <%= date_field 'experiment', 'expected_at' %>
+  </div>
+  <div class="form-element">
+    <label for="experiment_team_id">
+      <%=l(:Team_Assigned) %>
+    </label>
+    <%= collection_select 'experiment', 'team_id', @experiment.project.teams,:id,:name %>
+  </div>
 </div>

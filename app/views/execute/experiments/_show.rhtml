@@ -1,7 +1,7 @@
 <table class="report">
   <tr>
     <th class="label">
-      <%=l(:label_name)%>
+      <%=l(:Name)%>
     </th>
     <td colspan='2'>
       <%= @experiment.name %>
@@ -9,12 +9,11 @@
     <td>
     </td>
     <td>
-      <%= button_to(l(:edit),experiment_url(:action=>:edit,:id=>@experiment)) if @experiment.allow?(:data,:update) %>
     </td>
   </tr>
   <tr>
     <th class="label">
-      <%=l(:label_description)%>
+      <%=l(:Description)%>
     </th>
     <td colspan='3'>
       <%= @experiment.description %>
@@ -22,41 +21,70 @@
   </tr>
   <tr>
     <th>
-      <%=l(:label_status)%>
+      <%=l(:Status)%>
     </th>
     <td colspan='3'>
-      <%=states_bar(@experiment.folder,:experiment)%> 
+       <%=@experiment.folder.state %>
+       <%=link_to "[Update]", folder_url(:action=>'status',:id=>@experiment.folder),:class=>'icon icon-edit'%>
     </td>
   </tr>
   <tr>
     <th class="label">
-      <%=l(:label_assay_main)%>
+      <%=l(:Assay_Main)%>
     </th>
     <td>
       <%= link_to @experiment.assay.name,
         assay_url( :action => 'show', :id => @experiment.assay)  %>
     </td>
     <th class="label">
-      <%=l(:label_method)%>
+      <%=l(:Method)%>
     </th>
     <td>
-      <%= @experiment.process.summary if @experiment.process %>
+      <%= @experiment.process.name if @experiment.process %>
     </td>
   </tr>
+    <tr>
+        <th class="label">
+            <%=l(:created_by) %>
+        </th>
+        <td>
+            <%=@experiment.created_by %>
+        </td>
+        <th class="label">
+            <%=l(:Created) %>
+        </th>
+        <td>
+            <%= short_date(@experiment.created_at) %>
+        </td>
+    </tr>
   <tr>
     <th class="label">
-      <%=l(:label_date_start)%>
+      <%=l(:Date_Start)%>
     </th>
     <td>
       <%=short_date @experiment.started_at%>
     </td>
     <th class="label">
-      <%=l(:label_date_expected)%>
+      <%=l(:Date_Expected)%>
     </th>
     <td>
       <%=short_date @experiment.expected_at %>
     </td>
   </tr>
-</table>
+    <tr>
+        <th class="label">
+            <%=l(:Assigned_To) %>
+        </th>
+        <td>
+                <%=@experiment.team.name %> 
+        </td>
+        <th class="label">
+            <%=l(:Date_Completed) %>
+        </th>
+        <td>
+            <%= short_date(@experiment.ended_at) %>
+        </td>
+    </tr>
+   </table>
 <br/>
 <%=render :partial =>'tasks' %>

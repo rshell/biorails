@@ -1,5 +1,5 @@
 <% content_for :sidemenu do -%>
-    <%= render :partial =>'menu' %>
+  <%= render :partial =>'menu' %>
 <% end %>
 
 <% content_for :messages do -%>
@@ -8,16 +8,25 @@
 <%end%>
 
 <% content_for :center do -%>
-  <%= render :partial=>'organize/assays/header'%>
-<div class='box'>
-  <h2 class='icon icon-parameter'>Last three parameters</h2>
-  <%= render :partial => 'list' %>
-  <% dialog l(:label_parameter_new) do %>
-    <%= render :partial => 'new' %>
-  <% end %>
-</div>
+  <%= render :partial=>'header'%>
+  <div class='box'>
+    <h2 class='icon icon-parameter'>Last three parameters</h2>
+    <%= render :partial => 'list' %>
+    <% dialog l(:Parameter_New) do %>
+      <%= render :partial => 'new' %>
+    <div class='actions_right'>
+      <%= link_to(l(:Manage), assay_parameter_url(:action=>:list,:id=>@assay.id),:class=>'icon icon-parameter') %>
+      <% if right?(:catalogue,:admin) %>
+      <%= link_to(l(:Back), catalogue_url(:action=>:list),:popup=>true,:class=>'icon icon-add') %>
+      <%= link_to(l(:Type), parameter_type_url(:action=>:new),:popup=>true,:class=>'icon icon-add') %>
+      <%= link_to(l(:Role), parameter_role_url(:action=>:new),:popup=>true,:class=>'icon icon-add') %>
+      <%= link_to(l(:Format), data_format_url(:action=>:new),:popup=>true,:class=>'icon icon-add') %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
 <% end %>
 
 <% content_for :right do -%>
-    <%= render :partial =>'help' %>
+  <%= render :partial =>'help' %>
 <% end -%>

@@ -1,16 +1,24 @@
+<%if @experiment %>
 <div class="content_header execution">
     <%= render :partial => 'shared/help_link' %>
-    <h1 class='icon icon-experiment-large'><%= link_to( "#{l(:label_experiment)} [#{@experiment.name}]", experiment_url( :action => :show, :id => @experiment.id)) %>
+    <h1 class='icon icon-experiment-large'><%= link_to( "#{l(:Experiment)} [#{@experiment.name}]", experiment_url( :action => :show, :id => @experiment.id)) %>
     </h1>
     <br/>
     <br/>
     <div class='actions_left'>
-        <%= link_to l(:label_open_folder), folder_url(:action => 'show', :id => @experiment.folder), :class=>'icon icon-folder' %>
-        <%= link_to l(:label_calendar),  calendar_url( :action => 'show', :id => @experiment.folder), :class=>'icon icon-calendar' %>
+        <%= link_to l(:Open_Folder), folder_url(:action => 'show', :id => @experiment.folder), :class=>'icon icon-folder' %>
+        <%= link_to l(:List), experiment_url(:action => 'list', :id => current_project), :class=>'icon icon-list' %>
+        <%= link_to l(:Calendar),  calendar_url( :action => 'show', :id => @experiment.folder), :class=>'icon icon-calendar' %>
     </div>
     <div class='actions_right'>
-        <%= link_to l(:label_add_task), task_url( :action => 'new' , :id => @experiment), :class=>'icon icon-task-add' %>
+      <% if @experiment.changeable? %>
+       <%= link_to(l(:Add_Task), task_url( :action => 'new' , :id => @experiment), :class=>'icon icon-task-add')  %>
+       <%= link_to(l(:Edit),experiment_url(:action=>:edit,:id=>@experiment), :class=>'icon icon-edit')  %>
+       <%= link_to( l(:Delete),experiment_url( :action => 'destroy', :id => @experiment ),
+                 :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del') if right?(:data,:destroy) and @experiment.tasks.size==0%>
+      <%end%>
     </div>
     <br/>
 </div>
 <%=breadcrumb_list @experiment.folder %>
+<% end %>

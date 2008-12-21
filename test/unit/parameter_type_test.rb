@@ -301,6 +301,10 @@ class ParameterTypeTest < Test::Unit::TestCase
      	assert parameter_type.errors.invalid?(attr_name.to_sym), "Should be an error message for :#{attr_name}"
  		end
  	end
- 	
+
+  def test_is_dictionary
+    assert_dictionary_lookup(ParameterType)
+  end
+
 end
 

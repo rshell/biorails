@@ -4,22 +4,22 @@
 <div>
   <span class='menu'>
     <b class="icon icon-queue">
-      <%= l(:label_assay_queue)  %>
+      <%= l(:Service_Queues)  %>
     </b>
   </span>
 <% unless @assay_queue.nil? or @assay_queue.new_record? %>
 
-  <%= link_to l(:label_service_queues), queue_url( :action => 'list', :id => @assay_queue.assay)%>
-  <%= link_to l(:label_edit), queue_url( :action => 'edit', :id => @assay_queue) %>
-  <%= link_to l(:label_requests),  queue_url( :action => 'show', :id => @assay_queue) %>
-  <%= link_to l(:label_items),  queue_url(:action => 'items', :id => @assay_queue) %>
-  <%= link_to l(:label_results),     queue_url( :action => 'results', :id=>@assay_queue)%>
+  <%= link_to l(:Service_Queues), queue_url( :action => 'list', :id => @assay_queue.assay)%>
+  <%= link_to l(:Edit),      queue_url( :action => 'edit', :id => @assay_queue) %>
+  <%= link_to l(:Requests),  request_url( :action => 'list',:id=>nil) %>
+  <%= link_to l(:Items),     queue_url(:action => 'items', :id => @assay_queue) %>
+  <%= link_to l(:Results),   queue_url( :action => 'results', :id=>@assay_queue)%>
 
 <% else %>
 
   <% if @assay %>
-    <%= link_to l(:label_service_queues), queue_url( :action => 'list', :id => @assay)%>
-    <%= link_to l(:label_new),   queue_url( :action => 'new', :id => @assay.id)%>
+    <%= link_to l(:List), queue_url( :action => 'list', :id => @assay)%>
+    <%= link_to l(:New),   queue_url( :action => 'new', :id => @assay.id)%>
   <% end %>
 
 <% end %>

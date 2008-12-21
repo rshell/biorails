@@ -1,17 +1,17 @@
-<p>
+<h2>
 Experiment [{{record.name}}]: {{record.description}}
-</p>
-<table WIDTH="99%" BORDER="1" CELLPADDING="1" CELLSPACING="0">
+</h2>
+<table class='report'>
 <tr>
-<th BGCOLOR='#cccccc'>Task</th>
-<th BGCOLOR='#cccccc'>Assigned</th>
-<th BGCOLOR='#cccccc'>Status</th>
-<th BGCOLOR='#cccccc'>Started</th>
-<th BGCOLOR='#cccccc'>Completed</th>
+<th>Task</th>
+<th>Assigned</th>
+<th>Status</th>
+<th>Started</th>
+<th>Expected</th>
 </tr>
 {% for item in experiment.tasks %}
 <tr>
-<th BGCOLOR='#cccccc'>{{ item.name}}</th> 
+<th>{{ item.name}}</th> 
 <td>{{item.assigned_user }}</th>
 <td>{{item.state }} </th>
 <td>{{item.started }}</th>

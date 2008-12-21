@@ -1,4 +1,4 @@
-<% dialog l(:label_concept) do %>
+<% dialog l(:Concept) do %>
 <p>
     <%=l(:text_enter_concept_details) %>
     [<%=@data_concept.parent.path %>]<%=l(:text_below) %>
@@ -6,7 +6,7 @@
 <%= form_remote_tag :url => {:action => 'create', :id => @data_concept.parent} %>
 <%= render :partial => 'form_concept' %>
 <div class="row">
-    <%= submit_tag l(:button_save) %>
-    <%=link_to_remote l(:label_cancel),  :url =>{:action=>'show',:id => @data_concept.parent.id} %>
+    <%= submit_tag l(:Save) %>
+    <%=link_to_remote l(:Cancel),  :url =>{:action=>'show',:id => @data_concept.parent.id} %>
 </div>
 <% end %>

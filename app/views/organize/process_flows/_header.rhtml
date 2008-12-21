@@ -1,0 +1,30 @@
+<div class="content_header organisation">
+  <%= render :partial => 'shared/help_link' %>
+  <h1 class='icon icon-protocol_version-large'>
+    <%= link_to( l(:Processes) + " [" + @assay.name + "]", assay_url( :action => :show, :id => @assay.id)) %>
+  </h1>
+  <br />
+  <br />
+  <div class='actions_left'>
+    <%= link_to( l(:Open_Folder), folder_url(:action => 'show', :id => @process_flow.folder ), :class=>'icon icon-folder')  if @protocol_version%>
+    <%= link_to l(:Assay),       assay_url(:action => 'show', :id => @assay,:tab=>0 ),  :class=>'icon icon-assay' %>
+    <%= link_to( l(:Parameters), assay_url(:action => 'show', :id => @assay,:tab=>2 ), :class=>'icon icon-parameter') %>
+    <%= link_to( l(:Queues),     assay_url(:action => 'show', :id => @assay,:tab=>3 ), :class=>'icon icon-queue') %>
+    <%= link_to( l(:Processes),  assay_url(:action => 'show', :id => @assay,:tab=>4 ), :class=>'icon icon-protocol_version') %>
+  </div>
+  <div class='actions_right'>
+    <% if  @process_flow and !@process_flow.new_record? and @process_flow.changeable? %>
+      <%= link_to l(:New_Version), process_flow_url(:action =>'copy',:id => @process_flow), :class=>'icon icon-add' %>
+      <%= link_to l(:Purge),    process_flow_url(:action =>'purge',:id => @process_flow), :class=>'icon icon-del' %>
+      <%= link_to( l(:Destroy),  process_flow_url(:action =>'destroy',:id => @process_flow), :class=>'icon icon-del') unless @process_flow.used?  %>
+    <%else%>
+      <%= link_to( l(:Add), process_instance_url( :action => 'new', :id => @assay), :class=>'icon icon-add') if @assay.changeable? %>
+    <% end %>
+  </div>
+  <br />
+</div>
+<% if @process_flow and !@process_flow.new_record? %>
+  <%= breadcrumb_list @process_flow.folder %>
+<%else%>
+  <%=breadcrumb_list @assay.folder %>
+<%end %>

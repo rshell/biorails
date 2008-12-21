@@ -8,12 +8,12 @@
 
 <% content_for :center do -%>
 <%= render :partial => 'admin/header'%>
-<%dialog l(:label_team_new)  do %>
+<%dialog l(:Team_New)  do %>
     <% form_tag :action => 'create' do %>
     <%= render :partial => 'form' %>
     <div class="row">
-        <%= submit_tag l(:button_save) %>
-        <%= link_to l(:label_cancel), team_url(:action => 'list') %>  
+        <%= submit_tag l(:Save) %>
+        <%= link_to l(:Cancel), team_url(:action => 'list') %>  
     </div>
     <% end %>
   <% end %>

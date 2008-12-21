@@ -1,53 +1,53 @@
-<h3 class="icon icon-data_concept"><%=@data_concept.name %> <%=l(:label_concept_specialisations) %></h3>
+<h3 class="icon icon-data_concept"><%=@data_concept.name %> <%=l(:Concept_Specialisations) %></h3>
 <p>
-    <%=l(:text_specialisations_of_parent_concept) %>
-    <strong><%=@data_concept.name %></strong>.<%=l(:text_This_is_used_to_build_the_conceptual_tree_seen_on_the_right_hand_side) %>
+  <%=l(:text_specialisations_of_parent_concept) %>
+  <strong><%=@data_concept.name %></strong>.<%=l(:text_This_is_used_to_build_the_conceptual_tree_seen_on_the_right_hand_side) %>
 </p>
 <table class="report" width='100%'>
-    <thead>
-        <tr>
-            <% for column in @data_concept.class.content_columns %>
-            <th>
-                <%= column.human_name %>
-            </th>
-            <% end %>
-            <th>
-                <%=l(:label_data_elements) %>
-            </th>
-            <th>
-                <%=l(:label_uses) %>
-            </th>
-            <th>
-                <%=l(:label_action) %>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <% for row in @data_concept.children %>
-        <tr class='<%= cycle('odd', 'even') %> boldnotbold'>
-            <% for column in @data_concept.class.content_columns %>
-            <td>
-                <%if column.name=='name' %>
-                <%= link_to_remote( row.send(column.name),:url=>{ :action => 'show' ,:id=> row.id }) %>
-                <%else %>
-                <%=h row.send(column.name) %>
-                <%end %>
-            </td>
-            <% end %>
-            <td>
-                <%=row.elements.size %>
-            </td>
-            <td>
-                <%=row.parameter_types.size %>
-            </td>
-            <td>
-                <%= link_to(l(:label_delete), {:action => 'destroy' ,:id=> row.id},
-                :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del' ) if row.not_used %>
-            </td>
-        </tr>
+  <thead>
+    <tr>
+      <% for column in @data_concept.class.content_columns %>
+        <th>
+          <%= column.human_name %>
+        </th>
+      <% end %>
+      <th>
+        <%=l(:Data_Elements) %>
+      </th>
+      <th>
+        <%=l(:Uses) %>
+      </th>
+      <th>
+        <%=l(:Action) %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for row in @data_concept.children %>
+      <tr class='<%= cycle('odd', 'even') %> boldnotbold'>
+        <% for column in @data_concept.class.content_columns %>
+          <td>
+            <%if column.name=='name' %>
+              <%= link_to_remote( row.send(column.name),:url=>{ :action => 'show' ,:id=> row.id }) %>
+            <%else %>
+              <%=h row.send(column.name) %>
+            <%end %>
+          </td>
         <% end %>
-    </tbody>
+        <td>
+          <%=row.elements.size %>
+        </td>
+        <td>
+          <%=row.parameter_types.size %>
+        </td>
+        <td>
+          <%= link_to(l(:Delete), {:action => 'destroy' ,:id=> row.id},
+            :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del' ) if row.not_used %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 <p class='icon icon-add'>
-    <%= link_to_remote(l(:button_add), :url=> {:action => 'new' ,:id=> @data_concept.id}) %>
+  <%= link_to_remote(l(:Add), :url=> {:action => 'new' ,:id=> @data_concept.id}) %>
 </p>

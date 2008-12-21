@@ -63,7 +63,7 @@ class DataConcept < ActiveRecord::Base
 ##
 # Generic rules for a name and description to be present
 #
-  validates_uniqueness_of :name, :scope =>"parent_id"
+  validates_uniqueness_of :name, :scope =>"parent_id",:case_sensitive=>false
   validates_presence_of :name
   validates_presence_of :description
 ##
@@ -89,8 +89,12 @@ class DataConcept < ActiveRecord::Base
 # See if the parameter is used
 # 
   def not_used
-    return (parameter_types.size==0 and elements.size==0)
-  end  
+    return (children.size==0 and parameter_types.size==0 and elements.size==0)
+  end
+
+  def not_implemented
+    return (elements.size==0)
+  end
   #
   # test if there is a implementation of this concept
   #
@@ -147,6 +151,10 @@ class DataConcept < ActiveRecord::Base
   def self.content_columns
         @content_columns ||= columns.reject { |c| c.primary || c.name =~ /(lock_version|_by|_at|_id|_count)$/ || c.name == inheritance_column }
         
+  end
+
+  def to_s
+    self.name
   end
   
   def to_xml(options = {})

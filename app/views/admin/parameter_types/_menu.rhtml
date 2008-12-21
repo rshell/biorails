@@ -1,13 +1,13 @@
 <%= render :partial => '/menu/admin_menu'%>
 <div>
   <span class='menu'><b class='icon icon-parameter_type'>
-      <%=l(:label_parameter_type)%>
+      <%=l(:Parameter_Type)%>
     </b>
   </span>
-  <%= link_to l(:label_list), parameter_type_url(:action => 'list') %>
-  <%= link_to l(:label_new), parameter_type_url(:action => 'new') %>
+  <%= link_to l(:List), parameter_type_url(:action => 'list') %>
+  <%= link_to l(:New), parameter_type_url(:action => 'new') %>
   <% if @parameter_type && !@parameter_type.new_record?%>
-    <%= link_to l(:label_edit),  parameter_type_url(:action => 'edit', :id => @parameter_type) %>
-    <%= link_to l(:label_show), parameter_type_url(:action => 'show',:id => @parameter_type) %>
+    <%= link_to l(:Edit),  parameter_type_url(:action => 'edit', :id => @parameter_type) %>
+    <%= link_to l(:Show), parameter_type_url(:action => 'show',:id => @parameter_type) %>
   <% end %>
 </div>

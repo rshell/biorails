@@ -1,32 +1,32 @@
 <b>
-  <%=l(:label_defined_aliases)%>
+  <%=l(:Defined_Aliases)%>
 </b>
 <% form_tag :action => 'add', :id => @parameter_type.id do %>
   <table class='report'>
     <tr>
       <th>
-        <%=l(:label_name)%>
+        <%=l(:Name)%>
       </th>
       <th>
-        <%=l(:label_description)%>
+        <%=l(:Description)%>
       </th>
       <th>
-        <%=l(:label_parameter_role)%>
+        <%=l(:Parameter_Role)%>
       </th>
       <%if @parameter_type.qualitive?%>
         <th>
-          <%=l(:label_element)%>
+          <%=l(:Data_Element)%>
         </th>
       <%else%>
         <th>
-          <%=l(:label_unit)%>
+          <%=l(:Unit)%>
         </th>
         <th>
-          <%=l(:label_data_format)%>
+          <%=l(:Data_Format)%>
         </th>
       <%end%>
       <th>
-        <%=l(:label_action)%>
+        <%=l(:Action)%>
       </th>
     </tr>
     
@@ -41,7 +41,7 @@
           <td><%=item.display_unit %></td>
           <td><%=item.format_name %></td>
         <%end%>
-        <td><%=link_to l(:label_delete), parameter_type_url(:action=>'remove',:id=>item.id), :class=>'icon icon-del'  %></td>
+        <td><%=link_to l(:Delete), parameter_type_url(:action=>'remove',:id=>item.id), :class=>'icon icon-del'  %></td>
       </tr>
     <%end%>
 
@@ -65,7 +65,7 @@
           <%=select_data_format( :parameter_type_alias, :data_format_id ,@parameter_type.data_type)%>
         </td>
       <% end %>
-      <td> <%= submit_tag l(:button_add) %></td>
+      <td> <%= submit_tag l(:Add) %></td>
     </tr>
   </table>
 <% end %>

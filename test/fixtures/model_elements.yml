@@ -2,7 +2,7 @@
 00000000032_model_element: !ruby/object:ModelElement 
   attributes: 
     name: Project
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
@@ -22,7 +22,7 @@
 00000000028_model_element: !ruby/object:ModelElement 
   attributes: 
     name: Users
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
@@ -42,7 +42,7 @@
 00000000006_model_element: !ruby/object:ModelElement 
   attributes: 
     name: Roles
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
@@ -62,7 +62,7 @@
 00000000030_model_element: !ruby/object:ModelElement 
   attributes: 
     name: Experiment
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
@@ -82,13 +82,13 @@
 00000000001_model_element: !ruby/object:ModelElement 
   attributes: 
     name: DataFormat
-    updated_at: 2008-08-14 10:29:26
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
     lock_version: "1"
     data_system_id: "1"
-    estimated_count: "14"
+    estimated_count: "0"
     id: "1"
     description: Data Format List for the system
     content: DataFormat
@@ -102,7 +102,7 @@
 00000000035_model_element: !ruby/object:ModelElement 
   attributes: 
     name: Compounds
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
@@ -122,7 +122,7 @@
 00000000031_model_element: !ruby/object:ModelElement 
   attributes: 
     name: Folder
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
@@ -142,7 +142,7 @@
 00000000033_model_element: !ruby/object:ModelElement 
   attributes: 
     name: Task
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
@@ -162,13 +162,13 @@
 00000000004_model_element: !ruby/object:ModelElement 
   attributes: 
     name: ParameterRole
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
     lock_version: "1"
     data_system_id: "1"
-    estimated_count: "5"
+    estimated_count: "0"
     id: "4"
     description: Parameter Roles lookup to allow separation of data into a number of bin for fruther use.
     content: ParameterRole
@@ -182,7 +182,7 @@
 00000000034_model_element: !ruby/object:ModelElement 
   attributes: 
     name: Batches
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
@@ -202,13 +202,13 @@
 00000000002_model_element: !ruby/object:ModelElement 
   attributes: 
     name: DataType
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
     lock_version: "1"
     data_system_id: "1"
-    estimated_count: "7"
+    estimated_count: "0"
     id: "2"
     description: Data Type implemented in the biorails site
     content: DataType
@@ -222,7 +222,7 @@
 00000000036_model_element: !ruby/object:ModelElement 
   attributes: 
     name: Request
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
@@ -242,7 +242,7 @@
 00000000003_model_element: !ruby/object:ModelElement 
   attributes: 
     name: Groups
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
@@ -259,36 +259,16 @@
     created_at: 2007-06-06 14:38:15
   attributes_cache: {}
 
-00000000037_model_element: !ruby/object:ModelElement 
+00000000005_model_element: !ruby/object:ModelElement 
   attributes: 
-    name: Plate
-    updated_at: 2008-08-14 10:29:27
+    name: ParameterType
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ModelElement
     lock_version: "1"
     data_system_id: "1"
     estimated_count: "0"
-    id: "37"
-    description: Plate containers
-    content: Container
-    data_concept_id: "8"
-    created_by_user_id: "1"
-    parent_id: 
-    style: model
-    created_at: 2007-06-06 14:59:01
-  attributes_cache: {}
-
-00000000005_model_element: !ruby/object:ModelElement 
-  attributes: 
-    name: ParameterType
-    updated_at: 2008-08-14 10:29:27
-    access_control_id: 
-    updated_by_user_id: "1"
-    type: ModelElement
-    lock_version: "1"
-    data_system_id: "1"
-    estimated_count: "31"
     id: "5"
     description: Parameter Types , A little recursive as parameter types are defined with data elements
     content: ParameterType

@@ -1,7 +1,7 @@
-<%= render :partial=>'organize/assays/header'%>
+<%= render :partial=>'header'%>
 
 <%if @assay.has_parameter_of_data_type? 5 %> 
-  <% dialog l(:label_service_queue_new) do %>
+  <% dialog l(:Service_Queue_New) do %>
     <% form_tag :action => 'create',:id=>@assay.id do %>
         <%= render :partial => 'form' %>
     <% end %>

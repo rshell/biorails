@@ -1,25 +1,25 @@
 <% content_for :sidemenu do -%>
-<%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project} %>
-<%= render :partial =>'/menu/assay_menu' , :locals=>{ :assay => @assay} %>
+  <%= render :partial =>'/menu/project_menu', :locals=>{ :project => current_project} %>
+  <%= render :partial =>'/menu/assay_menu' , :locals=>{ :assay => @assay} %>
 <% end %>
 <% content_for :center do -%>
-<%= render :partial=>'header' %>
-<%= tab_strip("assay-tabs", 0 ,[
-{:name =>'Show'    , :partial =>'show' },
-{:name =>'Parameter' , :url=> assay_url(:action=>'parameters', :format=>:ext, :id=>@assay) },
-{:name =>'Queues'    , :url=> assay_url(:action=>'queues', :format=>:ext, :id=>@assay) },
-{:name =>'Processes' , :url=> process_instance_url(:action=>'list', :format=>:ext, :id=>@assay) },
-{:name =>'Recipes' ,   :url=> process_flow_url(:action=>'list', :format=>:ext, :id=>@assay)  },
-{:name =>'Experiment', :url=> assay_url(:action=>'experiments', :format=>:ext, :id=>@assay) },
-{:name =>'View' ,      :url=> assay_url(:action=>'print', :format=>:ext, :id=>@assay)},
-{:name =>'Metrics'  ,  :url=> assay_url(:action=>'metrics', :format=>:ext, :id=>@assay)},
-{:name =>'Access'   ,  :url=> acl_url(:action=>'show',:format=>:ext, :id=>@assay.folder)} ])  %>
+  <%= render :partial=>'header' %>
+
+  <%= tab_strip("assay-tabs", @tab||0 ,[
+      {:name =>l(:Overview)   , :partial =>'show' },
+      {:name =>l(:Access)     , :url=> acl_url(:action=>'show',:format=>:ext, :id=>@assay.folder)},
+      {:name =>l(:Parameters) , :url=> assay_url(:action=>'parameters', :format=>:ext, :id=>@assay) },
+      {:name =>l(:Queues)     , :url=> assay_url(:action=>'queues', :format=>:ext, :id=>@assay) },
+      {:name =>l(:Processes)  , :url=> process_instance_url(:action=>'list', :format=>:ext, :id=>@assay) },
+      {:name =>l(:Recipes)    , :url=> process_flow_url(:action=>'list', :format=>:ext, :id=>@assay)  },
+      {:name =>l(:View)       , :url=> assay_url(:action=>'print', :format=>:ext, :id=>@assay)},
+      {:name =>l(:Metrics)    , :url=> assay_url(:action=>'metrics', :format=>:ext, :id=>@assay)} ])  %>
 
 <%end %>
 <% content_for :footer do -%>
   <%= render :partial => '/shared/version_history',:locals=>{:folder=>@assay.folder} %>
-<%= render :partial => 'shared/audit',:locals =>{ :item => @assay} %>
+  <%= render :partial => 'shared/audit',:locals =>{ :item => @assay} %>
 <% end %>
 <% content_for :right do -%>
-<%= render :partial => 'shared/folder_outline',:locals=>{:folder=>@folder} %>
+  <%= render :partial => 'shared/folder_outline',:locals=>{:folder=>@folder} %>
 <% end %>

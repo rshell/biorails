@@ -1,4 +1,4 @@
-<% dialog l(:label_folder_new) do %>
+<% dialog l(:Folder_New) do %>
 
 <% form_tag  folder_url(:id=>@parent, :action => 'create'), :update=>:center do %>
     <%= hidden_field 'project_folder', 'parent_id'  %>
@@ -7,7 +7,7 @@
   <div class="row">
     <div class="form-element">
        <label for="assay_name" class='icon icon-assay'>
-         <%=l(:label_new)%>
+         <%=l(:New)%>
        </label>
        <%= text_field 'project_folder', 'name' , {:size=>40, :class=>"text-input"} %>
     </div>

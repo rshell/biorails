@@ -1,132 +1,107 @@
 <% content_for :sidemenu do -%>
-<%= render :partial =>'actions' %>
+  <%= render :partial =>'actions' %>
 <% end -%>
+
 <% content_for :messages do -%>
-<%= render :partial => 'shared/messages', :locals => { :objects => ['assay_protocol','process_flow']} %>
+  <%= render :partial => 'shared/messages', :locals => { :objects => ['assay_protocol','process_flow']} %>
 <%end %>
+
 <% content_for :help do -%>
-<%= render :partial =>'help' %>
+  <%= render :partial =>'help' %>
 <% end -%>
+
 <% content_for :footer do %>
-<%= render :partial => '/shared/version_history',:locals=>{:folder=>@assay_protocol.folder} %>
-<%= render :partial => 'shared/audit',:locals =>{ :item => @assay_protocol} %>
+  <%= render :partial => '/shared/version_history',:locals=>{:folder=>@assay_protocol.folder} %>
+  <%= render :partial => 'shared/audit',:locals =>{ :item => @assay_protocol} %>
 <% end %>
+
 <% content_for :status do -%>
-<div id='protocol-tree'>
-</div>
+  <div id='protocol-tree'>
+  </div>
 <% end -%>
+
 <% content_for :center do -%>
-<%= render :partial=>'organize/assays/header' %>
-<h2 class='icon icon-workflow'><%=l(:label_recipe) %>[<strong><%=@assay_protocol.name %></strong>]</h2>
-<div id='tabs1'>
-  <div id="tab-show" class="tab-content x-hidden">
-    <%= render :partial => 'show' %>
-  </div>
-  <div id="tab-edit" class="tab-content x-hidden">
-  </div>
-  <div id="tab-schedule" class="tab-content x-hidden">
-    <div id='schedule'>
-      <%= render :partial => 'schedule' %>
-    </div>
-  </div>
-  <div id="tab-graph" class="tab-content x-hidden">
-  </div>
-</div>
-<script type="text/javascript"> 
+  <%= render :partial=>'header' %>
+  <h2 class='icon icon-workflow'><%=l(:Recipe) %>[<strong><%=@assay_protocol.name %></strong>]</h2>
+
+  <%= tab_strip("process-flow-tabs", @tab||0 ,[
+{:name =>l(:Overview)    	, :partial => 'show' },
+{:name =>l(:Update)    	, :url=> process_flow_url(:action=>'edit', :format=>:ext, :id=>@process_flow) },
+{:name =>l(:Layout)    	, :partial => 'layout' },
+{:name =>l(:Access)   	, :url=> acl_url(:action=>'show',:format=>:ext, :id=>@process_flow.folder)} ])  %>
+
+
+  <script type="text/javascript">
 
     Ext.onReady(function(){
-                
-              var tabs = new Ext.TabPanel({
-                  renderTo:'tabs1',
-                          activeTab: <%=@tab%>,
-                          defaults: {
-                                          autoHeight: true,
-                                          autoWidth: true,
-                                          autoScroll: true,
-                                          bodyStyle: 'padding:15px'
-                          },
-                          items: [{
-                                          title: 'Overview',
-                                          contentEl: 'tab-show'
-                                  },{
-                                          title: 'Update',
-                                          contentEl: 'tab-edit',
-                                          listeners:{
-                                              activate : function(panel){panel.getUpdater().refresh();}
-                                         },
-                                         autoLoad: "<%=process_flow_url(:action=>'edit', :format=>:ext, :id=>@process_flow)%>"
-                                  },{
-                                          title: 'Layout (Schedule Steps)',
-                                          contentEl: 'tab-schedule'
-                                          
-                                  }]
-                      });
-            
-                // Define Tree.
-                var tree_loader = new Ext.tree.TreeLoader({
-                        baseParams:{scope: 'root', process_flow_id: '<%=@process_flow.id%>'},
-                        dataUrl   :"<%=process_flow_url(:action=>'tree',:id=>@process_flow) %>"
-                    });
-                    
-                var protocol_tree = new Ext.tree.TreePanel({
-                    title            : 'Column Selector',
-                    collapsible      : false,
-                    animCollapse     : false,
-                    border           : true,
-                    id               : "protocol-tree",
-                    el               : "protocol-tree",
-                    autoScroll       : true,
-                    animate          : false,
-                    enableDD         : true,
-                    ddGroup : 'protocolDD',
-                    containerScroll  : true,
-                    height           : 400,
-                    loader           : tree_loader
-                });
-             
-                protocol_tree.on("dblclick", function(node,event) {
-                    try{ 
-                       new Ajax.Request( "<%=process_flow_url(:action=>'add',:id=>@process_flow) %>",
-                                {asynchronous:true, evalScripts:true,
-                                 parameters: { node: node.attributes.id }});                          
-                    } catch (e) {
-                          console.log('Problem cannot add Protocol ');
-                          console.log(e);
-                    } 
-                    return true;  
-                    
-                }, this);
-                    
-                // SET the root node.
-                var tree_root = new Ext.tree.AsyncTreeNode(
-                {
-                    text		: 'Methods',
-                    draggable	: false,
-                    iconCls         : 'icon-project',
-                    id		: 'root'
-                });
-             
-                // Render the tree.
-                protocol_tree.setRootNode(tree_root);
-                protocol_tree.render();
-                tree_root.expand();
-            
-               // Create drop zone
-                var dropzone = new Ext.dd.DropTarget('schedule',{
-                  ddGroup : 'protocolDD',
-                  notifyDrop : function(proxy,event,data){
-                        try{ 
-                             new Ajax.Request( "<%=process_flow_url(:action=>'add',:id=>@process_flow) %>",
-                                      {asynchronous:true, evalScripts:true,
-                                       parameters: { node: data.node.attributes.id }});                          
-                          } catch (e) {
-                                console.log('Problem cannot add Parameter ');
-                                console.log(e);
-                          } 
-                    return true;  }});
-            
-             });
-            
-        
+
+      // Define Tree.
+      var tree_loader = new Ext.tree.TreeLoader({
+        baseParams:{scope: 'root', process_flow_id: '<%=@process_flow.id%>'},
+        dataUrl   :"<%=process_flow_url(:action=>'tree',:id=>@process_flow) %>"
+      });
+
+      var protocol_tree = new Ext.tree.TreePanel({
+        title            : 'Column Selector',
+        collapsible      : false,
+        animCollapse     : false,
+        border           : true,
+        id               : "protocol-tree",
+        el               : "protocol-tree",
+        autoScroll       : true,
+        animate          : false,
+        enableDD         : true,
+        ddGroup : 'protocolDD',
+        containerScroll  : true,
+        height           : 400,
+        loader           : tree_loader
+      });
+
+      protocol_tree.on("dblclick", function(node,event) {
+        try{
+          new Ajax.Request( "<%=process_flow_url(:action=>'add',:id=>@process_flow) %>",
+          {asynchronous:true, evalScripts:true,
+            parameters: { node: node.attributes.id }});
+        } catch (e) {
+          console.log('Problem cannot add Protocol ');
+          console.log(e);
+        }
+        return true;
+
+      }, this);
+
+      // SET the root node.
+      var tree_root = new Ext.tree.AsyncTreeNode(
+      {
+        text		: 'Methods',
+        draggable	: false,
+        iconCls         : 'icon-project',
+        id		: 'root'
+      });
+
+      // Render the tree.
+      protocol_tree.setRootNode(tree_root);
+      protocol_tree.render();
+      tree_root.expand();
+
+      // Create drop zone
+      var dropzone = new Ext.dd.DropTarget('schedule',{
+        ddGroup : 'protocolDD',
+        notifyDrop : function(proxy,event,data){
+          try{
+            new Ajax.Request( "<%=process_flow_url(:action=>'add',:id=>@process_flow) %>",
+            {asynchronous:true, evalScripts:true,
+              parameters: { node: data.node.attributes.id }});
+          } catch (e) {
+            console.log('Problem cannot add Parameter ');
+            console.log(e);
+          }
+          return true;  }});
+
+    });
+
+   Ext.onReady( function() {
+     Ext.getCmp('extra-id').setActiveTab(1);
+  });
 </script>
 <% end %>

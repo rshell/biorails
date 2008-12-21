@@ -1,11 +1,11 @@
-  <%dialog l(:label_recipe_new) do %>
+  <%dialog l(:Recipe_New) do %>
   <% form_tag :action => 'create', :id => @assay.id do %>
     <div class="row">
       <%= render :partial => 'form' %>
     </div>
     <div class="row">
         <%= submit_tag "Save" %>
-        <%= link_to l(:label_cancel), assay_url(:action => 'show',  :id => @assay)%>
+        <%= link_to l(:Cancel), assay_url(:action => 'show',:id => @assay,:tab=>5) %>
     </div>
   <% end %>
   <%end%>

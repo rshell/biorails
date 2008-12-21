@@ -7,8 +7,8 @@
             <% if @logs %>
             <% old_day = @logs[0].created_at.at_beginning_of_day + 24.hours %>
             <% for log in @logs %>
-            <% classAttr = cycle("", "class=\"even\"") %>
-            <tr<%=classAttr %>>
+            <% class_attr = cycle("", "class=\"even\"") %>
+            <tr<%=class_attr %>>
                 <% day = log.created_at.at_beginning_of_day %>
                 <% unless day == old_day %>
             </tr>
@@ -41,7 +41,7 @@
                 </th>
             </tr>
             <% old_day = day %>
-            <tr<%=classAttr %>>
+            <tr<%=class_attr %>>
                 <%end %>
                 <td>
                     <%= link_to( log.assay.name , :action=>'show', :id => log.assay_id) if log.assay %>

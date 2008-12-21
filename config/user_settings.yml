@@ -20,3 +20,19 @@ default_language:
   default: en
 host_name:
   default: localhost:3000
+home_tab1: 
+ default: box_overview
+home_tab2:
+ default: box_documents
+home_tab3:
+  default: box_organisation
+home_tab4:
+ default: box_execution
+home_tab5:
+   default: box_services
+home_tab6:
+   default: box_projects
+default_project_id:
+   default: 1
+default_assay_id:
+   default:

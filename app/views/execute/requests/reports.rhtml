@@ -3,8 +3,8 @@
     <h1 class='icon icon-request-large' style='text-indent:0.5em;'>
       Reports on requests
     </h1>
-      <%= link_to l(:label_refresh), :action => 'reports' %>
-      <%= link_to l(:label_new), :controller=>'reports', :action => 'new' %>
+      <%= link_to l(:Refresh), :action => 'reports' %>
+      <%= link_to l(:New), :controller=>'reports', :action => 'new' %>
   </div>
   <div class='panel'>
     <%=render :partial => 'shared/report', :locals=>{:report=>@report,:data=>@report.run} %>

@@ -41,7 +41,9 @@ ActionController::Routing::Routes.draw do |map|
 # administration elements
 # 
   map.catalogue 'admin/catalogue/:action/:id', :controller => 'admin/catalogue'
+  map.system_report 'admin/reports/:action/:id', :controller => 'admin/reports'
   map.data_format 'admin/format/:action/:id', :controller => 'admin/data_formats'
+  map.data_identifier 'admin/identifiers/:action/:id', :controller => 'admin/data_identifiers'
   map.data_element 'admin/element/:action/:id', :controller => 'admin/data_elements'
   map.data_system 'admin/system/:action/:id', :controller => 'admin/data_systems'
   map.data_type  'admin/data/:action/:id', :controller => 'admin/data_types'
@@ -50,6 +52,7 @@ ActionController::Routing::Routes.draw do |map|
   map.assay_stage 'admin/stage/:action/:id', :controller => 'admin/assay_stages'
   map.system_setting 'admin/settings/:action/:id', :controller => 'admin/system_settings'
   map.state 'admin/states/:action/:id', :controller => 'admin/states'
+  map.state_flow 'admin/workflow/:action/:id', :controller => 'admin/state_flows'
 
   map.project_type 'project_types/:action/:id', :controller => 'admin/project_types' 
   map.role 'admin/role/:action/:id', :controller => 'admin/roles'
@@ -88,7 +91,7 @@ ActionController::Routing::Routes.draw do |map|
   map.assay             'assays/:action/:id',   :controller => 'organize/assays'
   map.process_flow      'workflows/:action/:id',     :controller => 'organize/process_flows'
   map.process_instance  'processes/:action/:id', :controller => 'organize/process_instances'
-  map.parameter         'parameters/:action/:id', :controller => 'organize/assay_parameters'
+  map.parameter         'protocol_parameters/:action/:id', :controller => 'organize/assay_parameters'
   map.assay_parameter   'parameters/:action/:id', :controller => 'organize/assay_parameters'
   map.protocol_parameter 'protocol_parameters/:action/:id', :controller => 'organize/parameters'  
   map.assay_queue        'queues/:action/:id', :controller => 'organize/assay_queues'

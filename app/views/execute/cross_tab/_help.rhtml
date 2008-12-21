@@ -1,5 +1,5 @@
 <div class=" x-panel-header x-accordion-hd">
-    <span class="icon icon-crosstab x-panel-header-text"><%=l(:label_cross_tab)%>
+    <span class="icon icon-crosstab x-panel-header-text"><%=l(:Cross_Tab)%>
     </span>
 </div>
 <div class='panel'>
@@ -9,7 +9,7 @@
   <ul>
     <% for context in @cross_tab.contexts %>
      <li>
-          <%= context.path(:process) %> <%= context.usages.size%> <%=l(:label_rows)%>
+          <%= context.path(:process) %> <%= context.usages.size%> <%=l(:Rows)%>
       </li>
     <% end %>
   </ul>

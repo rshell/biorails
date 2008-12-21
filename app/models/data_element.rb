@@ -38,6 +38,8 @@
 #
 
 class DataElement < ActiveRecord::Base
+
+  BLANK ="[None]"
 ##
 # This record has a full audit log created for changes 
 #   
@@ -100,8 +102,16 @@ class DataElement < ActiveRecord::Base
      end 
   end 
 
+  def data_concept_name
+    self.concept.name if self.concept
+  end
+
+  def data_system_name
+    self.system.name if self.system
+  end
+  
   def summary
-    "#{path} (#{system.name})  [#{concept.path}] "
+    "#{path} (#{data_system_name})  [#{data_concept_name}] "
   end
 #
 # Find all the children of this the concept
@@ -145,7 +155,7 @@ class DataElement < ActiveRecord::Base
   
   def like(name, limit=25, offset=0)
     if name
-	   self.children.find(:all, :conditions=>['name like ?',name+'%'],:order=>'name',:limit=>limit,:offset=>offset)
+  	   self.children.find(:all, :conditions=>['name like ?',name+'%'],:order=>'name',:limit=>limit,:offset=>offset)
     else
        self.children.find(:all,  :order=>'name', :limit=>limit, :offset=>offset)
     end

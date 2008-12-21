@@ -2,29 +2,28 @@
 <table class="report">
     <tr>
         <th class="label">
-            <%=l(:label_name) %>
+            <%=l(:Name) %>
         </th>
         <td>
-            <%= assay.name %>
+            <%=h assay.name %>
         </td>
         <td>
-            <%= button_to l(:edit),assay_url(:action=>:edit,:id=>assay) %>
-        </td>
-    </tr>
-    <tr>
-        <th class="label">
-            <%=l(:label_description) %>
-        </th>
-        <td>
-            <%= assay.description %>
         </td>
     </tr>
     <tr>
         <th class="label">
-            <%=l(:label_status) %>
+            <%=l(:Description) %>
         </th>
         <td>
-            <%=states_bar(assay.folder,:assay) %>
+            <%=h assay.description %>
+        </td>
+    </tr>
+    <tr>
+        <th class="label">
+            <%=l(:Status) %>
+        </th>
+        <td>
+           <%=assay.folder.state %>
         </td>
     </tr>
 </table>

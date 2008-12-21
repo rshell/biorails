@@ -32,7 +32,7 @@ Ext.ux.grid.filter.Filter = function(config){
 	Ext.ux.grid.filter.Filter.superclass.constructor.call(this);
 	
 	this.menu = new Ext.menu.Menu();
-	this.init();
+	this.init(config);
 	
 	if(config && config.value){
 		this.setValue(config.value);
@@ -65,17 +65,21 @@ Ext.extend(Ext.ux.grid.filter.Filter, Ext.util.Observable, {
 	menu: null,
 	
 	/**
+	 * @cfg {Number} updateBuffer
+	 * Some filters may wait a short time after user interaction to fire an update.
+	 */
+	updateBuffer: 500,
+	
+	/**
 	 * Initialize the filter and install required menu items.
 	 */
 	init: Ext.emptyFn,
 	
 	fireUpdate: function(){
-		this.value = this.item.getValue();
-		
 		if(this.active)
 			this.fireEvent("update", this);
 			
-		this.setActive(this.value.length > 0);
+		this.setActive(this.isActivatable());
 	},
 	
 	/**

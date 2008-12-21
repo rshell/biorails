@@ -2,12 +2,12 @@
 00000000001_assay_process: !ruby/object:AssayProcess 
   attributes: 
     name: Protocol1
-    updated_at: 2008-08-14 10:29:46
+    updated_at: 2008-10-22 15:14:25
     process_style: Entry
     protocol_status: Active
     type: AssayProcess
     updated_by_user_id: "1"
-    lock_version: "7"
+    lock_version: "8"
     protocol_catagory: Dose
     process_definition_id: 
     assay_id: "1"
@@ -24,12 +24,12 @@
 00000000003_assay_process: !ruby/object:AssayProcess 
   attributes: 
     name: Protocol3
-    updated_at: 2008-08-14 10:29:47
+    updated_at: 2008-10-22 15:14:25
     process_style: Entry
     protocol_status: Finished
     type: AssayProcess
     updated_by_user_id: "1"
-    lock_version: "7"
+    lock_version: "8"
     protocol_catagory: Screen
     process_definition_id: 
     assay_id: "2"
@@ -46,12 +46,12 @@
 00000000002_assay_process: !ruby/object:AssayProcess 
   attributes: 
     name: Protocol2
-    updated_at: 2008-08-14 10:29:47
+    updated_at: 2008-10-22 15:14:25
     process_style: Entry
     protocol_status: Active
     type: AssayProcess
     updated_by_user_id: "1"
-    lock_version: "7"
+    lock_version: "8"
     protocol_catagory: Dose
     process_definition_id: 
     assay_id: "2"

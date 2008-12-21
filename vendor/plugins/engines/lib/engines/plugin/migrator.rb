@@ -15,11 +15,6 @@ class Engines::Plugin::Migrator < ActiveRecord::Migrator
   # Runs the migrations from a plugin, up (or down) to the version given
   def self.migrate_plugin(plugin, version)
     self.current_plugin = plugin
-    # There seems to be a bug in Rails' own migrations, where migrating
-    # to the existing version causes all migrations to be run where that
-    # migration number doesn't exist (i.e. zero). We could fix this by
-    # removing the line if the version hits zero...?
-    return if current_version(plugin) == version
     migrate(plugin.migration_directory, version)
   end
   
@@ -28,7 +23,7 @@ class Engines::Plugin::Migrator < ActiveRecord::Migrator
   #
   # See Engines.schema_info_table for more details.
   def self.schema_info_table_name
-    proper_table_name Engines.schema_info_table
+    ActiveRecord::Base.wrapped_table_name Engines.schema_info_table
   end
 
   # Returns the current version of the given plugin
@@ -51,19 +46,10 @@ class Engines::Plugin::Migrator < ActiveRecord::Migrator
       0
     end
   end
-  
-  def migrated(plugin=current_plugin)
-    current = ActiveRecord::Base.connection.select_value(<<-ESQL
-      SELECT version FROM #{self.class.schema_info_table_name}
-      WHERE plugin_name = '#{plugin.name}'
-    ESQL
-    ).to_i
-    current ? (1..current).to_a : []
-  end
-  
+
   # Sets the version of the plugin in Engines::Plugin::Migrator.current_plugin to
   # the given version.
-  def record_version_state_after_migrating(version)
+  def set_schema_version(version)
     ActiveRecord::Base.connection.update(<<-ESQL
       UPDATE #{self.class.schema_info_table_name} 
       SET version = #{down? ? version.to_i - 1 : version.to_i} 

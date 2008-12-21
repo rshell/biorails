@@ -1,11 +1,11 @@
 <div class="box">
   <b class="icon icon-service">
-    <%= l(:label_my_service_queues) %>
+    <%= l(:My_Service_Queues) %>
   </b>
-  <table id="my_services" class="report">
+  <table class="report">
     <tr class='header'>
-      <th><%=l(:label_name)%></th>
-      <th><%=l(:label_date)%></th>
+      <th><%=l(:Name)%></th>
+      <th><%=l(:Date)%></th>
       <th>[new/active/finished]</th>
     </tr>
     <% for item in @user.latest(AssayQueue,5) %>

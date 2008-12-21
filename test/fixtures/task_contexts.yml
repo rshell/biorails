@@ -1,20 +1,3 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: task_contexts
-#
-#  id                   :integer(4)      not null, primary key
-#  task_id              :integer(4)      not null
-#  parameter_context_id :integer(4)      not null
-#  label                :string(255)
-#  is_valid             :boolean(1)
-#  row_no               :integer(4)      not null
-#  parent_id            :integer(4)
-#  sequence_no          :integer(4)      not null
-#  left_limit           :integer(4)      default(1)
-#  right_limit          :integer(4)      default(2)
-#
-
 --- 
 00000000030_task_context: !ruby/object:TaskContext 
   attributes: 

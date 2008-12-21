@@ -1,6 +1,7 @@
+<% if @parameter_type %>
 <div class="form-element">
     <label for="assay_paramete_name">
-        <%=l(:label_name) %>
+        <%=l(:Name) %>
     </label>
     <% if @parameter_type.aliases.size>0 %>
     <%= collection_select( :assay_parameter, :name, @parameter_type.aliases, :name, :name, {:prompt => true}) %>
@@ -11,3 +12,4 @@
     <%= text_field( :assay_parameter, :name) %>
     <%end %>
 </div>
+<% end %>

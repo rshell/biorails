@@ -3,7 +3,7 @@
         <%=l(:help_import_task) %>
     </p>
     <div class='box'>
-        <h3 class='icon icon-xls'><%= link_to "#{l(:label_export)} #{l(:label_task)}", task_url(:action => 'export', :id => @task ) %>
+        <h3 class='icon icon-xls'><%= link_to "#{l(:Export)} #{l(:Task)}", task_url(:action => 'export', :id => @task ) %>
         </h3>
         <p>
             <%=l(:help_import_csv) %>
@@ -11,7 +11,7 @@
         <%form_tag( task_url(:action =>'import_file', :id=> @experiment) , {:multipart => true}) do %>
         <%=file_field_tag(:file,:size=>70) %>
         <br/>
-        <%= submit_tag(l(:label_import)) %>
+        <%= submit_tag(l(:Import)) %>
         <% end %>
         <%= error_messages_for("import") %>
         <%=render :partial =>'shared/messages',:locals => { :objects => ['experiment','task' ]} %>

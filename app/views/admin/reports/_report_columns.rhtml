@@ -1,0 +1,25 @@
+<div id='report-def'>
+
+</div>
+<div id='column-grid'>
+  <select name="sort_dir_select" id="sort_dir_select" style="display: none;">
+    <option value="">(None)</option>
+    <option value="desc">desc</option>
+    <option value="asc">asc</option>
+  </select>
+
+</div>
+
+<script>
+Ext.onReady(function(){
+  try {
+      grid = new Biorails.ReportDef('<%=@report.id%>');
+  } catch (e) {
+	if (Ext.isGecko) {
+ 	  console.log('Problem with main javascript ');
+	  console.log(e);
+	}
+  }
+}
+);
+</script>

@@ -10,7 +10,7 @@
     <% end %>
 <% end %>
     <!-- Output error for specific objects -->
-<% if objects and objects.is_a? Array %>
+<% if !objects.nil? and objects.is_a? Array %>
     <% for object in objects %>
     <div class="<%= "message" %>">
         <%= error_messages_for object %>

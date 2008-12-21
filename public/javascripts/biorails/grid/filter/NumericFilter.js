@@ -1,6 +1,6 @@
 Ext.ux.grid.filter.NumericFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
 	init: function(){
-		this.menu = new Ext.ux.menu.RangeMenu();
+		this.menu = new Ext.ux.menu.RangeMenu({updateBuffer: this.updateBuffer});
 		
 		this.menu.on("update", this.fireUpdate, this);
 	},

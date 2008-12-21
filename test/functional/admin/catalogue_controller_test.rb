@@ -27,10 +27,10 @@ class Admin::CatalogueControllerTest < Test::Unit::TestCase
     assert_not_nil @user
     assert_not_nil @project
     assert_not_nil @item   
-    assert @user.allow?(:catalogue,:list)    
-    assert @user.allow?(:catalogue,:show)    
-    assert @user.allow?(:catalogue,:new)    
-    assert @user.allow?(:catalogue,:admin)    
+    assert @user.right?(:catalogue,:list)    
+    assert @user.right?(:catalogue,:show)    
+    assert @user.right?(:catalogue,:new)    
+    assert @user.right?(:catalogue,:admin)    
   end
         
   def test_index
@@ -160,7 +160,8 @@ class Admin::CatalogueControllerTest < Test::Unit::TestCase
   def test_create_usage_failed
     post :create_usage, :id=>4
     assert_equal 4, assigns['data_concept'].id
-    assert_redirected_to :action=> 'list'
+    assert_response :success
+    assert_template '_new_parameter_type'
   end
 
   def test_create_usage_no_id

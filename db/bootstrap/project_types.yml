@@ -1,43 +1,60 @@
 --- 
-00000000003_project_type: !ruby/object:ProjectType 
+00000000001_project_type: !ruby/object:ProjectType 
   attributes: 
-    name: Study
-    updated_at: 2008-09-12 15:07:36
+    name: project
+    state_flow_id: 
+    updated_at: 2008-10-28 07:40:29 Z
+    dashboard: project
+    updated_by_user_id: 1
+    lock_version: 1
+    id: 1
+    description: Project
+    created_by_user_id: 1
+    publish_to_team_id: 1
+    created_at: 2008-10-28 07:40:29 Z
+  attributes_cache: {}
+
+00000000002_project_type: !ruby/object:ProjectType
+  attributes:
+    name: assay_group
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:21
+    dashboard: assay_group
+    updated_by_user_id: "1"
+    lock_version: "1"
+    id: "2"
+    description: Logically grouping of standard set of assay definitions
+    created_by_user_id: "1"
+    publish_to_team_id: "1"
+    created_at: 2008-09-09 12:06:34
+  attributes_cache: {}
+
+00000000003_project_type: !ruby/object:ProjectType
+  attributes:
+    name: study
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:21
     dashboard: study
     updated_by_user_id: "1"
     lock_version: "1"
     id: "3"
-    description: Scientific investigation
-    created_by_user_id: "1"
-    publish_to_team_id: "1"
-    created_at: 2008-06-20 14:28:18
-  attributes_cache: {}
-
-00000000001_project_type: !ruby/object:ProjectType 
-  attributes: 
-    name: Project
-    updated_at: 2008-09-12 15:07:36
-    dashboard: project
-    updated_by_user_id: "1"
-    lock_version: "0"
-    id: "1"
-    description: Text
+    description: As pre-clinical study linked to a small number of compounds
     created_by_user_id: "1"
     publish_to_team_id: "1"
     created_at: 2008-09-09 12:06:34
   attributes_cache: {}
 
-00000000002_project_type: !ruby/object:ProjectType 
-  attributes: 
-    name: AssayGroup
-    updated_at: 2008-09-12 15:07:36
-    dashboard: assay_group
+00000000004_project_type: !ruby/object:ProjectType
+  attributes:
+    name: organisation
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:21
+    dashboard: organisation
     updated_by_user_id: "1"
-    lock_version: "0"
-    id: "2"
-    description: Assay Group
+    lock_version: "1"
+    id: "4"
+    description: As logical grouping to match sites,departments etc
     created_by_user_id: "1"
     publish_to_team_id: "1"
     created_at: 2008-09-09 12:06:34
   attributes_cache: {}
-

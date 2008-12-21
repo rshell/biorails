@@ -13,7 +13,7 @@
       <th>Sharable</th>
    </tr>    
   <%for item in current_project.folder.external_references(Assay)%>
-  <tr class="<%= cycle('odd', 'even') %>"">
+  <tr class="<%= cycle('odd', 'even') %>">
     <td >
       <%=item.name%> 
     </td>
@@ -44,7 +44,7 @@
       <th>Remove</th>
    </tr>    
   <%for item in current_project.imported_assays %>
-  <tr class="<%= cycle('odd', 'even') %>"">
+  <tr class="<%= cycle('odd', 'even') %>">
     <td >
       <%=item.name%> 
     </td>
@@ -67,7 +67,7 @@
 
 
 <%form_tag({:action =>'link',:id=> current_project.id} , {:multipart => true}) do %>
-    <%=l(:label_link_assay_from) %>
-    <%= select_tag( :assay_id ,options_from_collection_for_select(current_project.unlinked_assays, :id, :name)) %>
+    <%=l(:Link_Assay_From) %>
+    <%= select_tag( :assay_id ,options_from_collection_for_select(current_project.unlinked_assays, :id, :path)) %>
     <%= submit_tag("Add Link") %>
 <% end %>

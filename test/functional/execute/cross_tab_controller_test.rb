@@ -45,6 +45,12 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
     assert assigns(:cross_tab).valid?
   end
 
+  def test03_show_invalid_id
+    get :show, :id => 329593593295
+    assert_response :success
+    assert_template 'access_denied'
+  end
+
     def test13_show_js
     get :show, :id => @cross_tab.id,:format=>'js'
     assert_response :success
@@ -391,7 +397,7 @@ class Execute::CrossTabControllerTest < Test::Unit::TestCase
   def test_remove_ajax
     p = Parameter.find(:first)
     c = CrossTab.find(:first)
-    post :add, :id => c.id,:node=>p.dom_id,:scope=>p.context.dom_id,:format=>'js'
+    post :add, :id => c.id,:node=>p.dom_id,:scope=>p.context.dom_id
     assert_response :success  
     c = CrossTab.find(c.id)
     assert c.columns

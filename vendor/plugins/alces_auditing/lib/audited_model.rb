@@ -49,7 +49,7 @@ module Alces
           class_eval do
             extend Alces::AuditedModel::SingletonMethods
 
-            write_inheritable_attribute(:auditing_enabled,  options[:auditing_enabled] || false )
+            write_inheritable_attribute(:auditing_enabled,  options.delete(:auditing_enabled) || false )
             class_inheritable_reader :auditing_enabled
  
             write_inheritable_attribute(:auditing_collection_name,  audit_collection || :audits )

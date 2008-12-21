@@ -41,13 +41,13 @@ module Alces
         # 
          def live(*args)
            self.with_scope( :find => {:include=>{:project_element=>:state},:conditions=>['states.level_no between ? and ?',State::ACTIVE_LEVEL,State::FROZEN_LEVEL]} )  do
-             find_visible(*args)
+             list(*args)
            end
          end
         
          def pending(*args)
            self.with_scope( :find => {:include=>{:project_element=>:state},:conditions=>['states.level_no between ? and ?',0,State::ACTIVE_LEVEL-1]} )  do
-             find_visible(*args)
+             list(*args)
            end
          end
 
@@ -79,25 +79,6 @@ module Alces
          def status
            ((self.project_element and self.project_element.state) ? self.project_element.state.name : nil)
          end
-        ##
-        # Change the current status_id if allowed and return the value
-        # 
-         def state_id=(new_id)
-            new_id = new_id.to_i 
-            if State.allow?(self.status_id,new_id,default_workflow) and new_id != self.status_id 
-              self.project_element.state_id = new_id
-              self.project_element.save
-              if self.state.active?
-                 self.started_at ||= Time.new  
-              end
-              if self.state.finished?
-                 self.started_at ||= Time.new 
-                 self.ended_at = Time.new 
-              end
-            end
-            self.status_id
-         end
-        
          
          ##
          #

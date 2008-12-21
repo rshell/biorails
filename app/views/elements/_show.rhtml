@@ -1,6 +1,6 @@
 <%= render :partial => 'folders/header' %>
 <h2 class="icon icon-article"><%= @project_element.title%>
-  <%= link_to "[#{l(:label_edit)}]",element_url(:action=>'edit',:id=> @project_element.id,:style=>'html' )   %>
+  <%= link_to "[#{l(:Edit)}]",element_url(:action=>'edit',:id=> @project_element.id,:style=>'html' )   %>
 </h2>
 <p>
   <%=  @project_element.to_html %>

@@ -65,15 +65,15 @@ class TaskContextTest < Test::Unit::TestCase
     task = Task.find(:first)
     assert task
     definition = task.process.contexts[0]
-    
+
     context = task.add_context(definition)
     assert context
     assert context.save
-    
+
     definition.parameters.each do |parameter|
       item = context.item(parameter)
       assert item
-      assert item.parameter == parameter   
+      assert item.parameter == parameter
     end
   end
 
@@ -226,5 +226,5 @@ class TaskContextTest < Test::Unit::TestCase
     item = context.append_copy
     assert_ok item
   end 
-  
+
 end

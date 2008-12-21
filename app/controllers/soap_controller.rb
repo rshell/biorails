@@ -34,6 +34,50 @@ class SoapController < ApplicationController
     return nil
   end
   #
+  # List of Data concepts
+  #
+  def data_concept_list(session_id)
+    setup_session(session_id)
+    DataConcept.find(:all)
+  end
+  #
+  # List of data element lookup definitions
+  #
+  def data_element_list(session_id,data_concept_id=nil)
+    setup_session(session_id)
+    if data_concept_id and data_concept_id > 0
+      list = DataElement.find(:all,:conditions=>['data_concept_id=?',data_concept_id])
+    else
+      list =  DataElement.find(:all)
+    end
+  end
+  #
+  # List of values listed to a data element lookup
+  #
+  def data_value_list(session_id,data_element_id,limit=1000)
+    setup_session(session_id)
+    element =DataElement.find( data_element_id )
+    element.like("",limit,0)
+  end
+  #
+  # Get a list of matching choices for a data Element for a client lookup
+  #
+  def data_value_like(session_id,data_element_id,matches="")
+    setup_session(session_id)
+    element =DataElement.find( data_element_id )
+    element.like(matches)
+  end
+  #
+  # Get a list of matching choices for a data Element for a client lookup
+  #
+  def data_value_in_context_like(session_id,project_id,data_element_id,matches="",task_context_id=0)
+    setup_session(session_id,project_id)
+    TaskContext.current = TaskContext.find(task_context_id) if task_context_id and task_context_id > 0
+    element =DataElement.find( data_element_id )
+    element.like(matches)
+    TaskContext.current = nil
+  end
+  #
   # List of of projects for the current user
   # 
   # @return [Project]
@@ -54,9 +98,9 @@ class SoapController < ApplicationController
   #
   def project_create(session_id,name,description,project_type_id)
     setup_session(session_id)
-    item = User.current.create_project(:name=>name,  :description=>description,     :project_type_id=>project_type_id)
+    item = User.current.create_project(:name=>name,:title=>name,  :description=>description,     :project_type_id=>project_type_id)
     item.save
-    SoapApi::BiorailsStatus.ok(item)    
+    return_status(item)    
   end
   #
   # List of all project elements in order parent_id,name for
@@ -73,7 +117,7 @@ class SoapController < ApplicationController
     end
   end
 
-def project_folder(session_id,project_element_id)
+  def project_folder(session_id,project_element_id)
     setup_session(session_id,nil)
     ProjectElement.load(project_element_id)
   end
@@ -86,7 +130,7 @@ def project_folder(session_id,project_element_id)
   #
   def assay_list(session_id,project_id)
     setup_session(session_id,project_id)
-   Project.current.assays
+    Project.current.assays
   end
 
   def assay(session_id,assay_id)
@@ -190,7 +234,7 @@ def project_folder(session_id,project_element_id)
     end
     data_import_definition = data.to_rec(data_import_definition)
     data_import_definition.save
-    SoapApi::BiorailsStatus.ok(data_import_definition) 
+    return_status(data_import_definition) 
   end
   
   def experiment_list(session_id,project_id)
@@ -219,12 +263,55 @@ def project_folder(session_id,project_element_id)
     Task.load(task_id)
   end
     
+  def request_list(session_id,project_id)
+    setup_session(session_id)
+    Request.list(:all,:conditions=>['requests.project_id=?',project_id],:order=>'requests.id')
+  end
+
+  def user_request(session_id,request_id)
+    setup_session(session_id)
+    Request.load(request_id)
+  end
   #
-  # Get a list of matching choices for a data Element for a client lookup
+  # Create a request
   #
-  def matches(data_element_id,matches)
-    element =DataElement.find( data_element_id )
-    element.like(matches)
+  def request_create(session_id,project_id,data_element_id,name,description,expected_at)
+    setup_session(session_id,project_id)
+    Task.transaction do
+      request = Request.create(
+        :name => name,
+        :data_element_id=>data_element_id,
+        :description=>description,
+        :expected_at=>expected_at,
+        :project_id => project_id)
+      request.save
+      return_status(request)
+    end
+  end
+
+  #
+  # Add a queue to request
+  #
+  def request_add_queue(session_id,request_id,assay_queue_id)
+    setup_session(session_id)
+    request = Request.find(request_id)
+    queue = AssayQueue.load(assay_queue_id)
+    Task.transaction do
+      item = request.add_service(queue)
+      return_status(item)
+    end
+  end
+
+  #
+  # Addd a item to request
+  #
+  def request_add_item(session_id,request_id,name)
+    setup_session(session_id)
+    request = Request.load(request_id)
+    Task.transaction do
+      item = request.add_item(name)
+      return_status(item)
+    end
   end
 
 
@@ -240,20 +327,42 @@ def project_folder(session_id,project_element_id)
       experiment.process = process
       experiment.assay_id = process.protocol.assay_id
       experiment.save
-      SoapApi::BiorailsStatus.ok(experiment)    
+      return_status(experiment)    
     end
   end
-    
+
+  ##
+  # Export a task
+  def task_export(session_id,task_id)
+    setup_session(session_id)
+    task = Task.load(task_id)
+    return "" unless task
+    task.to_csv
+  end
+
+  ##
+  # Import a task
+  def task_import(session_id,experiment_id,text_data)
+    setup_session(session_id)
+    Experiment.transaction do
+      experiment = Experiment.load(experiment_id)
+      raise("Experiment [#{experiment_id}] is not visible for user [#{User.current.login}]") unless experiment
+      task = experiment.import_task(text_data)
+      return_status(task)
+    end
+  end
+
+
   def task_create(session_id,experiment_id ,protocol_version_id,name,description)
     setup_session(session_id)
     Task.transaction do
       experiment = Experiment.find(experiment_id)
       task = experiment.add_task(:name => name,
-				 :description=>description,
-				 :experiment_id => experiment_id, 
-				 :protocol_version_id =>protocol_version_id)
+        :description=>description,
+        :experiment_id => experiment_id,
+        :protocol_version_id =>protocol_version_id)
       task.save
-      SoapApi::BiorailsStatus.ok(task)    
+      return_status(task)
     end
   end
 
@@ -264,7 +373,7 @@ def project_folder(session_id,project_element_id)
       definition = ParameterContext.find(parameter_context_id)
       context =  task.add_context(definition)
       context.save
-      SoapApi::BiorailsStatus.ok(context)    
+      return_status(context)    
     end
   end
   #
@@ -273,20 +382,20 @@ def project_folder(session_id,project_element_id)
   # @params parameter_context_id
   # @params values in order of column_no
   #
-  def task_row_append(session_id,task_context_id, parameter_context_id, names, values)
+  def task_row_append(session_id, task_id,  parent_context_id,  parameter_context_id, names, values)
     setup_session(session_id)
     Task.transaction do
-      task = Task.find(task_id)
+      parent = Task.find(task_id)
+      parent = TaskContext.find(parent_context_id) if parent_context_id >0
       definition = ParameterContext.find(parameter_context_id);
-      parent     = TaskContext.find(task_context_id)
       context    = parent.add_context(definition)
       context.save
       list =[]
       names.each_index do |i|
-         item = context.item(names[i])
-         item.value = values[i]
-         item.save
-         list << SoapApi::TaskItem.create(item)
+        item = context.item(names[i])
+        item.value = values[i]
+        item.save
+        list << SoapApi::BiorailsTaskItem.create(item)
       end
       list
     end
@@ -298,10 +407,10 @@ def project_folder(session_id,project_element_id)
       context = TaskContext.find(task_context_id)
       list =[]
       names.each_index do |i|
-         item = context.item(names[i])
-         item.value = values[i]
-         item.save
-         list << SoapApi::TaskItem.create(item)
+        item = context.item(names[i])
+        item.value = values[i]
+        item.save
+        list << SoapApi::BiorailsTaskItem.create(item)
       end
       list
     end
@@ -312,6 +421,26 @@ def project_folder(session_id,project_element_id)
   # get folder as html
   #
   protected
+
+  def return_status(rec)
+    item = SoapApi::BiorailsStatus.new
+    if rec
+      item.class_id = rec.id
+      item.class_name = rec.class.to_s
+      item.errors = rec.errors.full_messages
+      if rec.valid?
+        item.ok = true
+      else
+        item.ok = false
+        item.messages ="record is not valid"
+      end
+    else
+      item.ok = false
+      item.messages ="record is null"
+      item.errors = ["No records created"]
+    end
+    item
+  end
 
   def setup_session(key,project_id=nil)
     User.current          = @current_user    = User.find_by_id(key)  

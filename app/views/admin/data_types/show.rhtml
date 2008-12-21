@@ -9,7 +9,7 @@
 <% content_for :center do -%>
 <%=render :partial => 'admin/header'%>
 <h2 class="icon icon-data_type">
-  <%=l(:label_data_type)%>[
+  <%=l(:Data_Type)%>[
   <%=@data_type.name%>]
 </h2>
 <div class='panel'>
@@ -19,16 +19,16 @@
   <table class="report">
     <tr>
       <th>
-        <%=l(:label_assay)%>
+        <%=l(:Assay)%>
       </th>
       <th>
-        <%=l(:label_name)%>
+        <%=l(:Name)%>
       </th>
       <th>
-        <%=l(:label_parameter_name)%>
+        <%=l(:Parameter_Name)%>
       </th>
       <th>
-        <%=l(:label_parameter_type)%>
+        <%=l(:Parameter_Type)%>
       </th>
     </tr>
     <%for item in  @data_type.assay_parameters %>
@@ -48,10 +48,10 @@
     </tr>
     <%end%>
   </table><hr />
-  <%= link_to l(:label_list),data_type_url(:action => 'list'), :class => 'icon icon-list' %>
-  <%= link_to l(:label_new),data_type_url(:action => 'new'), :class => 'icon icon-new'  %>
+  <%= link_to l(:List),data_type_url(:action => 'list'), :class => 'icon icon-list' %>
+  <%= link_to l(:New),data_type_url(:action => 'new'), :class => 'icon icon-new'  %>
   <% if @data_type && !@data_type.new_record? %>
-  <%= link_to l(:label_edit),data_type_url(:action => 'edit', :id => @data_type), :class => 'icon icon-edit' %>
+  <%= link_to l(:Edit),data_type_url(:action => 'edit', :id => @data_type), :class => 'icon icon-edit' %>
   <% end %>
 </div>
 <%end%>

@@ -1,7 +1,7 @@
   <div class="row">
     <div class="form-element">
       <label for="state_name">
-        <%=l(:label_name)%>
+        <%=l(:Name)%>
       </label>
       <%= text_field 'state', 'name',:size=>'30'  %>
     </div>
@@ -13,8 +13,17 @@
   <div class="row">
     <div class="form-element">
       <label for="state_name">
-        <%=l(:label_description)%>
+        <%=l(:Description)%>
       </label>
       <%= text_area 'state', 'description',:rows => 2   %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-element">
+      <label for="state_check_children">
+        Force Cascade
+      </label>
+      <%= check_box('state', 'check_children')   %>  All children must also be updated to this state
     </div>
   </div>

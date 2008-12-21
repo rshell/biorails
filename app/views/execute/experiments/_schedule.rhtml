@@ -2,21 +2,21 @@
 
    <div class="form-element">
      <label for="experiment_started_at" class='icon icon-date'>
-        <%=l(:label_date_start)%>
+        <%=l(:Date_Start)%>
       </label>
       <%= date_field 'schedule', 'started_at'  %>
    </div>
 
    <div class="form-element">
      <label for="experiment_ended_at" class='icon icon-description'>
-        <%=l(:label_date_expected)%>
+        <%=l(:Date_Expected)%>
      </label>
      <%= date_field 'schedule', 'expected_at'  %>
    </div>
 
    <div class="form-element">
-     <label for="task_status_id" class='icon icon-status'>
-         <%=l(:label_date_status)%>
+     <label for="task_state_id" class='icon icon-status'>
+         <%=l(:Date_Status)%>
      </label>
       <%= select( :schedule, :state_id, @schedule.state.allowed)  %>
    </div>

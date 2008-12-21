@@ -2,7 +2,7 @@
 00000000130_list_element: !ruby/object:ListElement 
   attributes: 
     name: Route
-    updated_at: 2008-08-14 10:29:29
+    updated_at: 2008-10-22 15:14:21
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement
@@ -22,7 +22,7 @@
 00000000140_list_element: !ruby/object:ListElement 
   attributes: 
     name: weight
-    updated_at: 2008-08-14 10:29:30
+    updated_at: 2008-10-22 15:14:21
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement
@@ -42,7 +42,7 @@
 00000000160_list_element: !ruby/object:ListElement 
   attributes: 
     name: Controls
-    updated_at: 2008-08-14 10:29:30
+    updated_at: 2008-10-22 15:14:21
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement
@@ -62,7 +62,7 @@
 00000000120_list_element: !ruby/object:ListElement 
   attributes: 
     name: CompoundRole
-    updated_at: 2008-08-14 10:29:29
+    updated_at: 2008-10-22 15:14:21
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement
@@ -82,7 +82,7 @@
 00000000170_list_element: !ruby/object:ListElement 
   attributes: 
     name: Strain
-    updated_at: 2008-08-14 10:29:30
+    updated_at: 2008-10-22 15:14:21
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement
@@ -102,7 +102,7 @@
 00000000150_list_element: !ruby/object:ListElement 
   attributes: 
     name: Area
-    updated_at: 2008-08-14 10:29:30
+    updated_at: 2008-10-22 15:14:21
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement
@@ -122,7 +122,7 @@
 00000000080_list_element: !ruby/object:ListElement 
   attributes: 
     name: Catagory
-    updated_at: 2008-08-14 10:29:28
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement
@@ -142,7 +142,7 @@
 00000000090_list_element: !ruby/object:ListElement 
   attributes: 
     name: Status
-    updated_at: 2008-08-14 10:29:28
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement
@@ -162,7 +162,7 @@
 00000000100_list_element: !ruby/object:ListElement 
   attributes: 
     name: Organ
-    updated_at: 2008-08-14 10:29:28
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement
@@ -182,7 +182,7 @@
 00000000180_list_element: !ruby/object:ListElement 
   attributes: 
     name: Molar
-    updated_at: 2008-08-14 10:29:31
+    updated_at: 2008-10-22 15:14:21
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement
@@ -202,7 +202,7 @@
 00000000110_list_element: !ruby/object:ListElement 
   attributes: 
     name: Species
-    updated_at: 2008-08-14 10:29:29
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement
@@ -222,7 +222,7 @@
 00000000070_list_element: !ruby/object:ListElement 
   attributes: 
     name: FolderTest
-    updated_at: 2008-08-14 10:29:27
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: ListElement

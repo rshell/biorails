@@ -40,7 +40,17 @@ class ExperimentTest < Test::Unit::TestCase
   
   def test_has_name
     first = @model.find(:first)
-    assert first.name    
+    assert first.name
+  end
+
+  def test_link_to_process_folder
+    first = @model.find(:first)
+    assert first.link_to_process_folder
+  end
+
+  def test_first_task  
+    first = @model.find(:first)
+    assert first.first_task
   end
 
   def test_has_description
@@ -114,7 +124,7 @@ class ExperimentTest < Test::Unit::TestCase
     experiment = Experiment.find(1)
     task = experiment.import_task(file)
     assert task
-    assert_ok task
+    assert_equal 7, task.errors.size
   end
     
   def test_import_file_bad_context
@@ -122,7 +132,7 @@ class ExperimentTest < Test::Unit::TestCase
     experiment = Experiment.find(1)
     task = experiment.import_task(file)
     assert task
-    assert_ok task
+    assert_equal 8, task.errors.size
   end
     
   def test_import_file_new_task_good_data
@@ -140,5 +150,9 @@ class ExperimentTest < Test::Unit::TestCase
     assert task
     assert_ok task
   end
-  
+
+  def test_is_dictionary
+    assert_dictionary_lookup(Experiment)
+  end
+
 end

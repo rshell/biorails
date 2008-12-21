@@ -1,12 +1,3 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: db_files
-#
-#  id   :integer(4)      not null, primary key
-#  data :binary(21474836
-#
-
 --- 
 00000000052_db_file: !ruby/object:DbFile 
   attributes: 

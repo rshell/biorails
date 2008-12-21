@@ -26,10 +26,10 @@
 #
 class ElementType < ActiveRecord::Base
 
-  HTML=1
-  FILE=2
-  REFERENCE=3
-  FOLDER=4
+  HTML      =1
+  FILE      =2
+  REFERENCE =3
+  FOLDER    =4
   
   validates_uniqueness_of :name
   validates_presence_of :name
@@ -88,8 +88,10 @@ class ElementType < ActiveRecord::Base
        defaults = {
            :name => Identifier.next_user_ref,      
            :parent_id=>parent.id,
+           :access_control_list_id => parent.access_control_list_id,
            :team_id => parent.team_id,
            :project_id => parent.project_id,
+           :state_id => parent.state_id,
            :element_type_id=>self.id}
     end
     item = self.model.new(  defaults.merge(options) )     

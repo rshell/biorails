@@ -7,6 +7,18 @@
 module ModelExtras  
   
   VERSION='0.2.0'
+  def self.model_from_name(node)
+    case node
+      when Class
+        node
+      when ActiveRecord::Base
+        node.class
+      when /[A-Z][a-z,-]*/
+        eval(node)
+      else
+        nil
+    end
+  end
   
   # Context a node to objects
   # 
@@ -21,25 +33,29 @@ module ModelExtras
       when String
       id = node.to_s.split('_').last 
       case node
+        when /user_[0-9]+/            then User.find(id)
         when /team_[0-9]+/            then Team.find(id)
+        when /data_element_[0-9]+/    then DataElement.find(id)
         when /report_column_[0-9]+/   then ReportColumn.find(id)
         when /report_[0-9]+/          then Report.find(id)
-        when /team_[0-9]+/            then Team.find(id)
         when /project_[0-9]+/         then Project.find(id)
         when /assay_[0-9]+/           then Assay.find(id)
-        when /assay_protocol_[0-9]+/ , /assay_process_[0-9]+/ , /assay_workflow_[0-9]+/  
-        AssayProtocol.find(id)
+        when /assay_protocol_[0-9]+/ , 
+             /assay_process_[0-9]+/ ,
+             /assay_workflow_[0-9]+/
+                AssayProtocol.find(id)
         when /assay_parameter_[0-9]+/ 
-        AssayParameter.find(id)
-        when /protocol_version_[0-9]+/ ,  /process_instance_[0-9]+/ , /process_flow_[0-9]+/ 
-        ProtocolVersion.find(id)
+                AssayParameter.find(id)
+        when /protocol_version_[0-9]+/ ,  
+             /process_instance_[0-9]+/ ,
+             /process_flow_[0-9]+/
+                ProtocolVersion.find(id)
         when /parameter_type_[0-9]+/  then ParameterType.find(id)
         when /parameter_role_[0-9]+/  then ParameterRole.find(id)
         when /parameter_context_[0-9]+/ then ParameterContext.find(id)
         when /parameter_[0-9]+/       then Parameter.find(id)
         when /experimnent_[0-9]+/     then Experiment.find(id)
         when /task_[0-9]+/            then Task.find(id)
-        when /user_[0-9]+/            then User.find(id)
       else
         node.to_s
       end  
@@ -87,7 +103,7 @@ module ModelExtras
     if File.exists?(full_path)
       template = File.read(full_path)
       html_text = Liquid::Template.parse(template).render({ 'record'=> self, name=> self })
-      if respond_to?(:project_element) and cache and project_element
+      if respond_to?(:project_element) and project_element and project_element.reference_id
          project_element.update_content(html_text)
          project_element.save               
       end

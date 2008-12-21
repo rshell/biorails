@@ -294,6 +294,7 @@ module Alces
         # With the nested set model, we can retrieve a single path without having multiple self-joins: 
         #
         def ancestors
+            return [] if self.new_record?
             self.class.base_class.find(:all, 
             :conditions => ["#{nested_set_scope_condition} AND left_limit < ? and right_limit > ? ", self.left_limit, self.right_limit],
             :order => :left_limit )
@@ -323,6 +324,7 @@ module Alces
         # Returns the level of this object in the tree
         # root level is 0
         def level
+          return 0 if self.new_record? || self.left_limit.nil? || self.right_limit.nil?
           return 0 if self.parent_id.nil?
           self.class.base_class.count(
             :conditions => ["#{nested_set_scope_condition} AND (left_limit BETWEEN ? AND ?)", 
@@ -331,7 +333,8 @@ module Alces
         
         # Returns the number of nested children of this object.
         def all_children_count
-          return (self.right_limit - self.left_limit - 1)/2
+          return 0 if self.new_record? || self.left_limit.nil? || self.right_limit.nil?
+          (self.right_limit - self.left_limit - 1)/2
         end
        
         #
@@ -354,7 +357,7 @@ module Alces
         
         # Returns a set of itself and all of its nested children
         def full_set
-          self.class.base_class.find(:all, 
+          self.class.base_class.find(:all, :order=>'left_limit',
             :conditions => ["#{nested_set_scope_condition} AND (left_limit BETWEEN ? and ?)",self.left_limit, self.right_limit] )
         end
                   
@@ -366,7 +369,7 @@ module Alces
         # eg. select * from tree where node.left between parent.left and parent.right
         #
         def all_children
-          self.class.base_class.find(:all, 
+          self.class.base_class.find(:all, :order=>'left_limit',
             :conditions => ["#{nested_set_scope_condition} AND (left_limit > ?) and (right_limit < ?)",self.left_limit,self.right_limit] )
         end
                                   
@@ -409,7 +412,7 @@ module Alces
             # virtual roots make this method more complex than it otherwise would be
             n = 1
             roots.each do |r| 
-              raise ActiveRecord::ActiveRecordError, "Gaps between roots in the tree containing record ##{r.id}" if r[:left_limit] != n
+              raise ActiveRecord::ActiveRecordError, "Gaps between roots in the tree containing record ##{r.dom_id}" if r[:left_limit] != n
               r.check_subtree
               n = r[:right_limit] + 1
             end
@@ -429,9 +432,10 @@ module Alces
           transaction do
             for r in roots # because we may have virtual roots
               n = r.calc_numbers(n, indexes)
+              n += 1
             end
             for i in indexes
-              self.class.base_class.update_all("left_limit = #{i[:lft]}, right_limit = #{i[:rgt]}", "#{self.class.primary_key} = #{i[:id]}")
+              self.class.base_class.update_all("left_limit = #{i[:left_limit]}, right_limit = #{i[:right_limit]}", "#{self.class.primary_key} = #{i[:id]}")
             end
           end
           ## reload?
@@ -482,9 +486,9 @@ module Alces
           raise ActiveRecord::ActiveRecordError, "You cannot move to unsaved target node" if target.new_record?
           raise ActiveRecord::ActiveRecordError, "You cannot move a node if left or right is nil" unless self.left_limit && self.right_limit
           transaction do
-            self.reload # the lft/rgt values could be stale (target is reloaded below)
+            self.reload(:lock=>true) # the lft/rgt values could be stale (target is reloaded below)
             if target.is_a?(self.class.base_class)
-              target.reload # could be stale
+              target.reload(:lock=>true) # could be stale
             else
               target = self.class.base_class.find(target) # load object if we were given an ID
             end
@@ -588,7 +592,8 @@ module Alces
           #
           my_children = self.class.base_class.find(:all, 
             :conditions => "parent_id = #{self.id}",
-            :order => :left_limit, 
+            :order => :left_limit,
+            :lock => true,
             :select => "#{self.class.primary_key}, left_limit, right_limit")
           if my_children.empty?
             my_rgt = (n += 1)
@@ -598,7 +603,7 @@ module Alces
             end
             my_rgt = (n += 1)
           end
-          indexes << {:id => self.id, :lft => my_lft, :rgt => my_rgt} unless self[:left_limit] == my_lft && self[:right_limit] == my_rgt
+          indexes << {:id => self.id, :left_limit => my_lft, :right_limit => my_rgt} unless self[:left_limit] == my_lft && self[:right_limit] == my_rgt
           return n
         end
 

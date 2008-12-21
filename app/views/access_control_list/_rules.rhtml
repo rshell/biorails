@@ -1,0 +1,71 @@
+<div class='box'>
+  <table class='report'>
+    <tr>
+      <th> 
+      <%=l(:Name)%>
+      </th>
+      <th>
+        <%=l(:Role)%>
+      </th>
+      <th> 
+      <%=l(:Actions)%>
+      </th>
+    </tr>
+    <% for rule in @acl.rules %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td> <%=rule.owner_name %> </td>
+      <td> <%=rule.role_name %> </td>
+      <td>
+        <%form_remote_tag :url => acl_url('remove') do %>
+        <%= hidden_field_tag :access_control_element_id,rule.id %>
+        <%= hidden_field_tag :access_control_list_id,@acl.id %>
+        <%= hidden_field_tag :project_element_id,@project_element.id %>
+        <%= submit_tag "remove" %>
+        <%end%>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+<div class='box'>
+  <table class='report'>
+    <tr>
+      <th colspan='2'> 
+      <%=l(:Grant_access_to_User_or_Team)%>
+      </th>
+    </tr>
+    <tr>
+      <td width='50%'>
+        <%unless @acl.unused_users.size==0%>
+        
+        <%form_remote_tag :url => acl_url('add_user') do %>
+        <%= hidden_field_tag :access_control_list_id,@acl.id %>
+        <%= hidden_field_tag :project_element_id,@project_element.id %>
+        <%= select_tag(:user_id, options_from_collection_for_select(@acl.unused_users, "id", "name") ) %>
+        <%= select_tag(:role_id, options_from_collection_for_select(@acl.roles, "id", "name") ) %>
+        <%= submit_tag "add user" %>
+        <%end%>
+        
+        <% else %>
+        <%=l(:All_users_have_same_access)%>
+        <% end %>
+      </td>
+      <td width='50%'>
+        <%unless @acl.unused_teams.size==0%>
+        
+        <%form_remote_tag :url => acl_url(:action =>'add_team') do %>
+        <%= hidden_field_tag :access_control_list_id,@acl.id %>
+        <%= hidden_field_tag :project_element_id,@project_element.id %>
+        <%= select_tag(:team_id, options_from_collection_for_select(@acl.unused_teams, "id", "name") ) %>
+        <%= select_tag(:role_id, options_from_collection_for_select(@acl.roles, "id", "name") ) %>
+        <%= submit_tag "add team" %>
+        <% end %>
+        
+        <% else %>
+        All teams have access
+        <%end%>
+      </td>
+    </tr>
+  </table>
+</div>

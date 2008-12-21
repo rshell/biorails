@@ -1,132 +1,134 @@
+<h2 class='icon icon-protocol_version'><%=l(:Process_Version) %> <strong>[<%=@protocol_version.name %>]</strong></h2>
 <div class='box'>
-<table class="report">
+  <table class="report">
     <tr>
-        <th class='label'>
-            <%=l(:label_label)%> 
-        </th>
-        <td>
-            <%= @protocol_version.name %>
-        </td>
-        <th class='label'>
-            <%=l(:label_status)%>
-        </th>
-        <td>
-            <%= @protocol_version.status %>
-            [<% if @protocol_version.released? %>
-            <%= link_to( l(:label_withdraw), process_instance_url(:action =>'withdraw',:id => @protocol_version)) %>
-            <%else %>
-            <%= link_to( l(:label_release), process_instance_url(:action =>'release',:id => @protocol_version)) %>
-            <% end %>]
-        </td>
+      <th class='label'>
+        <%=l(:Label)%>
+      </th>
+      <td>
+        <%= @protocol_version.name %>
+      </td>
+      <th class='label'>
+        <%=l(:Status)%>
+      </th>
+      <td>
+        <%= @protocol_version.status %>
+        <% if @assay.changeable? %>
+        [<% if @protocol_version.released? %>
+          <%= link_to( l(:withdraw), process_instance_url(:action =>'withdraw',:id => @protocol_version)) %>
+        <%else %>
+          <%= link_to( l(:release), process_instance_url(:action =>'release',:id => @protocol_version)) %>
+        <% end %>]
+        <%end%>
+      </td>
     </tr>
     <tr>
-        <th class='label'>
-            <%=l(:label_summary) %>
-        </th>
-        <td colspan='3'>
-            <%= @protocol_version.summary %>
-        </td>
+      <th class='label'>
+        <%=l(:Summary) %>
+      </th>
+      <td colspan='3'>
+        <%= @protocol_version.summary %>
+      </td>
     </tr>
     <tr>
-        <th class='label'>
-            <%=l(:label_description) %>
-        </th>
-        <td colspan='3'>
-            <%= @protocol_version.description %>
-        </td>
+      <th class='label'>
+        <%=l(:Description) %>
+      </th>
+      <td colspan='3'>
+        <%= @protocol_version.description %>
+      </td>
     </tr>
-</table>
-<br/>
-<h2><%=l(:label_parameters) %></h2>
-<table class="report">
+  </table>
+  <br/>
+  <h2><%=l(:Parameters) %></h2>
+  <table class="report">
     <thead>
-        <tr>
-            <% for role in @protocol_version.allowed_roles %>
-            <th>
-                <b class="icon icon-<%=role.name%>"><%=role.name %>
-                </b>
-            </th>
-            <% end %>
-        </tr>
-    </thead>
-    <tbody>
-        <tr id="params" valign="top">
-            <% for role in @protocol_version.allowed_roles %>
-            <td id="parameter_<%=role.id %>" valign="top">
-                <% @list = @protocol_version.role_parameters(role) %>
-                <% if @list.size==0 %>
-                ...<% else %>
-                <dl>
-                    <%= @list.collect{ |param| "<dt> #{param.name} (#{param.context.label}) </dt>"}.join("\n") %>
-                </dl>
-                <% end %>
-            </td>
-            <% end %>
-        </tr>
-    </tbody>
-</table>
-<br/>
-<h2><%=l(:label_other_versions) %></h2>
-<table class="report">
-    <thead>
-        <tr>
-            <th>
-                <%=l(:label_label) %>
-            </th>
-            <th>
-                <%=l(:label_version) %>
-            </th>
-            <th>
-                <%=l(:label_status) %>
-            </th>
-            <th>
-                <%=l(:label_summary) %>
-            </th>
-            <th>
-                <%=l(:label_usages) %>
-            </th>
-            <th>
-                <%=l(:label_date) %>
-            </th>
-            <th>
-                <%=l(:label_user) %>
-            </th>
-            <th>
-                <%=l(:label_list) %>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <% for version in @assay_protocol.versions %>
-        <tr class="<%= cycle('odd', 'even') %>">
-            <th>
-                <%= link_to( version.name ,:action=>'show',:id => version) %>
-            </th>
-            <td>
-                <%=version.version %>
-            </td>
-            <td>
-                <%=version.status %>
-            </td>
-            <td>
-                <%= (version == @protocol_version) ? "see above" : version.summary %>
-            </td>
-            <td>
-                <%=version.usages.size %>[ <%=version.usages[0].name if version.usages[0] %>] 
-            </td>
-            <td>
-                <%=short_date(version.updated_at) %>
-            </td>
-            <td>
-                <%=version.updated_by %>
-            </td>
-            <td>
-                <%= (version == @protocol_version) ? "<b>current</b>" : link_to('show' ,:action=>'show',:id => version) %>
-            </td>
-        </tr>
+      <tr>
+        <% for role in @protocol_version.allowed_roles %>
+          <th>
+            <b class="icon icon-<%=role.name%>"><%=role.name %>
+            </b>
+          </th>
         <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="params" valign="top">
+        <% for role in @protocol_version.allowed_roles %>
+          <td id="parameter_<%=role.id %>" valign="top">
+            <% @list = @protocol_version.role_parameters(role) %>
+            <% if @list.size==0 %>
+              ...<% else %>
+              <dl>
+                <%= @list.collect{ |param| "<dt> #{param.name} (#{param.context.label}) </dt>"}.join("\n") %>
+              </dl>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
     </tbody>
-</table>
-<hr/><%= link_to l(:label_purge),    process_instance_url(:action =>'purge',:id => @protocol_version), :class=>'icon icon-del' %>
-<%= link_to l(:label_new_version), process_instance_url(:action =>'copy',:id => @protocol_version), :class=>'icon icon-add' %>
+  </table>
+  <br/>
+  <h2><%=l(:Other_Versions) %></h2>
+  <table class="report">
+    <thead>
+      <tr>
+        <th>
+          <%=l(:Label) %>
+        </th>
+        <th>
+          <%=l(:Version) %>
+        </th>
+        <th>
+          <%=l(:Status) %>
+        </th>
+        <th>
+          <%=l(:Summary) %>
+        </th>
+        <th>
+          <%=l(:Usages) %>
+        </th>
+        <th>
+          <%=l(:Date) %>
+        </th>
+        <th>
+          <%=l(:User) %>
+        </th>
+        <th>
+          <%=l(:List) %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for version in @assay_protocol.versions %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <th>
+            <%= link_to( version.name ,:action=>'show',:id => version) %>
+          </th>
+          <td>
+            <%=version.version %>
+          </td>
+          <td>
+            <%=version.status %>
+          </td>
+          <td>
+            <%= (version == @protocol_version) ? "see above" : version.summary %>
+          </td>
+          <td>
+            <%=version.usages.size %>[ <%=version.usages[0].name if version.usages[0] %>]
+          </td>
+          <td>
+            <%=short_date(version.updated_at) %>
+          </td>
+          <td>
+            <%=version.updated_by %>
+          </td>
+          <td>
+            <%= (version == @protocol_version) ? "<b>current</b>" : link_to('show' ,:action=>'show',:id => version) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr/>
 </div>

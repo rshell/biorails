@@ -1,7 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 require 'json'
-require 'hpricot'
 # Re-raise errors caught by the controller.
 class ProjectFolderHelperTest < TestHelper
   include FoldersHelper
@@ -16,7 +15,7 @@ class ProjectFolderHelperTest < TestHelper
     html = folder_to_json(ProjectFolder.current)
     assert html.is_a?(String)
     assert html.size>0
-    folder=ProjectFolder.find(1)
+    folder=ProjectFolder.find(Project.current.folder)
     parsed_json= JSON.parse(folder_to_json(folder))
     assert_not_nil parsed_json['items']   
     assert_not_nil parsed_json['path']   

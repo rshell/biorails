@@ -1,26 +1,8 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: lists
-#
-#  id                 :integer(4)      not null, primary key
-#  name               :string(255)     not null
-#  description        :string(1024)    default("")
-#  type               :string(255)
-#  expires_at         :datetime
-#  lock_version       :integer(4)      default(0), not null
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  data_element_id    :integer(4)
-#  updated_by_user_id :integer(4)      default(1), not null
-#  created_by_user_id :integer(4)      default(1), not null
-#
-
 --- 
 00000000002_list: !ruby/object:List 
   attributes: 
     name: Req-3
-    updated_at: 2008-08-14 10:29:23
+    updated_at: 2008-10-22 15:14:19
     expires_at: 
     updated_by_user_id: "1"
     lock_version: "0"
@@ -35,7 +17,7 @@
 00000000001_list: !ruby/object:List 
   attributes: 
     name: Req-2
-    updated_at: 2008-08-14 10:29:23
+    updated_at: 2008-10-22 15:14:19
     expires_at: 
     updated_by_user_id: "1"
     lock_version: "0"

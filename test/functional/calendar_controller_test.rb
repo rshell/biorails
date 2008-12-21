@@ -24,7 +24,12 @@ class CalendarControllerTest < Test::Unit::TestCase
     get :show,:id=>@folder.id
     assert_response :success
   end
-  
+
+ def test_calendar
+    get :show
+    assert_response :success
+  end
+
   def test_calendar_as_json
     get :show,{:format=>'json',:id=>@folder.id}
     assert_response :success

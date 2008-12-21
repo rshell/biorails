@@ -1,7 +1,7 @@
 <!--[form:role]-->
 <p>
   <label for="role_name">
-    <%=l(:label_name)%>:
+    <%=l(:Name)%>:
   </label>
   <br/>
   <%= text_field 'role', 'name' %>
@@ -9,20 +9,20 @@
 
 <p>
   <label for="role_description" >
-    <%=l(:label_description)%>:
+    <%=l(:Description)%>:
   </label>
   <br/>
   <%= text_area 'role', 'description', :rows => 2 %>
 </p>
   <!--%= hidden_field :role,:lock_version  %-->
-<h1 class='icon icon-permission'> <%=l(:label_permissions)%>
+<h1 class='icon icon-permission'> <%=l(:Permissions)%>
   <%= @role.name %>
 </h1>
 <table class="report">
   <thead>
     <tr>
-      <th width='15%'><%=l(:label_subject)%></th>
-      <th colspan=10><%=l(:label_actions)%></th>
+      <th width='15%'><%=l(:Subject)%></th>
+      <th colspan=10><%=l(:Actions)%></th>
     </tr>
   </thead>
   <tbody>
@@ -37,7 +37,7 @@
     <th></th>
     <% for action in actions %>
     <td>
-      <%= check_box_tag "allowed[#{subject}][#{action}]",true , @role.allow?(subject,action)  %>
+      <%= check_box_tag "allowed[#{subject}][#{action}]",true , @role.right?(subject,action)  %>
       </td>
     <% end -%>
     <% end -%>

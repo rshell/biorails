@@ -23,12 +23,14 @@
 #
 class ProjectsController < ApplicationController
 
- use_authorization :project,
-    :actions => [:index,:show,:projects,:calendar,:timeline,:blog,:destroy],
-    :rights => :current_user  
+  use_authorization :project,
+    :use => [:list,:index,:show,:publish],
+    :new_root => [:new_root],
+    :build => [:new,:share,:edit,:create,:update,:destroy]
+ 
  
   before_filter :setup_project ,
-    :only => [ :show, :edit, :share, :publish, :update, :destroy, :members, :calendar,:gantt,:tree,:list_signed_files]
+    :only => [ :link,:unlink,:show, :edit, :share, :publish, :update, :destroy, :members, :calendar,:gantt,:tree,:list_signed_files]
   
   helper :calendar
   
@@ -40,7 +42,7 @@ class ProjectsController < ApplicationController
   # 
   # 
   def index
-    @projects = User.current.projects(100)
+    @projects = Project.list(:all)
     respond_to do |format|
       format.html { render :action=>'index'}
       format.xml  { render :xml => @projects.to_xml }
@@ -48,9 +50,14 @@ class ProjectsController < ApplicationController
       format.json { render :json =>  @projects.to_json } 
     end
   end    
-    
+
   def list
     index
+  end
+  
+  def published
+    @report = Biorails::SystemReportLibrary.internal_signed_elements_within(
+             "Published within #{current_project.path}", current_project.folder)
   end
   
 
@@ -58,7 +65,7 @@ class ProjectsController < ApplicationController
   # 
   def show
     respond_to do | format |
-      format.html { render :templage=> @project.project_type.action_template(:show)}
+      format.html { render :template=> @project.project_type.action_template(:show)}
       format.xml {render :xml =>  @project.to_xml(:include=>[:team,:folders,:assays,:experiments,:tasks])}
       format.json  { render :text => @project.to_json }
     end
@@ -68,50 +75,88 @@ class ProjectsController < ApplicationController
   # 
   # Show new project form
   # 
-  def new
-    @project = Project.new()
-    @project.project_type_id = params[:type]||1
-    @user = current_user
+  def new_root
+    return child unless params[:id].blank?
+    @project_type = ParameterType.find(params[:project_type_id]||:first)
+    @project = Project.new(:project_type_id =>@project_type.id )
+    @parent = nil
+    @project_list = current_user.project_list
+    @teams = current_user.teams
     respond_to do |format|
-      format.html # new.rhtml
+      format.html { render :action=> :new_root }
       format.xml  { render :xml => @project.to_xml }
       format.json  { render :text => @project.to_json }
-    end 
+    end
+  end
+
+  def new
+    if params[:id].blank?
+      @parent = current_project
+    else
+      @parent = Project.find(params[:id])
+    end
+    @project = Project.new(:project_type_id => params[:project_type_id]||:first)
+    @project_list =  @parent.project_list
+    @project.parent = @parent
+    @project.team = @parent.team
+    @teams = @parent.teams
+    respond_to do |format|
+      format.html { render :action=> :new }
+      format.xml  { render :xml => @project.to_xml }
+      format.json  { render :text => @project.to_json }
+    end
   end
   # 
   # Create a new project #Create
   def create
-    @project = current_user.create_project(params['project'])
-    if @project.save
-      flash[:notice] = "Project was successfully created."
-      set_project(@project)
-      redirect_to(:action => 'show', :id => @project )  
-    else
-      render :action=>"new", :id=>@project 
+    return new if request.get?
+    begin
+      Project.transaction do
+        @project = current_user.create_project(params['project'])
+        @parent = @project.parent
+        if @project.save
+          flash[:notice] = "Project was successfully created."
+          set_project(@project)
+          save_settings
+          return redirect_to(:action => 'show', :id => @project )
+        end
+      end
+    rescue Exception => ex
+      logger.warn flash[:warning] = "Error in creating project #{ex.message}"
+    end
+    @project_list = current_user.project_list
+    @teams = current_user.teams
+    respond_to do |format|
+      format.html { render :action=> :new_root }
+      format.xml  { render :xml => @project.to_xml }
+      format.json  { render :text => @project.to_json }
     end
   end
   # 
   # Edit the project
   # 
   def edit
+    @teams = @project.teams
     respond_to do |format|
       format.html { render :action => 'edit'}
       format.xml {render :xml =>  @project.to_xml}
       format.json  { render :text => @project.to_json }
     end
   end
-  # 
+  #
   # Update model and change to show project
-  # 
+  #
   def update
     Project.transaction do
       if @project.update_attributes(params[:project])
+        save_settings
         flash[:notice] = 'Project was successfully updated.'
         respond_to do |format|
-          format.html { redirect_to  :action => 'show',:id => @project    }
-          format.xml  { head :created, :location => projects_url(@project   ) }
-        end   
+          format.html { redirect_to  :action => 'show',:id => @project }
+          format.xml  { head :created, :location => projects_url(@project) }
+        end
       else
+        @teams = @project.teams
         respond_to do |format|
           format.html { render :action => "edit" }
           format.xml  { render :xml => @projects.errors.to_xml }
@@ -120,120 +165,67 @@ class ProjectsController < ApplicationController
     end
   end
     
-  
   # ## Destroy a assay
   # 
   def destroy
-    @project.destroy
-    set_project(Project.find(1))    
+   begin
+    Project.transaction do
+      @project.destroy
+      set_project(Project.list(:first))
+      set_element(nil)
+    end
+   rescue Exception => ex
+     flash[:warning] = "Failed to destroy project #{ex.message}"
+   end
     respond_to do |format|
       format.html { redirect_to home_url(:action => 'index') }
       format.xml  { head :ok }
     end
   end  
-  
-  
-  def share
-    respond_to do |format|
-      format.html { render :action => 'share'}
-      format.xml {render :xml =>  @project.to_xml}
-      format.json  { render :text => @project.to_json }
-    end    
-  end
-
-  def publish
-    respond_to do |format|
-      format.html { render :action => 'share'}
-      format.xml {render :xml =>  @project.to_xml}
-      format.json  { render :text => @project.to_json }
-    end    
-  end
-
-  # ## Show a overview calendar for the project this should list the
-  # experiments, documents etc linked into the project
-  # 
-  def calendar
-    @options ={ 'month' => Date.today.month,
-      'year'=> Date.today.year,
-      'items'=> {'task'=>1},
-      'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
  
-    logger.debug " Calendar for #{@options.to_yaml}"
-
-    started = Date.civil(@options['year'].to_i,@options['month'].to_i,1)   
-
-    find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
-
-    @calendar = CalendarData.new(started,1)
-    @project.tasks.add_into(@calendar,find_options)               if @options['items']['task']
-    @project.experiments.add_into(@calendar,find_options)         if @options['items']['experiment']
-    @project.assays.add_into(@calendar,find_options)             if @options['items']['assay']
-    @project.requests.add_into(@calendar,find_options)            if @options['items']['request']
-    @project.requested_services.add_into(@calendar,find_options)  if @options['items']['service']
-    @project.queue_items.add_into(@calendar,find_options)         if @options['items']['queue']
-
-    respond_to do | format |
-      format.html { render :action => 'calendar' }
-      format.json { render :json => {:project=> @project, :items=>@calendar.items}.to_json }
-      format.xml  { render :xml => {:project=> @project,:items=>@calendar.items}.to_xml }
-      format.js   { render :update do | page |
-          page.replace_html 'center',  :partial => 'calendar' 
-          page.replace_html 'status',  :partial => 'calendar_right' 
-        end }
-      format.ics  { render :text => @calendar.to_ical}
-    end
-  end  
-
-  # ## Display of Gantt chart of task in  the project This will need to show
-  # assays,experiments and tasks in order
-  # 
-  def gantt
-    @options ={ 'month' => Date.today.month,
-      'year'=> Date.today.year,
-      'items'=> {'task'=>1},
-      'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
-    find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
-                    
-    if params[:year] and params[:year].to_i >0
-      @year_from = params[:year].to_i
-      if params[:month] and params[:month].to_i >=1 and params[:month].to_i <= 12
-        @month_from = params[:month].to_i
-      else
-        @month_from = 1
-      end
+  #
+  # Link something from another project
+  #
+  def link
+    @model = eval(params[:object_class])
+    @item = @model.find(params[:object_id])
+    unless @project.add_link(@item,params)
+      flash[:warning]="Not allowed to link #{@item.name} with project"
+      render :action => 'show'
     else
-      @month_from ||= (Date.today << 1).month
-      @year_from ||= (Date.today << 1).year
+      redirect_to project_url(:action => 'show',:id=>@project,:tab=>5)
     end
-    
-    @zoom = (params[:zoom].to_i > 0 and params[:zoom].to_i < 5) ? params[:zoom].to_i : 2
-    @months = (params[:months].to_i > 0 and params[:months].to_i < 25) ? params[:months].to_i : 6
-    
-    @date_from = Date.civil(@year_from, @month_from, 1)
-    @date_to = (@date_from >> @months) - 1
-    @tasks = @project.tasks.range( @date_from, @date_to,50,find_options)  
-    
-    @options_for_rfpdf ||= {}
-    @options_for_rfpdf[:file_name] = "gantt.pdf"
-
-    respond_to do | format |
-      format.html { render :action => 'gantt' }
-      format.ext { render :action => 'gantt', :layout => false }
-      format.pdf { render :action => "gantt_print.rfpdf", :layout => false }
-      format.json { render :json => {:project=> @project, :items=>@tasks}.to_json }
-      format.xml  { render :xml =>  {:project=> @project,:items=>@tasks}.to_xml }
-      format.js   { 
-        render :update do | page |
-          page.main_panel   :partial => 'gantt' 
-          page.status_panel   :partial => 'gantt_status'
-        end
-      }
-    end
+  rescue Exception => ex
+      flash[:warning]="Invalid (#{ex.message}) can't create link #{params[:object_class]}.#{params[:object_id]}"
+      render :action => 'show'
   end
 
+
+  def unlink
+    begin
+      element  = ProjectElement.load(params[:project_element_id])
+      if element.changeable? and right?(:data,:destroy)
+        element.destroy
+        flash[:info]="Have removed #{element.name} from the project"
+      else
+        flash[:warning]="Can not remove #{element.path} from the project"
+      end
+    rescue Exception => ex
+      flash[:error] ="Remove failed with error: #{ex.message}"
+    end
+    redirect_to project_url(:action => 'show',:id=>@project,:tab=>5)
+  end
+  
   protected
 
+  def save_settings
+    ProjectSetting.default_settings.each do |name, options|
+      ProjectSetting.set(name,params["setting_#{name}"]) if params["setting_#{name}"]
+    end
+  end
+
   def setup_project
+    @tab= params[:tab]||0
     if params[:id]
       @project = Project.load(params[:id])
       if @project        
@@ -244,5 +236,8 @@ class ProjectsController < ApplicationController
       @project = current_project  
     end
     return show_access_denied unless @project
+  rescue Exception => ex
+    logger.warn flash[:warning]= "Exception in #{self.class}: #{ex.message}"
+    return show_access_denied
   end
 end

@@ -10,24 +10,27 @@ class Organize::ParametersControllerTest < Test::Unit::TestCase
     @controller = Organize::ParametersController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
+    User.current = User.find(2)
+    Project.current = Project.find(2)
+    @parameter  = Parameter.find(:first)
     @request.session[:current_project_id] = 2
-    @request.session[:current_user_id] = 3
+    @request.session[:current_user_id] = 2
   end
 
   def test_index
-    get :index
+    get :index,:id =>@parameter.process.protocol.assay_id
     assert_response :success
     assert_template 'list'
   end
   
   def test_list
-    get :list
+    get :list,:id =>@parameter.process.protocol.assay_id
     assert_response :success
     assert_template 'list'
   end
 
   def test_show
-    get :show, :id => 1
+    get :show, :id => @parameter.id
     assert_response :success
     assert_template 'show'
     assert_not_nil assigns(:parameter)

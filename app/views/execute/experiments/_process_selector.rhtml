@@ -2,7 +2,7 @@
 <div class="row">
     <div class="form-element">
         <label for="experiment_protocol_version_id">
-            <%=l(:label_method_default) %>
+            <%=l(:Method_Default) %>
         </label>
         <%= select_process(:experiment, :protocol_version_id,@assay.protocols) %>
         <%= observe_field 'experiment_protocol_version_id', :url => experiment_url(:action=>'refresh'),:with =>'protocol_version_id' %>

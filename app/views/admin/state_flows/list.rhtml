@@ -1,0 +1,17 @@
+<% content_for :sidemenu do %>
+<%= render :partial => 'menu' %>
+<% end %>
+
+<% content_for :center do %>
+ <%= render :partial => 'header' %>
+ <%= render :partial => 'shared/report', :locals => {:report => @report }%>
+<% end -%>
+
+<% content_for :messages do -%>
+<%=render :partial =>'shared/messages',:locals => { :objects => ['state_flow'] } %>
+<% end -%>
+
+<% content_for :help do -%>
+<%=render :partial =>'help' %>
+<% end -%>
+

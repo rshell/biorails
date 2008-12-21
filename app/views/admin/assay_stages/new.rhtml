@@ -3,17 +3,17 @@
   <div>
     <span class='menu'>
       <b class='icon icon-assay_stage'>
-        <%=l(:label_assay_stage)%>
+        <%=l(:Assay_Stage)%>
       </b>
     </span>
-      <%= link_to l(:label_list), :action => 'list' %>
+      <%= link_to l(:List), :action => 'list' %>
   </div>
 <% end %>
 <%= render :partial => 'admin/header'%>
-<% dialog l(:label_assay_stage) do %>
+<% dialog l(:Assay_Stage) do %>
 	<% form_tag :action => 'create' do %>
 	  <%= render :partial => 'form' %>
-	  <%= submit_tag l(:button_save) %>
-          <%= link_to l(:label_cancel), :action => 'list'%>
+	  <%= submit_tag l(:Save) %>
+          <%= link_to l(:Cancel), :action => 'list'%>
 	<% end %>
 <% end %>

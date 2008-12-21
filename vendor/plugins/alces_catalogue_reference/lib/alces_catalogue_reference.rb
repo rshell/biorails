@@ -94,9 +94,7 @@ module Alces
               when Fixnum
                 from_named(self.reference(new_value) )
               when ListItem
-                from_data(self.reference(new_value))
-              when Hash
-                from_named(self.reference(new_value))
+                from_data(new_value)
               when String,NilClass
                 from_string(new_value)  
               else       
@@ -134,9 +132,9 @@ module Alces
 
 
          def from_data(new_value)
-            self.data_type = new_value.data_type if new_value.respond_to?(:date_type)
-            self.data_id   = new_value.data_id if new_value.respond_to?(:date_id)
-            self.data_name = new_value.data_name if new_value.respond_to?(:date_name)
+            self.data_type = new_value.data_type if new_value.respond_to?(:data_type)
+            self.data_id   = new_value.data_id if new_value.respond_to?(:data_id)
+            self.data_name = new_value.data_name if new_value.respond_to?(:data_name)
             @current_value = new_value
          end
 
@@ -146,13 +144,13 @@ module Alces
                 clear
              elsif new_value.is_a?(Hash)   
                 self.data_type = new_value.class.to_s 
-                self.data_id   = new_value['id'].to_i 
-                self.data_name = new_value['name'] 
+                self.data_id   = (new_value['id']||new_value[:id]).to_i
+                self.data_name = (new_value['name']||new_value[:name]).to_i
                 @current_value = new_value
              elsif new_value.is_a?(ActiveRecord::Base)
-                self.data_type = new_value.class.class_name 
-                self.data_id   = new_value.id.to_i 
-                self.data_name = new_value.name 
+                self.data_type = new_value.class.class_name
+                self.data_id   = new_value.id.to_i
+                self.data_name = new_value.name
                 @current_value = new_value
              else   
                 self.data_type = new_value.class.class_name 

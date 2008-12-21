@@ -28,10 +28,11 @@ class Role < ActiveRecord::Base
   
   USER_SUBJECTS = {
         'reports'=> ['build','use'],
-        'project'=> ['build','use'],
-        'execution'=> ['all'],
+        'project'=> ['new_root','build','use'],
+        'teams'=> ['build','use'],
+        'execution'=> ['build','use'],
         'organization'=> ['build','use'],
-        'catalogue'=>['admin'],
+        'catalogue'=>['admin','use'],
         'system'=>['admin']
   }
   PROJECT_SUBJECTS = {
@@ -44,7 +45,7 @@ class Role < ActiveRecord::Base
   #   
   #  acts_as_audited :change_log
   
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name,:case_sensitive=>false
   validates_presence_of :name
   validates_presence_of :description
   
@@ -92,25 +93,15 @@ class Role < ActiveRecord::Base
   ##
   # Get a permission for a subject and actions
   #   
-  def allow?(subject,action)
+  def right?(subject,action=nil)
     self.rebuild unless self.cached?
     return false unless self.cache[subject.to_s]
-    if ( self.cache[subject.to_s][action.to_s] == true or cache[subject.to_s]['*'] == true)
-      return true
-    end
-    return false
-  end 
-  #
-  # See if the user as a specific role in the acl (teams ignored)
-  #
-  def rights?(subject)
-    self.rebuild unless self.cached?
-    return self.cache[subject.to_s]
+    ( action.nil? or self.cache[subject.to_s][action.to_s] == true or cache[subject.to_s]['*'] == true)
   end 
   
   
   def permission?(user,subject,action)
-    if  allow?(subject,action)
+    if  right?(subject,action)
       logger.debug("passed permission? #{user.to_s} #{subject} #{action}")
       return  true
     else
@@ -163,7 +154,7 @@ class Role < ActiveRecord::Base
           logger.info "action #{subject}:#{action}"
           if rights[subject] and ( rights[subject][action] || rights[subject]['*'])           
             self.grant(subject,action)
-          elsif self.allow?(subject,action)
+          elsif self.right?(subject,action)
             self.deny(subject,action)
           end
         end
@@ -219,5 +210,8 @@ class Role < ActiveRecord::Base
     end          
     self.save
   end
-  
+
+  def self.rebuild_all
+    Role.find(:all).collect{|role|role.rebuild}
+  end
 end

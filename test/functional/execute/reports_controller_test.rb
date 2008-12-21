@@ -12,9 +12,11 @@ class Execute::ReportsControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
     @first = Report.find(2)
     @folder = ProjectFolder.find(:first)
+    User.current = User.find(2)
+    Project.current = @folder.project
     @request.session[:current_element_id] = @folder.id
     @request.session[:current_project_id] = @folder.project.id
-    @request.session[:current_user_id] =3
+    @request.session[:current_user_id] =2
   end
 
   def test_setup
@@ -38,8 +40,14 @@ class Execute::ReportsControllerTest < Test::Unit::TestCase
     assert_not_nil assigns(:report)
   end
 
-  def test_internal
-    get :internal
+  def test_list_invalid_project
+    get :list,:id=>3242342
+    assert_response :success
+    assert_template 'access_denied'
+  end
+
+  def test_list_valid_project
+    get :list,:id=>2
     assert_response :success
     assert_template 'show'
     assert_not_nil assigns(:report)
@@ -51,6 +59,19 @@ class Execute::ReportsControllerTest < Test::Unit::TestCase
     assert_template 'show'
     assert_not_nil assigns(:report)
     assert assigns(:report).valid?
+  end
+
+  def test_show_invalid_id
+    get :show, :id => 3425235632523523
+    assert_response :success
+    assert_template 'access_denied'
+  end
+
+  def test_show_project_report
+    report = Project
+    get :show, :id => 3425235632523523
+    assert_response :success
+    assert_template 'access_denied'
   end
 
     def test_show_sort_filtered
@@ -90,11 +111,10 @@ class Execute::ReportsControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'visualize'
   end
-
-  def test_run
-    get :run , :id => @first.id
+  
+   def test_grid
+    get :grid , :id => @first.id
     assert_response :success
-    assert_template 'show'
   end
 
   def test_columns
@@ -130,14 +150,16 @@ class Execute::ReportsControllerTest < Test::Unit::TestCase
   end
   
   def test_move_columns
-    @column = @first.columns[0]
-    get :move_column , :id =>  @column.id, :no=>1
+    @column1 = @first.columns.first
+    @column2 = @first.columns.last
+    get :move_column , :id =>  @column1.id, :to=>@column2.id
     assert_response :success
   end
 
   def test_move_columns_ajax
-    @column = @first.columns[0]
-    get :move_column , :id =>  @column.id, :no=>1,:format=>'js'
+    @column1 = @first.columns.first
+    @column2 = @first.columns.last
+    get :move_column , :id =>  @column1.id, :to=>@column2.id,:format=>'js'
     assert_response :success
   end
 
@@ -165,21 +187,14 @@ class Execute::ReportsControllerTest < Test::Unit::TestCase
   end
 
   def test_create_ok
-    num = Report.count
     post :create, :report => {:name=>'ssss',:description=>'ssss', :base_model=>'Assay'}
     assert_response :redirect
-    assert_equal num+1 , Report.count
   end  
   
   def test_create_failed
-    num_request_services = Report.count
-
     post :create, :report => {}
-
     assert_response :success
     assert_template 'new'
-
-    assert_equal num_request_services , Report.count
   end
 
   def test_edit

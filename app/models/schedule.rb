@@ -33,7 +33,6 @@
 #The schedule is expecteding the base queue to contain the following attibtures
 #
 #
-#  status_id           :integer(11)   Status  
 #  is_milestone        :boolean(1)    milestone flag to change icon
 #  priority_id         :integer(11)   priority
 #  started_at          :datetime      start
@@ -138,7 +137,7 @@ def refresh(options={})
    options = @options.merge(options)
 
    if (@model and options[:data_from] and options[:data_to])
-     if @filter
+     if filter
        @items = @model.find(:all, :order => "#{options[:start]}, #{options[:end]}", 
          :conditions => ["((#{options[:start]} between  ? and  ? ) or (#{options[:end]} between  ? and  ? )) and ( #{filter[0]} )",
                            date_from, date_to, date_from, date_to, filter[1] ])
@@ -182,25 +181,6 @@ def for_day(day)
    end
    return day_issues
 end
-
-
-def icon(item,day)
-  if item.send(@options[:start]).to_date == day and item.send(@options[:end]).to_date == day
-	image_tag('/images/enterprise/calendar/arrow_bw.png')
-	    
-  elsif item.send(@options[:start]).to_date == day
-    image_tag('/images/enterprise/calendar/arrow_from.png') 
-    
-  elsif item.send(@options[:end]).to_date == day
-    image_tag('/images/enterprise/calendar/arrow_to.png') 
-  end   
-end
-
-
-def link(item)
-
-end
-
 
 ##
 # setup a calender from parameters

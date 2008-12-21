@@ -43,7 +43,7 @@ class TaskValue < ActiveRecord::Base
 ##
 # This record has a full audit log created for changes 
 #   
-  acts_as_audited :change_log
+  acts_as_audited :change_log, :auditing_enabled =>true
 ##
 # This add all the common functions for TaskItem
   acts_as_task_item

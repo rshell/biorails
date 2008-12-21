@@ -14,11 +14,16 @@ class AuthControllerTest < Test::Unit::TestCase
   end
   
   def test_login_show
-    get :login
-    assert_response :success
-  end
-  
-  def test_login_exception
+     get :login
+     assert_response :success
+   end
+
+  def test_index
+     get :index
+     assert_response :success
+   end
+
+    def test_login_exception
     @controller.send(:login)
     flunk("should throw exception")
   rescue    

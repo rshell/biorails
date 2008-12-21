@@ -2,16 +2,16 @@
 <div>
   <span class='menu'>
     <b class='icon icon-user'>
-      <%=l(:label_users)%>
+      <%=l(:Users)%>
     </b>
   </span>
   <div class='boldnotbold'>
-  <%= link_to l(:label_list_local), user_url( :action => 'list') %>
-  <%= link_to l(:label_list_ldap), user_url( :action => 'ldap',:id=>'a') %>
-  <%= link_to l(:label_new), user_url( :action => 'new') %>
+  <%= link_to l(:List_Local), user_url( :action => 'list') %>
+  <%= link_to l(:List_LDAP), user_url( :action => 'ldap',:id=>'a') %>
+  <%= link_to l(:New), user_url( :action => 'new') %>
   <% if @user && !@user.new_record?%>
-    <%= link_to l(:label_edit), user_url( :action => 'edit',:id=>@user.id) %>
-    <%= link_to l(:label_show), user_url( :action => 'show',:id=>@user.id) %>
+    <%= link_to l(:Edit), user_url( :action => 'edit',:id=>@user.id) %>
+    <%= link_to l(:Show), user_url( :action => 'show',:id=>@user.id) %>
   <%end%>
   </div>
 </div>

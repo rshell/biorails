@@ -1,5 +1,5 @@
 <%= render :partial=>'projects/header'%>
-<%dialog l(:label_cross_tab_new) do %>    
+<%dialog l(:Cross_Tab_New) do %>    
   <% form_for(@cross_tab, :url => cross_tab_url(:action=>:create) ) do |f| %>
     <%= render :partial => 'form' ,:locals=>{:form=>f} %>
   <% end %>

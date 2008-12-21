@@ -24,7 +24,7 @@
       <div id="messages">
           <% render :partial => 'shared/messages', :locals => { :objects => ['project'] } %>
       </div>
-
+      <%=subject_icon('logo/customer-logo.gif')%>
       <%= yield %>
 
       <%= yield :form if @content_for_form %>

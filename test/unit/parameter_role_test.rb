@@ -230,4 +230,8 @@ class ParameterRoleTest < Test::Unit::TestCase
 		end
 	end
 
+  def test_is_dictionary
+    assert_dictionary_lookup(ParameterRole)
+  end
+
 end

@@ -1,5 +1,5 @@
 /**
- * Ext.ux.grid.GridFilters v0.2.6
+ * Ext.ux.grid.GridFilters v0.2.8
  **/
 
 Ext.namespace("Ext.ux.grid");
@@ -52,31 +52,33 @@ Ext.extend(Ext.ux.grid.GridFilters, Ext.util.Observable, {
 	 */
 	showMenu: true,
 
+	menuFilterText: 'Filters',
+
 	init: function(grid){
-    if(grid instanceof Ext.grid.GridPanel){
-      this.grid  = grid;
-      
-      this.store = this.grid.getStore();
-      if(this.local){
-        this.store.on('load', function(store){
-          store.filterBy(this.getRecordFilter());
-        }, this);
-      } else {
-        this.store.on('beforeload', this.onBeforeLoad, this);
-      }
-      
-      this.grid.filters = this;
-      
-      this.grid.addEvents({"filterupdate": true});
-      
-      grid.on("render", this.onRender, this);
-      
-      grid.on("beforestaterestore", this.applyState, this);
-      grid.on("beforestatesave", this.saveState, this);
-      
-    } else if(grid instanceof Ext.PagingToolbar){
-      this.toolbar = grid;
-    }
+		if(grid instanceof Ext.grid.GridPanel){
+			this.grid  = grid;
+		  
+			this.store = this.grid.getStore();
+			if(this.local){
+				this.store.on('load', function(store){
+					store.filterBy(this.getRecordFilter());
+				}, this);
+			} else {
+			  this.store.on('beforeload', this.onBeforeLoad, this);
+			}
+			  
+			this.grid.filters = this;
+			 
+			this.grid.addEvents({"filterupdate": true});
+			  
+			grid.on("render", this.onRender, this);
+			  
+			grid.on("beforestaterestore", this.applyState, this);
+			grid.on("beforestatesave", this.saveState, this);
+					  
+		} else if(grid instanceof Ext.PagingToolbar){
+		  this.toolbar = grid;
+		}
 	},
 		
 	/** private **/
@@ -118,7 +120,7 @@ Ext.extend(Ext.ux.grid.GridFilters, Ext.util.Observable, {
 			
 			this.sep  = hmenu.addSeparator();
 			this.menu = hmenu.add(new Ext.menu.CheckItem({
-					text: 'Filters',
+					text: this.menuFilterText,
 					menu: new Ext.menu.Menu()
 				}));
 			this.menu.on('checkchange', this.onCheckChange, this);
@@ -283,13 +285,17 @@ Ext.extend(Ext.ux.grid.GridFilters, Ext.util.Observable, {
 
 	/** private **/
 	getFilterData: function(){
-		var filters = [];
+		var filters = [],
+			fields  = this.grid.getStore().fields;
 		
 		this.filters.each(function(f){
 			if(f.active){
 				var d = [].concat(f.serialize());
 				for(var i=0, len=d.length; i<len; i++)
-					filters.push({field: f.dataIndex, data: d[i]});
+					filters.push({
+						field: f.dataIndex,
+						data: d[i]
+					});
 			}
 		});
 		

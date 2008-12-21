@@ -1,0 +1,71 @@
+<h2 class="icon icon-user"><%=l(:User_Profile) %> [<%= @user.name %>]</h2>
+<div class="box">
+  <table class='report' style='width:40%'>
+    <tr>
+      <th> <%=h l(:Login) %>      </th>
+      <td> <%= h @user.login %>   </td>
+    </tr>
+    <tr>
+      <th> <%=h l(:Shortname) %>      </th>
+      <td> <%=h  @user.name %>      </td>
+    </tr>
+    <tr>
+      <th> <%=h l(:Full_Name) %>      </th>
+      <td> <%=h  @user.fullname %>      </td>
+    </tr>
+    <tr>
+      <th> <%=l(:Created) %>      </th>
+      <td> <%= short_date @user.created_at %>      </td>
+    </tr>
+    <tr>
+      <th> <%=l(:Updated) %>      </th>
+      <td> <%= short_date @user.updated_at %>      </td>
+    </tr>
+    <% if @ldap %>
+      <tr>
+        <th>  <%=l(:LDAP_Account) %>        </th>
+        <td>  <%= @ldap[:cn] %>        </td>
+      </tr>
+      <tr>
+        <th> <%=l(:Email_address) %>        </th>
+        <td> <%= @ldap[:mail] %>        </td>
+      </tr>
+      <tr>
+        <th> <%=l(:Display_Name) %>        </th>
+        <td> <%= @ldap[:displayName] %>        </td>
+      </tr>
+    <%else %>
+      <tr>
+        <th> <%=l(:LDAP_Account) %>  </th>
+        <td>    <%=l(:Missing) %>    </td>
+      </tr>
+    <%end %>
+  </table>
+</div>
+
+<div class='box'>
+  <h3 class='icon icon-team'><%=l(:Team_Memberships) %></h3>
+  <table class="report">
+    <thead>
+      <tr>
+        <th> <%=l(:Team) %>      </th>
+        <th> <%=l(:Date_Created) %>        </th>
+        <th><%= l(:Date_Updated) %>        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for member in @user.memberships do %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td> <%= link_to member.team.name, team_url(:action=>'show',:id=>member.team_id) %>  </td>
+            <td> <%= short_date member.created_at %>  </td>
+            <td> <%= short_date member.updated_at %>  </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%if @role = @user.role %>
+    <%=render :partial=> 'admin/roles/rights'%>
+  <% else%>
+    User role is missing this record is invalid
+  <% end -%>

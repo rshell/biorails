@@ -1,18 +1,449 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: state_changes
-#
-#  id                 :integer(4)      not null, primary key
-#  old_state_id       :integer(4)      not null
-#  new_state_id       :integer(4)      not null
-#  lock_version       :integer(4)      default(0), not null
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  updated_by_user_id :integer(4)      default(1), not null
-#  created_by_user_id :integer(4)      default(1), not null
-#  flow               :string(30)      default("default")
-#
+--- 
+00000000028_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "6"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "7"
+    id: "28"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
 
---- {}
+00000000017_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "6"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "4"
+    id: "17"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000013_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "10"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "3"
+    id: "13"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000002_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "3"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "1"
+    id: "2"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000016_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "5"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "4"
+    id: "16"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000005_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "10"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "1"
+    id: "5"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000026_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "7"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "6"
+    id: "26"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000022_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "6"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "5"
+    id: "22"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000011_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "4"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "3"
+    id: "11"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000032_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "9"
+    id: "32"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:49
+  attributes_cache: {}
+
+00000000014_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "2"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "4"
+    id: "14"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000003_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "4"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "1"
+    id: "3"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000024_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "10"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "5"
+    id: "24"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000020_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "3"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "5"
+    id: "20"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000030_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "10"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "9"
+    id: "30"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000023_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "7"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "5"
+    id: "23"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000012_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "5"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "3"
+    id: "12"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000008_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "5"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "2"
+    id: "8"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000033_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "10"
+    id: "33"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:49
+  attributes_cache: {}
+
+00000000029_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "10"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "8"
+    id: "29"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000018_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "10"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "4"
+    id: "18"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000021_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "4"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "5"
+    id: "21"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000010_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "2"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "3"
+    id: "10"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000006_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "3"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "2"
+    id: "6"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000031_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "8"
+    id: "31"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:49
+  attributes_cache: {}
+
+00000000027_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "5"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "7"
+    id: "27"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000009_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "10"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "2"
+    id: "9"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000019_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "2"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "5"
+    id: "19"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000015_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "3"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "4"
+    id: "15"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000004_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "5"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "1"
+    id: "4"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000025_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "5"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "6"
+    id: "25"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
+
+00000000007_state_change: !ruby/object:StateChange 
+  attributes: 
+    state_flow_id: "1"
+    updated_at: 2008-10-22 15:14:19
+    new_state_id: "4"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    old_state_id: "2"
+    id: "7"
+    flow: default
+    created_by_user_id: "1"
+    created_at: 2008-09-19 19:37:38
+  attributes_cache: {}
 

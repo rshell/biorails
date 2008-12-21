@@ -3,7 +3,7 @@
 <div class='box'>
     <div class="x-form-item">
         <label for="cross_tab-name" style="width: auto;" class="x-form-item-label">
-            <%=l(:label_changed_after) %>:
+            <%=l(:Changed_After) %>:
         </label>
         <div class="x-form-element">
             <%= date_field :cross_tab, :date_from %>
@@ -11,34 +11,34 @@
     </div>
     <div class="x-form-item">
         <label for="cross_tab-name" style="width: auto;" class="x-form-item-label">
-            <%=l(:label_changed_before) %>:
+            <%=l(:Changed_Before) %>:
         </label>
         <div class="x-form-element">
             <%= date_field :cross_tab, :date_to %>
         </div>
     </div>
 </div>
-<h3><%=l(:label_columns) %>
+<h3><%=l(:Columns) %>
 </h3>
     <table class='report'>
         <tr>
             <th>
-                <%=l(:label_name) %>
+                <%=l(:Name) %>
             </th>
             <th>
-                <%=l(:label_process) %>
+                <%=l(:Process) %>
             </th>
             <th>
-                <%=l(:label_type) %>
+                <%=l(:Type) %>
             </th>
             <th colspan=2>
-                <%=l(:label_filter) %>
+                <%=l(:Filter) %>
             </th>
             <th>
-                <%=l(:label_unit) %>
+                <%=l(:Unit) %>
             </th>
             <th>
-                <%=l(:label_action) %>
+                <%=l(:Action) %>
             </th>
         </tr>
         <% context =nil %>
@@ -49,7 +49,7 @@
                 <%=item.parameter_context.name %>
             </th>
             <th colspan=6>
-                <%=l(:label_possible_link) %><%=@cross_tab.guess_link_type(item.parameter_context) %>
+                <%=l(:Possible_link) %><%=@cross_tab.guess_link_type(item.parameter_context) %>
             </th>
         </tr>
         <% context = item.parameter_context %>
@@ -75,10 +75,10 @@
                 <%= item.parameter.display_unit %>
             </td>
             <td>
-                <%=link_to l(:label_remove),cross_tab_url(:action=>'remove',:id=>@cross_tab,:column=>item.id),:class=>'icon icon-del' %>
+                <%=link_to l(:Reemove),cross_tab_url(:action=>'remove',:id=>@cross_tab,:column=>item.id),:class=>'icon icon-del' %>
             </td>
         </tr>
         <% end %>
     </table>
-<hr/><%= submit_tag l(:button_apply) %>
+<hr/><%= submit_tag l(:Apply) %>
 <% end %>

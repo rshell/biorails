@@ -1,0 +1,12 @@
+<% content_for :sidemenu do%>
+  <%= render :partial =>'actions' %>
+<% end %>
+
+<h1 class='icon icon-report'>
+    <%=l(:Visualise_tables_for_query)%>[<%=@report.name%>] <%=l(:Based_on_Model)%> [<%=@report.base_model%>]
+</h1>
+
+<div class="panel" id="visualize-model">
+    <%= render :partial => 'visualize' %>
+</div>
+

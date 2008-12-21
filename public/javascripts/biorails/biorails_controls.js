@@ -467,7 +467,9 @@ Biorails.SelectField = function(config){
     Biorails.SelectField.superclass.constructor.call(this, Ext.apply(config, {
         typeAhead: true,
         triggerAction: 'all',
-        forceSelection: true
+        editable: true,
+        allowBlank: true,
+        forceSelection: false
     }));
     
     this.on('change', function(field){
@@ -531,25 +533,28 @@ Biorails.ComboField = function(config){
             }])
         }),
         triggerAction: 'all',
-        forceSelection: true,
+        typeAhead: false,
+        typeAheadDelay: 500,
         editable: true,
+        allowBlank: true,
+        cls: 'x-combo-remote',
+        forceSelection: true,
         loadingText: 'Looking Up Name...',
-        selectOnFocus: false,
-        minChars: 0,
+        selectOnFocus: true,
+        minChars: 3,
         allQuery: '',
-        queryDelay: 100,
-        queryParam: 'query',
+        queryDelay: 500,
         valueField: 'name',
         displayField: 'name'
     }));
-    
+
     this.on('blur', function(field){
         field.save();
     });
     this.on('focus', function(field){
         field.entry();
     });
-    
+
 };
 
 Ext.extend(Biorails.ComboField, Ext.form.ComboBox, {
@@ -569,13 +574,75 @@ Ext.extend(Biorails.ComboField, Ext.form.ComboBox, {
             });
         }
     },
-    
+
     entry: function(){
         var element = this.getEl().dom;
         _original_background = element.style.background;
         _original_value = this.getValue();
     }
-    
+
+});
+
+//---------------------------------------- Conbo Field Widget--------------------------------------------------------
+Ext.namespace("Biorails.ComboField");
+/**
+ * Custom Select field for a remote data element field
+ */
+Biorails.PropertyComboField = function(config){
+    Biorails.ComboField.superclass.constructor.call(this, Ext.apply(config, {
+        mode: 'remote',
+        store: new Ext.data.Store({
+            proxy: new Ext.data.HttpProxy({
+                url: config.url,
+                method: 'post'
+            }),
+            reader: new Ext.data.JsonReader({
+                root: 'items',
+                totalProperty: 'total'
+            }, [{name: 'id'}, { name: 'name'}, {name: 'description'}])
+        }),
+        triggerAction: 'all',
+        cls: 'x-combo-remote',
+        loadingText: 'Looking Up Model...',
+        minChars: 0,
+        allQuery: '',
+        typeAhead: false,
+        editable: true,
+        allowBlank: false,
+        selectOnFocus: false,
+        forceSelection: false,
+        typeAheadDelay: 200,
+        queryDelay: 200
+    }));
+};
+
+Ext.extend(Biorails.PropertyComboField, Ext.form.ComboBox,{
+    setValue : function(v){
+//begin patch
+        // Store not loaded yet? Set value when it *is* loaded.
+        // Defer the setValue call until after the next load.
+        if (this.store.getCount() == 0) {
+            this.store.on('load',
+                this.setValue.createDelegate(this, [v]), null, {single: true});
+            return;
+        }
+//end patch
+        var text = v;
+        if(this.valueField){
+            var r = this.findRecord(this.valueField, v);
+            if(r){
+                text = r.data[this.displayField];
+            }else if(this.valueNotFoundText !== undefined){
+                text = this.valueNotFoundText;
+            }
+        }
+        this.lastSelectionText = text;
+        if(this.hiddenField){
+            $(this.hiddenField).value = v;
+        }
+        Ext.form.ComboBox.superclass.setValue.call(this, text);
+        this.value = v;
+    }
 });
 //---------------------------------------- Conbo Field Widget--------------------------------------------------------
 Ext.namespace("Biorails.RegExpField");
@@ -657,9 +724,9 @@ Biorails.FileComboField = function(config){
         forceSelection: false,
         editable: true,
         loadingText: 'Searching...',
-        valueField: 'id',
+        valueField: 'name',
         displayField: 'name',
-        tpl: new Ext.XTemplate('<tpl for="."><div class="x-combo-list-item">', '<image src="{icon}"/>', '<em>{name}</em>:   <strong>{path}</strong>', '<div class="x-clear"></div>', '</div></tpl>')
+        tpl: new Ext.XTemplate('<tpl for="."><div class="x-combo-list-item">', '<image src="{icon}"/>', '<em>{name}</em>: ', '<div class="x-clear"></div>', '</div></tpl>')
     }));
     this.on('blur', function(field, newValue, oldValue){
         field.save();

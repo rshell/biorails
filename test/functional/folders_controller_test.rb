@@ -14,9 +14,7 @@ class FoldersControllerTest < Test::Unit::TestCase
     @model = ProjectFolder
     @project = Project.find(2)
     @item = @project.home
-  end
-
-  
+  end  
   # Test a index call to controller
   #
   def test_index
@@ -24,7 +22,6 @@ class FoldersControllerTest < Test::Unit::TestCase
     assert_response :redirect
     assert_redirected_to :action => 'show'
   end
-
   #
   # Test a list call to controller
   #
@@ -33,7 +30,6 @@ class FoldersControllerTest < Test::Unit::TestCase
     assert_response :redirect
     assert_redirected_to :action => 'show'
   end
-
   #
   # Test a show of a item
   #
@@ -49,8 +45,8 @@ class FoldersControllerTest < Test::Unit::TestCase
     @request.session[:current_project_id] =2
     @request.session[:current_user_id] = 9   
     get :show, :id => @item.id
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end 
   
   def test_show_js
@@ -154,6 +150,14 @@ class FoldersControllerTest < Test::Unit::TestCase
     assert_template 'new'
   end
   
+  def test_sign
+    get :sign, :id => @item.id
+    assert_response :success
+    assert_template 'sign'
+    # asserts not valid in all cases
+    #assert_equal '/signatures/show_signable_document/1',session[:current_url]
+    #assert_equal 'http://test.host/auth/login?method=post', redirect_to_url
+  end
   #
   # Test a new call to controller
   #
@@ -275,13 +279,108 @@ class FoldersControllerTest < Test::Unit::TestCase
     assert_response :redirect
   end
  
-  def test_select 
+  def test_select
     post :select, :value=>""
     assert_response :success
     assert assigns(:choices)
     assert assigns(:list)
   end
-  
+
+  def test_status_valid
+    post :status, :id=>@item.id
+    assert_response :success
+    assert_template 'status'
+    assert assigns(:project_folder)
+    assert assigns(:new_status)
+    assert assigns(:allowed)
+    assert assigns(:all_children)
+  end
+
+  def test_status_invalid
+    post :status
+    assert_response :success
+    assert_template 'access_denied'
+  end
+
+  def test_publish_to_new
+    ok = @item.state_flow.allowed_state_change?(@item,1)
+    post :publish, :id=>@item.id,:state_id=>1
+    if ok
+      assert_response :redirect
+      assert_redirected_to :action => 'status'
+      assert assigns(:project_folder)
+      assert assigns(:new_status)
+    else
+      assert_response :success
+    end
+  end
+
+  def test_publish_to_accepted
+    ok = @item.state_flow.allow?(@item.state,2)
+    post :publish, :id=>@item.id,:state_id=>2
+    if ok
+      assert_response :redirect
+      assert_redirected_to :action => 'status'
+      assert assigns(:project_folder)
+      assert assigns(:new_status)
+    else
+      assert_response :success
+    end
+  end
+
+  def test_publish_to_pending
+    ok = @item.state_flow.allow?(@item.state,3)
+    post :publish, :id=>@item.id,:state_id=>3
+    if ok
+      assert_response :redirect
+      assert_redirected_to :action => 'status'
+      assert assigns(:project_folder)
+      assert assigns(:new_status)
+    else
+      assert_response :success
+    end
+  end
+
+  def test_publish_to_processing
+    ok = @item.state_flow.allow?(@item.state,4)
+    post :publish, :id=>@item.id,:state_id=>4
+    if ok
+      assert_response :redirect
+      assert_redirected_to :action => 'status'
+      assert assigns(:project_folder)
+      assert assigns(:new_status)
+    else
+      assert_response :success
+    end
+  end
+
+  def test_publish_to_validation
+    ok = @item.state_flow.allow?(@item.state,5)
+    post :publish, :id=>@item.id,:state_id=>5
+    if ok
+      assert_response :redirect
+      assert_redirected_to :action => 'status'
+      assert assigns(:project_folder)
+      assert assigns(:new_status)
+    else
+      assert_response :success
+    end
+  end
+
+  def test_publish_to_completed
+    ok = @item.state_flow.allow?(@item.state,6)
+    post :publish, :id=>@item.id,:state_id=>6
+    if ok
+      assert_response :redirect
+      assert_redirected_to :action => 'status'
+      assert assigns(:project_folder)
+      assert assigns(:new_status)
+    else
+      assert_response :success
+    end
+  end
+
+
   def test_add_element
     project_1_asset = ProjectAsset.find(30)
     post :add_element, :id=>project_1_asset.id, :folder_id=>@item.id

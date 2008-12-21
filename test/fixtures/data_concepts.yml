@@ -1,27 +1,8 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: data_concepts
-#
-#  id                 :integer(4)      not null, primary key
-#  parent_id          :integer(4)
-#  name               :string(50)      default(""), not null
-#  data_context_id    :integer(4)      default(0), not null
-#  description        :string(1024)    default(""), not null
-#  access_control_id  :integer(4)
-#  lock_version       :integer(4)      default(0), not null
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  type               :string(255)     default("DataConcept"), not null
-#  updated_by_user_id :integer(4)      default(1), not null
-#  created_by_user_id :integer(4)      default(1), not null
-#
-
 --- 
 00000000050_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Target
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -37,7 +18,7 @@
 00000000027_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Task
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -53,7 +34,7 @@
 00000000002_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Subject
-    updated_at: 2008-08-14 10:29:23
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -69,7 +50,7 @@
 00000000056_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Route
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -85,7 +66,7 @@
 00000000048_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Users
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -101,7 +82,7 @@
 00000000004_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Organization
-    updated_at: 2008-08-14 10:29:23
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -117,7 +98,7 @@
 00000000001_data_context: !ruby/object:DataContext 
   attributes: 
     name: BioRails
-    updated_at: 2008-08-14 10:29:23
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataContext
@@ -136,7 +117,7 @@
 00000000047_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Species
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -152,7 +133,7 @@
 00000000033_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Groups
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -168,7 +149,7 @@
 00000000010_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Specimens
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -184,7 +165,7 @@
 00000000009_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Treatment
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -200,7 +181,7 @@
 00000000053_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: ProtocolStatus
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -216,7 +197,7 @@
 00000000024_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Experiment
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -232,7 +213,7 @@
 00000000030_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: ParameterType
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -248,7 +229,7 @@
 00000000007_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Batches
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -264,7 +245,7 @@
 00000000055_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: PickLists
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -280,7 +261,7 @@
 00000000051_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Folder
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -296,7 +277,7 @@
 00000000039_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Roles
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -312,7 +293,7 @@
 00000000028_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: DataType
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -328,7 +309,7 @@
 00000000011_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Lists
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -344,7 +325,7 @@
 00000000054_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: ResearchArea
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -360,7 +341,7 @@
 00000000049_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Project
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -376,7 +357,7 @@
 00000000031_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: ParameterRole
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -392,7 +373,7 @@
 00000000026_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Unit
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -408,7 +389,7 @@
 00000000008_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Plate
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -424,7 +405,7 @@
 00000000058_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Scores
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -440,7 +421,7 @@
 00000000052_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: ProtocolCatagory
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:20
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -456,7 +437,7 @@
 00000000029_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: DataFormat
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -472,7 +453,7 @@
 00000000025_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Protocol
-    updated_at: 2008-08-14 10:29:24
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -488,7 +469,7 @@
 00000000003_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Catalogue
-    updated_at: 2008-08-14 10:29:23
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept
@@ -504,7 +485,7 @@
 00000000006_data_concept: !ruby/object:DataConcept 
   attributes: 
     name: Compounds
-    updated_at: 2008-08-14 10:29:23
+    updated_at: 2008-10-22 15:14:19
     access_control_id: 
     updated_by_user_id: "1"
     type: DataConcept

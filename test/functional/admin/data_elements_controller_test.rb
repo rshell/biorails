@@ -107,12 +107,12 @@ class Admin::DataElementsControllerTest < Test::Unit::TestCase
   end
 
   def test_choices_model_element
-    get :choices, :id => ModelElement.find(1),:match=>'T'
+    get :choices, :id => 'Team',:query=>'T'
     assert_response :success
   end
 
   def test_choices_list_element
-    get :choices, :id => ListElement.find(80),:match=>'Do'
+    get :choices, :id => 'Assay',:query=>'Do'
     assert_response :success
   end
 

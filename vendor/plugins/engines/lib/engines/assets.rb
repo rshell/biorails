@@ -14,7 +14,7 @@ should edit the files within the <plugin_name>/assets/ directory itself.}
         dir = Engines.public_directory
         unless File.exist?(dir)
           Engines.logger.debug "Creating public engine files directory '#{dir}'"
-          FileUtils.mkdir_p(dir)
+          FileUtils.mkdir(dir)
         end
         readme = File.join(dir, "README")        
         File.open(readme, 'w') { |f| f.puts @@readme } unless File.exist?(readme)

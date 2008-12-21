@@ -72,10 +72,15 @@ class TeamTest < ActiveSupport::TestCase
     assert item.owners
   end 
 
-  def test_owners
+  def test_is_not_owner
     item = Team.find(:first)
-    assert item.owners
-  end 
+    assert !item.owner?(User.find(1))
+  end
+
+  def test_is_owner
+    item = Team.find(:first)
+    assert item.owner?(User.find(2))
+  end
 
   def test_is_use
     item = Team.find(1)

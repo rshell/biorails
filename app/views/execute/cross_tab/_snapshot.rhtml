@@ -1,32 +1,32 @@
 <div class=" x-panel-header x-accordion-hd">
-    <span class="icon icon-snapshot x-panel-header-text"><%=l(:label_snapshot_to_folder)%>
+    <span class="icon icon-snapshot x-panel-header-text"><%=l(:Snapshot_To_Folder)%>
     </span>
 </div>
 <div id="panel">
     <% form_tag cross_tab_url(:action=>'snapshot',:id=>@cross_tab) do %>
     <div class="form-element">
         <label for="folder" class='icon icon-folder'>
-            <%=l(:label_folder) %>
+            <%=l(:Folder) %>
         </label>
         <%= select_tag :folder_id,   options_for_select(current_project.folder_options,@cross_tab.folder) %>
     </div>
     <br/>
     <div class="form-element">
         <label for="snapshot_name">
-            <%=l(:label_ref) %>
+            <%=l(:Ref) %>
         </label>
         <%= text_field_tag :name , @cross_tab.name,   {:size=>15, :class=>"text-input"} %>
     </div>
     <br/>
     <div class="form-element">
         <label for="snapshot_title">
-            <%=l(:label_title) %>
+            <%=l(:Title) %>
         </label>
         <%= text_field_tag :title ,@cross_tab.name,    {:size=>15, :class=>"text-input"} %>
     </div>
     <br/>
     <div class="form-element">
-        <%= submit_tag l(:button_save) %>
+        <%= submit_tag l(:Save) %>
     </div>
     <% end %>
 </div>

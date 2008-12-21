@@ -2,12 +2,12 @@
 00000000004_assay_workflow: !ruby/object:AssayWorkflow 
   attributes: 
     name: flow1
-    updated_at: 2008-08-14 10:29:48
+    updated_at: 2008-10-22 15:14:25
     process_style: Entry
     protocol_status: Active
     type: AssayWorkflow
     updated_by_user_id: "1"
-    lock_version: "7"
+    lock_version: "8"
     protocol_catagory: Dose
     process_definition_id: 
     assay_id: "1"

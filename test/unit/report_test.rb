@@ -11,7 +11,7 @@ class ReportTest < Test::Unit::TestCase
   
   # Replace this with your real tests.
   def setup
-     @model = Report
+    @model = Report
   end
   
   def test_truth
@@ -19,9 +19,12 @@ class ReportTest < Test::Unit::TestCase
   end
   
   def test_find
-     first = @model.find(:first)
-     assert first.id
-     assert first.name
+    first = @model.find(:first)
+    assert first.id
+    assert first.name
+    assert first.limit
+    assert first.start
+    assert first.page
   end
     
   def test_has_name
@@ -29,7 +32,7 @@ class ReportTest < Test::Unit::TestCase
     assert first.name    
   end
 
-   def test_valid
+  def test_valid
     first = @model.find(:first)
     assert first.valid?   
   end
@@ -108,7 +111,7 @@ class ReportTest < Test::Unit::TestCase
     assert first.run(:page=>1)    
   end
 
-   def test_contains_column
+  def test_contains_column
     reports = Report.contains_column("task_id")
     assert reports
     assert reports.all?{|report| report.columns.any?{|i|i.name=="task_id"}}
@@ -137,6 +140,97 @@ class ReportTest < Test::Unit::TestCase
     assert data.is_a?(Array)
     assert data.size>0
     assert report.sizes(data[0])
+  end
+
+
+  def test_add_ext_filter
+    report = @model.find(:first)
+    data = report.add_ext_filter({:start=>10,:limit=>100,:sort=>[],:fields=>"[1]",:query=>'x'})
+    assert_equal 10, report.start
+    assert_equal 100, report.limit
+  end
+
+  def test_ext_default_filter
+    report = @model.find(:first)
+    data = report.ext_default_filter
+  end
+
+  def test_ext_non_filterable
+    report = @model.find(:first)
+    data = report.ext_non_filterable
+    assert data
+  end
+
+  def test_ext_advanced_filters
+    report = @model.find(:first)
+    data = report.ext_advanced_filters
+    assert data
+  end
+
+  def test_ext_columns_json
+    report = @model.find(:first)
+    data = report. ext_columns_json
+    assert data
+  end
+
+  def test_ext_model_json
+    report = @model.find(:first)
+    data = report.ext_model_json
+    assert data
+  end
+
+  def test_to_ext
+    report = @model.find(:first)
+    data = report.to_ext
+    assert data
+  end
+
+  def test_find_all_using_model
+    data = Report.find_all_using_model(Task)
+    assert data
+  end
+
+  def test_add_ext_filter_null
+    report = @model.find(:first)
+    data = report.add_ext_filter({})
+    assert_equal 0, report.start
+    assert_equal 15, report.limit
+  end
+
+  def test_create_internal_report_default_then_customize
+    report = SystemReport.internal_report("ParameterProtocols",Parameter)
+    report.column('assay_parameter_id').is_visible = false
+    report.column('process.name').customize(:is_sortable=>true,:is_visiable=>true)
+    report.column('assay_parameter_id').filter = "xx"
+    report.save
+    assert_ok report
+  end
+
+  def test_create_internal_report_with_block
+    report1 = SystemReport.internal_report("ParameterProtocols",Parameter) do |report|
+      report.column('assay_parameter_id').is_visible = false
+      report.column('process.name').customize(:is_sortable=>true,:is_visiable=>true)
+      report.column('assay_parameter_id').filter = "xx"
+    end
+    assert_ok report1
+  end
+
+  def test_create_project_report_default_then_customize
+    report = ProjectReport.project_report("ParameterProtocols",Parameter)
+    report.column('assay_parameter_id').is_visible = false
+    report.column('process.name').customize(:is_sortable=>true,:is_visiable=>true)
+    report.column('assay_parameter_id').filter = "xx"
+    report.save
+    assert_ok report
+  end
+
+  def test_create_project_report_with_block
+    report2 = ProjectReport.project_report("ParameterProtocols",Parameter) do |report|
+      report.column('assay_parameter_id').is_visible = false
+      report.column('process.name').customize(:is_sortable=>true,:is_visiable=>true)
+      report.column('assay_parameter_id').filter = "xx"
+    end
+    assert_ok report2
   end
 
   def test_max_depth
@@ -183,6 +277,21 @@ class ReportTest < Test::Unit::TestCase
     report = @model.find(:first)
     assert report.refresh({:sort=>'id',:filter=>{:id=>'<100'}})   
     assert report.conditions
+  end
+
+  def test_domain_list
+    assert report = Biorails::SystemReportLibrary.domains_list("dddddd")
+    data = report.run
+    assert data
+    assert data.size>1
+    assert data[0].is_a?(Project)
+  end
+
+  def test_approved_docs_list
+    assert report = Biorails::SystemReportLibrary.approved_documents("ap_docs")
+    data = report.run
+    assert data
+
   end
 
 

@@ -74,8 +74,9 @@ class Admin::AssayStagesControllerTest < Test::Unit::TestCase
   end
 
   def test_destroy
-    assert_not_nil AssayStage.find(@item.id)
-    post :destroy, :id => @item.id
+    a = AssayStage.create(:name=>'temp3333',:description=>'tests')
+    assert_not_nil AssayStage.find(a.id)
+    post :destroy, :id => a.id
     assert_response :redirect
     assert_redirected_to :action => 'list'
   end

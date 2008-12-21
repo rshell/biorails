@@ -13,9 +13,9 @@
 
 <% content_for :center do -%>
   <%= render :partial=>'projects/header' %>
-  <h2 class='icon icon-assay'><%=l(:label_assays) %></h2>
+  <h2 class='icon icon-assay'><%=l(:Assays) %></h2>
 
-  <%= tab_strip("task-tabs", 0 ,[
+  <%= tab_strip("task-tabs", @tab||0 ,[
       {:name =>'Show'    , :partial =>'list' },
       {:name =>'Import'    , :partial =>'import' },
       {:name =>'Share'    , :partial =>'share' }

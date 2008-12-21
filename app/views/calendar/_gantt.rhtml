@@ -180,10 +180,11 @@
   <table width="100%">
   <tr>
   <td align="left">
-  <%= link_to_remote ('&#171; ' + l(:label_previous)),:url=>{ :year => (@date_from << @months).year, :month => (@date_from << @months).month, :zoom => @zoom, :months => @months} %>
+  <%= link_to_remote ('&#171; ' + l(:Previous)),:url=>{ :year => (@date_from << @months).year, :month => (@date_from << @months).month, :zoom => @zoom, :months => @months} %>
   </td>
   <td align="right">
-  <%= link_to_remote (l(:label_next) + ' &#187;'),:url=>{ :year => (@date_from >> @months).year, :month => (@date_from >> @months).month, :zoom => @zoom, :months => @months} %></td>
+  <%= link_to_remote (l(:Next) + ' &#187;'),:url=>{ :year => (@date_from >> @months).year, :month => (@date_from >> @months).month, :zoom => @zoom, :months => @months} %>
+  </td>
   </tr>
   </table>
   </div>

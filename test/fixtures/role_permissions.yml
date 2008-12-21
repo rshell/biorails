@@ -1,15 +1,3 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: role_permissions
-#
-#  id            :integer(4)      not null, primary key
-#  role_id       :integer(4)      not null
-#  permission_id :integer(4)
-#  subject       :string(40)
-#  action        :string(40)
-#
-
 --- 
 00000010261_role_permission: !ruby/object:RolePermission 
   attributes: 

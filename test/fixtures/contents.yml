@@ -3,18 +3,18 @@
   attributes: 
     content_type: 
     name: Art-67
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "15"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "12"
-    right_limit: 
+    right_limit: "16"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -30,18 +30,18 @@
   attributes: 
     content_type: 
     name: Art-63
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "11"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "8"
-    right_limit: 
+    right_limit: "12"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -57,18 +57,18 @@
   attributes: 
     content_type: 
     name: Art-68
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "16"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "13"
-    right_limit: 
+    right_limit: "17"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -84,18 +84,18 @@
   attributes: 
     content_type: 
     name: Art-69
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "17"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "14"
-    right_limit: 
+    right_limit: "18"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -111,18 +111,18 @@
   attributes: 
     content_type: 
     name: Art-65
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "13"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "10"
-    right_limit: 
+    right_limit: "14"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -138,7 +138,7 @@
   attributes: 
     content_type: 
     name: Art-59
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: |-
       A dress (also frock, gown) is a garment consisting of a skirt with an attached bodice or with a matching bodice giving the effect of a one-piece garment.
       
@@ -148,13 +148,13 @@
     project_id: "2"
     body: 
     title: Definition of a dress
-    left_limit: "1"
+    left_limit: "2"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "1"
+    type: 
     id: "3"
-    right_limit: "4"
+    right_limit: "5"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -170,18 +170,18 @@
   attributes: 
     content_type: 
     name: Art-80
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "27"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "26"
-    right_limit: 
+    right_limit: "28"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -197,18 +197,18 @@
   attributes: 
     content_type: 
     name: Art-66
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "14"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "11"
-    right_limit: 
+    right_limit: "15"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -224,7 +224,7 @@
   attributes: 
     content_type: 
     name: rjs-362
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: |-
       <p>A <b>dress</b> (also <b>frock</b>, <b>gown</b>) is a garment consisting of a skirt with an attached <a href="http://en.wikipedia.org/wiki/Bodice" title="Bodice">bodice</a> or with a matching bodice giving the effect of a one-piece garment.</p>
       <p>In <a href="http://en.wikipedia.org/wiki/Western_culture" title="Western culture">Western culture</a>, dresses are usually considered <a href="http://en.wikipedia.org/wiki/Woman" title="Woman">women's</a> clothing.</p>
@@ -232,13 +232,13 @@
     project_id: "2"
     body: 
     title: Definition of a dress
-    left_limit: "2"
+    left_limit: "3"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "1"
+    type: 
     id: "4"
-    right_limit: "3"
+    right_limit: "4"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -254,18 +254,18 @@
   attributes: 
     content_type: 
     name: Art-81
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "28"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "27"
-    right_limit: 
+    right_limit: "29"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -281,18 +281,18 @@
   attributes: 
     content_type: 
     name: Art-77
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "24"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "23"
-    right_limit: 
+    right_limit: "25"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -308,18 +308,18 @@
   attributes: 
     content_type: 
     name: Art-60
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: Here is an article in folder 1
     project_id: "2"
     body: 
     title: First article in folder 1
-    left_limit: 
+    left_limit: "8"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "5"
-    right_limit: 
+    right_limit: "9"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -335,18 +335,18 @@
   attributes: 
     content_type: 
     name: Art-57
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: This is the first Article in the system and was originally posted in the Global project
     project_id: "1"
     body: 
     title: First Article
-    left_limit: 
+    left_limit: "1"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "1"
-    right_limit: 
+    right_limit: "2"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -362,18 +362,18 @@
   attributes: 
     content_type: 
     name: Art-78
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "25"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "24"
-    right_limit: 
+    right_limit: "26"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -389,18 +389,18 @@
   attributes: 
     content_type: 
     name: Article1
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Article1Title
-    left_limit: "2"
+    left_limit: "6"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "1"
+    type: 
     id: "17"
-    right_limit: "3"
+    right_limit: "7"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -416,18 +416,18 @@
   attributes: 
     content_type: 
     name: Art-58
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: This is the first article in the Experiment
     project_id: "2"
     body: 
     title: First Article
-    left_limit: 
+    left_limit: "1"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "2"
-    right_limit: 
+    right_limit: "2"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -443,18 +443,18 @@
   attributes: 
     content_type: 
     name: Art-79
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "26"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "25"
-    right_limit: 
+    right_limit: "27"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -470,18 +470,18 @@
   attributes: 
     content_type: 
     name: Art-72
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "19"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "18"
-    right_limit: 
+    right_limit: "20"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -497,18 +497,18 @@
   attributes: 
     content_type: 
     name: Art-73
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "20"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "19"
-    right_limit: 
+    right_limit: "21"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -524,18 +524,18 @@
   attributes: 
     content_type: 
     name: Art-70
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: The title of the first article
     project_id: "2"
     body: 
     title: Article1Title
-    left_limit: "1"
+    left_limit: "5"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "1"
+    type: 
     id: "15"
-    right_limit: "4"
+    right_limit: "8"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -551,18 +551,18 @@
   attributes: 
     content_type: 
     name: Art-74
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "21"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "20"
-    right_limit: 
+    right_limit: "22"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -578,18 +578,18 @@
   attributes: 
     content_type: 
     name: Art-71
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "18"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "16"
-    right_limit: 
+    right_limit: "19"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -605,18 +605,18 @@
   attributes: 
     content_type: 
     name: Art-64
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "12"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "9"
-    right_limit: 
+    right_limit: "13"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -632,18 +632,18 @@
   attributes: 
     content_type: 
     name: Art-82
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "29"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "28"
-    right_limit: 
+    right_limit: "30"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -659,18 +659,18 @@
   attributes: 
     content_type: 
     name: Art-75
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "22"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "21"
-    right_limit: 
+    right_limit: "23"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -686,18 +686,18 @@
   attributes: 
     content_type: 
     name: Art-61
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: "&lt;p&gt;A &lt;b&gt;dress&lt;/b&gt; (also &lt;b&gt;frock&lt;/b&gt;, &lt;b&gt;gown&lt;/b&gt;) is a garment consisting of a skirt with an attached &lt;a href=&quot;http://en.wikipedia.org/wiki/Bodice&quot; title=&quot;Bodice&quot;&gt;bodice&lt;/a&gt; or with a matching bodice giving the effect of a one-piece garment.&lt;/p&gt;&#xd;&lt;p&gt;In &lt;a href=&quot;http://en.wikipedia.org/wiki/Western_culture&quot; title=&quot;Western culture&quot;&gt;Western culture&lt;/a&gt;, dresses are usually considered &lt;a href=&quot;http://en.wikipedia.org/wiki/Woman&quot; title=&quot;Woman&quot;&gt;women&apos;s&lt;/a&gt; clothing.&lt;/p&gt;&#xd;&lt;p&gt;The &lt;a href=&quot;http://en.wikipedia.org/wiki/Hemline&quot; title=&quot;Hemline&quot;&gt;hemline&lt;/a&gt; dresses can be as high as the upper &lt;a href=&quot;http://en.wikipedia.org/wiki/Thigh&quot; title=&quot;Thigh&quot;&gt;thigh&lt;/a&gt; or as low as the ground, depending on the whims of &lt;a href=&quot;http://en.wikipedia.org/wiki/Fashion&quot; title=&quot;Fashion&quot;&gt;fashion&lt;/a&gt; and the &lt;a href=&quot;http://en.wikipedia.org/wiki/Modesty&quot; title=&quot;Modesty&quot;&gt;modesty&lt;/a&gt; or personal taste of the wearer.&lt;/p&gt;"
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "9"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "6"
-    right_limit: 
+    right_limit: "10"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -713,18 +713,18 @@
   attributes: 
     content_type: 
     name: Art-76
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: <h3>Heading3</h3><p>This is some content</p>
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "23"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "22"
-    right_limit: 
+    right_limit: "24"
     lock_timeout: 
     db_file_id: 
     content_size: 
@@ -740,18 +740,18 @@
   attributes: 
     content_type: 
     name: Art-62
-    updated_at: 2008-08-14 10:29:34
+    updated_at: 2008-10-22 15:14:24
     body_html: "&lt;p&gt;A &lt;b&gt;dress&lt;/b&gt; (also &lt;b&gt;frock&lt;/b&gt;, &lt;b&gt;gown&lt;/b&gt;) is a garment consisting of a skirt with an attached &lt;a href=&quot;http://en.wikipedia.org/wiki/Bodice&quot; title=&quot;Bodice&quot;&gt;bodice&lt;/a&gt; or with a matching bodice giving the effect of a one-piece garment.&lt;/p&gt;&#xd;&lt;p&gt;In &lt;a href=&quot;http://en.wikipedia.org/wiki/Western_culture&quot; title=&quot;Western culture&quot;&gt;Western culture&lt;/a&gt;, dresses are usually considered &lt;a href=&quot;http://en.wikipedia.org/wiki/Woman&quot; title=&quot;Woman&quot;&gt;women&apos;s&lt;/a&gt; clothing.&lt;/p&gt;&#xd;&lt;p&gt;The &lt;a href=&quot;http://en.wikipedia.org/wiki/Hemline&quot; title=&quot;Hemline&quot;&gt;hemline&lt;/a&gt; dresses can be as high as the upper &lt;a href=&quot;http://en.wikipedia.org/wiki/Thigh&quot; title=&quot;Thigh&quot;&gt;thigh&lt;/a&gt; or as low as the ground, depending on the whims of &lt;a href=&quot;http://en.wikipedia.org/wiki/Fashion&quot; title=&quot;Fashion&quot;&gt;fashion&lt;/a&gt; and the &lt;a href=&quot;http://en.wikipedia.org/wiki/Modesty&quot; title=&quot;Modesty&quot;&gt;modesty&lt;/a&gt; or personal taste of the wearer.&lt;/p&gt;"
     project_id: "2"
     body: 
     title: Content1
-    left_limit: 
+    left_limit: "10"
     published: "0"
-    type: 
     updated_by_user_id: "1"
     lock_version: "0"
+    type: 
     id: "7"
-    right_limit: 
+    right_limit: "11"
     lock_timeout: 
     db_file_id: 
     content_size: 

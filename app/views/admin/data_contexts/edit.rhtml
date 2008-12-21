@@ -1,12 +1,12 @@
 <% content_for :sidemenu do%>
   <%= render :partial => '/menu/admin_menu'%>
     <div>
-      <span class='menu'><%=l(:label_dictionary)%></span>
+      <span class='menu'><%=l(:Dictionary)%></span>
       <div class='boldnotbold'>
-        <%= link_to l(:label_delete),{ :action => 'remove', :id =>  @data_context }, :confirm => l(:text_are_you_sure),:method => "post" %>
-        <%= link_to l(:label_new),:action => 'new', :controller=>'data_concepts' ,:data_context =>  @data_context %>
-        <%= link_to l(:label_edit),:action => 'edit', :id =>  @data_context %>
-        <%= link_to l(:label_list),:action => 'list' %>
+        <%= link_to l(:Delete),{ :action => 'remove', :id =>  @data_context }, :confirm => l(:text_are_you_sure),:method => "post" %>
+        <%= link_to l(:New),:action => 'new', :controller=>'data_concepts' ,:data_context =>  @data_context %>
+        <%= link_to l(:Edit),:action => 'edit', :id =>  @data_context %>
+        <%= link_to l(:List),:action => 'list' %>
       </div>
     </div>
 <% end %>
@@ -14,12 +14,12 @@
 <%= render :partial => 'admin/header'%>
 <div class='main' id='maintitle'>
     <h2 class='icon icon-data_context'>
-        <%=l(:label_dictionary_edit)%> [<strong><%= @data_context.path %></strong>]
+        <%=l(:Dictionary_Edit)%> [<strong><%= @data_context.path %></strong>]
     </h2>
     <div class='dialog'>
         <% form_tag :action => 'update', :id => @data_context do %>
           <%= render :partial => 'form' %>
-          <%= submit_tag l(:button_save) %>
+          <%= submit_tag l(:Save) %>
        <% end %>
     </div>
 </div>

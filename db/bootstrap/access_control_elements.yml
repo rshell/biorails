@@ -1,0 +1,19 @@
+
+00000000002_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "2"
+    id: "2"
+    owner_id: "1"
+    access_control_list_id: "1"
+    owner_type: Team
+  attributes_cache: {}
+
+00000000001_access_control_element: !ruby/object:AccessControlElement 
+  attributes: 
+    role_id: "5"
+    id: "1"
+    owner_id: "2"
+    access_control_list_id: "1"
+    owner_type: User
+  attributes_cache: {}
+

@@ -1,0 +1,29 @@
+<div class='panel' >
+
+<%form_tag  home_url(:action=>'update') do %>
+
+    <div class="splitcontentleft">
+      <div class="box">
+       <h2> Home tab content </h2>
+        <%=render :partial => 'customize'%>
+      </div>
+    </div>
+
+    <div class="splitcontentright">
+      <div class="box">
+       <h2> Login Defaults </h2>
+        <%=render :partial => 'settings'%>
+      </div>
+
+
+    </div>
+      <div class="row">
+        <div class="form-element">
+          <%= submit_tag l('Save') %>
+        </div>
+        <%=  link_to l(:Cancel),home_url%>
+      </div>
+<br />
+<br />
+<%end%>
+</div>

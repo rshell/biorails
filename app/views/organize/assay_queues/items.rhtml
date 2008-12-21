@@ -4,41 +4,44 @@
 
 <% content_for :messages do -%>
   <%=render :partial =>'shared/messages',:locals => { :objects => ['assay','assay_queue' ]} %>
-<%end%>
+<% end -%>
 
-<%= render :partial => 'organize/assays/header'%>
+<% content_for :center do %>
 
-<h2 class='icon icon-queue'>
-  <%=l(:label_service_queue)%> [<%= @assay_queue.name %>]
-</h2>
-<div class='panel'>
+  <%= render :partial => 'header'%>
+
+  <h2 class='icon icon-queue'>
+    <%=l(:Service_Queue)%> [<%= @assay_queue.name %>]
+  </h2>
+  <div class='panel'>
     <%= render :partial => 'assay_queue', :locals => { :assay_queue => @assay_queue } %>
     <table class='report' style='border: solid thin'>
       <tr>
-          <th><%=l(:label_request)%></th>
-          <th><%=l(:label_item)%></th>
-          <th><%=l(:label_status)%></th>
-          <th><%=l(:label_priority)%></th>
-          <th><%=l(:label_assigned_to)%></th>
-          <th><%=l(:label_comments)%></th>
-          <th><%=l(:label_updated)%></th>
-          <th><%=l(:label_accepted)%></th>
-          <th><%=l(:label_completed)%></th>
-          <th></th>
+        <th><%=l(:Request)%></th>
+        <th><%=l(:Item)%></th>
+        <th><%=l(:Status)%></th>
+        <th><%=l(:Priority)%></th>
+        <th><%=l(:Assigned_To)%></th>
+        <th><%=l(:Comments)%></th>
+        <th><%=l(:Updated)%></th>
+        <th><%=l(:Accepted)%></th>
+        <th><%=l(:Completed)%></th>
+        <th></th>
       </tr>
       <tr>
       <tr>
       <%for queue_item in @assay_queue.items %>
-      <% form_tag :action => 'update_item',:id=> queue_item.id do %>
-            <tr id='<%=queue_item.dom_id(:updated_at)%>'>
-              <%= render :partial => 'queue_item', :locals => { :queue_item => queue_item} %>
-            </tr>
+        <% form_tag :action => 'update_item',:id=> queue_item.id do %>
+          <tr id='<%=queue_item.dom_id(:updated_at)%>'>
+            <%= render :partial => 'queue_item', :locals => { :queue_item => queue_item} %>
+          </tr>
         <% end %>
 
       <% end %>
     </table>
   </div>
+<%end%>
 
 <% content_for :footer do -%>
-   <%= render :partial => 'shared/audit',:locals =>{ :item => @request_service} %>
+  <%= render :partial => 'shared/audit',:locals =>{ :item => @request_service} %>
 <%end%>

@@ -2,6 +2,10 @@ Ext.ux.grid.filter.DateFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
 	dateFormat: 'm/d/Y',
 	pickerOpts: {},
 	
+    beforeText: 'Before',
+    afterText:  'After',
+    onText:     'On',
+	
 	init: function(){
 		var opts = Ext.apply(this.pickerOpts, {
 			minDate: this.minDate, 
@@ -9,9 +13,9 @@ Ext.ux.grid.filter.DateFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
 			format:  this.dateFormat
 		});
 		var dates = this.dates = {
-			'before': new Ext.menu.CheckItem({text: "Before", menu: new Ext.menu.DateMenu(opts)}),
-			'after':  new Ext.menu.CheckItem({text: "After", menu: new Ext.menu.DateMenu(opts)}),
-			'on':     new Ext.menu.CheckItem({text: "On", menu: new Ext.menu.DateMenu(opts)})};
+			'before': new Ext.menu.CheckItem({text: this.beforeText, menu: new Ext.menu.DateMenu(opts)}),
+			'after':  new Ext.menu.CheckItem({text: this.afterText, menu: new Ext.menu.DateMenu(opts)}),
+			'on':     new Ext.menu.CheckItem({text: this.onText, menu: new Ext.menu.DateMenu(opts)})};
 				
 		this.menu.add(dates.before, dates.after, "-", dates.on);
 		

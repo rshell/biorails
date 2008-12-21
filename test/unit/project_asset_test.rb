@@ -80,8 +80,9 @@ class ProjectAssetTest < Test::Unit::TestCase
      element = @folder.add_element(ElementType::FILE,{:name=>'test_png3',:file=>file,:content_type=>'image/png'})
      assert_ok element
      assert element.asset
+     assert element.asset.summary
+     assert element.asset.size>0
      assert element.asset.db_file 
   end
   
-
 end

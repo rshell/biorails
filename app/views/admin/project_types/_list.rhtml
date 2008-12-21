@@ -1,20 +1,23 @@
-<%= render :partial => 'admin/header' %>
-    <h2 class='icon icon-project'><%=l(:label_project_types) %>
+<%= render :partial => 'header' %>
+    <h2 class='icon icon-project'><%=l(:Project_Types) %>
     </h2>
 <div class='panel'>
         <table class='report'>
             <tr>
                 <th>
-                    <%=l(:label_name) %>
+                    <%=l(:Name) %>
                 </th>
                 <th>
-                    <%=l(:label_description) %>
+                    <%=l(:Description) %>
                 </th>
                 <th>
-                    <%=l(:label_dashboard) %>
+                    <%=l(:Dashboard) %>
                 </th>
                 <th>
-                    <%=l(:label_action) %>
+                    <%=l(:Workflow) %>
+                </th>
+                <th>
+                    <%=l(:Action) %>
                 </th>
             </tr>
             <% for project_type in @project_types %>
@@ -29,10 +32,13 @@
                     <%=h project_type.dashboard %>
                 </td>
                 <td>
-                    <%= link_to l(:label_edit),project_type_url(:action=>:edit, :id=>project_type), :class=>'icon icon-edit' %>
+                    <%=h project_type.state_flow.name if project_type.state_flow%>
+                </td>
+                <td>
+                    <%= link_to l(:Edit),project_type_url(:action=>:edit, :id=>project_type), :class=>'icon icon-edit' %>
                 </td>
             </tr>
             <% end %>
         </table>
-    <hr/><%= link_to l(:label_new), project_type_url(:action=>:new),:method => :get, :class=>'icon icon-new' %>
+    <hr/><%= link_to l(:New), project_type_url(:action=>:new),:method => :get, :class=>'icon icon-new' %>
 </div>

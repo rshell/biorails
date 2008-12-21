@@ -2,22 +2,20 @@
 # handy for modifying existing Rails rake tasks.
 # Credit for the original snippet of code goes to Jeremy Kemper
 # http://pastie.caboo.se/9620
-unless Rake::TaskManager.methods.include?('redefine_task')
+unless Rake::TaskManager.methods.include?(:redefine_task)
   module Rake
     module TaskManager
       def redefine_task(task_class, args, &block)
-        task_name, arg_names, deps = resolve_args([args])
+        task_name, deps = resolve_args(args)
         task_name = task_class.scope_name(@scope, task_name)
         deps = [deps] unless deps.respond_to?(:to_ary)
         deps = deps.collect {|d| d.to_s }
         task = @tasks[task_name.to_s] = task_class.new(task_name, self)
         task.application = self
-        task.add_description(@last_description)
-        @last_description = nil
+        @last_comment = nil
         task.enhance(deps, &block)
         task
       end
-      
     end
     class Task
       class << self

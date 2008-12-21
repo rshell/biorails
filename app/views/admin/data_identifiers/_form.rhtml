@@ -1,0 +1,53 @@
+<%= error_messages_for 'data_identifier' %>
+
+<!--[form:data_identifiers]-->
+<p>
+  <label for="data_identifier_name">
+    <%=l(:Name)%>
+  </label>
+  <br/>
+  <%= text_field 'data_identifier', 'name'  %>
+</p>
+
+<p>
+  <label for="data_identifier_name">
+    <%=l(:prefix)%>
+  </label>
+  <br/>
+  <%= text_field 'data_identifier', 'prefix'  %>
+</p>
+
+<p>
+  <label for="data_identifier_name">
+    <%=l(:postfix)%>
+  </label>
+  <br/>
+  <%= text_field 'data_identifier', 'postfix'  %>
+</p>
+
+<p>
+  <label for="data_identifier_current_step">
+    <%=l(:current_counter)%>
+  </label>
+  <br/>
+  <%= text_field 'data_identifier', 'current_counter'  %>
+</p>
+
+<p>
+  <label for="data_identifier_current_step">
+    <%=l(:current_step)%> [ 1 normally]
+  </label>
+  <br/>
+  <%= text_field 'data_identifier', 'current_step'  %>
+</p>
+
+<p>
+  <label for="data_identifier_mask">
+    <%=l(:Mask)%> [sprint mask to number formating like "%s-%.9d-%s" for "Prefix-000000001-Postfix" up]
+
+  </label>
+  <br/>
+  <%= text_field 'data_identifier', 'mask'  %>
+</p>
+
+<!--[eoform:data_identifiers]-->

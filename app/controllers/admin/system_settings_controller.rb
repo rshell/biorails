@@ -5,9 +5,7 @@
 
 class Admin::SystemSettingsController < ApplicationController
   
-  use_authorization :dba,
-                    :actions => [:list,:edit,:update],
-                    :rights => :current_user
+  use_authorization :system, :admin => [:list,:edit,:update]
   def index
     list
     render :action => 'list'
@@ -36,5 +34,5 @@ class Admin::SystemSettingsController < ApplicationController
       render(:text=> item.displayed_value)
     end
   end
-  
+
 end

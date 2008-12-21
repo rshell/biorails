@@ -1,6 +1,6 @@
 <!--TODO: there seems to be no user partitioning of requests!-->
 <div class="box">
-    <b class="icon icon-request"><%=link_to l(:label_my_latest, 5, l(:label_requests)), request_url(:action=>:list) %>
+    <b class="icon icon-request"><%=link_to l(:My_Latest, 5, l(:Requests)), request_url(:action=>:list) %>
     </b>
     <% for request in @user.latest(Request,5,'requested_by_user_id') %>
       <b>
@@ -10,7 +10,7 @@
       <table class='report' style='border: solid thin'>
         <tr>
           <th>
-            <%=l(:label_item) %>
+            <%=l(:Item) %>
           </th>
           <%for item in request.services %>
           <th>

@@ -1,65 +1,68 @@
 <% content_for :sidemenu do %>
-<%= render :partial => 'menu' %>
+  <%= render :partial => 'menu' %>
 <% end %>
-<%= render :partial => 'admin/header' %>
-    <h2 class="icon icon-data_format"><%=@data_format.name %>
-    </h2>
-<div class='panel'>
+
+<% content_for :center do %>
+  <%= render :partial => 'admin/header' %>
+  <h2 class="icon icon-data_format"><%=@data_format.name %>
+  </h2>
+  <div class='panel'>
     <div class='box'>
-        <b><%=l(:label_description) %>: </b>
-        <%=@data_format.description %>
+      <b><%=l(:Description) %>: </b>
+      <%=@data_format.description %>
     </div>
 
-        <% if @data_format.used? %>
-        
-        <table class="report">
+    <% if @data_format.used? %>
+
+      <table class="report">
         <tr>
-            <th>
-                <%=l(:label_assay) %>
-            </th>
-            <th>
-                <%=l(:label_parameter_name) %>
-            </th>
-            <th>
-                <%=l(:label_parameter_type) %>
-            </th>
-            <th>
-                <%=l(:label_parameter_role) %>
-            </th>
-            <th>
-                <%=l(:label_data_type) %>
-            </th>
+          <th>
+            <%=l(:Assay) %>
+          </th>
+          <th>
+            <%=l(:Parameter_Name) %>
+          </th>
+          <th>
+            <%=l(:Parameter_Type) %>
+          </th>
+          <th>
+            <%=l(:Parameter_Role) %>
+          </th>
+          <th>
+            <%=l(:Data_Type) %>
+          </th>
         </tr>
+        <%for item in  @data_format.assay_parameters %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td>
+              <%=link_to item.assay.name, assay_url(:action=>:show ,          :id=>item.assay) %>
+            </td>
+            <td>
+              <%=link_to item.name, assay_parameter_url(:action=>:show ,:id=>item.id) %>
+            </td>
+            <td>
+              <%=link_to item.parameter_type.name, parameter_type_url(:action=>:show  ,:id=>item.parameter_type.id) if item.parameter_type  %>
+            </td>
+            <td>
+              <%=link_to item.role.name, parameter_role_url(:action=>:show  ,:id=>item.role.id) %>
+            </td>
+            <td>
+              <%=item.data_type.name %>
+            </td>
+          </tr>
+        <%end %>
+      </table>
     </div>
-    <%for item in  @data_format.assay_parameters %>
-    <tr class="<%= cycle('odd', 'even') %>">
-        <td>
-            <%=link_to item.assay.name, assay_url(:action=>:show ,          :id=>item.assay) %>
-        </td>
-        <td>
-            <%=link_to item.name, assay_parameter_url(:action=>:show ,:id=>item.id) %>
-        </td>
-        <td>
-            <%=link_to item.parameter_type.name, parameter_type_url(:action=>:show  ,:id=>item.parameter_type.id) if item.parameter_type  %>
-        </td>
-        <td>
-            <%=link_to item.role.name, parameter_role_url(:action=>:show  ,:id=>item.role.id) %>
-        </td>
-        <td>
-            <%=item.data_type.name %>
-        </td>
-    </tr>
-    <%end %>
-    </table>
-<%else %>
-<div class='box'>
-    <i><%=l(:text_data_format_not_in_use) %>
-        <%= link_to l(:label_delete), { :action => 'destroy', :id =>  @data_format },:confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-cancel' %>?</i>
-</div>
-<%end %>
-<hr /><%= link_to l(:label_list), data_format_url(:action => 'list'), :class=>'icon icon-list' %>
-<% if @data_elment && !@data_elment.new_record? %>
-<%= link_to l(:label_edit),  data_format_url(:action => 'edit', :id => @data_format), :class=>'icon icon-edit' %>
-<%= link_to l(:label_show),  data_format_url(:action => 'show', :id => @data_format), :class=>'icon icon-show' %>
+  <%else %>
+    <div class='box'>
+      <i><%=l(:text_data_format_not_in_use) %>
+      <%= link_to l(:Delete), { :action => 'destroy', :id =>  @data_format },:confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-cancel' %>?</i>
+    </div>
+  <%end %>
+  <hr /><%= link_to l(:List), data_format_url(:action => 'list'), :class=>'icon icon-list' %>
+  <% if @data_elment && !@data_elment.new_record? %>
+    <%= link_to l(:Edit),  data_format_url(:action => 'edit', :id => @data_format), :class=>'icon icon-edit' %>
+    <%= link_to l(:Show),  data_format_url(:action => 'show', :id => @data_format), :class=>'icon icon-show' %>
+  <% end %>
+
 <% end %>
-</div>

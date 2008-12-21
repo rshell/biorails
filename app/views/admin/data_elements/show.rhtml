@@ -3,55 +3,23 @@
     <div>
       <span class='menu'>
         <b class='icon icon-data_element'>
-          <%=l(:label_element)%>
+          <%=l(:Data_Element)%>
         </b>
       </span>
-      <%= link_to "<b class='icon icon-list'>"+l(:label_list)+"</b>", :action => 'show',  :controller => 'data_systems', :id => @data_element.system %>
-      <%= link_to "<b class='icon icon-del'>"+l(:label_delete)+"</b>", { :action => 'destroy' ,:id=> @data_element.id},
+      <%= link_to "<b class='icon icon-list'>"+l(:List)+"</b>", :action => 'show',  :controller => 'data_systems', :id => @data_element.system %>
+      <%= link_to "<b class='icon icon-del'>"+l(:Delete)+"</b>", { :action => 'destroy' ,:id=> @data_element.id},
       :confirm => l(:text_are_you_sure) , :method => "post"  if @data_element.not_used %>
     </div>
 <% end %>
 
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['data_element' ]} %>
+<%end%>
+
 
 <% content_for :center do -%>
 <%= render :partial => 'admin/header' %>
-<h2 class='icon icon-data_element'>
-    <%=l(:label_element)%> [<strong><%= @data_element.path %></strong>]
-    <%=l(:label_in)%> [<strong><%=@data_element.system.name%></strong>]
-</h2>
-<div class="panel boldnotbold">
-  <div class='box'>
-    <table class='report'>
-      <tbody>
-        <tr><th><%=l(:label_data_system)%>:</th><td><%= @data_element.system.name if @data_element.system %> </td></tr>
-        <tr><th><%=l(:label_name)%>: </th><td><%= @data_element.name %> </td></tr>
-        <tr><th><%=l(:label_description)%>: </th><td><%= in_place_editor_field(:data_element,:description,{},{:rows=>2,:cols=>60}) %> </td></tr>
-      </tbody>
-    </table>
-    <div class="row">
-    This is implemented with the style [<%=@data_element.style%>] and based on [<i><%=@data_element.content%></i>]
-    </div><hr />
-       <label for="Lookup_Test"><%=l(:label_example)%></label>
-           <%=@data_element.name %>
-           <%=my_lookup_tag(:test,:name, @data_element) %>
-  </div>
-
-    <div class="row">
-     <div class="form-element">
-        <% if @data_element.style=='list'%>
-        <%=render :partial=>'child'%>
-        <% else %>
-        <%= values %>
-        <% end %>
-     </div>
- 
-
-  </div>
-<hr />
-<b class='icon icon-list'><%= link_to l(:label_list), :action => 'show',  :controller => 'data_systems', :id => @data_element.system %></b>
-
-</div>
-
+<%= render :partial => 'show' %>
 <% end %>
 
 <% content_for :footer do -%>

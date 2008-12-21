@@ -65,14 +65,15 @@ class ProjectElement < ActiveRecord::Base
   
   acts_as_audited :change_log
   
-  acts_as_ferret :fields => [ :name, :title, :summary], :default_field=>[:name], :single_index => true, :store_class_name => true
-  
   # Generic rules for a name and description to be present
   validates_uniqueness_of :name, :scope =>[:project_id, :parent_id, :reference_type]
-  validates_presence_of   :project_id
+  validates_presence_of   :project
+  validates_presence_of   :state
+  validates_presence_of   :element_type
+  validates_presence_of   :access_control_list
   validates_presence_of   :name
   validates_presence_of   :position
-  validates_format_of :name, :with => /^[A-Z,a-z,0-9,_,\.,\-,+,\$,\&, ,:,#]*$/, 
+  validates_format_of :name, :with => /^[A-Z,a-z,0-9,_,\.,\-,+,\$,\&, ,:,#,\/]*$/,
     :message => 'name only accept a limited range of characters [A-z,0-9,_,.,$,&,+,-, ,#,@,:]'
 
   attr_accessor :default_image_size
@@ -89,6 +90,11 @@ class ProjectElement < ActiveRecord::Base
   # Access control List linked to the element
   #
   belongs_to :access_control_list
+
+  has_many :elements,  :class_name  => 'ProjectElement',
+    :foreign_key => 'parent_id',
+    :include => [:asset,:content,:state],
+    :order       => 'project_elements.left_limit' 
   #
   # There to another model which is is a representation of
   #
@@ -96,15 +102,17 @@ class ProjectElement < ActiveRecord::Base
   #
   # Current content version of the element 
   #
-  belongs_to :content,   :class_name =>'Content', :foreign_key => 'content_id', :dependent => :destroy
+  belongs_to :content,   :class_name =>'Content', :foreign_key => 'content_id'
   #
   # Old reference for image assets
   #
-  belongs_to :asset,     :class_name =>'Asset',  :foreign_key => 'asset_id', :dependent => :destroy
+  belongs_to :asset,     :class_name =>'Asset',  :foreign_key => 'asset_id'
   #
   # Current status of the data element
   #
   belongs_to :state,     :class_name =>'State', :foreign_key => 'state_id'
+
+ 
   #
   # The Element Type defines the templates for creating,editing and show the element. This is
   # normally html,wiki,file,image etc.
@@ -118,7 +126,7 @@ class ProjectElement < ActiveRecord::Base
   #
   # make sure project and team are set
   # 
-  before_create :initialize_element
+  before_validation_on_create :initialize_element
   
   def initialize_element  
     if self.parent
@@ -147,12 +155,12 @@ class ProjectElement < ActiveRecord::Base
     false
   end
   
-#
-# Get all items within the scope of this folder
-# use like a find
-# 
-# folder.find_within(:all,:conditions=>{:reference_type=>'Assay'})
-#
+  #
+  # Get all items within the scope of this folder
+  # use like a find
+  #
+  # folder.find_within(:all,:conditions=>{:reference_type=>'Assay'})
+  #
   def find_within(*args)
     ProjectElement.within_scope_of(self) do
       ProjectElement.find(*args)
@@ -169,16 +177,16 @@ class ProjectElement < ActiveRecord::Base
   # References to Class linked to a another project
   #
   def external_references(klass)
-      list = internal_references(klass).collect{|i|i.reference_id}
+    list = internal_references(klass).collect{|i|i.reference_id}
 
-      ProjectElement.outside_scope_of(self) do
-        ProjectElement.find(:all,:conditions => ["reference_type ='#{klass.class_name}' and reference_id in (?)",list])
+    ProjectElement.outside_scope_of(self) do
+      ProjectElement.find(:all,:conditions => ["reference_type ='#{klass.class_name}' and reference_id in (?)",list])
     end
   end
   
   def linked_references(klass)
     ProjectElement.within_scope_of(self) do
-        ProjectElement.find(:all,:conditions => ["reference_type ='#{klass.class_name}'"])
+      ProjectElement.find(:all,:conditions => ["reference_type ='#{klass.class_name}'"])
     end
   end
   #
@@ -187,7 +195,8 @@ class ProjectElement < ActiveRecord::Base
   def internal_references(klass)
     ProjectElement.within_scope_of(self) do
       ProjectElement.find(:all,
-      :conditions => "reference_type ='#{klass.class_name}' and ( select 1 from #{klass.table_name}
+        :conditions => "reference_type ='#{klass.class_name}'
+ and exists ( select 1 from #{klass.table_name}
          where #{klass.table_name}.id=project_elements.reference_id
          and  #{klass.table_name}.project_element_id = project_elements.id) ")
     end
@@ -203,7 +212,6 @@ class ProjectElement < ActiveRecord::Base
   def sign(options ={})
     signature = Signature.new( options.merge({
           :signature_state=>"SIGNED",
-          :comments=>"",
           :created_by_user_id => User.current.id,
           :user_id=>User.current.id,
           :signature_role=> 'AUTHOR',
@@ -214,8 +222,8 @@ class ProjectElement < ActiveRecord::Base
   #
   # List of list n signatures
   #
-  def signed(limit=5)
-    self.signatures.find( :all , :conditions=> ['signature_state=?', 'SIGNED'],:limit=>limit )
+  def signed(limit=20)
+    self.signatures.find( :all , :conditions=> ['signature_state=?', 'SIGNED'],:order=>'id desc',:limit=>limit )
   end
 
   def signature_attempts(limit=50)
@@ -248,8 +256,8 @@ class ProjectElement < ActiveRecord::Base
       self.title = item[:title]
       self.team  = item[:team]
       self.team_id  = item[:team_id]
-      self.state = item[:state]
-      self.state_id = item[:state_id]
+      self.state_id = item[:state_id] unless item[:state_id].blank?
+      self.state ||= State.find(:first)
       #
       # Add content if specified
       #
@@ -329,8 +337,8 @@ class ProjectElement < ActiveRecord::Base
       item.content_hash= Signature.generate_checksum(item.to_xml)
       item.parent = self.content    
       if self.content
-         item.project_id= self.content.project_id
-         content.add_child(item)
+        item.project_id= self.content.project_id
+        self.content.add_child(item)
       else 
         item.save 
       end
@@ -351,7 +359,8 @@ class ProjectElement < ActiveRecord::Base
   #
   def add_element(style,options = nil)
     ProjectElement.transaction do
-      raise ActiveRecord::ActiveRecordError, "You cannot add elements to a unsaved parent" if new_record?
+      raise ActiveRecord::ActiveRecordError, "Failed to added child as parent not saved: "+self.errors.full_messages().join("\n") if (self.new_record? and !self.save)
+      raise ActiveRecord::ActiveRecordError, "This folder is not changeable"  unless self.changeable?
       element_type = ElementType.lookup(style)
       element = element_type.new_element(self)
       element.fill(options)
@@ -360,9 +369,9 @@ class ProjectElement < ActiveRecord::Base
     end
   end
 
-#
-# Add a encoded files as a Base64 text string
-#
+  #
+  # Add a encoded files as a Base64 text string
+  #
   def add_asset(name, file,  content_type = nil)
     if (file.is_a?(String) and File.exists?(file)) 
       file = File.new(file) 
@@ -371,27 +380,27 @@ class ProjectElement < ActiveRecord::Base
     file_name ||= File.basename(file.path) if file.is_a?(File)
     file_name ||= name
     add_element(ElementType::FILE,{:name=>name,:title=>name,
-              :file_name=>file_name,
-              :file_type=>content_type,
-              :file=>file})
+        :file_name=>file_name,
+        :file_type=>content_type,
+        :file=>file})
   end
 
   def add_file(name, file,  content_type = nil)
     add_element(ElementType::FILE,{:name=>name,:title=>name,:file_type=>content_type,:file=>file})
   end
-##
-# Add a reference to the another database model
-#   
+  ##
+  # Add a reference to the another database model
+  #
   def add_reference(name,reference=nil)    
-     add_element(ElementType::REFERENCE,{:name=>name,:title=>name,:reference=>reference})
+    add_element(ElementType::REFERENCE,{:name=>name,:title=>name,:reference=>reference})
   end
   
   def add_content(name,body=nil)
-     add_element(ElementType::HTML,{:name=>name,:title=>name,:content_data=>body})
+    add_element(ElementType::HTML,{:name=>name,:title=>name,:content_data=>body})
   end
 
   def add_folder(name,reference=nil)
-     add_element(ElementType::FOLDER,{:name=>name,:title=>name,:reference=>reference})    
+    add_element(ElementType::FOLDER,{:name=>name,:title=>name,:reference=>reference})
   end
   
   def icon( options={} )
@@ -400,12 +409,6 @@ class ProjectElement < ActiveRecord::Base
 
   def image_tag
     ""
-  end  
-  #
-  # References to a object
-  #
-  def self.references(instance)
-     find(:all,:conditions=>{:reference_type=>instance.class_name,:reference_id=>instance.id},:order=>:id)
   end    
   #
   # Default Data processing (none)
@@ -429,53 +432,64 @@ class ProjectElement < ActiveRecord::Base
   # Update the Access control list for this element
   #
   def update_acl(acl,children = true)
-    if (self.access_control_list_id != acl.id)
-      raise "No share rights to change Access control list" unless self.access_control_list.allow?('data','share')
-      raise "Not allowed remove own share rights to access control list" unless acl.allow?('data','share')
-      if children
-        logger.info "updating acl #{self.access_control_list_id} => #{acl.id}"
-        ProjectElement.update_all(
-          "access_control_list_id=#{acl.id}",
-          ["access_control_list_id = ? and left_limit >=? and right_limit <=? and project_id = ?",
-            self.access_control_list_id, self.left_limit, self.right_limit, self.project_id])
-      else
-        self.access_control_list_id = acl.id
-        self.save!
+    raise "No share rights to change Access control list" unless self.access_control_list.right?('data','share')
+    raise "Not allowed remove own share rights to access control list" unless acl.right?('data','share')
+    ProjectElement.transaction do
+      if (self.access_control_list_id != acl.id)
+        if children
+          logger.info "updating acl #{self.access_control_list_id} => #{acl.id}"
+          ProjectElement.update_all( "access_control_list_id=#{acl.id}",
+            ["access_control_list_id = ? and left_limit >=? and right_limit <=? and project_id = ?",
+              self.access_control_list_id, self.left_limit, self.right_limit, self.project_id])
+        else
+          self.access_control_list_id = acl.id
+          self.save!
+        end
       end
     end
   end  
-##
-# Get a root folder my name 
-# 
-  def folder?(item)
+  ##
+  # Get a root folder my name
+  #
+  def folder?(item = nil)
     return self if item == self
     return self if item.nil?
     if item.is_a?  ActiveRecord::Base
-       ProjectFolder.find(:first,:conditions=>['parent_id=? and reference_type=? and reference_id=?',self.id,item.class.class_name,item.id])
+      ProjectFolder.find(:first,:conditions=>['parent_id=? and reference_type=? and reference_id=?',self.id,item.class.class_name,item.id])
     elsif item.respond_to?(:name)
-       ProjectFolder.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.name.to_s])
+      ProjectFolder.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.name.to_s])
     else
-       ProjectFolder.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.to_s])
+      ProjectFolder.find(:first,:conditions=>['parent_id=? and name=?',self.id,item.to_s])
     end
   end  
   
-##
-# add/find a folder to the project. This  
-# 
-  def folder(item)
+  ##
+  # add/find a folder to the project. This
+  #
+  def folder(item=nil)
     folder = self.folder?(item)
     if folder.nil? 
-       logger.info "Creating folder #{item}"
-       if item.is_a?(ActiveRecord::Base) and item.respond_to?(:name)
-          folder = self.add_folder(item.name, item )          
-       else
-          folder =self.add_folder(item.to_s,nil)   
-       end
+      logger.info "Creating folder #{item}"
+      if item.is_a?(ActiveRecord::Base) and item.respond_to?(:name)
+        folder = self.add_folder(item.name, item )
+      else
+        folder =self.add_folder(item.to_s,nil)
+      end
     end
     return folder
   end
   
-    
+  # Set the Data from a form
+  #
+  def content_data=(value)
+    fill(value)
+  end
+  #
+  # Set the Content Data for use in forms
+  #
+  def content_data
+    content.body_html if content
+  end
   #
   # Html content to display
   #
@@ -485,11 +499,16 @@ class ProjectElement < ActiveRecord::Base
     return reference.to_html if reference
     ""
   end
+
+  def to_html
+    html
+  end
   #
   # Get the status of the element
   #
   def state_name
     return state.name if state
+    "new"
   end
   #
   # Get the owner name for the element
@@ -519,26 +538,64 @@ class ProjectElement < ActiveRecord::Base
   #   * If current user is a member of the team owning the record
   #   * If current user was the last author of the object.
   #
-  def allow?(subject ='data', action='edit')
+  def right?(subject ='data', action='edit')
     return self.permission?(User.current, subject, action )
   end 
   #
   #  If the record published      
   #        
   def published?
-    return (state and state.published?)
+    return (!state.nil? and state.published?)
+  end
+
+  def deletable?
+    self.all_children_count==0 && 
+      self.changeable? &&
+      self.right?(:data,:destroy) &&
+      (self.reference.blank? or self.reference.is_a?(ProjectElement))   
+  end
+
+  def state_flow
+    self.project.state_flow || StateFlow.find(:first)
   end
   #
   #
-  def can_publish?(tree=true)
-    return false unless valid? and state.completed? and !state.published?
-    if tree    
-      for item in all_children
-        return false unless item.can_publish?(false)
+  def allow_state?(new_state,cascade=false)
+    return false unless self.valid? and self.state and state_flow.allow?(state,new_state) and self.state != new_state
+    if cascade
+      for item in self.all_children
+        return false unless item.allow_state?(new_state,tree=false)
       end
-    end 
+    end
     true
   end
+  #
+  # List allowed_states from the current one, with a optional check of children
+  #
+  def allowed_states(cascade=false)
+    return [State.find(:first)] if self.new_record? || self.state.nil?
+
+    allowed = self.state_flow.next_states( self.state)
+    if cascade 
+      self.all_children.each do |item|
+         unless  item.state and (item.state.ignore? or item.state.published?)
+            allowed = allowed & item.allowed_states(false)
+
+         end
+      end
+    end
+    allowed ||= [self.state]
+  end
+
+  #
+  # See if record is fixed in the current context
+  #
+  def changeable?
+    (self.new_record? or  self.nil? or self.state.nil? or
+        self.state_flow.nil? or
+        (right?(:data,:update) and self.state.editable?))
+  end
+  #
   #
   # Check whether object should be visible in this context
   #   * Is published
@@ -551,45 +608,135 @@ class ProjectElement < ActiveRecord::Base
     return (self.created_by_user_id == user.id) || (self.updated_by_user_id == user.id)
   end
 
+  ##
+  # Textual content stripped of all html tags odd characters etc
+  #
+  def to_text
+    return "" unless content
+    text = ""
+    tokenizer = HTML::Tokenizer.new(html)
+    while token = tokenizer.next
+      node = HTML::Node.parse(nil, 0, 0, token, false)
+      text << node.to_s if node.class == HTML::Text
+    end
+    text =  text.gsub(/<!--(.*?)-->[\n]?/m, "").gsub(/<[\!DOC,\?xml](.*?)>[\n]?/m, "").gsub(/[\n,\t, ]+/," ")
+    ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
+    return ic.iconv(text)
+  end
   #
   # custom conversion to xml
   #
   def to_xml(options = {})
-       my_options = options.dup
-       my_options[:include] = [:content,:asset]
-      Alces::XmlSerializer.new(self, my_options ).to_s
+    my_options = options.dup
+    my_options[:include] = [:content,:asset]
+    Alces::XmlSerializer.new(self, my_options ).to_s
   end
 
-
-  def contained_references_to(klass)
-    klass.find_by_sql("select * from #{klass.table_name} where #{ exists_within_sql_filter(klass)}")
-  end
-  
-  def exists_within_sql_filter(klass)
-   sql =  <<-TEXT
-    exists ( select 1 from project_elements 
-        where project_elements.left_limit>= #{self.left_limit} 
-        and project_elements.right_limit <= #{self.right_limit}
-        and project_elements.project_id  =  #{self.project_id}
-        and project_elements.reference_type='#{klass.class_name}'
-        and #{klass.table_name}.id = project_elements.reference_id )  
-TEXT
-  sql
-  end  
   #
   # Get all the elements with reference to the passed item
   #
   def self.references(item)
     case item
     when Class
-      self.find(:all,:conditions=>['reference_type=? ',item.class_name])
+      self.list(:all,:conditions=>['reference_type=? ',item.to_s])
     when Symbol,String
-      self.find(:all,:conditions=>['name=? and reference_type is not null ',item.to_s])
+      self.list(:all,:conditions=>['name=? and reference_type is not null ',item.to_s])
     when ActiveRecord::Base
-      self.find(:all,:conditions=>['reference_type=? and reference_id=?',item.class.class_name,item.id])
+      self.list(:all,:conditions=>['reference_type=? and reference_id=?',item.class.to_s, item.id])
     else
       []
     end
+  end
+
+  # set the state and manage started_at and ended_at and record status_id
+  #
+  # 1) get new/old state and check there is a state flow
+  # 2) in set check all children
+  # 3) otherwize only change state when live and level same or greater
+  # 4) update own state only after all children done
+  #
+  def set_state(new_state,recusive = true)
+    logger.info  "State change #{self.state} => #{new_state}"
+
+    ProjectElement.transaction do
+      new_state = State.get(new_state)
+
+      unless (self.state_flow)
+        self.errors.add(:state,"there is no state_flow defined to element")
+        return nil
+      end
+
+      unless (self.state)
+        self.errors.add(:state,"there is no state defined to element")
+        return nil
+      end
+      
+      if new_state.check_children? 
+        self.all_children.each do |item|
+          if (item.state.level_no > State::ERROR_LEVEL or item.state == self.state)
+              item.update_state_and_reference(new_state)
+          end
+        end
+  
+      elsif recusive
+        self.all_children.each do |item|
+          if ( self.state_flow.allowed_state_change?(item,new_state)  and
+               (item.state.level_no > State::ERROR_LEVEL or item.state == self.state) and
+               (item.state.level_no <= new_state.level_no ))
+            item.update_state_and_reference(new_state)
+          end
+        end
+
+      end
+
+      update_state_and_reference(new_state)
+      self.state
+    end
+
+  end
+
+
+
+
+  protected
+
+  #
+  # 1) Check is a valid change of state
+  # 2) Check user has rights to change state
+  # 3) If reference is valid
+  # 4) update status_id to level it present
+  # 5) update ended_at if now finished
+  # 6) update state
+  #
+  def update_state_and_reference(new_state)
+
+    unless  self.state_flow.allowed_state_change?(self,new_state)
+      raise "Invalid request cant change state #{self.state} => #{new_state}"
+    end
+
+    unless  self.right?(:data,:verify)
+      raise "No rights to change state #{self.path} "
+    end
+
+    if (reference)
+      unless reference.valid? or new_state.ignore?
+        raise "Cant update state of #{self.path} as reference object is not valid"
+      end
+
+      reference.status_id = new_state.level_no if reference.respond_to?(:status_id)
+
+      if (!self.state.finished? and reference.respond_to?(:ended_at) and new_state.finished? )
+        reference.ended_at = Time.now if reference.ended_at.blank?
+        reference.save!
+
+      elsif (self.state.level_no != new_state.level_no)
+        reference.save!
+
+      end
+    end
+
+    self.state = new_state
+    self.save!
   end
 
 end

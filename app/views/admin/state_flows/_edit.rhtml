@@ -1,0 +1,56 @@
+<div class="panel">
+
+  <h1> State Workflow <%=@state_flow.name%>  </h1>
+
+  <% form_tag(  state_flow_url({:action => 'update', :id => @state_flow } )) do %>
+
+    <%= render :partial=>'form' %>
+    <div class="row">
+        <label for="state_description">  <%=l(:States)%>    </label>
+        <table class='report' width="100%">
+          <tr>
+            <th>      Allowed Changes   </th>
+            <th align="center" colspan="<%= @states.length %>"><strong>Next State</strong></th>
+          </tr>
+          <tr>
+            <th align="center">
+            <strong> <%=l(:Current_State)%>  </strong> </th>
+            <% for new_state in @states %>
+              <th align="center">
+                  <%= new_state.check_children? ? content_tag('strong',new_state.name) : new_state.name  %>
+                  <%= '*' if new_state.signed? %>
+              </th>
+            <% end %>
+          </tr>
+          <% for old_state in @states %>
+            <tr>
+              <th><%= old_state.name %> &nbsp;
+               <%="[signed]" if old_state.signed? %>
+               <%="[cascade]" if old_state.check_children? %>
+              </th>
+              <% for new_state in @states -%>
+                <%if new_state.id!=old_state.id %>
+                  <td align="center" class="state-level<%= (new_state.id>=old_state.id ? new_state.level_no : old_state.level_no) %>">
+
+                    <input type="checkbox" name="state[<%= old_state.id %>][]" value="<%= new_state.id %>"
+                           <%= 'checked="checked"' if @state_flow.allow?(old_state,new_state.id) %>>
+                  </td>
+
+                <% else %>
+                  <th><%= old_state.name %></th>
+                <% end -%>
+              <% end -%>
+            </tr>
+          <% end %>
+        </table>
+    </div>
+    <div class="row">
+      <div class="form-element">
+        <%= submit_tag l(:update ) %>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+  <% end %>
+</div>

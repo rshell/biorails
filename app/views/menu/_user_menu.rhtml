@@ -2,23 +2,23 @@
 <div>
     <span class='menu'><b class='icon icon-user'><%= user.name %>
         </b></span>
-    <%= link_to l(:label_home), home_url( :action => 'show') %>
+    <%= link_to l(:Home), home_url( :action => 'show') %>
+    <%= link_to l(:Customise), home_url( :action => 'edit') %>
     <%= link_to l(:Signed), signature_url( :action => 'list_authored') %>
-    <%= link_to l(:label_calendar) , home_url( :action => 'calendar') %>
-    <%= link_to l(:label_timeline), home_url( :action => 'gantt') %>
-    <%= link_to l(:label_todo), home_url( :action => 'todo') %>
+    <%= link_to l(:Calendar) , home_url( :action => 'calendar') %>
+    <%= link_to l(:Todo), home_url( :action => 'todo') %>
 </div>
 <div>
-    <span class='menu'><b class='icon icon-project'><%=l(:label_projects) %>
+    <span class='menu'><b class='icon icon-project'><%=l(:Projects) %>
         </b></span>
     <% for project in user.projects(5) %>
     <%= link_to project.name, project_url(:action => 'show', :id => project) %>
     <% end %>
 </div>
 <div>
-    <span class='menu'><b class='icon icon-action'><%=l(:label_actions) %>
+    <span class='menu'><b class='icon icon-action'><%=l(:Actions) %>
         </b></span>
-    <%= link_to( "#{l(:label_new)} #{l(:label_project)}", project_url(:action => 'new')) %>
-    <%= link_to( l(:label_request_new),  request_url(:action => 'new')) %>
+    <%= link_to( "#{l(:New)} #{l(:Project)}", project_url(:action => 'new')) if current_project.changeable? %>
+    <%= link_to( l(:Request_New),  request_url(:action => 'new')) if current_project.changeable? %>
 </div>
 <% end %>

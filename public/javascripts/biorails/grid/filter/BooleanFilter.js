@@ -1,11 +1,13 @@
 Ext.ux.grid.filter.BooleanFilter = Ext.extend(Ext.ux.grid.filter.Filter, {
-  defaultValue: false,
+	defaultValue: false,
+	yesText: "Yes",
+	noText:  "No",
 
 	init: function(){
     var gId = Ext.id();
 		this.options = [
-			new Ext.menu.CheckItem({text: "Yes", group: gId, checked: this.defaultValue === true}),
-			new Ext.menu.CheckItem({text: "No", group: gId, checked: this.defaultValue === false})];
+			new Ext.menu.CheckItem({text: this.yesText, group: gId, checked: this.defaultValue === true}),
+			new Ext.menu.CheckItem({text: this.noText, group: gId, checked: this.defaultValue === false})];
 		
 		this.menu.add(this.options[0], this.options[1]);
 		

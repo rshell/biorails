@@ -2,7 +2,7 @@
   <%= render :partial => '/menu/admin_menu'%>
     <div>
     <span class='menu'>
-      <%=l(:label_new)%>
+      <%=l(:New)%>
       </span>
       <li>
         <%= link_to List, :action => 'list' %>
@@ -12,7 +12,7 @@
 <%= render :partial => 'admin/header' %>
 <div class='main' id='maintitle'>
     <h1 class='icon icon-data_context'>
-        <%=l(:label_dictionary_new)%>
+        <%=l(:Dictionary_New)%>
     </h1>
     <div class='dialog'>
         <% form_tag :action => 'create' do %>

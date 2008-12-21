@@ -79,7 +79,10 @@ class ReportColumn < ActiveRecord::Base
     logger.info "new ReportColumn.customize Id:#{id} Label:#{label} show:#{is_visible} order:#{order_num} sort:#{is_sortable} sort_n:#{sort_num} sort_dir:#{sort_direction} filterable:#{is_filterible} filter:#{filter}"
     self.save
   end
-  
+
+  def type
+    return :string
+  end
 ##
 # Get the name as a table attribute pair 
 # 
@@ -89,9 +92,9 @@ class ReportColumn < ActiveRecord::Base
     attribute = self.name.split(".").pop
     if  join_model
        logger.info " #{report.model.reflections[join_model.to_sym].class_name}"
-       return report.model.reflections[join_model.to_sym].class_name.tableize.to_s + "." + attribute.to_s
+       return report.model.reflections[join_model.to_sym].table_name.to_s + "." + attribute.to_s
     else
-       return report.model.class_name.tableize.to_s + "." + attribute.to_s
+       return report.model.table_name.to_s + "." + attribute.to_s
     end
   end
 
@@ -121,6 +124,8 @@ class ReportColumn < ActiveRecord::Base
        value.strftime("%Y-%b-%d")
      when Time
        value.strftime("%Y-%b-%d")
+     when Fixnum
+         sprintf("%9i", value).to_s
      when Numeric
          if value.abs > 0.01
            sprintf("%9.2f", value).to_s
@@ -177,7 +182,7 @@ class ReportColumn < ActiveRecord::Base
         return out
       end 
      end  
-     return data_row
+     return format(data_row)
   rescue Exception => ex
       logger.error ex.message
       logger.debug ex.backtrace.join("\n")    
@@ -205,7 +210,7 @@ class ReportColumn < ActiveRecord::Base
     when /%/
        self.filter_operation = "like"
        self.filter_text = value
-    when /^in/,/^IN/ 
+    when /^in /,/^IN /
        self.filter_operation = "in"
        self.filter_text = value
     when "" 
@@ -239,8 +244,9 @@ class ReportColumn < ActiveRecord::Base
   def to_ext
     item = {
        :id => self.id,
-      :name => self.name,
+      :name => "#{self.order_num}. #{self.name}",
       :label => self.label,
+      :data_type => 'text',
       :filter => self.filter,
       :is_filterible => self.is_filterible,
       :is_visible => self.is_visible, 
@@ -249,5 +255,18 @@ class ReportColumn < ActiveRecord::Base
       :sort_direction =>  self.sort_direction
     }
   end
-  
+
+  # ## Convert context to xml
+  #
+  def to_xml(options={})
+    my_options = options.dup
+    Alces::XmlSerializer.new(self, my_options  ).to_s
+  end
+
+  # ## Get from xml
+  #
+  def self.from_xml(xml,options = {})
+    my_options = options.dup
+    Alces::XmlDeserializer.new(self, my_options ).to_object(xml)
+  end
 end

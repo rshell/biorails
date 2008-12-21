@@ -1,13 +1,20 @@
 <% content_for :sidemenu do %>
 <%= render :partial => 'menu' %>
 <% end %>
+
 <% content_for :right do %>
 <%= render :partial => 'help' %>
 <% end %>
+
+<% content_for :messages do -%>
+<%=render :partial =>'shared/messages',:locals => { :objects => ['state'] } %>
+<% end -%>
+
+
 <% content_for :center do %>
-<%= render :partial => 'admin/header' %>
-    <h2><%=l(:label_scheduled) %>
-        <%=l(:label_states) %>
+<%= render :partial => 'header' %>
+    <h2><%=l(:Scheduled) %>
+        <%=l(:States) %>
     </h2>
     <div class='panel'>
         <table class="report">
@@ -18,6 +25,12 @@
                     </th>
                     <th>
                         <%=l(:level) %>
+                    </th>
+                    <th>
+                        <%=l(:cascade)%>
+                    </th>
+                    <th>
+                        <%=l(:signed)%>
                     </th>
                     <th>
                         <%=l(:action) %>
@@ -34,8 +47,14 @@
                     <td>
                         <%= state.level_no %>. <%= state.level_text %>
                     </td>
+                    <td>
+                        <%= state.check_children %>
+                    </td>
+                    <td>
+                        <%= state.signed? %>
+                    </td>
                     <td align="center" style="width:10%;">
-                        <%= link_to l(:button_delete), { :action => 'destroy', :id => state }, :confirm => l(:text_are_you_sure), :class => "icon icon-del" %>
+                        <%= link_to l(:Delete), { :action => 'destroy', :id => state }, :confirm => l(:text_are_you_sure), :class => "icon icon-del" %>
                     </td>
                 </tr>
                 <% end %>
@@ -43,9 +62,4 @@
         </table>
         <hr /><%= link_to l(:new), {:action => 'new'}, :class => 'icon icon-add' %>
     </div>
-    <h2><%=l(:label_scheduled) %>
-        <%=l(:label_flows) %>
-    </h2>
-    <%= render :partial=>'workflow' %>
-
 <% end %>

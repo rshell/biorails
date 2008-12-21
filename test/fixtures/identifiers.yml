@@ -1,32 +1,13 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: identifiers
-#
-#  id                 :integer(4)      not null, primary key
-#  name               :string(255)
-#  prefix             :string(255)
-#  postfix            :string(255)
-#  mask               :string(255)
-#  current_counter    :integer(4)      default(0)
-#  current_step       :integer(4)      default(1)
-#  lock_version       :integer(4)      default(0), not null
-#  created_at         :datetime        not null
-#  updated_at         :datetime        not null
-#  updated_by_user_id :integer(4)      default(1), not null
-#  created_by_user_id :integer(4)      default(1), not null
-#
-
 --- 
 00000000017_identifier: !ruby/object:Identifier 
   attributes: 
     current_step: "1"
-    current_counter: "267"
+    current_counter: "327"
     prefix: guest-
     name: guest
-    updated_at: 2008-08-14 10:29:59
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
-    lock_version: "267"
+    lock_version: "327"
     mask: 
     id: "17"
     created_by_user_id: "1"
@@ -40,7 +21,7 @@
     current_counter: "89"
     prefix: thawkins-
     name: thawkins
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "89"
     mask: 
@@ -56,7 +37,7 @@
     current_counter: "1"
     prefix: admin-
     name: admin
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "1"
     mask: 
@@ -72,7 +53,7 @@
     current_counter: "9"
     prefix: Role-
     name: Role
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "9"
     mask: 
@@ -88,7 +69,7 @@
     current_counter: "82"
     prefix: Task-
     name: Task
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "82"
     mask: 
@@ -104,7 +85,7 @@
     current_counter: "2"
     prefix: wskinner-
     name: wskinner
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "2"
     mask: 
@@ -120,7 +101,7 @@
     current_counter: "3"
     prefix: m-
     name: member
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "3"
     mask: 
@@ -136,7 +117,7 @@
     current_counter: "32"
     prefix: Req-
     name: Request
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "32"
     mask: 
@@ -152,7 +133,7 @@
     current_counter: "6"
     prefix: Expt-
     name: Experiment
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "6"
     mask: 
@@ -168,7 +149,7 @@
     current_counter: "6"
     prefix: jdoggett-
     name: jdoggett
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "6"
     mask: 
@@ -184,7 +165,7 @@
     current_counter: "82"
     prefix: Art-
     name: Content
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "82"
     mask: 
@@ -200,7 +181,7 @@
     current_counter: "375"
     prefix: rjs-
     name: rshell
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "375"
     mask: 
@@ -216,7 +197,7 @@
     current_counter: "9"
     prefix: Fold-
     name: ProjectFolder
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "9"
     mask: 
@@ -232,7 +213,7 @@
     current_counter: "5"
     prefix: alemon-
     name: alemon
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "5"
     mask: 
@@ -248,7 +229,7 @@
     current_counter: "38"
     prefix: Prot-
     name: AssayProtocol
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "38"
     mask: 
@@ -264,7 +245,7 @@
     current_counter: "3"
     prefix: "-"
     name: ""
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "3"
     mask: 
@@ -280,7 +261,7 @@
     current_counter: "31"
     prefix: File-
     name: ProjectAsset
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "31"
     mask: 
@@ -296,7 +277,7 @@
     current_counter: "55"
     prefix: R-
     name: Report
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "55"
     mask: 
@@ -312,7 +293,7 @@
     current_counter: "62"
     prefix: S-
     name: Assay
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "62"
     mask: 
@@ -328,7 +309,7 @@
     current_counter: "65"
     prefix: Note-
     name: ProjectContent
-    updated_at: 2008-08-14 10:29:16
+    updated_at: 2008-10-22 15:14:19
     updated_by_user_id: "1"
     lock_version: "65"
     mask: 

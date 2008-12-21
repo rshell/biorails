@@ -145,7 +145,7 @@ NEW_TITLE="Sunset.jpg"
                        :position=>"2", 
                        :path=>"Sunset.jpg"}     
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => 1
+    assert_redirected_to :action => 'show'
     item = ProjectAsset.find(30)
     assert_equal  NEW_NAME,item.name,item.to_xml
   end

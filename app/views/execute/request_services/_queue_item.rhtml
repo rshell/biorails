@@ -5,12 +5,13 @@
         <p>
         </td>
         <td>
-            <%= select_tag 'status_id',
-            options_for_select(queue_item.allowed_status_list,queue_item.status_id),
-            {:id=>queue_item.dom_id('status_id')} %>
-            <%= observe_field queue_item.dom_id('status_id'),
+            <%= select_tag 'state_id',
+            options_from_collection_for_select(queue_item.allowed_status_list,:id,:name,queue_item.state_id),
+            {:id=>queue_item.dom_id('state_id')} %>
+
+            <%= observe_field queue_item.dom_id('state_id'),
             :url=>{:action=>'update_item',:id=>queue_item},
-            :with =>'status_id' %>
+            :with =>'state_id' %>
         </td>
         <td>
             <%= select_tag 'priority_id',
@@ -42,6 +43,6 @@
         </td>
         <td>
             <a class='icon icon-del'>
-                <%= link_to l(:label_delete), :action => 'destroy_item',:id=>queue_item.service  , :item_id => queue_item.id %>
+                <%= link_to l(:Delete), :action => 'destroy_item',:id=>queue_item.service  , :item_id => queue_item.id %>
             </a>
         </td>

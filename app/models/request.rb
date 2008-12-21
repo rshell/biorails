@@ -9,7 +9,6 @@
 #  list_id              :integer(4)
 #  data_element_id      :integer(4)
 #  project_id           :integer(4)
-#  status_id            :integer(4)      default(0), not null
 #  priority_id          :integer(4)
 #  started_at           :datetime
 #  ended_at             :datetime
@@ -55,14 +54,6 @@ class Request < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-#
-# Allow free text indexing of the name and description into common class
-# 
-  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-                              :description=>{:store=>:yes,:boost=>0}},
-                   :default_field => [:name],           
-                   :single_index => true, 
-                   :store_class_name => true 
   
 ##
 # Request is a summary of list of scheduled request for services
@@ -75,14 +66,18 @@ class Request < ActiveRecord::Base
 #
 # Generic rules for a name and description to be present
 #
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name,:case_sensitive=>false
 
   validates_presence_of :name
   validates_presence_of :description
-  validates_presence_of :started_at 
+  validates_presence_of :started_at
+  validates_presence_of :expected_at
   validates_presence_of :data_element_id
   validates_presence_of :project_id
 
+  def validate
+    validate_period
+  end
 
 ###
 #Owner project
@@ -137,7 +132,6 @@ class Request < ActiveRecord::Base
 #
   def initialize(params= {})
       super(params)      
-      self.status_id    ||= 0
       self.started_at   = Time.new
       self.requested_by_user_id = User.current.id
       self.project_id      = Project.current.id
@@ -156,17 +150,6 @@ class Request < ActiveRecord::Base
      return user_request
   end
   
-#
-# Get the folder for this assay
-#
-  def folder(item=nil)
-    folder = self.project.folder(self)
-    if item
-      return folder.folder(item)
-    else
-      return folder
-    end
-  end   
 ##
 # Transform items into a hash of hashs for a table of queue_item cell with item.name row ids
 #   
@@ -275,7 +258,8 @@ SQL
       return request_service
     end
   rescue Exception => ex
-    logger.error "Failed to add Service #{ex.message}"    
+    errors.add_to_base("Failed to add queue #{queue} #{ex.message}")
+    logger.error "Failed to add Service #{ex.message}"
     return nil
   end
 
@@ -312,7 +296,7 @@ SQL
   def remove_item(name)   
     for service in services
        item = QueueItem.find(:first,:conditions=>['request_service_id = ? and data_name = ?',service.id,name])
-       if item and item.is_status([0,1,2,5,-1,-2])
+       if item and item.unused?
           item.destroy 
        end
     end

@@ -1,0 +1,14 @@
+<div class='box'>
+    <b><%= l(:My_Latest,5, l(:Teams)) %></b>
+    <dl>
+        <% for team in @user.latest(Team,5) %>
+        <dt>
+            <%=link_to team.name, team_url(:action=>'show',:id=> team.id) %>
+        </dt>
+        <dd>
+            <%= team.description %>
+        </dd>
+        <% end %>
+    </dl>
+    <hr/>
+</div>

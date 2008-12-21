@@ -1,0 +1,27 @@
+<table class='report'>
+    <tr>
+        <th>
+            <%=l(:Name) %>
+        </th>
+        <th>
+            <%=l(:Description) %>
+        </th>
+        <th>
+            <%=l(:Member_Numbers) %>
+        </th>
+    </tr>
+    <% for team in @teams %>
+    <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+        <td>
+            <%=link_to team.name, team_url(:action=>'show',:id=> team.id) %>
+        </td>
+        <td>
+            <%=team.description %>
+        </td>
+        <td>
+            <%=team.memberships.size %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<hr/>

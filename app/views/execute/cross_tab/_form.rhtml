@@ -1,7 +1,7 @@
 <%=hidden_field :cross_tab, :id %>
 <div class="x-form-item">
     <label for="cross_tab-name" style="width: auto;" class="x-form-item-label">
-        <%=l(:label_name) %>:
+        <%=l(:Name) %>:
     </label>
     <div class="x-form-element">
         <%= text_field :cross_tab, :name, :size=>30, :class=> 'x-form-text x-form-field' %>
@@ -9,7 +9,7 @@
 </div>
 <div class="x-form-item">
     <label for="cross_tab-description" style="width: auto;" class="x-form-item-label">
-        <%=l(:label_description) %>:
+        <%=l(:Description) %>:
     </label>
     <div class="x-form-element">
         <%= text_area :cross_tab,:description,:cols=>60,:rows=>3, :class=> 'x-form-area x-form-field' %>
@@ -30,5 +30,5 @@
 <%=hidden_field :cross_tab, :updated_at %>
 <%=hidden_field :cross_tab, :updated_by_user_id %>
 <p>
-    <%= submit_tag l(:button_save) %>
+    <%= submit_tag l(:Save) %>
 </p>

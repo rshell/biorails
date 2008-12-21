@@ -1,5 +1,5 @@
-<h1 class='icon icon-permission'><%=l(:label_permission) %>[<strong><%=h @permission.name %>]</strong></h1>
-<h2><%=l(:label_actions_for_permission) %>: <%=@permission.name %></h2>
+<h1 class='icon icon-permission'><%=l(:Permission) %>[<strong><%=h @permission.name %>]</strong></h1>
+<h2><%=l(:Actions_For_Permission) %>: <%=@permission.name %></h2>
 <% if @actions.length > 0 -%>
 <ul>
     <% for action in @actions do -%>
@@ -10,13 +10,13 @@
 </ul>
 <% else -%>
 <p>
-    (<%=l(:label_none)%>)
+    (<%=l(:None)%>)
 </p>
 <% end -%>
 <p>
     <%= link_to 'Show all Actions', :controller => 'controller_actions', :action => 'list' %>
 </p>
-<hr/><h2><%=l(:label_pages_for_permission) %>: <%=@permission.name %></h2>
+<hr/><h2><%=l(:Pages_For_Permission) %>: <%=@permission.name %></h2>
 <% if @pages.length > 0 -%>
 <ul>
     <% for page in @pages do -%>
@@ -27,14 +27,14 @@
 </ul>
 <% else -%>
 <p>
-    (<%=l(:label_none)%>)
+    (<%=l(:None)%>)
 </p>
 <% end -%>
-<%= link_to l(:label_show_all), :controller => 'content_pages', :action => 'list', :class=>'icon icon-list' %>
+<%= link_to l(:Show_All), :controller => 'content_pages', :action => 'list', :class=>'icon icon-list' %>
 <hr/>
 <p>
-    <%= link_to l(:label_edit), :action => 'edit', :id => @permission %>|<%= link_to l(:label_delete), {:action => 'destroy', :id => @permission}, :confirm => l(:text_are_you_sure),:method => "post" %>
+    <%= link_to l(:Edit), :action => 'edit', :id => @permission %>|<%= link_to l(:Delete), {:action => 'destroy', :id => @permission}, :confirm => l(:text_are_you_sure),:method => "post" %>
 </p>
 <p>
-    <%= link_to l(:label_back), :action => 'list' %>to Permissions list
+    <%= link_to l(:Back), :action => 'list' %>to Permissions list
 </p>

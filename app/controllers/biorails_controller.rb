@@ -39,13 +39,23 @@ class BiorailsController < ApplicationController
     end
   #
   # List of of projects for the current user
-  # 
+  #
   # @return [Project]
-  # 
+  #
     def project_list(session_id)
        setup_session(session_id)
-       return @current_user.projects
+       return @current_user.projects(1000)
     end
+  #
+  # List of of projects for the current user
+  #
+  # @return [Project]
+  #
+    def state_list(session_id)
+       setup_session(session_id)
+       return State.find(:all)
+    end
+
 #
 # List of all project elements in order parent_id,name for 
 # easy creation of a tree structure on client (Hash and fill)
@@ -54,7 +64,9 @@ class BiorailsController < ApplicationController
 #
     def project_element_list(session_id,id)
        setup_session(session_id,id)
-       items = ProjectElement.find(:all,:conditions=>['project_id=?',id],:order=>'left_limit,id')
+       project = Project.list(id)
+       raise('Project not visible for this user') unless project
+       items = project.folder.full_set
        items.collect do |item|
            BiorailsApi::Element.new(
            :id => item.id,
@@ -64,6 +76,8 @@ class BiorailsController < ApplicationController
            :summary => item.summary,
            :style => item.style,
            :icon  => item.icon,
+           :state_id => item.state_id,
+           :state => (item.state ? item.state.name : "new"),
            :asset_id => item.asset_id,
            :content_id => item.content_id,
            :reference_id => item.reference_id,
@@ -77,8 +91,8 @@ class BiorailsController < ApplicationController
 # @return [ProjectElement] all project elements sorted in tree order
 #
     def folder_element_list(session_id,id)
-       setup_session(session_id,id)
-       items = ProjectElement.find(:all,:conditions=>['project_id=?',id],:order=>'left_limit,id')
+       setup_session(session_id)
+       items = ProjectElement.list(:all,:conditions=>['parent_id=?',id],:order=>'left_limit,id') ||[]
        items.collect do |item|
            BiorailsApi::Element.new(
            :id => item.id,
@@ -88,6 +102,8 @@ class BiorailsController < ApplicationController
            :summary => item.summary,
            :style => item.style,
            :icon  => item.icon,
+           :state_id => item.state_id,
+           :state => (item.state ? item.state.name : "new"),
            :asset_id => item.asset_id,
            :content_id => item.content_id,
            :reference_id => item.reference_id,
@@ -113,6 +129,8 @@ class BiorailsController < ApplicationController
            :summary => item.summary,
            :style => item.style,
            :icon  => item.icon,
+           :state_id => item.state_id,
+           :state => (item.state ? item.state.name : "new"),
            :asset_id => item.asset_id,
            :content_id => item.content_id,
            :reference_id => item.reference_id,
@@ -173,7 +191,7 @@ class BiorailsController < ApplicationController
 #    
     def protocol_version_list(session_id,assay_protocol_id)  
        setup_session(session_id)
-       return ProcessInstance.find(:all,:conditions=>['assay_protocol_id=?',assay_protocol_id],:order=>'version desc')
+       return ProcessInstance.list(:all,:conditions=>['assay_protocol_id=?',assay_protocol_id],:order=>'version desc')
     end
 ##
 # List all the processing 
@@ -231,14 +249,19 @@ class BiorailsController < ApplicationController
 
     def task_list(session_id,experiment_id)  
        setup_session(session_id)
-       Task.find(:all,:conditions=>['experiment_id=?',experiment_id],:order=>'id')
+       Task.find(:all,
+          :include=>[:project_element=>[:state]],
+          :conditions=>['experiment_id=? and states.level_no in (0,1,2)',experiment_id],
+         :order=>'tasks.id')
     end
     
     def task_mine_list(session_id)
       user =  setup_session(session_id)
       return nil unless user
-        Task.find(:all,:conditions=>['assigned_to_user_id=? and status_id in (0,1,2,3,4)', 
-          user.id],:order=>'id')
+        Task.list(:all,
+          :include=>[:project_element=>[:state]],
+          :conditions=>['assigned_to_user_id=? and states.level_no in (0,1,2)',user.id],
+          :order=>'tasks.id')
     rescue 
       return nil
     end
@@ -342,7 +365,7 @@ class BiorailsController < ApplicationController
        setup_session(session_id)
       element =DataElement.find( id )
       choices = element.like(matches)
-      return choices.collect{|i|i['name']}
+      choices.collect{|i|i.name}
     end
 #
 # Get a reports out as a soap web services
@@ -370,8 +393,11 @@ class BiorailsController < ApplicationController
     def task_import(session_id,experiment_id,text_data)
        setup_session(session_id)
        experiment = Experiment.load(experiment_id)
+       raise("Experiment is not changeable") unless experiment.changeable?
        raise("Experiment [#{experiment_id}] is not visible for user [#{User.current.login}]") unless experiment
-       experiment.import_task(text_data) 
+       task = experiment.import_task(text_data)
+       raise("Task #{task.name} problems in uploading data:- \n "+task.errors.full_messages().join("\n")) unless task.errors.empty?
+       task
     end
     #
     # Get the next valid for a named external identifier
@@ -385,7 +411,7 @@ class BiorailsController < ApplicationController
     def add_project(session_id,name,description,project_type_id)
       setup_session(session_id)
       project = current_user.create_project(:name=>name,
-        :description=>description,
+        :description=>description,:title=>name,
         :project_type_id=>project_type_id)
       project.save!
         set_project(@project)
@@ -399,11 +425,13 @@ class BiorailsController < ApplicationController
       Experiment.transaction do 
         experiment = Experiment.new( :name=>name, :description=>description)
         experiment.project = Project.current
-        process = ProtocolVersion.find(protocol_version_id)
+        process = ProtocolVersion.load(protocol_version_id)
         experiment.process = process
         experiment.assay_id = process.protocol.assay_id
         experiment.save!
-        experiment.folder       
+        set_project experiment.project
+        set_element experiment.folder
+        experiment.run      
         return experiment
       end
     end
@@ -411,7 +439,9 @@ class BiorailsController < ApplicationController
     def add_task(session_id,experiment_id ,protocol_version_id ,task_name )
       setup_session(session_id)
       Task.transaction do
-        experiment = Experiment.find(experiment_id)
+        experiment = Experiment.load(experiment_id)
+        raise("Experiment not visible for this user") unless experiment
+        raise("Task not changeable") unless experiment.changeable?
         task = experiment.add_task(:name => task_name, :protocol_version_id =>protocol_version_id)
         task.save! 
         task.folder
@@ -424,13 +454,24 @@ class BiorailsController < ApplicationController
     # @params parameter_context_id
     # @params values in order of column_no
     #
-    def add_task_context(session_id, task_id, parameter_context_id)
+    def add_task_context(session_id, task_id, parameter_context_id,parent_id=nil)
        setup_session(session_id)
        Task.transaction do
-         task = Task.find(task_id)
+         task = Task.load(task_id)
+         raise("Task not visible for this user") unless task
+         raise("Task not changeable") unless task.changeable?
          definition = ParameterContext.find(parameter_context_id);
-         context =  task.add_context(definition)
-         context.save!
+         if parent_id and parent_id.to_i>0
+           task_context = TaskContext.find(parent_id)
+           raise("Failed parent is not in the passed task") unless task_context.task_id == task.id
+           raise("Failed definition invalid for parent") unless definition.parent_id == task_context.parameter_context_id
+           context =  task_context.add_context(definition)
+           context.save!
+         else
+           raise("parameter_context_id not in process linked to task") unless definition.protocol_version_id == task.protocol_version_id
+           context =  task.add_context(definition)
+           context.save!
+         end
          return context
        end
     end
@@ -439,6 +480,7 @@ class BiorailsController < ApplicationController
       setup_session(session_id)
        Task.transaction do
          context = TaskContext.find(task_context_id)
+         raise("Task not changeable") unless context.task.changeable?
          parameter = Parameter.find(parameter_id);
          item = context.item(parameter.name)
          item.value = data
@@ -476,12 +518,15 @@ class BiorailsController < ApplicationController
      def set_asset( session_id, folder_id, title, filename, mime_type, base64 )
        setup_session(session_id)
        ProjectElement.transaction do
-          folder = ProjectFolder.find(folder_id)    
+          folder = ProjectFolder.load(folder_id)
+          raise("Folder is not changeable") unless folder.changeable?
           File.makedirs File.join(Alces::Attachments.tempfile_path,folder.path)
           file = File.new(File.join(Alces::Attachments.tempfile_path,folder.path,File.basename(filename)),"w") 
           file.binmode
           file.write Base64.decode64(base64)
           file.close
+          old = folder.elements.find_by_name(filename)
+          old.destroy if old
           element = folder.add_element(ElementType::FILE,
              {:name=>filename,
               :title=>title,
@@ -520,6 +565,7 @@ class BiorailsController < ApplicationController
        setup_session(session_id)
        ProjectElement.transaction do 
          folder = ProjectFolder.find(folder_id)
+         raise("Folder is not changeable") unless folder.changeable?
          element = folder.add_element(ElementType::HTML,
             {:name=>name,
              :title=>title,
@@ -543,11 +589,15 @@ class BiorailsController < ApplicationController
 protected
 
   def setup_session(key,project_id=nil)
-    User.current          = @current_user    = User.find_by_id(key)  
+    User.current  = @current_user = User.find_by_id(key)  
     raise("Failed session key [#{key}] is invalid") unless @current_user               
-    if project_id
-       Project.current = @current_project = @current_user.project(project_id)
-       raise "No project [#{project_id}] visible for #{@current_user.login}" unless @current_project 
+    unless project_id.nil?
+       Project.current = @current_project = Project.load(project_id)
+       ProjectFolder.current = @current_element = Project.current.folder
+       raise "No project [#{project_id}] set on call " unless @current_project and @current_element
+    else
+      Project.current = Project.list(:first)
+      ProjectFolder.current = Project.current.folder
     end
     return @current_user
   end

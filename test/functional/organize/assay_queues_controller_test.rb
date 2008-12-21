@@ -49,16 +49,16 @@ class Organize::AssayQueuesControllerTest < Test::Unit::TestCase
 
   def test_show_invalid
     get :show, :id => 24242432
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_show_denied
     @request.session[:current_project_id] =2
     @request.session[:current_user_id] = 9   
     get :show, :id => @item.id
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
   
   def test_new
@@ -70,7 +70,8 @@ class Organize::AssayQueuesControllerTest < Test::Unit::TestCase
 
   def test_new_failed
     get :new
-    assert_response :redirect
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_manage
@@ -86,12 +87,12 @@ class Organize::AssayQueuesControllerTest < Test::Unit::TestCase
     assert_template 'report'
     assert_not_nil assigns(:assay_queue)
     assert_not_nil assigns(:report)
-    assert_not_nil assigns(:data)
   end
 
   def test_results_failed
     get :results
-    assert_response :redirect
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_create_invalid
@@ -109,7 +110,7 @@ class Organize::AssayQueuesControllerTest < Test::Unit::TestCase
   def test_create_valid_queue
     num_assay_queues = AssayQueue.count
     post :create, :id => @item.id, :assay_queue=>{:assay_stage_id=>5 , :name=>"new q", :assigned_to_user_id=>3, :description=>"a new q with a description", :assay_parameter_id=>24}
-    assert_redirected_to :action=>'list'
+    assert_response :redirect
     assert flash[:notice]
     assert_equal num_assay_queues +1 , AssayQueue.count
   end

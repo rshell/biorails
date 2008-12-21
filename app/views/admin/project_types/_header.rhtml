@@ -1,0 +1,27 @@
+<div class="content_header admin">
+  <%= render :partial => 'shared/help_link' %>
+  <h1 class='icon icon-admin-large'>
+    <%= link_to l(:Administration),   catalogue_url( :action => 'list') %>
+  </h1>
+  <br/>
+  <br/>
+
+  <div class='actions_left'>
+    <%= link_to l(:Project_Type), project_type_url(), :method => :get,:class => 'icon icon-project'  %>
+    <%= link_to l(:States), state_url(), :method => :get ,:class => 'icon icon-status' %>
+    <%= link_to l(:Assay_Stages), assay_stage_url(),:class => 'icon icon-assay', :method => :get  %>
+  </div>
+
+  <div class='actions_right'>
+    <% if @project_type %>
+      <% unless @project_type.new_record?%>
+        <%= link_to l(:Show), project_type_url(:action=>:show, :id=>@project_type),:class => 'icon icon-show', :method => :get%>
+        <%= link_to l(:Edit), project_type_url(:action=>:edit, :id=>@project_type),:class => 'icon icon-edit', :method => :get  %>
+        <%= link_to l(:Delete), project_type_url(:action=>:destroy, :id=>@project_type),:class => 'icon icon-delete', :confirm => l(:text_are_you_sure), :method => :delete %>
+      <% end %>
+    <% else %>
+      <%= link_to l(:New), project_type_url(:action=>:new),:method => :get,:class => 'icon icon-new' %>
+    <% end %>
+  </div>
+  <br/>
+</div>

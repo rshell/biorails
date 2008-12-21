@@ -1,22 +1,17 @@
 <table class="report">
     <tr>
         <th class="label">
-            <%=l(:label_name) %>
+            <%=l(:Name) %>
         </th>
-        <td>
+        <td  colspan='3'>
             <%=@task.name %>
         </td>
         <td>
         </td>
-        <td>
-        </td>
-        <td>
-            <input type="button" id="task-edit-button" value="Edit" />
-        </td>
     </tr>
     <tr>
         <th>
-            <%=l(:label_description) %>
+            <%=l(:Description) %>
         </th>
         <td colspan='3'>
             <%=@task.description %>
@@ -24,22 +19,23 @@
     </tr>
     <tr>
         <th class="label">
-            <%=l(:label_status) %>
+            <%=l(:Status) %>
         </th>
         <td colspan='3'>
-            <%=states_bar(@task.folder,:task) %>
+           <%=@task.folder.state %>
+           <%=link_to "[Update]", folder_url(:action=>'status',:id=>@task.folder),:class=>'icon icon-edit'%>
         </td>
     </tr>
     <tr>
         <th class="label">
-            <%=l(:label_assay) %>
+            <%=l(:Assay) %>
         </th>
         <td>
             <%= link_to @task.experiment.assay.name,
             assay_url(:action => 'show', :id => @task.experiment.assay.id) %>
         </td>
         <th class="label">
-            <%=l(:label_assay) %>
+            <%=l(:Assay) %>
         </th>
         <td>
             <%= @task.protocol_name %>
@@ -47,19 +43,20 @@
     </tr>
     <tr>
         <th class="label">
-            <%=l(:label_experiment) %>
+            <%=l(:Experiment) %>
         </th>
         <td>
             <%= link_to @task.experiment_name,
             experiment_url( :action => 'show', :id => @task.experiment_id ) %>
         </td>
         <th class="label">
-            <%=l(:label_process_version) %>
+            <%=l(:Process_Version) %>
         </th>
         <td>
             <%=link_to @task.process_name,
             process_instance_url(:action=>'show',:id => @task.process) %>
-            <%=l(:label_process) %><%=(@task.flexible? ? '  [flexible]' : ' [fixed]') %>
+            <%=l(:Process) %>
+            <%=(@task.flexible? ? '  [flexible]' : ' [fixed]') %>
         </td>
     </tr>
     <tr>
@@ -70,7 +67,7 @@
             <%=@task.created_by %>
         </td>
         <th class="label">
-            <%=l(:label_started) %>
+            <%=l(:Started) %>
         </th>
         <td>
             <%= short_date(@task.started_at) %>
@@ -78,27 +75,17 @@
     </tr>
     <tr>
         <th class="label">
-            <%=l(:label_assigned_to) %>
+            <%=l(:Assigned_To) %>
         </th>
         <td>
-            <%=@task.assigned_to.name %>
+                <%=@task.team.name %>  / <%=@task.assigned_to.name %>
         </td>
         <th class="label">
-            <%=l(:label_date_completed) %>
+            <%=l(:Date_Completed) %>
         </th>
         <td>
             <%= short_date(@task.ended_at) %>
         </td>
     </tr>
 </table>
-<script type="text/javascript">
-    Ext.onReady(function(){
-        Biorails.Dialog({
-            button: 'task-edit-button',
-            autoLoad: {
-                url: "<%=task_url(:action=>'edit',:format=>:ext,:id=>@task)%>",
-                scripts: true
-            }
-        })
-    });
-</script>
+

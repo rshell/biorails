@@ -2,39 +2,39 @@
   <thead>
       <tr>
           <th colspan=3>
-              <%=l(:label_service) %>
+              <%=l(:Service) %>
           </th>
           <th>
-              <%=l(:label_assigned_to) %>
+              <%=l(:Assigned_To) %>
           </th>
           <th colspan=3>
-              <%=l(:label_status) %>
+              <%=l(:Status) %>
           </th>
           <th rowspan=2>
-              <%=l(:label_actions) %>
+              <%=l(:Actions) %>
           </th>
       </tr>
       <tr>
           <th>
-              <%=l(:label_name) %>
+              <%=l(:Name) %>
           </th>
           <th>
-              <%=l(:label_description) %>
+              <%=l(:Description) %>
           </th>
           <th>
-              <%=l(:label_assay) %>
+              <%=l(:Assay) %>
           </th>
           <th>
-              <%=l(:label_to_user) %>
+              <%=l(:To_User) %>
           </th>
           <th>
-              <%=l(:label_default_status) %>
+              <%=l(:Default_Status) %>
           </th>
           <th>
               <%=l(:stat_count) %>
           </th>
           <th>
-              <%=l(:label_usages) %>
+              <%=l(:Usages) %>
           </th>
       </tr>
   </thead>
@@ -78,12 +78,12 @@
               <%end %>
           </td>
           <td>
-              <span class='icon icon-edit'><%= link_to '&nbsp;&nbsp;&nbsp;&nbsp;', :action => 'edit', :id => assay_queue %>
+              <span class='icon icon-edit'><%= link_to l(:Edit), :action => 'edit', :id => assay_queue %>
               </span>
           </td>
       </tr>
       <% end %>
       <tbody>
       </table>
-      <%= link_to( l(:label_add), queue_url( :action => 'new', :id=>@assay  ), :class=>'icon icon-service-add') if @assay %>
+      <%= link_to( l(:Add), queue_url( :action => 'new', :id=>@assay  ), :class=>'icon icon-service-add') if @assay %>
       <%= will_paginate @assay_queues %>

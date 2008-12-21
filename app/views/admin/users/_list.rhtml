@@ -1,0 +1,54 @@
+<h2 class='icon icon-user'><%=l(:Users) %></h2>
+<div class='panel'>
+  <table class='report'>
+    <tr>
+      <th>
+        <%=l(:Name) %>
+      </th>
+      <th>
+        <%=l(:Description) %>
+      </th>
+      <th>
+        <%=l(:Login) %>
+      </th>
+      <th>
+        <%=l(:Style) %>
+      </th>
+      <th>
+        <%=l(:Email_address) %>
+      </th>
+      <th>
+        <%=l(:Role) %>
+      </th>
+      <th>
+        <%=l(:Updated) %>
+      </th>
+    </tr>
+    <% for user in @users %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td>
+        <%= link_to user.name, :action => 'show', :id => user.id %>
+      </td>
+      <td>
+        <%= h user.fullname %>
+      </td>
+      <td>
+        <%= h user.login %>
+      </td>
+      <td>
+        <%=h  user.style %>
+      </td>
+      <td>
+        <%= h  user.email %>
+      </td>
+      <td>
+        <%= link_to( user.role.name, :controller => 'roles', :action => 'show', :id => user.role_id) if user.role_id %>
+      </td>
+      <td>
+        <%= short_date user.updated_at %>
+      </td>
+    </tr>
+    <% end -%>
+  </table>
+  <hr />
+</div>

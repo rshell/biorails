@@ -1,65 +1,57 @@
-<p>
-    <label for="user_login">
-        <%=l(:label_name) %>
-    </label>
-    <br/>
-    <%= f.text_field :name %>
-</p>
-<p>
-    <label for="user_login">
-        <%=l(:label_full_name) %>
-    </label>
-    <br/>
-    <%= f.text_field :fullname, :size=>80 %>
-</p>
-<label for="user_email">
-    <%=l(:label_email) %>
-</label>
-<br/>
-<%= f.text_field :email,:size=>80 %>
-<p>
-    <label>
-        <%=l(:label_login) %>
-    </label>
-    <br/>
-    <%= f.text_field :login %>
-</p>
-<p>
-    <label>
-        <%=l(:label_password) %>
-    </label>
-    <br/>
-    <%= f.password_field :password %>
-</p>
-<p>
-    <label for="user_role">
-        <%=l(:label_access_level) %>
-    </label>
-    <br/>
+<div class="panel">
+
+<div class="'row">
+  <div class="form-element">
+    <label for="user_name"> <%=l(:Name) %></label>
+    <%= text_field :user,:name %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-element">
+    <label for="user_fullname"> <%=l(:Description) %> </label>
+    <%= text_field :user,:fullname, :size=>80 %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-element">
+    <label for="user_email"> <%=l(:Email_address) %></label>
+    <%= text_field :user,:email,:size=>80 %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-element">
+    <label for="user_login"> <%=l(:Login) %>   </label>
+    <%= text_field :user,:login %>
+  </div>
+  <div class="form-element">
+    <label for="user_password">    <%=l(:Password) %>  </label>
+    <%= password_field :user,:password %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="form-element">
+    <label for="user_role_id">   <%=l(:System_Role) %> </label>
     <%= select_named( :user, :role_id ,UserRole) %>
-</p>
-<%if @user.new_record? %>
-<p>
-    <label for="project_role">
-        <%=l(:label_team_root_role) %>
-    </label>
-    <br/>
-    <%= select_named( :project, :role_id ,ProjectRole) %>
-</p>
-<% end %>
-<br/>
-<p>
-    <%= f.check_box :is_disabled %>
-    <label>
-        <%=l(:label_user_disable) %>
-    </label>
-</p>
-<p>
-    <label>
-        <%= f.check_box :admin %>
-        <%=l(:label_user_system_liability) %>
-    </label>
-</p>
-<p>
-    <%= submit_tag(l(:button_save)) %><%= link_to l(:label_cancel), user_url( :action => 'list') %>
-</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-element">
+    <label>  <%=l(:User_Disable) %>  </label>
+    <%= check_box :user,:is_disabled %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-element">
+    <label>  <%=l(:Full_system_liability) %> </label>
+    <%= check_box :user,:admin %>
+  </div>
+</div>
+</div>
+

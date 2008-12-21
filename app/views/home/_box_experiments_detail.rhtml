@@ -1,23 +1,39 @@
 <div class="box">
-  <b><%=link_to l(:label_my_latest,15,l(:label_experiments)), experiment_url(:action => 'list'), :class=>'icon icon-experiment' %></b>
-  <table class='report'>
-    <thead>
-      <tr>
-        <th><%=l(:label_experiment)%></th>
-        <th><%=l(:label_description)%></th>
-        <th><%=l(:label_project)%></th>
-        <th><%=l(:label_started)%></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="<%= cycle('odd', 'even') %> boldnotbold">
-        <% for item in @user.experiments(15) %>
-          <td><%= link_to item.name, experiment_url(:action=>'show', :id=>item), :class=>"icon icon-status_#{item.status}" %></td>
-          <td><%= Experiment.find(item).description %></td>
-          <td><%= link_to Experiment.find(item).project.name,  project_url(:action=>'show', :id=> Experiment.find(item).project.id) %></td>
-          <td><%= short_date(Experiment.find(item).started_at) %></td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
+    <b><%=link_to l(:My_Latest,15,l(:Experiments)), experiment_url(:action => 'list'), :class=>'icon icon-experiment' %></b>
+    <table class='report'>
+        <thead>
+            <tr>
+                <th>
+                    <%=l(:Experiment) %>
+                </th>
+                <th>
+                    <%=l(:Description) %>
+                </th>
+                <th>
+                    <%=l(:Project) %>
+                </th>
+                <th>
+                    <%=l(:Started) %>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for item in @user.latest(Experiment,15) %>
+            <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+                <td>
+                    <%= link_to item.name, experiment_url(:action=>'show', :id=>item), :class=>"icon icon-status_#{item.status}" %>
+                </td>
+                <td>
+                    <%= item.description %>
+                </td>
+                <td>
+                    <%= link_to item.project.name,  project_url(:action=>'show', :id=> item.project.id) %>
+                </td>
+                <td>
+                    <%= short_date(item.started_at) %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 </div>

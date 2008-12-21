@@ -1,34 +1,40 @@
 <table class="report">
-  <tr>
-    <th>
-    <%=l(:label_task)%>
-    <th>
-    <%=l(:label_process)%>
-    <th>
-    <%=l(:label_assigned_to)%>
-    <th>
-    <%=l(:label_status)%>
-    <th>
-    <%=l(:label_date_start)%>
-    <th>
-    <%=l(:label_date_expected)%>
-  </tr>
-  <% if @experiment.allow?(:data,:update) %>
-    <% for task in @experiment.tasks%>
-      <tr id="<%=task.dom_id(:row)%>" class="<%= cycle('odd', 'even') %>">
+    <tr>
+        <th>
+            <%=l(:Task) %>
+        </th>
+        <th>
+            <%=l(:Process) %>
+        </th>
+        <th>
+            <%=l(:Assigned_To) %>
+        </th>
+        <th>
+            <%=l(:Status) %>
+        </th>
+        <th>
+            <%=l(:Date_Start) %>
+        </th>
+        <th>
+            <%=l(:Date_Expected) %>
+        </th>
+    </tr>
+    <% if @experiment.right?(:data,:update) %>
+    <% for task in @experiment.tasks %>
+    <tr id="<%=task.dom_id(:row)%>" class="<%= cycle('odd', 'even') %>">
         <%=render :partial=>'task',:locals => { :task => task } %>
-      </tr>
-    <%end%>
-  <%else%>
-    <% for task in @experiment.tasks%>
-      <tr id="<%=task.dom_id(:row)%>" class="<%= cycle('odd', 'even') %>">
-        <%=content_tag(:td,task.name)%>
-        <%=content_tag(:td,task.process.name)%>
-        <%=content_tag(:td,task.assigned_to.name)%>
-        <%=content_tag(:td,task.status)%>
-        <%=content_tag(:td,short_date(task.started_at))%>
-        <%=content_tag(:td,short_date(task.expected_at))%>
-      </tr>
-    <%end%>
-  <%end%>
+    </tr>
+    <%end %>
+    <%else %>
+    <% for task in @experiment.tasks %>
+    <tr id="<%=task.dom_id(:row)%>" class="<%= cycle('odd', 'even') %>">
+        <%=content_tag(:td,task.name) %>
+        <%=content_tag(:td,task.process.name) %>
+        <%=content_tag(:td,task.assigned_to.name) %>
+        <%=content_tag(:td,task.status) %>
+        <%=content_tag(:td,short_date(task.started_at)) %>
+        <%=content_tag(:td,short_date(task.expected_at)) %>
+    </tr>
+    <%end %>
+    <%end %>
 </table>

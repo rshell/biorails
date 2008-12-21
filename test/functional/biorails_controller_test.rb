@@ -42,20 +42,32 @@ class BiorailsControllerTest < Test::Unit::TestCase
   end  
 
   def test_project_list
-    list = api.project_list(2)  
+    list = api.project_list(2)
     assert_not_nil list
     assert list.is_a?(Array)
-  end  
-  
-  def test_project_list_no_session    
+  end
+
+  def test_project_list_no_session
        api.project_list(nil)
       flunk("should have failed with no session")
   rescue
-  end  
+  end
+
+  def test_state_list
+    list = api.state_list(2)
+    assert_not_nil list
+    assert list.is_a?(Array)
+  end
+
+  def test_state_list_no_session
+       api.state_list(nil)
+      flunk("should have failed with no session")
+  rescue
+  end
   
   def test_project_element_list_ok
     assert_not_nil  key = api.login('rshell','y90125')  
-    list = api.project_element_list(key,ProjectFolder.find(2))    
+    list = api.project_element_list(key,2)
     assert_not_nil list
     assert list.is_a?(Array)
   end  
@@ -76,7 +88,7 @@ class BiorailsControllerTest < Test::Unit::TestCase
 
   def test_folder_element_list_ok
     assert_not_nil  key = api.login('rshell','y90125')  
-    list = api.folder_element_list(key,ProjectFolder.find(2))    
+    list = api.folder_element_list(key,2)
     assert_not_nil list
     assert list.is_a?(Array)
   end  
@@ -98,7 +110,7 @@ class BiorailsControllerTest < Test::Unit::TestCase
   
   def test_project_folder_list_ok
     assert_not_nil  key = api.login('rshell','y90125')  
-    list = api.project_folder_list(key,Project.find(2))    
+    list = api.project_folder_list(key,Project.find(:first))
     assert_not_nil list
     assert list.is_a?(Array)
   end  
@@ -469,12 +481,12 @@ class BiorailsControllerTest < Test::Unit::TestCase
  end   
 
  def test_add_experiment
-    key = api.login('rshell','y90125')  
+    key = api.login('admin','admin')
     assert !key.nil?, "not got a session key"
     projects = api.project_list(key)
     assert projects.size >0
-    
-    assays = api.assay_list(key,2)    
+
+    assays = api.assay_list(key,2)
     assert assays.size >0
 
     experiments = api.experiment_list(key,1)
@@ -482,7 +494,41 @@ class BiorailsControllerTest < Test::Unit::TestCase
     experiment = api.add_experiment(key,expt.project_id,expt.protocol_version_id,"testxxs","testdddd")
     assert experiment
     assert experiment.name=='testxxs'
- end   
+ end
+
+
+  def test_add_experiment_empty_name
+    key = api.login('rshell','y90125')
+    assert !key.nil?, "not got a session key"
+    projects = api.project_list(key)
+    assert projects.size >0
+
+    assays = api.assay_list(key,2)
+    assert assays.size >0
+
+    experiments = api.experiment_list(key,1)
+    expt = experiments[0]
+    experiment = api.add_experiment(key,expt.project_id,expt.protocol_version_id,"","testdddd")
+    assert experiment
+    assert experiment.name.size>0
+ end
+
+
+  def test_add_experiment_empty_project
+    key = api.login('rshell','y90125')
+    assert !key.nil?, "not got a session key"
+    projects = api.project_list(key)
+    assert projects.size >0
+
+    assays = api.assay_list(key,2)
+    assert assays.size >0
+
+    experiments = api.experiment_list(key,1)
+    expt = experiments[0]
+    assert_raise RuntimeError do
+      experiment = api.add_experiment(key,"",expt.protocol_version_id,"","testddd")
+    end
+ end
 
  
  def test_add_project
@@ -512,13 +558,62 @@ class BiorailsControllerTest < Test::Unit::TestCase
  end  
 
  def test_add_task_context
-    key = api.login('rshell','y90125')  
+    key = api.login('rshell','y90125')
     assert !key.nil?, "not got a session key"
     task = Task.find(:first)
-    context = api.add_task_context(key, task.id, task.process.roots[0].id )
+    context = api.add_task_context(key, task.id, task.process.roots[0].id,nil )
     assert_ok context
  end  
- 
+
+ def test_add_task_context_zero
+    key = api.login('rshell','y90125')
+    assert !key.nil?, "not got a session key"
+    task = Task.find(:first)
+    context = api.add_task_context(key, task.id, task.process.roots[0].id, 0 )
+    assert_ok context
+ end
+
+  def test_add_task_context_missing_parent
+    key = api.login('rshell','y90125')
+    assert !key.nil?, "not got a session key"
+    task = Task.find(:first)
+    parameter_context = ParameterContext.find(:first,:conditions=>'parent_id is not null')
+    assert_raise RuntimeError do
+      api.add_task_context(key, task.id, parameter_context, 0 )
+    end
+ end
+
+  def test_add_task_context_child
+    key = api.login('rshell','y90125')
+    assert !key.nil?, "not got a session key"
+    task = Task.find(:first)
+    task_context = task.contexts[0]
+    parameter_context = task_context.definition.children[0]
+    context = api.add_task_context(key, task.id, parameter_context.id, task_context.id )
+    assert_ok context
+ end
+
+  def test_add_task_context_wrong_process
+    key = api.login('rshell','y90125')
+    assert !key.nil?, "not got a session key"
+    task = Task.find(:first)
+    parameter_context = ParameterContext.find(:first,:conditions=>['parent_id is null and protocol_version_id!=?',task.protocol_version_id])
+    assert_not_equal task.protocol_version_id,parameter_context.protocol_version_id
+    assert_raise RuntimeError do
+      api.add_task_context(key, task.id, parameter_context, 0 )
+    end
+ end
+
+ def test_add_task_context_invalid
+    key = api.login('rshell','y90125')
+    assert !key.nil?, "not got a session key"
+    task = Task.find(:first)
+    assert_raise ActiveRecord::RecordNotFound do
+      api.add_task_context(key, task.id, 222 )
+    end
+ end
+
+
  def test_set_task_value
     key = api.login('rshell','y90125')  
     assert !key.nil?, "not got a session key"
@@ -531,16 +626,16 @@ class BiorailsControllerTest < Test::Unit::TestCase
  def test_set_content
     key = api.login('rshell','y90125')  
     assert !key.nil?, "not got a session key"
-    item = ProjectContent.find(:first)
-    struct = api.set_content(key, item.parent_id,'test-xxx','test-xxx','<b>test</b>')
+    item = ProjectFolder.find(:first)
+    struct = api.set_content(key, item.id,'test-xxx','test-xxx','<b>test</b>')
     assert struct
     assert_equal 'test-xxx', struct.name
     assert_equal 'test-xxx', struct.title
     assert struct.data
  end  
 
- def test_set_asset
-    key = api.login('rshell','y90125')  
+ def test_set_asset_insert
+    key = api.login('rshell','y90125')
     assert !key.nil?, "not got a session key"
     item = ProjectFolder.find(:first)
     body = Base64.encode64('Test Data')
@@ -549,6 +644,25 @@ class BiorailsControllerTest < Test::Unit::TestCase
     assert_equal 'test.txt', struct.name
     assert_equal body, struct.base64
     assert_equal 'test.upload', struct.title
- end  
+ end
+
+ def test_set_asset_update
+    key = api.login('rshell','y90125')
+    assert !key.nil?, "not got a session key"
+    item = ProjectFolder.find(:first)
+    body = Base64.encode64('Test Data')
+    
+    struct = api.set_asset(key, item.id,'test.upload','test.txt','text/plain',body)
+    assert struct
+    assert_equal 'test.txt', struct.name
+    assert_equal body, struct.base64
+    assert_equal 'test.upload', struct.title
+
+   struct = api.set_asset(key, item.id,'test.upload','test.txt','text/plain',body)
+    assert struct
+    assert_equal 'test.txt', struct.name
+    assert_equal body, struct.base64
+    assert_equal 'test.upload', struct.title
+ end
  
 end

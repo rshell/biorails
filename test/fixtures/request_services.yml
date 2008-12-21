@@ -1,37 +1,12 @@
-# == Schema Information
-# Schema version: 359
-#
-# Table name: request_services
-#
-#  id                   :integer(4)      not null, primary key
-#  request_id           :integer(4)      not null
-#  service_id           :integer(4)      not null
-#  name                 :string(128)     default(""), not null
-#  description          :string(1024)    default("")
-#  expected_at          :datetime
-#  started_at           :datetime
-#  ended_at             :datetime
-#  lock_version         :integer(4)      default(0), not null
-#  created_at           :datetime        not null
-#  updated_at           :datetime        not null
-#  status_id            :integer(4)      default(0), not null
-#  priority_id          :integer(4)
-#  updated_by_user_id   :integer(4)      default(1), not null
-#  created_by_user_id   :integer(4)      default(1), not null
-#  requested_by_user_id :integer(4)      default(1)
-#  assigned_to_user_id  :integer(4)      default(1)
-#  project_element_id   :integer(4)
-#
-
 --- 
 00000000002_request_service: !ruby/object:RequestService 
   attributes: 
     name: Req1-2
-    updated_at: 2008-08-14 10:29:39
+    updated_at: 2008-10-22 15:14:25
     ended_at: 
     updated_by_user_id: "1"
     priority_id: "1"
-    lock_version: "8"
+    lock_version: "9"
     expected_at: 2007-12-26 00:00:00
     request_id: "1"
     service_id: "2"
@@ -49,11 +24,11 @@
 00000000001_request_service: !ruby/object:RequestService 
   attributes: 
     name: Req1-1
-    updated_at: 2008-08-14 10:29:38
+    updated_at: 2008-10-22 15:14:25
     ended_at: 
     updated_by_user_id: "1"
     priority_id: "1"
-    lock_version: "8"
+    lock_version: "9"
     expected_at: 2007-12-26 00:00:00
     request_id: "1"
     service_id: "1"

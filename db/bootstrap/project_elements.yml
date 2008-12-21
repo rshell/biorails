@@ -32,13 +32,26 @@
 
 00000000001_project_folder: !ruby/object:ProjectFolder
   attributes:
-    id: "1"
-    project_id: 1
-    type: ProjectFolder
-    position: "1"
-    name: Public
-    reference_type: Project
-    lock_version: "1"
-    asset_id:
+    name: Global
     content_id:
-    team_id: "1"
+    updated_at: 2008-10-22 15:14:22
+    project_id: "1"
+    title: Global
+    project_elements_count: "0"
+    left_limit: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "1"
+    right_limit: "2"
+    element_type_id: "4"
+    reference_type: Project
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id:
+    asset_id:
+    created_at: 2008-10-22 13:33:11
+  attributes_cache: {}

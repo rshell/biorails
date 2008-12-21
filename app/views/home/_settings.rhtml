@@ -1,0 +1,19 @@
+  <div class="row">
+    <div class="form-element">
+      <label for="tab1">
+        <%=l(:Project) %>
+      </label>
+      <%=select_tag( :default_project_id,options_for_select(@project_list,UserSetting.default_project_id.to_i)) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-element">
+      <label for="tab1">
+        <%=l(:language) %>
+      </label>
+      <%=select_tag( :default_language,options_for_select(@languages,UserSetting.default_language)) %>
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />

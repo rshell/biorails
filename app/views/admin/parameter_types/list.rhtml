@@ -5,7 +5,7 @@
 <%= render :partial => '/shared/messages',:locals=>{:objects=>[:paraeter_type]} %>
 <% end %>
 <%= render :partial => 'admin/header' %>
-<h2 class="icon icon-parameter_type"><%=l(:label_parameter_types) %>
+<h2 class="icon icon-parameter_type"><%=l(:Parameter_Types) %>
 </h2>
 <div class="panel">
   <div class='box'>
@@ -14,28 +14,28 @@
   <table class="report">
     <tr>
       <th>
-        <%=l(:label_name) %>
+        <%=l(:Name) %>
       </th>
       <th style="width:45%">
-        <%=l(:label_description) %>
+        <%=l(:Description) %>
       </th>
       <th>
-        <%=l(:label_style) %>
+        <%=l(:Style) %>
       </th>
       <th>
-        <%=l(:label_unit) %>
+        <%=l(:Unit) %>
       </th>
       <th>
-        <%=l(:label_dimension) %>
+        <%=l(:Dimension) %>
       </th>
       <th>
-        <%=l(:label_assay) %>
+        <%=l(:Assay) %>
       </th>
       <th>
-        <%=l(:label_method) %>
+        <%=l(:Method) %>
       </th>
       <th colspan='2'>
-        <%=l(:label_action) %>
+        <%=l(:Action) %>
       </th>
     </tr>
     <% for parameter_type in @parameter_types %>
@@ -62,16 +62,16 @@
         <%=parameter_type.assay_parameters.size %>
       </td>
       <td>
-        <%= link_to "&nbsp;",parameter_type_url( :action => 'edit', :id => parameter_type), :class=>'icon icon-edit' %>
+        <%= link_to l(:Edit),parameter_type_url( :action => 'edit', :id => parameter_type), :class=>'icon icon-edit' %>
       </td>
       <td>
-        <%= link_to "&nbsp;",parameter_type_url( :action => 'destroy', :id => parameter_type),  :class=>'icon icon-del' if parameter_type.assay_parameters.empty? %>
+        <%= link_to l(:Delete),parameter_type_url( :action => 'destroy', :id => parameter_type),  :class=>'icon icon-del' if parameter_type.assay_parameters.empty? %>
       </td>
     </tr>
     <% end %>
   </table>
   <%= will_paginate @parameter_types %>
-<hr/><%= link_to l(:label_new),      parameter_type_url(:action => 'new'), :class=>'icon icon-new' %>
+<hr/><%= link_to l(:New),      parameter_type_url(:action => 'new'), :class=>'icon icon-new' %>
 </div>
 <% content_for :right do -%>
 <%= render :partial=>'help' %>

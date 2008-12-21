@@ -151,6 +151,7 @@
 /* inventory */
 .icon-batch               { background-image:url(/images/open/inventory/batch.png)  !important; }
 .icon-compound            { background-image:url(/images/open/inventory/compound.png)  !important; }
+.icon-animal            { background-image:url(/images/open/inventory/animal.png)  !important; }
 .icon-container           { background-image:url(/images/open/inventory/container.png)  !important; }
 .icon-mixture             { background-image:url(/images/open/inventory/mixture.png)  !important; }
 .icon-sample              { background-image:url(/images/open/inventory/sample.png)  !important; }

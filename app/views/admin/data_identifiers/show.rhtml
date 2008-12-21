@@ -1,0 +1,41 @@
+<% content_for :sidemenu do %>
+  <%= render :partial => '/menu/admin_menu' %>
+  <div>
+    <span class='menu'><b class='icon icon-data_identifier'><%=l(:data_identifier) %>
+    </b></span>
+    <%= link_to l(:List), data_identifier_url(:action => 'list') %>
+    <%= link_to l(:New),  data_identifier_url(:action => 'new') %>
+    <%= link_to l(:Edit), data_identifier_url(:action => 'edit', :id => @data_identifier) %>
+    <%= link_to l(:Show), data_identifier_url(:action => 'show',:id => @data_identifier) %>
+    <%= link_to l(:Delete), data_identifier_url(:action => 'destroy', :id => @data_identifier ),
+      :confirm => l(:text_are_you_sure), :method => :post %>
+  </div>
+<% end %>
+
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['data_identifier' ]} %>
+<%end%>
+
+
+<% content_for :center do %>
+<%= render :partial => 'admin/header' %>
+
+<div class="panel">
+<h2 class="icon icon-data_identifier"><%=@data_identifier.name %></h2>
+<div class="box">
+<dl>
+  <dt><%=l(:Name) %>    </dt>      <dd><%= @data_identifier.name%> </dd>
+  <dt><%=l(:prefix) %>  </dt>      <dd><%= @data_identifier.prefix%> </dd>
+  <dt><%=l(:current_counter) %> </dt> <dd><%= @data_identifier.current_counter%> </dd>
+  <dt><%=l(:postfix) %> </dt>      <dd><%= @data_identifier.postfix%> </dd>
+  <dt><%=l(:mask) %>    </dt>      <dd><%= @data_identifier.mask%> </dd>
+  <dt><%=l(:current_step) %> </dt> <dd><%= @data_identifier.current_step%> </dd>
+  <dt><%=l(:Name) %>    </dt>      <dd><%= @data_identifier.name%> </dd>
+</dl>
+</div>
+<%= link_to l(:List),   data_identifier_url(:action => 'list'), :class=>'icon icon-list' %>
+<%= link_to l(:Edit),   data_identifier_url(:action => 'edit', :id => @data_identifier), :class=>'icon icon-edit' %>
+<%= link_to l(:Delete), data_identifier_url(:action => 'destroy', :id => @data_identifier ),
+  :confirm => l(:text_are_you_sure), :method => :post, :class=>'icon icon-del' %>
+</div>
+<% end %>

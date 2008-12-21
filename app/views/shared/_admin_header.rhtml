@@ -1,16 +1,16 @@
 <div class="panel panel_administration">
     <%= render :partial => 'shared/help_link' %>
     <h1 class='icon icon-data_context-large' style='text-indent:0.5em'>
-    	<%= link_to l(:label_administration), catalogue_url( :action => 'list') %>
+    	<%= link_to l(:Administration), catalogue_url( :action => 'list') %>
     </h1>
     <table width="100%">
         <tr>
             <td>
-                <%= link_to l(:label_catalogue),       catalogue_url( :action => 'list'),:class=>'icon icon-catalogue' %>
-                <%= link_to l(:label_parameter_types), parameter_type_url(:action => 'list' ),:class=>'icon icon-parameter_type' %>
-                <%= link_to l(:label_parameter_roles), parameter_role_url(:action => 'list' ),:class=>'icon icon-parameter_role' %>
-                <%= link_to l(:label_users),           user_url(),:class=>'icon icon-user' %>
-                <%= link_to l(:label_roles),           role_url(),:class=>'icon icon-role' %>
+                <%= link_to l(:Catalogue),       catalogue_url( :action => 'list'),:class=>'icon icon-catalogue' %>
+                <%= link_to l(:Parameter_Types), parameter_type_url(:action => 'list' ),:class=>'icon icon-parameter_type' %>
+                <%= link_to l(:Parameter_Roles), parameter_role_url(:action => 'list' ),:class=>'icon icon-parameter_role' %>
+                <%= link_to l(:Users),           user_url(),:class=>'icon icon-user' %>
+                <%= link_to l(:Roles),           role_url(),:class=>'icon icon-role' %>
             </td>
             <td align='right'>
             </td>

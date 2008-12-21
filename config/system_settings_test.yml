@@ -5,6 +5,9 @@ app_subtitle:
   default: Project organisation and data management
 welcome_text:
   default: Welcome to BioRails
+footer_message:
+  default:
+  tip: Your credits message, displayed at the bottom of the page.
 hash_format:
   default: MD5
 max_login_attempts:
@@ -14,6 +17,9 @@ author_assert_text:
   default: I assert that the document below is my work and affirm this by attaching my electronic signature
 witness_assert_text:
   default: I witness that the document below is the work of the signing author(s) and  affirm this by attaching my electronic signature
+withdraw_asset_text:
+  default: This is withdraw this folder document from publication
+  tip: Test that a witness signs
 witness_request_text:
   default: Please follow the link below to witness that I am the author of the attached document
 witness_refused_text:
@@ -54,9 +60,9 @@ ntp_server:
   default: uk.pool.ntp.org
   tip: Default ntp server
 ldap_host:
-  default:
+  default:  
   tip: Name or address of the LDAP server to use
-ldap_port:
+ldap_port: 
   default: 
   tip:  port to access the ldap server on
 ldap_base:
@@ -86,6 +92,15 @@ max_table_columns:
 footer_message:
   default:
   tip: Your credits message, displayed at the bottom of the page.
-
-
-
+study_type_id:
+  default: 3
+  tip: The id of the type of domain (project) that represents a study
+force_generated_project_yn:
+  default: true
+  tip: Force use of generated project identifiers
+force_generated_assay_yn:
+  default: false
+  tip: Force use of generated assay identifiers
+force_generated_experiment_yn:
+  default: false
+  tip: Force use of generated experiment identifiers

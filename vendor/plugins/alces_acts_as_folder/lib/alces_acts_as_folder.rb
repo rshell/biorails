@@ -77,14 +77,14 @@ module Alces
       #   * If current user is a member of the team owning the record
       #   * If current user was the last author of the object.
       #
-      def find_visible(*args)
+      def with_visible_data_scope
         if User.current.admin?
           return self.with_scope( :find => {:include=>[:access_control_list,:state]})  do
-            self.find(*args)
+            yield
           end
-        end
-        items = []
-        acl_sql = <<-SQL
+        else
+          items = []
+          acl_sql = <<-SQL
 exists ( select 1 from access_control_elements 
   where access_control_elements.access_control_list_id = project_elements.access_control_list_id 
   and (access_control_elements.owner_type='User' and access_control_elements.owner_id = ?
@@ -93,20 +93,21 @@ exists ( select 1 from access_control_elements
                 where memberships.team_id=access_control_elements.owner_id 
                 and memberships.user_id=? ))
     )) 
-        SQL
-        items << [acl_sql,[User.current.id,User.current.id]]
-        items << ["#{State.table_name}.level_no  = ?",State::PUBLIC_LEVEL]
-        items << ["#{self.table_name}.updated_by_user_id  = ?",User.current.id]
-        items << ["#{self.table_name}.created_by_user_id  = ?",User.current.id]
-        conditions = []
-        values = []
-        items.each do |item|
-          conditions <<  item[0]
-          values << item[1]
-        end
-        self.with_scope( :find => {:include=>[:access_control_list,:state],
-            :conditions=> [conditions.join(" or "),values].flatten } )  do
-          self.find(*args)
+          SQL
+          items << [acl_sql,[User.current.id,User.current.id]]
+          items << ["#{State.table_name}.level_no  = ?",State::PUBLIC_LEVEL]
+          items << ["#{self.table_name}.updated_by_user_id  = ?",User.current.id]
+          items << ["#{self.table_name}.created_by_user_id  = ?",User.current.id]
+          conditions = []
+          values = []
+          items.each do |item|
+            conditions <<  item[0]
+            values << item[1]
+          end
+          self.with_scope( :find => {:include=>[:access_control_list,:state],
+              :conditions=> [conditions.join(" or "),values].flatten } )  do
+            yield
+          end
         end
       rescue Exception => ex
         logger.info "Failed to find object "+ex.message
@@ -142,13 +143,17 @@ exists ( select 1 from access_control_elements
       #   * If current user was the last author of the object.
       #
       def load(id)
-        self.find_visible(id,:include=>[:access_control_list,:state])
+        with_visible_data_scope do
+            self.find(id,:include=>[:access_control_list,:state])
+        end
       end
       #
       # List all the items in the current project of the type
       #
       def list(*args)
-        self.find_visible(*args)
+        with_visible_data_scope do
+            self.find(*args)
+        end
       end  
 
     end
@@ -164,14 +169,14 @@ exists ( select 1 from access_control_elements
       #   * If current user is a member of the team owning the record
       #   * If current user was the last author of the object.
       #
-      def find_visible(*args)
+      def with_visible_data_scope
         if User.current.admin?
           return self.with_scope( :find => {:include=>[:project_element=>[:access_control_list,:state]]})  do
-            self.find(*args)
+            yield
           end
-        end
-        items = []
-        acl_sql = <<-SQL
+        else
+          items = []
+          acl_sql = <<-SQL
   exists (
     select 1 from access_control_elements
     where access_control_elements.access_control_list_id = project_elements.access_control_list_id
@@ -183,22 +188,23 @@ exists ( select 1 from access_control_elements
             )
         )
     )
-        SQL
-        items << [acl_sql,[User.current.id,User.current.id]]
-        items << ["#{State.table_name}.level_no  = ?",State::PUBLIC_LEVEL]
-        items << ["#{self.table_name}.updated_by_user_id  = ?",User.current.id] if self.columns.any?{|c|c.name =='updated_by_user_id'}
-        items << ["#{self.table_name}.assigned_to_user_id = ?",User.current.id] if self.columns.any?{|c|c.name =='assigned_to_user_id'}
-        items << ["#{self.table_name}.created_by_user_id  = ?",User.current.id] if self.columns.any?{|c|c.name =='created_by_user_id'}
-        conditions = []
-        values = []
-        items.each do |item|
-          conditions <<  item[0]
-          values << item[1]
-        end
+          SQL
+          items << [acl_sql,[User.current.id,User.current.id]]
+          items << ["#{State.table_name}.level_no  = ?",State::PUBLIC_LEVEL]
+          items << ["#{self.table_name}.updated_by_user_id  = ?",User.current.id] if self.columns.any?{|c|c.name =='updated_by_user_id'}
+          items << ["#{self.table_name}.assigned_to_user_id = ?",User.current.id] if self.columns.any?{|c|c.name =='assigned_to_user_id'}
+          items << ["#{self.table_name}.created_by_user_id  = ?",User.current.id] if self.columns.any?{|c|c.name =='created_by_user_id'}
+          conditions = []
+          values = []
+          items.each do |item|
+            conditions <<  item[0]
+            values << item[1]
+          end
   
-        self.with_scope( :find => {:include=>[:project_element=>[:access_control_list,:state]],
-            :conditions=> [conditions.join(" or "),values].flatten } )  do
-          self.find(*args)
+          self.with_scope( :find => {:include=>[:project_element=>[:access_control_list,:state]],
+              :conditions=> [conditions.join(" or "),values].flatten } )  do
+            yield
+          end
         end
       rescue Exception => ex
         logger.info "Failed to find object "+ex.message
@@ -233,14 +239,18 @@ exists ( select 1 from access_control_elements
       #   * If current user was the last author of the object.
       #
       def load(id)
-        self.find_visible(id)
+        with_visible_data_scope do
+          self.find(id)
+        end
       end  
       #
       # List all the items in the current project of the type
       #
       #
       def list(*args)
-        self.find_visible(*args)
+        with_visible_data_scope do
+          self.find(*args)
+        end
       end
       
     end # module SingletonMethods
@@ -265,10 +275,11 @@ exists ( select 1 from access_control_elements
 
 
       def after_create_generate_folder
+        return true if Biorails::Dba.importing?
         if self.respond_to?(:parent_id) and self.parent_id          
           self.project_element = ProjectFolder.find(:first,
             :conditions=>["name =? and parent_id is not null and project_id=? and reference_type='Project'",self.name, self.id])
-          self.project_element = parent.project_element.add_folder(self.name,self)
+          self.project_element = self.parent.project_element.add_folder(self.name,self)
         else
           self.project_element = ProjectFolder.find(:first,
             :conditions=>["name =? and parent_id is null and project_id=? and reference_type='Project'", self.name, self.id])
@@ -297,6 +308,7 @@ exists ( select 1 from access_control_elements
       end  
 
       def after_create_generate_folder
+        return true if Biorails::Dba.importing?
         root = self.send(self.class.root_folder)
         root = root.folder(self.class.root_folder_under) if root and self.class.root_folder_under
         self.project_element = root.folder(self) if root
@@ -335,19 +347,19 @@ exists ( select 1 from access_control_elements
       #
       # Get a root folder my name
       # 
-      def folder?(item)
-        return nil unless project_element and item
+      def folder?(item=nil)
+        return nil unless self.project_element and item
         return project_element.folder?(item)
       end    
       #
       # List of projects in models in scope of this project
       #
       def contained(klass= Project,limit=10)
-         items = self.project_element.find_within(:all,:conditions=>{:reference_type=>klass.class_name}).collect{|i|i.reference_id}
-         klass.find(:all,
-                :include=>[:project_type,:project_element],
-                :conditions=>["#{klass.table_name}.id in (?)",items],
-                :limit=>limit)
+        items = self.project_element.find_within(:all,:conditions=>{:reference_type=>klass.class_name}).collect{|i|i.reference_id}
+        klass.find(:all,
+          :include=>[:project_type,:project_element],
+          :conditions=>["#{klass.table_name}.id in (?)",items],
+          :limit=>limit)
       end
 
       #
@@ -394,9 +406,11 @@ exists ( select 1 from access_control_elements
       #
       # See if record is fixed in the current context
       #
-      def changable?
-        return true if self.new_record?
-        return allow?(:data,:update)
+      def changeable?
+        (self.new_record? or self.project_element_id.nil? or self.folder.nil? or
+            self.folder.state.nil? or 
+            self.folder.state_flow.nil? or
+            (right?(:data,:update) and self.folder.state.editable?))
       end
       #
       # Check whether a action is allowed in the context of a 
@@ -404,7 +418,7 @@ exists ( select 1 from access_control_elements
       #   * If current user is a member of the team owning the record
       #   * If current user was the last author of the object.
       #
-      def allow?(scope ='project', action = 'show' )
+      def right?(scope ='project', action = 'show' )
         return self.permission?(User.current, scope, action )
       end
       

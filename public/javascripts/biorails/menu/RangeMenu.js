@@ -7,13 +7,13 @@ Ext.ux.menu.RangeMenu = function(){
 	var cls = this.fieldCls;
 	var fields = this.fields = Ext.applyIf(this.fields || {}, {
 		'gt': new Ext.ux.menu.EditableItem({
-			icon:  this.icons.gt,
+			iconCls:  this.icons.gt,
 			editor: new cls(typeof cfg == "object" ? cfg.gt || '' : cfg)}),
 		'lt': new Ext.ux.menu.EditableItem({
-			icon:  this.icons.lt,
+			iconCls:  this.icons.lt,
 			editor: new cls(typeof cfg == "object" ? cfg.lt || '' : cfg)}),
 		'eq': new Ext.ux.menu.EditableItem({
-			icon:   this.icons.eq, 
+			iconCls:   this.icons.eq, 
 			editor: new cls(typeof cfg == "object" ? cfg.gt || '' : cfg)})
 	});
 	this.add(fields.gt, fields.lt, '-', fields.eq);
@@ -42,9 +42,9 @@ Ext.extend(Ext.ux.menu.RangeMenu, Ext.menu.Menu, {
 	fieldCfg:     '',
 	updateBuffer: 500,
 	icons: {
-		gt: '/img/small_icons/greater_then.png', 
-		lt: '/img/small_icons/less_then.png',
-		eq: '/img/small_icons/equals.png'},
+		gt: 'ux-rangemenu-gt', 
+		lt: 'ux-rangemenu-lt',
+		eq: 'ux-rangemenu-eq'},
 		
 	fireUpdate: function(){
 		this.fireEvent("update", this);

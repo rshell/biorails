@@ -4,8 +4,8 @@
 
 
 <% content_for :center do %>
-  <%= render :partial=>'projects/header' %>
-  <h2 class='icon icon-request'><%=l(:label_services) %>
+  <%= render :partial=>'header' %>
+  <h2 class='icon icon-request'><%=l(:Service_Queues) %>
   </h2>
   <div class='panel'>
     <%= render :partial=>'list'%>
@@ -15,7 +15,7 @@
 
 <% content_for :right do %>
   <div class=" x-panel-header x-accordion-hd">
-    <span class="icon icon-queue x-panel-header-text"><%=l(:label_service) %><%=l(:label_guide) %>
+    <span class="icon icon-queue x-panel-header-text"><%=l(:Service) %><%=l(:Guide) %>
     </span>
   </div>
   <div class='panel'>
@@ -23,7 +23,7 @@
       <%=l(:help_service) %>
     </p>
     <div class=" x-panel-header x-accordion-hd">
-      <span class="icon icon-workflow x-panel-header-text"><%=l(:label_recipe) %><%=l(:label_guide) %>
+      <span class="icon icon-workflow x-panel-header-text"><%=l(:Recipe) %><%=l(:Guide) %>
       </span>
     </div>
     <p>

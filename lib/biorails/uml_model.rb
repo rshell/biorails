@@ -185,12 +185,13 @@ module Biorails
       f.close
   
       # neato or dot
-      if system "#{cmd} -Tpng -o\"#{img_file}\" \"#{dot_file}\""
+      cmdline = "#{cmd} -Tpng -o\"#{img_file}\" \"#{dot_file}\""
+      if Biorails::Check.run(cmdline)
         logger.info "Generated #{img_file}"
         return img_file
       else
-        puts "Failed to execute the '#{cmd}' command! Need grapviz (www.graphviz.org) installed and on path "
-        logger.error "Failed to execute the '#{cmd}' command! Is grapviz (www.graphviz.org) installed? "
+        puts "Failed to execute the '#{cmdline}' command! Need grapviz (www.graphviz.org) installed and on path "
+        logger.error "Failed to execute the '#{cmdline}' command! Is grapviz (www.graphviz.org) installed? "
         return nil
       end
     rescue Exception => ex

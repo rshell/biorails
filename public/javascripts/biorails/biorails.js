@@ -219,18 +219,25 @@ Biorails = function(){
         id:'nav-id',
         split:true,
         stateId: 'West',
+        collapsible:true,
+//        collapsed: true,
+        titleCollapse:false,
         stateful: true,
         stateEvents: ["collapse","expand"],
         getState: function() { 
-            state = {collapsed:  this.collapsed};
+            state = {collapsed:  this.collapsed,
+                     width: this.width};
             return state;
         },                               
         applyState : function(state) {
             try{
               if (state){
                   if (this.collapsed != state.collapsed) {
-                      this.toggleCollapse(false);              
+                      this.toggleCollapse(false);
                   }
+                  this.setWidth(state.width);
+              } else {
+                  if (this.collapsed==false) {this.toggleCollapse(false);}
               }
             } catch (e) {
                 console.log('Problem with main javascript ');
@@ -241,9 +248,7 @@ Biorails = function(){
             var state = Ext.state.Manager.get(this.stateId);
             this.applyState(state);
         },     
-        collapsible:true,
         useSplitTips: true,
-        titleCollapse:true,
         width: 140,
         minHeight: 600,
         minSize: 100,
@@ -270,17 +275,25 @@ Biorails = function(){
         el:'tree-panel',
         title:'Folders',
         minHeight: 400,
+        bbar: [
+            {iconCls: 'icon-home',   handler: function(){window.location='/home' },scope: this },
+            {iconCls: 'icon-project',handler: function(){window.location='/projects/show'},scope: this },
+            {iconCls: 'icon-assay',  handler: function(){window.location='/assays/list' },scope: this },
+            {iconCls: 'icon-report',    handler: function(){window.location='/reports/list'},scope: this },
+            {iconCls: 'icon-request',   handler: function(){window.location='/requests/list'},scope: this },
+            {iconCls: 'icon-experiment',handler: function(){window.location='/experiments/list'},scope: this },
+            {iconCls: 'icon-task',   handler: function(){window.location='/tasks/list'},scope: this } ],
         autoShow: true,
         autoScroll: true,
         autoDestroy: true,
         animate:true,
-        enableDD:true,
+        enableDrag:true,
         iconCls:'icon-folder',
         loader: new Ext.tree.TreeLoader({ dataUrl:'/home/tree'	})
     });
     
     _tree_panel.setRootNode( new Ext.tree.AsyncTreeNode({   
-        text: 'Projects',
+        text: 'Domains',
         expanded: true,    
         draggable:false, 
         id: 'root' }) 
@@ -295,7 +308,8 @@ Biorails = function(){
         stateful: true,
         stateEvents: ["collapse","expand"],
         getState: function() { 
-            state = {collapsed:  this.collapsed};
+            state = {collapsed:  this.collapsed,
+                     width: this.width};
             return state;
         },                               
         applyState : function(state) {
@@ -304,6 +318,7 @@ Biorails = function(){
                   if (this.collapsed != state.collapsed) {
                       this.toggleCollapse(false);              
                   }
+                  this.setWidth(state.width);
               }
             } catch (e) {
                 console.log('Problem with main javascript ');
@@ -321,10 +336,10 @@ Biorails = function(){
         split:true,
         useSplitTips: true,
         collapsible:true,
-        titleCollapse:true,
+        titleCollapse:false,
         activeTab:0,
         tabPosition: 'bottom',
-        items:[ _status_panel, _tree_panel ]
+        items:[ _tree_panel,_status_panel ]
     });
 
     // region -----------------------Center------------------------------
@@ -341,15 +356,16 @@ Biorails = function(){
         title:"History", 
         id:'footer-id', 
         height:150,
-        split:true,  
-        titleCollapse: true,
+        split:true,
+        frame: true,
+        autoScroll: true,
         splitTip: "Mesages and Audit information",
         useSplitTips: true,
         contentEl:'footer-panel',
+        titleCollapse: true,
         collapsible:true,
         collapsed: true,
         floatable: true,
-        titleCollapse:false,
         stateful: true,
         stateId: 'South-panel',
         stateEvents: ["collapse","expand"],

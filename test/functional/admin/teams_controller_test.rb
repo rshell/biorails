@@ -62,9 +62,41 @@ class Admin::TeamsControllerTest < Test::Unit::TestCase
     assert_response :redirect
     assert_redirected_to :action => 'show'
   end
-  
+
+  def test_grant_user
+      post :grant, :id => @item.id,:owner_type=>'User',:user_id=>7,:role_id=>1
+      assert_response :redirect
+      assert_redirected_to :action => 'show'
+      post :grant, :id => @item.id,:owner_type=>'User',:user_id=>7,:role_id=>1
+      assert_response :redirect
+      assert_redirected_to :action => 'show'
+  end
+
+  def test_grant_team
+    post :grant, :id => @item.id,:owner_type=>'Team',:owner_id=>1,:role_id=>1
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
+  end
+
   def test_add
-    post :add, :id => @item.id,:owner=>true,:user_id=>7
+    post :add, :id => @item.id,:membership=>{:owner=>true,:user_id=>7}
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
+  end
+
+  def test_add_and_remove
+    user = User.find(2)
+    team = user.create_team(:name=>"twefgsdgf",:description=>'dsgfsgds')
+    post :add, :id => team.id,:membership=>{:owner=>true,:user_id=>7}
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
+    post :add, :id => team.id,:owner=>false,:user_id=>3
+    assert_response :redirect
+    assert_redirected_to :action => 'show'
+    team.reload
+    assert_equal 2,team.memberships.size
+    membership = team.memberships[1]
+    post :remove, :id => team.id,:membership_id=> membership.id
     assert_response :redirect
     assert_redirected_to :action => 'show'
   end

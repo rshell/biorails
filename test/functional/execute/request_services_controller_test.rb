@@ -48,8 +48,8 @@ class Execute::RequestServicesControllerTest < Test::Unit::TestCase
 
   def test_show_invalid
     get :show, :id => 24242432
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
   
   def test_edit
@@ -150,7 +150,6 @@ class Execute::RequestServicesControllerTest < Test::Unit::TestCase
     assert_template 'report'
     assert_not_nil assigns(:request_service)
     assert_not_nil assigns(:report)
-    assert_not_nil assigns(:data)
     assert assigns(:request_service).valid?
   end
   

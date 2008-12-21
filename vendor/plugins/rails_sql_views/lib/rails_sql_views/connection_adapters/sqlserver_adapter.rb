@@ -6,6 +6,10 @@ module ActiveRecord
         true
       end
       
+      def nonview_tables(name = nil)
+        tables(name)
+      end
+      
       # Returns all the view names from the currently connected schema.
       def views(name = nil)
         select_values("SELECT table_name FROM information_schema.views", name)

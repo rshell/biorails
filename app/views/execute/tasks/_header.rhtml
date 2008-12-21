@@ -1,18 +1,25 @@
 <div class="content_header execution">
   <%= render :partial => 'shared/help_link' %>
   <h1 class='icon icon-task-large'>
-    <%= link_to( "#{l(:label_task)} [#{@task.name}]", task_url( :action => :show, :id => @task.id)) %>
+    <%= link_to( "#{l(:Task)} [#{@task.name}]", task_url( :action => :show, :id => @task)) %>
   </h1>
   <br />
   <br />
   <div class='actions_left'>
-        <%= link_to( l(:label_open_folder), folder_url( :action => 'show', :id => @task.folder), :class=>'icon icon-folder') %>
-        <%= link_to( "#{@task.experiment.name} #{l(:label_calendar)}", calendar_url( :action => 'show', :id => @task.experiment.project_element_id), :class=>'icon icon-calendar') %>
+    <%= link_to( l(:Open_Folder), folder_url( :action => 'show', :id => @task.folder), :class=>'icon icon-folder') %>
+    <%= link_to(l(:Experiment),experiment_url(:action=>:show,:id=>@task.experiment_id), :class=>'icon icon-experiment')  %>
+    <%= link_to( "#{@task.experiment.name} #{l(:Calendar)}", calendar_url( :action => 'show', :id => @task.experiment.project_element_id), :class=>'icon icon-calendar') %>
   </div>
   <div class='actions_right'>
-    <%= link_to( l(:label_analysis_default), task_url( :action => 'analysis', :id => @task), :class=>'icon icon-analysis') %>
-    <%if @task.contexts.size==0%>
-    <%= link_to( l(:label_delete),task_url( :action => 'destroy', :id => @task ), :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del')  %>
+    <%= link_to(l(:Print),task_url(:action=>:print,:id=>@task),:popup=> true, :class=>'icon icon-print') %>
+    <% if @task.changeable?  %>
+      <%= link_to(l(:Recalc),task_url(:action=>:recalc,:id=>@task), :class=>'icon icon-analysis') if @task.changeable? %>
+      <%= link_to(l(:Edit),task_url(:action=>:edit,:id=>@task), :class=>'icon icon-edit') %>
+
+      <%= link_to( l(:Analysis_Default_Run), task_url( :action => 'analysis', :id => @task), :class=>'icon icon-analysis') %>
+      <%if @task.changeable? and right?(:data,:destroy)%>
+        <%= link_to( l(:Delete),task_url( :action => 'destroy', :id => @task ), :confirm => l(:text_are_you_sure),:method => "post", :class=>'icon icon-del')  %>
+      <%end%>
     <%end%>
   </div>
   <br />

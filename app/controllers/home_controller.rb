@@ -11,8 +11,7 @@
 class HomeController < ApplicationController
 
   use_authorization :project,
-    :actions => [:index,:show,:projects,:calendar,:timeline,:blog,:destroy],
-    :rights => :current_user  
+    :use => [:index,:show,:edit,:projects,:calendar,:timeline,:blog,:destroy]
 
   helper :calendar
   DEFAULT_CALENDAR_OPTIONS = {  'month' => Date.today.month,
@@ -38,31 +37,45 @@ class HomeController < ApplicationController
       format.xml {render :xml =>  @user.to_xml()}
     end
   end
+
+  def edit
+    @user = current_user
+    @languages = [['English','en'],['French','fr'],['German','de']]
+    @project_list = current_user.project_list
+    @options = box_list
+    respond_to do | format |
+      format.html { render :action => 'edit'}
+      format.xml {render :xml =>  @user.to_xml()}
+    end
+  end
+
+  def update
+    @user = current_user
+    @options = box_list
+
+    UserSetting.home_tab1 = params[:home_tab1]
+    UserSetting.home_tab2 = params[:home_tab2]
+    UserSetting.home_tab3 = params[:home_tab3]
+    UserSetting.home_tab4 = params[:home_tab4]
+    UserSetting.home_tab5 = params[:home_tab5]
+    UserSetting.home_tab6 = params[:home_tab6]
+    UserSetting.default_project_id = params[:default_project_id]
+    UserSetting.default_language   = params[:default_language]
+    respond_to do | format |
+      format.html { redirect_to :action => 'show'}
+      format.xml {render :xml =>  @user.to_xml()}
+    end
+  end
   # 
   # List news for the user
   # 
   def news
-    @user = current_user    
-    @report = Report.internal_report("My News",ProjectElement) do | report |
-      report.column('updated_by_user_id').filter = @user.id
-      report.column('project_id').is_visible = false
-      report.column('published_hash').is_visible = false
-      report.column('id').is_visible = false
-      report.column('left_limit').is_visible = false
-      report.column('right_limit').is_visible = false
-      report.column('position').is_visible = false
-      report.column('project.name').customize(:is_visible=>true,:order_num=>1)
-      report.column('name').action = :show
-      report.column('path').is_sortable = false
-      report.column('icon').is_visible = false
-      report.column('summary').is_sortable = false
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
+    @report = Biorails::SystemReportLibrary.project_content_list("#{current_user.name } News") do | report |
+      report.column('updated_by_user_id').filter = current_user.id
     end
-    @data = @report.run(:page => params[:page])
     respond_to do | format |
       format.html { render :action => 'report' }
-      format.xml  { render :xml => {   :rows  => @data.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
+      format.xml  { render :xml => {   :rows  => @report.run.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
       format.js   { 
         render :update do | page |
           page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report, :data =>@data } 
@@ -70,16 +83,11 @@ class HomeController < ApplicationController
       }
     end
   end
-
+  
   def todo
-    @user = current_user 
-    @report = Biorails::ReportLibrary.user_queued_items_list do | report |
+    @report = Biorails::SystemReportLibrary.user_queued_items_list("Queued #{current_user.name}") do | report |
       report.column('assigned_to_user_id').filter =current_user.id
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
-      report.column('name').action = :show
     end
-    @report.column('id').is_visible = false
     respond_to do | format |
       format.html { render :action => 'report' }
       format.xml  { render :xml => {   :rows  => @report.run.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
@@ -92,11 +100,8 @@ class HomeController < ApplicationController
   end
 
   def requests
-    @user = current_user    
-    @report = Biorails::ReportLibrary.user_request_list do | report |
+    @report = Biorails::SystemReportLibrary.user_request_list("Requests #{current_user.name}") do | report |
       report.column('requested_by_user_id').filter = current_user.id
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
     end
     respond_to do | format |
       format.html { render :action => 'report' }
@@ -109,14 +114,10 @@ class HomeController < ApplicationController
     end
   end
 
-  def tasks
-    @user = current_user    
-    @report = Report.internal_report(l(:label_my_tasks),Task) do | report |
-      report.column('created_by_user_id').filter = @user.id
-      report.column('id').is_visible = false
-      report.column('name').action = :show
-      report.set_filter(params[:filter])if params[:filter] 
-      report.add_sort(params[:sort]) if params[:sort]
+  
+  def domains
+    @report = Biorails::SystemReportLibrary.domains_list("Domains List") do | report |
+      report.column('created_by_user_id').filter = current_user.id      
     end
     respond_to do | format |
       format.html { render :action => 'report' }
@@ -126,9 +127,38 @@ class HomeController < ApplicationController
           page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report} 
         end 
       }
+    end    
+  end
+
+  def approved_documents
+    @report = Biorails::SystemReportLibrary.approved_documents("Approved Documents") do | report |
+      report.column('signature_state', :label=>'Signature_state',:is_filterible=>'true',:is_visible=>'false',:filter=>'SIGNED')
+    end
+    respond_to do | format |
+      format.html { render :action => 'report' }
+      format.xml  { render :xml => {   :rows  => @report.run.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
+      format.js   {
+        render :update do | page |
+          page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report}
+        end
+      }
     end
   end
 
+  def tasks
+    @report = Biorails::SystemReportLibrary.task_list("Tasks #{current_user.name}") do | report |
+      report.column('created_by_user_id').filter = current_user.id
+    end
+    respond_to do | format |
+      format.html { render :action => 'report' }
+      format.xml  { render :xml => {   :rows  => @report.run.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
+      format.js   {
+        render :update do | page |
+          page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report}
+        end
+      }
+    end
+  end
 
   # ## Generate a calendar in a number of formats
   # 
@@ -138,13 +168,14 @@ class HomeController < ApplicationController
     @options = DEFAULT_CALENDAR_OPTIONS.merge(params)
     started = Date.civil(@options['year'].to_i,@options['month'].to_i,1)   
 
-    find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
+    find_options = {:conditions=> "project_elements.state_id in ( #{ @options['states'].keys.join(',') } )"}
 
     @calendar = CalendarData.new(started,1)
     @user.tasks.add_into(@calendar,find_options)               if @options['items']['task']
     @user.experiments.add_into(@calendar,find_options)         if @options['items']['experiment']
     @user.requested_services.add_into(@calendar,find_options)  if @options['items']['request']
     @user.queue_items.add_into(@calendar,find_options)         if @options['items']['queue']
+
 
     respond_to do | format |
       format.html { render :action => 'calendar' }
@@ -169,15 +200,15 @@ class HomeController < ApplicationController
         @user.name = params[:user][:name]    
         @user.fullname = params[:user][:fullname]         
         if @user.reset_password(params[:user][:old_password],
-                                params[:user][:password],
-                                params[:user][:password_confirmation])
-           logger.warn flash[:info] = "Password changed!"        
-           return redirect_to(home_url())
+            params[:user][:password],
+            params[:user][:password_confirmation])
+          logger.warn flash[:info] = "Password changed!"
+          return redirect_to(home_url())
         else
           logger.debug @user.errors.full_messages.join(",")
         end
       else
-          logger.warn flash[:info] = "Valid old and new password needed to update record"              
+        logger.warn flash[:info] = "Valid old and new password needed to update record"
       end
     end
     render :action=>'password'
@@ -193,7 +224,7 @@ class HomeController < ApplicationController
       'year'=> Date.today.year,
       'items'=> {'task'=>1},
       'states' =>{'0'=>0,'1'=>1,'2'=>2,'3'=>3,'4'=>4} }.merge(params)
-    find_options = {:conditions=> "status_id in ( #{ @options['states'].keys.join(',') } )"}
+    find_options = {:conditions=> "state_id in ( #{ @options['states'].keys.join(',') } )"}
                     
     if params[:year] and params[:year].to_i >0
       @year_from = params[:year].to_i
@@ -219,19 +250,35 @@ class HomeController < ApplicationController
   # Create a Tree data model
   # 
   def tree
-    if params[:node] != 'root'
-      @elements = ProjectElement.find_visible(:all, 
-         :conditions =>['project_elements.parent_id = ?',params[:node] ],
-         :order=>'project_elements.left_limit')
-    else  
-      @elements = ProjectElement.find_visible(:all,
+    if params[:node] == 'root'
+      @elements = ProjectElement.list(:all,
         :conditions=>'project_elements.parent_id is null',
         :order=>'project_elements.name')
+      @chain = current_element.self_and_ancestors
+      return render :inline => '<%= elements_to_json_tree(@elements,@chain) %>'
+    else  
+      @elements = ProjectElement.list(:all,
+        :conditions =>['project_elements.parent_id = ?',params[:node] ],
+        :order=>'project_elements.left_limit')
     end
-    respond_to do | format |
-      format.html { render :inline => '<%= elements_to_json_level(@elements) %>'}
-      format.json { render :inline => '<%= elements_to_json_level(@elements) %>'}
-    end
+    render :inline => '<%= elements_to_json_level(@elements) %>'
   end
 
+  protected
+  #
+  # List of suitable dashboard directories
+  # Heeds basic show
+  #
+  def box_list
+    list =[]
+    Dir[File.join(RAILS_ROOT,'app','views','home','_box_*')].each do |item|
+      unless File.directory?(item)
+        filename = File.split(item).last.gsub(/.rhtml*/,'').gsub(/^_/,'')
+        name = filename.gsub(/^box_/,'')
+        list << [name,filename]
+      end
+    end
+    
+    return list.sort
+  end
 end

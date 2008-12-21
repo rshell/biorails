@@ -1,16 +1,17 @@
 <div class='box'>
   <b class="icon icon-project">
-  <%= link_to l(:label_my_latest, 5,l(:label_projects)), project_url(:action=>'list')%>
+  <%= link_to l(:My_Latest, 5,l(:Projects)), project_url(:action=>'list')%>
   </b>
   <dl>
     <% for project in @user.projects(5) %>
     <dt>
-      <%= link_to project.name, project_url(:action => 'show', :id => project) %>
+      <%= link_to project.path, project_url(:action => 'show', :id => project) %>
     </dt>
     <dd><%=project.summary%>
     </dd>
     <% end %>
   </dl>
   <hr/>
-  <%= link_to( l(:label_project), project_url(:action => 'new'), :class=>'icon icon-add') %>
+  <%= link_to( l(:Root_Domain), project_url(:action => 'new_root'), :class=>'icon icon-add') if right?(:project,:new_root) %>
+  <%= link_to( l(:Project), project_url(:action => 'new'), :class=>'icon icon-add') if right?(:project,:build) %>
 </div>

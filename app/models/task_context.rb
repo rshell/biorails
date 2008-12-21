@@ -30,6 +30,11 @@
 #
 
 class TaskContext < ActiveRecord::Base
+  # ## Populated in Task controller with current user for the transaction
+  # @todo RJS keep a eye on threading models in post 1.2 Rails to make sure this
+  # keeps working
+  #
+  cattr_accessor :current
 
  attr_accessor :columns
 #
@@ -103,6 +108,7 @@ class TaskContext < ActiveRecord::Base
 # Create a new Context with self as parent
 # 
  def add_context(parameter_context = nil, new_label = nil)
+     raise("Failed definition invalid for parent") unless parameter_context.parent_id == self.parameter_context_id
      task.add_context(parameter_context,new_label,self)
  end 
  
@@ -133,31 +139,111 @@ class TaskContext < ActiveRecord::Base
         self.definition.add_parameter(assay_parameter)                
      end
    end
-  end   
-  
+  end
+  #
+  # =function(param,param)
+  # =parameter.method
+
+  #
+  def calculate(formula,value)
+   case formula
+   when /=(max|min|sum|count)\((.*)\)/
+     parameter = task.process.parameter($2)
+      list = all_children.collect{|row| row.items.select{|cell| (cell.parameter_id == parameter.id ? cell.value : nil) }}.compact.flatten
+      return list.send($1)
+   when /=([A-Z,a-z,0-9,_]*)\.(.*)$/
+     source = self.item($1)
+     if source.is_a?(TaskReference)
+       value = source.object.send($2)
+     elsif source
+       value =  source.value.send($2)
+     end
+   end
+   return value.to_s
+  rescue Exception=> ex
+    logger.info  "Invalid formula [#{formula}] error: #{ex.message}"
+    logger.debug ex.backtrace.join("\n")
+    return value
+  end
+  #
+  # test if there is a formula in the cell
+  #
+  def formula?(text=nil)
+    (/=(max|min|sum|count)\(.*\)/ =~ text) or ( /=([A-Z,a-z,0-9,_]*)\.(.*)$/ =~ text)
+  end
+  #
+  # Recalculate values for the row
+  #
+  def recalculate
+    Task.transaction do
+      definition.parameters.each do |parameter|
+         if formula?(parameter.default_value)
+           value = calculate(parameter.default_value,nil)
+           set_value(parameter,value.to_s)
+         end
+      end
+    end
+  end
+
   #
   # Set a Value for this task
   #
   def set_value(parameter,value)
     item = {:passed=>value}
-    if task.start_processing
-      cell = item(parameter, value )
-      if value.blank? 
-        item[:value] = ""           
-        item[:info] = "deleted #{cell.dom_id}"
-        cell.destroy
-      else
-        cell.value = value
-        if cell.save
-          item[:value] = cell.to_s
-          task.updated_at = cell.updated_at
-        else
-           item[:errors] = "cant update cell #{cell.errors.full_messages.to_sentence}"
-        end
-      end
-    else          
-      item[:errors] = "task is currently #{task.status} so cant change values"             
+    #
+    # Abort if should not be editable
+    #
+    task.start_processing
+    unless task.active? 
+      item[:errors] = "task is #{task.status} so cannot change values"
+      return item
     end
+    cell = item(parameter, value )
+    #
+    # If there a formula apply it
+    #
+    if formula?(cell.formula)
+       value = calculate(cell.formula,value)
+    elsif formula?(value)
+       value = calculate(value,value)
+    end
+    #
+    # If there is a default apply it
+    #
+    if cell.new_record?
+       value ||= cell.parameter.default_value
+    end
+    #
+    # If empty delete the cell
+    #
+    if value.blank? or (value==DataElement::BLANK and cell.is_a?(TaskReference))
+      item[:value] = ""
+      item[:info] = "deleted #{cell.dom_id}"
+      cell.destroy
+      return item
+    end
+    #
+    # Check it matches the parameters regexp text mask
+    #
+    unless cell.parameter.parse(value)
+       item[:errors] = "Failed validation for #{cell.parameter.style}"
+       return item
+    end
+    #
+    # Save the new value if it looks ok
+    #
+    logger.info "value is now:[[[[[ #{value} ]]]]]"
+    cell.value = value.to_s
+    if cell.save
+      item[:value] = cell.to_s
+      item[:data] = self.to_hash
+      task.updated_at = cell.updated_at
+    else
+       item[:errors] = "cant update cell #{cell.errors.full_messages.to_sentence}"
+    end
+    return item
+  rescue Exception => ex
+    item[:errors] = "Error #{ex.message} in cell update "
     return item
   end
   #
@@ -303,7 +389,7 @@ protected
     item.context = self
     item.task = self.task 
     item.parameter = parameter
-    item.value = value if value 
+    item.value = value unless (value.blank? or value==DataElement::BLANK) 
     return item
  end 
 

@@ -1,11 +1,11 @@
 <%= render :partial => '/menu/admin_menu' %>
 <div>
-    <span class='menu'><b class='icon icon-data_format'><%=l(:label_data_format) %>
+    <span class='menu'><b class='icon icon-data_format'><%=l(:Data_Format) %>
         </b></span>
-    <%= link_to l(:label_list), data_format_url(:action => 'list') %>
-    <%= link_to l(:label_new),  data_format_url(:action => 'new') %>
+    <%= link_to l(:List), data_format_url(:action => 'list') %>
+    <%= link_to l(:New),  data_format_url(:action => 'new') %>
     <% if @data_elment && !@data_elment.new_record? %>
-    <%= link_to l(:label_edit),  data_format_url(:action => 'edit', :id => @data_format) %>
-    <%= link_to l(:label_show),  data_format_url(:action => 'show',:id => @data_format) %>
+    <%= link_to l(:Edit),  data_format_url(:action => 'edit', :id => @data_format) %>
+    <%= link_to l(:Show),  data_format_url(:action => 'show',:id => @data_format) %>
     <% end %>
 </div>

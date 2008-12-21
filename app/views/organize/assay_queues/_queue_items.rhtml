@@ -1,16 +1,16 @@
 <% form_tag :action => 'update_item' do %>
 <table class='report' style='border: solid thin'>
   <tr>
-    <th><%=l(:label_request)%></th>
-     <th><%=l(:label_item)%></th>         
-     <th><%=l(:label_status)%></th>         
-     <th><%=l(:label_priority)%></th>         
-     <th><%=l(:label_assigned_to)%></th>         
-     <th><%=l(:label_comments)%></th>         
-     <th><%=l(:label_required_by)%></th>         
-     <th><%=l(:label_accepted)%></th>         
-     <th><%=l(:label_completed)%></th>
-     <th><%=l(:label_actions)%></th>         
+    <th><%=l(:Request)%></th>
+     <th><%=l(:Item)%></th>         
+     <th><%=l(:Status)%></th>         
+     <th><%=l(:Priority)%></th>         
+     <th><%=l(:Assigned_To)%></th>         
+     <th><%=l(:Comments)%></th>         
+     <th><%=l(:Required_By)%></th>         
+     <th><%=l(:Accepted)%></th>         
+     <th><%=l(:Completed)%></th>
+     <th><%=l(:Actions)%></th>         
   </tr>
  <%for queue_item in queue_items %>
    <tr id='<%=queue_item.dom_id(:updated_at)%>' class="<%= cycle('odd', 'even') %>">

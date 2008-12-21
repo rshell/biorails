@@ -3,11 +3,10 @@
 <%= hidden_field('assay_protocol','assay_id') %>
 <%= hidden_field('assay_protocol','current_process_id') %>
 <%= hidden_field 'protocol_version', 'assay_protocol_id' %>
-<%= hidden_field 'protocol_version', 'version' %>
 <%if @assay_protocol and @assay_protocol.new_record? %>
 <div class="x-form-item">
     <label class="x-form-item-label" for="protocol_name">
-        <%=l(:label_name) %>
+        <%=l(:Name) %>
     </label>
     <div class="x-form-element">
         <%= text_field 'assay_protocol', 'name' %>
@@ -15,7 +14,7 @@
 </div>
 <div class="x-form-item">
     <label class="x-form-item-label" for="assay_protocol_description">
-        <%=l(:label_description) %>
+        <%=l(:Description) %>
     </label>
     <div class="x-form-element">
         <%= text_area( 'assay_protocol', 'description',{:rows=>5, :cols=>80}	) %>
@@ -32,7 +31,7 @@
 <%else %>
 <div class="x-form-item">
     <label class="x-form-item-label" for="protocol_version_name">
-        <%=l(:label_version_label) %>
+        <%=l(:Version_Label) %>
     </label>
     <div class="x-form-element">
         <%= text_field 'protocol_version', 'name' %>
@@ -40,7 +39,7 @@
 </div>
 <div class="x-form-item">
     <label class="x-form-item-label" for="protocol_version_expected_hours">
-        <%=l(:label_expected_hours) %>
+        <%=l(:Expected_Duration) %>
     </label>
     <div class="x-form-element">
         <%= text_field 'protocol_version', 'expected_hours' %>
@@ -48,7 +47,7 @@
 </div>
 <div class="x-form-item">
     <label class="x-form-item-label" for="assay_protocol_description">
-        <%=l(:label_description) %>
+        <%=l(:Description) %>
     </label>
     <div class="x-form-element">
         <%= text_area( 'protocol_version', 'description',{:rows=>5, :cols=>80}	) %>
@@ -63,17 +62,19 @@
     </div>
 </div>
 <%end %>
+<br />
 <div class="x-form-item">
     <label class="x-form-item-label" for="protocol_version_analysis_method_id">
-        <%=l(:label_default_analysis_method) %>
+        <%=l(:Default_Analysis_Method) %>
     </label>
     <div class="x-form-element">
-        <%= select_values 'protocol_version', 'analysis_method_id'  ,AnalysisMethod %>
+        <%= select_named 'protocol_version', 'analysis_method_id'  ,AnalysisMethod %>
     </div>
 </div>
+<br />
 <div class="x-form-item">
     <label class="x-form-item-label" for="protocol_version_report_id">
-        <%=l(:label_default_task_report) %>
+        <%=l(:Default_Task_Report) %>
     </label>
     <div class="x-form-element">
         <%= select_values 'protocol_version', 'report_id'  ,Report.find_all_using_model(Task) %>

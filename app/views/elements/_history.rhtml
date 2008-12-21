@@ -1,5 +1,5 @@
 <div class='box'>
-    <h3 class="icon icon-history"><%=l(:label_document_history) %>
+    <h3 class="icon icon-history"><%=l(:Document_History) %>
     </h3>
     <ol>
         <% for item in @project_element.ancestors %>
@@ -10,7 +10,7 @@
         </li>
         <% end %>
         <li style="margin-left:2em">
-            [<%=l(:label_current) %>] <%=@project_element.title %>
+            [<%=l(:Current) %>] <%=@project_element.title %>
             <%=@project_element.updated_at %><%=@project_element.updated_by_user.login %>
         </li>
     </ol>

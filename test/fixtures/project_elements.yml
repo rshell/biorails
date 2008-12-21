@@ -1,0 +1,1925 @@
+--- 
+00000000074_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: requests
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "1"
+    title: requests
+    project_elements_count: "0"
+    left_limit: "2"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "74"
+    right_limit: "5"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "1"
+    asset_id: 
+    created_at: 2008-10-22 13:33:13
+  attributes_cache: {}
+
+00000000108_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Protocol3:1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Protocol3:1
+    project_elements_count: "0"
+    left_limit: "66"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "108"
+    right_limit: "67"
+    element_type_id: "4"
+    reference_type: ProtocolVersion
+    created_by_user_id: "1"
+    reference_id: "3"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "102"
+    asset_id: 
+    created_at: 2008-10-22 13:33:16
+  attributes_cache: {}
+
+00000000084_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: parameters
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: parameters
+    project_elements_count: "0"
+    left_limit: "34"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "84"
+    right_limit: "53"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "73"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000040_project_asset: !ruby/object:ProjectAsset 
+  attributes: 
+    name: grid.csv
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "1"
+    title: 
+    project_elements_count: "0"
+    left_limit: "34"
+    updated_by_user_id: "1"
+    lock_version: "1"
+    type: ProjectAsset
+    id: "40"
+    right_limit: "35"
+    element_type_id: "2"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "0"
+    parent_id: "1"
+    asset_id: "1"
+    created_at: 2007-10-13 10:29:11
+  attributes_cache: {}
+
+00000000118_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task4
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "2"
+    title: Task4
+    project_elements_count: "0"
+    left_limit: "82"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "118"
+    right_limit: "83"
+    element_type_id: "4"
+    reference_type: Task
+    created_by_user_id: "1"
+    reference_id: "4"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "113"
+    asset_id: 
+    created_at: 2008-10-22 13:33:17
+  attributes_cache: {}
+
+00000000129_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: test1
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "1"
+    title: test1
+    project_elements_count: "0"
+    left_limit: "25"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "129"
+    right_limit: "26"
+    element_type_id: "4"
+    reference_type: CrossTab
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "128"
+    asset_id: 
+    created_at: 2008-10-22 13:33:19
+  attributes_cache: {}
+
+00000000103_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: flow1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: flow1
+    project_elements_count: "0"
+    left_limit: "25"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "103"
+    right_limit: "30"
+    element_type_id: "4"
+    reference_type: AssayProtocol
+    created_by_user_id: "1"
+    reference_id: "4"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "98"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000112_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Experiment1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Experiment1
+    project_elements_count: "0"
+    left_limit: "73"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "112"
+    right_limit: "76"
+    element_type_id: "4"
+    reference_type: Experiment
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "111"
+    asset_id: 
+    created_at: 2008-10-22 13:33:16
+  attributes_cache: {}
+
+00000000122_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Compound2
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "1"
+    title: Compound2
+    project_elements_count: "0"
+    left_limit: "8"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "122"
+    right_limit: "9"
+    element_type_id: "4"
+    reference_type: QueueItem
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "77"
+    asset_id: 
+    created_at: 2008-10-22 13:33:19
+  attributes_cache: {}
+
+00000000095_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: ServiceQueue1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: ServiceQueue1
+    project_elements_count: "0"
+    left_limit: "15"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "95"
+    right_limit: "16"
+    element_type_id: "4"
+    reference_type: AssayQueue
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "94"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000400_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: test_study
+    content_id: 
+    updated_at: 2008-11-25 09:18:58
+    project_id: "29"
+    title: test_study
+    project_elements_count: "0"
+    left_limit: "1"
+    updated_by_user_id: "2"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "400"
+    right_limit: "4"
+    element_type_id: "4"
+    reference_type: Project
+    created_by_user_id: "2"
+    reference_id: "29"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: 
+    asset_id: 
+    created_at: 2008-11-25 09:18:58
+  attributes_cache: {}
+
+00000000076_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Req1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "1"
+    title: Req1
+    project_elements_count: "0"
+    left_limit: "6"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "76"
+    right_limit: "23"
+    element_type_id: "4"
+    reference_type: Request
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "1"
+    asset_id: 
+    created_at: 2008-10-22 13:33:13
+  attributes_cache: {}
+
+00000000086_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Compound
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Compound
+    project_elements_count: "0"
+    left_limit: "37"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "86"
+    right_limit: "38"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "6"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "84"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000080_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Concentration
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Concentration
+    project_elements_count: "0"
+    left_limit: "5"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "80"
+    right_limit: "6"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "79"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000114_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Experiment3
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "2"
+    title: Experiment3
+    project_elements_count: "0"
+    left_limit: "91"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "114"
+    right_limit: "92"
+    element_type_id: "4"
+    reference_type: Experiment
+    created_by_user_id: "1"
+    reference_id: "3"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "111"
+    asset_id: 
+    created_at: 2008-10-22 13:33:17
+  attributes_cache: {}
+
+00000000090_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Receptor
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Receptor
+    project_elements_count: "0"
+    left_limit: "45"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "90"
+    right_limit: "46"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "10"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "84"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000071_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: assays
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: assays
+    project_elements_count: "0"
+    left_limit: "2"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "71"
+    right_limit: "71"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2008-10-22 13:33:13
+  attributes_cache: {}
+
+00000000105_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: flow3:2
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: flow3:2
+    project_elements_count: "0"
+    left_limit: "28"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "105"
+    right_limit: "29"
+    element_type_id: "4"
+    reference_type: ProtocolVersion
+    created_by_user_id: "1"
+    reference_id: "11"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "103"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000124_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Compound2
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "1"
+    title: Compound2
+    project_elements_count: "0"
+    left_limit: "16"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "124"
+    right_limit: "17"
+    element_type_id: "4"
+    reference_type: QueueItem
+    created_by_user_id: "1"
+    reference_id: "3"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "78"
+    asset_id: 
+    created_at: 2008-10-22 13:33:19
+  attributes_cache: {}
+
+00000000402_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: linked
+    content_id: 
+    updated_at: 2008-11-25 09:19:46
+    project_id: "29"
+    title: linked
+    project_elements_count: "0"
+    left_limit: "2"
+    updated_by_user_id: "2"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "402"
+    right_limit: "3"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "2"
+    reference_id: 
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "400"
+    asset_id: 
+    created_at: 2008-11-25 09:19:46
+  attributes_cache: {}
+
+00000000092_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Species
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Species
+    project_elements_count: "0"
+    left_limit: "49"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "92"
+    right_limit: "50"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "12"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "84"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000126_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Compound5
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "1"
+    title: Compound5
+    project_elements_count: "0"
+    left_limit: "12"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "126"
+    right_limit: "13"
+    element_type_id: "4"
+    reference_type: QueueItem
+    created_by_user_id: "1"
+    reference_id: "5"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "77"
+    asset_id: 
+    created_at: 2008-10-22 13:33:19
+  attributes_cache: {}
+
+00000000002_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Project X
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: 
+    project_elements_count: "0"
+    left_limit: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "2"
+    right_limit: "94"
+    element_type_id: "4"
+    reference_type: Project
+    created_by_user_id: "1"
+    reference_id: "2"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: 
+    asset_id: 
+    created_at: 2008-10-22 13:33:11
+  attributes_cache: {}
+
+00000000088_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: IC50
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: IC50
+    project_elements_count: "0"
+    left_limit: "41"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "88"
+    right_limit: "42"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "8"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "84"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000082_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Compound
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Compound
+    project_elements_count: "0"
+    left_limit: "9"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "82"
+    right_limit: "10"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "3"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "79"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000130_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: test2
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "1"
+    title: test2
+    project_elements_count: "0"
+    left_limit: "27"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "130"
+    right_limit: "28"
+    element_type_id: "4"
+    reference_type: CrossTab
+    created_by_user_id: "1"
+    reference_id: "2"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "128"
+    asset_id: 
+    created_at: 2008-10-22 13:33:19
+  attributes_cache: {}
+
+00000000073_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Assay2
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Assay2
+    project_elements_count: "0"
+    left_limit: "33"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "73"
+    right_limit: "70"
+    element_type_id: "4"
+    reference_type: Assay
+    created_by_user_id: "1"
+    reference_id: "2"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "71"
+    asset_id: 
+    created_at: 2008-10-22 13:33:13
+  attributes_cache: {}
+
+00000000107_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Protocol2:1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Protocol2:1
+    project_elements_count: "0"
+    left_limit: "60"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "107"
+    right_limit: "61"
+    element_type_id: "4"
+    reference_type: ProtocolVersion
+    created_by_user_id: "1"
+    reference_id: "2"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "101"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000004_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Project Z
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "4"
+    title: 
+    project_elements_count: "0"
+    left_limit: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "4"
+    right_limit: "2"
+    element_type_id: "4"
+    reference_type: Project
+    created_by_user_id: "1"
+    reference_id: "4"
+    access_control_list_id: "4"
+    state_id: "1"
+    position: "1"
+    parent_id: 
+    asset_id: 
+    created_at: 2008-10-22 13:33:11
+  attributes_cache: {}
+
+00000000030_project_asset: !ruby/object:ProjectAsset 
+  attributes: 
+    name: microexambm42.jpg
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "1"
+    title: 
+    project_elements_count: "0"
+    left_limit: "32"
+    updated_by_user_id: "1"
+    lock_version: "4"
+    type: ProjectAsset
+    id: "30"
+    right_limit: "33"
+    element_type_id: "2"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "2"
+    parent_id: "1"
+    asset_id: "2"
+    created_at: 2007-07-25 11:59:39
+  attributes_cache: {}
+
+00000000094_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: queues
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: queues
+    project_elements_count: "0"
+    left_limit: "14"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "94"
+    right_limit: "17"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "72"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000128_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: cross_tabs
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "1"
+    title: cross_tabs
+    project_elements_count: "0"
+    left_limit: "24"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "128"
+    right_limit: "29"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "1"
+    asset_id: 
+    created_at: 2008-10-22 13:33:19
+  attributes_cache: {}
+
+00000000101_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Protocol2
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Protocol2
+    project_elements_count: "0"
+    left_limit: "59"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "101"
+    right_limit: "64"
+    element_type_id: "4"
+    reference_type: AssayProtocol
+    created_by_user_id: "1"
+    reference_id: "2"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "100"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000111_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: experiments
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: experiments
+    project_elements_count: "0"
+    left_limit: "72"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "111"
+    right_limit: "93"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "2"
+    asset_id: 
+    created_at: 2008-10-22 13:33:16
+  attributes_cache: {}
+
+00000000404_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: linked
+    content_id: 
+    updated_at: 2008-11-25 09:19:54
+    project_id: "28"
+    title: linked
+    project_elements_count: "0"
+    left_limit: "2"
+    updated_by_user_id: "2"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "404"
+    right_limit: "3"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "2"
+    reference_id: 
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "399"
+    asset_id: 
+    created_at: 2008-11-25 09:19:54
+  attributes_cache: {}
+
+00000000075_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Req1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "1"
+    title: Req1
+    project_elements_count: "0"
+    left_limit: "3"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "75"
+    right_limit: "4"
+    element_type_id: "4"
+    reference_type: Request
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "74"
+    asset_id: 
+    created_at: 2008-10-22 13:33:13
+  attributes_cache: {}
+
+00000000109_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Protocol2:2
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Protocol2:2
+    project_elements_count: "0"
+    left_limit: "62"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "109"
+    right_limit: "63"
+    element_type_id: "4"
+    reference_type: ProtocolVersion
+    created_by_user_id: "1"
+    reference_id: "4"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "101"
+    asset_id: 
+    created_at: 2008-10-22 13:33:16
+  attributes_cache: {}
+
+00000000070_project_content: !ruby/object:ProjectContent 
+  attributes: 
+    name: rjs-435
+    content_id: "1"
+    updated_at: 2008-11-25 09:10:08
+    project_id: "1"
+    title: 
+    project_elements_count: "0"
+    left_limit: "36"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectContent
+    id: "70"
+    right_limit: "37"
+    element_type_id: "1"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "18"
+    parent_id: "1"
+    asset_id: "2"
+    created_at: 2007-10-28 21:52:44
+  attributes_cache: {}
+
+00000000113_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Experiment2
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "2"
+    title: Experiment2
+    project_elements_count: "0"
+    left_limit: "77"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "113"
+    right_limit: "90"
+    element_type_id: "4"
+    reference_type: Experiment
+    created_by_user_id: "1"
+    reference_id: "2"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "111"
+    asset_id: 
+    created_at: 2008-10-22 13:33:17
+  attributes_cache: {}
+
+00000000081_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Length
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Length
+    project_elements_count: "0"
+    left_limit: "7"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "81"
+    right_limit: "8"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "2"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "79"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000096_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: queues
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: queues
+    project_elements_count: "0"
+    left_limit: "54"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "96"
+    right_limit: "57"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "73"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000115_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task1
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "2"
+    title: Task1
+    project_elements_count: "0"
+    left_limit: "74"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "115"
+    right_limit: "75"
+    element_type_id: "4"
+    reference_type: Task
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "112"
+    asset_id: 
+    created_at: 2008-10-22 13:33:17
+  attributes_cache: {}
+
+00000000077_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Req1-1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "1"
+    title: Req1-1
+    project_elements_count: "0"
+    left_limit: "7"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "77"
+    right_limit: "14"
+    element_type_id: "4"
+    reference_type: RequestService
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "76"
+    asset_id: 
+    created_at: 2008-10-22 13:33:13
+  attributes_cache: {}
+
+00000000399_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: test_assay_group
+    content_id: 
+    updated_at: 2008-11-25 09:18:17
+    project_id: "28"
+    title: test_assay
+    project_elements_count: "0"
+    left_limit: "1"
+    updated_by_user_id: "2"
+    lock_version: "1"
+    type: ProjectFolder
+    id: "399"
+    right_limit: "4"
+    element_type_id: "4"
+    reference_type: Project
+    created_by_user_id: "2"
+    reference_id: "28"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: 
+    asset_id: 
+    created_at: 2008-11-25 09:18:11
+  attributes_cache: {}
+
+00000000098_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: methods
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: methods
+    project_elements_count: "0"
+    left_limit: "18"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "98"
+    right_limit: "31"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "72"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000100_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: methods
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: methods
+    project_elements_count: "0"
+    left_limit: "58"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "100"
+    right_limit: "69"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "73"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000003_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Project Y
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "3"
+    title: 
+    project_elements_count: "0"
+    left_limit: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "3"
+    right_limit: "2"
+    element_type_id: "4"
+    reference_type: Project
+    created_by_user_id: "1"
+    reference_id: "3"
+    access_control_list_id: "3"
+    state_id: "1"
+    position: "1"
+    parent_id: 
+    asset_id: 
+    created_at: 2008-10-22 13:33:11
+  attributes_cache: {}
+
+00000000117_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task3
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "2"
+    title: Task3
+    project_elements_count: "0"
+    left_limit: "80"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "117"
+    right_limit: "81"
+    element_type_id: "4"
+    reference_type: Task
+    created_by_user_id: "1"
+    reference_id: "3"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "113"
+    asset_id: 
+    created_at: 2008-10-22 13:33:17
+  attributes_cache: {}
+
+00000000079_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: parameters
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: parameters
+    project_elements_count: "0"
+    left_limit: "4"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "79"
+    right_limit: "13"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "72"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000083_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Count
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Count
+    project_elements_count: "0"
+    left_limit: "11"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "83"
+    right_limit: "12"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "4"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "79"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000121_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task-78
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "2"
+    title: Task-78
+    project_elements_count: "0"
+    left_limit: "88"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "121"
+    right_limit: "89"
+    element_type_id: "4"
+    reference_type: Task
+    created_by_user_id: "1"
+    reference_id: "7"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "113"
+    asset_id: 
+    created_at: 2008-10-22 13:33:18
+  attributes_cache: {}
+
+00000000085_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Dose
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Dose
+    project_elements_count: "0"
+    left_limit: "35"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "85"
+    right_limit: "36"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "5"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "84"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000119_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: TaskbyWS
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "2"
+    title: TaskbyWS
+    project_elements_count: "0"
+    left_limit: "84"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "119"
+    right_limit: "85"
+    element_type_id: "4"
+    reference_type: Task
+    created_by_user_id: "1"
+    reference_id: "5"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "113"
+    asset_id: 
+    created_at: 2008-10-22 13:33:17
+  attributes_cache: {}
+
+00000000102_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Protocol3
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Protocol3
+    project_elements_count: "0"
+    left_limit: "65"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "102"
+    right_limit: "68"
+    element_type_id: "4"
+    reference_type: AssayProtocol
+    created_by_user_id: "1"
+    reference_id: "3"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "100"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000001_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Global
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "1"
+    title: Global
+    project_elements_count: "0"
+    left_limit: "1"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "1"
+    right_limit: "38"
+    element_type_id: "4"
+    reference_type: Project
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: 
+    asset_id: 
+    created_at: 2008-10-22 13:33:11
+  attributes_cache: {}
+
+00000000123_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Compound1
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "1"
+    title: Compound1
+    project_elements_count: "0"
+    left_limit: "10"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "123"
+    right_limit: "11"
+    element_type_id: "4"
+    reference_type: QueueItem
+    created_by_user_id: "1"
+    reference_id: "2"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "77"
+    asset_id: 
+    created_at: 2008-10-22 13:33:19
+  attributes_cache: {}
+
+00000000104_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: flow3:1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: flow3:1
+    project_elements_count: "0"
+    left_limit: "26"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "104"
+    right_limit: "27"
+    element_type_id: "4"
+    reference_type: ProtocolVersion
+    created_by_user_id: "1"
+    reference_id: "10"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "103"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000401_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: test_org
+    content_id: 
+    updated_at: 2008-11-25 09:19:29
+    project_id: "30"
+    title: test_org
+    project_elements_count: "0"
+    left_limit: "1"
+    updated_by_user_id: "2"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "401"
+    right_limit: "4"
+    element_type_id: "4"
+    reference_type: Project
+    created_by_user_id: "2"
+    reference_id: "30"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: 
+    asset_id: 
+    created_at: 2008-11-25 09:19:29
+  attributes_cache: {}
+
+00000000087_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: CPM
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: CPM
+    project_elements_count: "0"
+    left_limit: "39"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "87"
+    right_limit: "40"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "7"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "84"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000097_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: DR
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: DR
+    project_elements_count: "0"
+    left_limit: "55"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "97"
+    right_limit: "56"
+    element_type_id: "4"
+    reference_type: AssayQueue
+    created_by_user_id: "1"
+    reference_id: "2"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "96"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000091_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: CompoundRole
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: CompoundRole
+    project_elements_count: "0"
+    left_limit: "47"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "91"
+    right_limit: "48"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "11"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "84"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000125_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Compound1
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "1"
+    title: Compound1
+    project_elements_count: "0"
+    left_limit: "18"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "125"
+    right_limit: "19"
+    element_type_id: "4"
+    reference_type: QueueItem
+    created_by_user_id: "1"
+    reference_id: "4"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "78"
+    asset_id: 
+    created_at: 2008-10-22 13:33:19
+  attributes_cache: {}
+
+00000000106_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Protocol1:1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Protocol1:1
+    project_elements_count: "0"
+    left_limit: "20"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "106"
+    right_limit: "21"
+    element_type_id: "4"
+    reference_type: ProtocolVersion
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "99"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000060_project_content: !ruby/object:ProjectContent 
+  attributes: 
+    name: test1
+    content_id: "3"
+    updated_at: 2008-11-25 09:10:08
+    project_id: "1"
+    title: 
+    project_elements_count: "0"
+    left_limit: "30"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectContent
+    id: "60"
+    right_limit: "31"
+    element_type_id: "1"
+    reference_type: 
+    created_by_user_id: "1"
+    reference_id: 
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "3"
+    parent_id: "1"
+    asset_id: "1"
+    created_at: 2007-07-24 11:12:09
+  attributes_cache: {}
+
+00000000116_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task2
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "2"
+    title: Task2
+    project_elements_count: "0"
+    left_limit: "78"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "116"
+    right_limit: "79"
+    element_type_id: "4"
+    reference_type: Task
+    created_by_user_id: "1"
+    reference_id: "2"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "113"
+    asset_id: 
+    created_at: 2008-10-22 13:33:17
+  attributes_cache: {}
+
+00000000078_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Req1-2
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "1"
+    title: Req1-2
+    project_elements_count: "0"
+    left_limit: "15"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "78"
+    right_limit: "22"
+    element_type_id: "4"
+    reference_type: RequestService
+    created_by_user_id: "1"
+    reference_id: "2"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "76"
+    asset_id: 
+    created_at: 2008-10-22 13:33:13
+  attributes_cache: {}
+
+00000000072_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Assay1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Assay1
+    project_elements_count: "0"
+    left_limit: "3"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "72"
+    right_limit: "32"
+    element_type_id: "4"
+    reference_type: Assay
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "71"
+    asset_id: 
+    created_at: 2008-10-22 13:33:13
+  attributes_cache: {}
+
+00000000403_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: linked
+    content_id: 
+    updated_at: 2008-11-25 09:19:50
+    project_id: "30"
+    title: linked
+    project_elements_count: "0"
+    left_limit: "2"
+    updated_by_user_id: "2"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "403"
+    right_limit: "3"
+    element_type_id: "4"
+    reference_type: 
+    created_by_user_id: "2"
+    reference_id: 
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "401"
+    asset_id: 
+    created_at: 2008-11-25 09:19:50
+  attributes_cache: {}
+
+00000000110_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Protocol1:2
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Protocol1:2
+    project_elements_count: "0"
+    left_limit: "22"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "110"
+    right_limit: "23"
+    element_type_id: "4"
+    reference_type: ProtocolVersion
+    created_by_user_id: "1"
+    reference_id: "5"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "99"
+    asset_id: 
+    created_at: 2008-10-22 13:33:16
+  attributes_cache: {}
+
+00000000089_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Concentration
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Concentration
+    project_elements_count: "0"
+    left_limit: "43"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "89"
+    right_limit: "44"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "9"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "84"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000120_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Task-77
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "2"
+    title: Task-77
+    project_elements_count: "0"
+    left_limit: "86"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "120"
+    right_limit: "87"
+    element_type_id: "4"
+    reference_type: Task
+    created_by_user_id: "1"
+    reference_id: "6"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "113"
+    asset_id: 
+    created_at: 2008-10-22 13:33:17
+  attributes_cache: {}
+
+00000000099_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Protocol1
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Protocol1
+    project_elements_count: "0"
+    left_limit: "19"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "99"
+    right_limit: "24"
+    element_type_id: "4"
+    reference_type: AssayProtocol
+    created_by_user_id: "1"
+    reference_id: "1"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "98"
+    asset_id: 
+    created_at: 2008-10-22 13:33:15
+  attributes_cache: {}
+
+00000000093_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Inhibition
+    content_id: 
+    updated_at: 2008-11-25 09:10:08
+    project_id: "2"
+    title: Inhibition
+    project_elements_count: "0"
+    left_limit: "51"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "93"
+    right_limit: "52"
+    element_type_id: "4"
+    reference_type: AssayParameter
+    created_by_user_id: "1"
+    reference_id: "13"
+    access_control_list_id: "2"
+    state_id: "1"
+    position: "1"
+    parent_id: "84"
+    asset_id: 
+    created_at: 2008-10-22 13:33:14
+  attributes_cache: {}
+
+00000000127_project_folder: !ruby/object:ProjectFolder 
+  attributes: 
+    name: Compound5
+    content_id: 
+    updated_at: 2008-11-25 09:10:09
+    project_id: "1"
+    title: Compound5
+    project_elements_count: "0"
+    left_limit: "20"
+    updated_by_user_id: "1"
+    lock_version: "0"
+    type: ProjectFolder
+    id: "127"
+    right_limit: "21"
+    element_type_id: "4"
+    reference_type: QueueItem
+    created_by_user_id: "1"
+    reference_id: "6"
+    access_control_list_id: "1"
+    state_id: "1"
+    position: "1"
+    parent_id: "78"
+    asset_id: 
+    created_at: 2008-10-22 13:33:19
+  attributes_cache: {}
+

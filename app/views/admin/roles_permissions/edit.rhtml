@@ -1,11 +1,11 @@
 <h1 class="icon icon-role">
-  <%=l(:label_permissions)%>
+  <%=l(:Permissions)%>
 </h1>
 
 <% form_tag :action => 'update', :id => @roles_permission do %>
   <%= render :partial => 'form' %>
-  <%= submit_tag l(:button_save) %>
+  <%= submit_tag l(:Save) %>
 <% end%>
 
-<%= link_to l(:label_show), :action => 'show', :id => @roles_permission, :class=>'icon icon-show' %> |
-<%= link_to l(:label_back), :action => 'list', :class=>'icon icon-list' %>
+<%= link_to l(:Show), :action => 'show', :id => @roles_permission, :class=>'icon icon-show' %> |
+<%= link_to l(:Back), :action => 'list', :class=>'icon icon-list' %>

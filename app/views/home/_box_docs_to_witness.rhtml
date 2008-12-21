@@ -1,13 +1,13 @@
 <div class="box">
-    <b><%=link_to l(:label_documents_requesting_approval),signature_url( :action=>'list_pending'), :class=>"icon icon-sign" %>
+    <b><%=link_to l(:Documents_Requesting_Approval),signature_url( :action=>'list_pending'), :class=>"icon icon-sign" %>
     </b>
       <dl>
         <% for signature in @signatures_to_witness %>
         <dt>
-          <%=link_to ProjectElement.find(signature.project_element_id).name, :controller=>'signatures', :action=>'witness', :id=>signature.id %>
+          <%=link_to signature.project_element.name, :controller=>'signatures', :action=>'witness', :id=>signature.id %>
         <dt>
         <dd>
-          <%= ProjectElement.find(signature.project_element_id).project.name %>
+          <%= signature.project_element.project.name %>
           <%= signature.signer.name %>
           (<%= short_date(signature.created_at) %>)
         </dd>

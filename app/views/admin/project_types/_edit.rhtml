@@ -1,5 +1,5 @@
-<%= render :partial => 'admin/header'%>
-<%dialog l(:label_project_type) do %>    
+<%= render :partial => 'header' %>
+<%dialog l(:Project_Type) do %>    
   <% form_for( @project_type, :url => project_type_url(:action=>:update, :id=>@project_type)) do |f| %>
     <%= render :partial => 'form' ,:locals=>{:form=>f} %>
   <% end %>

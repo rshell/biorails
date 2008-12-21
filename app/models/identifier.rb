@@ -23,6 +23,8 @@
 # new records. If is based on lookup on the model/name passed.
 # Identifiers are based on three elements prefix,sequence and postfix
 #  <prefix><sequence><postfix>
+#
+#  mask
 #  #
 # == Copyright
 # 
@@ -31,6 +33,9 @@
 # 
 
 class Identifier < ActiveRecord::Base
+
+# difference table name needed for postgres
+# set_table_name :data_identifiers
 
   def project
     Project.current
@@ -68,7 +73,7 @@ class Identifier < ActiveRecord::Base
      if self.mask.blank?
        key =  "#{self.prefix}#{self.current_counter}#{self.postfix}"
      else
-       key =  instance_eval(self.mask)  
+       key =  sprintf(self.mask,self.prefix,self.current_counter,self.postfix)
      end
      self.save
      return key
@@ -94,7 +99,11 @@ class Identifier < ActiveRecord::Base
   # Fill name,description,project and team records of a record
   #
   def self.fill_defaults(record)
-     generator = Identifier.find_by_name(record.class.to_s)
+     if record.respond_to?(:name_generator)
+        generator = record.name_generator
+        record.name=nil if generator
+     end
+     generator ||= Identifier.find_by_name(record.class.to_s)
      if generator
        logger.debug("generate defaults for #{record.class}")
        generator.set_name(record)    
@@ -111,6 +120,14 @@ class Identifier < ActiveRecord::Base
 # Next user specfic reference
 #
   def self.next_user_ref
-     self.next_id(User.current.login)
+      unless Identifier.find_by_name(User.current.dom_id)
+          generator = Identifier.new
+           generator.name = User.current.dom_id
+           generator.prefix = User.current.id.to_s
+           generator.postfix = ""
+           generator.mask = "U-%s-%.6d"
+           generator.save!
+       end
+       self.next_id(User.current.dom_id)
   end
 end

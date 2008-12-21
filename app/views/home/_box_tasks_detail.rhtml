@@ -1,28 +1,51 @@
 <div class="box">
-  <b><%=link_to l(:label_my_latest,15,l(:label_tasks)), task_url(:action => 'list'), :class=>'icon icon-task' %></b>
-  <table class='report'>
-    <thead>
-      <tr>
-        <th><%=l(:label_task)%></th>
-        <th><%=l(:label_description)%></th>
-        <th><%=l(:label_experiment)%></th>
-        <th><%=l(:label_project)%></th>
-        <th><%=l(:label_priority)%></th>
-        <th><%=l(:label_started)%></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="<%= cycle('odd', 'even') %> boldnotbold">
-        <% for item in @user.tasks(15) %>
-          <td><%= link_to item.name, task_url(:action=>'show', :id=>item), :class=>"icon icon-status_#{item.status}" %></td>
-          <td><%= Task.find(item).description %></td>
-          <td><%= link_to Task.find(item).experiment.name, experiment_url(:action=>'show', :id=> Task.find(item).experiment.id) %></td>
-          <td><%= link_to Task.find(item).project.name,  project_url(:action=>'show', :id=> Task.find(item).project.id) %></td>
-          <td><%= Task.find(item).priority %></td>
-          <td><%= short_date(Task.find(item).started_at) %></td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
+    <b><%=link_to l(:My_Latest,15,l(:Tasks)), task_url(:action => 'list'), :class=>'icon icon-task' %></b>
+    <table class='report'>
+        <thead>
+            <tr>
+                <th>
+                    <%=l(:Task) %>
+                </th>
+                <th>
+                    <%=l(:Description) %>
+                </th>
+                <th>
+                    <%=l(:Experiment) %>
+                </th>
+                <th>
+                    <%=l(:Project) %>
+                </th>
+                <th>
+                    <%=l(:Priority) %>
+                </th>
+                <th>
+                    <%=l(:Started) %>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for item in @user.latest(Task,15) %>
+            <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+                <td>
+                    <%= link_to item.name, task_url(:action=>'show', :id=>item), :class=>"icon icon-status_#{item.status}" %>
+                </td>
+                <td>
+                    <%= item.description %>
+                </td>
+                <td>
+                    <%= link_to item.experiment.name, experiment_url(:action=>'show', :id=> item.experiment.id) %>
+                </td>
+                <td>
+                    <%= link_to item.project.name,  project_url(:action=>'show', :id=> item.project.id) %>
+                </td>
+                <td>
+                    <%= item.project_element.state.name %>
+                </td>
+                <td>
+                    <%= short_date(item.started_at) %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 </div>
-

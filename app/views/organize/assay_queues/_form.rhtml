@@ -3,7 +3,7 @@
 <div class="row">
   <div class="form-element">
     <label for="assay_queue_name">
-      <%=l(:label_name)%>
+      <%=l(:Name)%>
     </label>
     <%= text_field 'assay_queue', 'name' , {:size => 40,:class=>"text-input"} %>
   </div>
@@ -12,7 +12,7 @@
 <div class="row">
   <div class="form-element">
     <label for="assay_queue_description">
-      <%=l(:label_description)%>
+      <%=l(:Description)%>
     </label>
     <%= text_area('assay_queue', 'description',{:rows=>5, :cols=>80} ) %>
   </div>
@@ -21,7 +21,7 @@
 <div class="row">
   <div class="form-element">
     <label for="assay_parameter_id">
-      <%=l(:label_accepts_items)%>
+      <%=l(:Accepted_Items_of_Type)%>
     </label>
     <%= collection_select(:assay_queue, :assay_parameter_id,
         @assay.parameters_for_data_type(5), :id, :name) %>
@@ -29,14 +29,14 @@
 
   <div class="form-element">
     <label for="assay_queue_assigned_to">
-      <%=l(:label_managed_by)%>
+      <%=l(:Managed_By)%>
     </label>
     <%= select_named 'assay_queue', 'assigned_to_user_id', User  %>
   </div>
 
   <div class="form-element">
     <label for="assay_protocol_stage_id" >
-      <%=l(:label_stage)%>
+      <%=l(:Stage)%>
     </label>
     <%= collection_select('assay_queue', 'assay_stage_id', @assay.stages, :id, :name) %>
   </div>
@@ -47,7 +47,7 @@
       <%= submit_tag "Save" %>
   </div>
  </div>
- <%= link_to l(:label_cancel), queue_url( :action => 'list', :id=>@assay  ) %>
+ <%= link_to l(:Cancel), assay_url(:action => 'show',:id => @assay,:tab=>3) %>
 
 <br />
 <!--[eoform:assay_queue]-->

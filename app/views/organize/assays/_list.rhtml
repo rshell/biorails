@@ -3,36 +3,36 @@
         <thead>
             <tr>
                 <th colspan='4'>
-                    <b><%=l(:label_assay) %></b>
+                    <b><%=l(:Assay) %></b>
                 </th>
                 <th colspan='2'>
-                    <b><%=l(:label_owner) %></b>
+                    <b><%=l(:Owner) %></b>
                 </th>
                 <th colspan='3'>
-                    <b><%=l(:label_Contains) %></b>
+                    <b><%=l(:Contains) %></b>
                 </th>
             </tr>
             <tr>
                 <th>
-                    <b><%=l(:label_name) %></b>
+                    <b><%=l(:Name) %></b>
                 </th>
                 <th>
-                    <b><%=l(:label_description) %></b>
+                    <b><%=l(:Description) %></b>
                 </th>
                 <th>
-                    <b><%=l(:label_team) %></b>
+                    <b><%=l(:Team) %></b>
                 </th>
                 <th>
-                    <b><%=l(:label_project) %></b>
+                    <b><%=l(:Project) %></b>
                 </th>
                 <th>
-                    <b><%=l(:label_methods) %></b>
+                    <b><%=l(:Methods) %></b>
                 </th>
                 <th>
-                    <b><%=l(:label_parameters) %></b>
+                    <b><%=l(:Parameters) %></b>
                 </th>
                 <th>
-                    <b><%=l(:label_queues) %></b>
+                    <b><%=l(:Queues) %></b>
                 </th>
             </tr>
         </thead>
@@ -47,7 +47,7 @@
                 </td>
                 <%if assay.project == current_project %>
                 <td colspan='2'>
-                    <%=l(:label_current_project) %>
+                    <%=l(:Current_Project) %>
                 </td>
                 <%else %>
                 <td>
@@ -76,9 +76,6 @@
             </tr>
         </tfoot>
     </table>
-    <hr/><% if @project %>
-    <%= link_to( l(:label_assay_manage), assay_url( :action => 'list'), :project=> @project, :class=>'icon icon-add') %>
-    <% else %>
-    <%= link_to(l(:label_assay_new), assay_url(:action => 'new'), :class=>'icon icon-assay-add') %>
-    <% end %>
+    <hr/>
+    <%= link_to(l(:Assay_New), assay_url(:action => 'new'), :class=>'icon icon-assay-add') if current_project.changeable? %>
 </div>

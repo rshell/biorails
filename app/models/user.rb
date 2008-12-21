@@ -135,14 +135,7 @@ class User < ActiveRecord::Base
   end
   
   def fill_from_ldap
-    ldap = User.ldap_user(login)
-    if ldap
-      self.name = ldap.cn.to_s
-      self.email = ldap[:mail].to_s
-      self.fullname == ldap.displayName.to_s || ldap.cn.to_s
-    end
-  rescue Exception=>ex
-    logger.warn("Failed to find all attributes in LDAP #{ex.message}")   
+  
   end  
  
   def self.create_user(username,password=nil,role_id=nil)
@@ -228,6 +221,12 @@ class User < ActiveRecord::Base
   def clear_login_failures
     update_attribute(:login_failures, 0)
   end
+  #
+  # List of all the users who are not a member of the project
+  #
+  def other_teams
+    @non_members ||=Team.find(:all,:conditions=>[" not exists (select 1 from memberships where memberships.team_id=teams.id and memberships.user_id=?)",self.id] )
+  end
   
   def news(count =5 )
     ProjectElement.find(:all,:conditions => ['content_id is not null and updated_by_user_id=?',self.id] , :order=>'updated_at desc',:limit => count)   
@@ -245,7 +244,12 @@ class User < ActiveRecord::Base
       :limit => limit,
       :order => 'projects.updated_at desc')   
     end
-  end  
+  end
+
+  def project_list
+    [["<none>",nil]].concat( Project.list(:all,:order=>'projects.name,projects.parent_id').collect{|i|
+        [ "#{i.name}" + (i.parent ? " [#{i.parent.path}]" : ''),i.id]})
+  end
   ##   
   #
   # Get a project for the current user
@@ -267,7 +271,8 @@ class User < ActiveRecord::Base
     items << ["#{model.table_name}.created_by_user_id  = ?",self.id] if model.columns.any?{|c|c.name =='requested_by_user_id'}
     conditions = []
     values = []
-    items.each do |item|
+    return [] unless items and items.size>0
+    for item in items
       conditions <<  item[0]
       values << item[1]
     end
@@ -277,7 +282,7 @@ class User < ActiveRecord::Base
        model.find(:all, :conditions=> [conditions.join(" or "),values].flatten,:order=>"#{model.table_name}.id desc",:limit => count ) 
     end
   rescue Exception => ex
-    logger.info "Failed to find object "+ex.message
+    logger.info "Failed to find object: #{ex.message}"
     return []
   end
  
@@ -295,14 +300,10 @@ class User < ActiveRecord::Base
   #
   # Standard permission? check on access control list
   #   
-  def allow?(subject,action)
-    admin? or role.allow?(action,subject)
+  def right?(subject,action=nil)
+    admin? or role.right?(subject,action)
   end  
 
-  def rights?(subject)
-    admin? or role.rights?(subject)    
-  end  
-   
   def style
     if self.disabled?
       "Disabled"
@@ -371,7 +372,7 @@ class User < ActiveRecord::Base
   end
   
   def to_s
-    return "user[#{login}]"
+    return "user [#{login}]"
   end
 
 end

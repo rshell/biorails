@@ -43,18 +43,12 @@ class AssayQueue < ActiveRecord::Base
 # This record has a full audit log created for changes 
 #   
   acts_as_audited :change_log
-  acts_as_ferret  :fields => {:name =>{:boost=>2,:store=>:yes} , 
-                              :description=>{:store=>:yes,:boost=>0},
-                               }, 
-                   :default_field => [:name],           
-                   :single_index => true, 
-                   :store_class_name => true 
 #
 # Generic rules for a name and description to be present
   validates_presence_of :name
   validates_presence_of :description
 
-  validates_uniqueness_of :name,:scope=>'assay_id'
+  validates_uniqueness_of :name,:scope=>'assay_id',:case_sensitive=>false
   validates_presence_of   :assay_id
   validates_presence_of   :assay_stage_id
   validates_presence_of   :assay_parameter_id
@@ -111,7 +105,6 @@ acts_as_folder_linked  :assay,:under=>'queues'
         :data_id => object.data_id,
         :data_name => object.data_name,
         :name => object.data_name})
-     item.status_id = 0
      if  request_service
          item.request_service_id   = request_service.id
          item.priority_id          = request_service.priority_id
@@ -131,7 +124,8 @@ acts_as_folder_linked  :assay,:under=>'queues'
   
  def next_available_item
    self.items.find(:first,
-                   :conditions=>'status_id between 0 and 2 and task_id is null',
+                   :include=>[:project_element=>[:state]],
+                   :conditions=>'states.level_no between 0 and 2 and task_id is null',
                    :order => "(case when ended_at < current_date then '1' else '2' end) asc, priority_id desc, ended_at asc"  )    
      
  end
@@ -147,9 +141,13 @@ acts_as_folder_linked  :assay,:under=>'queues'
 #
  def status_counts
    sql = <<SQL
-   select status_id,count(data_name) num from queue_items 
+   select 
+      project_elements.state_id state_id,
+      count(data_name) num
+   from queue_items,project_elements
    where assay_queue_id = ?
-   group by status_id
+   and project_elements.id = queue_items.project_element_id
+   group by state_id
 SQL
    return QueueItem.find_by_sql([sql,self.id])
  end
@@ -168,11 +166,11 @@ SQL
   
 
   def num_active
-    return items.inject(0){|sum, item| sum + (item.is_active ? 1 : 0 )}
+    return items.inject(0){|sum, item| sum + (item.active? ? 1 : 0 )}
   end
 
   def num_finished
-    return items.inject(0){|sum, item| sum + (item.is_finished ? 1 : 0 )}
+    return items.inject(0){|sum, item| sum + (item.finished? ? 1 : 0 )}
   end
   
   def percent_done

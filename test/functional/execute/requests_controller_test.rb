@@ -47,8 +47,8 @@ class Execute::RequestsControllerTest < Test::Unit::TestCase
   
   def test_show_invalid
     get :show, :id => 24242432
-    assert_response :redirect
-    assert_redirected_to :action => 'access_denied'
+    assert_response :success
+    assert_template  'access_denied'
   end
 
   def test_new
@@ -68,7 +68,7 @@ class Execute::RequestsControllerTest < Test::Unit::TestCase
 
   def test_create_ok
     num = Request.count
-    post :create, :user_request => {:name=>'xxxx',:description=>'sssss',:data_element_id=>1,:project_id=>2}
+    post :create, :user_request => {:name=>'xxxx',:expected_at=>'2020-12-1',:description=>'sssss',:data_element_id=>1,:project_id=>2}
     assert_response :redirect
     assert_equal num+1 , Request.count
   end

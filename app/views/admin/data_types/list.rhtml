@@ -6,20 +6,20 @@
 <% end %>
 <% content_for :center do %>
 <%= render :partial => 'admin/header' %>
-<h2 class='icon icon-data_type'><%=l(:label_data_types) %>
+<h2 class='icon icon-data_type'><%=l(:Data_Types) %>
 </h2>
 <div class="panel">
   <table class="report">
     <thead>
       <tr>
         <th>
-          <%=l(:label_name) %>
+          <%=l(:Name) %>
         </th>
         <th>
-          <%=l(:label_description) %>
+          <%=l(:Description) %>
         </th>
         <th>
-          <%=l(:label_action) %>
+          <%=l(:Action) %>
         </th>
       </tr>
     </thead>
@@ -35,11 +35,11 @@
           <%=h data_type.description %>
         </td>
         <td>
-          <%= link_to l(:label_edit),data_type_url( :action => 'edit', :id => data_type), :class=>'icon icon-edit' %>
+          <%= link_to l(:Edit),data_type_url( :action => 'edit', :id => data_type), :class=>'icon icon-edit' %>
         </td>
       </tr>
       <% end %>
     </tbody>
   </table>
-  <hr/><%= link_to l(:label_new) ,data_type_url(:action => 'new'), :class=>'icon icon-new' %>
+  <hr/><%= link_to l(:New) ,data_type_url(:action => 'new'), :class=>'icon icon-new' %>
 </div><%end %>
