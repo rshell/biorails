@@ -1,0 +1,56 @@
+<div class="box">
+  <strong><%=link_to "#{@project.name}'s #{l(:Tasks)}", task_url(:action => 'list'), :class=>'icon icon-task' %>
+  </strong>
+  <% unless @project.tasks.empty? %>
+    <table id="task_list" class="report">
+      <thead>
+      <tr class='header'>
+        <th><%=l(:Due) %> </th>
+        <th> <%=l(:Name) %> </th>
+        <th> <%=l(:Status) %> </th>
+        <th> <%=l(:Description) %> </th>
+        <th> <%=l(:Experiment) %> </th>
+        <th> <%=l(:Owner) %> </th>
+        <th> <%=l(:Date) %> </th>
+      </tr>
+      <% for item in @project.tasks.overdue(8) %>
+        <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+          <th><span class="icon icon-red"><%=l(:Overdue) %></span> </th>
+          <td><%= link_to item.name, task_url( :action => 'show', :id => item) %> </td>
+          <td><%= "<b class='icon icon-status_#{item.status}'> #{item.status}</b>" %> </td>
+          <td><%= item.description %> </td>
+          <td><%= link_to item.experiment.name, experiment_url(:action=>'show', :id=>item.experiment) %> </td>
+          <td><%= item.assigned_to %> </td>
+          <td><%= short_date(item.started_at) %> </td>
+        </tr>
+      <% end %>
+      <% for currentitem in @project.tasks.current(8) %>
+        <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+          <th><span class="icon icon-green"><%=l(:Current) %></span> </th>
+          <td><%= link_to currentitem.name, task_url( :action => 'show', :id => currentitem) %> </td>
+          <td><%= "<b class='icon icon-status_#{currentitem.status}'> #{currentitem.status}</b>" %> </td>
+          <td><%= currentitem.description %> </td>
+          <td><%= currentitem.experiment.name %> </td>
+          <td><%= currentitem.assigned_to %> </td>
+          <td><%=short_date(currentitem.started_at) %> </td>
+        </tr>
+      <% end %>
+      <% for futureitem in @project.tasks.future(8) %>
+        <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+          <th><span class="icon icon-amber"><%=l(:Coming) %></span></th>
+          <td><%= link_to futureitem.name, task_url( :action => 'show', :id => futureitem) %></td>
+          <td><%= "<b class='icon icon-status_#{futureitem.status}'> #{futureitem.status}</b>" %> </td>
+          <td><%= futureitem.description %> </td>
+          <td><%= futureitem.experiment.name %> </td>
+          <td><%= futureitem.assigned_to %> </td>
+          <td><%= short_date(futureitem.started_at) %> </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>
+      <%=l(:has_no_tasks, @project.style.titlecase) %>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,8 @@
+<div class='box'>
+  <strong class="icon icon-experiment">
+    <%=l(:Linked)%>
+    <%=l(:Experiments)%>
+  </strong>
+  <%=render :partial=>'show_links',:locals=>{:model=>Experiment} %>
+  <%=render :partial=>'add_link'  ,:locals=>{:model=>Experiment} %>
+</div>

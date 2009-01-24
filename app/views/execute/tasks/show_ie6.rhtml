@@ -1,0 +1,26 @@
+
+<% content_for :messages do -%>
+    <%=render :partial =>'shared/messages',:locals => { :objects => ['task' ]} %>
+<%end%>
+
+<% content_for :footer do -%>
+  <%= render :partial => '/shared/version_history',:locals=>{:folder=>@task.folder} %>
+  <%= render :partial => 'shared/audit',:locals =>{ :item => @task} %>
+<% end %>
+
+<% content_for :right do %>
+     <%= render :partial => '/shared/folder_outline',:locals=>{:folder=>@task.folder} %>
+<% end %>
+
+<% content_for :center do -%>
+
+<%= render :partial=>'header'%>		
+<%= tab_strip("task-tabs",@tab,[ 
+ {:name =>l(:Overview)    , :url=> task_url(:action=>'show',   :format=>:ext, :id=>@task) },
+ {:name =>l(:Folders) , :url=>folder_url(:action=>'show', :format=>:ext, :id=>@task.folder)},
+ {:name =>l(:Sheet)   , :url=> task_url(:action=>'sheet',  :format=>:ext, :id=>@task) },
+ {:name =>l(:View)     , :url=> task_url(:action=>'print',  :format=>:ext, :id=>@task) },
+ {:name =>l(:Import) , :url=> task_url(:action=>'import', :format=>:ext, :id=>@task) },
+ {:name =>l(:Metrics)  , :url=> task_url(:action=>'metrics',:format=>:ext, :id=>@task) } ,
+ {:name =>l(:Access)  ,  :url=>  acl_url(:action=>'show',:format=>:ext, :id=>@task.folder)} ])  %>
+<%end%>   

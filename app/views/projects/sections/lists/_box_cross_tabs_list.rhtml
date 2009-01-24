@@ -1,0 +1,16 @@
+<div class="box">
+  <strong><%= link_to l(:Cross_Tabs), cross_tab_url( :action => :list), :class=>'icon icon-crosstab' %></strong>
+  <% unless @project.reports.empty? %>
+    <dl>
+      <% for item in @project.latest(CrossTab,5) %>
+        <dt><%= link_to item.name, cross_tab_url( :action => 'show', :id => item) %><dt>
+        <dd><%= item.description %>
+          (<%= short_date(item.updated_at) %>)
+        </dd>
+      <% end %>
+    </dl>
+  <% else %>
+    <p><%=l(:has_no_cross_tabs_in, @project.style.titlecase)%></p>
+  <% end %>
+  <hr/><%= link_to( l(:Add),  cross_tab_url(:action => :new), :class=>'icon icon-add') if @project.changeable? %>
+</div>

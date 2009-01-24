@@ -1,0 +1,20 @@
+<div class="box">
+  <strong class='icon icon-study'><%=l(:Studies) %></strong>
+  <% unless @project.children.empty? %>
+    <dl>
+      <% for item in @project.contained(Project,5)%>
+        <% if item.project_type.study? %>
+          <dt><%=item.project_type.name%>:
+            <%= link_to item.path, project_url( :action => 'show', :id => item.id) %>
+          </dt>
+          <dd> <%=item.summary%> <%= item.status %>
+          </dd>
+        <% end %>
+      <% end %>
+    </dl>
+  <% else %>
+    <p><%= l(:No_Children, @project.style.titlecase) %></p>
+  <% end %>
+  <hr/><%= link_to "#{l(:Add)} #{l(:Study)}",new_project_url(ProjectType::STUDY,current_project),
+    :class=>'icon icon-study-add' if @project.changeable? and right?(:project,:build) %>
+</div>

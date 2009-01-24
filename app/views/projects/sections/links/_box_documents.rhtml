@@ -1,0 +1,8 @@
+<div class='box'>
+  <strong class="icon icon-project">
+    <%=l(:Linked)%>
+    <%=l(:Documents)%>
+  </strong>
+  <%=render :partial=>'show_links',:locals=>{:model=>Signature} %>
+  <%=render :partial=>'add_link'  ,:locals=>{:model=>Signature} %>
+</div>

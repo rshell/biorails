@@ -1,0 +1,13 @@
+<div class="box">
+  <strong class='icon icon-project-project'><%=l(:Discovery_Projects)%></strong>
+  <dl>
+    <% for item in @project.children_of_type(8,1) %>
+      <dt><%= link_to item.name, project_url( :action => 'show', :id => item) %>
+      </dt>
+      <dd><%= item.description %>
+      </dd>
+    <% end %>
+  </dl>
+  <hr/>
+  <%= link_to_if right?(:data,:create), l(:Discovery_Project), new_project_url(ProjectType::PROJECT,current_project), :class=>'icon icon-new' if current_project.changeable? %>
+</div>

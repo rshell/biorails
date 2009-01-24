@@ -1,0 +1,46 @@
+<div class="box">
+  <strong class='icon icon-news'><%= l(:News_Recent) %></strong>
+  <% unless @project.news.empty? %>
+    <table id="project_news" class="report">
+      <thead>
+        <tr class='header'>
+          <th>
+            <%=l(:Article) %>
+          </th>
+          <th>
+            <%=l(:Date) %>
+          </th>
+          <th>
+            <%=l(:Summary) %>
+          </th>
+          <th>
+            <%=l(:Actions) %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @project.news(5) %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td>
+              <%=link_to item.name, element_to_url(item) %>
+            </td>
+            <td>
+              <%= short_date(item.updated_at) %>
+            </td>
+            <td>
+              <%= item.summary %>
+            </td>
+            <td>
+              <%=link_to l(:Show), folder_url(:action=>'show', :id => item.parent_id), :class=>'icon icon-folder' %>
+            </td>
+          </tr>
+        <% end %>
+
+      </tbody>
+    </table>
+  <% else %>
+    <p>
+      <%= l(:has_no_news, @project.style.titlecase) %>
+    </p>
+  <% end %>
+</div>

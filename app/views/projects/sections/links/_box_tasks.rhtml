@@ -1,0 +1,9 @@
+<div class='box'>
+  <strong class="icon icon-project">
+    <%=l(:Linked)%>
+    <%=l(:Tasks)%>
+  </strong>
+  <%=render :partial=>'show_links',:locals=>{:model=>Task} %>
+  <%=render :partial=>'add_link'  ,:locals=>{:model=>Task} %>
+
+</div>

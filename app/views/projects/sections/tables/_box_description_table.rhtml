@@ -1,0 +1,27 @@
+<div class='box'>
+  <table>
+    <tr>
+      <th>
+        <%=l(:Study_Title)%>
+      </th>
+      <td colspan="3">
+        <%= @project.title %>
+      </td>
+      <th>
+        <%=l(:Description)%>: &nbsp;
+      </th>
+      <td>
+        <%= @project.description %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%=l(:Status)%>:&nbsp;
+      </th>
+      <td>
+        <%=@project.folder.state if @project.project_element_id %>
+        <%=link_to "[Update]", folder_url(:action=>'status',:id=>@project.project_element_id),:class=>'icon icon-edit'%>
+      </td>
+    </tr>
+  </table>
+</div>

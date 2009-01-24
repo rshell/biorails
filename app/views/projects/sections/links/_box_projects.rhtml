@@ -1,0 +1,9 @@
+<div class='box'>
+  <strong class="icon icon-project">
+    <%=l(:Linked)%>
+    <%=l(:Projects)%>
+  </strong>
+
+  <%=render :partial=>'show_links_table',:locals=>{:model=>Project} %>
+  <%=render( :partial=>'add_link'  ,:locals=>{:model=>Project}) if current_project.changeable?%>
+</div>

@@ -1,0 +1,30 @@
+<div class="box">
+  <strong>
+    <%= link_to( l(:Cross_Tabs), cross_tab_url( :action => 'list'), :class=>'icon icon-report') %>
+  </strong>
+  <% unless @project.cross_tabs.empty? %>
+    <table id="reports_list" class="report">
+      <thead>
+      <tr class='header'>
+        <th><%=l(:Name)%></th>
+        <th><%=l(:Description)%></th>
+      </tr>
+      <% for item in @project.latest(CrossTab,5) %>
+        <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+          <td>
+            <%= link_to item.name, report_url(:action => 'show', :id => item) %>
+          </td>
+          <td><%= item.description %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><%=l(:has_no_cross_tabs_in, @project.style.titlecase)%></p>
+  <% end %>
+  <hr />
+  <% unless current_project.linked_assays.size == 0 %>
+    <%= link_to( l(:Cross_Tab_Add), report_url( :action => :new, :id => current_project.id), :class=>'icon icon-add') if @project.changeable? %>
+  <% end %>
+</div>

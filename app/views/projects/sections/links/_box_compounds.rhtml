@@ -1,0 +1,10 @@
+<div class='box'>
+  <strong class="icon icon-compound">
+    <%=l(:Linked)%>
+    <%=l(:Compounds)%>
+  </strong>
+
+  <%=render :partial=>'show_links_table',:locals=>{:model=>Compound} %>
+  <%=render :partial=>'add_link'  ,:locals=>{:model=>Compound} %>
+
+</div>

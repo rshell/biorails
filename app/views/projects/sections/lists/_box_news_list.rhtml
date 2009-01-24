@@ -1,0 +1,19 @@
+<div class="box">
+  <strong class='icon icon-news'><%= l(:News_Recent) %></strong>
+  <% unless @project.news.empty? %>
+    <dl>
+      <% for item in @project.news(10) %>
+        <dt>
+          <%=link_to item.name, element_to_url(item) %>
+        </dt>
+        <dd>
+          <%= item.summary %>
+          (<%= short_date(item.updated_at) %>)
+          [<%=link_to l(:Open_Folder), folder_url(:action=>'show', :id => item.parent_id)%>]
+        </dd>
+      <% end %>
+    </dl>
+  <% else %>
+    <p><%= l(:has_no_news, @project.style.titlecase) %></p>
+  <% end %>
+</div>

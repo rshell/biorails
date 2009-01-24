@@ -1,0 +1,13 @@
+<div class="box">
+  <strong><%= link_to( l(:Services), experiment_url( :action => 'list'), :class=>'icon icon-service') %></strong>
+  <% for item in @project.latest(AssayQueue,5) %>
+    <dl>
+      <dt>
+        <%= link_to item.name, assay_queue_url( :action => 'show', :id => item)%>
+      </dt>
+      <dl>
+        <%= item.status_summary %>
+      </dl>
+    </dl>
+  <% end %>
+</div>

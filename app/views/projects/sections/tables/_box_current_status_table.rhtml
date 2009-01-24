@@ -1,0 +1,20 @@
+<div class="box" style="width: Auto">
+  <table class="report" style="width: Auto">
+    <tr>
+      <th> <%=l(:Assays)%> </th>
+      <td> <%= current_project.assays.size  %> </td>
+    </tr>
+    <tr>
+      <th><%=l(:Experiments )%> </th>
+      <td><%= current_project.experiments.size  %> </td>
+    </tr>
+    <tr>
+      <th> <%=l(:Tasks)%>  </th>
+      <td> <%= current_project.tasks.size  %> </td>
+    </tr>
+    <tr>
+      <th> <%=l(:Folder_Items )%> </th>
+      <td> <%= current_project.folder.all_children_count  %>  </td>
+    </tr>
+  </table>
+</div>

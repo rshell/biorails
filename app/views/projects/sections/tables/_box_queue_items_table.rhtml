@@ -1,0 +1,25 @@
+<div class="box">
+  <strong>
+    <b class="icon icon-queue_item"><%= l('Items in Service Queues') %></b>
+  </strong>
+  <table id="my_service_queues" class="report">
+    <tr class='header'>
+      <th><%=l(:Queue)%></th>
+      <th><%=l(:Item)%></th>
+      <th><%=l(:Date)%></th>
+      <th><%=l(:Status)%></th>
+    </tr>
+    <% for item in @project.latest(QueueItem,10) %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td>
+          <%= link_to item.queue.name, queue_url( :action => 'items', :id => item.queue) %>
+        </td>
+        <td><strong><%= item.data_name %></strong></td>
+        <td><%= short_date(item.updated_at) %></td>
+        <td>
+          <span class='icon icon-status_<%= item.status %>'><%= item.status %>    </span>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

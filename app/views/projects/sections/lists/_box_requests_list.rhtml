@@ -1,0 +1,16 @@
+<div class="box">
+  <strong><%= link_to l(:Requests), request_url( :action => :list), :class=>'icon icon-request' %></strong>
+  <% unless @project.requests.empty? %>
+    <dl>
+      <% for item in @project.latest(Request,5) %>
+        <dt><%= link_to item.name, request_url( :action => 'show', :id => item) %><dt>
+        <dd><%= item.description %>
+          (<%= short_date(item.updated_at) %>)
+        </dd>
+      <% end %>
+    </dl>
+  <% else %>
+    <p><%=l(:has_no_requests_in, @project.style.titlecase)%></p>
+  <% end %>
+  <hr/><%= link_to( l(:Request_Add),  request_url(:action => :new), :class=>'icon icon-add') if @project.changeable? %>
+</div>

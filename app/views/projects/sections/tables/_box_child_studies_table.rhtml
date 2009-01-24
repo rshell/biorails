@@ -1,0 +1,35 @@
+<div class="box">
+  <strong class='icon icon-study'><%=l(:Studies) %></strong>
+  <% unless @project.children.empty? %>
+    <table id="study_list" class="report">
+      <thead>
+        <tr class='header'>
+          <th><%=l(:Name)%></th>
+          <th><%=l(:Title)%></th>
+          <th><%=l(:Status)%></th>
+          <th><%=l(:Assays)%></th>
+          <th><%=l(:Experiments)%></th>
+          <th><%=l(:Tasks)%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for item in @project.contained(Project,15)%>
+          <% if item.project_type.study? %>
+            <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+              <td> <%= link_to item.name, project_url( :action => 'show', :id => item.id) %></td>
+              <td> <%=  item.title %> </td>
+              <td> <%=  item.status %></td>
+              <td> <%=  item.assays.size %></td>
+              <td> <%=  item.experiments.size %></td>
+              <td> <%=  item.tasks.size %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><%= l(:No_Children, @project.style.titlecase) %></p>
+  <% end %>
+  <hr/><%= link_to "#{l(:Add)} #{l(:Study)}", new_project_url(ProjectType::STUDY,@project),
+    :class=>'icon icon-study-add' if @project.changeable? and right?(:project,:build) %>
+</div>

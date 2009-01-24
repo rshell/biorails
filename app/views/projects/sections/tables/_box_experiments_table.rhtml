@@ -1,0 +1,33 @@
+<div class="box">
+  <strong>
+    <%= link_to( l(:Experiments), experiment_url( :action => 'list'), :class=>'icon icon-experiment') %>
+  </strong>
+  <% unless @project.experiments.empty? %>
+    <table id="experiment_list" class="report">
+      <thead>
+      <tr class='header'>
+        <th><%=l(:Name)%></th>
+        <th><%=l(:Description)%></th>
+        <th><%=l(:Started)%></th>
+      </tr>
+      <% for item in @project.latest(Experiment,5) %>
+        <tr class="<%= cycle('odd', 'even') %> boldnotbold">
+          <td>
+            <%= link_to item.name, experiment_url( :action => 'show', :id => item), :class=>"icon icon-status_#{item.status}" %>
+          </td>
+          <td><%= item.description %>
+          </td>
+          <td><%= short_date(item.started_at) %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><%=l(:has_no_experiments, @project.style.titlecase)%></p>
+  <% end %>
+  <hr />
+  <% unless current_project.linked_assays.size == 0 %>
+    <%= link_to( l(:Experiment_Add), experiment_url( :action => :new, :id => current_project.id), :class=>'icon icon-add') if @project.changeable? %>
+  <% end %>
+</div>

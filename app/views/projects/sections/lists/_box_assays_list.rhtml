@@ -1,0 +1,14 @@
+<div class='box'>
+  <strong><%=link_to l(:Assays), assay_url( :action => 'list'), :class=>'icon icon-assay' %></strong>
+  <% unless @project.linked_assays == 0%>
+    <dl>
+      <% for item in @project.linked_assays %>
+        <dt><%= link_to item.name, assay_url( :action => 'show', :id => item) %></dt>
+        <dd><%= item.description %>
+        [<%= link_to item.project.name, project_url(:action => 'show', :id => item.project.id) %>]</dd>
+      <% end %>
+    </dl>
+  <% else %>
+    <p><%= l(:No_Assays, @project.style.titlecase) %></p>
+  <% end %>
+</div>

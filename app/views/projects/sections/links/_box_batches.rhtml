@@ -1,0 +1,9 @@
+<div class='box'>
+  <strong class="icon icon-batches">
+    <%=l(:Linked)%>
+    <%=l(:Batches)%>
+  </strong>
+
+  <%=render :partial=>'show_links_table',:locals=>{:model=>Batch} %>
+  <%=render(:partial=>'add_link'  ,:locals=>{:model=>Batch}) if current_project.changeable? %>
+</div>

@@ -1,0 +1,64 @@
+<div class="box">
+  <strong><%= link_to  l(:Service_Queues), service_url(:action => 'list'), :class=>"icon icon-service" %></strong>
+  <% unless @project.requests.empty? %>
+  <table class='report'>
+    <thead>
+      <tr>
+        <th>
+          <%=l(:Ref) %>
+        </th>
+        <th>
+          <%=l(:Service) %>
+        </th>
+        <th>
+          <%=l(:Status) %>
+        </th>
+        <th>
+          <%=l(:Priority) %>
+        </th>
+        <th>
+          <%=l(:Date_Accepted) %>
+        </th>
+        <th>
+          <%=l(:Assigned_To) %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%for requested_service in current_project.outstanding_requested_services(15) %>
+        <%for item in requested_service.requests %>
+          <tr class="<%= cycle('odd', 'even') %>">
+            <td>
+              <%=link_to item.name, service_url( :action => 'show', :id => item) %>
+            </td>
+            <td>
+              <%=link_to item.queue.path, queue_url(:action => 'show', :id => item.queue) %>
+            </td>
+            <td>
+              <a class='icon icon-status_<%=item.status %>'><%=item.status_summary %></a>
+            </td>
+            <td>
+              <%=item.priority %>
+            </td>
+            <% if item.assigned_to_user_id %>
+              <td>
+                <%=short_date item.started_at %>
+              </td>
+              <td>
+                <%=item.assigned_to.name %>
+              </td>
+            <% else %>
+              <td colspan='3'>
+                <i><b><%=l(:Not_Submitted_Yet) %>
+                </b></i>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      <%end %>
+    </tbody>
+  </table>
+    <% else %>
+    <p><%=l(:has_no_services_in, @project.style.titlecase)%></p>
+  <% end %>
+</div>  

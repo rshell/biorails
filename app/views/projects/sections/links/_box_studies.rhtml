@@ -1,0 +1,5 @@
+<div class='box'>
+  <strong><%=l(:Studies)%></strong>
+  <%=render :partial=>'show_links',:locals=>{:model=>Project} %>
+  <%=render :partial=>'add_link'  ,:locals=>{:model=>Project} %>
+</div>
