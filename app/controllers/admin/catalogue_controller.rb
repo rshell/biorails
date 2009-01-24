@@ -43,7 +43,6 @@ def list
   end
   respond_to do | format |
     format.html { render :action => 'list' }
-    format.json { render :json => @data_concept.to_json }
     format.xml  { send_data(@context.to_xml,:type => 'text/xml; charset=iso-8859-1; header=present', :filename => @context.name+'.xml')    }
   end  
 end
@@ -59,7 +58,6 @@ def show
    @context = @data_concept.context
    respond_to do | format |
      format.html { render(:action => 'list') }
-     format.json { render(:json => @data_concept.to_json) }
      format.js   { render(:action => 'show.rjs') }
      format.xml  { send_data(@context.to_xml,:type => 'text/xml; charset=iso-8859-1; header=present', :filename => @context.name+'.xml')    }
    end  

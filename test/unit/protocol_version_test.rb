@@ -56,4 +56,14 @@ class ProtocolVersionTest < Test::Unit::TestCase
     assert first.to_xml
   end
 
+  def test_test
+    process_instance = ProcessInstance.find(:first)
+    item = process_instance.test
+    assert item
+    assert_equal process_instance,item.process
+    assert 1,item.tasks
+    assert_equal process_instance,item.tasks[0].process
+    item2 = process_instance.test
+    assert_equal item,item2
+  end
 end

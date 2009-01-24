@@ -28,7 +28,6 @@ class AuditController < ApplicationController
       :order=>'created_at desc',:limit=>100)
     @root = @audits[0].auditable if @audits.size>0
     respond_to do | format |
-      format.json { render :json => {:root=>@root,:items=> @audits}.to_json }
       format.xml  { render :xml => {:user=>@root,:items=> @audits}.to_xml }
       format.js   { 
          render :update do | page |

@@ -103,39 +103,7 @@ module ApplicationHelper
   # 
   def tree_panel(*options_for_render)
     call 'Element.update','tree', render(*options_for_render)
-  end
-
-  # 
-  # @TODO move version number as part of signature
-  # 
-  def version_no(path)
-    # #a bit cryptic this - we want the number in the filename after the _V but
-    # before the .extension #so we match all the digits after _V.  The result of
-    # the match is stored in a thread-local variable $2 #($1 contains '_V').  if
-    # there is no document which is versioned return 0 rather than nil
-    path.match(/(_V)(\d*)/)
-    $2 || '0'
-  end
-  
-  def docpath(path)
-    # #it's hard to rescue the error caused by a missing file in the public
-    # directory because it's served before the application #controller can catch
-    # the error - so check the file is there first
-    if File.file?(File.join(RAILS_ROOT,"public",SystemSetting.get("published_folder").value,path+".pdf"))
-      return "<a href='/"+SystemSetting.get("published_folder").value+"/"+path+".pdf'>show pdf</a>"
-    else
-      return "missing file "
-    end  
-  end
-  
-  def zippath(path)
-    if File.file?(File.join(RAILS_ROOT,"public",SystemSetting.get("published_folder").value,path+".tar.gz"))
-      return "<a href='/"+SystemSetting.get("published_folder").value+"/"+path+".tar.gz'>show zip</a>"
-    else
-      return "missing file "
-    end
-  end
-  
+  end  
 ##
 # Convert a type/id reference into a url to the correct controlelr
 #    

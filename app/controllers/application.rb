@@ -280,20 +280,26 @@ class ApplicationController < ActionController::Base
   # Render a page as PDF for output based on current html
   # 
   def render_pdf(filename,options={})
-    @html = Biorails.utf8_to_codepage(render_to_string(options))
-    html_send_as_pdf(filename, @html)
+     html = render_to_string(options)
+     send_as('pdf',filename,html)
   end
 
-  def html_send_as_pdf(filename,html)
-    pdf = PDF::HTMLDoc.new
-    pdf.set_option :webpage, true
-    pdf.set_option :bodycolor, :white
-    pdf.set_option :path, File::SEPARATOR
-    pdf.set_option :webpage, true
-    pdf.set_option :toc, false
-    pdf.set_option :links, true
-    pdf << html
-    send_data(  pdf.generate,  :type => 'application/pdf',    :filename => filename)
+  def send_as(type,filename,html)
+    format = Alces::OpenOffice::FormatConverter.format(type)
+    @@public_root ||= File.join(RAILS_ROOT,"public")
+    file = Tempfile.new("temp.html")
+    html = html.gsub(/src="\/(.*)\?(.*)"/,"src=\"#{@@public_root}/\\1\"")
+    html = html.gsub(/link href="\/(.*)\?(.*)"/,"link href=\"#{@@public_root}/\\1\"")
+    file << html
+    file.close
+    formatter = Alces::OpenOffice::FormatConverter.new(type)
+    output_file = formatter.convert(file.path)
+    if output_file
+      return send_file( output_file,:filename=>filename,  :type => format[:mime])
+    else
+      formatter.errors.each{|error| logger.warn " PDF '#{filename} create problem: #{error}"}
+      return render :inline => formatter.results
+    end
   end
 
   def underscore(filename)
@@ -347,7 +353,6 @@ class ApplicationController < ActionController::Base
       when ProjectFolder then   folder_url(  options.merge({ :id=>id} ) )
       when AssayProtocol then   assay_url(   options.merge({ :id=>object.assay_id})  )
       when AssayQueue then      queue_url(   options.merge({ :id=>id})  )
-      when Signature  then      folder_url( {:action=>'document', :id=>object.project_element_id} )
       when SystemReport then    system_report_url( options.merge({:id=>id})  )
       when ProjectReport then   report_url(        options.merge({:id=>id})  )
       else

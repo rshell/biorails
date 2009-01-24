@@ -1,10 +1,11 @@
 <% if @parameter_type %>
+<%= @parameter_type.description %><br/>
 <div class="form-element">
     <label for="assay_paramete_name">
         <%=l(:Name) %>
     </label>
     <% if @parameter_type.aliases.size>0 %>
-    <%= collection_select( :assay_parameter, :name, @parameter_type.aliases, :name, :name, {:prompt => true}) %>
+    <%= collection_select( :assay_parameter, :name, @parameter_type.aliases,  :name,:summary, {:prompt => true}) %>
     <%= observe_field 'assay_parameter_name',
     :url => assay_parameter_url(:action=>'refresh',:parameter_type_id=>@parameter_type.id, :id =>@assay.id),
     :with =>'alias' %>

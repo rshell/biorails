@@ -2,29 +2,30 @@
   <table class='report'>
     <tr>
       <th colspan='3'>
-        <%=l(:label_details)%>
+        <%=l(:Details)%>
       </th>
       <th colspan='4'>
-        <%=l(:label_counts)%>
+        <%=l(:Counts)%>
       </th>
     </tr>
     <tr>
       <th>
-        <%=l(:label_name)%>
+        <%=l(:Name)%>
       </th>
-      <th><%=l(:label_status)%></th>
-      <th><%=l(:label_description)%></th>
-      <th><%=l(:label_members)%></th>
-      <th><%=l(:label_assays)%></th>
-      <th><%=l(:label_folders)%></th>
-      <th><%=l(:label_tasks)%></th>
+      <th><%=l(:Status)%></th>
+      <th><%=l(:Description)%></th>
+      <th><%=l(:Members)%></th>
+      <th><%=l(:Assays)%></th>
+      <th><%=l(:Folders)%></th>
+      <th><%=l(:Tasks)%></th>
     </tr>
     <% for project in @projects %>
     <tr class="<%= cycle('odd', 'even') %>">
-      <td><p>
-        <%= link_to project.name, project_url( :action => 'show', :id => project), :class=>"icon icon-project-#{project.style.downcase}" %>
-      </p></td>
-      <td><p class='icon icon-status_<%= project.status %>'><%=project.status%></p></td>
+      <td>
+        <%= link_to project.path, project_url( :action => 'show', :id => project),
+          :class=>"icon icon-project-#{project.style.downcase}" %>
+      </td>
+      <td><span class='icon icon-status_<%= project.status %>'><%=project.status%></span></td>
       <td><%=project.description%></td>
       <td><%=project.memberships.size%></td>
       <td><%=project.assays.size%></td>
@@ -34,5 +35,5 @@
     <% end %>
   </table>
   <hr />
-      <%= link_to "#{l(:label_new)} #{l(:label_project)}", project_url(:action => 'new'), :class=>'icon icon-new'%>
+      <%= link_to "#{l(:New)} #{l(:Project)}", project_url(:action => 'new'), :class=>'icon icon-new'%>
 </div>

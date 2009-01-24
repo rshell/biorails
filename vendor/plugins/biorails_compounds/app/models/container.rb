@@ -21,6 +21,16 @@
 
 class Container < ActiveRecord::Base
    acts_as_dictionary :name 
+   #
+   # This defined the layout of the container and its type
+   # eg a plate,bottle etc/
+   #
+   belongs_to :container_type
+   #
+   # The layout of the container is defined as a set of slots
+   # this allow for rows,columns,layers
+   #
+   has_many :slots,:class=>'ContainerSlot'
 ##
 # This record has a full audit log created for changes 
 #   

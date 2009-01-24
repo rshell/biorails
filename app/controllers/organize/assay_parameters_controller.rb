@@ -46,8 +46,6 @@ class Organize::AssayParametersController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'report' }
       format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
-      format.pdf  { render_pdf :action => 'report',:layout=>false }
-      format.json { render :json => @report.data.to_json }
       format.xml  { render :xml => @report.data.to_xml }
     end
   end
@@ -64,8 +62,6 @@ class Organize::AssayParametersController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'report' }
       format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
-      format.pdf  { render_pdf :action => 'report',:layout=>false }
-      format.json { render :json => @report.data.to_json }
       format.xml  { render :xml => @report.data.to_xml }
     end
   end
@@ -81,8 +77,6 @@ class Organize::AssayParametersController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'report' }
       format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
-      format.pdf  { render_pdf :action => 'report',:layout=>false }
-      format.json { render :json => @report.data.to_json }
       format.xml  { render :xml => @report.data.to_xml }
     end
   end
@@ -92,7 +86,7 @@ class Organize::AssayParametersController < ApplicationController
 #
   def new
     @assay_parameter = AssayParameter.new(:assay=>@assay)
-    @assay_parameters = @assay.parameters.find(:all,:limit=>3,:order=>'assay_parameters.id desc')    
+    @assay_parameters = @assay.parameters.find(:all,:limit=>20,:order=>'assay_parameters.id desc')
     respond_to do | format |
       format.html { render :action => 'new'}
       format.xml  { render :xml =>  @assay_parameter.to_xml}

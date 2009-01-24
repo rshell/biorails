@@ -192,7 +192,6 @@ class Test::Unit::TestCase
   Biorails::Dba.import_model :contents
   Biorails::Dba.import_model :project_contents
   Biorails::Dba.import_model :project_assets
-  Biorails::Dba.import_model :signatures
   
   #  - Studies 
   Biorails::Dba.import_model :assay_stages

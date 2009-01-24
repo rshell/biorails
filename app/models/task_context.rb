@@ -219,7 +219,7 @@ class TaskContext < ActiveRecord::Base
     if value.blank? or (value==DataElement::BLANK and cell.is_a?(TaskReference))
       item[:value] = ""
       item[:info] = "deleted #{cell.dom_id}"
-      cell.destroy
+      cell.destroy unless cell.new_record?
       return item
     end
     #

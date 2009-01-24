@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="form-element">
+      <label for="project_team" class='icon icon-team'>
+        <%=l(:Assigned_Team)%>
+      </label>
+      <%= collection_select(:project, :team_id ,@teams, :id, :name) %>
+  </div>
+  <div class="form-element">
+    <label for="project_started_at">
+      <%=l(:Date_Start) %>
+    </label>
+    <%= date_field 'project', 'started_at' %>
+  </div>
+  <div class="form-element">
+    <label for="project_ended_at">
+      <%=l(:Date_Expected) %>
+    </label>
+    <%= date_field 'project', 'expected_at' %>
+  </div>
+</div>

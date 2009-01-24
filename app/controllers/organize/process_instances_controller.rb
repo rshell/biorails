@@ -9,14 +9,14 @@
 class Organize::ProcessInstancesController < ApplicationController
   use_authorization :organization,
     :use => [:show,:context,:format,:index,:layout,:list,:metrics,:purge,:show],
-    :build => [:new,:update,:add_context,
+    :build => [:new,:update,:add_context,:test,
     :add_parameter,:copy,:create,
     :destroy,:move_parameter,:release,
     :remove_context,:remove_parameter,:update,
     :update_context,:update_parameter,:withdraw]
                                     
   before_filter :setup_for_protocol_version_id ,  
-    :only => [ :show,:format, :edit,:layout,:copy,:purge,:release,:withdraw,:metrics,:update,:destroy,:template]
+    :only => [ :show,:format, :edit,:layout,:copy,:purge,:release,:withdraw,:metrics,:update,:destroy,:template,:test]
               
 
   before_filter :setup_for_project ,  :only => [ :new,:list,:index]
@@ -35,7 +35,6 @@ class Organize::ProcessInstancesController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'list' }
       format.ext { render :partial => 'list' }
-      format.json { render :json => @assay_protocols.to_json }
       format.xml  { render :xml =>  @assay_protocols.to_xml }
     end  
   end
@@ -49,7 +48,6 @@ class Organize::ProcessInstancesController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'show' }
       format.ext  { render :partial => 'show' }
-      format.json { render :json => @assay_protocol.to_json }
       format.xml  { render :xml =>  @assay_protocol.to_xml(:except=>[:assay]) }
       format.js   {
         render :update do | page |
@@ -89,6 +87,19 @@ class Organize::ProcessInstancesController < ApplicationController
     @protocol_version.released
     @protocol_version.save
     redirect_to :action => 'show', :id => @protocol_version.id
+  end
+  #
+  # Create a QA test experiment for the process
+  #
+  def test
+    @experiment = @protocol_version.test
+    if @experiment and @experiment.tasks[0]
+       flash[:notice] =" Created QA testing experiment"
+       redirect_to task_url(:action => 'show', :id => @experiment.tasks[0].id,:tab=>2)
+    else
+       flash[:warning] =" Cant test create a test experiment"
+       redirect_to :action => 'show', :id => @protocol_version.id
+    end
   end  
   ##
   #Set the withdraw protocol version
@@ -123,7 +134,6 @@ class Organize::ProcessInstancesController < ApplicationController
     @protocol_version = ProcessInstance.new
     respond_to do | format |
       format.html { render :action => 'new' }
-      format.json { render :json => @assay_protocol.to_json }
       format.xml  { render :xml =>  @assay_protocol.to_xml(:except=>[:assay]) }
     end  
   end
@@ -177,7 +187,6 @@ class Organize::ProcessInstancesController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'show' }
       format.ext  { render :partial => 'metrics' }
-      format.json { render :json => @assay_protocol.to_json }
       format.xml  { render :xml => @assay_protocol.to_xml }
     end
   end  
@@ -191,7 +200,6 @@ class Organize::ProcessInstancesController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'show' }
       format.ext { render :partial => 'layout' }
-      format.json { render :json => @assay_protocol.to_json }
       format.xml  { render :xml =>  @assay_protocol.to_xml(:except=>[:assay]) }
       format.js   { 
         render :update do | page |

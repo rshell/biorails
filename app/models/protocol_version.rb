@@ -39,8 +39,6 @@
 class ProtocolVersion < ActiveRecord::Base
 
  validates_presence_of :protocol
- validates_presence_of :updated_by
- validates_presence_of :created_by
  validates_numericality_of :version
  validates_presence_of :expected_hours
  validates_presence_of :protocol
@@ -115,7 +113,22 @@ class ProtocolVersion < ActiveRecord::Base
    self.status ='released'
  end   
 
-  def released?
+ def test
+  experiment_name = "#{SystemSetting.qa_experiment_prefix}_#{self.protocol.assay.name}_#{self.name}"
+  experiment = Experiment.find_by_name(experiment_name)
+  return experiment if experiment
+  return nil unless self.changeable?
+  experiment = Experiment.create(
+          :name=> experiment_name,
+          :description=> self.description,
+          :protocol_version_id => self.id,
+          :assay_id => self.protocol.assay_id,
+          :project_id=>self.protocol.assay.project_id)
+  experiment.run  if experiment.valid?
+  return experiment
+ end
+
+ def released?
    self.status =='released'
  end   
 

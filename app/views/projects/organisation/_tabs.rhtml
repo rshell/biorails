@@ -1,0 +1,5 @@
+<%= tab_strip("project-tabs", @tab||0 ,[
+    {:name =>l(:Overview)     , :partial=>@project.partial_template('panel_overview') },
+    {:name =>l(:Access)       , :url    => acl_url(:action=>'show', :format=>:ext, :id=>@project.project_element_id)},
+    {:name =>l(:Summary)      , :partial=>'panel_summary'}
+  ]) %>

@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
   in_place_edit_for :project, :summary
   # ## Generate a index projects the user can see
   # 
-  # @return list of projects in html,xml,csv,json or as diagram page update
+  # @return list of projects in html,xml,csv or as diagram page update
   # 
   # 
   def index
@@ -47,7 +47,6 @@ class ProjectsController < ApplicationController
       format.html { render :action=>'index'}
       format.xml  { render :xml => @projects.to_xml }
       format.csv  { render :text => @projects.to_csv }
-      format.json { render :json =>  @projects.to_json } 
     end
   end    
 
@@ -55,19 +54,12 @@ class ProjectsController < ApplicationController
     index
   end
   
-  def published
-    @report = Biorails::SystemReportLibrary.internal_signed_elements_within(
-             "Published within #{current_project.path}", current_project.folder)
-  end
-  
-
   # ## Generate a dashboard for the project
   # 
   def show
     respond_to do | format |
       format.html { render :template=> @project.project_type.action_template(:show)}
       format.xml {render :xml =>  @project.to_xml(:include=>[:team,:folders,:assays,:experiments,:tasks])}
-      format.json  { render :text => @project.to_json }
     end
 
   end
@@ -85,7 +77,6 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { render :action=> :new_root }
       format.xml  { render :xml => @project.to_xml }
-      format.json  { render :text => @project.to_json }
     end
   end
 
@@ -103,7 +94,6 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { render :action=> :new }
       format.xml  { render :xml => @project.to_xml }
-      format.json  { render :text => @project.to_json }
     end
   end
   # 
@@ -129,7 +119,6 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { render :action=> :new_root }
       format.xml  { render :xml => @project.to_xml }
-      format.json  { render :text => @project.to_json }
     end
   end
   # 
@@ -140,7 +129,6 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { render :action => 'edit'}
       format.xml {render :xml =>  @project.to_xml}
-      format.json  { render :text => @project.to_json }
     end
   end
   #

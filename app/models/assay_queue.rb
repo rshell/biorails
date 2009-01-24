@@ -37,7 +37,7 @@
 # 
 
 class AssayQueue < ActiveRecord::Base
-  
+
    acts_as_dictionary :name 
 ##
 # This record has a full audit log created for changes 
@@ -125,7 +125,7 @@ acts_as_folder_linked  :assay,:under=>'queues'
  def next_available_item
    self.items.find(:first,
                    :include=>[:project_element=>[:state]],
-                   :conditions=>'states.level_no between 0 and 2 and task_id is null',
+                   :conditions=>"states.level_no between #{State::ACTIVE} and #{State::FROZEN_LEVEL} and task_id is null",
                    :order => "(case when ended_at < current_date then '1' else '2' end) asc, priority_id desc, ended_at asc"  )    
      
  end

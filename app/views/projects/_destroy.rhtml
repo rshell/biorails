@@ -1,0 +1,12 @@
+<% if  current_project.in_use?%>
+    Cannot delete as domain is in use
+  <% elsif !right?(:project,:build) %>
+    You do not have <%=l(:Project)%> build rights
+  <% elsif !right?(:data,:destroy) %>
+    You do not have 'destroy' rights
+  <% elsif !(current_project.team.owner?(current_user) or current_project.created_by_user_id == current_user.id) %>
+    You are not owner of project or the team <%=current_project.team.name%>
+  <%else%>
+    <%= button_to( l(:Delete), project_url( :action => 'destroy', :id => current_project),
+      :confirm => l(:text_are_you_sure),:method => "post")%>
+  <% end %>

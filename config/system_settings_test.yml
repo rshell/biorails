@@ -46,6 +46,9 @@ asset_root:
   default: test/fixtures/files
 published_folder:
   default: test
+qa_experiment_prefix:
+  default: QA
+  tip: This is the prefix for experiments created to QA testing of new process instances
 asset_path:
   default: /assets
 public_project_id:
@@ -59,27 +62,6 @@ help_root:
 ntp_server:
   default: uk.pool.ntp.org
   tip: Default ntp server
-ldap_host:
-  default:  
-  tip: Name or address of the LDAP server to use
-ldap_port: 
-  default: 
-  tip:  port to access the ldap server on
-ldap_base:
-  default: "ou=Users,dc=alces,dc=co,dc=uk"
-  tip: Base of User lookup normally linked to company domain
-ldap_username:
-  default: 
-  tip: connection username for login to LDAP server if mandated for site
-ldap_password:
-  default:
-  tip: connection passwrod for login to LDAP server if mandated for site
-ldap_login_field:
-  default: uid
-  tip: Ldap Field to user as the username normally uid
-ldap_auto_register:
-  default: false
-  tip: Whether to automatically create default biorails user for valid ldap users
 animal_server:
   default: https://research.lundbeck.com/perl/ddis/animate/animate_search.pl?searchStr=
   tip: base url link for animal management system

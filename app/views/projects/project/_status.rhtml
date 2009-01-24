@@ -1,0 +1,33 @@
+<% unless @project.tasks.empty? %>
+<div class="box">
+    <h2 class='icon icon-task'><%=link_to "#{@project.name}'s #{l(:Tasks)}", task_url(:action => 'list') %>
+    </h2>
+    <h3 class="icon icon-red"><%=l(:Overdue) %>
+    </h3>
+    <ul>
+      <% for item in @project.tasks.overdue(8) %>
+        <li class="<%= cycle('odd', 'even') %>">
+          <%= link_to item.path, task_url( :action => 'show', :id => item) %>
+        </li>
+      <% end %>
+    </ul>
+    <h3 class="icon icon-green"><%=l(:Current) %>
+    </h3>
+    <ul>
+      <% for item in @project.tasks.current(8) %>
+        <li class="<%= cycle('odd', 'even') %>">
+          <%= link_to item.path, task_url( :action => 'show', :id => item) %>
+        </li>
+      <% end %>
+    </ul>
+    <h3 class="icon icon-amber"><%=l(:Coming) %>
+    </h3>
+    <ul>
+      <% for item in @project.tasks.future(5) %>
+        <li class="<%= cycle('odd', 'even') %>">
+          <%= link_to item.path, task_url( :action => 'show', :id => item) %>
+        </li>
+      <% end %>
+    </ul>
+</div>
+<% end %>

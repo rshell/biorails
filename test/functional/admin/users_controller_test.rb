@@ -82,17 +82,5 @@ class Admin::UsersControllerTest < Test::Unit::TestCase
     get :show,:id=>3
     assert_response :success
   end
-
-  def test011_ldap
-    get :ldap,:id=>'a'
-    assert_response :success
-  end
-
-
-  def test009_choices
-    get :choices,:query=>'r'
-    assert_response :success
-  end
-
   
 end

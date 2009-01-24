@@ -56,39 +56,47 @@ SQL
 
    
   def quantity
-    @quantity = filter_text.to_unit
-    if @quantity.units == "" and self.column.parameter.display_unit
-      @quantity = Unit.new(filter_text, self.column.parameter.display_unit)  
-    end
-    return @quantity
+    @quantity ||= column.parameter.parse(filter_text)
   end
   
+  def unit?
+    not column.parameter.display_unit.blank?
+  end
+
   def unit
     quantity.to_base.units
+  rescue
+    column.parameter.display_unit
   end
   
   # 
   # Value convert to correct base for numeric values
   # 
   def value
-    quantity.to_base.scalar
+    if quantity.is_a?(Unit)
+      quantity.to_base.scalar
+    else
+      filter_text
+    end
   end
 
   def numeric_filter_rule(field)
-    return default_filter_rule(field) if  unit.empty?
-    case filter_op
-    when '='        then "#{field} = '#{value}' and storage_unit = '#{unit}'"
-    when '>'        then "#{field} > '#{value}' and storage_unit = '#{unit}'"
-    when '<'        then "#{field} < '#{value}' and storage_unit = '#{unit}'"
-    when 'between'  then "#{field} between '#{filter_text}' and '#{value_high}'"
-    when 'like'     then "#{field} like '#{filter_text}'"
-    when 'starting' then "#{field} like '#{filter_text}%'"
-    when 'ending'   then "#{field} like '%#{filter_text}'"
-    when 'contains' then "#{field} like '%#{filter_text}%'"
-    else
-      logger.warn "Invalid operator #{filter_op}"
-      "#{field} is not null"
+    return default_filter_rule(field) unless  unit?
+    item = case filter_op
+            when '='        then "#{field} = '#{value}' "
+            when '>'        then "#{field} > '#{value}' "
+            when '<'        then "#{field} < '#{value}' "
+            when 'between'  then "#{field} between '#{filter_text}' and '#{value_high}'"
+            when 'like'     then "#{field} like '#{filter_text}'"
+            when 'starting' then "#{field} like '#{filter_text}%'"
+            when 'ending'   then "#{field} like '%#{filter_text}'"
+            when 'contains' then "#{field} like '%#{filter_text}%'"
+            else
+              logger.warn "Invalid operator #{filter_op}"
+              "#{field} is not null"
     end
+    item << " and storage_unit = '#{unit}' " unless unit.blank?
+    return item
   end
   
   def default_filter_rule(field)

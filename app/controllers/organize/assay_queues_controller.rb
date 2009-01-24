@@ -109,7 +109,6 @@ class Organize::AssayQueuesController < ApplicationController
           page.message_panel(:partial => 'shared/messages', :locals => { :objects => [:request_service,:assay_queue] })
           page.visual_effect :highlight, @request_service.dom_id(:updated_at),:duration => 1.5
       end }
-      format.json { render :json => @request_service.to_json }
       format.xml  { render :xml => @request_service.to_xml }
     end
   end

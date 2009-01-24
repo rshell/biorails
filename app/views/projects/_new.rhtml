@@ -1,0 +1,12 @@
+  <% form_tag :action => 'create' do %>
+    <div class="content">
+      <%= render :partial=> @project.partial_template('fields_naming') %>
+      <%= render :partial=> @project.partial_template('fields_settings') %>
+      <%= render :partial=> @project.partial_template('fields_status') %>
+    </div>
+    <div class="row">
+      <%= submit_tag "Save" %>
+    </div>
+  <% end %>
+
+

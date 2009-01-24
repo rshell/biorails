@@ -114,10 +114,7 @@ class User < ActiveRecord::Base
   ##
   # Has a record of all the changes they have performed
   has_many :audits  
-  ##
-  # Users can sign and witness documents - so they can both create a signature object, and sign it
-  has_many :created_signatures, :class_name=>"Signature", :foreign_key=>"created_by_user_id"
-  has_many :signed_signatures, :class_name=>"Signature", :foreign_key=>"user_id"
+
   
   #class method - we will not have a user object if the login failed
   def self.register_login_failure(username)
@@ -133,10 +130,6 @@ class User < ActiveRecord::Base
   def before_create 
     generate_key
   end
-  
-  def fill_from_ldap
-  
-  end  
  
   def self.create_user(username,password=nil,role_id=nil)
     user = User.new
@@ -144,7 +137,6 @@ class User < ActiveRecord::Base
     user.login = username
     user.name = username
     user.password = password
-    user.fill_from_ldap
     if user.save
       user.memberships.create(:team_id=> Biorails::Record::DEFAULT_TEAM_ID)
       user.reload
@@ -181,6 +173,8 @@ class User < ActiveRecord::Base
   def create_project(params={})
     Project.transaction do 
       project = Project.new(params)
+      project.project_type ||= ProjectType.find(:first)
+      project.parent = Project.find(params[:parentid]) unless params[:parentid].blank?
       project.description||= "New Project #{params[:name]} created by user #{self.name}"
       project.team_id ||= Team.current.id
       project.save     
@@ -198,7 +192,7 @@ class User < ActiveRecord::Base
       team = Team.new(params)
       team.description ||= "New Team #{params[:name]} created by user #{self.name}"
       return team unless team.save 
-      self.memberships.create(:team_id => team.id,:owner=> true)       
+      self.memberships.create(:team_id => team.id,:owner=> true,:user_id => self.id)
       return team.reload
     end
   end
@@ -236,7 +230,7 @@ class User < ActiveRecord::Base
   #
   def projects(limit=5) 
     if self.admin?
-      Project.list(:all,
+      Project.find(:all,
       :limit => limit,
       :order => 'projects.updated_at desc') 
      else
@@ -304,6 +298,7 @@ class User < ActiveRecord::Base
     admin? or role.right?(subject,action)
   end  
 
+   
   def style
     if self.disabled?
       "Disabled"
@@ -323,15 +318,7 @@ class User < ActiveRecord::Base
   def User.selector
     User.find(:all).collect{|item|[item.name,item.id]}
   end
-    
-  def has_published_documents?
-    return Signature.find(:first,
-      :include=>[:project_element=>[:state]],
-      :order=>'project_elements.updated_at desc',
-      :conditions=>{'project_elements.created_by_user_id'=>self.id,
-        'signatures.signature_role'=>'AUTHOR'})
-
-  end      
+       
   
   def to_xml(options = {})
     my_options = options.dup

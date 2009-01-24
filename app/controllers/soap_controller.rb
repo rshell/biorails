@@ -116,7 +116,58 @@ class SoapController < ApplicationController
       ProjectElement.list(:all,:conditions=>['project_elements.parent_id is null'],:order=>'project_elements.left_limit,project_elements.id')
     end
   end
+  ##
+  # project_element_matching
+  # ========================
+  # 
+  # List all items matching the path_text passed in
+  #
+  # list <= project_element_matching(session_id,path_text)
+  #
+  # @param session_id key for user session
+  # @param path text with '/' separators and sql wild cards in final section eg ? and %.
+  # @return a list of visible matching items.
+  #
+  def project_element_matching(session_id,path_text)
+    setup_session(session_id,nil)
+    ProjectElement.list_all_by_path(path_text)
+  end
+  ##
+  # project_element_search
+  # ======================
+  # This searchs a sub tree under a given full parent path to all matching items.
+  #
+  # @param session_id session key
+  # @param path_text full path of the parent item
+  # @param conditions this is a valid SQL filter seatch with and/or like = > < etc based on project_elements fields
+  #
+  # The project_elements fields are
+  #    name,state_id,created_at,updated_at,created_by_user_id,updated_by_user_id,reference_type)
+  #
+  # Examples
+  #
+  # 1) all experiments
+  #  conditions = "project_elements.referece_type='Experiment'"
+  #
+  # 2) all records created or updated by user 3
+  #  conditions = "project_elements.created_by_user_id=3 or project_elements.updated_by_user_id=3"
+  #
+  # 3) all tasks with state_id >4
+  #  conditions = "project_elements.referece_type='Task' and project_elements.state_id>4"
+  #
+  # @todo  possible SQL injection problem but difficult due to heavy scoping of query
+  #
+  #
+  def project_element_search(session_id,path_text,conditions)
+    setup_session(session_id,nil)
+    parent = ProjectElement.find_by_path(path_text)
+    return [] unless parent and parent.visible?
+    ProjectElement.within_scope_of(parent) do
+       ProjectElement.list(:all,:conditions=>conditions)
+    end
+  end
 
+  
   def project_folder(session_id,project_element_id)
     setup_session(session_id,nil)
     ProjectElement.load(project_element_id)
@@ -176,6 +227,94 @@ class SoapController < ApplicationController
   def assay_workflow_list(session_id,assay_id)
     setup_session(session_id,nil)
     AssayWorkflow.find(:all,:conditions=>['assay_id=?',assay_id],:order=>'name')
+  end
+
+  ##
+  # process_instance_create
+  # ========================
+  # Create a Process instance and assay_process if needed
+  #
+  # The name is a unique key in the assay scope the call will create a new
+  # process or add a new version to the existing process of this name
+  #
+  # status <= process_instance_create(session_id,assay_id,name,description)
+  #
+  # @param session_id session key
+  # @param assay_id id key of assay
+  # @param name name of the assay_process 
+  # @param description definition of process and current version 
+  # @return status structure
+  #
+  # @exception assay not changagle for user
+  #
+  def process_instance_create(session_id,assay_id,name,description)
+    setup_session(session_id)
+    assay = Assay.load(assay_id)
+    raise("Assay #{assay_id} is not changagle by user") unless assay and assay.changeable?
+    assay_process = assay.processes.find_by_name(name)
+    assay_process ||= AssayProcess.create(:name=>name,:description=>description,:assay_id=>assay_id)
+    return return_status(assay_process)        unless assay_process.valid?
+    return return_status(assay_process.folder) unless assay_process.folder and assay_process.folder.valid?
+    process_instance = assay_process.new_version
+    process_instance.description = description
+    process_instance.save
+    return_status(process_instance)
+  end
+
+  ##
+  # parameter_context_create
+  # =========================
+  # Create a Process instance and assay_process if needed
+  #
+  #  status <= parameter_context_create(session_id,process_context_id,label,default_rows=0)
+  #
+  # @param session_id session key
+  # @param process_context_id id key of parent ProcessContext as process always created with root context there should always be a parent
+  # @param label text label reexp mask /^[A-Z,a-z,0-9,_]*$/ for context
+  # @param default number of rows to create
+  # @return status structure
+  #
+  # @exception no process_context found
+  # @exception process not changagle for user
+  #
+  def parameter_context_create(session_id,process_context_id,label,default_rows=0)
+    setup_session(session_id)
+    parent_process_context = ParameterContext.find(process_context_id)
+    raise("no parent context found ") unless parent_process_context
+    process_instance = parent_process_context.process
+    raise("Process Instance #{process_instance} is not changable by user") unless process_instance and process_instance.changeable?
+    parameter_context = process_instance.new_context( parent_process_context, label )
+    parameter_context.default_count = default_rows
+    parameter_context.output_style = 'default'
+    parameter_context.save
+    return_status(parameter_context)
+  end
+
+
+  ##
+  # parameter_create
+  # =========================
+  # Create a Parameter on the scope of a parameter_context
+  #
+  # status <= parameter_create(session_id,parameter_context_id,assay_parameter_id)
+  #
+  # @param session_id session key
+  # @param process_context_id id key of ProcessContext
+  # @param label text label reexp mask /^[A-Z,a-z,0-9,_]*$/ for context
+  # @param default number of rows to create
+  # @return status structure
+  #
+  # @exception process not changable for user
+  # @exception parameter from difference assay to process
+  #
+  def parameter_create(session_id,parameter_context_id,assay_parameter_id)
+    setup_session(session_id)
+    parameter_context = ParameterContext.find(parameter_context_id)
+    raise("Process Instance #{parameter_context} is not changeable by user") unless parameter_context and parameter_context.process.changeable?
+    assay_parameter = AssayParameter.find(assay_parameter_id)
+    raise("Process Instance #{assay_parameter_id} not from correct assay") unless  assay_parameter.assay_id == parameter_context.process.protocol.assay_id
+    parameter = parameter_context.add_parameter(assay_parameter)
+    return_status(parameter)
   end
   #
   # List of releast processes
@@ -365,6 +504,19 @@ class SoapController < ApplicationController
       return_status(task)
     end
   end
+#
+# raises exceptions when task not visible or changable
+#
+  def task_destroy(session_id,task_id)
+    setup_session(session_id)
+    Task.transaction do
+      task = Task.load(task_id)
+      raise("Task [#{task_id}] is not visible for user [#{User.current.login}]") unless task
+      raise("Task [#{task_id}] is not changable") unless task.changeable?
+      task.destroy 
+      return_status(task)
+    end
+  end
 
   def task_row_create(session_id, task_id, parameter_context_id)
     setup_session(session_id)
@@ -374,6 +526,20 @@ class SoapController < ApplicationController
       context =  task.add_context(definition)
       context.save
       return_status(context)    
+    end
+  end
+
+#
+# raises exceptions when task not visible or changable
+#
+  def task_row_destroy(session_id,task_context_id)
+    setup_session(session_id)
+    Task.transaction do
+      context = TaskContext.find(task_context_id) 
+      raise("TaskContext [#{task_context_id}] is not visible for user [#{User.current.login}]") unless context
+      raise("TaskContext [#{task_context_id}] is not changable") unless context.task.changeable?
+      context.destroy 
+      return_status(context)
     end
   end
   #

@@ -4,8 +4,9 @@
     <br/>
     <br/>
     <div class='actions_right'>
-        <%= link_to "<b class='icon icon-new'>"+ l(:New) +"</b>",   :action => 'new' %>
-        <%= link_to "<b class='icon icon-list'>"+ l(:List) +"</b>",  :action => 'list' %>
+        <%= link_to( "<b class='icon icon-new'>"+ l(:New) +"</b>", :action => 'new') unless @compound %>
+        <%= link_to("<b class='icon icon-edit'>"+ l(:Edit) +"</b>",:action => 'edit',:id=>@compound.id) if @compound and !@compound.new_record?  %>
+        <%= link_to "<b class='icon icon-list'>"+ l(:List) +"</b>",:action => 'list' %>
     </div>
 	<br />
 </div>

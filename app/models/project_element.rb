@@ -118,10 +118,6 @@ class ProjectElement < ActiveRecord::Base
   # normally html,wiki,file,image etc.
   #
   belongs_to :element_type,    :class_name =>'ElementType', :foreign_key => 'element_type_id'
-  #
-  # List of signatures linked to this element
-  #
-  has_many :signatures, :order=> 'id desc',:dependent => :destroy
     
   #
   # make sure project and team are set
@@ -202,41 +198,38 @@ class ProjectElement < ActiveRecord::Base
     end
   end
   
-  #
-  # There is a signature with the element
-  #
-  def signed?
-    self.signatures.exists?( ['signature_state=?', 'SIGNED'] )
-  end
-  
-  def sign(options ={})
-    signature = Signature.new( options.merge({
-          :signature_state=>"SIGNED",
-          :created_by_user_id => User.current.id,
-          :user_id=>User.current.id,
-          :signature_role=> 'AUTHOR',
-          :asserted_text=>SystemSetting.author_assert_text}))
-    signature.project_element= self
-    return signature
-  end
-  #
-  # List of list n signatures
-  #
-  def signed(limit=20)
-    self.signatures.find( :all , :conditions=> ['signature_state=?', 'SIGNED'],:order=>'id desc',:limit=>limit )
-  end
-
-  def signature_attempts(limit=50)
-    self.signatures.find( :all ,:limit=>limit )
-  end
-
 
   def path(prefix = nil)
     root= self.self_and_ancestors.collect{|i|i.name}
     root[0]=prefix if prefix
     root.join('/')
   end
+  #
+  # Find all elements matching a path
+  #
+  def self.list_all_by_path(text)
+    path_element_list = text.split('/')
+    return ProjectElement.list(:all,:conditions=>['project_elements.parent_id is null and project_elements.name like ?',text]) if path_element_list.size < 2
 
+    text = path_element_list.pop
+    parent_item = ProjectElement.find(:first,:conditions=>['project_elements.parent_id is null and project_elements.name = ?',path_element_list.delete_at(0)])
+    return [] unless parent_item
+    path_element_list.each do |path_item|
+       parent_item = parent_item.elements.find(:first,:conditions=>['project_elements.name = ?',path_item])
+       return [] unless parent_item
+    end
+    ProjectElement.list(:all,:conditions=>['project_elements.parent_id= ? and project_elements.name like ?', parent_item.id,text])
+  end
+
+  def self.find_by_path(text)
+    path_element_list = text.split('/')
+    parent_item = find(:first,:conditions=>['project_elements.parent_id is null and project_elements.name = ?',path_element_list.delete_at(0)])
+    path_element_list.each do |path_item|
+       return nil unless parent_item
+       parent_item = parent_item.elements.find(:first,:conditions=>['project_elements.name = ?',path_item])
+    end
+    parent_item
+  end
   # Fill the content of the project element
   # This handles hasd data passed
   #  [:name]
@@ -334,7 +327,6 @@ class ProjectElement < ActiveRecord::Base
       item.project_id   = self.project_id
       item.body  =  content_data       
       item.body_html = process(content_data)  
-      item.content_hash= Signature.generate_checksum(item.to_xml)
       item.parent = self.content    
       if self.content
         item.project_id= self.content.project_id
@@ -500,7 +492,7 @@ class ProjectElement < ActiveRecord::Base
     ""
   end
 
-  def to_html
+  def to_html(cache=true)
     html
   end
   #
@@ -578,10 +570,10 @@ class ProjectElement < ActiveRecord::Base
     allowed = self.state_flow.next_states( self.state)
     if cascade 
       self.all_children.each do |item|
-         unless  item.state and (item.state.ignore? or item.state.published?)
-            allowed = allowed & item.allowed_states(false)
+        unless  item.state and (item.state.ignore? or item.state.published?)
+          allowed = allowed & item.allowed_states(false)
 
-         end
+        end
       end
     end
     allowed ||= [self.state]
@@ -674,15 +666,15 @@ class ProjectElement < ActiveRecord::Base
       if new_state.check_children? 
         self.all_children.each do |item|
           if (item.state.level_no > State::ERROR_LEVEL or item.state == self.state)
-              item.update_state_and_reference(new_state)
+            item.update_state_and_reference(new_state)
           end
         end
   
       elsif recusive
         self.all_children.each do |item|
           if ( self.state_flow.allowed_state_change?(item,new_state)  and
-               (item.state.level_no > State::ERROR_LEVEL or item.state == self.state) and
-               (item.state.level_no <= new_state.level_no ))
+                (item.state.level_no > State::ERROR_LEVEL or item.state == self.state) and
+                (item.state.level_no <= new_state.level_no ))
             item.update_state_and_reference(new_state)
           end
         end

@@ -24,8 +24,7 @@
       </tr>
     <% for @compound in @compounds %>
       <tr>
-     <!--<td><img src="<%= url_for :action => "marvin_image_for", :smiles => @compound.smiles %>"></img></td>-->
-      <td></td>
+      <td><%=@compound.image %> </td>
       <td><%=link_to  @compound.name, :action => 'show', :id => @compound  %></td>
       <td><%=h truncate(@compound.description, 10, truncate_string='...') %></td>
       <td><%=h @compound.formula %></td>

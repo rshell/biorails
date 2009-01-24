@@ -65,7 +65,6 @@ class Organize::AssaysController < ApplicationController
   def show
     respond_to do | format |
       format.html { render :action => 'show' }
-      format.json { render :json => @assay.to_json }
       format.xml  { render :xml => @assay.to_xml }
     end
   end 
@@ -77,8 +76,7 @@ class Organize::AssaysController < ApplicationController
     respond_to do | format |
       format.html { render :text => @assay.to_html }
       format.ext  { render :text => @assay.to_html }
-      format.pdf  { html_send_as_pdf(@assay.name, @assay.to_html) }
-      format.json { render :json => @assay.to_json }
+      format.pdf  { send_as('pdf',"#{@assay.name}.pdf", @assay.to_html) }
       format.xml  { render :xml => @assay.to_xml }
     end
   end 
@@ -93,8 +91,6 @@ class Organize::AssaysController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'experiments' }
       format.ext  { render :partial => 'experiments' }
-      format.pdf  { render_pdf :action => 'list',:layout=>false }
-      format.json { render :json => @report.data.to_json }
       format.xml  { render :xml => @report.data.to_xml }
     end
   end
@@ -108,7 +104,6 @@ class Organize::AssaysController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'metrics' }
       format.ext  { render :partial => 'metrics' }
-      format.json { render :json => @assay.to_json }
       format.xml  { render :xml => @assay.to_xml }
     end
   end
@@ -123,8 +118,6 @@ class Organize::AssaysController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'queues' }
       format.ext  { render :partial => 'queues' }
-      format.pdf  { render_pdf :action => 'list',:layout=>false }
-      format.json { render :json => @report.data.to_json }
       format.xml  { render :xml => @report.data.to_xml }
     end
   end
@@ -140,8 +133,6 @@ class Organize::AssaysController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'parameters' }
       format.ext  { render :partial => 'parameters' }
-      format.pdf  { render_pdf :action => 'list',:layout=>false }
-      format.json { render :json => @report.data.to_json }
       format.xml  { render :xml => @report.data.to_xml }
     end
   end
@@ -160,7 +151,6 @@ class Organize::AssaysController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'report' }
       format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
-      format.json { render :json => @report.data.to_json }
       format.xml  { render :xml => @report.data.to_xml }
     end
   end
@@ -174,7 +164,6 @@ class Organize::AssaysController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'report' }
       format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
-      format.json { render :json => @report.data.to_json }
       format.xml  { render :xml => @report.data.to_xml }
     end
   end
@@ -210,8 +199,6 @@ class Organize::AssaysController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'edit' }
       format.ext  { render :partial => 'edit' }
-      format.pdf  { render_pdf :action => 'edit',:layout=>false }
-      format.json { render :json => @assay.to_json }
       format.xml  { render :xml => @assay.to_xml }
     end
   end
@@ -297,7 +284,8 @@ class Organize::AssaysController < ApplicationController
     redirect_to( assay_url(:action => 'show', :id => @assay))
 
   rescue Exception => ex
-    session.data[:current_params]=nil    
+    session.data[:current_params]=nil
+    logger.error ex.backtrace.join("\n")
     logger.error "current error: #{ex.message}"
     flash[:error] = "Import Failed #{ex.message}"
     redirect_to assay_url(:action => 'list')

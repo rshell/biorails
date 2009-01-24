@@ -1,0 +1,32 @@
+<div class="content_header project">
+  <%= render :partial => 'shared/help_link' %>
+  <% if current_project.id == SystemSetting.public_project_id then %>
+    <h1 class='icon icon-project-public-large'>
+      <%= link_to( "#{current_project.name} Area", project_url( :action => :show, :id => current_project.id)) %>
+    </h1>
+  <% else %>
+    <h1 class="icon icon-project-<%=current_project.style.downcase%>-large">
+      <%= link_to( "#{current_project.style.titlecase} [#{current_project.name}]", project_url( :action => :show, :id => current_project.id)) %>
+    </h1>
+  <% end %>
+  <br/>
+  <br/>
+  <div class='actions_left'>
+    <%= link_to( l(:Open_Folder), folder_url( :action => 'show', :id => current_project.home), :class=>'icon icon-folder') %>
+    <%= link_to( l(:Calendar),  calendar_url( :action => 'show', :id => current_project.folder), :class=>'icon icon-calendar') %>
+    <%= link_to( l(:Assays),      assay_url(:action => 'list'), :class=>'icon icon-assay')  %>
+    <%= link_to( l(:Experiments), experiment_url(:action => 'list'), :class=>'icon icon-experiment') unless current_project.linked_assays.size == 0 %>
+    <%= link_to( l(:Requests),     request_url(:action => 'list'), :class=>'icon icon-request')  %>
+    <%= link_to( l(:Reports),     report_url(:action => 'list'), :class=>'icon icon-report')  %>
+  </div>
+  <div class='actions_right'>
+    <% if current_project.changeable?  %>
+      <%= link_to "#{l(:Child)} #{l(:Study)}", 
+            project_url(:action => 'new',:id=>current_project,:project_type_id => current_project.project_type_id),
+            :class=>'icon icon-study-add'%>
+      <%= link_to( l(:Edit), project_url( :action => 'edit', :id => current_project),:class=>'icon icon-edit' ) %>
+    <%end%>
+  </div>
+  <br/>
+</div>
+<%=breadcrumb_list current_element %>

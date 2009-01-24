@@ -21,25 +21,6 @@
       <th> <%=l(:Updated) %>      </th>
       <td> <%= short_date @user.updated_at %>      </td>
     </tr>
-    <% if @ldap %>
-      <tr>
-        <th>  <%=l(:LDAP_Account) %>        </th>
-        <td>  <%= @ldap[:cn] %>        </td>
-      </tr>
-      <tr>
-        <th> <%=l(:Email_address) %>        </th>
-        <td> <%= @ldap[:mail] %>        </td>
-      </tr>
-      <tr>
-        <th> <%=l(:Display_Name) %>        </th>
-        <td> <%= @ldap[:displayName] %>        </td>
-      </tr>
-    <%else %>
-      <tr>
-        <th> <%=l(:LDAP_Account) %>  </th>
-        <td>    <%=l(:Missing) %>    </td>
-      </tr>
-    <%end %>
   </table>
 </div>
 

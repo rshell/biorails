@@ -34,8 +34,6 @@ class Execute::ExperimentsController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'list' }
       format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
-      format.pdf  { render_pdf :action => 'list',:layout=>false }
-      format.json { render :json => @report.data.to_json }
       format.xml  { render :xml => @report.data.to_xml }
     end
   end
@@ -47,8 +45,6 @@ class Execute::ExperimentsController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'show' }
       format.ext { render :partial => 'show' }
-      format.pdf  { render_pdf :action => 'show',:layout=>false }
-      format.json { render :json => @experiment.to_xml }
       format.xml  { render :xml => @experiment.to_xml }
      end
   end
@@ -60,9 +56,8 @@ class Execute::ExperimentsController < ApplicationController
     respond_to do | format |
       format.html { render :text => @experiment.to_html }
       format.ext  { render :text => @experiment.to_html }
-      format.pdf  { html_send_as_pdf(@experiment.name, @experiment.to_html) }
+      format.pdf  { send_as('pdf',"#{@experiment.name}.pdf", @experiment.to_html) }
       format.csv { render :json => @experiment.to_csv}
-      format.json { render :json => @experiment.tasks.to_json }
       format.xml  { render :xml => @experiment.to_xml }
     end
   end 
@@ -74,8 +69,7 @@ class Execute::ExperimentsController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'metrics' }
       format.ext  { render :partial => 'metrics' }
-      format.pdf  { render_pdf :action => 'metrics',:layout=>false }
-      format.json { render :json => @task.statistics.to_json }
+      format.pdf  { render_pdf "metrics.pdf", :action => 'metrics',:layout=>false }
       format.xml  { render :xml => @task.statistics.to_xml }
     end
   end
@@ -145,8 +139,6 @@ class Execute::ExperimentsController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'edit' }
       format.ext  { render :partial => 'edit' }
-      format.pdf  { render_pdf :action => 'edit',:layout=>false }
-      format.json { render :json => @experiment.to_json }
       format.xml  { render :xml => @experiment.to_xml }
     end
   end
@@ -235,7 +227,6 @@ class Execute::ExperimentsController < ApplicationController
       format.html { render :action => 'import'}
       format.ext  { render :partial => 'import'}
       format.pdf  { render_pdf :action => 'import',:layout=>false }
-      format.json { render :json => @task.statistics.to_json }
       format.xml  { render :xml => @task.statistics.to_xml }
     end
 

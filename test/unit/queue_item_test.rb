@@ -58,10 +58,4 @@ class QueueItemTest < Test::Unit::TestCase
     assert first.assigned_to_user_id==3
   end
 
-  def test_used_by_task_reference
-    item = QueueItem.find(:first)
-    task = Task.find(:first)
-    task.items.each{|x|item.used_by_task_reference(x)}
-  end
-
 end

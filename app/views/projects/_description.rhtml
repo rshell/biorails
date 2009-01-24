@@ -1,0 +1,76 @@
+<div class="content">
+  <div class="box">
+    <table width="100%" class="report">
+      <tr>
+        <th width="25%">
+          <%=l(:Name)%>
+        </th>
+        <td colspan="5">
+          <div class="tooltip">
+            <%= @project.name %>
+            <span class="tip">
+              <%=render :partial=>@project.partial_template('projects/sections/tables/box_current_status_table')%>
+            </span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th width="25%">
+          <%=l(:Title)%>
+        </th>
+        <td colspan="5">
+          <%= @project.title %>
+        </td>
+      </tr>
+      <tr>
+        <th width="25%">
+          <%=l(:Description)%>
+        </th>
+        <td colspan="5">
+          <%= @project.description %>
+        </td>
+      </tr>
+      <tr>
+      <th>
+        <%=l(:Status)%>:&nbsp;
+      </th>
+      <td>
+        <%=@project.folder.state if @project.project_element_id %>
+        <%=link_to "[Update]", folder_url(:action=>'status',:id=>@project.project_element_id),:class=>'icon icon-edit' %>
+      </td>
+      <th>
+        <%=l(:Default_Witness)%>
+      </th>
+      <td >
+        <%= default_witness_name  %>
+      </td>
+      <th>
+        <%=l(:Assigned_To) %>
+      </th>
+      <td>
+        <%= @project.team %>
+      </td>
+      </tr>
+      <tr>
+        <th>
+          <%=l(:Started)%>
+        </th>
+        <td>
+          <%= short_date(@project.started_at) %>
+        </td>
+        <th>
+          <%=l(:Expected)%>
+        </th>
+        <td>
+          <%= short_date(@project.expected_at) %>
+        </td>
+        <th>
+          <%=l(:Completed)%>
+        </th>
+        <td>
+          <%= short_date(@project.ended_at) %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

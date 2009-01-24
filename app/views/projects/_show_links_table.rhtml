@@ -1,0 +1,44 @@
+<table class="report">
+  <thead>
+   <tr>
+    <th>
+      <%=l(:Name)%>
+    </th>
+    <th>
+      <%=l(:Notes)%>
+    </th>
+    <th>
+      <%=l(:Updated)%>
+    </th>
+    <th>
+      <%=l(:Action)%>
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+    <% for item in @project.linked(model) %>
+      <tr class="<%= cycle('odd','even') %>">
+        <td>
+          <div class="tooltip">
+            <%= link_to item.name, reference_to_url(item) %> &nbsp;
+            <span class="tip">
+              <%= item.path %><br />
+              <%= item.title %>
+            </span>
+          </div>
+        </td>
+        <td>
+          <%= item.title%>
+        </td>
+        <td>
+          <%= short_date item.updated_at%>
+        </td>
+        <td>
+          <%= link_to( l(:Remove),  project_url( :action => 'unlink',:id=>current_project, :project_element_id => item ),
+            :confirm => l(:text_are_you_sure), :method => "post") if right?(:data,:destroy) %>
+        </td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>

@@ -12,7 +12,11 @@ Assay [Assay1]: My first assay
 <table class='report'>
 
 <tr>
-<th></th><td></td>
+<th>Protocol1</th><td>new protocol created for assay Assay1</td>
+</tr>
+
+<tr>
+<th>flow1</th><td>new workflow created for assay Assay1</td>
 </tr>
 
 </table>
@@ -37,7 +41,9 @@ Testing service
 
 <tr class="row1">
 <td class="col1">
- 
+ Protocol1:2
+</td><td class="col2">
+ Protocol1:1
 </td></tr>
 <div class='box'><p>
 Method Version [Protocol1:1: new protocol created for assay Assay1
@@ -48,7 +54,9 @@ Method Version [Protocol1:2: new protocol created for assay Assay1
 
 <tr class="row1">
 <td class="col1">
- 
+ flow3:2
+</td><td class="col2">
+ flow3:1
 </td></tr>
 <div class='box'><p>
 Method Version [flow3:1: new workflow created for assay Assay1
@@ -60,7 +68,11 @@ Assay [Assay2]: Second Assay
 <table class='report'>
 
 <tr>
-<th></th><td></td>
+<th>Protocol2</th><td>new protocol created for assay Assay2</td>
+</tr>
+
+<tr>
+<th>Protocol3</th><td>new protocol created for assay Assay2</td>
 </tr>
 
 </table>
@@ -100,7 +112,9 @@ Basic dose response screening service
 
 <tr class="row1">
 <td class="col1">
- 
+ Protocol2:2
+</td><td class="col2">
+ Protocol2:1
 </td></tr>
 <div class='box'><p>
 Method Version [Protocol2:1: new protocol created for assay Assay2
@@ -111,32 +125,31 @@ Method Version [Protocol2:2: new protocol created for assay Assay2
 
 <tr class="row1">
 <td class="col1">
- 
+ Protocol3:1
 </td></tr>
 <div class='box'><p>
 Method Version [Protocol3:1: new protocol created for assay Assay2
 </p></div></div></div></div></div><div class='box'><div class='box'><h2>
-Experiment [Experiment1]:  Experiment in project Project X 
+    Experiment [Experiment1]:  Experiment in project Project X 
 </h2>
 <table class='report'>
-<tr>
-<th>Task</th>
-<th>Assigned</th>
-<th>Status</th>
-<th>Started</th>
-<th>Expected</th>
-</tr>
-
-<tr>
-<th></th> 
-<td></th>
-<td> </th>
-<td></th>
-<td></th>
-</tr>
-
-</table>
-<div class='box'><p>
+    <tr>
+        <th>Task</th>
+        <th>Assigned</th>
+        <th>Status</th>
+        <th>Started</th>
+        <th>Expected</th>
+    </tr>
+    
+        <tr>
+            <th>Task1</th>
+            <td>Robert Shell</th>
+            <td>new </th>
+            <td>2007:12:10</th>
+            <td>2007:12:11</th>
+        </tr>
+    
+</table><div class='box'><p>
 Task [Task1]:  Task in experiment Experiment1 
 </p>
 <br />
@@ -189,27 +202,66 @@ Task [Task1]:  Task in experiment Experiment1
 </tbody>
 </table>
 </div></div><div class='box'><h2>
-Experiment [Experiment2]:  Experiment in project Project X 
+    Experiment [Experiment2]:  Experiment in project Project X 
 </h2>
 <table class='report'>
-<tr>
-<th>Task</th>
-<th>Assigned</th>
-<th>Status</th>
-<th>Started</th>
-<th>Expected</th>
-</tr>
-
-<tr>
-<th></th> 
-<td></th>
-<td> </th>
-<td></th>
-<td></th>
-</tr>
-
-</table>
-<div class='box'><p>
+    <tr>
+        <th>Task</th>
+        <th>Assigned</th>
+        <th>Status</th>
+        <th>Started</th>
+        <th>Expected</th>
+    </tr>
+    
+        <tr>
+            <th>Task2</th>
+            <td>Robert Shell</th>
+            <td>new </th>
+            <td>2007:12:11</th>
+            <td>2007:12:12</th>
+        </tr>
+    
+        <tr>
+            <th>Task3</th>
+            <td>Robert Shell</th>
+            <td>new </th>
+            <td>2007:12:12</th>
+            <td>2007:12:13</th>
+        </tr>
+    
+        <tr>
+            <th>Task4</th>
+            <td>Robert Shell</th>
+            <td>new </th>
+            <td>2007:12:12</th>
+            <td>2007:12:13</th>
+        </tr>
+    
+        <tr>
+            <th>TaskbyWS</th>
+            <td>A User</th>
+            <td>new </th>
+            <td>2007:12:12</th>
+            <td>2007:12:13</th>
+        </tr>
+    
+        <tr>
+            <th>Task-77</th>
+            <td>Robert Shell</th>
+            <td>new </th>
+            <td>2007:12:12</th>
+            <td>2007:12:13</th>
+        </tr>
+    
+        <tr>
+            <th>Task-78</th>
+            <td>A User</th>
+            <td>new </th>
+            <td>2007:12:12</th>
+            <td>2007:12:13</th>
+        </tr>
+    
+</table><div class='box'><p>
 Task [Task2]: Second task ever
 </p>
 <br />
@@ -580,24 +632,15 @@ Task [Task-78]: Data Import from file
 </tbody>
 </table>
 </div></div><div class='box'><h2>
-Experiment [Experiment3]: This is the third experiment
+    Experiment [Experiment3]: This is the third experiment
 </h2>
 <table class='report'>
-<tr>
-<th>Task</th>
-<th>Assigned</th>
-<th>Status</th>
-<th>Started</th>
-<th>Expected</th>
-</tr>
-
-<tr>
-<th></th> 
-<td></th>
-<td> </th>
-<td></th>
-<td></th>
-</tr>
-
-</table>
-</div></div>
+    <tr>
+        <th>Task</th>
+        <th>Assigned</th>
+        <th>Status</th>
+        <th>Started</th>
+        <th>Expected</th>
+    </tr>
+    
+</table></div></div>

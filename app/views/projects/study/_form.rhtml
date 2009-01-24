@@ -1,0 +1,61 @@
+<div class="row">
+  <!--[form:project]-->
+  <div class="form-element">
+    <label for="project_name" class='icon icon-name'>
+      <%=l(:Name)%>
+    </label>
+    <%= text_field 'project', 'name' , {:class=>"text-input"} %>
+  </div>
+  <div class="form-element">
+    <label for="project_project_type">
+      <%=l(:Parent)%>
+    </label>
+    <%= select(:project, :parent_id, @project_list) %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-element">
+    <label for="project_description" class='icon icon-description'>
+      <%=l(:Description)%>
+    </label>
+    <%= text_area('project', 'description', {:rows=>5,:cols=>80}) %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-element">
+    <label for="project_project_type">
+      <%=l(:Project) %>
+      <%=l(:Type) %>
+      (Sets Dashboard style)
+    </label>
+    <%= select_named(:project, :project_type_id, ProjectType) %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-element">
+    <label for="project_team" class='icon icon-team'>
+      <%=l(:Access_Based_on_Team)%>
+    </label>
+    <% if @parent %>
+      <%= @project.team.name %>
+      <%= hidden_field(:project, :team_id) %>
+    <% else %>
+      <%= collection_select(:project, :team_id ,current_user.teams, :id, :name) %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="form-element">
+    <label for="project_started_at">
+      <%=l(:Date_Start) %>
+    </label>
+    <%= date_field 'project', 'started_at' %>
+  </div>
+  <div class="form-element">
+    <label for="project_ended_at">
+      <%=l(:Date_Expected) %>
+    </label>
+    <%= date_field 'project', 'expected_at' %>
+  </div>
+</div>
+

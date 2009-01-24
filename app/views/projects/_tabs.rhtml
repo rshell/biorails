@@ -1,6 +1,0 @@
-  <%= tab_strip("project-tabs", 0 ,[
-    {:name =>l(:label_overview)     , :partial=>'show' },
-    {:name =>l(:label_access)       , :url=> acl_url(:action=>'show', :format=>:ext, :id=>@project.folder)},
-    {:name =>l(:label_requests)    , :partial=>'projects/box_project_requests_detail'  },
-    {:name =>l(:label_folders)      , :url=>folder_url(:action=>'show', :format=>:ext, :id=>@project.folder)}
-  ]) %>

@@ -78,7 +78,7 @@ module Engines
       add_plugin_view_paths
       Assets.mirror_files_for(self)
       if ::RAILS_ENV == 'development'
-        ActiveSupport::Dependencies.load_once_paths = ActiveSupport::Dependencies.load_once_paths.select  do  |path|
+        Dependencies.load_once_paths = Dependencies.load_once_paths.select  do  |path| 
           (path =~ /#{name}\/app/).nil?
         end
       end

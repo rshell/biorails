@@ -2,7 +2,7 @@
   <%= render :partial => 'shared/help_link' %>
 <%if (@user_request and !@user_request.new_record?) %>
   <h1 class='icon icon-request-large'>
-    <%= link_to( "#{l(:Request)} [#{@user_request.name}]", request_url( :action => :show, :id => @user_request.id) ) %>
+    <%= link_to( "#{l(:Requests)} [#{@user_request.name}]", request_url( :action => :show, :id => @user_request.id) ) %>
   </h1>
   <br />
   <br />

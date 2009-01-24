@@ -39,7 +39,6 @@ class Admin::ProjectTypesController < ApplicationController
       format.html { render :action => 'list'}
       format.xml  { render :xml => @project_types.to_xml }
       format.csv  { render :text => @project_types.to_csv }
-      format.json { render :json =>  project_types_to_json(@project_types, ProjectType.count, params[:page]), :layout=>false }  
     end
   end
   #
@@ -60,7 +59,6 @@ class Admin::ProjectTypesController < ApplicationController
     respond_to do |format|
       format.html # show.rhtml
       format.xml  { render :xml => @project_type.to_xml }
-      format.json  { render :text => @project_type.to_json }
     end
   end
 
@@ -75,7 +73,6 @@ class Admin::ProjectTypesController < ApplicationController
     respond_to do |format|
       format.html # new.rhtml
       format.xml  { render :xml => @project_type.to_xml }
-      format.json  { render :text => @project_type.to_json }
      end  
    end
   #
@@ -89,7 +86,6 @@ class Admin::ProjectTypesController < ApplicationController
     respond_to do |format|
       format.html # edit.rhtml
       format.xml  { render :xml => @project_type.to_xml }
-      format.json  { render :text => @project_type.to_json }
     end
   end
 

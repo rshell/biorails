@@ -77,11 +77,67 @@ class SoapControllerTest < Test::Unit::TestCase
     api.project_list(nil)
     flunk("should have failed with no session")
   rescue
-  end  
-  
+  end
+
+  def test_project_match_leaf
+    assert_not_nil  key = api.login('rshell','y90125')
+    list = api.project_element_matching(key,"Project X/assays/%")
+    assert_not_nil list
+    assert list.is_a?(Array)
+  end
+
+  def test_project_match_root
+    assert_not_nil  key = api.login('rshell','y90125')
+    list = api.project_element_matching(key,"Project %")
+    assert_not_nil list
+    assert list.is_a?(Array)
+  end
+
+  def test_project_search_all
+    assert_not_nil  key = api.login('rshell','y90125')
+    list = api.project_element_search(key,"Project X","")
+    assert_not_nil list
+    assert list.is_a?(Array)
+  end
+
+  def test_project_search_for_my_tasks
+    assert_not_nil  key = api.login('rshell','y90125')
+    list = api.project_element_search(key,"Project X","project_elements.reference_type='Task' and project_elements.created_by_user_id = 1")
+    assert_not_nil list
+    assert list.is_a?(Array)
+  end
+
+  def test_project_search_for_my_tasks
+    assert_not_nil  key = api.login('rshell','y90125')
+    list = api.project_element_search(key,"","project_elements.reference_type='Task' and project_elements.created_by_user_id = 1")
+    assert_not_nil list
+    assert list.is_a?(Array)
+  end
+
+  def test_project_search_for_tasks
+    assert_not_nil  key = api.login('rshell','y90125')
+    list = api.project_element_search(key,"Project X","project_elements.reference_type='Task'")
+    assert_not_nil list
+    assert list.is_a?(Array)
+  end
+
+  def test_project_search_for_tasks_and_experiments
+    assert_not_nil  key = api.login('rshell','y90125')
+    list = api.project_element_search(key,"Project X"," project_elements.reference_type in ('Task','Experiment') ")
+    assert_not_nil list
+    assert list.is_a?(Array)
+  end
+
+  def test_project_search_for_tasks_with_status_over_1
+    assert_not_nil  key = api.login('rshell','y90125')
+    list = api.project_element_search(key,"Project X", "project_elements.reference_type='Task' and project_elements.state_id > 1 ")
+    assert_not_nil list
+    assert list.is_a?(Array)
+  end
+
   def test_project_element_list_ok
     assert_not_nil  key = api.login('rshell','y90125')
-    list = api.project_element_list(key,2)    
+    list = api.project_element_list(key,2)
     assert_not_nil list
     assert list.is_a?(Array)
   end  
@@ -221,11 +277,45 @@ class SoapControllerTest < Test::Unit::TestCase
   end  
 
   def test_process_instance_success
-    assert_not_nil  key = api.login('rshell','y90125')  
-    item = api.process_instance(key,1)    
+    assert_not_nil  key = api.login('rshell','y90125')
+    item = api.process_instance(key,1)
     assert_not_nil item
     assert_instance_of ProcessInstance, item
-  end  
+  end
+
+  def test_process_instance_create
+    assert_not_nil  key = api.login('rshell','y90125')
+    assay = Assay.find(:first)
+    status = api.process_instance_create(key,assay.id,"xtest","xtest")
+    assert_is_biorails_status_success(status)
+  end
+
+  #
+  # process is always created with a initial parent context so
+  # all other contexts are a child of this one
+  #
+  def test_process_context_create
+    assert_not_nil  key = api.login('rshell','y90125')
+    assay = Assay.find(:first)
+    status = api.process_instance_create(key,assay.id,"xtest","xtest")
+    assert_is_biorails_status_success(status)
+    process = ProcessInstance.find(status.class_id)
+    context = process.roots[0]
+    status = api.parameter_context_create(key,context.id,"child",3)
+    assert_is_biorails_status_success(status)
+  end
+
+  def test_parameter_create
+    assert_not_nil  key = api.login('rshell','y90125')
+    assay = Assay.find(:first)
+    status = api.process_instance_create(key,assay.id,"xtest","xtest")
+    assert_is_biorails_status_success(status)
+    process = ProcessInstance.find(status.class_id)
+    assay_parameter = process.protocol.assay.parameters[0]
+    context = process.roots[0]
+    status = api.parameter_create(key,context.id,assay_parameter.id)
+    assert_is_biorails_status_success(status)
+  end
 
   def test_process_flow_success
     assert_not_nil  key = api.login('rshell','y90125')  
@@ -401,6 +491,13 @@ class SoapControllerTest < Test::Unit::TestCase
     assert key = api.login('rshell','y90125')
     old_task = Task.find(:first)
     status = api.task_create(key, old_task.experiment_id, old_task.protocol_version_id,'x-test','x-test' )
+    assert_is_biorails_status_success(status)
+  end
+
+  def test_task_destroy
+    assert key = api.login('rshell','y90125')
+    task = Task.find(:first)
+    status = api.task_destroy(key, task.id )
     assert_is_biorails_status_success(status)
   end
 

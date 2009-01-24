@@ -8,13 +8,18 @@
 <% end -%>
 
 <% content_for :center do -%>
-  <%= render :partial=>'edit'%>
+  <%= render :partial=>@project.partial_template('header')%>
+  <%if @project.changeable? %>
+      <%= render :partial=> @project.partial_template('edit')%>
+  <% else%>
+    Not changable
+  <%end%>
 <% end %>
 
 <% content_for :status do -%>
-  <%= render :partial=>'status'%>
+  <%= render :partial=>@project.partial_template('status')%>
 <% end %>
 
 <% content_for :help do -%>
-  <%= render :partial=>'help'%>
+  <%= render :partial=>@project.partial_template('help')%>
 <% end %>

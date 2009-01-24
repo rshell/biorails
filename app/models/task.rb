@@ -147,10 +147,10 @@ class Task < ActiveRecord::Base
     end
     
     def matching(object)      
-        find(:all,
-          :order =>'task_contexts.row_no,parameters.column_no',
-          :include => ['context','parameter'],
-          :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.class_name.underscore}_id=?",object.id] )
+      find(:all,
+        :order =>'task_contexts.row_no,parameters.column_no',
+        :include => ['context','parameter'],
+        :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.class_name.underscore}_id=?",object.id] )
     end
   end 
 
@@ -162,10 +162,10 @@ class Task < ActiveRecord::Base
     end
 
     def matching(object)      
-        find(:all,
-          :order =>'task_contexts.row_no,parameters.column_no',
-          :include => ['context','parameter'],
-          :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.class_name.underscore}_id=?",object.id] )
+      find(:all,
+        :order =>'task_contexts.row_no,parameters.column_no',
+        :include => ['context','parameter'],
+        :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.class_name.underscore}_id=?",object.id] )
     end
   end 
 
@@ -177,10 +177,10 @@ class Task < ActiveRecord::Base
     end
     
     def matching(object)      
-        find(:all,
-          :order =>'task_contexts.row_no,parameters.column_no',
-          :include => ['context','parameter'],
-          :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.class_name.underscore}_id=?",object.id] )
+      find(:all,
+        :order =>'task_contexts.row_no,parameters.column_no',
+        :include => ['context','parameter'],
+        :conditions=>["#{self.proxy_reflection.klass.table_name}.#{object.class.class_name.underscore}_id=?",object.id] )
     end
   end 
   # 
@@ -285,12 +285,12 @@ SQL
     return ( self.process and process.flexible? )
   end
 
-#
-# Path unique name for task
-#  
- def path
-   "#{self.experiment.name}:#{self.name}"
- end  
+  #
+  # Path unique name for task
+  #
+  def path
+    "#{self.experiment.name}:#{self.name}"
+  end
   
   # 
   # make the task flexible generating a protocol with is only linked to this
@@ -331,9 +331,9 @@ SQL
       if  parameter_context
         context = TaskContext.new
         if parent
-           raise("Failed parameter_context invalid should have parent") if parameter_context.parent_id.blank?
-           context.sequence_no = self.contexts.matching("#{parameter_context.label}.#{parent.seq}").size + 1
-           context.label ||= new_label || "#{parameter_context.label}.#{parent.seq}.#{context.sequence_no}"
+          raise("Failed parameter_context invalid should have parent") if parameter_context.parent_id.blank?
+          context.sequence_no = self.contexts.matching("#{parameter_context.label}.#{parent.seq}").size + 1
+          context.label ||= new_label || "#{parameter_context.label}.#{parent.seq}.#{context.sequence_no}"
         else
           raise("Failed parameter_context invalid should not have a parent") unless parameter_context.parent_id.blank?
           context.sequence_no = self.contexts.matching(parameter_context).size + 1
@@ -390,23 +390,22 @@ SQL
   # Update all queue_items with where current task status value if they are
   # acvtive
   # 
-  # 1) Only update active items 2) Only update items which are not associated
-  # with a task or with this task 3) Dont update when queue item is in failed
+  # 1) Only update active items
+  # 2) Only update items which are not associate with a task or with this task
+  # 3) Dont update when queue item is in failed
   # status
   # 
   def update_queued_items(queue_items_to_update=nil)
-    queue_items_to_update ||= self.queue_items
     return unless queues?
+    queue_items_to_update ||= self.queue_items
     for item in queue_items_to_update
-      if item.active? and (item.task_id.nil? or item.task_id==self.id)
+      if !item.finished? and (item.task_id.nil? or item.task_id==self.id)
         item.task_id = self.id
-        item.experiment_id = self.experiment_id
-        if self.state.active? or self.state.finished?
-          item.state_id = self.state_id
-        elsif  self.state.ignore?
-          item.state = State.find(:first)
-        end
-        item.save
+        item.experiment_id   = self.experiment_id
+        item.status_id       = self.status_id
+        item.folder.state_id = self.state_id
+        item.folder.save!
+        item.save!
       end
     end
   end
@@ -418,25 +417,19 @@ SQL
     return unless queues?
     added_items = []
     TaskReference.transaction do
-      params = self.queue_parameters
-      for parameter in  params
+      for parameter in  self.queue_parameters
         for row in self.rows       
           if parameter.context == row.definition
             item = row.item(parameter,nil)
-            unless item.value
+            if item.value.blank?
               todo = parameter.queue.next_available_item
-              if todo
-                if todo.used_by_task_reference(item)
-                  logger.debug "Added #{todo.data_name} to task reference #{item.id} linked to queue item #{todo.id}"
-                  added_items << item
-                end
-              else
-                params = params - [parameter]
-                logger.debug "No more items for parameter"
-                break        
+              if todo and todo.active? and todo.task.nil?
+                item.value = todo.value
+                item.save
+                todo.task = self
+                todo.experiment = self.experiment
+                todo.save
               end
-            else  
-              logger.debug "Added #{item.data_name} already assign to task reference #{item.id}"
             end  
           end  
         end  
@@ -508,7 +501,7 @@ SQL
     return @rows
   end
 
-   # ## populated the task creating all the expected context rows
+  # ## populated the task creating all the expected context rows
   #
   def recalculate
     cleanup_references
@@ -522,9 +515,9 @@ SQL
     list = verify_mandatory
     list.size==0
   end
-#
-# SQL to list all contexts missing a mandatory field
-#
+  #
+  # SQL to list all contexts missing a mandatory field
+  #
   def verify_mandatory
     list = TaskContext.find_by_sql( <<-SQL
 select * from task_contexts c where task_id=#{self.id}
@@ -558,7 +551,7 @@ and exists (
 SQL
     )
     list.each do |item|
-       self.errors.add(:contexts,"row #{item.label} missing mandatory fields")
+      self.errors.add(:contexts,"row #{item.label} missing mandatory fields")
     end
   end
 
@@ -580,7 +573,7 @@ SQL
       TaskContext.current = nil
       unless ref and ref.id and ref.name
         logger.info("removed reference #{item.id} #{item.data_name}")
-        self.errors.add(:references , "#{item.label}=#{item.data_name} not valid")
+        self.errors.add(:references , "#{item.label}= #{item.data_name} not valid in context row #{item.context.label}")
         invalid_list << item
       end   
     end
@@ -590,12 +583,12 @@ SQL
   
   def to_html_cached?
     (respond_to?(:project_element) and respond_to?(:updated_at)  and project_element and 
-       (project_element.content and self.updated_at <= project_element.content.updated_at
-       ) and not 
-       (self.values.exists?(['updated_at > ?',project_element.content.updated_at]) or 
-        self.texts.exists?(['updated_at > ?',project_element.content.updated_at])  or 
-        self.references.exists?(['updated_at > ?',project_element.content.updated_at]) 
-       )
+        (project_element.content and self.updated_at <= project_element.content.updated_at
+      ) and not
+      (self.values.exists?(['updated_at > ?',project_element.content.updated_at]) or
+          self.texts.exists?(['updated_at > ?',project_element.content.updated_at])  or
+          self.references.exists?(['updated_at > ?',project_element.content.updated_at])
+      )
     )
   end  
   # 
@@ -614,11 +607,11 @@ SQL
   def rows_for(item)
     case item
     when ParameterContext  
-        self.contexts.find_all_by_parameter_context_id(item.id)
-     when String
-        self.contexts.find_all_by_label(item)
+      self.contexts.find_all_by_parameter_context_id(item.id)
+    when String
+      self.contexts.find_all_by_label(item)
     when Fixnum
-        self.contexts.find_all_by_parameter_context_id(item)
+      self.contexts.find_all_by_parameter_context_id(item)
     else
       []
     end      
@@ -706,7 +699,7 @@ SQL
       list = label.split(".")
       parameter_context = self.process.context(list.delete_at(0))
       if parameter_context.parent
-       list.pop
+        list.pop
         parent_label = "#{parameter_context.parent.name}.#{list.join('.')}"
         parent_context = self.context(parent_label)
         #
@@ -871,7 +864,7 @@ SQL
     return data
   end
   
- protected
+  protected
       
   def resync_with_folder_element_name  
     ref = self.folder

@@ -55,11 +55,6 @@ class HomeControllerTest < Test::Unit::TestCase
     get :calendar
     assert_response :success
   end
-  
-  def test_calendar_as_json
-    get :calendar,:format=>'json'
-    assert_response :success
-  end
 
   def test_calendar_as_js
     get :calendar,:format=>'js'

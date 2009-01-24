@@ -1,0 +1,17 @@
+<% content_for :sidemenu do%>
+<div>
+<span class='menu'>Plate</span>
+<%= link_to 'List',    plate_url(:action => 'list') %>
+<%= link_to 'New',    plate_url(:action => 'new') %> 
+<%= link_to 'Edit',    plate_url(:action => 'edit', :id => @plate) %> 
+<%= link_to 'Show',    plate_url(:action => 'show',:id => @plate) %>
+<%= link_to 'Destroy', plate_url(:action => 'destroy', :id => @plate ), :confirm => l(:text_are_you_sure), :method => :post %><
+</div>
+  <%= render :partial => '/menu/admin_menu'%>
+<% end %>
+
+
+
+<h1><%=@plate.name%></h1>
+
+<p><%=@plate.description%>

@@ -10,20 +10,22 @@
 <% content_for :center do -%>
   <%= render :partial=>'header'%>
   <div class='box'>
-    <h2 class='icon icon-parameter'>Last three parameters</h2>
-    <%= render :partial => 'list' %>
-    <% dialog l(:Parameter_New) do %>
+
+  <% dialog l(:Parameter_New) do %>
       <%= render :partial => 'new' %>
     <div class='actions_right'>
       <%= link_to(l(:Manage), assay_parameter_url(:action=>:list,:id=>@assay.id),:class=>'icon icon-parameter') %>
       <% if right?(:catalogue,:admin) %>
-      <%= link_to(l(:Back), catalogue_url(:action=>:list),:popup=>true,:class=>'icon icon-add') %>
-      <%= link_to(l(:Type), parameter_type_url(:action=>:new),:popup=>true,:class=>'icon icon-add') %>
-      <%= link_to(l(:Role), parameter_role_url(:action=>:new),:popup=>true,:class=>'icon icon-add') %>
-      <%= link_to(l(:Format), data_format_url(:action=>:new),:popup=>true,:class=>'icon icon-add') %>
+      <%= link_to(l(:Catalogue), catalogue_url(:action=>:list),:popup=>true,:class=>'icon icon-catalogue') %>
+      <%= link_to(l(:Type), parameter_type_url(:action=>:new),:popup=>true,:class=>'icon icon-parameter_type') %>
+      <%= link_to(l(:Role), parameter_role_url(:action=>:new),:popup=>true,:class=>'icon icon-parameter_role') %>
+      <%= link_to(l(:Format), data_format_url(:action=>:new),:popup=>true,:class=>'icon icon-data_format') %>
       <% end %>
     </div>
     <% end %>
+    <h2 class='icon icon-parameter'>Last 20 parameters added</h2>
+    <%= render :partial => 'list' %>
+
   </div>
 <% end %>
 

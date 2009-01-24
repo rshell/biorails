@@ -1,0 +1,46 @@
+== Schema Definition
+
+A Ruby on Rails plugin for easy migration generation.
+Based on Auto-Migrations by PJ Hyett [ pjhyett@gmail.com ].
+
+== Usage
+
+Create a copy of your schema.rb file and name it definition.rb.
+Now, when you need to change database schema, edit definition.rb file.
+Then, invoke
+
+  $ ruby/script generate migration 
+
+It will generate a new migration with all differencies of definition.rb 
+against your current database schema! You can migrate immediately, or add some
+more tweaks to your migration, or something else.
+
+Why is it great? Because you don't need to remember all that syntax like
+change_column, add_column, etc - you just modify your schema (in file definition.rb).
+
+Nice bonus: migrations are automatically named (of course you may override name suggested).
+
+== How to install
+
+ruby script/plugin install http://schema-definition.googlecode.com/svn/tags/stable/schema-definition
+
+== Todo
+
+Indices are partially supported at the moment.
+
+== Changelog
+
+Workaround on views. Thanks to Cyril Boswell.
+
+== Legal
+
+Found a bug? Email it to me: pavel.vasev@gmail.com
+
+Want to add a feature? Implement it and email patch to me!
+
+Pavel Vasev [ pavel.vasev@gmail.com ]
+
+
+Released under the MIT license (included)
+
+p.s. Schema-Definition plugin is hugely based on Auto-Migrations by PJ Hyett [ pjhyett@gmail.com ]

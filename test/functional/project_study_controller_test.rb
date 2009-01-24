@@ -1,7 +1,6 @@
 
 require File.dirname(__FILE__) + '/../test_helper'
 require  "projects_controller"
-require 'json'
 
 # Re-raise errors caught by the controller.
 class ProjectsController; def rescue_action(e) raise e end; end

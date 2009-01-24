@@ -50,6 +50,7 @@
 # See license agreement for additional rights ##
 #
 require 'ftools'
+require 'open_office'
 
 class ProjectFolder < ProjectElement
 
@@ -76,55 +77,58 @@ class ProjectFolder < ProjectElement
 
   
   def icon( options={} )
-     case attributes['reference_type']
-      when 'Project'  then        return '/images/model/project.png'
-      when 'Assay'  then          return '/images/model/assay.png'
-      when 'AssayParameter' then  return '/images/model/parameter.png'
-      when 'AssayProtocol' then   return '/images/model/protocol.png'
-      when 'Experiment' then      return '/images/model/experiment.png'
-      when 'Task' then            return '/images/model/task.png'
-      when 'Report' then          return '/images/model/report.png'
-      when 'Request' then         return '/images/model/request.png'
-      when 'Compound' then        return '/images/model/compound.png'
-      else
-         return '/images/model/folder.png'
-      end 
+    case attributes['reference_type']
+    when 'Project'  then        return '/images/model/project.png'
+    when 'Assay'  then          return '/images/model/assay.png'
+    when 'AssayParameter' then  return '/images/model/parameter.png'
+    when 'AssayProtocol' then   return '/images/model/protocol.png'
+    when 'Experiment' then      return '/images/model/experiment.png'
+    when 'Task' then            return '/images/model/task.png'
+    when 'Report' then          return '/images/model/report.png'
+    when 'Request' then         return '/images/model/request.png'
+    when 'Compound' then        return '/images/model/compound.png'
+    else
+      return '/images/model/folder.png'
+    end
   end    
-
-#
-# Copy the passed element under this one
-#
- def copy(item)
-   element =nil
-   if item.reference
-     element = ProjectReference.new(:name=>item.name,:title=>item.title,:state_id=>item.state_id,:element_type => item.element_type)
-     element.reference= item.reference
-   else
-     element = item.clone
-     element.reference= item
-   end
-   element.parent= self
-   element.state = self.state
-   element.project_id = self.project_id
-   element.position = self.elements.size
-   element.parent_id = self.id
-   return element unless element.valid?
-   self.add_child(element)
-   return element
- end
+  #
+  # Copy the passed element under this one
+  #
+  def copy(item)
+    ProjectFolder.transaction do
+      raise ActiveRecord::ActiveRecordError, "Failed to added child as parent not saved: "+self.errors.full_messages().join("\n") if (self.new_record? and !self.save)
+      raise ActiveRecord::ActiveRecordError, "This folder is not changeable"  unless self.changeable?
+      element =nil
+      if item.reference
+        element = ProjectReference.new(:name=>item.name,:title=>item.title,:state_id=>item.state_id,:element_type => item.element_type)
+        element.reference= item.reference
+      else
+        element = item.clone
+        element.reference= item
+      end
+      element.parent= self
+      element.state = self.state
+      element.project_id = self.project_id
+      element.position = self.elements.size
+      element.parent_id = self.id
+      return element unless element.valid?
+      self.add_child(element)
+      return element
+    end
+  end
   
   def self.add_root(project)
     ProjectFolder.transaction do
-    ProjectFolder.create({
-           :name =>project.name,
-           :title =>project.title,
-           :reference => project,
-           :state_id => State.find(:first).id,
-           :project => project,
-           :element_type_id => 4,
-           :access_control_list => AccessControlList.from_team(project.team)
-   })
-  end
+      ProjectFolder.create({
+          :name =>project.name,
+          :title =>project.title,
+          :reference => project,
+          :state_id => State.find(:first).id,
+          :project => project,
+          :element_type_id => 4,
+          :access_control_list => AccessControlList.from_team(project.team)
+        })
+    end
   end
   #
   # Add a link to another project element with possible of setting the owner
@@ -133,20 +137,20 @@ class ProjectFolder < ProjectElement
     ProjectFolder.transaction do
       raise "No right to add to destination" unless self.right?(:data,:create)
       if from.is_a?(ProjectElement)
-         raise "No right to update source" unless from.right?(:data,:update)
-         add_element(ElementType::REFERENCE,{
-             :name =>from.name,
-             :title => options[:title] || from.title,
-             :reference => from.reference,
-             :access_control_list_id => from.access_control_list_id,
-           })
+        raise "No right to update source" unless from.right?(:data,:update)
+        add_element(ElementType::REFERENCE,{
+            :name =>from.name,
+            :title => options[:title] || from.title,
+            :reference => from.reference,
+            :access_control_list_id => from.access_control_list_id,
+          })
       else
-         add_element(ElementType::REFERENCE,{
-             :name =>from.name,
-             :title => options[:title] ||from.name,
-             :reference => from,
-             :access_control_list_id => self.access_control_list_id,
-           })
+        add_element(ElementType::REFERENCE,{
+            :name =>from.name,
+            :title => options[:title] ||from.name,
+            :reference => from,
+            :access_control_list_id => self.access_control_list_id,
+          })
       end
     end 
   end
@@ -156,7 +160,7 @@ class ProjectFolder < ProjectElement
   #  * return list of linked items of this class
   #
   def linked(klass)
-      find_within(:all,:conditions=>['reference_type=?',klass.to_s])
+    find_within(:all,:conditions=>['reference_type=?',klass.to_s],:order=>'parent_id,name')
   end
   #
   # List of Linked Items
@@ -164,8 +168,8 @@ class ProjectFolder < ProjectElement
   #  * return list of linked items of this class
   #
   def linked_objects(klass)
-      items = linked(klass)
-      items.collect{|i|i.reference}
+    items = linked(klass)
+    items.collect{|i|i.reference}
   end
   #
   # List of Linked Items
@@ -184,32 +188,28 @@ class ProjectFolder < ProjectElement
   def make_htmlfile(filename)
     logger.info("Making HTML #{filename}") 
     open(File.join(filename),'w') do |file|
-       file << "<h2>#{project.name}</h2>"
-       serialize_to_html(file,self)
-       file.flush
+      file << "<h2>#{project.name}</h2>"
+      serialize_to_html(file,self)
+      file.flush
     end            
   end
 
+  def make_pdf(filename)
+    logger.info("Making PDF #{filename}")
+    outfile = convert_to("pdf")
+    FileUtils.mv(outfile, filename) if outfile
+  end
 #
 # generate a PDF for the current element
 #
-  def make_pdf(filename)
-    logger.info("Making PDF #{filename}")
-
+  def convert_to(format)
     html_filename = File.join(folder_filepath,'folder.html')
-
     self.make_htmlfile(html_filename)
-      pdf = PDF::HTMLDoc.new
-      pdf.set_option :outfile, filename
-      pdf.set_option :outfile, filename
-      pdf.set_option :webpage, true
-      pdf.set_option :charset, SystemSetting.character_set
-      pdf.set_option :bodycolor, :white
-      pdf.set_option :links, false
-      pdf.set_option :path, File::SEPARATOR
-      pdf << html_filename
-      pdf.generate
-     return pdf
+    return nil unless  Alces::OpenOffice::FormatConverter.format?(format)
+    formatter = Alces::OpenOffice::FormatConverter.new(format)
+    output_file = formatter.convert(html_filename)   
+    formatter.errors.each {|error| self.errors.add_to_base(error)}
+    return output_file
   end
   #
   # Get the root project filepath
@@ -247,7 +247,7 @@ protected
     logger.info("#{current_item.dom_id} #{current_item.name} converted to html ")
     
     doc = Biorails.utf8_to_codepage(current_item.to_html)
-    doc = doc.gsub(/src='\/project_assets\/[0-9]*\/[0-9]*\//,"src='")    
+    doc = doc.gsub(/src='\/project_assets\/[0-9]*\/[0-9]*\//,"src='")
     if current_item.asset
       path ="public"+ current_item.asset.public_filename(self.default_image_size)
       logger.info "cp #{path},#{folder_filepath}"

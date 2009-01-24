@@ -102,7 +102,8 @@ ActionController::Routing::Routes.draw do |map|
 #  
   map.compound  'compounds/:action/:id',:controller => 'compounds'  
   map.batch     'batchs/:action/:id',:controller => 'batches'  
-  map.plate     'plates/:action/:id',:controller => 'plates'  
+  map.container 'containers/:action/:id',:controller => 'containers'
+  map.plate     'container_types/:action/:id',:controller => 'container_types'
 
 ##
 # Execution

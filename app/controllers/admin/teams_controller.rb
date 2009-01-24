@@ -34,7 +34,6 @@ class Admin::TeamsController < ApplicationController
       format.html { render :action=>'index'}
       format.xml  { render :xml => @teams.to_xml }
       format.csv  { render :text => @teams.to_csv }
-      format.json { render :json =>  @teams.to_json } 
     end
   end    
   # 
@@ -50,8 +49,6 @@ class Admin::TeamsController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'show'}
       format.xml  { render :xml => @team.to_xml }
-      format.csv  { render :text => @team.to_csv }
-      format.json { render :json =>  @team.to_json } 
     end
   end
   # 
@@ -90,7 +87,6 @@ class Admin::TeamsController < ApplicationController
     respond_to do |format|
       format.html { render :action => 'edit'}
       format.xml {render :xml =>  @team.to_xml}
-      format.json  { render :text => @team.to_json }
     end
   end
   

@@ -42,11 +42,6 @@ class FinderControllerTest < Test::Unit::TestCase
     get :clipboard
     assert_response :success
   end
-
-  def test_clipboard_as_json
-    get :clipboard,:format=>'json'
-    assert_response :success
-  end
   
   def test_clipboard_as_js
     get :clipboard,:format=>'js'

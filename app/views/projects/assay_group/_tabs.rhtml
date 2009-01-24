@@ -1,0 +1,7 @@
+<%= tab_strip("project-tabs", @tab||0 ,[
+    {:name =>l(:Overview)     , :partial=>@project.partial_template('panel_overview') },
+    {:name =>l(:Access)       , :url    => acl_url(:action=>'show', :format=>:ext, :id=>@project.project_element_id)},
+    {:name =>l(:Organisation) , :partial=>@project.partial_template('panel_organisation') },
+    {:name =>l(:Execution)    , :partial=>@project.partial_template('panel_execution') },
+    {:name =>l(:Queries)      , :partial=>@project.partial_template('panel_queries') }
+  ]) %>

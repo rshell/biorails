@@ -22,15 +22,8 @@ class Admin::UsersController < ApplicationController
     @users = User.find(:all, :order=>:name)
   end
 
-  def ldap
-    page = params[:id]||'a'     
-    @users = User.ldap_users(page)
-  end
-
-
   def show
     @user = current(User,params[:id])
-    @ldap = User.ldap_user(@user.login) if User.respond_to?(:ldap_user)
   end
 
   def memberships
@@ -74,19 +67,7 @@ class Admin::UsersController < ApplicationController
     @user.login = params[:login]
     @user.role_id= Biorails::Record::DEFAULT_USER_ROLE
   end
- #
- # List of possible username options from LDAP server
- #
-   def choices
-    @value   = params[:query] || ""
-    users = User.ldap_users(@value) 
-    @list = { :matches=>@value,  
-              :total=>users.size, 
-              :items=> users.collect {|e|  {:id => e[:uid].to_s,  :name => e[:cn].to_s}  }     }
-     render :text => @list.to_json
-  end  
-  
-
+ 
   ##
   # create a  user based on a set of hash of attibutes in param[:user]
   #
@@ -97,7 +78,6 @@ class Admin::UsersController < ApplicationController
     else
         @user.set_password(@user.password)
     end
-    @user.fill_from_ldap
     if @user.save
     @user.memberships.create(:team_id=> Biorails::Record::DEFAULT_TEAM_ID)
     flash[:notice] = "User created."
@@ -109,7 +89,6 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id]) 
-    @user.fill_from_ldap
     @user.update_attributes(params[:user])
     if @user.password.blank?
        @user.password = nil

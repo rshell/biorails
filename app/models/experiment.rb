@@ -194,7 +194,6 @@ class Experiment < ActiveRecord::Base
     new_state = self.folder.state_flow.next_level(self.state)
     self.folder.set_state(new_state,false)
   end
-
   # ## Get the named experiment from the list attrached to the assay
   # 
   def task(name)
@@ -486,7 +485,7 @@ SQL
     item = nil
     context = task.context(label)
     col=0
-    if context
+    if context and context.valid?
       TaskContext.current = context
       TaskContext.current.lock!
       for parameter in context.parameters

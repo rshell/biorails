@@ -63,16 +63,6 @@ class ProjectElementTest < Test::Unit::TestCase
     first = ProjectElement.find(:first)
     assert first.path
   end
-
-  def test_signed
-    first = ProjectElement.find(2)
-    assert first.signed(5)
-  end
-
-  def test_sign
-    first = ProjectElement.find(2)
-    assert first.signatures
-  end
   
   def test_reorder_before
     top = ProjectFolder.find(84)

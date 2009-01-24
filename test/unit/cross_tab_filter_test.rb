@@ -8,7 +8,6 @@ class CrossTabFilterTest < ActiveSupport::TestCase
     assert object.cross_tab_column_id, "missing column" 
     assert object.errors.empty? , " #{object.class}.#{object.id} has errors: "+object.errors.full_messages().join(',')
     assert object.valid?,         " #{object.class}.#{object.id} not valid: "+object.errors.full_messages().join(',')
-    assert !object.new_record?,   " #{object.class}:#{object} not saved"
   end
   
   def create_cross_tab(name)

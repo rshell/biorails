@@ -1,0 +1,18 @@
+<% for item in @project.linked(model) %>
+  <dl>
+    <dt>
+      <div class="tooltip">
+        <%= link_to item.name, object_to_url(item) %> &nbsp;
+        [<%= link_to( l(:Remove),  project_url( :action => 'unlink',:id=>current_project, :project_element_id => item ),
+          :confirm => l(:text_are_you_sure), :method => "post") if right?(:data,:destroy) %>]
+        <span class="tip">
+          <%= item.path %><br />
+          <%= item.title %>
+        </span>
+      </div>
+    </dt>
+    <dd>
+      <%= item.title%>
+    </dd>
+  </dl>
+<% end %>

@@ -73,7 +73,6 @@ class Execute::RequestServicesController < ApplicationController
           page.visual_effect :highlight, item.dom_id(:updated_at),:duration => 1.5
         end
       end }
-      format.json { render :json => @request_service.to_json }
       format.xml  { render :xml => @request_service.to_xml }
     end
   end
@@ -94,7 +93,6 @@ class Execute::RequestServicesController < ApplicationController
           page.replace_html @queue_item.dom_id(:updated_at), :partial => 'queue_item',:locals => { :queue_item => @queue_item } 
           page.visual_effect :highlight, @queue_item.dom_id(:updated_at),:duration => 1.5
       end }
-      format.json { render :json => @request_service.to_json }
       format.xml  { render :xml => @request_service.to_xml }
     end
   end

@@ -1,0 +1,15 @@
+<%if @project %>
+<div class='panel'>
+  <div class="content">
+    <%=render :partial=>@project.partial_template('description')%>
+  </div>
+  <div class="content">
+    <strong class="icon icon-description">
+      <%=l(:Executive_Summary)%>
+    </strong>
+    <%= @project.folder.to_html %>
+  </div>
+</div>
+<%else %>
+  This needs a project to be defined
+<%end %>

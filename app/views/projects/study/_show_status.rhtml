@@ -1,0 +1,38 @@
+<div class="box">
+
+  <table width="100%" class="report">
+    <tr>
+      <th>
+        <%=l(:Status)%>:&nbsp;
+      </th>
+      <td>
+        <%=@project.folder.state if @project.project_element_id %>
+        <%=link_to "[Update]", folder_url(:action=>'status',:id=>@project.project_element_id),:class=>'icon icon-edit' %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%=l(:Started)%>
+      </th>
+      <td>
+        <%= short_date(@project.started_at) %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%=l(:Expected)%>
+      </th>
+      <td>
+        <%= short_date(@project.expected_at) %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%=l(:Completed)%>
+      </th>
+      <td>
+        <%= short_date(@project.ended_at) %>
+      </td>
+    </tr>
+  </table>
+</div>

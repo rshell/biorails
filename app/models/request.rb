@@ -133,6 +133,7 @@ class Request < ActiveRecord::Base
   def initialize(params= {})
       super(params)      
       self.started_at   = Time.new
+      self.priority_id = 0
       self.requested_by_user_id = User.current.id
       self.project_id      = Project.current.id
       self.team_id         = Team.current.id

@@ -62,7 +62,7 @@
 #  1/dec/2008 RJS   integrated Ted & my changes and sort character set problems
 #  1/dec/2008 RJS   corrected reordering or parameters in process
 #  2/dec/2008 RJS    checked for 3.1.x releasde
-#  4/dec/2008 rjs    issue#11071,issue#11073,issue#11074  
+#  4/dec/2008 rjs    issue#11071,issue#11073,issue#11074  added circe specific validation rule to sample present and some catalogue fixes
 #  4/dec/2008 rjs   issue#11070 done
 #  4/dec/2008 rjs   folder tree stays open
 #  5/dec/2008 rjs   cross bugs fixed #11091
@@ -121,17 +121,42 @@
 # 17/dec/2008 rjs   issue #11154 changed context code to allow creation of child contexts from labels
 # 17/dec/2008 rjs   issue #11159 Added Delete button for references to other project elements
 # 17/dec/2008 rjs   issue #11162 corrected folder_element_list service
-# 18/dec/2008 rjs   issue #11166 moved setting field selectors to project_helper and fixed default user on new project
-# 18/dec/2008 rjs   issue #11116 I have removed compounds as work is batch base
-# 18/dec/2008 rjs                turned of automated oracle unique key  to model validation rule builder as no slow
+# 18/dec/2008 th    issue #11144 Resquests rather than requests, #11146 signing and withdraw made consistent
+# 18/dec/2008 rjs   issue #11173 circe search methods fixed change of get_all_analyse method tom 2=>3 parameters
+# 18/dec/2008 rjs   ipsen #11166 moved setting field selectors to project_helper and fixed default user on new project
+# 18/dec/2008 rjs   ipsen #11116 I have removed compounds as work is batch base
+# 18/dec/2008 rjs    turned of automated oracle unique key  to model validation rule builder as no slow
 # 18/dec/2008 rjs   issue #11178 changed initial state to cascade from parent
 # 18/dec/2008 rjs   issue  #11179 created now uses project_type_id from new form to set project type as goto correct dashboard
-# 18/dec/2008 rjs   issue #11176 changed to ether batch or sample missing is a error
+# 18/dec/2008 rjs   ipsen #11176 changed to ether batch or sample missing is a error
 # 
-# 19/dec/2008 rjs   issue #11180 sat down with Ted and fixed the dashboard
+# 19/dec/2008 rjs   ipsen #11180 sat down with Ted and fixed the dashboard
 # 19/dec/2008 rjs   issue #11185 cascade to/from a level -1 state no cascading
 # 19/dec/2008 rjs   added messages display for state and reworded edit forms
 # 19/dec/2008 rjs   issue #10506 validate default value is parsable to a value for the parameter
+# 
+# 22/dec/2008 rjs   issue #11188 corrected type on session helper stopping display of admin menu to managers
+# 22/dec/2008 rjs   issue #11106 minor corrections to improve useability of add parameters to assay.
+# 22/dec/2000 rjs   issue #11190 minor change menu only show name of project not path as was pushing menu beyond 1024 screen size
+# 22/dec/2000 rjs   issue #10970 copying attributes to new version of process also added a quick link to test a process
+# 29/dec/2008 rjs   issue #11196 changed error text
+# 29/dec/2008 rjs   issue #11232 updated folder controll to tests for frozen folder on copy items
+# 05/jan/2009 rjs   issue #11236 corrected validation rules on process version to remove updated_by
+# 05/jan/2009 rjs   issue #10931 converted spools to remove speak marks.
+# 08/jan/2009 rjs   issue #11244 change forms to be consistent
+# 08/jan/2009 rjs   issue #11247 fixed state combo for queue items display
+# 09/jan/2009 rjs   html preview for folder changed slightly
+# 09/jan/2009 rjs   cross tabe crossed to save filters on edit and handle units correctly
+# 13/jan/2009 rjs   issue #11172 bug in .visible? checker only worked for owners and direct access.
+# 13/jan/2009 rjs   issue #11253 correct problem with missing reset of current project in web API
+# 14/jan/2009 rjs   issue #11256 cross tab snapshot fixed
+# 14/jan/2009 rjs   issue #11250 fixed so 1st item in list displayed
+# 14/jan/2009 rjs   issue #11257 changed default to low not sure if this is full solution
+# 14/jan/2009 rjs   issue #11265 corrected html for opera on
+# 15/jan/2009 rjs   issue #11265 general cleanup of request status code.
+# 16/jan/2009 rjs   issue #11164 process creation calls added to SOAP API
+# 16/jan/2009 rjs   issue #11193 folder filters  calls added to SOAP API
+# 20/jan/2009 rjs   Changed to open office for document conversion
 
 module Biorails 
   
@@ -319,7 +344,15 @@ module Biorails
       result.strip!
       config_file = YAML::load(ERB.new(result).result)
       return config_file[RAILS_ENV]['adapter']
-    end    
+    end
+    
+    def self.mysql_execute(username, password, sql)
+      system("/usr/bin/env mysql -u #{username} -p'#{password}' --execute=\"#{sql}\"")
+    end
+
+    def self.oracle_execute(username, password, sql)
+      Biorails::Check.run("sqlplus #{username}/#{password}@#{database}","#{sql}; exit;")
+    end
     #
     # Backup database data for oracle,mysql or generic
     #
@@ -330,14 +363,33 @@ module Biorails
       backup_folder = File.join(base_path, 'backup',month)
       File.makedirs(backup_folder)
       backup_file = File.join(backup_folder, "biorails_#{RAILS_ENV}_#{datestamp}")
-      backup_folder = File.join(base_path, 'backup',datestamp)
-      File.makedirs(backup_folder)
-      self.logger.info "Using default fixtures for backup into #{backup_folder}"
-      Biorails::ALL_MODELS.each do |model|
+
+      if Biorails::Check.oracle?
+        puts "Using oracle export utility for backup"
+        cmd = "exp #{user}/#{password}@#{database} file=#{backup_file}_export.dmp "
+        puts cmd
+        system(cmd)
+        puts "Backup done to #{backup_file}}_export.dmp "
+        return backup_file
+      elsif Biorails::Check.mysql?
+        puts "Using mysql dump utility for backup"
+        cmd = "/usr/bin/env mysqldump --opt --skip-add-locks -u#{user} "
+        puts cmd + "... [password filtered]"
+        cmd += " -p'#{password}' " unless password.nil?
+        cmd += " #{database} | gzip -c > #{backup_file}.sql.gz"
+        system(cmd)
+        puts "Backup done to #{backup_file}.sql.gz "
+        return backup_file
+      else
+        backup_folder = File.join(base_path, 'backup',datestamp)
+        File.makedirs(backup_folder)
+        self.logger.info "Using default fixtures for backup into #{backup_folder}"
+        Biorails::ALL_MODELS.each do |model|
           filename = File.join(backup_folder,model.table_name + '.yml')
           export_model(model,filename)
+        end
+        return backup_folder
       end
-      return backup_folder    
     end
     #
     # Export a model as a yml text file for cross platform backup and export
@@ -417,6 +469,7 @@ module Biorails
   end
        
   module Record
+
     DEFAULT_NAME_MASK =  /^[A-Z,a-z,0-9,_,\.,\-,+,\$,\&, ,:,#]*$/
     #
     #  Define rules to link to actual database records for ROLES
@@ -439,6 +492,7 @@ module Biorails
     STRING = [MAJOR, MINOR, TINY].join('.').freeze
     TITLE  = "Biorails".freeze
   end
+
   module Check
 
     def self.oracle?

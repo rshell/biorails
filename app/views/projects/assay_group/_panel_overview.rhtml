@@ -1,0 +1,17 @@
+<%if @project %>
+  <div class='panel'>
+    <div class="content">
+      <%=render :partial=>'projects/assay_group/description'%>
+    </div>
+    <div class="splitcontentleft">
+      <%= render :partial => 'projects/sections/lists/box_assays_list' %>
+      <%= render :partial => 'projects/sections/lists/box_requested_services_list' %>
+    </div>
+    <div class="splitcontentright">
+      <%= render :partial => 'projects/sections/lists/box_experiments_list' %>
+      <%= render :partial => 'projects/sections/lists/box_tasks_list' %>
+    </div>
+  </div>
+<%else %>
+  This needs a project to be defined
+<%end %>

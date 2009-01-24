@@ -248,6 +248,11 @@ protected
       item.protocol = self
       item.assay_protocol_id = self.id
       item.description = self.description
+      if latest
+        item.expected_hours = latest.expected_hours
+        item.report_id = latest.report_id
+        item.analysis_method_id = latest.analysis_method_id
+      end
       self.versions << item 
       item.save!
       item

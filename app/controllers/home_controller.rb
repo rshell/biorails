@@ -27,11 +27,6 @@ class HomeController < ApplicationController
   # 
   def show
     @user = current_user    
-    @signatures_authored_by = Signature.find_authored_by(@user.id, 5)
-    @signatures_for_witness = Signature.find_pending_witness_for(@user.id, 5)
-    @signatures_to_witness = Signature.find_pending_witness_by(@user.id, 5)
-    flash[:notice]='This user has no published document' unless  current_user.has_published_documents?
-
     respond_to do | format |
       format.html { render :action => 'show'}
       format.xml {render :xml =>  @user.to_xml()}
@@ -130,20 +125,6 @@ class HomeController < ApplicationController
     end    
   end
 
-  def approved_documents
-    @report = Biorails::SystemReportLibrary.approved_documents("Approved Documents") do | report |
-      report.column('signature_state', :label=>'Signature_state',:is_filterible=>'true',:is_visible=>'false',:filter=>'SIGNED')
-    end
-    respond_to do | format |
-      format.html { render :action => 'report' }
-      format.xml  { render :xml => {   :rows  => @report.run.collect{|i|i.attributes},:id => @report.id,:page => params[:page] }.to_xml }
-      format.js   {
-        render :update do | page |
-          page.replace_html @report.dom_id("show"),  :partial => 'shared/report', :locals => {:report => @report}
-        end
-      }
-    end
-  end
 
   def tasks
     @report = Biorails::SystemReportLibrary.task_list("Tasks #{current_user.name}") do | report |

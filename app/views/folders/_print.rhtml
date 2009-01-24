@@ -22,10 +22,15 @@
 
 <h2 class='abstract'><%l(:Contents) %></h2>
 
-<%= @project_folder.html %>
+<%=@project_folder.html%>
+
 <% for item in folder.children %>
   <div>
-    <%= item.html unless item.state.ignore? %>
+    <% unless item.state.ignore? %>
+    <h3><%= item.name %></h3>
+    <p> <%= item.title %> </p>
+    <%= item.html %>
+    <% end %>
   </div>
 <% end %>
 <hr />

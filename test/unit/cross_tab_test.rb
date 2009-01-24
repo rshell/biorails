@@ -477,7 +477,7 @@ class CrossTabTest < ActiveSupport::TestCase
     sar.reload
     assert_equal 1, sar.columns.size
     column = sar.columns[0]
-    sar.filter({:filters=>{column.id =>{"operator"=>"=","value"=>"1"}}})
+    sar.filter({:filters=>{column.id =>{"operator"=>"=","value"=>"1"}}},true)
     sar.reload
     assert_equal 1, sar.filters.size
   end

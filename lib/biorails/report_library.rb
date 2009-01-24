@@ -32,9 +32,10 @@ module Biorails
         report.column('data_value',      :order_num=>6,:is_filterible=>true,:is_visible=>true)
         report.column('task.name',       :order_num=>7,:is_filterible=>true,:is_visible=>true)
         report.column('id',              :order_num=>8,:is_filterible=>true,:is_visible=>false)
-        report.column('task.status_id',  :order_num=>9,:filter => "5",:is_visible => false)
-        report.column('service.request_id',   :order_num=>10,:filter=>request.id,:is_filterible=>true,:is_visible=>false)
-        report.column('assay.project_id',    :order_num=>11,:is_filterible=>true,:is_visible=>false,:filter => Project.current.id.to_s)
+        report.column('task.status',     :order_num=>9,:is_visible => true)
+        report.column('task.status_id',  :order_num=>10,:filter => ">3",:is_visible => false)
+        report.column('service.request_id',   :order_num=>11,:filter=>request.id,:is_filterible=>true,:is_visible=>false)
+        report.column('assay.project_id',    :order_num=>12,:is_filterible=>true,:is_visible=>false,:filter => Project.current.id.to_s)
         yield report if block_given?
       end
     end
@@ -50,8 +51,9 @@ module Biorails
         report.column('data_value',      :order_num=>6,:is_filterible=>true,:is_visible=>true)
         report.column('task.name',       :order_num=>7,:is_filterible=>true,:is_visible=>true)
         report.column('id',              :order_num=>8,:is_filterible=>true,:is_visible=>false)
-        report.column('task.status_id',  :order_num=>9,:filter => "5",:is_visible => false)
-        report.column('service.id',   :order_num=>10,:filter=>request.id,:is_filterible=>true,:is_visible=>false)
+        report.column('task.status',     :order_num=>9,:is_visible => true)
+        report.column('task.status_id',  :order_num=>10,:filter => ">2",:is_visible => false)
+        report.column('service.id',   :order_num=>11,:filter=>request.id,:is_filterible=>true,:is_visible=>false)
         yield report if block_given?
       end
     end

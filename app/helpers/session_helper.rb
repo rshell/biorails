@@ -117,7 +117,7 @@ DATA
   # Json for home menu
   #
   def project_menu_items
-    toolbar_menu("Project [#{current_project.path}]",'icon-project','/projects/show',
+    toolbar_menu("#{current_project.project_type.name} [#{current_project.name}]",'icon-project','/projects/show',
       [
         menu_item(l(:Dashboard)       , 'icon-home'       , project_url(:action=>:show,:id=>current_project.id)),
         menu_item(l(:Calendar)        , 'icon-calendar'   , calendar_url(:action=>:show,:id=>current_project.project_element_id)),
@@ -127,8 +127,7 @@ DATA
         menu_item(l(:Experiments)     , 'icon-experiment' , experiment_url(:action=>:list,:id=>current_project.id)),
         menu_item(l(:Tasks)           , 'icon-task'       , task_url(:action=>:list,:id=>current_project.id)),
         menu_item(l(:Reports)         , 'icon-report'     , report_url(:action=>:list,:id=>current_project.id)),
-        menu_item(l(:Cross_Tabs)      , 'icon-crosstab'   , cross_tab_url(:action=>:list,:id=>current_project.id)),
-        menu_item(l(:Signed_Documents), 'icon-sign'       , '/signatures/list'),
+        menu_item(l(:Cross_Tabs)      , 'icon-crosstab'   , cross_tab_url(:action=>:list,:id=>current_project.id))
       ])
   end
   #
@@ -147,15 +146,16 @@ DATA
   # Json for home menu
   #
   def inventory_menu_items
-    toolbar_menu(l(:Inventory),'icon-compound','/compounds',[
-        menu_item(l(:Compounds), 'icon-compound' ,'/compounds'),
-        menu_item(l(:Batches), 'icon-batch'    ,'/batches'),
-        menu_item(l(:Plates), 'icon-plate'    ,'/plates'),
+    toolbar_menu(l(:Inventory),'icon-compound'    ,'/compounds',[
+        menu_item(l(:Compounds), 'icon-compound'  ,'/compounds'),
+        menu_item(l(:Batches), 'icon-batch'       ,'/batches'),
+        menu_item(l(:Container), 'icon-plate'     ,'/containers'),
+        menu_item(l(:Container_Type), 'icon-plate','/container_types'),
       ])
   end
 
   def toolbar_items
-    if right?(:catalog,:admin)
+    if right?(:catalogue,:admin)
       <<DATA
      [#{home_menu_items},
       #{project_menu_items},

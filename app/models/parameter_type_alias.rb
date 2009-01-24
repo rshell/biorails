@@ -79,6 +79,10 @@ class ParameterTypeAlias < ActiveRecord::Base
     return self.parameter_role.name if self.parameter_role
     "undefined"
   end
+
+  def summary
+    "#{name} [#{style}]"
+  end
   # 
   # See it the alias has been used as return first usage if exists
   # 
@@ -102,6 +106,8 @@ class ParameterTypeAlias < ActiveRecord::Base
   # element or data format
   # 
   def style
+    return "lookup: #{self.data_element.name}" if self.data_element
+    return "format: #{self.data_format.name}" if self.data_format
     return self.type.style if self.type
     "undefined"
   end

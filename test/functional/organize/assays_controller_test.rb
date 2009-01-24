@@ -63,12 +63,6 @@ class Organize::AssaysControllerTest < Test::Unit::TestCase
     assert_response :success
   end
 
-  def test_show_json
-    get :show, :id => @item.id,:format=>'json'
-    assert_response :success
-  end
-
-  
   def test_print
     get :print, :id => @item.id
     assert_response :success

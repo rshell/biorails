@@ -29,7 +29,7 @@ class Organize::ProcessFlowsController < ApplicationController
 ##
 #List the protocols in the assay
 #
-# @return list of protocols in html,json or xml
+# @return list of protocols in html or xml
 #
   def list
     if params[:id]
@@ -41,7 +41,6 @@ class Organize::ProcessFlowsController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'list' }
       format.ext { render :partial => 'list' }
-      format.json { render :json => @assay_protocols.to_json }
       format.xml  { render :xml =>  @assay_protocols.to_xml }
     end  
   end  
@@ -98,7 +97,6 @@ class Organize::ProcessFlowsController < ApplicationController
   def show
     respond_to do | format |
       format.html { render :action => 'show' }
-      format.json { render :json => @assay_protocol.to_json }
       format.xml  { render :xml =>  @assay_protocol.to_xml(:except=>[:assay]) }
     end  
   end
@@ -111,7 +109,6 @@ class Organize::ProcessFlowsController < ApplicationController
     @process_flow = ProcessFlow.new
     respond_to do | format |
       format.html { render :action => 'new' }
-      format.json { render :json => @assay_protocol.to_json }
       format.xml  { render :xml =>  @assay_protocol.to_xml(:except=>[:assay]) }
       format.js   { 
         render :update do | page |
@@ -181,7 +178,6 @@ class Organize::ProcessFlowsController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'show' }
       format.ext  { render :partial => 'edit' }
-      format.json { render :json => @assay_protocol.to_json }
       format.xml  { render :xml => @assay_protocol.to_xml }
     end
   end

@@ -1,60 +1,27 @@
-<h2>
-  <%=l(:Compound)%> [<%=@compound.name%>]
-</h2>
+  <h2>Show Compound <%=@compound.name%> </h2>
+  <div class="splitcontentleft">
+    <div class="box">
+      <% if  browser_is? 'ie' %>
+        <OBJECT id="RenditorMolecule" height="300" width="400"
+                classid="CLSID:FCE57399-E34B-45ce-881B-5FDFF3583307"
+                codebase="MDL.Draw.Editor.dll#-1,-1,-1,-1">
+          <PARAM NAME="ChimeString"
+                 VALUE="<%=@compound.chime %>">
+          <PARAM NAME="BackColor" VALUE="LightBlue">
+        </OBJECT>
+      <% else %>
+        <%= @compound.image  %>
+      <% end %>
+    </div>
+  </div>
 
-<div class='box'>
-  <table class='report'>
-    <tr>
-      <th>
-        CompoundId: 
-      </th>
-      <td>
-        <%= @compound.name %>
-      </td>	
-      <th>
-        Registration Date
-      </th>	
-      <td>
-        <%=short_date @compound.registration_date %>
-      </td>		
-    </tr>
-    <tr>
-      <th>
-        Mass
-      </th>
-      <td>
-        <%= @compound.send("mass") %>
-      </td>
-      <th>
-        Formula
-      </th>	
-      <td>
-        <%= @compound.send("formula") %>
-      </td>		
-    </tr>
-    <tr>
-      <th>
-        Description
-      </th>
-      <td colspan=3>
-        <label><%= @compound.send("description") %>
-      </td>
-    </tr>           
-    <tr>
-      <th>
-        Smiles
-      </th>
-      <td colspan=3>
-        <%= @compound.send("smiles") %>		
-      </td>
-    </tr>           
-    <tr>
-      <th>
-        IUPAC        
-      </th>
-      <td colspan=3>
-        <%= @compound.send("iupacname") %>
-      </td>
-    </tr>           
-  </table>
-</div>
+  <div class="splitcontentright">
+    <div class="box">
+      <p> <b>Name:</b> <%=h @compound.name %>  </p>
+      <p> <b>Mass:</b><%=h @compound.mass %>    </p>
+      <p> <b>Formula:</b>  <%=h @compound.formula %> </p>
+      <p> <b>Registration:</b> <%=short_date @compound.registration_date  %> </p>
+    </div>
+  </div>
+
+

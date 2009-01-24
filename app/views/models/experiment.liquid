@@ -1,21 +1,21 @@
 <h2>
-Experiment [{{record.name}}]: {{record.description}}
+    Experiment [{{record.name}}]: {{record.description}}
 </h2>
 <table class='report'>
-<tr>
-<th>Task</th>
-<th>Assigned</th>
-<th>Status</th>
-<th>Started</th>
-<th>Expected</th>
-</tr>
-{% for item in experiment.tasks %}
-<tr>
-<th>{{ item.name}}</th> 
-<td>{{item.assigned_user }}</th>
-<td>{{item.state }} </th>
-<td>{{item.started }}</th>
-<td>{{item.finished}}</th>
-</tr>
-{% endfor %}
+    <tr>
+        <th>Task</th>
+        <th>Assigned</th>
+        <th>Status</th>
+        <th>Started</th>
+        <th>Expected</th>
+    </tr>
+    {% for item in experiment.tasks %}
+        <tr>
+            <th>{{ item.name}}</th>
+            <td>{{item.assigned_user }}</th>
+            <td>{{item.state }} </th>
+            <td>{{item.started }}</th>
+            <td>{{item.finished}}</th>
+        </tr>
+    {% endfor %}
 </table>

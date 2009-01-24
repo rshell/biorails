@@ -1,0 +1,16 @@
+<div class="panel">
+  <%if @project %>
+    <div class="content">
+      <%=render :partial=>@project.partial_template('description')%>
+    </div>
+    <div class="splitcontentleft">
+      <%= render :partial => 'projects/sections/lists/box_news_list' %>
+      <%= render :partial => 'projects/box_executive_summary' %>
+    </div>
+    <div class="splitcontentright">
+      <%= render :partial => 'projects/sections/lists/box_requests_list' %>
+      <%= render :partial => 'projects/sections/lists/box_reports_list' %>
+      <%= render :partial => 'projects/sections/lists/box_cross_tabs_list' %>
+    </div>
+  <% end  %>
+</div>

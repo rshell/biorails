@@ -287,12 +287,4 @@ class ReportTest < Test::Unit::TestCase
     assert data[0].is_a?(Project)
   end
 
-  def test_approved_docs_list
-    assert report = Biorails::SystemReportLibrary.approved_documents("ap_docs")
-    data = report.run
-    assert data
-
-  end
-
-
 end

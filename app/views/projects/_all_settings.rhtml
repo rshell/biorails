@@ -1,0 +1,3 @@
+<%  ProjectSetting.default_settings.each do |name, options| %>
+ <%= render :partial=>'setting_field',:locals=>{ :name=>name, :options=>options } %>
+<% end %>

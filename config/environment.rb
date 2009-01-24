@@ -8,12 +8,28 @@
 #
 # Should work under 2.0 or 1.2 rails unlocked as testing with 2.0 at present
 #
-#RAILS_GEM_VERSION = '2.0.2'
+# For oracle use 2.0.2 only option at present number of issues with
+# changes in migrations for 2.1.1 rails and with oracle_enhanced 1.1.7
+# so biorails_oracle best.
+#
+RAILS_GEM_VERSION = '2.0.2'
+#
+# When working with Oracle its best to set the NLS_LANG setup
+#
+# ENV['NLS_LANG']='_DENMARK.WE8MSWIN1252'
+# ENV['NLS_LANG']='_FRANCE.UTF8'
+# ENV['NLS_LANG']='_ENGLAND.UTF8'
 # remove as caused oracle performance problems ENV['NLS_COMP']='linguistic'
-
 #
 # Moved all external libraries requirements to environment
 # (helps to fail earily if dependent library missing)
+#
+# To setup:
+# 1) install ruby,rubygems mysql/postgre, graphviz,imagemagick and have on path
+# 2) gem install rails mongrel chronic mini_magick mime-types tzinfo rubyzip json_pure crypt builder roodi
+# 3) edit database.yml
+# 4) rake database:create:all
+# 5) rake biorails:db:bootstrap
 #
 require 'rubygems'
 require 'openssl'
@@ -25,14 +41,12 @@ require 'digest/md5'
 require 'digest/sha1'
 require 'mime/types'
 require 'pathname'
-require 'htmldoc'
 require 'rubygems/package'
 require 'matrix'
 require 'archive/tar/minitar'
 require 'zip/zipfilesystem'
 require 'chronic'
 
-# gem install ruby-net-ldap
 #require 'mini_magick'
 # now added as plugin require 'liquid'
 
@@ -64,7 +78,7 @@ Rails::Initializer.run do |config|
   #
   # Path to custom handlers 
   #  app/cachers page and partial caching code
-  #  app/observer active record model change logggers
+  #  app/observer active record model change loggers
   #  app/drops custom liquid template data formaters
   #
   config.load_paths += %W( #{RAILS_ROOT}/app/cachers #{RAILS_ROOT}/app/observers #{RAILS_ROOT}/app/drops )
@@ -128,3 +142,25 @@ class NilClass
   end
 end
 
+#
+# Handle the issue with 'unhandled method [] #<Enumera...'
+#
+unless '1.9'.respond_to?(:force_encoding)
+  String.class_eval do
+    begin
+      remove_method :chars
+    rescue NameError
+      # OK
+    end
+  end
+end
+#
+unless '1.9'.respond_to?(:force_encoding)
+  String.class_eval do
+    begin
+      remove_method :chars
+    rescue NameError
+      # OK
+    end
+  end
+end

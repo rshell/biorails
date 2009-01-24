@@ -12,7 +12,6 @@ class ProjectContentTest < Test::Unit::TestCase
     item = ProjectContent.new(:name=>'test')
     assert item.name
     assert item.summary  
-    assert item.to_html 
   end
    
   def test_find
@@ -82,7 +81,6 @@ class ProjectContentTest < Test::Unit::TestCase
   def test_project_content_build
     folder = ProjectFolder.find(:first)
     element = folder.add_content('name',"test text")
-    assert_not_nil element.content.content_hash
     assert_equal "test text", element.content.body_html
     assert element.content.valid?
     assert element.save
@@ -92,12 +90,10 @@ class ProjectContentTest < Test::Unit::TestCase
   def test_project_update_content
     first=@model.find(:first)
     first.update_content('this is a body')
-    assert_not_nil first.content.content_hash
     assert_equal first.name, first.content.name
     assert_equal 'this is a body', first.content.body_html
     assert first.content.valid?
     first.update_content("test text")
-    assert_not_nil first.content.content_hash
     assert_equal "test text", first.content.body_html
     assert first.content.valid?
     assert_ok first

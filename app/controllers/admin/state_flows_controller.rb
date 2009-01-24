@@ -16,7 +16,7 @@ class Admin::StateFlowsController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'list' }
       format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
-      format.pdf  { render_pdf :action => 'list',:layout=>false }
+      format.pdf  { render_pdf "state_flows.pdf",:action => 'list',:layout=>false }
       format.json { render :json => @report.data.to_json }
       format.xml  { render :xml => @report.data.to_xml }
     end

@@ -18,11 +18,6 @@ class AuditControllerTest < Test::Unit::TestCase
     assert_response :success
   end
 
-  def test_show_json
-    get :show,:auditable_type=>'Assay',:id=>1,:format=>'json'
-    assert_response :success
-  end
-
   def test_show_xml
     get :show,:auditable_type=>'Assay',:id=>1,:format=>'xml'
     assert_response :success

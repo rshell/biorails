@@ -12,22 +12,6 @@ class ApplicationHelperTest < TestHelper
     @controller=ApplicationController.new
   end
 
-  def test_version
-    assert_match '7',version_no("a_V7")
-    assert_match '0',version_no("a")
-  end
-
-  def test_docpath_returns_correct_text
-    assert_match(/show pdf/ , docpath('../../test/fixtures/files/Fitting'))
-    assert_match(/missing/ , docpath('Project_X/missing'))
-  end
-
-  def test_zippath_returns_correct_text
-    assert_match(/show zip/ , zippath('../../test/fixtures/files/test'))
-    assert_match(/missing/ , zippath('../../test/fixtures/files/missing'))
-  end
-
-
   def test_error_messages_for
     @task = Task.new
     assert !@task.valid?
@@ -77,18 +61,6 @@ class ApplicationHelperTest < TestHelper
 
   def test_tree_panel
     html = tree_panel("test")
-    assert html.is_a?(String)
-    assert html.size>0
-  end
-
-  def test_docpath
-    html =docpath("test")
-    assert html.is_a?(String)
-    assert html.size>0
-  end
-
-  def test_zippath
-    html =zippath("test")
     assert html.is_a?(String)
     assert html.size>0
   end

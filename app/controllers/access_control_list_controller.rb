@@ -16,7 +16,6 @@ class AccessControlListController < ApplicationController
     respond_to do |format|
       format.html { render :action => 'show' }
       format.ext { render :partial => 'show' }
-      format.pdf  { render_pdf :action => 'show',:layout=>false }
       format.xml  { render :xml => @acl.to_xml }
       format.js  { 
         render :update do | page |  

@@ -1,0 +1,9 @@
+<div class="content">
+  <%= render :partial=> @project.partial_template('show_names') %>
+</div>
+<div class="splitcontentleft">
+  <%= render :partial=> @project.partial_template('show_people') %>
+</div>
+<div class="splitcontentright">
+  <%= render :partial=> @project.partial_template('show_status') %>
+</div>

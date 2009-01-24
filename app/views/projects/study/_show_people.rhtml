@@ -1,0 +1,36 @@
+<div class="box">
+  <table width="100%" class="report">
+    <tr>
+      <th>
+        <%=l(:Study_Director)%>
+      </th>
+      <td>
+        <%= study_director_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%=l(:Study_Sponsor)%>
+      </th>
+      <td>
+        <%= study_sponsor %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%=l(:Assigned_To) %>
+      </th>
+      <td>
+        <%= @project.team %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%=l(:Default_Witness)%>
+      </th>
+      <td>
+        <%= default_witness_name  %>
+      </td>
+    </tr>
+  </table>
+</div>

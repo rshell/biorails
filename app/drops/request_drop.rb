@@ -32,12 +32,14 @@ class ProcessInstanceDrop < BaseDrop
  end
 
  def services
-   liquify(@source.services) 
+   @source.services 
  end
  
  def items
    if @source.list
-     liquify(@source.list.items)    
+     @source.list.items
+   else
+     []
    end
  end
  

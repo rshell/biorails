@@ -246,7 +246,7 @@ SQL
     Identifier.fill_defaults(self)    
     self.started_at  ||= Time.new
     self.expected_at ||= Time.new + 6.months
-  end   
+  end
 
   def validate_title
     (self.project_type and self.project_type.study?)
@@ -582,10 +582,8 @@ SQL
 #
   def unlinked_assays
     list = Assay.list(:all) - linked_assays
-    list.collect do |i|
-      logger.info "#{i.name } [#{i.shareable?(self)}] #{i.shareable_status(self)}"
-    end
-    list.select{|i|i.shareable?(self)}.sort{|a,b|a.path<=>b.path}
+    list = list.select{|i|i.shareable?(self)} # Filter to shareable items
+    list.sort{|a,b|a.path<=>b.path} # sort by path
   end  
   
   def usable_assays

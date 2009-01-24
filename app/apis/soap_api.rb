@@ -314,19 +314,30 @@ class SoapApi < ActionWebService::API::Base
 
   api_method  :project_element_list,
     :expects => [ {:session_id => :string},
-		{:parent_id => :int} ],
+                  {:parent_id => :int} ],
     :returns => [[BiorailsElement]]
- 
+
+  api_method  :project_element_matching,
+    :expects => [ {:session_id => :string},
+                  {:path_text =>  :string}],
+    :returns => [[BiorailsElement]]
+
+  api_method  :project_element_search,
+    :expects => [ {:session_id => :string},
+                  {:path_text =>  :string},
+                  {:conditions => :string}],
+    :returns => [[BiorailsElement]]
+
   api_method  :project_folder,
     :expects => [ {:session_id => :string},
-		{:project_element_id => :int} ],
+                  {:project_element_id => :int} ],
     :returns => [[BiorailsFolder]]
 
   api_method :project_create,
     :expects => [ {:session_id => :string},
-		{:name => :string},
-		{:description => :string},
-		{:project_type_id => :int} ],
+                  {:name => :string},
+                  {:description => :string},
+                  {:project_type_id => :int} ],
     :returns => [BiorailsStatus]
 
  
@@ -383,36 +394,25 @@ class SoapApi < ActionWebService::API::Base
 
 #----------------------------------------------------------------------------------
 # Create Protocols
-#
-  api_method  :assay_process_create,
-    :expects => [ {:session_id => :string},
-		{:assay_id=> :integer},
-		{:name => :string},
-		{:description => :string} ],
-    :returns => [BiorailsStatus]
- 
+# 
   api_method  :process_instance_create,
     :expects => [ {:session_id => :string},
 		{:assay_process_id=> :integer},
-		{:label => :string}],
+		{:name => :string},
+		{:description => :string}],
     :returns => [BiorailsStatus]
     
   api_method  :parameter_context_create,
     :expects => [ {:session_id => :string},
-		{:process_version_id=> :integer},
+		{:process_context_id=> :integer},
 		{:label => :string},
-		{:parent_id => :integer},
 		{:default_rows => :integer}],
     :returns => [BiorailsStatus]
     
   api_method  :parameter_create,
     :expects => [ {:session_id => :string},
 		{:parameter_context_id=> :integer},
-		{:assay_parameter_id=> :integer},
-		{:name => :string},
-		{:formula => :string},
-		{:default_value => :integer},
-		{:source => :string}],
+		{:assay_parameter_id=> :integer}],
     :returns => [BiorailsStatus]
     
 
@@ -494,6 +494,10 @@ class SoapApi < ActionWebService::API::Base
   api_method :task_export,
     :expects => [ {:session_id => :string},{:task_id => :int} ],
     :returns => [:string]
+
+  api_method :task_destroy,
+    :expects => [ {:session_id => :string},{:task_id => :int} ],
+    :returns => [BiorailsStatus]
 
   api_method  :task,
     :expects => [ {:session_id => :string},

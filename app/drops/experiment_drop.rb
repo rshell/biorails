@@ -59,11 +59,11 @@ class ExperimentDrop < BaseDrop
  
  
  def tasks
-   liquify(@source.tasks)    
+   @source.tasks   
  end
  
  def statistics
-   liquify(@source.stats)    
+   @source.stats   
  end
  
  protected

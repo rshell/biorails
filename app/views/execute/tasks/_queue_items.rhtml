@@ -1,0 +1,31 @@
+  <%= link_to( l(:Auto_assign_items_to_task), task_url( :action => 'assign',  :id => @task.id), :class=>'icon icon-queue') %>
+  <table class='report'>
+    <tr>
+      <th><%=l(:Request)%></th>
+      <th><%=l(:Item)%></th>
+      <th><%=l(:Status)%></th>
+      <th><%=l(:Priority)%></th>
+      <th><%=l(:Requested_By)%></th>
+      <th><%=l(:Assigned_To)%></th>
+      <th><%=l(:Summary)%></th>
+
+    </tr>
+    <%for queue_item in queue_items %>
+      <tr id='<%=queue_item.dom_id(:updated_at)%>' class="<%= cycle('odd', 'even') %>">
+        <td>
+          <%=link_to queue_item.service.name, service_url(:action => 'show', :id => queue_item.service) if queue_item.service %>
+        </td>
+        <td><%=queue_item.data_name %></td>
+        <td><%=queue_item.status %></td>
+        <td><%=queue_item.priority%></td>
+        <td><%=queue_item.requested_by.name %></td>
+        <td><%=queue_item.assigned_to.name %></td>
+        <td><%=queue_item.service.status_summary  %></td>
+      </tr>
+    <% end %>
+  </table>
+
+
+  <%= link_to( l(:Update_requested_items), task_url( :action => 'update_queue',  :id => @task.id), :class=>'icon icon-queue') %>
+  <%= link_to( l(:Update_any_requested_items), task_url( :action => 'update_queue',:any=>'y',  :id => @task.id), :class=>'icon icon-queue') %>
+

@@ -85,16 +85,10 @@ class Execute::RequestServicesControllerTest < Test::Unit::TestCase
     assert_response :success
   end
 
-  def test_update_service_json
-    post :update_service, :id => @first.id,:status_id=>1,:priority_id=>1,:format=>'json'
-    assert_response :success
-  end
-
   def test_update_service_xml
     post :update_service, :id => @first.id,:status_id=>1,:priority_id=>1,:format=>'xml'
     assert_response :success
   end
-
 
   def test_update_item
     @item =QueueItem.find(:first)
@@ -106,12 +100,6 @@ class Execute::RequestServicesControllerTest < Test::Unit::TestCase
   def test_update_item_js
     @item =QueueItem.find(:first)
     post :update_item, :id => @item.id,:status_id=>1,:priority_id=>1,:format=>'js'
-    assert_response :success
-  end
-
-  def test_update_item_json
-    @item =QueueItem.find(:first)
-    post :update_item, :id => @item.id,:status_id=>1,:priority_id=>1,:format=>'json'
     assert_response :success
   end
 

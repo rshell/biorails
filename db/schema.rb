@@ -1,5 +1,5 @@
 # This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of Active Record to incrementally modify your database, and
+# please use the migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your database schema. If you need
@@ -322,6 +322,8 @@ ActiveRecord::Schema.define(:version => 367) do
     t.string   "iupacname",                          :default => ""
     t.integer  "updated_by_user_id",                 :default => 1,  :null => false
     t.integer  "created_by_user_id",                 :default => 1,  :null => false
+    t.text     "molfile"
+    t.text     "chime"
   end
 
   add_index "compounds", ["updated_by_user_id"], :name => "compounds_idx12"
@@ -332,22 +334,42 @@ ActiveRecord::Schema.define(:version => 367) do
   add_index "compounds", ["updated_by_user_id"], :name => "compounds_updated_by_user_id"
   add_index "compounds", ["created_by_user_id"], :name => "compounds_created_by_user_id"
 
-  create_table "container_items", :force => true do |t|
-    t.integer "container_group_id",                 :null => false
-    t.string  "subject_type",       :default => "", :null => false
-    t.integer "subject_id",                         :null => false
-    t.integer "slot_no",                            :null => false
+  create_table "container_slots", :force => true do |t|
+    t.string   "name",               :limit => 128, :default => "", :null => false
+    t.integer  "container_type_id"
+    t.integer  "row_no",                            :default => 0,  :null => false
+    t.integer  "column_no",                         :default => 0,  :null => false
+    t.integer  "slot_no",                           :default => 0,  :null => false
+    t.integer  "lock_version",                      :default => 0,  :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
+    t.integer  "updated_by_user_id",                :default => 1,  :null => false
+    t.integer  "created_by_user_id",                :default => 1,  :null => false
   end
 
-  add_index "container_items", ["container_group_id"], :name => "container_items_idx2"
-  add_index "container_items", ["subject_id"], :name => "container_items_idx4"
-  add_index "container_items", ["container_group_id"], :name => "container_items_container_group_id"
-  add_index "container_items", ["subject_id"], :name => "container_items_subject_id"
+  add_index "container_slots", ["updated_by_user_id"], :name => "plate_wells_idx10"
+  add_index "container_slots", ["created_by_user_id"], :name => "plate_wells_idx11"
+  add_index "container_slots", ["name"], :name => "plate_wells_idx2"
+  add_index "container_slots", ["created_at"], :name => "plate_wells_idx8"
+  add_index "container_slots", ["updated_at"], :name => "plate_wells_idx9"
+  add_index "container_slots", ["updated_by_user_id"], :name => "plate_wells_updated_by_user_id"
+  add_index "container_slots", ["created_by_user_id"], :name => "plate_wells_created_by_user_id"
+
+  create_table "container_types", :force => true do |t|
+    t.string "name",        :limit => 40, :null => false
+    t.string "description",               :null => false
+    t.string "style",       :limit => 40, :null => false
+  end
+
+  add_index "container_types", ["name"], :name => "container_items_idx2"
+  add_index "container_types", ["description"], :name => "container_items_idx4"
+  add_index "container_types", ["name"], :name => "container_items_container_group_id"
+  add_index "container_types", ["description"], :name => "container_items_subject_id"
 
   create_table "containers", :force => true do |t|
     t.string   "name",               :limit => 128,  :default => "", :null => false
     t.string   "description",        :limit => 1024, :default => "", :null => false
-    t.integer  "plate_format_id"
+    t.integer  "container_type_id"
     t.integer  "lock_version",                       :default => 0,  :null => false
     t.datetime "created_at",                                         :null => false
     t.datetime "updated_at",                                         :null => false
@@ -356,12 +378,12 @@ ActiveRecord::Schema.define(:version => 367) do
   end
 
   add_index "containers", ["name"], :name => "containers_idx2"
-  add_index "containers", ["plate_format_id"], :name => "containers_idx4"
+  add_index "containers", ["container_type_id"], :name => "containers_idx4"
   add_index "containers", ["created_at"], :name => "containers_idx6"
   add_index "containers", ["updated_at"], :name => "containers_idx7"
   add_index "containers", ["updated_by_user_id"], :name => "containers_idx8"
   add_index "containers", ["created_by_user_id"], :name => "containers_idx9"
-  add_index "containers", ["plate_format_id"], :name => "containers_plate_format_id"
+  add_index "containers", ["container_type_id"], :name => "containers_plate_format_id"
   add_index "containers", ["updated_by_user_id"], :name => "containers_updated_by_user_id"
   add_index "containers", ["created_by_user_id"], :name => "containers_created_by_user_id"
 
@@ -907,68 +929,10 @@ ActiveRecord::Schema.define(:version => 367) do
     t.string  "action",  :default => "",    :null => false
   end
 
-  create_table "plate_formats", :force => true do |t|
-    t.string   "name",               :limit => 128,  :default => "", :null => false
-    t.string   "description",        :limit => 1024, :default => "", :null => false
-    t.integer  "num_rows"
-    t.integer  "num_columns"
-    t.integer  "lock_version",                       :default => 0,  :null => false
-    t.datetime "created_at",                                         :null => false
-    t.datetime "updated_at",                                         :null => false
-    t.integer  "updated_by_user_id",                 :default => 1,  :null => false
-    t.integer  "created_by_user_id",                 :default => 1,  :null => false
+  create_table "plugin_schema_info", :id => false, :force => true do |t|
+    t.string  "plugin_name"
+    t.integer "version"
   end
-
-  add_index "plate_formats", ["created_by_user_id"], :name => "plate_formats_idx10"
-  add_index "plate_formats", ["name"], :name => "plate_formats_idx2"
-  add_index "plate_formats", ["created_at"], :name => "plate_formats_idx7"
-  add_index "plate_formats", ["updated_at"], :name => "plate_formats_idx8"
-  add_index "plate_formats", ["updated_by_user_id"], :name => "plate_formats_idx9"
-  add_index "plate_formats", ["updated_by_user_id"], :name => "plate_formats_updated_by_user_id"
-  add_index "plate_formats", ["created_by_user_id"], :name => "plate_formats_created_by_user_id"
-
-  create_table "plate_wells", :force => true do |t|
-    t.string   "name",               :limit => 128, :default => "", :null => false
-    t.string   "label"
-    t.integer  "row_no",                            :default => 0,  :null => false
-    t.integer  "column_no",                         :default => 0,  :null => false
-    t.integer  "slot_no",                           :default => 0,  :null => false
-    t.integer  "lock_version",                      :default => 0,  :null => false
-    t.datetime "created_at",                                        :null => false
-    t.datetime "updated_at",                                        :null => false
-    t.integer  "updated_by_user_id",                :default => 1,  :null => false
-    t.integer  "created_by_user_id",                :default => 1,  :null => false
-  end
-
-  add_index "plate_wells", ["updated_by_user_id"], :name => "plate_wells_idx10"
-  add_index "plate_wells", ["created_by_user_id"], :name => "plate_wells_idx11"
-  add_index "plate_wells", ["name"], :name => "plate_wells_idx2"
-  add_index "plate_wells", ["created_at"], :name => "plate_wells_idx8"
-  add_index "plate_wells", ["updated_at"], :name => "plate_wells_idx9"
-  add_index "plate_wells", ["updated_by_user_id"], :name => "plate_wells_updated_by_user_id"
-  add_index "plate_wells", ["created_by_user_id"], :name => "plate_wells_created_by_user_id"
-
-  create_table "plates", :force => true do |t|
-    t.string   "name",                                               :null => false
-    t.string   "description",        :limit => 1024, :default => "", :null => false
-    t.string   "external_ref"
-    t.string   "quantity_unit"
-    t.float    "quantity_value"
-    t.string   "url"
-    t.integer  "lock_version",                       :default => 0,  :null => false
-    t.datetime "created_at",                                         :null => false
-    t.datetime "updated_at",                                         :null => false
-    t.integer  "updated_by_user_id",                 :default => 1,  :null => false
-    t.integer  "created_by_user_id",                 :default => 1,  :null => false
-  end
-
-  add_index "plates", ["updated_at"], :name => "plates_idx10"
-  add_index "plates", ["updated_by_user_id"], :name => "plates_idx11"
-  add_index "plates", ["created_by_user_id"], :name => "plates_idx12"
-  add_index "plates", ["name"], :name => "plates_idx2"
-  add_index "plates", ["created_at"], :name => "plates_idx9"
-  add_index "plates", ["updated_by_user_id"], :name => "plates_updated_by_user_id"
-  add_index "plates", ["created_by_user_id"], :name => "plates_created_by_user_id"
 
   create_table "process_definitions", :force => true do |t|
     t.string   "name",               :limit => 30, :default => "", :null => false
@@ -1525,11 +1489,23 @@ ActiveRecord::Schema.define(:version => 367) do
   add_index "roles", ["updated_by_user_id"], :name => "roles_updated_by_user_id"
 
   create_table "samples", :force => true do |t|
+    t.integer "container_slot_id",               :null => false
+    t.integer "batch_id",                        :null => false
+    t.integer "container_id",                    :null => false
+    t.float   "volumn_value"
+    t.string  "volumn_unit",       :limit => 11
+    t.float   "conc_value"
+    t.string  "conc_unit",         :limit => 11
   end
 
   create_table "schema_info", :id => false, :force => true do |t|
     t.string "version", :limit => 50
   end
+
+  create_table "schema_migrations", :primary_key => "version", :force => true do |t|
+  end
+
+  add_index "schema_migrations", ["version"], :name => "unique_schema_migrations", :unique => true
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

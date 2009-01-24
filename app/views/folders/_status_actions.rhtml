@@ -7,13 +7,7 @@
       <th>
         <% if  @allowed and @allowed.any?{|i|i == item} %>
 
-          <% if item.signed? %>
-            <%=button_to item.name, signature_url(:action=>:new, :id=>@project_folder.id, :state_id=> item.id),  :class =>"icon icon-sign" if right?(:document,:publish) %>
-          <% elsif @signature and @project_folder.state.signed? %>
-            <%=button_to item.name, signature_url(:action=>:withdraw, :id=>@signature.id, :state_id=> item.id),  :class =>"icon icon-withdraw" if right?(:document,:withdraw) %>
-          <% else %>
             <%=button_to item.name, folder_url(:action=>:publish, :id=>@project_folder.id, :state_id=> item.id), :class =>"icon icon-release" %>
-          <%end %>
 
         <% else%>
 

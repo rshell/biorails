@@ -1,0 +1,22 @@
+<% if model.count > 0 %>
+  <%if right?(:data,:create)%>
+    <% form_tag :action => 'link',:id=>current_project.id do %>
+      <table>
+        <tr valign="top">
+          <td valign="top">
+            <%= select_named_tag("#{model.to_s.underscore}_id", model,nil, {:name=>:object_id,})  %>
+          </td>
+          <td valign="top">
+            <%=  content_tag( :textarea, "", {:id=>"#{model.to_s.underscore}_coment", :name=>:title }) %>
+            <%=  tag(:input,{:type=>:hidden, :value=> model.to_s, :id=>"#{model.to_s.underscore}_class",  :name=>:object_class}) %>
+          </td>
+          <td valign="top">
+            <%= submit_tag l(:Add) %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  <% end %>
+<%  else %>
+  <p>No <%=model.to_s.pluralize%> found</p>
+<% end  %>

@@ -1,0 +1,676 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.4  (Linux)">
+	<META NAME="AUTHOR" CONTENT="rshell">
+	<META NAME="CREATED" CONTENT="20081203;15054200">
+	<META NAME="CHANGEDBY" CONTENT="rshell">
+	<META NAME="CHANGED" CONTENT="20081203;15384400">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 2cm }
+		P { margin-bottom: 0.21cm }
+		P.western { so-language: en-GB }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-GB" DIR="LTR">
+<P CLASS="western" STYLE="margin-bottom: 0cm">Why Digital Signatures?
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">●  Technology for
+Digital Signatures 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">●  Implementation in 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+OpenOffice.org/StarOffice 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Future Outlook 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">●  Authentication 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">●  Authorization 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">●  Verify Document
+Integrity 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Authentication 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  A Basic Security
+Issue is Authentication 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Authentication is the
+process of confirming 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  the identity of an
+entity (a user, a machine, a 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  company) 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Securely identify the
+Author of a Document 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Authorization 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Authentication serves
+as the basis for 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Authorization 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Specifically, once it
+knows the identity of a 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  subject, an
+application may then specify 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  what set of
+operations that subject may 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  perform 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Authorization 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Macro Security 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Decide whether to
+run a macro or not 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">       Decision based
+on author, not on macro content, 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     ● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">       because you
+can't review every macro you receive 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Fine Grained Macro
+Security 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">       Macros from
+different authors can have different 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     ● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">       access rights to
+systems resources 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Authorization 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Digital Rights
+Management 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Digital Signatures
+can be used for simple DRM: 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Who is allowed to
+read/modify/print the 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    document? 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    DRM cannot be
+enforced with this, only be 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    implemented in
+specific applications 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Verify Document
+Integrity 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Verify that the
+Document Content was not 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  altered 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     A document might
+simply be corrupted because 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     of broken file
+transfer, but it can also be 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     manipulated by
+Intention 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Checksums / Hash
+Values can be used to verify 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     the Content 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Technology for Digital
+Signatures 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Hash Values 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Encryption Algorithms
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Public Key
+Certificates 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Hash Values 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  One Way Hash
+Functions 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Easy to compute,
+but difficult to reverse 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Difficult to find
+two input values which result in 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    same output value 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Can be used to
+calculate Hash Values for the 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    document content,
+which are much smaller than 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    the Document
+Content itself 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Hash Values can be
+stored at a separate place or as 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    part of the
+Signature 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Use same Hash
+Function to compute Hash Values 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    for a received
+Document, compare with the saved 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Values 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Encryption Algorithms 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Change Data so it can
+only be read with the 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  proper Encryption Key
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Original text is
+called “Plain Text” 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Transformed text
+is called “Cipher Text” 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Recovering Plain
+Text from Cipher Text only 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     possible with
+correct Key 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Encryption Types 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Symmetric
+Encryption 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Asymmetric
+Encryption 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Symmetric Encryption 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Same Key is used for
+Encryption and 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Decryption 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Also called “Secret
+Key” Ciphers 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Two communicating
+parties must share a secret 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     key. This
+requirement creates some difficulties 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     in key management
+and key distribution 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Improve Crypto
+Strength 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Symmetric Ciphers
+can be stacked to improve 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Crypto strength of
+the whole system, such as in 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     the case of
+triple-DES 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Asymmetric Encryption 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Pair of Keys, one is
+used for Encryption, the 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  other for Decryption 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Private Key is only
+known by the Owner, 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Public Key can be
+know by everybody and 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Easily being
+distributed via Public Channels 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Asymmetric Encryption 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  In some Asymmetric
+Systems the 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Encryption and
+Decryption is reversible 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     This means that
+one can apply the decryption 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     operation with the
+private key to the plaintext to 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     get ciphertext,
+and one can recover the plaintext 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     by applying the
+encryption operation with the 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     public key to the
+ciphertext. 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Only the holder of
+the private key can generate 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     the ciphertext
+with these systems, so the 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     ciphertext can
+serve as a digital signature of the 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     plaintext, and
+anyone with the public key can 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     verify the
+authenticity of the signature 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Public Key Certificates
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Users of public-key
+applications and systems 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  must be confident
+that the public key of a 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  subject is genuine 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Public-key
+certificates are used to establish 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  trust. A public-key
+certificate is a binding of 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  a public key to a
+subject, whereby the 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  certificate is
+digitally signed by the private 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  key of another
+entity, often called a 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Certification
+Authority (CA) 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Public Key Certificates
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Holds together
+Information about the Owner 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Name, Email
+Address, Public Key, Company 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Name, ... 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  The standard digital
+certificate format is 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  ITU-T X.509. 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  An X.509 certificate
+binds a public key to a 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Distinguished Name 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Implementation in 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">OpenOffice.org/StarOffice
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  W3C XML DSIG 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  OOo Security
+Framework 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">W3C XML DSIG 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  OpenOffice.org
+implements Digital 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Signatures following
+W3C XML DSIG 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Recommendations 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Structure of the
+Signature itself is XML 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Used Encryption
+and Hash Algorithms are 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     stored within the
+Signature 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Signature can
+easily be verified with different 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     implementations 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">W3C XML DSIG 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  XML Content can be
+verified via DOM, 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  physical
+representation doesn't matter 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Implementation for
+Binary Data like Pictures 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  is also available 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">OOo Security Framework 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Application shouldn't
+care about Certificate 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Deployment and
+Management 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Use existing
+Infrastructure 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    MS Crypto on
+Windows 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Mozilla / NSS on
+Linux and Solaris 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">OOo Security Framework 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  LibXMLSec, LibXML2 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  OpenOffice.org uses
+LibXMLSec and 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  LibXML2 to create and
+verify Digital 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Signatures 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  LibXMLSec can handle
+MS Crypto API and 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  NSS 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  The OOo Security
+Framework is designed to 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  support different
+implementations, like Java 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  JSR 105/106 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Demonstrations 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Digital Signatures 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Adding some
+Signatures 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Broken Signatures 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Demonstrations 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Macro Security 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Security Levels 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">    Trusted Sources and
+Authors 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Other Security Options 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Document Encryption 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Warn if certain
+Information are saved, 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  signed or printed and
+have 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Versions 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Redlining
+Information 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Notes 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Remove Personal
+Information on Saving 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Recommend Password
+Protection on Saving 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Demonstrations 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Other Security
+Options 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">Future Outlook 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  Fine Grained Macro
+Security 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     UNO already offers
+a mechanism for this 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Needs a lot of
+changes in UNO API 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Implementations 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  W3C Encryption using
+Certificates 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Needs Enhancements
+to our current framework 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">     Workflow and Key
+Retrieval undefined 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">   – 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">  (Digital Rights
+Management) 
+</P>
+<P CLASS="western" STYLE="margin-bottom: 0cm">● 
+</P>
+</BODY>
+</HTML>

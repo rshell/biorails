@@ -1,6 +1,5 @@
 require File.dirname(__FILE__) + '/../test_helper'
 require  "projects_controller"
-require 'json'
 
 # Re-raise errors caught by the controller.
 class ProjectsController; def rescue_action(e) raise e end; end
@@ -175,15 +174,6 @@ class ProjectsControllerTest < Test::Unit::TestCase
     assert_response :success
   end
 
-  def test_get_show_as_json
-    get :show ,:id=>@item.id,:format=>'json'
-    assert_response :success
-    parsed_json= JSON.parse(@response.body)
-    assert_not_nil=parsed_json['name']
-    assert_not_nil=parsed_json['title']
-    assert_equal 'Global',  parsed_json['name']
-  end
-
   def test_get_show_as_xml
     get :show ,:id=>@item.id,:format=>'xml'
     assert_response :success
@@ -194,12 +184,6 @@ class ProjectsControllerTest < Test::Unit::TestCase
     assert_response :success
     assert_template 'new'
     assert_tag :tag=>'input', :attributes=>{:name=>'project[name]'}
-  end
-
-  def test_get_published
-    get :published
-    assert_response :success
-    assert_template 'published'
   end
 
   def test_link

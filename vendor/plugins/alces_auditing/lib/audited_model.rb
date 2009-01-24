@@ -88,13 +88,13 @@ module Alces
           # helper to simply get a user.name
           # 
           def created_by
-            self.created_by_user.name
+            (self.created_by_user.is_a?(User) ? self.created_by_user.name : "<none>")
           end
           ##
           # helper to simply get a user.name
           # 
           def updated_by
-            self.updated_by_user.name  
+            (self.updated_by_user.is_a?(User) ? self.updated_by_user.name : "<none>")
           end
           ##
           # Output a summary of audit status of the the object
@@ -163,7 +163,7 @@ module Alces
           end
   
           def audit_destroy
- #            write_audit(:destroy)            
+            write_audit(:destroy)            
           end
         
           def write_audit(action = :update)

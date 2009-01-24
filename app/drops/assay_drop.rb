@@ -29,7 +29,7 @@ class AssayDrop < BaseDrop
  end
  
  def protocols
-   liquify(@source.protocols) 
+   @source.protocols
  end
  
  def project
@@ -41,11 +41,11 @@ class AssayDrop < BaseDrop
  end
 
  def parameters
-   liquify(@source.parameters)    
+   @source.parameters    
  end
  
  def queues
-   liquify(@source.queues)    
+   @source.queues 
  end
 
 

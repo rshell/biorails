@@ -15,6 +15,7 @@
   <div class='actions_right'>
     <% if  @protocol_version and !@protocol_version.new_record? and @protocol_version.changeable? %>
       <%= link_to l(:New_Version), process_instance_url(:action =>'copy',:id => @protocol_version), :class=>'icon icon-add' %>
+      <%= link_to( l(:Test), process_instance_url(:action =>'test',:id => @protocol_version), :class=>'icon icon-task') %>
       <%= link_to l(:Purge),    process_instance_url(:action =>'purge',:id => @protocol_version), :class=>'icon icon-del' %>
       <%= link_to( l(:Destroy),  process_instance_url(:action =>'destroy',:id => @protocol_version), :class=>'icon icon-del') unless @protocol_version.used?  %>
     <%else%>

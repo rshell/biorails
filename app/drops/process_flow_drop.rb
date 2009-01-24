@@ -29,7 +29,7 @@ class ProcessFlowDrop < BaseDrop
  end
  
  def contexts
-   liquify(@source.contexts)
+  @source.contexts
  end
  
  def folder
@@ -41,11 +41,11 @@ class ProcessFlowDrop < BaseDrop
  end
  
  def experiments
-   liquify(@source.experiments)    
+   @source.experiments   
  end
  
   def steps
-   liquify(@source.steps)    
+   @source.steps    
  end
  
  protected

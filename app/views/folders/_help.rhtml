@@ -2,24 +2,5 @@
     <span class="icon icon-task x-panel-header-text"><%=l(:Folder) %><%=l(:Status) %> (<%=l(:Signatures) %>)</span>
 </div>
 <div class="panel">
-    <p>
-        <% if @project_folder and @project_folder.signed? %>
-        <b><%=l(:Signed_Folder) %>
-        </b>
-        <br/>
-        <ul style='text-indent:0.5em; list-style: none'>
-            <%for signature in @project_folder.signed %>
-            <li class='icon icon-sign'>
-                <%= link_to "V#{version_no(signature.filename)}", signature.file_url %>
-                <%= signature.signature_role.downcase.titlecase %>: <%= signature.signer.name %>
-                <br/>
-                <%=l(:Date) %>: <%= short_date(signature.signed_date) %>
-            </li>
-            <%end %>
-        </ul>
-        <hr/><%= link_to( l(:Show_All),signature_url( :action => 'show', :id => @project_folder.id )) %>
-        <% else %>
-        <b><%=l(:this_folder_is_unsigned) %></b>
-        <% end %>
-    </p>
+
 </div>

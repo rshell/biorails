@@ -27,11 +27,11 @@
      </th>         
   </tr>
  <%for queue_item in request_service.items %>
-  <% form_tag :action => 'update_item',:id=> queue_item.id do %>
         <tr id='<%=queue_item.dom_id(:updated_at)%>'>
-          <%= render :partial => 'queue_item', :locals => { :queue_item => queue_item} %>  
-        </tr>
-   <% end %>   
+          <% form_tag :action => 'update_item',:id=> queue_item.id do %>
+              <%= render :partial => 'queue_item', :locals => { :queue_item => queue_item} %>
+            <% end %>
+          </tr>
 
  <% end %>
 </table>

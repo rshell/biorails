@@ -1,8 +1,13 @@
 <%=render :partial => 'header'%>
+
 <% dialog l(:Compound_New) do %>
-<% form_tag :action => 'create' do %>
-<%= render :partial => 'form' %>
-<%= submit_tag "Create" %>
-<% end %>
+  <% form_tag :action => 'create' do %>
+      <%= render :partial => 'form' %>
+      <br />
+      <br />
+    <div class="content row">
+      <%= submit_tag "Create" %>
+    </div>
+  <% end %>
 <%end%>
 

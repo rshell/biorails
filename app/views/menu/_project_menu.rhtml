@@ -9,7 +9,6 @@
     <%= link_to( l(:Update), project_url( :action => 'edit', :id => current_project)) if current_project.changeable? %>
     <%= link_to( l(:Folders), folder_url( :action => 'show', :id => current_project.home)) %>
     <%= link_to( l(:Calendar), calendar_url(:action => 'show', :id => current_project.folder)) %>
-    <%= link_to( l(:Published), signature_url( :action => 'published')) %>
     <%= link_to( l(:Reports), report_url( :action => 'list', :id => current_project))  %>
     <%= link_to( l(:Cross_Tabs), cross_tab_url( :action => 'list', :id => current_project)) %>
     <%= link_to( l(:Assays) , assay_url( :action => 'list',:id=>current_project)) %>

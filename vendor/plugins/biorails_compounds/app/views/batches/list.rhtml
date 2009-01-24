@@ -22,9 +22,11 @@
   <% for column in Batch.content_columns %>
     <td><%=h batch.send(column.name) %></td>
   <% end %>
-    <td><%= link_to (subject_icon('show.png')) + 'Show', :action => 'show', :id => batch %></td>
-    <td><%= link_to (subject_icon('edit.png'))+"Edit", :action => 'edit', :id => batch %></td>
-    <td><%= link_to (subject_icon('destroy.png'))+"Delete", { :action => 'destroy', :id => batch }, :confirm => l(:text_are_you_sure),:method => "post" %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => batch %></td>
+    <td><%= link_to "Edit", :action => 'edit', :id => batch %></td>
+    <td>
+        <%= link_to "Delete", { :action => 'destroy', :id => batch }, :confirm => l(:text_are_you_sure),:method => "post" %>
+    </td>
   </tr>
 <% end %>
 </table>

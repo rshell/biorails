@@ -1,0 +1,32 @@
+<div class="box">
+  <table width="100%" class="report">
+    <tr>
+      <th width="25%">
+        <%=l(:Name)%>
+      </th>
+      <td>
+        <div class="tooltip">
+          <%= @project.name %>
+          <span class="tip">
+            <%=render :partial=>@project.partial_template('projects/sections/tables/box_current_status_table')%>
+          </span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="25%">
+        <%=l(:Title)%>
+      </th>
+      <td colspan="3">
+        <%= @project.title %>
+      </td>
+    </tr>    <tr>
+      <th width="25%">
+        <%=l(:Description)%>
+      </th>
+      <td colspan="3">
+        <%= @project.description %>
+      </td>
+    </tr>
+  </table>
+</div>

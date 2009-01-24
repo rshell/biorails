@@ -46,6 +46,7 @@ class Execute::CrossTabController < ApplicationController
   # GET /cross_tabs/1.xml
   def show
     @cross_tab_columns = @cross_tab.filter(params)
+    @snapshot_name = Identifier.next_id(current_user.login)
     @cross_tab_results = @cross_tab.results(params[:page]||1)
     @context = @cross_tab_columns[0].parameter.context if  @cross_tab_columns[0]
     
@@ -53,7 +54,6 @@ class Execute::CrossTabController < ApplicationController
       format.html { render :action =>'show'}
       format.ext  { render :partial => 'table' }
       format.xml  { render :xml => @cross_tab.to_xml }
-      format.json { render :text => @cross_tab.to_json }
       format.js   { render :update do | page |
            page.main_panel  :partial => 'show' 
          end 
@@ -100,18 +100,19 @@ def export
     output.rewind
     send_data(output.read,:type => 'text/csv; charset=iso-8859-1; header=present',:filename => "crosstab_#{@cross_tab.name}.csv")
   end  
- 
+
 ###
 # Save a Run of a report to as ProjectContent for reporting
 # 
  def snapshot    
     @cross_tab_columns = @cross_tab.columns
-    @cross_tab_results = @cross_tab.results(params[:page]||1)
-    @project_folder  =ProjectFolder.find(params[:folder_id])
+    @cross_tab_results = @cross_tab.results(params[:page]||1,1000)
+    @project_folder = current_project.folder("cross_tabs").folder(@cross_tab.name)
+    name = params[:name]
+    name ||= Identifier.next_id(current_user.login)
 
-    params[:name] = Identifier.next_id(current_user.login) if params[:name].empty?
     @html = render_to_string(:action=>'print', :layout => false)
-    @project_element = @project_folder.add_content(params[:name], @html)
+    @project_element = @project_folder.add_content(name, @html)
     @project_element.reference = @report
     if @project_element.save
         redirect_to folder_url( :action =>'show',:id=>@project_folder )
@@ -131,7 +132,6 @@ def export
     respond_to do |format|
       format.html # new.rhtml
       format.xml  { render :xml => @cross_tab.to_xml }
-      format.json  { render :text => @cross_tab.to_json }
      end  
    end
   #
@@ -174,7 +174,8 @@ def export
   # PUT /cross_tabs/1.xml
   def update
     @tab=3
-    @cross_tab_columns = @cross_tab.filter(params)
+    @cross_tab.filters.clear
+    @cross_tab_columns = @cross_tab.filter(params,true)
     @cross_tab_results = @cross_tab.results(params[:page]||1)
     @successful =  @cross_tab.update_attributes(params[:cross_tab])
     respond_to do |format|
@@ -274,13 +275,18 @@ protected
 # Get the current page of objects
 # 
   def find_cross_tabs
-    start = (params[:start] || 1).to_i      
+    if  params[:id]
+      set_project(Project.load( params[:id] ))
+    end
+    start = (params[:start] || 0).to_i
     size = (params[:limit] || 25).to_i 
     sort_col = (params[:sort] || 'id')
     sort_dir = (params[:dir] || 'ASC')
+
     page = ((start/size).to_i)+1   
     set_element(Project.current.folder(CrossTab.root_folder_under))
-    @cross_tabs = CrossTab.find_all_by_project_id(Project.current.id,
+    @cross_tabs = CrossTab.find(:all,
+           :conditions=>['project_id=?',Project.current.id],
            :limit=> size,
            :offset=> start, 
            :order=> sort_col+' '+sort_dir)

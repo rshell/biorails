@@ -96,12 +96,12 @@ class CrossTab < ActiveRecord::Base
     #
     # Add a filter to the current set
     #
-    def add(column,operator,value)    
-      new_item = build( :filter_op =>operator,
-                        :filter_text => value,
-                        :cross_tab_column_id => (column ? column.id : nil))  
-      new_item.save
-      return new_item
+    def add(column,operator,value)
+      item = find(:first,:conditions=>['cross_tab_column_id=?',column.id])
+      item ||= build(:cross_tab_column_id => (column ? column.id : nil))
+      item.filter_op =   operator
+      item.filter_text = value
+      return item
     end
   end    
 
@@ -258,8 +258,7 @@ class CrossTab < ActiveRecord::Base
   #
   # Add a filter rule set
   #  
-  def filter(params)
-    self.filters.clear
+  def filter(params,  save_filter = false)
     if params[:cross_tab]
       self.date_from = params[:cross_tab][:date_from]
       self.date_to   = params[:cross_tab][:date_to]
@@ -271,7 +270,8 @@ class CrossTab < ActiveRecord::Base
           operator = rule["operator"]
           value = rule["value"]
           if operator and value and operator.size>0
-            self.filters.add(column, operator, value)
+            item = self.filters.add(column, operator, value)
+            item.save if save_filter
           end
         end
     end
@@ -301,17 +301,17 @@ class CrossTab < ActiveRecord::Base
   # Conditions as a exists filter
   #
   def conditions
-    return "1=0" unless columns.size>0
+    return " 1=1 " unless columns.size>0
     ids = contexts.collect{|c|"'#{c.id}'"}.join(',')
-    cond = "task_contexts.parameter_context_id in (#{ids})"
+    cond = " task_contexts.parameter_context_id in (#{ids}) "
     if date_from.is_a?(Date)
-      cond << "and tasks.updated_at >= #{to_sql_date(date_from)} "
+      cond << " and tasks.updated_at >= #{to_sql_date(date_from)} "
     end
     if date_to.is_a?(Date)
-      cond << "and tasks.updated_at <= #{to_sql_date(date_to)} "
+      cond << " and tasks.updated_at <= #{to_sql_date(date_to)} "
     end
     if task_mask
-      cond << "and tasks.name like '#{task_mask}%' "
+      cond << " and tasks.name like '#{task_mask}%' "
     end
     cond_contexts =[]
     for context in self.contexts  
@@ -374,7 +374,7 @@ class CrossTab < ActiveRecord::Base
     filter_sql = self.conditions
     unless User.current.admin?
        filter_sql << <<-SQL
-and (
+  and (
   exists ( select 1 from project_elements inner join states on (project_elements.state_id = states.id)
            where states.level_no >=#{State::PUBLIC_LEVEL}
            and project_elements.id = tasks.project_element_id

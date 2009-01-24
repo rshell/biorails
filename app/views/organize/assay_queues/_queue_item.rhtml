@@ -7,8 +7,9 @@
   <%=queue_item.data_name %>
 </td>
 <td>
-  <%= select_tag 'status_id',
-      options_for_select(queue_item.allowed_status_list,queue_item.status_id),
+
+<%= select_tag 'status_id',
+      options_from_collection_for_select(queue_item.allowed_status_list,:id,:name,queue_item.status_id),
       {:id=>queue_item.dom_id('status_id')}  %>
 
   <%= observe_field queue_item.dom_id('status_id'),

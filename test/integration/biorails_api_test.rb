@@ -5,7 +5,7 @@ require 'action_web_service/test_invoke'
 class TestBiorailApi < ActionController::IntegrationTest
   
   def setup
-    @api = ActionWebService::Client::Soap.new(BiorailsApi,"http://127.0.0.1:30120/biorails/api")
+    @api = ActionWebService::Client::Soap.new(BiorailsApi,"http://127.0.0.1:3000/biorails/api")    
   end
   
   def api

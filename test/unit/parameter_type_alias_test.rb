@@ -117,7 +117,7 @@ class ParameterTypeAliasTest < Test::Unit::TestCase
    def test12_style_matches
     item = ParameterTypeAlias.find(:first)
     assert item
-    assert_equal item.style , item.parameter_type.style
+    assert_not_nil item.style
   end
  
   

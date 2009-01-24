@@ -50,7 +50,7 @@ class FoldersController < ApplicationController
     respond_to do |format|
       format.html {render :action => 'document'}
       format.ext  {render :partial => 'document', :locals=>{:folder=>@project_folder} }
-      format.pdf  {render_folder_pdf(@project_folder)}
+      format.pdf  {render_folder_to_file(@project_folder,'pdf')}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
       format.js  { 
         render :update do | page |  
@@ -68,7 +68,6 @@ class FoldersController < ApplicationController
     @new_status = State.find_by_level_no(State::PUBLIC_LEVEL)
     @all_children = @project_folder.all_children
     @allowed = @project_folder.allowed_states(true)
-    @signature = @project_folder.signatures.last
     respond_to do |format|
       format.html { render :action => 'status'}
       format.ext { render :partial => 'status'}
@@ -79,7 +78,6 @@ class FoldersController < ApplicationController
 
   def publish
     @new_status = State.find(params[:state_id])
-    return redirect_to( signature_url(:action => 'new',:id=>@project_folder,:state_id=>@new_status)) if @new_status.signed?
     begin
       if @project_folder.set_state(@new_status)
         flash[:info] = "update status"
@@ -109,7 +107,7 @@ class FoldersController < ApplicationController
     #self.default_image_size = :normal can resize images if needed
     respond_to do |format|
       format.html { render :action => 'print', :layout => "layouts/printout.rhtml"}
-      format.pdf {render_folder_pdf(@project_folder)}
+      format.pdf  {render_folder_to_file(@project_folder,'pdf')}
       format.xml  { render :xml => @project_folder.to_xml(:include=>[:content,:asset,:reference])}
     end
   end
@@ -133,8 +131,7 @@ class FoldersController < ApplicationController
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @project_folder.to_xml }
-      format.csv  { render :text => @project_folder.to_csv }
-      format.json { render :json =>  @project_folder.to_json }  
+      format.csv  { render :text => @project_folder.to_csv }  
       format.js  { 
         render :update do | page |  
           page.help_panel     :partial => 'help'
@@ -194,7 +191,6 @@ class FoldersController < ApplicationController
     respond_to do |format|
       format.html { render :action => 'edit'}
       format.xml {render :xml =>  @project_folder.to_xml}
-      format.json  { render :text => @project_folder.to_json }
       format.js  { 
         render :update do | page |  
           page.actions_panel  :partial => 'actions'
@@ -271,7 +267,7 @@ class FoldersController < ApplicationController
     @project_element =  current(ProjectElement, params[:before] )
     set_element(@source.parent_id)
     @project_folder = @source.parent
-    if @source.parent_id ==  @project_element.parent_id
+    if @source.parent_id ==  @project_element.parent_id and @project_folder.changeable?
       @source.reorder_before( @project_element )
       @project_folder.reload
     end     
@@ -291,7 +287,8 @@ class FoldersController < ApplicationController
   #   :id = source
   #   :before = element to place element before
   # 
-  def add_element   
+  def add_element
+    begin
     @project_folder = set_element(params[:folder_id])  if params[:folder_id]
     @source =  current(ProjectElement, params[:id] ) 
     
@@ -300,12 +297,15 @@ class FoldersController < ApplicationController
       @project_folder = set_element(@project_element.parent_id)
     end
 
-    if @source.id != @project_folder.id and @source.parent_id != @project_folder.id
+    if @source.id != @project_folder.id and @source.parent_id != @project_folder.id and @project_folder.changeable?
       @new_element = @project_folder.copy(@source)
       @new_element.reorder_before( @project_element ) if @project_element
       flash[:info] = "add reference to #{@source.name} to #{@project_folder.name}"
     else  
       flash[:warning] = "can not add to #{@source.name} to #{@project_folder.name}"
+    end
+    rescue Exception=> ex
+      flash[:warning] = "can not add #{ex.message}"
     end
     @project_folder.reload
     respond_to do |format|
@@ -355,11 +355,10 @@ class FoldersController < ApplicationController
   # ## Render a folder as PDF for output - this method includes all documents
   # inline and so avoids problems with relative paths
   # 
-  def render_folder_pdf(folder)
-    filename=File.join('/tmp',"#{underscore(folder.name)}.pdf")
-    pdf = folder.make_pdf(filename) 
-    pdf.errors.map{ |key, error| logger.warn " PDF '#{filename} create problem #{key}: #{error}"} 
-    send_file(filename ,  :type => 'application/pdf', :disposition=>'inline')
+  def render_folder_to_file(folder,format='pdf')   
+    pdf = folder.convert_to(format)
+    folder.errors.each{|error| logger.warn " PDF '#{filename} create problem: #{error}"}
+    send_file(pdf ,  :type => "application/#{format}", :disposition=>'inline')
   end
   
   def get_folder_page

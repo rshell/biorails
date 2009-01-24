@@ -393,6 +393,7 @@ class BiorailsController < ApplicationController
     def task_import(session_id,experiment_id,text_data)
        setup_session(session_id)
        experiment = Experiment.load(experiment_id)
+       Project.current = experiment.project
        raise("Experiment is not changeable") unless experiment.changeable?
        raise("Experiment [#{experiment_id}] is not visible for user [#{User.current.login}]") unless experiment
        task = experiment.import_task(text_data)

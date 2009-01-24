@@ -1,0 +1,19 @@
+<%if @project %>
+  <div class='panel'>
+    <div class="content">
+      <%=render :partial=>@project.partial_template('description')%>
+    </div>
+    <div class="splitcontentleft">
+    <strong>
+      <%=l(:Executive_Summary)%>
+    </strong>
+    <%= @project.folder.to_html %>
+    </div>
+    <div class="splitcontentright">
+      <%= render :partial => 'projects/sections/lists/box_news_list' %>
+      <%= render :partial => 'projects/sections/lists/box_projects_children_list' %>
+    </div>
+  </div>
+<%else %>
+  This needs a project to be defined
+<%end %>

@@ -113,12 +113,14 @@ SQL
      permission?(User.current,subject.to_s,action.to_s)
    end
 #
-# See if the user as a specific role in the acl (teams ignored)
+# See if the user as a specific role in the acl directly or via teams
 #
    def has_access?(owner,type='User')
-     rules.find(:first,:order=>'owner_type desc',
+     item = rules.find(:first,:order=>'owner_type desc',
                   :conditions=>{:owner_id=>as_id(owner),
                                 :owner_type=>as_type(owner,type)})
+     item ||= rules.find(:first,:conditions=>[
+         "owner_type='Team' and exists (select 1 from memberships m where m.team_id=access_control_elements.owner_id and m.user_id=? )",as_id(owner)])
    end   
    #
    # grant user has the role

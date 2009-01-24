@@ -1,0 +1,16 @@
+<div class='panel'>
+  <%if @project %>
+    <div class="splitcontentleft">
+      <%= render :partial => 'projects/box_project_description' %>
+      <strong><%=l(:Documents) %></strong>
+      <%= render :partial => 'projects/box_project_published_documents' %>
+    </div>
+    <div class="splitcontentright">
+      <%= render :partial => 'projects/box_project_news' %>
+      <strong><%=l(:Execution) %></strong>
+      <%= render :partial => 'projects/box_project_requests' %>
+    </div>
+  <%else %>
+    This needs a project to be defined
+  <%end %>
+</div>

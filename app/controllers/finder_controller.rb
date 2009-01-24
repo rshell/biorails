@@ -21,7 +21,6 @@ class FinderController < ApplicationController
       end 
     respond_to do | format |
       format.html { render :partial => 'search', :layout=>false }
-      format.json { render :json => {:text=>@search_text,:items=>@hitlist}.to_json }
       format.xml  { render :xml => {:text=>@search_text,:items=>@hitlist}.to_xml }
       format.js  { render :update do | page |  
             page.main_panel :partial => 'search'
@@ -35,7 +34,6 @@ class FinderController < ApplicationController
     @clipboard.add(@project_element);
     save_clipboard @clipboard
     respond_to do | format |
-      format.json { render :json => @clipboard.to_json }
       format.html { render :partial => 'shared/clipboard' }
       format.js  { render :update do | page |  
             page.work_panel :partial => 'shared/clipboard'
@@ -49,7 +47,6 @@ class FinderController < ApplicationController
     @clipboard.remove(@project_element);
     save_clipboard @clipboard
     respond_to do | format |
-      format.json { render :json => @clipboard.to_json }
       format.html { render :partial => 'shared/clipboard' }
       format.js  { render :update do | page |  
             page.work_panel :partial => 'shared/clipboard'
@@ -61,7 +58,6 @@ class FinderController < ApplicationController
   def clear_clipboard
     save_clipboard @clipboard = Clipboard.new    
     respond_to do | format |
-      format.json { render :json => @clipboard.to_json }
       format.html { render :partial => 'shared/clipboard' }
       format.js  { 
         render :update do | page |  
@@ -76,7 +72,6 @@ class FinderController < ApplicationController
 #
   def clipboard
     respond_to do | format |
-      format.json { render :json => @clipboard.to_json }
       format.html { render :partial => 'shared/clipboard' }
       format.js  { render :update do | page |  
             page.work_panel :partial => 'shared/clipboard'

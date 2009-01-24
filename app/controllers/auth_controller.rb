@@ -26,7 +26,6 @@ class AuthController < ApplicationController
         set_user(user)
         set_project(Project.load(UserSetting.default_project_id))
         logger.info "User #{params[:login]} successfully login"
-        logger.debug session.data.to_json
         redirect_to( session[:last_url] || home_url(:action=>'show') )
       else
         logger.info "User #{params[:login]} login failed"

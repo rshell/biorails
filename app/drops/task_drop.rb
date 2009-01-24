@@ -32,7 +32,7 @@ class TaskDrop < BaseDrop
   end
  
   def contexts
-    liquify(@source.contexts) 
+    @source.contexts
   end
 
   def folder
@@ -40,7 +40,7 @@ class TaskDrop < BaseDrop
   end
  
   def items
-    liquify(@source.items)    
+    @source.items   
   end
 
   def status

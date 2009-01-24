@@ -17,19 +17,5 @@
     </li>
  <% end %>
   </ul>
-<h3 class='icon icon-sign'>
-  <%=l(:Signatures)%>
-</h3>
-  <ul>
- <% for signature in folder.signed %>
-    <li>
-      <span class="icon icon-pdf"> <%=  link_to "Version #{version_no(signature.filename)}", signature.file_url %>
-         by <%= signature.signer.name %>  on <%= short_date(signature.signed_date) %>
-      </span>
-    </li>
- <% end %>
-  </ul>
-</div>
-
 
 </div>

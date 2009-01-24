@@ -35,8 +35,6 @@ class Execute::TasksController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'list' }
       format.ext  { render :partial => 'shared/report', :locals => {:report => @report } }
-      format.pdf  { render_pdf :action => 'list',:layout=>false }
-      format.json { render :json => @report.data.to_json }
       format.xml  { render :xml => @report.data.to_xml }
     end
   end
@@ -56,7 +54,6 @@ class Execute::TasksController < ApplicationController
       format.ext { render :partial => 'show',:layout=>false }
       format.pdf  { render_pdf "#{@task.name}.pdf", :partial => 'show',:layout=>false }
       format.csv { render :text => @task.to_csv}
-      format.json { render :json => @task.to_json}
       format.xml  { render :xml => @task.to_xml }
     end    
   end
@@ -85,9 +82,8 @@ class Execute::TasksController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'metrics' }
       format.ext { render :partial => 'metrics',:layout=>false }
-      format.pdf  { render_pdf :action => 'metrics',:layout=>false }
+      format.pdf  { render_pdf "#{@task.name}.pdf",:action => 'metrics',:layout=>false }
       format.csv { render :json => @task.grid.to_csv}
-      format.json { render :json => @task.to_json}
       format.xml  { render :xml => @task.to_xml }
     end
   end
@@ -99,9 +95,8 @@ class Execute::TasksController < ApplicationController
     respond_to do | format |
       format.html { render :text => @task.to_html(@cache) }
       format.ext  { render :partial => 'view' }
-      format.pdf  { html_send_as_pdf(@task.name, @task.folder.html) }
+      format.pdf  { render_pdf "#{@task.name}.pdf", :text => @task.to_html(@cache),:layout => "layouts/printout.rhtml" }
       format.csv { render :json => @task.grid.to_csv}
-      format.json { render :json => @task.to_json }
       format.xml  { render :xml => @task.to_xml }
     end
   end 
@@ -119,9 +114,7 @@ class Execute::TasksController < ApplicationController
         end
       }
       format.ext { render :partial => 'sheet',:layout=>false }
-      format.pdf  { render_pdf :action => 'sheet',:layout=>false }
       format.csv { render :json => @task.grid.to_csv}
-      format.json { render :json => @task.to_json}
       format.xml  { render :xml => @task.to_xml }
     end
   end
@@ -132,7 +125,6 @@ class Execute::TasksController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'entry'}
       format.ext { render :action => 'entry',:layout=>false }
-      format.pdf  { render_pdf :action => 'sheet',:layout=>false }
       format.csv { render :json => @task.grid.to_csv}
       format.json { render :json => @task.to_json}
       format.xml  { render :xml => @task.to_xml }
@@ -232,8 +224,6 @@ class Execute::TasksController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'edit' }
       format.ext { render :partial => 'edit',:layout=>false }
-      format.pdf  { render_pdf :action => 'edit',:layout=>false }
-      format.json { render :json => @task.to_json}
       format.xml  { render :xml => @task.to_xml }
     end
   end
@@ -476,7 +466,13 @@ class Execute::TasksController < ApplicationController
     element = DataElement.find( params[:id] )
     @value   = params[:query] || ""
     Task.transaction do
-      TaskContext.current = TaskContext.find_by_id(params[:task_context_id]) unless params[:task_context_id].blank?
+      unless params[:task_context_id].blank?
+        TaskContext.current = TaskContext.find_by_id(params[:task_context_id])
+        if TaskContext.current and TaskContext.current.task
+          set_project(TaskContext.current.task.project)
+          set_element(TaskContext.current.task.project_element_id)
+        end
+      end
       @choices = element.like(@value) || []
     end
     TaskContext.current =nil

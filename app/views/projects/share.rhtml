@@ -1,9 +1,9 @@
 <% content_for :sidemenu do -%>
-  <%= render :partial=>'actions'%>
+  <%= render :partial=>@project.partial_template('actions')%>
 <% end -%>
 
 <% content_for :center do -%>
-  <%= project_render :partial=>'shared/parent_project'%>
+  <%= render :partial=>'shared/parent_project'%>
   <div class="splitcontentleft">
       <div id='source_tree'>
         Source Items
@@ -19,11 +19,11 @@
 <% end %>
 
 <% content_for :status do -%>
-  <%= render :partial=>'status'%>
+  <%= render :partial=>@project.partial_template('status')%>
 <% end %>
 
 <% content_for :help do -%>
-  <%= render :partial=>'help'%>
+  <%= render :partial=>@project.partial_template('help')%>
 <% end %>
 
 

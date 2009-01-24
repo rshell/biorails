@@ -8,7 +8,7 @@
     <br />
   <% form_remote_tag :url => {:action=>:gantt, :id=>@project,:zoom => @zoom} do %>
     <input type="text" name="months" size="2" value="<%= @months %>" />
-    <%= l(:label_months_from) %>
+    <%= l(:Months_From) %>
     <%= link_to_remote "<b class='icon icon-zoom-in'></b>" ,
           :url=> {:zoom => (@zoom+1), :year => @year_from,
           :month => @month_from, :months => @months} if @zoom < 4 %>
@@ -36,6 +36,6 @@
     </dl>
   </fieldset>
   <br/>
-  <%= submit_tag l(:button_submit), :class => "button-small" %>
+  <%= submit_tag l(:Submit), :class => "button-small" %>
   <% end %>
 </div>

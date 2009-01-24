@@ -61,6 +61,9 @@ host_name:
 published_folder:
   default: documents
   tip:
+qa_experiment_prefix:
+  default: QA
+  tip: This is the prefix for experiments created to QA testing of new process instances
 asset_path:
   default: /assets
   tip:
@@ -76,27 +79,6 @@ help_root:
 ntp_server:
   default: uk.pool.ntp.org
   tip: Default ntp server for time stamps on signatures,internal one make the system faster. None and server clock is used
-ldap_host:
-  default: 
-  tip: Name or address of the LDAP server to use
-ldap_port: 
-  default:
-  tip:  port to access the ldap server on
-ldap_base:
-  default: "ou=Users,dc=alces,dc=co,dc=uk"
-  tip: Base of User lookup normally linked to company domain
-ldap_username:
-  default: 
-  tip: connection username for login to LDAP server if mandated for site
-ldap_password:
-  default: 
-  tip: connection passwrod for login to LDAP server if mandated for site
-ldap_login_field:
-  default: uid
-  tip: Ldap Field to user as the username normally uid
-ldap_auto_register:
-  default: true
-  tip: Whether to automatically create default biorails user for valid ldap users
 character_set:
   default: iso-8859-1
   tip: Character set to user conversion of text from utf-8 to 8 bit for pdf output (ISO-8859-1 for most of europe)

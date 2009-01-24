@@ -204,7 +204,7 @@ class Admin::ReportsController < ApplicationController
     @data = @report.run(:page=>1,:per_page=>1000)
     respond_to do |format|
       format.html { render :action=>'print', :layout => false}
-      format.pdf { render_pdf( "#{@report.name}.pdf", :action => 'print', :layout => false) }
+      format.pdf { render_pdf( "#{@report.name}.pdf", :action => 'print', :layout => "layouts/printout.rhtml") }
     end
   end
   #

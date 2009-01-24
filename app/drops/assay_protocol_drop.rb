@@ -32,7 +32,7 @@ class AssayProtocolDrop < BaseDrop
  end
  
  def versions
-   liquify(@source.versions)    
+   @source.versions    
  end
 
  def assay
@@ -40,7 +40,7 @@ class AssayProtocolDrop < BaseDrop
  end
 
  def tasks
-   liquify(@source.tasks)    
+   @source.tasks  
  end
   
  protected

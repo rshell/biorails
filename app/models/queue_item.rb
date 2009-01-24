@@ -111,22 +111,4 @@ class QueueItem < ActiveRecord::Base
     self.reload
  end
 
-  def used_by_task_reference(task_item)
-    if self.active? and (self.task_id.nil? or self.task_id==task_item.task_id)
-      unless task_item.value 
-         task_item.value = self.value
-         task_item.save
-      end  
-      if task_item.value == self.value
-         self.task_id = task_item.task_id
-         self.experiment_id = task_item.task.experiment_id
-         self.state_id = task.state_id
-         self.save
-      else
-        logger.error "Cant assign #{task_item.value} != #{self.value}"
-        return nil
-      end     
-    end
-  end  
-
 end

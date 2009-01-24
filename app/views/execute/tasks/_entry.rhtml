@@ -25,5 +25,9 @@ See update tab to change status
       </script>
   <% end %>
   <hr />
-  <%= link_to "<b class='icon icon-task'>Make Flexible</b>", task_url( :action => 'make_flexible', :id => @task) %>
+  <% unless @task.flexible? %>
+    <%= link_to "Make Flexible", task_url( :action => 'make_flexible', :id => @task),:class=>'icon icon-task' %>
+  <%else %>
+    <%=link_to "#{l(:Edit)} #{l(:Process)} #{@task.process_name}", process_instance_url(:action=>'show',:id => @task.process,:tab=>2),:class=>'icon icon-process_instance' %>
+  <%end %>
 <% end %>

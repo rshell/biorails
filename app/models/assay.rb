@@ -203,7 +203,7 @@ SQL
     end
   end
   # 
-  # Rules for sharing a assay
+  # Rules for sharing this assay with other project
   # 
   def shareable?( other )
     (other.visible? and self.visible? and self.is_setup? and other.changeable?)
@@ -212,7 +212,7 @@ SQL
   def shareable_status(other)
     return 'assay not no setup? ' unless self.is_setup?
     return "assay #{self.name} not visible for #{User.current}" unless self.visible?
-    return "folder #{other.name}  not visible to #{self.name}" unless other.visible?
+    return "folder #{other.name}  not visible to #{User.current}" unless other.visible?
     return 'folder  #{other.name} not changable'  unless other.changeable?
     'ok'    
   end

@@ -1,0 +1,11 @@
+<% content_for :messages do -%>
+  <%=render :partial =>'shared/messages',:locals => { :objects => ['project','user']} %>
+<% end -%>
+
+<% content_for :center do -%>
+  <%=render :partial =>'shared/user_header'%>
+  <%dialog l(:Project_New)  do %>
+    <%= render :partial=> @project.partial_template('new') %>
+  <% end %>
+<% end %>
+

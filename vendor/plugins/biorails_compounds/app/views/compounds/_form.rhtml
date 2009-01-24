@@ -1,43 +1,66 @@
 <script SRC="/javascripts/marvin/marvin.js"></script>
 <%= error_messages_for 'compound' %>
-
-<table cellpadding="0" cellspacing="0" width="100%">
-<tr>
-<td valign="top"><label for="compound_name">CompoundId</label>
-<div class="row"><%= text_field 'compound', 'name'  %></p></div></td>
-<td valign="top"><label for="compound_registration_date">Registration Date</label>
-<div class="row"><%= date_field 'compound', 'registration_date'  %></div></td>
-</tr>
-<tr>
-  <td colspan="2" valign="top"><label for="compound_description">Description</label>
-    <div class="row">
-      <span width=100%>
-        <%= text_area 'compound', 'description' %>
-      </span>
-    </div>
-  </td>
-</tr>
-<tr>
-<td valign="top">
-<label for="compound_smiles">Edit Structure</label>
-<div class="row">
-  <lable>iupac</label>
-  <%= text_field('compound','iupacname') %>
+<div class="splitcontentleft">
+  <div class="box">
+    <% if  browser_is? 'ie' %>
+      <object id="MolEditor"
+              codebase="MDL.Draw.Editor.dll#-1,-1,-1,-1"
+              height="250"
+              width="450"
+              classid="CLSID:FCE57399-E34B-45ce-881B-5FDFF3583307">
+        <PARAM NAME="BackColor" VALUE="LightBlue">
+        <param name="ChimeString" value="<%=@query_chime%>">
+      </object>
+    <% else %>
+      <%= @compound.image  %>
+    <% end %>
+    <input id='chime' name="chime" type="hidden"></input>
+  </div>
 </div>
-</td>
-<td valign="top">
-  <b><label>Molecular Properties</label></b>
+
+<div class="splitcontentright">
   <div class="row">
-  <label for="compound_formula">Formula</label>
-  <div class="row">
-    <%= text_field 'compound', 'formula'  %>
+    <div class="form-element">
+      <label for="compound_name">Name</label>
+      <%= text_field 'compound', 'name'  %>
+    </div>
   </div>
-  <label for="compound_mass">Mass</label>
+
   <div class="row">
-    <%= text_field 'compound', 'mass'  %>
+    <div class="form-element">
+      <label for="compound_registration_date">Registration Date</label>
+      <%= date_field 'compound', 'registration_date'  %>
+    </div>
   </div>
-</td>
-</tr>
-</table>
+
+  <div class="row">
+    <div class="form-element">
+      <label>iupac</label>
+      <%= text_field('compound','iupacname') %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-element">
+      <label for="compound_formula">Formula</label>
+      <%= text_field 'compound', 'formula'  %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-element">
+      <label for="compound_mass">Mass</label>
+      <%= text_field 'compound', 'mass'  %>
+    </div>
+  </div>
+</div>
+
+<script language="javascript">
+  function GetStructure(){
+    var molEditor = document.getElementById('MolEditor');
+    var field = document.getElementById('chime');
+    field.value = molEditor.ChimeString();
+  }
+</script>
 
 <!--[eoform:compound]-->

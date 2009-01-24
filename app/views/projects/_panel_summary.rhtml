@@ -1,0 +1,31 @@
+<%if @project.changeable?%>
+<% @project_element =@project.folder %>
+
+<% form_tag element_url(:action => 'update',  :id=>@project_element.id) do %>
+  <% dialog l(:Update_Summary) do %>
+    <%= hidden_field 'project_element', 'id' %>
+    <%= hidden_field 'project_element', 'project_id' %>
+    <%= hidden_field 'project_element', 'element_type_id' %>
+    <%= hidden_field :project_element, :name  %>
+    <%= hidden_field_tag 'back', project_url(:action=>:show,:id=>@project.id) %>
+    <%= hidden_field_tag 'style', 'html' %>
+
+    <div class="row">
+      <div class="form-element">
+        <%= text_field :project_element, :title , {:size=>80, :class=>"text-input"} %>
+      </div>
+    </div>
+
+    <div class="row">
+      <%= html_field :project_element, :content_data %>
+    </div>
+    <br/>
+
+    <div class="row">
+      <%= submit_tag l(:Save) %>
+    </div>
+  <% end %>
+<% end %>
+<% else %>
+<% @project.folder.to_html %>
+<% end %>

@@ -29,6 +29,10 @@ module Alces
         def acts_as_dictionary( options={} )
           include Alces::ActAsDictionary::InstanceMethods         
           extend Alces::ActAsDictionary::SingletonMethods
+          enforce_column_limits
+#          enforce_integer_columns
+          enforce_not_null
+#          enforce_unique_indexes
         end
       end
 #######################################################################################
