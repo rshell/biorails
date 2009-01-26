@@ -209,7 +209,7 @@ class BiorailsController < ApplicationController
 ##
 # List the steps in a process flow
 #    
-    def process_steps_list(session_id,protocol_version_id)  
+    def process_step_list(session_id,protocol_version_id)  
        setup_session(session_id)
        return ProcessStep.find(:all,:conditions=>['process_flow_id=?',protocol_version_id],:order=>'id asc')
     end
