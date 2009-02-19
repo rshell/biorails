@@ -33,8 +33,6 @@ ActiveRecord::Base.configurations = {
 
 ActiveRecord::Base.establish_connection 'mysql'
 
-Test::Unit::TestCase.fixture_path = "#{File.dirname(__FILE__)}/fixtures/"
-
 # restore default raw_post functionality
 class ActionController::TestRequest
   def raw_post

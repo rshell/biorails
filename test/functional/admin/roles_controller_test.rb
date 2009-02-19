@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/roles_controller"
 # Re-raise errors caught by the controller.
 class Admin::RolesController; def rescue_action(e) raise e end; end
 
-class Admin::RolesControllerTest < Test::Unit::TestCase
+class Admin::RolesControllerTest < BiorailsTestCase
  
   def setup
     @controller = Admin::RolesController.new

@@ -51,7 +51,7 @@ class Dummy
   end
 end
 
-class TestRubyUnits < Test::Unit::TestCase
+class TestRubyUnits <Test::Unit::TestCase
  
   def setup
     @april_fools = Time.at 1143910800

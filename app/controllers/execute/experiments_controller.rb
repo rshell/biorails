@@ -69,7 +69,6 @@ class Execute::ExperimentsController < ApplicationController
     respond_to do | format |
       format.html { render :action => 'metrics' }
       format.ext  { render :partial => 'metrics' }
-      format.pdf  { render_pdf "metrics.pdf", :action => 'metrics',:layout=>false }
       format.xml  { render :xml => @task.statistics.to_xml }
     end
   end
@@ -86,19 +85,26 @@ class Execute::ExperimentsController < ApplicationController
     flash[:warning] = l(:text_project_not_runnable) unless current_project.runnable?
     @experiment = Experiment.new
     @experiment.assay = @assay
+    if @assay and @assay.protocols.size>0
+      @experiment.process = @assay.protocols.collect{|i|i.released}.compact[0]
+      @experiment.description = @experiment.process.description if @experiment.process
+    end
   end
   
   def refresh
     if params[:assay_id]
       @assay = Assay.find( params[:assay_id] )
+      @process = @assay.protocols.collect{|i|i.released}.compact[0]
     elsif params[:protocol_version_id]
       @process = ProtocolVersion.find(params[:protocol_version_id])
       @assay = @process.protocol.assay
     end
     @assay ||= Assay.list(:first)
-    @process ||= @assay.protocols.first.released
-    @experiment = Experiment.new(:protocol_version_id=>@process.id, :assay_id=>@assay.id)
-    @experiment.description = @process.description if @process
+    @experiment = Experiment.new(:assay_id=>@assay.id)
+    if @process
+       @experiment.process =  @process
+       @experiment.description = @process.description
+    end
     respond_to do | format |
       format.html { render :action => 'new' }
       format.ext  { render :partial => 'process_selector' }
@@ -122,7 +128,7 @@ class Execute::ExperimentsController < ApplicationController
           set_element @folder = @experiment.folder
           @experiment.run
           flash[:notice] = 'Experiment was successfully created.'
-          return redirect_to :action => 'show', :id => @experiment.id
+          return redirect_to( :action => 'show', :id => @experiment.id)
         end
       end
     rescue Exception => ex

@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/data_elements_controller"
 # Re-raise errors caught by the controller.
 class Admin::DataElementsController; def rescue_action(e) raise e end; end
 
-class Admin::DataElementsControllerTest < Test::Unit::TestCase
+class Admin::DataElementsControllerTest < BiorailsTestCase
 
   def setup
     @controller = Admin::DataElementsController.new

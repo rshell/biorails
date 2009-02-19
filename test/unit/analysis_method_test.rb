@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class AnalysisMethodTest < Test::Unit::TestCase
+class AnalysisMethodTest < BiorailsTestCase
   ## Biorails::Dba.import_model :analysis_methods
 
   # Replace this with your real tests.

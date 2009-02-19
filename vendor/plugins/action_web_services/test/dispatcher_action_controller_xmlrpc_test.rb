@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/abstract_dispatcher'
 
-class TC_DispatcherActionControllerXmlRpc < Test::Unit::TestCase
+class TC_DispatcherActionControllerXmlRpc <Test::Unit::TestCase
   include DispatcherTest
   include DispatcherCommonTests
 

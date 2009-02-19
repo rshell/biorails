@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require File.dirname(__FILE__) + '/helper'
 
-class StrainerTest < Test::Unit::TestCase
+class StrainerTest <Test::Unit::TestCase
   include Liquid
 
   def test_strainer

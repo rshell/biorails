@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ProjectAssetTest < Test::Unit::TestCase
+class ProjectAssetTest < BiorailsTestCase
   ## Biorails::Dba.import_model :project_assets
   ## Biorails::Dba.import_model :project_elements
   ## Biorails::Dba.import_model :projects
@@ -24,10 +24,7 @@ class ProjectAssetTest < Test::Unit::TestCase
     assert item.summary  
     assert item.to_html 
   end
-  
-  def test_has_file_to_upload
-     assert_not_nil fixture_file_upload('/files/rails.png', 'image/png')
-  end
+
   
   def test_buildfile
       file = fixture_file_upload('/files/rails.png', 'image/png')
@@ -40,7 +37,7 @@ class ProjectAssetTest < Test::Unit::TestCase
   end  
   
   def test_unloaded_word_asset
-     file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+'/files/moose_origami.doc', 'application/word') 
+     file = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT,'test','fixtures','files','moose_origami.doc'), 'application/word')
      assert !file.nil?
      element = @folder.add_asset('test2',file)
      assert_ok element
@@ -59,7 +56,7 @@ class ProjectAssetTest < Test::Unit::TestCase
   end 
   
   def test_pdf_unloaded_asset
-     file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+'/files/Fitting.pdf', 'application/pdf') 
+     file = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT,'test','fixtures','files','Fitting.pdf'), 'application/pdf')
      element = @folder.add_element(ElementType::FILE,{:name=>'test_pdf',:file=>file,:content_type=>'application/pdf'})
      assert_ok element
      assert element.asset
@@ -67,7 +64,7 @@ class ProjectAssetTest < Test::Unit::TestCase
   end
   
   def test_image_unloaded_asset
-     file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+'/files/rails.png', 'image/png') 
+     file = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT,'test','fixtures','files','rails.png'), 'image/png')
      element = @folder.add_element(ElementType::FILE,{:name=>'test_png',:file=>file,:content_type=>'image/png'})
      assert_ok element
      assert element.asset
@@ -76,7 +73,7 @@ class ProjectAssetTest < Test::Unit::TestCase
 
   
   def test_with_raw_file
-     file = File.new(Test::Unit::TestCase.fixture_path+'/files/rails.png')
+     file = File.new(File.join(RAILS_ROOT,'test','fixtures','files','rails.png'))
      element = @folder.add_element(ElementType::FILE,{:name=>'test_png3',:file=>file,:content_type=>'image/png'})
      assert_ok element
      assert element.asset

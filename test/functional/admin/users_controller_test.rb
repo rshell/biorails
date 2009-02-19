@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/users_controller"
 # Re-raise errors caught by the controller.
 class Admin::UsersController; def rescue_action(e) raise e end; end
 
-class Admin::UsersControllerTest < Test::Unit::TestCase
+class Admin::UsersControllerTest < BiorailsTestCase
 
   def setup
     @controller = Admin::UsersController.new

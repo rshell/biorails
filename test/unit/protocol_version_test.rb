@@ -1,7 +1,7 @@
 
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ProtocolVersionTest < Test::Unit::TestCase
+class ProtocolVersionTest < BiorailsTestCase
   # Replace this with your real tests.
   def setup
      @model = ProtocolVersion

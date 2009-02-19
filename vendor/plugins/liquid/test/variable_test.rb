@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require File.dirname(__FILE__) + '/helper'
 
-class VariableTest < Test::Unit::TestCase
+class VariableTest <Test::Unit::TestCase
   include Liquid
 
   def test_variable
@@ -107,7 +107,7 @@ class VariableTest < Test::Unit::TestCase
 end
 
 
-class VariableResolutionTest < Test::Unit::TestCase
+class VariableResolutionTest <Test::Unit::TestCase
   include Liquid
 
   def test_simple_variable

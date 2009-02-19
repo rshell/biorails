@@ -3,7 +3,7 @@ require  "calendar_controller"
 
 class CalendarController; def rescue_action(e) raise e end; end
 
-class CalendarControllerTest < Test::Unit::TestCase
+class CalendarControllerTest < BiorailsTestCase
 
   # Replace this with your real tests.
   def setup

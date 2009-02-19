@@ -5,7 +5,7 @@ require  "projects_controller"
 # Re-raise errors caught by the controller.
 class ProjectsController; def rescue_action(e) raise e end; end
 
-class ProjectStudyControllerTest < Test::Unit::TestCase
+class ProjectStudyControllerTest < BiorailsTestCase
 
   def setup
     @controller = ProjectsController.new

@@ -10,7 +10,7 @@ module StructTest
   end
 end
 
-class TC_Struct < Test::Unit::TestCase
+class TC_Struct <Test::Unit::TestCase
   include StructTest
 
   def setup

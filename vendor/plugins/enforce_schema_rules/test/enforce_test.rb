@@ -1,6 +1,6 @@
 require File.join(File.dirname(__FILE__), 'test_setup')
 
-class TestTableTest < Test::Unit::TestCase
+class TestTableTest <Test::Unit::TestCase
   
   def setup
     EnforceSchema::UniqueRule.delete_all

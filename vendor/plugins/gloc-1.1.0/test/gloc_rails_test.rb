@@ -19,7 +19,7 @@ class GLocRailsTestController < ActionController::Base
   def called_when_bad; @callback_bad ||= 0; @callback_bad += 1 end
 end
 
-class GLocRailsTest < Test::Unit::TestCase
+class GLocRailsTest <Test::Unit::TestCase
   
   def setup
     @lstrings = GLoc::LOCALIZED_STRINGS.clone

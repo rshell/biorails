@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ParameterTypeTest < Test::Unit::TestCase
+class ParameterTypeTest < BiorailsTestCase
   ## Biorails::Dba.import_model :parameter_types
 
 	NEW_PARAMETER_TYPE = {:name => 'Test ParameterType', :description => 'Dummy'} #unless defined?

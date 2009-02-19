@@ -29,7 +29,7 @@ module FunnyFilter
 end                 
 
 
-class OutputTest < Test::Unit::TestCase
+class OutputTest <Test::Unit::TestCase
   include Liquid
 
   def setup

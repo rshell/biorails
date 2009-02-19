@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/helper'
    
-class RegexpTest < Test::Unit::TestCase
+class RegexpTest <Test::Unit::TestCase
   include Liquid
 
   def test_empty

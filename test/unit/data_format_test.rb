@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class DataFormatTest < Test::Unit::TestCase
+class DataFormatTest < BiorailsTestCase
   ## Biorails::Dba.import_model :data_formats
   NEW_DATA_FORMAT = {:name => 'Test DataFormat', :description => 'Dummy'} # unless defined?
   REQ_ATTR_NAMES 			 = %w(name description) #unless defined? # name of fields that must be present, e.g. %(name description)

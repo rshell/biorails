@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class AssayWorkflowTest < Test::Unit::TestCase
+class AssayWorkflowTest < BiorailsTestCase
 
 	NEW_STUDY_PROTOCOL = {:name => 'test'}	# e.g. {:name => 'Test AssayWorkflow', :description => 'Dummy'}
 	REQ_ATTR_NAMES 			 = %w(name ) # name of fields that must be present, e.g. %(name description)
@@ -93,8 +93,9 @@ def test01_versions
   def test11_new_valid
     protocol = AssayWorkflow.new(:name=>"test14",:description=>'test14')
     protocol.assay = Assay.find(:first)
-    assert protocol.save
     assert protocol.valid?
+    protocol.save
+    assert_ok protocol
   end
 
   def test15_update

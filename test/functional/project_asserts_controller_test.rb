@@ -4,7 +4,7 @@ require "project_assets_controller"
 # Re-raise errors caught by the controller.
 class ProjectAssetsController; def rescue_action(e) raise e end; end
 
-class ProjectAssetsControllerTest < Test::Unit::TestCase
+class ProjectAssetsControllerTest < BiorailsTestCase
   def setup
     @controller = ProjectAssetsController.new
     @request    = ActionController::TestRequest.new

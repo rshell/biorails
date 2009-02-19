@@ -17,7 +17,7 @@ module CanadianMoneyFilter
   end
 end
 
-class FiltersTest < Test::Unit::TestCase
+class FiltersTest <Test::Unit::TestCase
   include Liquid
 
   def setup
@@ -77,7 +77,7 @@ class FiltersTest < Test::Unit::TestCase
   end
 end
 
-class FiltersInTemplate < Test::Unit::TestCase
+class FiltersInTemplate <Test::Unit::TestCase
   include Liquid
 
   def test_local_global

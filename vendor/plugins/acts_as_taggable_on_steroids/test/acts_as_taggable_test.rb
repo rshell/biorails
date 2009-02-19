@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/abstract_unit'
 
-class ActsAsTaggableOnSteroidsTest < Test::Unit::TestCase
+class ActsAsTaggableOnSteroidsTest <Test::Unit::TestCase
   fixtures :tags, :taggings, :posts, :users, :photos
   
   def test_find_tagged_with

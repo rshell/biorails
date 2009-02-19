@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ProjectFolderTest < Test::Unit::TestCase
+class ProjectFolderTest < BiorailsTestCase
 
   @@logger=Logger.new(STDOUT)
  

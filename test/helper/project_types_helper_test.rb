@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'application'
+require 'application_controller'
 
 # Re-raise errors caught by the controller.
 class ProjectTypesHelperTest < TestHelper

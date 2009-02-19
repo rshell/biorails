@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class IdentifierTest < Test::Unit::TestCase
+class IdentifierTest < BiorailsTestCase
   ## Biorails::Dba.import_model :identifiers
   ## Biorails::Dba.import_model :users
 

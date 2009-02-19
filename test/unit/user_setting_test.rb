@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class UserSettingTest < Test::Unit::TestCase
+class UserSettingTest < BiorailsTestCase
   ## Biorails::Dba.import_model :system_settings
   
   def test_use_as_property

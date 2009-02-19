@@ -1,7 +1,7 @@
 
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ProcessInstanceTest < Test::Unit::TestCase
+class ProcessInstanceTest < BiorailsTestCase
   # Replace this with your real tests.
     def setup
      @model = ProcessInstance

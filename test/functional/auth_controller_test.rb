@@ -4,7 +4,7 @@ require 'auth_controller'
 # Re-raise errors caught by the controller.
 class AuthController; def rescue_action(e) raise e end; end
 
-class AuthControllerTest < Test::Unit::TestCase
+class AuthControllerTest < BiorailsTestCase
   def setup
     @controller = AuthController.new
     @request    = ActionController::TestRequest.new

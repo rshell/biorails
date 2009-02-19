@@ -6,7 +6,7 @@ begin require 'redgreen'; rescue LoadError; end
 
 require 'boot' unless defined?(ActiveRecord)
 
-class Test::Unit::TestCase
+classTest::Unit::TestCase
   protected
   def assert_respond_to_all object, methods
     methods.each do |method|

@@ -4,7 +4,7 @@ require 'biorails_controller'
 # Re-raise errors caught by the controller.
 class BiorailsController; def rescue_action(e) raise e end; end
 
-class BiorailsControllerTest < Test::Unit::TestCase
+class BiorailsControllerTest < BiorailsTestCase
   def setup
     @controller = BiorailsController.new
     @request    = ActionController::TestRequest.new

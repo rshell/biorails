@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class AssayStageTest < Test::Unit::TestCase
+class AssayStageTest < BiorailsTestCase
   ## Biorails::Dba.import_model :assay_stages
 
 	NEW_STUDY_STAGE =  {:name => 'Test AssayStage', :description => 'Dummy'}

@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/data_types_controller"
 # Re-raise errors caught by the controller.
 class Admin::DataTypesController; def rescue_action(e) raise e end; end
 
-class Admin::DataTypesControllerTest < Test::Unit::TestCase
+class Admin::DataTypesControllerTest < BiorailsTestCase
     
     # # fixtures :data_types
 

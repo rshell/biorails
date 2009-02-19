@@ -13,7 +13,7 @@ ActionController::Routing::Routes.reload rescue nil
 $asset_packages_yml = YAML.load_file("#{RAILS_ROOT}/vendor/plugins/asset_packager/test/asset_packages.yml")
 $asset_base_path = "#{RAILS_ROOT}/vendor/plugins/asset_packager/test/assets"
 
-class AssetPackageHelperProductionTest < Test::Unit::TestCase
+class AssetPackageHelperProductionTest <Test::Unit::TestCase
   include ActionView::Helpers::TagHelper
   include ActionView::Helpers::AssetTagHelper
   include Synthesis::AssetPackageHelper

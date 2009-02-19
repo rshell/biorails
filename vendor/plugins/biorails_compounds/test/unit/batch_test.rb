@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class BatchTest < Test::Unit::TestCase
+class BatchTest <Test::Unit::TestCase
 
  def setup
      @model = Batch

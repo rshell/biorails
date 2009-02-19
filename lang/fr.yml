@@ -1,5 +1,43 @@
+Add: Ajouter
+Administration: Administration
+Apply: Appliquer
+Boolean: Booléen
+Calendar: Calendrier
+Cancel: Annuler
+Comment: Commentaire
+Contains: contient
+Create: Créer
+Date: Date
+Delete: Supprimer
+Details: Détails...
+Gantt: Gantt
+Help: Aide
+Home: Accueil
+List: Liste
+Login: Connexion
+Months_From: mois depuis
+New: Nouveau
+News: Annonce
+News_Latest: Dernières annonces
+Next: Suivant
+None: aucun
+Overview: Aperçu
+Permissions: Permissions
+Previous: Précédent
+Project: Projet
+Project_New: Nouveau projet
+Report: Rapport
+Role: Rôle
+Save: Sauvegarder
+Submit: Soumettre
+Text: Texte long
+Total: Total
+User: Utilisateur
+User_New: Nouvel utilisateur
+User_plural: Utilisateurs
+Version: Version
+Workflow: Workflow
 _gloc_rule_default: '|n| n<=1 ? "" : "_plural" '
-
 actionview_datehelper_select_day_prefix:
 actionview_datehelper_select_month_names: Janvier,Février,Mars,Avril,Mai,Juin,Juillet,Août,Septembre,Octobre,Novembre,Décembre
 actionview_datehelper_select_month_names_abbr: Jan,Fév,Mars,Avril,Mai,Juin,Juil,Août,Sept,Oct,Nov,Déc
@@ -18,360 +56,309 @@ actionview_datehelper_time_in_words_minute_single: 1 minute
 actionview_datehelper_time_in_words_second_less_than: moins d'une seconde
 actionview_datehelper_time_in_words_second_less_than_plural: moins de %d secondes
 actionview_instancetag_blank_option: Choisir
-
-activerecord_error_inclusion: n'est pas inclus dans la liste
-activerecord_error_exclusion: est reservé
-activerecord_error_invalid: est invalide
-activerecord_error_confirmation: ne correspond pas à la confirmation
 activerecord_error_accepted: doit être accepté
-activerecord_error_empty: doit être renseigné
 activerecord_error_blank: doit être renseigné
+activerecord_error_confirmation: ne correspond pas à la confirmation
+activerecord_error_empty: doit être renseigné
+activerecord_error_exclusion: est reservé
+activerecord_error_greater_than_start_date: doit être postérieur à la date de début
+activerecord_error_inclusion: n'est pas inclus dans la liste
+activerecord_error_invalid: est invalide
+activerecord_error_not_a_date: n'est pas une date valide
+activerecord_error_not_a_number: n'est pas un nombre
+activerecord_error_taken: est déjà utilisé
 activerecord_error_too_long: est trop long
 activerecord_error_too_short: est trop court
 activerecord_error_wrong_length: n'est pas de la bonne longueur
-activerecord_error_taken: est déjà utilisé
-activerecord_error_not_a_number: n'est pas un nombre
-activerecord_error_not_a_date: n'est pas une date valide
-activerecord_error_greater_than_start_date: doit être postérieur à la date de début
-
+button_activate: Activer
+button_back: Retour
+button_change: Changer
+button_check_all: Tout cocher
+button_clear: Effacer
+button_download: Télécharger
+button_edit: Modifier
+button_list: Lister
+button_lock: Verrouiller
+button_login: Connexion
+button_move: Déplacer
+button_sort: Trier
+button_test: Tester
+button_uncheck_all: Tout décocher
+button_unlock: Déverrouiller
+button_view: Voir
+default_doc_category_tech: Documentation technique
+default_doc_category_user: Documentation utilisateur
+default_issue_status_assigned: Assigné
+default_issue_status_closed: Fermé
+default_issue_status_feedback: Commentaire
+default_issue_status_new: Nouveau
+default_issue_status_rejected: Rejeté
+default_issue_status_resolved: Résolu
+default_priority_high: Haut
+default_priority_immediate: Immédiat
+default_priority_low: Bas
+default_priority_normal: Normal
+default_priority_urgent: Urgent
+default_role_developper: Développeur
+default_role_manager: Manager
+default_role_reporter: Rapporteur
+default_tracker_bug: Anomalie
+default_tracker_feature: Evolution
+default_tracker_support: Assistance
+enumeration_doc_categories: Catégories des documents
+enumeration_issue_priorities: Priorités des demandes
+field_account: Compte
+field_admin: Administrateur
+field_assigned_to: Assigné à
+field_attr_firstname: Attribut Prénom
+field_attr_lastname: Attribut Nom
+field_attr_login: Attribut Identifiant
+field_attr_mail: Attribut Email
+field_auth_source: Mode d'authentification
+field_author: Auteur
+field_base_dn: Base DN
+field_category: Catégorie
+field_comment: Commentaire
+field_created_on: Créé
+field_description: Description
+field_done_ratio: %% Réalisé
+field_downloads: Téléchargements
+field_due_date: Date d'échéance
+field_effective_date: Date
+field_field_format: Format
+field_filename: Fichier
+field_filesize: Taille
+field_firstname: Prénom
+field_fixed_version: Version corrigée
+field_hide_mail: Cacher mon adresse mail
+field_homepage: Site web
+field_host: Hôte
+field_html_color: Couleur
+field_is_closed: Demande fermée
+field_is_default: Statut par défaut
+field_is_for_all: Pour tous les projets
+field_is_in_chlog: Demandes affichées dans l'historique
+field_is_public: Public
+field_is_required: Obligatoire
+field_issue: Demande
+field_language: Langue
+field_last_login_on: Dernière connexion
+field_lastname: Nom
+field_locked: Verrouillé
+field_login: Identifiant
+field_mail: Email
+field_mail_notification: Notifications par mail
+field_max_length: Longueur maximum
+field_min_length: Longueur minimum
+field_name: Nom
+field_new_password: Nouveau mot de passe
+field_notes: Notes
+field_onthefly: Création des utilisateurs à la volée
+field_parent: Sous-projet de
+field_password: Mot de passe
+field_password_confirmation: Confirmation
+field_port: Port
+field_possible_values: Valeurs possibles
+field_priority: Priorité
+field_project: Projet
+field_regexp: Expression régulière
+field_role: Rôle
+field_start_date: Début
+field_status: Statut
+field_subject: Sujet
+field_summary: Résumé
+field_title: Titre
+field_tracker: Tracker
+field_type: Type
+field_updated_on: Mis à jour
+field_url: URL
+field_user: Utilisateur
+field_value: Valeur
+field_version: Version
+general_csv_separator: ';'
+general_day_names: Lundi,Mardi,Mercredi,Jeudi,Vendredi,Samedi,Dimanche
 general_fmt_age: %d an
 general_fmt_age_plural: %d ans
 general_fmt_date: %%d/%%m/%%Y
 general_fmt_datetime: %%d/%%m/%%Y %%H:%%M
 general_fmt_datetime_short: %%d/%%m %%H:%%M
 general_fmt_time: %%H:%%M
+general_lang_fr: 'Français'
 general_text_No: 'Non'
 general_text_Yes: 'Oui'
 general_text_no: 'non'
 general_text_yes: 'oui'
-general_lang_fr: 'Français'
-general_csv_separator: ';'
-general_day_names: Lundi,Mardi,Mercredi,Jeudi,Vendredi,Samedi,Dimanche
-
-notice_account_updated: Le compte a été mis à jour avec succès.
-notice_account_invalid_creditentials: Identifiant ou mot de passe invalide.
-notice_account_password_updated: Mot de passe mis à jour avec succès.
-notice_account_wrong_password: Mot de passe incorrect
-notice_account_register_done: Un message contenant les instructions pour activer votre compte vous a été envoyé.
-notice_account_unknown_email: Aucun compte ne correspond à cette adresse.
-notice_can_t_change_password: Ce compte utilise une authentification externe. Impossible de changer le mot de passe.
-notice_account_lost_email_sent: Un message contenant les instructions pour choisir un nouveau mot de passe vous a été envoyé.
-notice_account_activated: Votre compte a été activé. Vous pouvez à présent vous connecter.
-notice_successful_create: Création effectuée avec succès.
-notice_successful_update: Mise à jour effectuée avec succès.
-notice_successful_delete: Suppression effectuée avec succès.
-notice_successful_connection: Connection réussie.
-notice_file_not_found: La page à laquelle vous souhaitez accéder n'existe pas ou a été supprimée.
-notice_locking_conflict: Les données ont été mises à jour par un autre utilisateur. Mise à jour impossible.
-notice_scm_error: L'entrée et/ou la révision demandée n'existe pas dans le dépôt.
-
-mail_subject_lost_password: Votre mot de passe redMine
-mail_subject_register: Activation de votre compte redMine
-
 gui_validation_error: 1 erreur
 gui_validation_error_plural: %d erreurs
-
-field_name: Nom
-field_description: Description
-field_summary: Résumé
-field_is_required: Obligatoire
-field_firstname: Prénom
-field_lastname: Nom
-field_mail: Email
-field_filename: Fichier
-field_filesize: Taille
-field_downloads: Téléchargements
-field_author: Auteur
-field_created_on: Créé
-field_updated_on: Mis à jour
-field_field_format: Format
-field_is_for_all: Pour tous les projets
-field_possible_values: Valeurs possibles
-field_regexp: Expression régulière
-field_min_length: Longueur minimum
-field_max_length: Longueur maximum
-field_value: Valeur
-field_category: Catégorie
-field_title: Titre
-field_project: Projet
-field_issue: Demande
-field_status: Statut
-field_notes: Notes
-field_is_closed: Demande fermée
-field_is_default: Statut par défaut
-field_html_color: Couleur
-field_tracker: Tracker
-field_subject: Sujet
-field_due_date: Date d'échéance
-field_assigned_to: Assigné à
-field_priority: Priorité
-field_fixed_version: Version corrigée
-field_user: Utilisateur
-field_role: Rôle
-field_homepage: Site web
-field_is_public: Public
-field_parent: Sous-projet de
-field_is_in_chlog: Demandes affichées dans l'historique
-field_login: Identifiant
-field_mail_notification: Notifications par mail
-field_admin: Administrateur
-field_locked: Verrouillé
-field_last_login_on: Dernière connexion
-field_language: Langue
-field_effective_date: Date
-field_password: Mot de passe
-field_new_password: Nouveau mot de passe
-field_password_confirmation: Confirmation
-field_version: Version
-field_type: Type
-field_host: Hôte
-field_port: Port
-field_account: Compte
-field_base_dn: Base DN
-field_attr_login: Attribut Identifiant
-field_attr_firstname: Attribut Prénom
-field_attr_lastname: Attribut Nom
-field_attr_mail: Attribut Email
-field_onthefly: Création des utilisateurs à la volée
-field_start_date: Début
-field_done_ratio: %% Réalisé
-field_auth_source: Mode d'authentification
-field_hide_mail: Cacher mon adresse mail
-field_comment: Commentaire
-field_url: URL
-
-setting_app_title: Titre de l'application
-setting_app_subtitle: Sous-titre de l'application
-setting_welcome_text: Texte d'accueil
-setting_default_language: Langue par défaut
-setting_login_required: Authentif. obligatoire
-setting_self_registration: Enregistrement autorisé
-setting_attachment_max_size: Taille max des fichiers
-setting_issues_export_limit: Limite export demandes
-setting_mail_from: Adresse d'émission
-setting_host_name: Nom d'hôte
-setting_text_formatting: Formatage du texte
-
-User: Utilisateur
-User_plural: Utilisateurs
-User_New: Nouvel utilisateur
-Project: Projet
-Project_New: Nouveau projet
-label_project_plural: Projets
-label_project_latest: Derniers projets
-label_issue: Demande
-label_issue_new: Nouvelle demande
-label_issue_plural: Demandes
-label_issue_view_all: Voir toutes les demandes
-label_document: Document
-label_document_new: Nouveau document
-label_document_plural: Documents
-Role: Rôle
-label_role_plural: Rôles
-label_role_new: Nouveau rôle
-label_role_and_permissions: Rôles et permissions
-label_member: Membre
-label_member_new: Nouveau membre
-label_member_plural: Membres
-label_tracker: Tracker
-label_tracker_plural: Trackers
-label_tracker_new: Nouveau tracker
-Workflow: Workflow
-label_issue_status: Statut de demandes
-label_issue_status_plural: Statuts de demandes
-label_issue_status_new: Nouveau statut
-label_issue_category: Catégorie de demandes
-label_issue_category_plural: Catégories de demandes
-label_issue_category_new: Nouvelle catégorie
-label_custom_field: Champ personnalisé
-label_custom_field_plural: Champs personnalisés
-label_custom_field_new: Nouveau champ personnalisé
-label_enumerations: Listes de valeurs
-label_enumeration_new: Nouvelle valeur
-label_information: Information
-label_information_plural: Informations
-label_please_login: Identification
-label_register: S'enregistrer
-label_password_lost: Mot de passe perdu
-Home: Accueil
-label_my_page: Ma page
-label_my_account: Mon compte
-label_my_projects: Mes projets
-Administration: Administration
-Login: Connexion
-label_logout: Déconnexion
-Help: Aide
-label_reported_issues: Demandes soumises
-label_assigned_to_me_issues: Demandes qui me sont assignées
-label_last_login: Dernière connexion
-label_last_updates: Dernière mise à jour
-label_last_updates_plural: %d dernières mises à jour
-label_registered_on: Inscrit le
+in: dans
 label_activity: Activité
-New: Nouveau
-label_logged_as: Connecté en tant que
-label_environment: Environnement
-label_authentication: Authentification
+label_add_note: Ajouter une note
+label_added: ajouté
+label_ago: il y a
+label_all: tous
+label_assigned_to_me_issues: Demandes qui me sont assignées
+label_attachment: Fichier
+label_attachment_delete: Supprimer le fichier
+label_attachment_new: Nouveau fichier
+label_attachment_plural: Fichiers
+label_attribute: Attribut
+label_attribute_plural: Attributs
 label_auth_source: Mode d'authentification
 label_auth_source_new: Nouveau mode d'authentification
 label_auth_source_plural: Modes d'authentification
-label_subproject: Sous-projet
-label_subproject_plural: Sous-projets
-label_min_max_length: Longueurs mini - maxi
-List: Liste
-Date: Date
-label_integer: Entier
-Boolean: Booléen
-label_string: Texte
-Text: Texte long
-label_attribute: Attribut
-label_attribute_plural: Attributs
-label_download: %d Téléchargement
-label_download_plural: %d Téléchargements
-label_no_data: Aucune donnée à afficher
-label_change_status: Changer le statut
-label_history: Historique
-label_attachment: Fichier
-label_attachment_new: Nouveau fichier
-label_attachment_delete: Supprimer le fichier
-label_attachment_plural: Fichiers
-Report: Rapport
-label_report_plural: Rapports
-News: Annonce
-label_news_new: Nouvelle annonce
-label_news_plural: Annonces
-News_Latest: Dernières annonces
-label_news_view_all: Voir toutes les annonces
+label_authentication: Authentification
+label_browse: Parcourir
 label_change_log: Historique
-label_settings: Configuration
-Overview: Aperçu
-Version: Version
-label_version_new: Nouvelle version
-label_version_plural: Versions
-label_confirmation: Confirmation
-label_export_to: Exporter en
-label_read: Lire...
-label_public_projects: Projets publics
-label_open_issues: ouvert
-label_open_issues_plural: ouverts
+label_change_status: Changer le statut
+label_change_view_all: Voir tous les changements
 label_closed_issues: fermé
 label_closed_issues_plural: fermés
-Total: Total
-Permissions: Permissions
-label_current_status: Statut actuel
-label_new_statuses_allowed: Nouveaux statuts autorisés
-label_all: tous
-None: aucun
-Next: Suivant
-Previous: Précédent
-label_used_by: Utilisé par
-Details: Détails...
-label_add_note: Ajouter une note
-label_per_page: Par page
-Calendar: Calendrier
-Months_From: mois depuis
-Gantt: Gantt
-label_internal: Interne
-label_last_changes: %d derniers changements
-label_change_view_all: Voir tous les changements
-label_personalize_page: Personnaliser cette page
-Comment: Commentaire
-label_comment_plural: Commentaires
 label_comment_add: Ajouter un commentaire
 label_comment_added: Commentaire ajouté
 label_comment_delete: Supprimer les commentaires
-label_query: Rapport personnalisé
-label_query_plural: Rapports personnalisés
-label_query_new: Nouveau rapport
+label_comment_plural: Commentaires
+label_confirmation: Confirmation
+label_current_status: Statut actuel
+label_custom_field: Champ personnalisé
+label_custom_field_new: Nouveau champ personnalisé
+label_custom_field_plural: Champs personnalisés
+label_day_plural: jours
+label_deleted: supprimé
+label_document: Document
+label_document_new: Nouveau document
+label_document_plural: Documents
+label_download: %d Téléchargement
+label_download_plural: %d Téléchargements
+label_enumeration_new: Nouvelle valeur
+label_enumerations: Listes de valeurs
+label_environment: Environnement
+label_equals: égal
+label_export_to: Exporter en
 label_filter_add: Ajouter le filtre
 label_filter_plural: Filtres
-label_equals: égal
-label_not_equals: différent
+label_history: Historique
 label_in_less_than: dans moins de
 label_in_more_than: dans plus de
-in: dans
-label_today: aujourd'hui
+label_information: Information
+label_information_plural: Informations
+label_integer: Entier
+label_internal: Interne
+label_issue: Demande
+label_issue_category: Catégorie de demandes
+label_issue_category_new: Nouvelle catégorie
+label_issue_category_plural: Catégories de demandes
+label_issue_new: Nouvelle demande
+label_issue_plural: Demandes
+label_issue_status: Statut de demandes
+label_issue_status_new: Nouveau statut
+label_issue_status_plural: Statuts de demandes
+label_issue_view_all: Voir toutes les demandes
+label_last_changes: %d derniers changements
+label_last_login: Dernière connexion
+label_last_updates: Dernière mise à jour
+label_last_updates_plural: %d dernières mises à jour
+label_latest_revision: Dernière révision
 label_less_than_ago: il y a moins de
-label_more_than_ago: il y a plus de
-label_ago: il y a
-Contains: contient
-label_not_contains: ne contient pas
-label_day_plural: jours
-label_repository: Dépôt SVN
-label_browse: Parcourir
+label_logged_as: Connecté en tant que
+label_logout: Déconnexion
+label_max_size: Taille maximale
+label_member: Membre
+label_member_new: Nouveau membre
+label_member_plural: Membres
+label_min_max_length: Longueurs mini - maxi
 label_modification: %d modification
 label_modification_plural: %d modifications
+label_modified: modifié
+label_more_than_ago: il y a plus de
+label_my_account: Mon compte
+label_my_page: Ma page
+label_my_projects: Mes projets
+label_new_statuses_allowed: Nouveaux statuts autorisés
+label_news_new: Nouvelle annonce
+label_news_plural: Annonces
+label_news_view_all: Voir toutes les annonces
+label_no_data: Aucune donnée à afficher
+label_not_contains: ne contient pas
+label_not_equals: différent
+label_on: sur
+label_open_issues: ouvert
+label_open_issues_plural: ouverts
+label_password_lost: Mot de passe perdu
+label_per_page: Par page
+label_personalize_page: Personnaliser cette page
+label_please_login: Identification
+label_project_latest: Derniers projets
+label_project_plural: Projets
+label_public_projects: Projets publics
+label_query: Rapport personnalisé
+label_query_new: Nouveau rapport
+label_query_plural: Rapports personnalisés
+label_read: Lire...
+label_register: S'enregistrer
+label_registered_on: Inscrit le
+label_report_plural: Rapports
+label_reported_issues: Demandes soumises
+label_repository: Dépôt SVN
 label_revision: Révision
 label_revision_plural: Révisions
-label_added: ajouté
-label_modified: modifié
-label_deleted: supprimé
-label_latest_revision: Dernière révision
-label_view_revisions: Voir les révisions
-label_max_size: Taille maximale
-label_on: sur
-label_sort_highest: Remonter en premier
+label_roadmap: Roadmap
+label_role_and_permissions: Rôles et permissions
+label_role_new: Nouveau rôle
+label_role_plural: Rôles
+label_settings: Configuration
 label_sort_higher: Remonter
+label_sort_highest: Remonter en premier
 label_sort_lower: Descendre
 label_sort_lowest: Descendre en dernier
-label_roadmap: Roadmap
-
-button_login: Connexion
-Submit: Soumettre
-Save: Sauvegarder
-button_check_all: Tout cocher
-button_uncheck_all: Tout décocher
-Delete: Supprimer
-Create: Créer
-button_test: Tester
-button_edit: Modifier
-Add: Ajouter
-button_change: Changer
-Apply: Appliquer
-button_clear: Effacer
-button_lock: Verrouiller
-button_unlock: Déverrouiller
-button_download: Télécharger
-button_list: Lister
-button_view: Voir
-button_move: Déplacer
-button_back: Retour
-Cancel: Annuler
-button_activate: Activer
-button_sort: Trier
-
-text_select_mail_notifications: Sélectionner les actions pour lesquelles la notification par mail doit être activée.
-text_regexp_info: ex. ^[A-Z0-9]+$
-text_min_max_length_info: 0 pour aucune restriction
-text_project_destroy_confirmation: Etes-vous sûr de vouloir supprimer ce projet et tout ce qui lui est rattaché ?
-text_workflow_edit: Sélectionner un tracker et un rôle pour éditer le workflow
+label_string: Texte
+label_subproject: Sous-projet
+label_subproject_plural: Sous-projets
+label_today: aujourd'hui
+label_tracker: Tracker
+label_tracker_new: Nouveau tracker
+label_tracker_plural: Trackers
+label_used_by: Utilisé par
+label_version_new: Nouvelle version
+label_version_plural: Versions
+label_view_revisions: Voir les révisions
+mail_subject_lost_password: Votre mot de passe redMine
+mail_subject_register: Activation de votre compte redMine
+notice_account_activated: Votre compte a été activé. Vous pouvez à présent vous connecter.
+notice_account_invalid_creditentials: Identifiant ou mot de passe invalide.
+notice_account_lost_email_sent: Un message contenant les instructions pour choisir un nouveau mot de passe vous a été envoyé.
+notice_account_password_updated: Mot de passe mis à jour avec succès.
+notice_account_register_done: Un message contenant les instructions pour activer votre compte vous a été envoyé.
+notice_account_unknown_email: Aucun compte ne correspond à cette adresse.
+notice_account_updated: Le compte a été mis à jour avec succès.
+notice_account_wrong_password: Mot de passe incorrect
+notice_can_t_change_password: Ce compte utilise une authentification externe. Impossible de changer le mot de passe.
+notice_file_not_found: La page à laquelle vous souhaitez accéder n'existe pas ou a été supprimée.
+notice_locking_conflict: Les données ont été mises à jour par un autre utilisateur. Mise à jour impossible.
+notice_scm_error: L'entrée et/ou la révision demandée n'existe pas dans le dépôt.
+notice_successful_connection: Connection réussie.
+notice_successful_create: Création effectuée avec succès.
+notice_successful_delete: Suppression effectuée avec succès.
+notice_successful_update: Mise à jour effectuée avec succès.
+setting_app_subtitle: Sous-titre de l'application
+setting_app_title: Titre de l'application
+setting_attachment_max_size: Taille max des fichiers
+setting_default_language: Langue par défaut
+setting_host_name: Nom d'hôte
+setting_issues_export_limit: Limite export demandes
+setting_login_required: Authentif. obligatoire
+setting_mail_from: Adresse d'émission
+setting_self_registration: Enregistrement autorisé
+setting_text_formatting: Formatage du texte
+setting_welcome_text: Texte d'accueil
 text_are_you_sure: Etes-vous sûr ?
 text_journal_changed: changé de %s à %s
-text_journal_set_to: mis à %s
 text_journal_deleted: supprimé
+text_journal_set_to: mis à %s
+text_min_max_length_info: 0 pour aucune restriction
+text_project_destroy_confirmation: Etes-vous sûr de vouloir supprimer ce projet et tout ce qui lui est rattaché ?
+text_regexp_info: ex. ^[A-Z0-9]+$
+text_select_mail_notifications: Sélectionner les actions pour lesquelles la notification par mail doit être activée.
 text_tip_task_begin_day: tâche commençant ce jour
-text_tip_task_end_day: tâche finissant ce jour
 text_tip_task_begin_end_day: tâche commençant et finissant ce jour
-
-default_role_manager: Manager
-default_role_developper: Développeur
-default_role_reporter: Rapporteur
-default_tracker_bug: Anomalie
-default_tracker_feature: Evolution
-default_tracker_support: Assistance
-default_issue_status_new: Nouveau
-default_issue_status_assigned: Assigné
-default_issue_status_resolved: Résolu
-default_issue_status_feedback: Commentaire
-default_issue_status_closed: Fermé
-default_issue_status_rejected: Rejeté
-default_doc_category_user: Documentation utilisateur
-default_doc_category_tech: Documentation technique
-default_priority_low: Bas
-default_priority_normal: Normal
-default_priority_high: Haut
-default_priority_urgent: Urgent
-default_priority_immediate: Immédiat
-
-enumeration_issue_priorities: Priorités des demandes
-enumeration_doc_categories: Catégories des documents
+text_tip_task_end_day: tâche finissant ce jour
+text_workflow_edit: Sélectionner un tracker et un rôle pour éditer le workflow

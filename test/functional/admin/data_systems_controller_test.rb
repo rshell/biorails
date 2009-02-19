@@ -4,7 +4,7 @@ require "data_systems_controller"
 # Re-raise errors caught by the controller.
 class Admin::DataSystemsController; def rescue_action(e) raise e end; end
 
-class Admin::DataSystemsControllerTest < Test::Unit::TestCase
+class Admin::DataSystemsControllerTest < BiorailsTestCase
   # # fixtures :data_systems
   
   def setup

@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/teams_controller"
 # Re-raise errors caught by the controller.
 class Admin::TeamsController; def rescue_action(e) raise e end; end
 
-class Admin::TeamsControllerTest < Test::Unit::TestCase
+class Admin::TeamsControllerTest < BiorailsTestCase
  
   def setup
     @controller = Admin::TeamsController.new

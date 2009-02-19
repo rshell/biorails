@@ -18,7 +18,7 @@ class ErrorDrop < Liquid::Drop
 end
 
 
-class ErrorHandlingTest < Test::Unit::TestCase
+class ErrorHandlingTest <Test::Unit::TestCase
   include Liquid
   
   def test_standard_error

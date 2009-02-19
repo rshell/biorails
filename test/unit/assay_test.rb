@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class AssayTest < Test::Unit::TestCase
+class AssayTest < BiorailsTestCase
 
   NEW_STUDY = {:name => 'Test Assay', :description => 'Dummy', :project_id=>1}
   REQ_ATTR_NAMES 			 = %w(name) # name of fields that must be present, e.g. %(name description)
@@ -285,8 +285,7 @@ class AssayTest < Test::Unit::TestCase
   
   
   def test_import_parameters_with_reference_id
-     file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+
-         '/files/test-parameters.csv', 'text/csv') 
+     file = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT,'test','fixtures','files','test-parameters.csv'), 'text/csv')
     new_assay = Assay.new(NEW_STUDY)
     assert new_assay.save
     warnings = new_assay.import_parameters(file)
@@ -301,8 +300,7 @@ class AssayTest < Test::Unit::TestCase
   end
 
   def test_import_parameters_without_reference_id_and_with_errors
-     file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+
-         '/files/test2-parameters.csv', 'text/csv') 
+     file = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT,'test','fixtures','files','test2-parameters.csv'), 'text/csv')
     new_assay = Assay.new(NEW_STUDY)
     assert new_assay.save
     warnings = new_assay.import_parameters(file,false,true)
@@ -315,8 +313,7 @@ class AssayTest < Test::Unit::TestCase
   end
 
   def test_import_parameters_twice
-     file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+
-         '/files/test-parameters.csv', 'text/csv') 
+     file = ActionController::TestUploadedFile.new(File.join(RAILS_ROOT,'test','fixtures','files','test-parameters.csv'), 'text/csv')
     new_assay = Assay.new(NEW_STUDY)
     assert new_assay.save
     warnings = new_assay.import_parameters(file)

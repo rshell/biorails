@@ -5,7 +5,7 @@ require 'mocha'
 $asset_packages_yml = YAML.load_file("#{RAILS_ROOT}/vendor/plugins/asset_packager/test/asset_packages.yml")
 $asset_base_path = "#{RAILS_ROOT}/vendor/plugins/asset_packager/test/assets"
 
-class AssetPackagerTest < Test::Unit::TestCase
+class AssetPackagerTest <Test::Unit::TestCase
   include Synthesis
   
   def setup

@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/parameter_roles_controller"
 # Re-raise errors caught by the controller.
 class Admin::ParameterRolesController; def rescue_action(e) raise e end; end
 
-class Admin::ParameterRolesControllerTest < Test::Unit::TestCase
+class Admin::ParameterRolesControllerTest < BiorailsTestCase
   # # fixtures :parameter_roles
 
 	NEW_PARAMETER_ROLE = {}	# e.g. {:name => 'Test ParameterRole', :description => 'Dummy'}

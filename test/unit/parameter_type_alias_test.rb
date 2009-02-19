@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ParameterTypeAliasTest < Test::Unit::TestCase
+class ParameterTypeAliasTest < BiorailsTestCase
   # Replace this with your real tests.
   def test_truth
     assert true

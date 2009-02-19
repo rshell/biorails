@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/inventory/compounds_controller"
 # Re-raise errors caught by the controller.
 class Inventory::CompoundsController; def rescue_action(e) raise e end; end
 
-class Inventory::CompoundsControllerTest < Test::Unit::TestCase
+class Inventory::CompoundsControllerTest <Test::Unit::TestCase
 
 
  def setup

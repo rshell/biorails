@@ -118,7 +118,7 @@ class ArtsController < ActionController::Base
 
 end
 
-class ArtsTest < Test::Unit::TestCase
+class ArtsTest <Test::Unit::TestCase
   def setup
     @controller = ArtsController.new
     @request    = ActionController::TestRequest.new

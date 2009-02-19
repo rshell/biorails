@@ -18,7 +18,7 @@ class AutoLoadController < ActionController::Base; end
 class FailingAutoLoadController < ActionController::Base; end
 class BrokenAutoLoadController < ActionController::Base; end
 
-class TC_DispatcherActionControllerSoap < Test::Unit::TestCase
+class TC_DispatcherActionControllerSoap <Test::Unit::TestCase
   include DispatcherTest
   include DispatcherCommonTests
 

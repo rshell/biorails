@@ -4,7 +4,7 @@ require  "#{RAILS_ROOT}/app/controllers/organize/assay_queues_controller"
 # Re-raise errors caught by the controller.
 class Organize::AssayQueuesController; def rescue_action(e) raise e end; end
 
-class Organize::AssayQueuesControllerTest < Test::Unit::TestCase
+class Organize::AssayQueuesControllerTest < BiorailsTestCase
   # fixtures :assay_queues
 
   def setup

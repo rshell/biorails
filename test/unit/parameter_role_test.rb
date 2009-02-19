@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ParameterRoleTest < Test::Unit::TestCase
+class ParameterRoleTest < BiorailsTestCase
   ## Biorails::Dba.import_model :parameter_roles
 
   NEW_PARAMETER_ROLE = {:name => 'Test Parameter Role', 

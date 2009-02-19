@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/helper'
 
 
-class StandardTagTest < Test::Unit::TestCase
+class StandardTagTest <Test::Unit::TestCase
   include Liquid
   
   

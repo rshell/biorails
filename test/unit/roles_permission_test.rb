@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class RolesPermissionTest < Test::Unit::TestCase
+class RolesPermissionTest < BiorailsTestCase
   ## Biorails::Dba.import_model :roles
   ## Biorails::Dba.import_model :role_permissions
 

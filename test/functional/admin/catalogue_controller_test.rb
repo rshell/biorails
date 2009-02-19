@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/catalogue_controller"
 # Re-raise errors caught by the controller.
 class Admin::CatalogueController; def rescue_action(e) raise e end; end
 
-class Admin::CatalogueControllerTest < Test::Unit::TestCase
+class Admin::CatalogueControllerTest < BiorailsTestCase
 
   NEW_PARAMETER_TYPE = {}	# e.g. {:name => 'Test ParameterType', :description => 'Dummy'}
   REDIRECT_TO_MAIN = {:action => 'list'} # put hash or string redirection that you normally expect

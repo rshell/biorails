@@ -28,7 +28,7 @@ module ContainerTest
   end
 end
 
-class TC_Container < Test::Unit::TestCase
+class TC_Container <Test::Unit::TestCase
   include ContainerTest
 
   def setup

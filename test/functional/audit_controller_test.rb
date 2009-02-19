@@ -4,7 +4,7 @@ require 'audit_controller'
 # Re-raise errors caught by the controller.
 class AuditController; def rescue_action(e) raise e end; end
 
-class AuditControllerTest < Test::Unit::TestCase
+class AuditControllerTest < BiorailsTestCase
   def setup
     @controller = AuditController.new
     @request    = ActionController::TestRequest.new

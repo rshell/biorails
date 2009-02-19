@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class SystemSettingTest < Test::Unit::TestCase
+class SystemSettingTest < BiorailsTestCase
   ## Biorails::Dba.import_model :system_settings
 
   # Replace this with your real tests.

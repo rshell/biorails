@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require File.dirname(__FILE__) + '/helper'
 
-class FileSystemTest < Test::Unit::TestCase
+class FileSystemTest <Test::Unit::TestCase
   include Liquid
   
   def test_default

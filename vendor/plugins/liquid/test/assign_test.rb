@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/helper'
 
-class IfElseTest < Test::Unit::TestCase
+class IfElseTest <Test::Unit::TestCase
   include Liquid
   
   def test_with_filtered_expressions

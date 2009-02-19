@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class AnalysisTest < Test::Unit::TestCase
+class AnalysisTest < BiorailsTestCase
 
   # Replace this with your real tests.
   def setup

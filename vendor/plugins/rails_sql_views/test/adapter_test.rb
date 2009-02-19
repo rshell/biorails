@@ -1,6 +1,6 @@
 require "#{File.dirname(__FILE__)}/test_helper"
 
-class AdapterTest < Test::Unit::TestCase
+class AdapterTest <Test::Unit::TestCase
   def test_current_database
     if ActiveRecord::Base.connection.respond_to?(:current_database)
       assert_equal 'rails_sql_views_unittest', ActiveRecord::Base.connection.current_database

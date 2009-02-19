@@ -4,7 +4,7 @@ require 'finder_controller'
 # Re-raise errors caught by the controller.
 class FinderController; def rescue_action(e) raise e end; end
 
-class FinderControllerTest < Test::Unit::TestCase
+class FinderControllerTest < BiorailsTestCase
   def setup
     @controller = FinderController.new
     @request    = ActionController::TestRequest.new

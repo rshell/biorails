@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/inventory/batches_controller"
 # Re-raise errors caught by the controller.
 class Inventory::BatchesController; def rescue_action(e) raise e end; end
 
-class Inventory::BatchesControllerTest < Test::Unit::TestCase
+class Inventory::BatchesControllerTest <Test::Unit::TestCase
   # # fixtures :batchs
 
 	NEW_PARAMETER_ROLE = {}	# e.g. {:name => 'Test batch', :description => 'Dummy'}

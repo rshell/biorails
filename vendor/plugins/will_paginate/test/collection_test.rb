@@ -1,7 +1,7 @@
 require 'helper'
 require 'will_paginate/array'
 
-class ArrayPaginationTest < Test::Unit::TestCase
+class ArrayPaginationTest <Test::Unit::TestCase
   def test_simple
     collection = ('a'..'e').to_a
     

@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/assay_stages_controller"
 # Re-raise errors caught by the controller.
 class Admin::AssayStagesController; def rescue_action(e) raise e end; end
 
-class Admin::AssayStagesControllerTest < Test::Unit::TestCase
+class Admin::AssayStagesControllerTest < BiorailsTestCase
   # # fixtures :assay_stages
 	def setup
 		@controller = Admin::AssayStagesController.new

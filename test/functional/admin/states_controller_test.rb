@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/states_controller"
 # Re-raise errors caught by the controller.
 class Admin::StatesController; def rescue_action(e) raise e end; end
 
-class Admin::StatesControllerTest < Test::Unit::TestCase
+class Admin::StatesControllerTest < BiorailsTestCase
 
   def setup
     @controller = Admin::StatesController.new

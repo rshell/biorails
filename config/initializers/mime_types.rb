@@ -10,4 +10,3 @@ Mime::Type.register "application/pdf", :pdf
 Mime::Type.register "text/richtext", :rtf
 Mime::Type.register "image/svg+xml", :svg
 Mime::Type.register "application/extjs", :ext
-Mime::Type.register 'text/csv', :csv, %w('text/comma-separated-values')

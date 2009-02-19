@@ -104,7 +104,7 @@ module InvocationTest
   end
 end
 
-class TC_Invocation < Test::Unit::TestCase
+class TC_Invocation <Test::Unit::TestCase
   include ActionWebService::Invocation
 
   def setup

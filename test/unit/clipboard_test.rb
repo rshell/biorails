@@ -5,7 +5,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 # and open the template in the editor.
  
 
-class ClipboardTest  < Test::Unit::TestCase
+class ClipboardTest  < BiorailsTestCase
 
   def test_new
     clip = Clipboard.new

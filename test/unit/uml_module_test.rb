@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class UmlModelTest < Test::Unit::TestCase
+class UmlModelTest < BiorailsTestCase
 
   # Replace this with your real tests.
   

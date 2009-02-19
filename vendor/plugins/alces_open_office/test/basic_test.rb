@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class BasicTest < Test::Unit::TestCase
+class BasicTest <Test::Unit::TestCase
 
   INVALID_FILE ='xxxx.html'
   CSV_FILE = File.dirname(__FILE__) + '/fixtures/test1.csv'

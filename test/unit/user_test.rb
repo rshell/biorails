@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 require 'mocha'
-class UserTest < Test::Unit::TestCase
+class UserTest < BiorailsTestCase
   ## Biorails::Dba.import_model UserRole
   ## Biorails::Dba.import_model User
 

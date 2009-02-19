@@ -6,7 +6,7 @@ module SecurityFilter
   end
 end
 
-class SecurityTest < Test::Unit::TestCase
+class SecurityTest <Test::Unit::TestCase
   include Liquid
 
   def test_no_instance_eval

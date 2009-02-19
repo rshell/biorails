@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class MembershipTest < Test::Unit::TestCase
+class MembershipTest < BiorailsTestCase
   ## Biorails::Dba.import_model :user_roles
   ## Biorails::Dba.import_model :project_roles
   ## Biorails::Dba.import_model :users

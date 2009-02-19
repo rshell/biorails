@@ -1,6 +1,6 @@
 require 'test/unit'
 
-class AlcesUnitsTest < Test::Unit::TestCase
+class AlcesUnitsTest <Test::Unit::TestCase
   # Replace this with your real tests.
   def test_this_plugin
     flunk

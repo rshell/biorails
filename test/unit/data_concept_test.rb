@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class DataConceptsTest < Test::Unit::TestCase
+class DataConceptsTest < BiorailsTestCase
   ## Biorails::Dba.import_model :data_contexts
   ## Biorails::Dba.import_model :data_concepts
 

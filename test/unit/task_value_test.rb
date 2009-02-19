@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class TaskValueTest < Test::Unit::TestCase
+class TaskValueTest < BiorailsTestCase
 
   def setup
     # Retrieve ## Biorails::Dba.import_model via their name

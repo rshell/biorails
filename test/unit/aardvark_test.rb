@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 # The weird name is to make it run first, before other tests
 
-class AardvarkTest < Test::Unit::TestCase
+class AardvarkTest < BiorailsTestCase
   def setup
      @@logger=Logger.new(STDOUT)
      @required=[]

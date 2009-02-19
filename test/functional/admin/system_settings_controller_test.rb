@@ -3,7 +3,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/system_settings_controller"
 # Re-raise errors caught by the controller.
 class Admin::SystemSettingsController; def rescue_action(e) raise e end; end
 
-class Admin::SystemSettingsControllerTest < Test::Unit::TestCase
+class Admin::SystemSettingsControllerTest < BiorailsTestCase
 
 	def setup
 		@controller = Admin::SystemSettingsController.new

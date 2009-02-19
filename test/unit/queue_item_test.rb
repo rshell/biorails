@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class QueueItemTest < Test::Unit::TestCase
+class QueueItemTest < BiorailsTestCase
   ## Biorails::Dba.import_model :queue_items
 
  def setup

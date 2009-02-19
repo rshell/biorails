@@ -27,7 +27,7 @@ javascripts:
 stylesheets: 
 - base: 
   - ext-all
-  - enterprise_icons
+  - open_icons
   - forms
   - table
   - errors

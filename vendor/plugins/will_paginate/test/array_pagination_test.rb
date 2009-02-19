@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/helper'
 require 'will_paginate/core_ext'
 
-class ArrayPaginationTest < Test::Unit::TestCase
+class ArrayPaginationTest <Test::Unit::TestCase
   def test_simple
     collection = ('a'..'e').to_a
     

@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require File.dirname(__FILE__) + '/helper'
 
-class ParsingQuirksTest < Test::Unit::TestCase
+class ParsingQuirksTest <Test::Unit::TestCase
   include Liquid
 
   def test_error_with_css

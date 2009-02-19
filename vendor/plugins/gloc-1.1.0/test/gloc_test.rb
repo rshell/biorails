@@ -15,7 +15,7 @@ class LClass_en < LClass2; set_language :en; end
 class LClass_ja < LClass2; set_language :ja; end
 # class LClass_forced_au < LClass; set_language :en; force_language :en_AU; set_language :ja; end
 
-class GLocTest < Test::Unit::TestCase
+class GLocTest <Test::Unit::TestCase
   include GLoc
   include ActionView::Helpers::DateHelper
   

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class AssayQueueTest < Test::Unit::TestCase
+class AssayQueueTest < BiorailsTestCase
   ## Biorails::Dba.import_model :assay_queues
 
   # Replace this with your real tests.

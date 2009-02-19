@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/helper'
 
-class ConditionTest < Test::Unit::TestCase
+class ConditionTest <Test::Unit::TestCase
   include Liquid
   
   def test_basic_condition

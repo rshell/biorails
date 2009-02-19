@@ -63,7 +63,7 @@ class ArrayLike
 end
 
 
-class ContextTest < Test::Unit::TestCase
+class ContextTest <Test::Unit::TestCase
   include Liquid
 
   def setup

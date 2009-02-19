@@ -11,7 +11,7 @@ ActionController::Base.perform_caching = false
 require 'will_paginate'
 WillPaginate.enable_actionpack
 
-class PaginationTest < Test::Unit::TestCase
+class PaginationTest <Test::Unit::TestCase
   
   class DevelopersController < ActionController::Base
     def list_developers
@@ -275,7 +275,7 @@ protected
   end
 end
 
-class ViewHelpersTest < Test::Unit::TestCase
+class ViewHelpersTest <Test::Unit::TestCase
   include WillPaginate::ViewHelpers
 
   def test_page_entries_info

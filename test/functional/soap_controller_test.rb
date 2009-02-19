@@ -4,7 +4,7 @@ require 'soap_controller'
 # Re-raise errors caught by the controller.
 class SoapController; def rescue_action(e) raise e end; end
 
-class SoapControllerTest < Test::Unit::TestCase
+class SoapControllerTest < BiorailsTestCase
   def setup
     @controller = SoapController.new
     @request    = ActionController::TestRequest.new

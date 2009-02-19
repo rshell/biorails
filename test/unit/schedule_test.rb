@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ScheduleTest < Test::Unit::TestCase
+class ScheduleTest < BiorailsTestCase
   # Replace this with your real tests.
   def test_truth
     assert true

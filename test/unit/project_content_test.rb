@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ProjectContentTest < Test::Unit::TestCase
+class ProjectContentTest < BiorailsTestCase
   # ## Biorails::Dba.import_model :project_contents
 
   def setup

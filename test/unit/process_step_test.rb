@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ProcessStepTest < Test::Unit::TestCase
+class ProcessStepTest < BiorailsTestCase
 
   def setup
     @step=ProcessStep.find(1)

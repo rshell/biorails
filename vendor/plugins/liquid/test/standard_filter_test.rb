@@ -7,7 +7,7 @@ class Filters
 end
 
 
-class StandardFiltersTest < Test::Unit::TestCase
+class StandardFiltersTest <Test::Unit::TestCase
   include Liquid
   
   def setup

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/helper'
 
-class TemplateTest < Test::Unit::TestCase
+class TemplateTest <Test::Unit::TestCase
   include Liquid
   
   def test_tokenize_strings

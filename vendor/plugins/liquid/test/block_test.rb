@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/helper'
 
-class VariableTest < Test::Unit::TestCase
+class VariableTest <Test::Unit::TestCase
   include Liquid
 
   def test_blankspace

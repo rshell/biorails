@@ -30,7 +30,7 @@ class TestFileSystem
   end
 end
 
-class IncludeTagTest < Test::Unit::TestCase
+class IncludeTagTest <Test::Unit::TestCase
   include Liquid
   
   def setup

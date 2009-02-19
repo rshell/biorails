@@ -236,7 +236,7 @@ class HomeController < ApplicationController
         :conditions=>'project_elements.parent_id is null',
         :order=>'project_elements.name')
       @chain = current_element.self_and_ancestors
-      return render :inline => '<%= elements_to_json_tree(@elements,@chain) %>'
+      return render(:inline => '<%= elements_to_json_tree(@elements,@chain) %>')
     else  
       @elements = ProjectElement.list(:all,
         :conditions =>['project_elements.parent_id = ?',params[:node] ],

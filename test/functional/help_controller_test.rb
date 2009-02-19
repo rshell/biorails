@@ -4,7 +4,7 @@ require 'help_controller'
 # Re-raise errors caught by the controller.
 class HelpController; def rescue_action(e) raise e end; end
 
-class HelpControllerTest < Test::Unit::TestCase
+class HelpControllerTest < BiorailsTestCase
   def setup
     @controller = HelpController.new
     @request    = ActionController::TestRequest.new

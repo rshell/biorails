@@ -1,5 +1,468 @@
+#######
+ACL:  Access Control List
+ACL_Edit:  Editing Access Control List
+Accepted:  Accepted
+Accepted_Items_of_Type:  Accepts Items of Type
+Access: Access
+Access_Based_on_Team:  Access based on Team
+Access_Denied:  Access Denied
+Access_Level:  Access Level
+Action:  Action
+Actions:  Actions
+Adaptor:  Adapter
+Add:  Add
+Add_Task:  Add Task
+Administration:  Administration
+Alias:  Alias
+All_users_have_same_access:  All users have same access
+Allowed_actions_for_role:  Allowed actions for Role
+Analyse:  Analyse
+Analysis:  Analysis
+Analysis_Default_Run:  Run Default Analysis
+Analysis_Method:  Analysis Method
+Apply:  Apply
+Article:  Article
+Article_Edit: Edit Article
+Article_New:  New Article
+Articles_and_Files:  Articles and Files
+Assay:  Assay
+Assay_Add:  Add Assay
+Assay_Group: Assay Group
+Assay_Groups: Assay Groups
+Assay_Main:  Main Assay
+Assay_Manage:  Manage Assays
+Assay_New:  New Assay
+Assay_Parameter:  Assay Parameter
+Assay_Stage:  Assay Stage
+Assay_Stages:  Assay Stages
+Assays:  Assays
+Assigned_To:  Assigned To
+Assignee:  Assignee
+Associated_Request_Items:  Items Associated Through Requests
+Associations: Links
+Author:  Author
+Auto_assign_items_to_task:  Auto-assign accepted request items
+Back:  Back
+Based_on_Model:  Based on Model
+Batches:  Batches
+BioRails:  BioRails
+BioRails_Version:  BioRails Version
+Boolean:  Boolean
+Calendar:  Calendar
+Cancel:  Cancel
+Caption:  Caption
+Catalogue:  Catalogue
+Catalogue_to_import:  Catalogue file to import...
+Category:  Category
+Change_Password: Change Password
+Changed_After:  changed after
+Changed_Before:  changed before
+Clipboard: Clipboard
+Collection:  Collection
+Column_Key:  Column Key
+Columns:  Columns
+Coming:  Coming
+Comment:  Comment
+Comments:  Comments
+Completed:  Completed
+Compound:  Compound
+Compound_New:  New Compound
+Compounds:  Compounds
+Concept:  Concept
+Concept_Specialisations:  Specialisations
+Confirm_password_for:  Confirm password for
+Contains:  contains
+Content:  Content
+Context:  Context
+Counts:  Counts
+Create:  Create
+Created:  Created
+Creator:  Creator
+Cross_Tab:  Cross Tab
+Cross_Tab_List:  Cross Tab List
+Cross_Tab_New:  New Cross Tab
+Cross_Tabs:  Cross Tabs
+Current:  Current
+Current_Project:  Current Domain
+Current_State:  Current State
+Current_Style: Current Style
+Currently_editing_acl:  Editing access control list
+Custom: Custom
+Customise: Customise
+Dashboard:  Dashboard
+Data_Description:  Data Description
+Data_Element:  Lookup
+Data_Element_Styles:  Lookup Styles
+Data_Elements:  Lookups
+Data_Format:  Data Format
+Data_Formats:  Data Formats
+Data_Host:  Host
+Data_Identifiers: Data Identifiers
+Data_Source:  Data Source
+Data_Source_Edit:  Edit Data Source
+Data_Sources:  Data Sources
+Data_System:  Data System
+Data_Type:  Data Type
+Data_Type_Edit:  Edit Data Type
+Data_Type_New:  New Data Type
+Data_Types:  Data Types
+Database:  Database
+Database_UML:  Database UML
+Date:  Date
+Date_Accepted:  Accepted Date
+Date_Completed:  Completed Date
+Date_Expected:  Expected End Date
+Date_Picker: Date Picker
+Date_Required:  Required by
+Date_Start:  Start Date
+Date_Updated:  Updated On
+Day:  Day
+Decimal_Places:  Decimal Places
+Default:  Default
+Default_Analysis_Method:  Default Analysis Method
+Default_Status:  Default Status
+Default_Task_Report:  Default Task Report
+Default_Unit:  Default Unit
+Default_Value:  Default Value
+Default_Witness: Default Witness
+Default_acl: Default Access List
+Defined_Aliases:  Defined Aliases
+Delete:  Delete
+Department:  Department
+Dept:  Dept
+Depts:  Departments
+Description:  Description
+Details:  Details
+Dictionaries:  Dictionaries
+Dictionary:  Dictionary
+Dimension:  Dimension
+Discovery_Project:  Discovery Project
+Discovery_Projects:  Discovery Projects
+Display_Name:  Display Name
+Document_History:  History of this document
+Documents:  Documents
+Documents_Awaiting_Approval:  Documents Awaiting Approval
+Documents_Requesting_Approval:  Documents Requiring My Approval
+Download_File:  Download File
+Due:  Due
+Edit:  Edit
+Edits:  Edits
+Email_address:  e-mail address
+Entry_Format:  Entry Format
+Estimated_No_Values:  Estimated No. Values
+Example:  Example
+Execution: Execution
+Executive_Summary: Executive Summary
+Expected_Duration:  Expected Duration (h)
+Experiment:  Experiment
+Experiment_Add:  Add Experiment
+Experiment_Copy:  Copy Experiment
+Experiment_New:  New Experiment
+Experiments:  Experiments
+Export:  Export
+Exported:  Exported
+File:  File
+File_Upload:  File to upload
+Filter:  Filter
+Folder:  Folder
+Folder_For: Folder for
+Folder_Items: Folder Items
+Folder_New:  New Folder
+Folder_Path:  Folder Path
+Folder_Refresh:  Refresh Folder
+Folders:  Folders
+For:  For
+Format: Format
+Full_Name:  Full Name
+Full_system_liability:  Full system liability (bypass access rights checking, use with caution)
+Gantt:  Gantt
+Grant_access_to_User_or_Team: Grant access to User or Team
+Guide:  Guide
+Help:  Help
+Historic:  Historic
+Hits_For: Hits For
+Home:  Home
+Implementations:  Implementations
+Import:  Import
+Import_Catalogue_into_System:  Import Catalogue Into System
+Input_regex_rule:  Input regex rule
+Inventory: Inventory
+Item:  Item
+Item_Type:  Item Type
+Items:  Items
+LDAP:  LDAP
+LDAP_Account:  LDAP Account
+Lab: Lab
+Label:  Label
+Labs:  Labs
+Latest:  Latest
+Latest_Uploads:  Latest Uploads
+Latest_Version:  Latest Version
+Layout: Layout
+Length:  Length
+Link_Assay_From:  Link Assay From
+List:  List
+List_LDAP:  List LDAP users
+List_Local:  List Local Users
+Lit_Ref:  Lit Ref
+Login:  Login
+Long_Text:  Long text
+Lookup_From:  Lookup From
+Manage_Parameters:  Manage Parameters
+Manage_Queues:  Manage Queues
+Managed_By:  Managed By
+Member_Numbers:  No. Members
+Members:  Members
+Membership:  Membership
+Method:  Method
+Method_Default:  Default Method
+Methods:  Methods
+Metrics:  Metrics
+Mime_Type:  Mime Type
+Missing:  Missing
+Mobile:  Mobile
+Mode:  Mode
+Module: Module
+Month:  Month
+Months_From:  months from
+My:  My
+My_Documents:  My Documents
+My_Latest:  My Latest (%d) %s
+My_Published_Documents:  My Published Documents
+My_Service_Queues:  My Service Queues
+My_Tasks:  My Tasks
+Name:  Name
+Name_Full_Name:  Name [Full Name]
+Name_Ref:  Name (Ref)
+New:  New
+New_Permission:  New Permission
+New_Version:  New Version
+News:  News
+News_Latest:  Latest news
+News_Recent:  Recent News
+Next:  Next
+No_Assays: %s has no assays
+No_Children: %s has no children
+No_predifined_analysis:  No predefined analysis defined for this process
+None:  None
+Not_Run:  Not run
+Not_released:  Not Released
+Num_Usages:  No. Usages
+Number:  Number
+Numeric:  Numeric
+Offset:  Offset
+Old_Password:  Old Password
+Open:  Open
+Open_Folder:  Open Folder
+Organisation: Organisation
+Other_Versions:  Other Versions
+Ouptput_printf_values:  Output prinf format (Numeric values)
+Overdue:  Overdue
+Overview:  Overview
+Owner:  Owner
+Parameter:  Parameter
+Parameter_Edit:  Edit Parameter
+Parameter_Name:  Parameter Name
+Parameter_New:  New Parameter
+Parameter_Role:  Parameter Role
+Parameter_Role_Edit:  Editing Parameter Role
+Parameter_Role_New:  New Parameter Role
+Parameter_Roles:  Parameter Roles
+Parameter_Type:  Parameter Type
+Parameter_Type_Edit:  Editing Parameter Type
+Parameter_Type_New:  New Parameter Type
+Parameter_Types:  Parameter Types
+Parameters:  Parameters
+Parameters_Manage:  Manage Parameters
+Parent:  Parent
+Password:  Password
+Password_Confirmation:  Confirm Password
+Pathname_to_file:  File to upload
+Permissions:  Permissions
+Plates:  Plates
+Possible_link:  Possible link
+Possible_new_states: Possible new states
+Previous:  Previous
+Print:  Print
+Print_CSV:  Print to CSV
+Print_PDF:  Print to PDF
+Priority:  Priority
+Process:  Process
+ProcessFlow:  Workflow
+ProcessInstance:  Process
+Process_New:  New Process
+Process_Version:  Process Version
+Process_to_add_to_Recipe:  Process to add to recipe
+Processes:  Processes
+Processes_Released:  Released Processes (single step methods)
+Project:  Domain
+Project_Children:  Child Domain
+Project_Daughter_Add:  Add Child Domain
+Project_New:  New Domain
+Project_Open: Open Domain
+Project_Type:  Domain Type
+Project_Types:  Domain Types
+Projects:  Domains
+Publish: Publish
+Published:  Published
+Purge:  Purge
+Quality_Being_Measured:  Quality being measured
+Query_Builder_For:  Query Builder For
+Query_Preview:  Example query (first 5 rows only)
+Queue:  Queue
+Queue_Add:  Add Queue
+Queued_Items:  Queued Items
+Queues:  Queues
+Recipe:  Recipe
+Recipe_New:  New Recipe
+Recipes:  Recipes
+Recipes_Released:  Released Recipes (multi-step methods)
+Reemove:  Remove
+Ref:  Ref
+Ref_to_source_materials:  References to source materials
+Reformat: Reformat
+Refrence:  Reference
+Refresh: Refresh
+Regex_Rule:  Regex Rule
+Released_Version:  Released Version
+Report:  Report
+Reports:  Reports
+Reports_List:  Reports List
+Reports_New:  New Report
+Request:  Request
+Request_Add:  Add Request
+Request_New:  New Request
+Request_Update:  Update Request
+Requestor:  Requestor
+Requests:  Requests
+Required_By:  Required By
+Reset:  Reset
+Result_Type:  Result Type
+Results: Results
+Role:  Role
+Role_Access:  Role Access
+Role_Allowed_Actions:  Allowed Actions for Role
+Roles:  Roles
+Roles_Root_Project:  Root Project Role
+Row_Label:  Row Label
+Rows:  Rows
+Run:  Run
+Running_Assay_Method:  Running Assay/Method
+Runs:  runs
+Samples:  Samples
+Save:  Save
+Scheduled:  Scheduled
+Scheduled_Steps:  Sheduled Steps
+Schema_Number:  Schema Number
+Sections:  Sections
+Service:  Service Queue
+Service_Edit:  Editing Service
+Service_Queue:  Service Queue
+Service_Queue_New:  New Service Queue
+Service_Queues:  Service Queues
+Service_Requests:  Requests By Service
+Sheet:  Data-Entry
+Shortname:  Short Name
+Show:  Show
+Show_All:  Show All
+Signature:  Signature
+Signatures:  Signatures
+Signatures_For: Signatures For
+Signed:  Signed
+Signed_Documents: Signed Documents
+Signed_Folder:  This folder is signed
+Snapshot_To_Folder:  Snapshot To Folder
+Source:  Source
+Stage:  Stage
+Started:  Started
+State_Edit:  Edit State
+State_Flows: State Flows
+State_New:  New State
+States:  States
+Status:  Status
+Status_For:  For Status
+Step:  Step
+Step_Duration:  Time (h)
+Step_Name:  Step Name
+Step_Start:  Start (h)
+Studies: Studies
+Studies_Child: Daughter Studies
+Study:  Study
+Study_Director: Study Director
+Study_ID: Study ID
+Study_New: New Study
+Study_Number: Study Number
+Study_Sponsor: Sponsor
+Study_Update: Update Study
+Style:  Style
+Subject:  Subject
+Submit:  Submit
+Summary:  Summary
+System:  System
+System_Reports:  System Reports
+System_Role: System Role
+System_Roles:  System Roles
+System_Settings:  System Settings
+Task_New:  New Task
+Tasks:  Tasks
+Team:  Team
+Team_Assigned: Assigned Team
+Team_Memberships:  Team Membership
+Team_New:  New Team
+Team_Roles:  Project Roles
+Team_Root_Role:  Root Project Role
+Teams:  Teams
+Telephone:  Tel
+Template:  Template
+Test:  Test
+Test_Object:  Test Object
+Test_String:  Test String
+Text:  Text
+Timeline:  Timeline
+Title:  Title
+Title_Heading:  Title (Heading)
+To_User:  To User
+Todo:  Todo
+Total:  Total
+Type:  Type
+Types:  Types
+URL:  URL
+Unit:  Unit
+Units:  Units
+Update:  Update
+Update_Summary: Update Summary
+Update_acls_in_children:  Update all occurances of same Access control list in child folders
+Update_any_requested_items:  Updated any requested items
+Update_requested_items:  Update requested items
+Updated:  Updated
+Updated_By:  Updated By
+Usage:  Usage
+Usages:  Usages
+User_Disable:  Disable User
+User_Edit:  Edit User
+User_New:  New user
+User_Permissions:  User Permissions
+User_Profile:  User Profile for
+User_With_Roles:  User With Roles
+Username:  Username
+Users:  Users
+Users_LDAP:  LDAP Users
+Uses:  Uses
+Value:  Value
+Value_Class:  Value Class
+Verify:  Verify
+Version:  Version
+Version_History:  Version History
+Version_Label:  Version Label
+View:  View
+Visualise_tables_for_query:  Visualize Tables for Query
+Weeks:  Weeks
+Weighting:  Weighting (Governs order in forms)
+Witness:  Witness
+Workflow:  Workflow
+Year:  Year
+Zip:  Zip
 _gloc_rule_default: '|n| n==1 ? "" : "_plural" '
-
 actionview_datehelper_select_day_prefix:
 actionview_datehelper_select_month_names:  January,February,March,April,May,June,July,August,September,October,November,December
 actionview_datehelper_select_month_names_abbr:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
@@ -18,230 +481,39 @@ actionview_datehelper_time_in_words_minute_single:  1 minute
 actionview_datehelper_time_in_words_second_less_than:  less than a second
 actionview_datehelper_time_in_words_second_less_than_plural:  less than %d seconds
 actionview_instancetag_blank_option:  Please select
-
-activerecord_error_inclusion:  is not included in the list
-activerecord_error_exclusion:  is reserved
-activerecord_error_invalid:  is invalid
-activerecord_error_confirmation:  does not match confirmation
 activerecord_error_accepted:  must be accepted
-activerecord_error_empty:  can not be empty
 activerecord_error_blank:  can not be blank
+activerecord_error_confirmation:  does not match confirmation
+activerecord_error_empty:  can not be empty
+activerecord_error_exclusion:  is reserved
+activerecord_error_greater_than_start_date:  must be greater than start date
+activerecord_error_inclusion:  is not included in the list
+activerecord_error_invalid:  is invalid
+activerecord_error_not_a_date:  is not a valid date
+activerecord_error_not_a_number:  is not a number
+activerecord_error_taken:  has already been taken
 activerecord_error_too_long:  is too long
 activerecord_error_too_short:  is too short
 activerecord_error_wrong_length:  is the wrong length
-activerecord_error_taken:  has already been taken
-activerecord_error_not_a_number:  is not a number
-activerecord_error_not_a_date:  is not a valid date
-activerecord_error_greater_than_start_date:  must be greater than start date
-
 field_mail:  Mail
+general_csv_separator:
+general_day_names: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
 general_fmt_age:  %d yr
 general_fmt_age_plural:  %d yrs
 general_fmt_date:  %%m/%%d/%%Y
+general_fmt_datetime:  %%m/%%d/%%Y %%I%%M %%p
 general_fmt_datetime:  %%m/%%d/%%Y %%I:%%M %%p
+general_fmt_datetime_short:  %%b %%d, %%I%%M %%p
 general_fmt_datetime_short:  %%b %%d, %%I:%%M %%p
+general_fmt_time:  %%I%%M %%p
 general_fmt_time:  %%I:%%M %%p
+general_lang_en:  'English'
 general_text_No:  'No'
 general_text_Yes:  'Yes'
 general_text_no:  'no'
 general_text_yes:  'yes'
-general_lang_en:  'English'
-general_csv_separator: 
-general_day_names: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
-general_fmt_age_plural:  %d yrs
-general_fmt_age:  %d yr
-general_fmt_date:  %%m/%%d/%%Y
-general_fmt_datetime_short:  %%b %%d, %%I%%M %%p
-general_fmt_datetime:  %%m/%%d/%%Y %%I%%M %%p
-general_fmt_time:  %%I%%M %%p
-
-gui_validation_error_plural:  %d errors
 gui_validation_error:  1 error
-
-#######
-
-Add:  Add
-Accepted_Items_of_Type:  Accepts Items of Type
-Accepted:  Accepted
-Access_Based_on_Team:  Access based on Team
-Access_Denied:  Access Denied
-Access_Level:  Access Level
-Access: Access
-Default_acl: Default Access List
-ACL_Edit:  Editing Access Control List
-ACL:  Access Control List
-Action:  Action
-Actions:  Actions
-Adaptor:  Adapter
-Add_Task:  Add Task
-Administration:  Administration
-Alias:  Alias
-All_users_have_same_access:  All users have same access
-Allowed_actions_for_role:  Allowed actions for Role
-Analyse:  Analyse
-Analysis_Default_Run:  Run Default Analysis
-Analysis_Method:  Analysis Method
-Analysis:  Analysis
-Apply:  Apply
-Article_New:  New Article
-Article_Edit: Edit Article
-Article:  Article
-Articles_and_Files:  Articles and Files
-Assay_Add:  Add Assay
-Assay_Group: Assay Group
-Assay_Groups: Assay Groups
-Assay_Main:  Main Assay
-Assay_Manage:  Manage Assays
-Assay_New:  New Assay
-Assay_Parameter:  Assay Parameter
-Assay_Stage:  Assay Stage
-Assay_Stages:  Assay Stages
-Assay:  Assay
-Assays:  Assays
-Assigned_To:  Assigned To
-Assignee:  Assignee
-Associations: Links
-Associated_Request_Items:  Items Associated Through Requests
-Author:  Author
-Auto_assign_items_to_task:  Auto-assign accepted request items
-Back:  Back
-Based_on_Model:  Based on Model
-Batches:  Batches
-BioRails_Version:  BioRails Version
-BioRails:  BioRails
-Boolean:  Boolean
-Calendar:  Calendar
-Cancel:  Cancel
-Cancel:  Cancel
-Caption:  Caption
-Catalogue_to_import:  Catalogue file to import...
-Catalogue:  Catalogue
-Category:  Category
-Change_Password: Change Password
-Changed_After:  changed after
-Changed_Before:  changed before
-Clipboard: Clipboard
-Collection:  Collection
-Column_Key:  Column Key
-Columns:  Columns
-Coming:  Coming
-Comment:  Comment
-Comments:  Comments
-Completed:  Completed
-Compound_New:  New Compound
-Compound:  Compound
-Compounds:  Compounds
-Concept_Specialisations:  Specialisations
-Concept:  Concept
-Confirm_password_for:  Confirm password for
-Contains:  contains
-Content:  Content
-Context:  Context
-Counts:  Counts
-Create:  Create
-Create:  Create
-Created:  Created
-Creator:  Creator
-Cross_Tab_List:  Cross Tab List
-Cross_Tab_New:  New Cross Tab
-Cross_Tab:  Cross Tab
-Cross_Tabs:  Cross Tabs
-Current_Project:  Current Domain
-Current_State:  Current State
-Current:  Current
-Current_Style: Current Style
-Currently_editing_acl:  Editing access control list
-Custom: Custom
-Customise: Customise
-Dashboard:  Dashboard
-Data_Description:  Data Description
-Data_Element_Styles:  Lookup Styles
-Data_Element:  Lookup
-Data_Elements:  Lookups
-Data_Format:  Data Format
-Data_Formats:  Data Formats
-Data_Host:  Host
-Data_Identifiers: Data Identifiers
-Data_Source_Edit:  Edit Data Source
-Data_Source:  Data Source
-Data_Sources:  Data Sources
-Data_System:  Data System
-Data_Type_Edit:  Edit Data Type
-Data_Type_New:  New Data Type
-Data_Type:  Data Type
-Data_Types:  Data Types
-Database_UML:  Database UML
-Database:  Database
-Date_Accepted:  Accepted Date
-Date_Completed:  Completed Date
-Date_Expected:  Expected End Date
-Date_Picker: Date Picker
-Date_Required:  Required by
-Date_Start:  Start Date
-Date_Updated:  Updated On
-Date:  Date
-Day:  Day
-Decimal_Places:  Decimal Places
-Default_Analysis_Method:  Default Analysis Method
-Default_Status:  Default Status
-Default_Task_Report:  Default Task Report
-Default_Unit:  Default Unit
-Default_Value:  Default Value
-Default_Witness: Default Witness
-Default:  Default
-Defined_Aliases:  Defined Aliases
-Delete:  Delete
-Delete:  Delete
-Department:  Department
-Dept:  Dept
-Depts:  Departments
-Description:  Description
-Details:  Details
-Dictionaries:  Dictionaries
-Dictionary:  Dictionary
-Dimension:  Dimension
-Discovery_Project:  Discovery Project
-Discovery_Projects:  Discovery Projects
-Display_Name:  Display Name
-Document_History:  History of this document
-Documents_Awaiting_Approval:  Documents Awaiting Approval
-Documents_Requesting_Approval:  Documents Requiring My Approval
-Documents:  Documents
-Download_File:  Download File
-Due:  Due
-Edit:  Edit
-Edits:  Edits
-Email_address:  e-mail address
-Entry_Format:  Entry Format
-Estimated_No_Values:  Estimated No. Values
-Example:  Example
-Execution: Execution
-Executive_Summary: Executive Summary
-Expected_Duration:  Expected Duration (h)
-Experiment_Add:  Add Experiment
-Experiment_Copy:  Copy Experiment
-Experiment_New:  New Experiment
-Experiment:  Experiment
-Experiments:  Experiments
-Export:  Export
-Exported:  Exported
-File_Upload:  File to upload
-File:  File
-Filter:  Filter
-Folder:  Folder
-Folder_For: Folder for
-Folder_Items: Folder Items
-Folder_New:  New Folder
-Folder_Path:  Folder Path
-Folder_Refresh:  Refresh Folder
-Folders:  Folders
-For:  For
-Format: Format
-Full_Name:  Full Name
-Full_system_liability:  Full system liability (bypass access rights checking, use with caution)
-Gantt:  Gantt
-Grant_access_to_User_or_Team: Grant access to User or Team
-Guide:  Guide
+gui_validation_error_plural:  %d errors
 has_no_experiments: %s has no experiments
 has_no_news: %s has no news
 has_no_requests_in: %s has no requests
@@ -249,197 +521,41 @@ has_no_services_in: %s has no services
 has_no_studies: %s has no daughter studies
 has_no_tasks: %s has no tasks
 has_not_published_any_service_queues: %s has not published any service queues
-Help:  Help
-Historic:  Historic
-Hits_For: Hits For
-Home:  Home
+help_articles_text:  Articles are formatted text which supports cut and paste from word. For secure browsers you may need to enable browser paste into the window. Each edit of an article is saved to thus maintainined a complete history
+help_catalogue2:  This process can be used to transfer a catalogue from an existing system, thus providing a mechanism for setting up clean databases for example. There are a set of supporting rake tasks to extend this functionality.
+help_catalogue:  <p>The catalogue is used to define the data dictionaries used in this system. The dictionaries are organised into a hierarchical set of concepts, a conceptual namespace. </p><br /><p>Each concept is abstract but can be implemented with multiple lookups. A parameter type or usage can be declared with a conept providing the scientist with a filtered list of lookups to select from when adding the parameter type to an assay definition.</p>
+help_concept_usage:  Declaring a <i>Usage</i> of a concept automatically adds the concept as a dictionary based <i>Parameter Type</i>. A <i>Usage</i> will present all the lookups at the level of the current concept and its children as options when adding this parameter type to an assay.
+help_data_systems:  Data systems are connections to databases database/schemas and are used to support the lookups of of the concept implementations.
+help_element:  Unstructured data in the domain is divided up into a number of section. Each section may work as a folder, blog or a component document.
+help_experiment:  "An Experiment is a logical grouping of Tasks and holds all the steps involved in running an assay workflow."
+help_filter_based_on:  This table is based on filtered data from the following
+help_filtering_sorting_rules:  Extensive functionality is supported by right-clicking on the report column headers including sorting, grouping and re-ordering columns. Filtering is also available on enabled columns with wildcard support... &#37; and &#60; and &#62;.
+help_import_csv:  Re-import the CSV file via this file selector
+help_import_task:  This is a simple CSV file-importer for importing large blocks of data into the system. The procedure is to export a CSV template, usually opened in a spreadsheet. Add the data, save the file and re-import the file.
+help_parameter_roles:  Parameter roles describe how parameters are catagorised in an assay definition.
+help_parameter_type:  Parameter types define a <i>class</i> of data that can be captured within the system. Each parameter type can be aliased either formally (click on the the name) or when added to an assay definition.
+help_process_building:  Process Building
+help_process_building_full:  Creation of a new process is a 2 step operation. A process is given a name and a description (minimum) and a layout is created from the assay parameters to define the data entry sheet.
+help_projects:  This is a list of domains to which you have access.
+help_recipe:  Once a parameter assigned to a process, it is bound to a queue. Active queue items will be automatically linked to the next task they are used in. When the status of that task changes to complete, the queue items linked to it are updated automatically, thus returning the data to the original request. It is also possible to manually trigger this process by pressing one of the update buttons.
+help_recipe_creation_problem:  A <i>Recipe</i> cannot be created until there is at least one released <i>Process</i> available either in this assay definition or made available to the domain.
+help_report_building:  Reports are built by dragging the columns on the left to the central area.
+help_request:  A user request is composed of a list of items (such as compounds, samples or targets) to be submitted for processing against a list of services. In the request the user may add new items and services over time if the initial request cascades to produce further work. As such, the request lifespan can be run for the length of the domain rather than as a number of one-offs.
+help_request_service:  The items submitted through a request to a specific service within an assay.
+help_service:  Queues are used to manage materials submitted to the services defined within an assay. The items in a queue all have the same parameter type and are awaiting a service. So for example a cue of mice awaiting weighing will all have a parameter type of mass.
+help_states:  State workflows can be described for a number of different entities. Each state has a corresponding internal meaning and the workflow describes which states can follow.
+help_user_home:  This is a user focused dasboard providing a portal to the data captured in the system.
 hours:  hours
-Implementations:  Implementations
-Import_Catalogue_into_System:  Import Catalogue Into System
-Import:  Import
-Import:  Import
-in_the:  in the
 in:  in
-Input_regex_rule:  Input regex rule
-Inventory: Inventory
-Item_Type:  Item Type
-Item:  Item
-Items:  Items
-Lab: Lab
+in_the:  in the
+label_animal_order: Animal Orders.
+label_compound_order: Compound Orders.
 label_system_settings:  Task
-Label:  Label
-Labs:  Labs
-Latest_Uploads:  Latest Uploads
-Latest_Version:  Latest Version
-Latest:  Latest
-Layout: Layout
-LDAP_Account:  LDAP Account
-LDAP:  LDAP
-Length:  Length
-Link_Assay_From:  Link Assay From
-List_LDAP:  List LDAP users
-List_Local:  List Local Users
-List:  List
-Lit_Ref:  Lit Ref
-Login:  Login
-Long_Text:  Long text
-Lookup_From:  Lookup From
-Manage_Parameters:  Manage Parameters
-Manage_Queues:  Manage Queues
-Managed_By:  Managed By
-Member_Numbers:  No. Members
-Members:  Members
-Membership:  Membership
-Method_Default:  Default Method
-Method:  Method
-Methods:  Methods
-Metrics:  Metrics
-Mime_Type:  Mime Type
-Missing:  Missing
-Mobile:  Mobile
-Mode:  Mode
-Module: Module
-Month:  Month
-Months_From:  months from
-My_Documents:  My Documents
-My_Latest:  My Latest (%d) %s
-My_Published_Documents:  My Published Documents
-My_Service_Queues:  My Service Queues
-My_Tasks:  My Tasks
-My:  My
-Name_Full_Name:  Name [Full Name]
-Name_Ref:  Name (Ref)
-Name:  Name
-New_Permission:  New Permission
-New_Version:  New Version
-New:  New
-News_Latest:  Latest news
-News_Recent:  Recent News
-News:  News
-Next:  Next
-No_Assays: %s has no assays
-No_Children: %s has no children
-No_predifined_analysis:  No predefined analysis defined for this process
 no_published_docs_in: %s has no published documents
 no_signed_docs_found:  No signed documents found
-None:  None
-Not_released:  Not Released
-Not_Run:  Not run
-Num_Usages:  No. Usages
-Number:  Number
-Numeric:  Numeric
-Offset:  Offset
-Old_Password:  Old Password
-Open_Folder:  Open Folder
-Open:  Open
-Organisation: Organisation
-Other_Versions:  Other Versions
-Ouptput_printf_values:  Output prinf format (Numeric values)
-Overdue:  Overdue
-Overview:  Overview
-Owner:  Owner
-Parameter_Edit:  Edit Parameter
-Parameter_Name:  Parameter Name
-Parameter_New:  New Parameter
-Parameter_Role_Edit:  Editing Parameter Role
-Parameter_Role_New:  New Parameter Role
-Parameter_Role:  Parameter Role
-Parameter_Roles:  Parameter Roles
-Parameter_Type_Edit:  Editing Parameter Type
-Parameter_Type_New:  New Parameter Type
-Parameter_Type:  Parameter Type
-Parameter_Types:  Parameter Types
-Parameter:  Parameter
-Parameters_Manage:  Manage Parameters
-Parameters:  Parameters
-Parent:  Parent
-Password_Confirmation:  Confirm Password
-Password:  Password
-Pathname_to_file:  File to upload
-Permissions:  Permissions
-Plates:  Plates
-Possible_link:  Possible link
-Possible_new_states: Possible new states
-Previous:  Previous
-Print_CSV:  Print to CSV
-Print_PDF:  Print to PDF
-Print:  Print
-Priority:  Priority
-Process_New:  New Process
-Process_to_add_to_Recipe:  Process to add to recipe
-Process_Version:  Process Version
-Process:  Process
-Processes_Released:  Released Processes (single step methods)
-Processes:  Processes
-ProcessFlow:  Workflow
-ProcessInstance:  Process
-Project_Children:  Child Domain
-Project_Daughter_Add:  Add Child Domain
-Project_New:  New Domain
-Project_Open: Open Domain
-Project_Type:  Domain Type
-Project_Types:  Domain Types
-Project:  Domain
-Projects:  Domains
-Publish: Publish
-Published:  Published
-Purge:  Purge
-Quality_Being_Measured:  Quality being measured
-Query_Builder_For:  Query Builder For
-Query_Preview:  Example query (first 5 rows only)
-Queue_Add:  Add Queue
-Queue:  Queue
-Queued_Items:  Queued Items
-Queues:  Queues
-Recipe_New:  New Recipe
-Recipe:  Recipe
-Recipes_Released:  Released Recipes (multi-step methods)
-Recipes:  Recipes
-Reemove:  Remove
-Ref_to_source_materials:  References to source materials
-Ref:  Ref
-Refrence:  Reference
-Refresh: Refresh
-Reformat: Reformat
-Regex_Rule:  Regex Rule
+notice_successful_create:  Successful creation.
+notice_successful_update:  Successful update.
 release:  release
-Released_Version:  Released Version
-Report:  Report
-Reports_List:  Reports List
-Reports_New:  New Report
-Reports:  Reports
-Request_Add:  Add Request
-Request_New:  New Request
-Request_Update:  Update Request
-Request:  Request
-Requestor:  Requestor
-Requests:  Requests
-Required_By:  Required By
-Reset:  Reset
-Result_Type:  Result Type
-Results: Results
-Role_Access:  Role Access
-Role_Allowed_Actions:  Allowed Actions for Role
-Role:  Role
-Roles_Root_Project:  Root Project Role
-Roles:  Roles
-Row_Label:  Row Label
-Rows:  Rows
-Run:  Run
-Running_Assay_Method:  Running Assay/Method
-Runs:  runs
-Samples:  Samples
-Save:  Save
-Scheduled_Steps:  Sheduled Steps
-Scheduled:  Scheduled
-Schema_Number:  Schema Number
-Sections:  Sections
-Service_Edit:  Editing Service
-Service_Queue_New:  New Service Queue
-Service_Queue:  Service Queue
-Service_Queues:  Service Queues
-Service_Requests:  Requests By Service
-Service:  Service Queue
 setting_app_subtitle:  Application subtitle
 setting_app_title:  Application title
 setting_attachment_max_size:  Attachment max. size
@@ -451,20 +567,6 @@ setting_mail_from:  Emission mail address
 setting_self_registration:  Self-registration enabled
 setting_text_formatting:  Text formatting
 setting_welcome_text:  Welcome text
-Sheet:  Data-Entry
-Shortname:  Short Name
-Show_All:  Show All
-Show:  Show
-Signature:  Signature
-Signatures:  Signatures
-Signatures_For: Signatures For
-Signed_Documents: Signed Documents
-Signed_Folder:  This folder is signed
-Signed:  Signed
-Snapshot_To_Folder:  Snapshot To Folder
-Source:  Source
-Stage:  Stage
-Started:  Started
 stat_count:  Count
 stat_max:  Max
 stat_mean:  Mean
@@ -472,50 +574,8 @@ stat_min:  Min
 stat_sd:  SD
 stat_summary_description:  Usage of parameters by role as count (mean +/-2*stddev)
 stat_total:  Total
-State_Edit:  Edit State
-State_Flows: State Flows
-State_New:  New State
-States:  States
-Status_For:  For Status
-Status:  Status
-Step_Duration:  Time (h)
-Step_Name:  Step Name
-Step_Start:  Start (h)
-Step:  Step
-Studies_Child: Daughter Studies
-Studies: Studies
-Study:  Study
-Study_Director: Study Director
-Study_ID: Study ID
-Study_New: New Study
-Study_Sponsor: Sponsor
-Study_Number: Study Number
-Study_Update: Update Study
-Style:  Style
-Subject:  Subject
-Submit:  Submit
-Summary:  Summary
-Summary:  Summary
-System_Reports:  System Reports
-System_Roles:  System Roles
-System_Role: System Role
-System_Settings:  System Settings
-System:  System
 tag_news: News
-Task_New:  New Task
-Tasks:  Tasks
-Team_Assigned: Assigned Team
-Team_Memberships:  Team Membership
-Team_New:  New Team
-Team_Roles:  Project Roles
-Team_Root_Role:  Root Project Role
-Team:  Team
-Teams:  Teams
-Telephone:  Tel
-Template:  Template
-Test_Object:  Test Object
-Test_String:  Test String
-Test:  Test
+text_This_is_used_to_build_the_conceptual_tree_seen_on_the_right_hand_side:  This is used to build the conceptual tree seen on the right hand side panel.
 text_add_assay:  Experiments cannot be run in this domain until an assay has been added
 text_add_member_to_team: Add member to Team
 text_and_is_a:  and as a
@@ -569,7 +629,6 @@ text_specialisations_of_parent_concept:  Specialisations of parent concept
 text_sysadmin_user: System Administrator
 text_team_description:  A team is a group of users.
 text_this_form_shows_parameter_type_using_the:  This form shows the Parameter Type using the %s context.
-text_This_is_used_to_build_the_conceptual_tree_seen_on_the_right_hand_side:  This is used to build the conceptual tree seen on the right hand side panel.
 text_times_run:  Times Run
 text_tip_task_begin_day:  task beginning this day
 text_tip_task_begin_end_day:  task beginning and ending this day
@@ -583,87 +642,8 @@ text_with_default_role:  with the default role of a
 text_workflow_edit:  Select a role and a tracker to edit the workflow
 text_wrong_privilege:  Sorry, it appears you do not have the correct privileges to see the requested page. This can mean either the page does not exist or you can not see it in the current domain/user context.
 text_your_current_context_is:  Your current context is
-Text:  Text
 this_folder_is_unsigned:  This folder is unsigned
 this_is_unsigned:  This %s is unsigned
-Timeline:  Timeline
 tip_biorails_version:  Release Version of Biorails
 tip_migration_number:  Migration number, best way of tracking a version
-Title_Heading:  Title (Heading)
-Title:  Title
-To_User:  To User
-Todo:  Todo
-Total:  Total
-Type:  Type
-Types:  Types
-Unit:  Unit
-Units:  Units
-Update_Summary: Update Summary
-Update_acls_in_children:  Update all occurances of same Access control list in child folders
-Update_any_requested_items:  Updated any requested items
-Update_requested_items:  Update requested items
-Update:  Update
-Updated_By:  Updated By
-Updated:  Updated
-URL:  URL
-Usage:  Usage
-Usages:  Usages
-User_Disable:  Disable User
-User_Edit:  Edit User
-User_New:  New user
-User_Permissions:  User Permissions
-User_Profile:  User Profile for
-User_With_Roles:  User With Roles
-Username:  Username
-Users_LDAP:  LDAP Users
-Users:  Users
-Uses:  Uses
-Value_Class:  Value Class
-Value:  Value
-Verify:  Verify
-Version_History:  Version History
-Version_Label:  Version Label
-Version:  Version
-View:  View
-Visualise_tables_for_query:  Visualize Tables for Query
-Weeks:  Weeks
-Weighting:  Weighting (Governs order in forms)
 withdraw:  withdraw
-Witness:  Witness
-Workflow:  Workflow
-Year:  Year
-Zip:  Zip
-
-
-help_articles_text:  Articles are formatted text which supports cut and paste from word. For secure browsers you may need to enable browser paste into the window. Each edit of an article is saved to thus maintainined a complete history
-help_catalogue:  <p>The catalogue is used to define the data dictionaries used in this system. The dictionaries are organised into a hierarchical set of concepts, a conceptual namespace. </p><br /><p>Each concept is abstract but can be implemented with multiple lookups. A parameter type or usage can be declared with a conept providing the scientist with a filtered list of lookups to select from when adding the parameter type to an assay definition.</p>
-help_catalogue2:  This process can be used to transfer a catalogue from an existing system, thus providing a mechanism for setting up clean databases for example. There are a set of supporting rake tasks to extend this functionality.
-help_concept_usage:  Declaring a <i>Usage</i> of a concept automatically adds the concept as a dictionary based <i>Parameter Type</i>. A <i>Usage</i> will present all the lookups at the level of the current concept and its children as options when adding this parameter type to an assay.
-help_data_systems:  Data systems are connections to databases database/schemas and are used to support the lookups of of the concept implementations.
-help_element:  Unstructured data in the domain is divided up into a number of section. Each section may work as a folder, blog or a component document.
-help_experiment:  "An Experiment is a logical grouping of Tasks and holds all the steps involved in running an assay workflow."
-help_filter_based_on:  This table is based on filtered data from the following
-help_filtering_sorting_rules:  Extensive functionality is supported by right-clicking on the report column headers including sorting, grouping and re-ordering columns. Filtering is also available on enabled columns with wildcard support... &#37; and &#60; and &#62;.
-help_import_csv:  Re-import the CSV file via this file selector
-help_import_task:  This is a simple CSV file-importer for importing large blocks of data into the system. The procedure is to export a CSV template, usually opened in a spreadsheet. Add the data, save the file and re-import the file.
-help_parameter_roles:  Parameter roles describe how parameters are catagorised in an assay definition.
-help_parameter_type:  Parameter types define a <i>class</i> of data that can be captured within the system. Each parameter type can be aliased either formally (click on the the name) or when added to an assay definition.
-help_process_building_full:  Creation of a new process is a 2 step operation. A process is given a name and a description (minimum) and a layout is created from the assay parameters to define the data entry sheet.
-help_process_building:  Process Building
-help_projects:  This is a list of domains to which you have access.
-help_recipe_creation_problem:  A <i>Recipe</i> cannot be created until there is at least one released <i>Process</i> available either in this assay definition or made available to the domain.
-help_recipe:  Once a parameter assigned to a process, it is bound to a queue. Active queue items will be automatically linked to the next task they are used in. When the status of that task changes to complete, the queue items linked to it are updated automatically, thus returning the data to the original request. It is also possible to manually trigger this process by pressing one of the update buttons.
-help_report_building:  Reports are built by dragging the columns on the left to the central area.
-help_request_service:  The items submitted through a request to a specific service within an assay.
-help_request:  A user request is composed of a list of items (such as compounds, samples or targets) to be submitted for processing against a list of services. In the request the user may add new items and services over time if the initial request cascades to produce further work. As such, the request lifespan can be run for the length of the domain rather than as a number of one-offs.
-help_service:  Queues are used to manage materials submitted to the services defined within an assay. The items in a queue all have the same parameter type and are awaiting a service. So for example a cue of mice awaiting weighing will all have a parameter type of mass.
-help_states:  State workflows can be described for a number of different entities. Each state has a corresponding internal meaning and the workflow describes which states can follow.
-help_user_home:  This is a user focused dasboard providing a portal to the data captured in the system.
-
-notice_successful_create:  Successful creation.
-notice_successful_update:  Successful update.
-
-label_animal_order: Animal Orders.
-label_compound_order: Compound Orders.
-
-

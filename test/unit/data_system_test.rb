@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class DataSystemsTest < Test::Unit::TestCase
+class DataSystemsTest < BiorailsTestCase
   NEW_DATA_SYSTEM = {:name => 'Test DataSystem', :description => 'Dummy'} #unless defined?
 	REQ_ATTR_NAMES 			 = %w(name description) #unless defined? # name of fields that must be present, e.g. %(name description)
 	DUPLICATE_ATTR_NAMES = %w( name ) # unless defined?  # name of fields that cannot be a duplicate, e.g. %(name description)

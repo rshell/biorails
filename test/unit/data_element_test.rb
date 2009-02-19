@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class DataElementsTest < Test::Unit::TestCase
+class DataElementsTest < BiorailsTestCase
   
   def test_model_element
     cmpd = ModelElement.find(:first)

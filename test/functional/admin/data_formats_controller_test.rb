@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/data_formats_controller"
 # Re-raise errors caught by the controller.
 class Admin::DataFormatsController; def rescue_action(e) raise e end; end
 
-class Admin::DataFormatsControllerTest < Test::Unit::TestCase
+class Admin::DataFormatsControllerTest < BiorailsTestCase
 
 
 	NEW_DATA_FORMAT = {}	# e.g. {:name => 'Test DataFormat', :description => 'Dummy'}

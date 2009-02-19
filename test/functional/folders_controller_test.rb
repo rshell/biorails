@@ -4,7 +4,7 @@ require "folders_controller"
 # Re-raise errors caught by the controller.
 class FoldersController; def rescue_action(e) raise e end; end
 
-class FoldersControllerTest < Test::Unit::TestCase
+class FoldersControllerTest < BiorailsTestCase
   def setup
     @controller = FoldersController.new
     @request    = ActionController::TestRequest.new

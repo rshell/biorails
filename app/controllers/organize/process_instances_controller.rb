@@ -222,7 +222,7 @@ class Organize::ProcessInstancesController < ApplicationController
         flash[:warning] =" This version is fixed and cant be destroyed as its in use"
       else
         protocol = @protocol_version.protocol
-        (protocol.versions.size<2 ?  protocol.destroy : @protocol_version.destroy)
+        (protocol.versions.size==1 ?  protocol.destroy : @protocol_version.destroy)
       end
     end
     redirect_to assay_url(:action => 'show', :id => @assay);

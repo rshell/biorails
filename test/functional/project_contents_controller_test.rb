@@ -4,7 +4,7 @@ require "project_contents_controller"
 # Re-raise errors caught by the controller.
 class ProjectContentsController; def rescue_action(e) raise e end; end
 
-class ProjectContentsControllerTest < Test::Unit::TestCase
+class ProjectContentsControllerTest < BiorailsTestCase
 
   CHARSET_TEXT = <<TEXT
   <table class=\"widthFull\" style=\"border-bottom: 1px solid rgb(102,

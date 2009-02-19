@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 require 'test/unit'
 
-class ProcessBuildTest < Test::Unit::TestCase
+class ProcessBuildTest < BiorailsTestCase
 
   def setup
     @parameter_role = ParameterRole.find(:first)

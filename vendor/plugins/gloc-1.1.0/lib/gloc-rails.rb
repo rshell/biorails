@@ -164,9 +164,9 @@ module ActiveRecord #:nodoc:
       def validates_length_of(*attrs)
         # Merge given options with defaults.
         options = {
-          :too_long     => ActiveRecord::Errors.default_error_messages[:too_long],
-          :too_short    => ActiveRecord::Errors.default_error_messages[:too_short],
-          :wrong_length => ActiveRecord::Errors.default_error_messages[:wrong_length]
+          :too_long     => I18n.translate('activerecord.errors.messages')[:too_long],
+          :too_short    => I18n.translate('activerecord.errors.messages')[:too_short],
+          :wrong_length => I18n.translate('activerecord.errors.messages')[:wrong_length]
         }.merge(DEFAULT_VALIDATION_OPTIONS)
         options.update(attrs.pop.symbolize_keys) if attrs.last.is_a?(Hash)
 

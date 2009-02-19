@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/organize/process_flows_controller"
 # Re-raise errors caught by the controller.
 class Organize::ProcessFlowsController; def rescue_action(e) raise e end; end
 
-class Organize::ProcessFlowsControllerTest < Test::Unit::TestCase
+class Organize::ProcessFlowsControllerTest < BiorailsTestCase
 
   def setup
     @controller = Organize::ProcessFlowsController.new

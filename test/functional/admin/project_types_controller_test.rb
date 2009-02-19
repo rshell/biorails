@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/admin/project_types_controller"
 # Re-raise errors caught by the controller.
 class ProjectTypesController; def rescue_action(e) raise e end; end
 
-class ProjectTypesControllerTest < Test::Unit::TestCase
+class ProjectTypesControllerTest < BiorailsTestCase
 
 
   def setup

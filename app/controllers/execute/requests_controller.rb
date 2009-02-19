@@ -160,7 +160,6 @@ class Execute::RequestsController < ApplicationController
 
 ##
 # update a item in the request
-# <Merge Conflict>
   def update
     Request.transaction do
       @user_request.status_id = params[:user_request][:status_id] if params[:user_request]

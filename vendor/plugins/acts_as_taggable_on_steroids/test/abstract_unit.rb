@@ -18,10 +18,10 @@ ActiveRecord::Base.establish_connection(ENV['DB'] || 'mysql')
 
 load(File.dirname(__FILE__) + '/schema.rb')
 
-Test::Unit::TestCase.fixture_path = File.dirname(__FILE__) + '/fixtures/'
-$LOAD_PATH.unshift(Test::Unit::TestCase.fixture_path)
+BiorailsTestCase.fixture_path = File.dirname(__FILE__) + '/fixtures/'
+$LOAD_PATH.unshift(BiorailsTestCase.fixture_path)
 
-class Test::Unit::TestCase #:nodoc:
+classTest::Unit::TestCase #:nodoc:
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures  = false
   

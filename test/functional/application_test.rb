@@ -4,7 +4,7 @@ require 'application'
 # Re-raise errors caught by the controller.
 class ApplicationController; def rescue_action(e) raise e end; end
 
-class ApplicationControllerTest < Test::Unit::TestCase
+class ApplicationControllerTest < BiorailsTestCase
   include ActionView::Helpers::TextHelper
   include ActionView::Helpers::TagHelper
   include ApplicationHelper

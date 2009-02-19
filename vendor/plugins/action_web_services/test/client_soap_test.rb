@@ -46,7 +46,7 @@ module ClientSoapTest
   end
 end
 
-class TC_ClientSoap < Test::Unit::TestCase
+class TC_ClientSoap <Test::Unit::TestCase
   include ClientTest
   include ClientSoapTest
   

@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/execute/cross_tab_controller"
 # Re-raise errors caught by the controller.
 class Execute::CrossTabController; def rescue_action(e) raise e end; end
 
-class Execute::CrossTabControllerTest < Test::Unit::TestCase
+class Execute::CrossTabControllerTest < BiorailsTestCase
 
   def setup
     @controller = Execute::CrossTabController.new

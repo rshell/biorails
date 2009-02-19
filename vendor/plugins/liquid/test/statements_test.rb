@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require File.dirname(__FILE__) + '/helper'
 
-class StatementsTest < Test::Unit::TestCase
+class StatementsTest <Test::Unit::TestCase
   include Liquid
 
 

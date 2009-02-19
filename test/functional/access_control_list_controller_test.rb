@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/access_control_list_controller"
 # Re-raise errors caught by the controller.
 class AccessControlListController; def rescue_action(e) raise e end; end
 
-class AccessControlListControllerTest < Test::Unit::TestCase
+class AccessControlListControllerTest < BiorailsTestCase
 
   def setup
     @controller = AccessControlListController.new

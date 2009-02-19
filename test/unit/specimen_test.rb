@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 
-class SpecimenTest < Test::Unit::TestCase
+class SpecimenTest < BiorailsTestCase
   ## Biorails::Dba.import_model :specimens
 
   # Replace this with your real tests.

@@ -17,7 +17,7 @@ module CastingTest
   end
 end
 
-class TC_Casting < Test::Unit::TestCase
+class TC_Casting <Test::Unit::TestCase
   include CastingTest
 
   def test_base_type_casting_valid

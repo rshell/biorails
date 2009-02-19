@@ -181,7 +181,7 @@ module GLoc
         symbol_hash = {}
         Iconv.open(dest_charset, file_charset) do |i|
           raw_hash.each {|key, value|
-            symbol_hash[key.to_sym] = i.iconv(value)
+            symbol_hash[key.to_sym] = i.iconv(value.to_s)
           }
         end
   

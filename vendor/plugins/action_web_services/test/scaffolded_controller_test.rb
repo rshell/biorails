@@ -64,7 +64,7 @@ class ScaffoldedController < ActionController::Base
   end
 end
 
-class ScaffoldedControllerTest < Test::Unit::TestCase
+class ScaffoldedControllerTest <Test::Unit::TestCase
   def setup
     @controller = ScaffoldedController.new
     @request    = ActionController::TestRequest.new

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class CompoundTest < Test::Unit::TestCase
+class CompoundTest <Test::Unit::TestCase
 
  def setup
      @model = Compound

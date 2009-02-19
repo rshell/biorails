@@ -13,7 +13,7 @@ require 'models/person'
 require 'models/person2'
 require 'models/v_person'
 
-class Test::Unit::TestCase
+classTest::Unit::TestCase
   def create_person_view
     ActiveRecord::Base.connection.create_view(:v_person, 'select * from people', :force => true) do |v|
       v.column :f_name

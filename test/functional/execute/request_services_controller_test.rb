@@ -3,7 +3,7 @@ require "#{RAILS_ROOT}/app/controllers/execute/request_services_controller"
 
 class Execute::RequestServicesController; def rescue_action(e) raise e end; end
 
-class Execute::RequestServicesControllerTest < Test::Unit::TestCase
+class Execute::RequestServicesControllerTest < BiorailsTestCase
 
 
   def setup

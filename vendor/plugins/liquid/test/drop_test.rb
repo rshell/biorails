@@ -75,7 +75,7 @@ class EnumerableDrop < Liquid::Drop
 end
 
 
-class DropsTest < Test::Unit::TestCase
+class DropsTest <Test::Unit::TestCase
   include Liquid
   
   def test_product_drop

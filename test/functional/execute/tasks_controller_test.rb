@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/execute/tasks_controller"
 # Re-raise errors caught by the controller.
 class Execute::TasksController; def rescue_action(e) raise e end; end
 
-class Execute::TasksControllerTest < Test::Unit::TestCase
+class Execute::TasksControllerTest < BiorailsTestCase
 
   def setup
     @controller = Execute::TasksController.new

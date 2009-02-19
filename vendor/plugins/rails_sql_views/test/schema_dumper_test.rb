@@ -2,7 +2,7 @@ require "#{File.dirname(__FILE__)}/test_helper"
 require 'active_record/schema_dumper'
 require 'ruby-debug'
 Debugger.start
-class SchemaDumperTest < Test::Unit::TestCase
+class SchemaDumperTest <Test::Unit::TestCase
   def test_view
     create_person_view
     stream = StringIO.new

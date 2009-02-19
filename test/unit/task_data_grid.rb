@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 require 'test/unit'
 
-class TaskBuildTest < Test::Unit::TestCase
+class TaskBuildTest < BiorailsTestCase
 
   def setup
      @model = Task

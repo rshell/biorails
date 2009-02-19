@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/organize/assay_parameters_controller"
 # Re-raise errors caught by the controller.
 class Organize::AssayParametersController; def rescue_action(e) raise e end; end
 
-class Organize::AssayParametersControllerTest < Test::Unit::TestCase
+class Organize::AssayParametersControllerTest < BiorailsTestCase
 
   def setup
     @controller = Organize::AssayParametersController.new

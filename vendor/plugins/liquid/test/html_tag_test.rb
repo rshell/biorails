@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/helper'
 
-class HtmlTagTest < Test::Unit::TestCase
+class HtmlTagTest <Test::Unit::TestCase
   include Liquid
   
   def test_html_table

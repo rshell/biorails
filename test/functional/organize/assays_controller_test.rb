@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/organize/assays_controller"
 # Re-raise errors caught by the controller.
 class Organize::AssaysController; def rescue_action(e) raise e end; end
 
-class Organize::AssaysControllerTest < Test::Unit::TestCase
+class Organize::AssaysControllerTest < BiorailsTestCase
 
   NEW_STUDY = {}	# e.g. {:name => 'Test Assay', :description => 'Dummy'}
   REDIRECT_TO_MAIN = {:action => 'list'} # put hash or string redirection that you normally expect
@@ -108,7 +108,7 @@ class Organize::AssaysControllerTest < Test::Unit::TestCase
   end
 
   def test_import_file_failed_bad_file
-    file = ActionController::TestUploadedFile.new(Test::Unit::TestCase.fixture_path+
+    file = ActionController::TestUploadedFile.new(BiorailsTestCase.fixture_path+
         '/files/test2-parameters.csv', 'text/csv') 
     post :import_file, :id => @item.id,:name=>'xx-import',:file=>file
     assert_response :redirect

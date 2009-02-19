@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ProjectTypeTest < Test::Unit::TestCase
+class ProjectTypeTest < BiorailsTestCase
 
   # Replace this with your real tests.
   def test00_truth

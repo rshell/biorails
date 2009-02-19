@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ListItemTest < Test::Unit::TestCase
+class ListItemTest < BiorailsTestCase
   ## Biorails::Dba.import_model :list_items
 
   # Replace this with your real tests.

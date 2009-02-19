@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class TaskResultsTest < Test::Unit::TestCase
+class TaskResultsTest < BiorailsTestCase
   ## Biorails::Dba.import_model :task_files
 
   # Replace this with your real tests.

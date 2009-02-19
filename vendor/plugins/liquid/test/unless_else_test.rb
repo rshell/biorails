@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/helper'
 
-class UnlessElseTest < Test::Unit::TestCase
+class UnlessElseTest <Test::Unit::TestCase
   include Liquid
 
   def test_unless

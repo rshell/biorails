@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 # Re-raise errors caught by the controller.
-class FormHelperTest < Test::Unit::TestCase
+class FormHelperTest < BiorailsTestCase
   include ActionView::Helpers::TextHelper
   include ActionView::Helpers::TagHelper
   include ActionView::Helpers::FormHelper

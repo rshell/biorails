@@ -12,7 +12,7 @@
 # changes in migrations for 2.1.1 rails and with oracle_enhanced 1.1.7
 # so biorails_oracle best.
 #
-RAILS_GEM_VERSION = '2.0.2'
+RAILS_GEM_VERSION = '2.3.0'
 #
 # When working with Oracle its best to set the NLS_LANG setup
 #
@@ -46,7 +46,11 @@ require 'matrix'
 require 'archive/tar/minitar'
 require 'zip/zipfilesystem'
 require 'chronic'
-
+begin
+   require 'clipboard'
+rescue Exception => ex
+  puts ex.message
+end
 #require 'mini_magick'
 # now added as plugin require 'liquid'
 
@@ -58,9 +62,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 ## Native linked
 require "faster_csv"
 require 'ntp'
-
-require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
-Engines.disable_code_mixing == true
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence those specified here

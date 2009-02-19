@@ -4,7 +4,7 @@ require "experiments_controller"
 # Re-raise errors caught by the controller.
 class Execute::ExperimentsController; def rescue_action(e) raise e end; end
 
-class Execute::ExperimentsControllerTest < Test::Unit::TestCase
+class Execute::ExperimentsControllerTest < BiorailsTestCase
 
   def setup
     @controller = Execute::ExperimentsController.new

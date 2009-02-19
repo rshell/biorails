@@ -4,7 +4,7 @@ require "#{RAILS_ROOT}/app/controllers/organize/queue_items_controller"
 # Re-raise errors caught by the controller.
 class Organize::QueueItemsController; def rescue_action(e) raise e end; end
 
-class Organize::QueueItemsControllerTest < Test::Unit::TestCase
+class Organize::QueueItemsControllerTest < BiorailsTestCase
 
   def setup
     @controller = Organize::QueueItemsController.new
