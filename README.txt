@@ -1,10 +1,18 @@
-BioRails 
-Copyright (c) 2007 Alces Ltd
+= BioRails 
+
+Copyright (c) 2007 Edge Software Consulancy Ltd
     Authors: Robert Shell, Ted Hawkins 
     Business lead: Andrew Lemon
-    Business (http://biorails.com)
+    Business (http://edge-ka.com)
     Trac (http://biorails.org/)
     SVN (http://biorails.org/svn/biorails)
+    
+This is the last version of biorails released under under GNU license. After this point work for 4.0/4.1/4.2/4.3 
+has concentrated on enterprise version of product with Oracle, Microsoft Office integration and support for 
+Internet explorer. 
+
+If you are interested in biorails I would suggest looking on our http://edge-ka.com site and look at the newer versions. 
+Afraid this version is now very old, and is more a historic reference point. 
 
 == DESCRIPTION:
   
